@@ -53,11 +53,38 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 537,
+                                                value: 534,
                                             },
                                         ),
                                     ),
                                     traits: [],
+                                },
+                            },
+                            HirTemplateParameter {
+                                symbol: Const(
+                                    HirConstSymbol(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ),
+                                data: Constant {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 537,
+                                            },
+                                        ),
+                                    ),
+                                    ty: Symbol(
+                                        Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
                                 },
                             },
                         ],
@@ -78,7 +105,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 445,
+                                            value: 442,
                                         },
                                     ),
                                 ),
@@ -129,7 +156,7 @@
                                             Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 445,
+                                                        value: 442,
                                                     },
                                                 ),
                                             ),
@@ -341,7 +368,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 537,
+                                            value: 534,
                                         },
                                     ),
                                 ),
@@ -360,7 +387,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 540,
+                                            value: 537,
                                         },
                                     ),
                                 ),
@@ -623,6 +650,207 @@
             ),
         ),
     ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TraitForTypeItem(
+            TraitForTypeItemHirDecl::AssociatedFn(
+                TraitForTypeAssociatedFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `malamute`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`malamute::Class`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `unveil`,
+                                        item_kind: AssociatedFunctionFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                        template_arguments: [],
+                                        always_copyable: true,
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                            template_arguments: [
+                                HirTemplateArgument::Type(
+                                    HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`malamute::Class`, `Enum`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::Symbol(
+                                                        HirTypeSymbol::Type {
+                                                            attrs: HirTemplateSymbolAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
+                                            always_copyable: true,
+                                        },
+                                    ),
+                                ),
+                                HirTemplateArgument::Type(
+                                    HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                            template_arguments: [],
+                                            always_copyable: true,
+                                        },
+                                    ),
+                                ),
+                            ],
+                            always_copyable: false,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `malamute`,
+                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`malamute::Class`, `Enum`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `unveil`,
+                                                        item_kind: AssociatedFunctionFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 540,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `Label`,
+                                        ),
+                                        data: Inherited,
+                                        hir_comptime_symbol: HirTemplateSymbol::Type(
+                                            HirTypeSymbol::Type {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `label`,
+                                        ),
+                                        data: Inherited,
+                                        hir_comptime_symbol: HirTemplateSymbol::Const(
+                                            HirConstSymbol {
+                                                ty: HirType::Symbol(
+                                                    HirTypeSymbol::Type {
+                                                        attrs: HirTemplateSymbolAttrs {
+                                                            class: Comptime,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                index: Other {
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Runtime,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `one_vs_all`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
+                        },
+                    },
+                },
+            ),
+        ),
+    ),
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
@@ -785,6 +1013,154 @@
                                 data: [],
                             },
                             self_value_variable: None,
+                        },
+                    },
+                },
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TraitForTypeItem(
+            TraitForTypeItemHirDecl::AssociatedFn(
+                TraitForTypeAssociatedFnHirDecl {
+                    path: TraitForTypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `malamute`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `unveil`,
+                                        item_kind: AssociatedFunctionFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    parenate_parameters: HirEagerParenateParameters(
+                        [
+                            HirEagerParenateParameter::Ordinary {
+                                pattern_expr_idx: 1,
+                                contract: Pure,
+                                ty: HirType::PathLeading(
+                                    HirTypePathLeading {
+                                        ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                        template_arguments: [],
+                                        always_copyable: true,
+                                    },
+                                ),
+                            },
+                        ],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                            template_arguments: [
+                                HirTemplateArgument::Type(
+                                    HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            template_arguments: [],
+                                            always_copyable: true,
+                                        },
+                                    ),
+                                ),
+                                HirTemplateArgument::Type(
+                                    HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                            template_arguments: [],
+                                            always_copyable: true,
+                                        },
+                                    ),
+                                ),
+                            ],
+                            always_copyable: false,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::AssociatedItem(
+                                AssociatedItemPath::TraitForTypeItem(
+                                    TraitForTypeItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `malamute`,
+                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `unveil`,
+                                                        item_kind: AssociatedFunctionFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    symbol_modifier: None,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 545,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::SelfValue,
+                                        data: HirEagerRuntimeSymbolData::SelfValue,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `one_vs_all_result`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::ParenateParameter,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                1,
+                            ),
                         },
                     },
                 },

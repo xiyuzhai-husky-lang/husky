@@ -156,7 +156,7 @@ EntitySynTreePresheet {
                         ident_token: IdentToken {
                             ident: `uparc`,
                             token_idx: TokenIdx(
-                                165,
+                                171,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -220,7 +220,7 @@ EntitySynTreePresheet {
                         ident_token: IdentToken {
                             ident: `downarc`,
                             token_idx: TokenIdx(
-                                202,
+                                208,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -284,7 +284,7 @@ EntitySynTreePresheet {
                         ident_token: IdentToken {
                             ident: `back`,
                             token_idx: TokenIdx(
-                                239,
+                                245,
                             ),
                         },
                         block: DefnBlock::Fugitive {

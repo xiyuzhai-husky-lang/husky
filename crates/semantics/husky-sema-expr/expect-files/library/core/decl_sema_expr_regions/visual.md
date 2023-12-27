@@ -492,9 +492,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -511,6 +512,27 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 24,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -598,7 +620,7 @@
                                 expectation: AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -620,6 +642,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -931,9 +954,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -946,6 +970,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -1037,7 +1078,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -1055,6 +1096,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(

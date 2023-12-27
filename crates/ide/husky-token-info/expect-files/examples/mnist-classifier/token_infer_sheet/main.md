@@ -895,19 +895,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 375,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 231,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`malamute::Class`, `Enum`),
+                                            ident: `Unknown`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -922,19 +913,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 375,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 231,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`malamute::Class`, `Enum`),
+                                            ident: `Unknown`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),

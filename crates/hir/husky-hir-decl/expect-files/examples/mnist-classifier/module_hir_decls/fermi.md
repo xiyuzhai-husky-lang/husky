@@ -64,7 +64,7 @@
                                                         ritchie_ty_kind: Fn,
                                                         parameters: HirRitchieParameters {
                                                             data: [
-                                                                HirRitchieParameter::Regular(
+                                                                HirRitchieParameter::Ordinary(
                                                                     HirRitchieRegularParameter {
                                                                         contract: Pure,
                                                                         ty: HirType::PathLeading(
@@ -143,7 +143,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 367,
+                                                value: 366,
                                             },
                                         ),
                                     ),
@@ -153,7 +153,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 429,
+                                                value: 428,
                                             },
                                         ),
                                     ),

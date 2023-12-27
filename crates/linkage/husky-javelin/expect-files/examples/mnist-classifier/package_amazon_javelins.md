@@ -2,6 +2,19 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::main`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
                 path: JavelinPath::TypeConstructor(
                     TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                 ),
@@ -81,11 +94,133 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::distribution`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -98,7 +233,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -250,11 +387,73 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -345,7 +544,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -358,7 +559,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -371,7 +574,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -384,7 +589,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -397,7 +604,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -410,7 +619,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -423,7 +634,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -436,7 +649,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -449,7 +664,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -462,7 +679,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -475,7 +694,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -488,7 +709,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -501,7 +724,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -514,7 +739,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -527,7 +754,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -540,7 +769,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -553,7 +784,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -566,7 +799,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -579,7 +814,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -592,7 +829,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -605,7 +844,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -618,7 +859,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -631,7 +874,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -644,7 +889,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -657,7 +904,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -761,7 +1010,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -774,7 +1025,39 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -787,7 +1070,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -822,11 +1107,103 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -839,7 +1216,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -852,7 +1231,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -865,7 +1246,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -878,7 +1261,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -891,7 +1276,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -943,7 +1330,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -956,7 +1345,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -990,8 +1381,105 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
                 path: JavelinPath::Fugitive(
                     FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1043,6 +1531,45 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
                     FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1057,6 +1584,32 @@
             data: JavelinData::PathLeading {
                 path: JavelinPath::Fugitive(
                     FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1108,7 +1661,59 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
                     FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1147,7 +1752,46 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
                     FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1186,7 +1830,85 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
                     FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1213,6 +1935,19 @@
             data: JavelinData::PathLeading {
                 path: JavelinPath::Fugitive(
                     FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1252,6 +1987,110 @@
             data: JavelinData::PathLeading {
                 path: JavelinPath::Fugitive(
                     FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],

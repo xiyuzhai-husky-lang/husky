@@ -1,7 +1,8 @@
 use super::*;
 
 #[rustfmt::skip]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[ad_hoc_task_dependency::value_conversion]
+#[derive(Debug, Clone, PartialEq)]
 pub struct LineSegment {
     pub start: crate::geom2d::Point2d,
     pub end: crate::geom2d::Point2d,

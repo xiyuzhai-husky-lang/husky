@@ -921,7 +921,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -938,7 +938,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -955,7 +955,7 @@
                                             ),
                                         },
                                     },
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: None,
                                         ident_token: IdentRegionalToken {
                                             ident: `row_span_sum`,
@@ -1634,7 +1634,7 @@
                         pattern_expr_region: SynPatternExprRegion {
                             pattern_expr_arena: Arena {
                                 data: [
-                                    SynPatternExpr::Ident {
+                                    SynPatternExprData::Ident {
                                         symbol_modifier_tokens: Some(
                                             Mut(
                                                 MutRegionalToken {
@@ -1828,13 +1828,6 @@
                                                     7,
                                                 ),
                                             },
-                                            SynExprData::Prefix {
-                                                opr: Tilde,
-                                                opr_regional_token_idx: RegionalTokenIdx(
-                                                    5,
-                                                ),
-                                                opd: 1,
-                                            },
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
                                                 opt_path: Some(
@@ -1846,8 +1839,15 @@
                                                 ),
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 2,
-                                                argument_expr_idx: 3,
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
+                                            },
+                                            SynExprData::Prefix {
+                                                opr: Tilde,
+                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                    5,
+                                                ),
+                                                opd: 3,
                                             },
                                         ],
                                     },
@@ -2631,13 +2631,6 @@
                                                     7,
                                                 ),
                                             },
-                                            SynExprData::Prefix {
-                                                opr: Tilde,
-                                                opr_regional_token_idx: RegionalTokenIdx(
-                                                    5,
-                                                ),
-                                                opd: 1,
-                                            },
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
                                                 opt_path: Some(
@@ -2649,8 +2642,15 @@
                                                 ),
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 2,
-                                                argument_expr_idx: 3,
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
+                                            },
+                                            SynExprData::Prefix {
+                                                opr: Tilde,
+                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                    5,
+                                                ),
+                                                opd: 3,
                                             },
                                         ],
                                     },

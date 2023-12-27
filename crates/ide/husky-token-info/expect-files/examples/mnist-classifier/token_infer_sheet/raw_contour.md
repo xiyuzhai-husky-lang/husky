@@ -3676,19 +3676,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -3703,19 +3694,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -3757,19 +3739,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -3784,19 +3757,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -3864,19 +3828,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -3891,19 +3846,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -3966,19 +3912,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -3993,19 +3930,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -4049,19 +3977,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -4076,19 +3995,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -4130,19 +4040,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -4157,19 +4058,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -4260,19 +4152,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -4287,19 +4170,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -4341,19 +4215,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -4368,19 +4233,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -5231,19 +5087,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -5258,19 +5105,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -5314,19 +5152,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -5341,19 +5170,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -5442,19 +5262,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -5469,19 +5280,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -5523,19 +5325,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -5550,19 +5343,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -5623,19 +5407,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -5650,19 +5425,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -5702,19 +5468,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -5729,19 +5486,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -5781,19 +5529,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -5808,19 +5547,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -5860,19 +5590,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -5887,19 +5608,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -5967,19 +5679,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -5994,19 +5697,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -6099,19 +5793,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -6126,19 +5811,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -6199,19 +5875,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -6226,19 +5893,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -6278,19 +5936,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -6305,19 +5954,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -6357,19 +5997,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -6384,19 +6015,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -6436,19 +6058,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -6463,19 +6076,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -6592,19 +6196,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -6619,19 +6214,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -6673,19 +6259,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -6700,19 +6277,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -7507,14 +7075,14 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                             ),
                         ),
                     ),
@@ -10094,19 +9662,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -10121,19 +9680,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Up`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -10306,19 +9856,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -10333,19 +9874,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Down`,
+                                            index: U8(
+                                                2,
                                             ),
                                         },
                                     ),
@@ -10516,19 +10048,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -10543,19 +10066,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Left`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -10631,19 +10145,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),
@@ -10658,19 +10163,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 275,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                            ident: `Right`,
+                                            index: U8(
+                                                3,
                                             ),
                                         },
                                     ),

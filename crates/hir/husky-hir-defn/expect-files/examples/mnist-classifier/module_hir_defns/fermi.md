@@ -186,7 +186,7 @@
                                                             ritchie_ty_kind: Fn,
                                                             parameters: HirRitchieParameters {
                                                                 data: [
-                                                                    HirRitchieParameter::Regular(
+                                                                    HirRitchieParameter::Ordinary(
                                                                         HirRitchieRegularParameter {
                                                                             contract: Pure,
                                                                             ty: HirType::PathLeading(
@@ -265,7 +265,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 367,
+                                                    value: 366,
                                                 },
                                             ),
                                         ),
@@ -275,7 +275,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 429,
+                                                    value: 428,
                                                 },
                                             ),
                                         ),
@@ -379,6 +379,33 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::NewList {
                                                 items: [],
+                                                element_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                        template_arguments: [
+                                                            HirTemplateArgument::Type(
+                                                                HirType::PathLeading(
+                                                                    HirTypePathLeading {
+                                                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                                        template_arguments: [
+                                                                            HirTemplateArgument::Type(
+                                                                                HirType::PathLeading(
+                                                                                    HirTypePathLeading {
+                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                        template_arguments: [],
+                                                                                        always_copyable: false,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ],
+                                                                        always_copyable: true,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: false,
@@ -423,7 +450,7 @@
                                                                             ritchie_ty_kind: Fn,
                                                                             parameters: HirRitchieParameters {
                                                                                 data: [
-                                                                                    HirRitchieParameter::Regular(
+                                                                                    HirRitchieParameter::Ordinary(
                                                                                         HirRitchieRegularParameter {
                                                                                             contract: Pure,
                                                                                             ty: HirType::PathLeading(
@@ -713,7 +740,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 57,
+                                                                        value: 59,
                                                                     },
                                                                 ),
                                                             ),
@@ -770,7 +797,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 58,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -794,7 +821,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 62,
+                                                                        value: 63,
                                                                     },
                                                                 ),
                                                             ),
@@ -866,7 +893,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 58,
+                                                                value: 60,
                                                             },
                                                         ),
                                                     ),
@@ -887,7 +914,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -930,7 +957,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 426,
+                                                        value: 425,
                                                     },
                                                 ),
                                             ),
@@ -942,7 +969,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 238,
+                                                        value: 237,
                                                     },
                                                 ),
                                             ),
@@ -952,7 +979,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 430,
+                                                        value: 429,
                                                     },
                                                 ),
                                             ),
@@ -1472,7 +1499,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -1521,7 +1548,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 344,
+                                                        value: 343,
                                                     },
                                                 ),
                                             ),
@@ -1951,7 +1978,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -2000,7 +2027,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 344,
+                                                        value: 343,
                                                     },
                                                 ),
                                             ),
@@ -2449,7 +2476,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -2498,7 +2525,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 344,
+                                                        value: 343,
                                                     },
                                                 ),
                                             ),

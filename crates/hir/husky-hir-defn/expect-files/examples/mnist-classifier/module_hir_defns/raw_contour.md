@@ -208,7 +208,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 304,
+                                                    value: 303,
                                                 },
                                             ),
                                         ),
@@ -218,7 +218,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 262,
+                                                    value: 261,
                                                 },
                                             ),
                                         ),
@@ -340,7 +340,7 @@
                                             data: HirEagerExprData::Binary {
                                                 lopd: 5,
                                                 opr: Closed(
-                                                    BitOr,
+                                                    BitAnd,
                                                 ),
                                                 ropd: 6,
                                             },
@@ -471,7 +471,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 304,
+                                                    value: 303,
                                                 },
                                             ),
                                         ),
@@ -481,7 +481,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 262,
+                                                    value: 261,
                                                 },
                                             ),
                                         ),
@@ -583,7 +583,7 @@
                                             data: HirEagerExprData::Binary {
                                                 lopd: 3,
                                                 opr: Closed(
-                                                    BitOr,
+                                                    BitAnd,
                                                 ),
                                                 ropd: 4,
                                             },
@@ -714,7 +714,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 304,
+                                                    value: 303,
                                                 },
                                             ),
                                         ),
@@ -724,7 +724,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 262,
+                                                    value: 261,
                                                 },
                                             ),
                                         ),
@@ -846,7 +846,7 @@
                                             data: HirEagerExprData::Binary {
                                                 lopd: 5,
                                                 opr: Closed(
-                                                    BitOr,
+                                                    BitAnd,
                                                 ),
                                                 ropd: 6,
                                             },
@@ -988,6 +988,16 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
+                                                    value: 307,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    Ident {
+                                        symbol_modifier: None,
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
                                                     value: 308,
                                                 },
                                             ),
@@ -998,17 +1008,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 309,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    Ident {
-                                        symbol_modifier: None,
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 262,
+                                                    value: 261,
                                                 },
                                             ),
                                         ),
@@ -1267,19 +1267,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 300,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Left`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -1297,19 +1288,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 299,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Up`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -1332,19 +1314,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 301,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Down`,
+                                                                    index: U8(
+                                                                        2,
                                                                     ),
                                                                 },
                                                             ),
@@ -1375,19 +1348,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 302,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Right`,
+                                                                    index: U8(
+                                                                        3,
                                                                     ),
                                                                 },
                                                             ),
@@ -1405,19 +1369,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 300,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Left`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -1435,19 +1390,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 299,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Up`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -1483,19 +1429,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 302,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Right`,
+                                                                    index: U8(
+                                                                        3,
                                                                     ),
                                                                 },
                                                             ),
@@ -1513,19 +1450,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 299,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Up`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -1812,7 +1740,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 310,
+                                                        value: 309,
                                                     },
                                                 ),
                                             ),
@@ -1822,7 +1750,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 311,
+                                                        value: 310,
                                                     },
                                                 ),
                                             ),
@@ -2091,7 +2019,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 313,
+                                                    value: 312,
                                                 },
                                             ),
                                         ),
@@ -2101,7 +2029,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 314,
+                                                    value: 313,
                                                 },
                                             ),
                                         ),
@@ -2418,7 +2346,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 315,
+                                                        value: 314,
                                                     },
                                                 ),
                                             ),
@@ -2589,6 +2517,16 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
+                                                    value: 307,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    Ident {
+                                        symbol_modifier: None,
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
                                                     value: 308,
                                                 },
                                             ),
@@ -2599,7 +2537,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 309,
+                                                    value: 261,
                                                 },
                                             ),
                                         ),
@@ -2609,17 +2547,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 262,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    Ident {
-                                        symbol_modifier: None,
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 317,
+                                                    value: 316,
                                                 },
                                             ),
                                         ),
@@ -2884,19 +2812,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 301,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Down`,
+                                                                    index: U8(
+                                                                        2,
                                                                     ),
                                                                 },
                                                             ),
@@ -2914,19 +2833,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 300,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Left`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -2962,19 +2872,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 302,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Right`,
+                                                                    index: U8(
+                                                                        3,
                                                                     ),
                                                                 },
                                                             ),
@@ -2992,19 +2893,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 301,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Down`,
+                                                                    index: U8(
+                                                                        2,
                                                                     ),
                                                                 },
                                                             ),
@@ -3035,19 +2927,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 300,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Left`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -3065,19 +2948,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 302,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Right`,
+                                                                    index: U8(
+                                                                        3,
                                                                     ),
                                                                 },
                                                             ),
@@ -3100,19 +2974,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 300,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Left`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -3148,19 +3013,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 299,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Up`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -3191,19 +3047,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 299,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Up`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -3221,19 +3068,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 301,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Down`,
+                                                                    index: U8(
+                                                                        2,
                                                                     ),
                                                                 },
                                                             ),
@@ -3274,19 +3112,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 302,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Right`,
+                                                                    index: U8(
+                                                                        3,
                                                                     ),
                                                                 },
                                                             ),
@@ -3304,19 +3133,10 @@
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 275,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 301,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                    ident: `Down`,
+                                                                    index: U8(
+                                                                        2,
                                                                     ),
                                                                 },
                                                             ),
@@ -3743,7 +3563,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 310,
+                                                        value: 309,
                                                     },
                                                 ),
                                             ),
@@ -3753,7 +3573,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 311,
+                                                        value: 310,
                                                     },
                                                 ),
                                             ),
@@ -3818,7 +3638,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 278,
+                                                            value: 277,
                                                         },
                                                     ),
                                                 ),
@@ -3829,7 +3649,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 276,
+                                                            value: 275,
                                                         },
                                                     ),
                                                 ),
@@ -3895,7 +3715,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 277,
+                                                            value: 276,
                                                         },
                                                     ),
                                                 ),
@@ -3906,7 +3726,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 279,
+                                                            value: 278,
                                                         },
                                                     ),
                                                 ),
@@ -4220,7 +4040,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 252,
+                                                    value: 251,
                                                 },
                                             ),
                                         ),
@@ -4772,7 +4592,17 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 294,
+                                                        value: 293,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 321,
                                                     },
                                                 ),
                                             ),
@@ -4783,16 +4613,6 @@
                                                 Coword(
                                                     Id {
                                                         value: 322,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 323,
                                                     },
                                                 ),
                                             ),
@@ -4915,7 +4735,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 276,
+                                                    value: 275,
                                                 },
                                             ),
                                         ),
@@ -4958,6 +4778,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::NewList {
                                                 items: [],
+                                                element_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: false,
@@ -4969,7 +4796,9 @@
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
-                                                    separator: None,
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
                                                 item_groups: [],
                                             },
@@ -5013,7 +4842,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -5090,7 +4919,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -5357,7 +5186,7 @@
                                             data: HirEagerExprData::Binary {
                                                 lopd: 31,
                                                 opr: Closed(
-                                                    BitOr,
+                                                    BitAnd,
                                                 ),
                                                 ropd: 32,
                                             },
@@ -5381,7 +5210,7 @@
                                             data: HirEagerExprData::Binary {
                                                 lopd: 33,
                                                 opr: Closed(
-                                                    BitOr,
+                                                    BitAnd,
                                                 ),
                                                 ropd: 34,
                                             },
@@ -5405,7 +5234,7 @@
                                             data: HirEagerExprData::Binary {
                                                 lopd: 35,
                                                 opr: Closed(
-                                                    BitOr,
+                                                    BitAnd,
                                                 ),
                                                 ropd: 36,
                                             },
@@ -5424,7 +5253,7 @@
                                             data: HirEagerExprData::Binary {
                                                 lopd: 30,
                                                 opr: Closed(
-                                                    BitOr,
+                                                    BitAnd,
                                                 ),
                                                 ropd: 38,
                                             },
@@ -5503,6 +5332,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::NewList {
                                                 items: [],
+                                                element_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: false,
@@ -5600,7 +5436,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -5677,7 +5513,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -6229,7 +6065,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 75,
+                                                                        value: 76,
                                                                     },
                                                                 ),
                                                             ),
@@ -6292,7 +6128,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 75,
+                                                                        value: 76,
                                                                     },
                                                                 ),
                                                             ),
@@ -6316,7 +6152,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 75,
+                                                                        value: 76,
                                                                     },
                                                                 ),
                                                             ),
@@ -6468,7 +6304,7 @@
                                             data: HirEagerExprData::Binary {
                                                 lopd: 103,
                                                 opr: Closed(
-                                                    BitOr,
+                                                    BitAnd,
                                                 ),
                                                 ropd: 107,
                                             },
@@ -6800,9 +6636,8 @@
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 134,
-                                                opr: Unwrap,
                                             },
                                             ty_place: MutableStackOwned {
                                                 location: StackLocationIdx(
@@ -6840,7 +6675,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 45,
+                                                                        value: 47,
                                                                     },
                                                                 ),
                                                             ),
@@ -6918,7 +6753,9 @@
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
-                                                    separator: None,
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
                                                 item_groups: [
                                                     Regular(
@@ -7024,7 +6861,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 44,
+                                                                        value: 46,
                                                                     },
                                                                 ),
                                                             ),
@@ -7318,9 +7155,8 @@
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 165,
-                                                opr: Unwrap,
                                             },
                                             ty_place: MutableStackOwned {
                                                 location: StackLocationIdx(
@@ -7364,7 +7200,9 @@
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
-                                                    separator: None,
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
                                                 item_groups: [
                                                     Regular(
@@ -7742,9 +7580,8 @@
                                             is_ty_always_copyable: false,
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Suffix {
+                                            data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 194,
-                                                opr: Unwrap,
                                             },
                                             ty_place: MutableStackOwned {
                                                 location: StackLocationIdx(
@@ -7788,7 +7625,9 @@
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
-                                                    separator: None,
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
                                                 item_groups: [
                                                     Regular(
@@ -7977,7 +7816,9 @@
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
-                                                    separator: None,
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
                                                 item_groups: [
                                                     Regular(
@@ -8083,7 +7924,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 44,
+                                                                        value: 46,
                                                                     },
                                                                 ),
                                                             ),
@@ -8406,7 +8247,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -8589,7 +8430,7 @@
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         template_arguments: [],
                                                         always_copyable: false,
                                                     },
@@ -9080,7 +8921,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 42,
+                                                                        value: 44,
                                                                     },
                                                                 ),
                                                             ),
@@ -9104,7 +8945,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 45,
+                                                                        value: 47,
                                                                     },
                                                                 ),
                                                             ),
@@ -9177,7 +9018,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 34,
+                                                                        value: 36,
                                                                     },
                                                                 ),
                                                             ),
@@ -9689,7 +9530,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 45,
+                                                                value: 47,
                                                             },
                                                         ),
                                                     ),
@@ -9882,7 +9723,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 41,
+                                                                value: 43,
                                                             },
                                                         ),
                                                     ),
@@ -9912,7 +9753,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -10006,7 +9847,17 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 324,
+                                                        value: 323,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 325,
                                                     },
                                                 ),
                                             ),
@@ -10042,7 +9893,9 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: None,
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -10058,7 +9911,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 330,
+                                                        value: 249,
                                                     },
                                                 ),
                                             ),
@@ -10070,7 +9923,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 250,
+                                                        value: 261,
                                                     },
                                                 ),
                                             ),
@@ -10082,7 +9935,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 262,
+                                                        value: 307,
                                                     },
                                                 ),
                                             ),
@@ -10106,19 +9959,17 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 309,
+                                                        value: 316,
                                                     },
                                                 ),
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
+                                            symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 317,
+                                                        value: 330,
                                                     },
                                                 ),
                                             ),
@@ -10144,7 +9995,9 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: None,
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -10214,9 +10067,7 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
+                                            symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -10235,33 +10086,12 @@
                                                 ),
                                             ),
                                         },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 341,
-                                                    },
-                                                ),
-                                            ),
-                                        },
                                         Unit(
                                             TypeVariant(
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 276,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                        Unit(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 278,
+                                                            value: 275,
                                                         },
                                                     ),
                                                 ),
@@ -10283,7 +10113,18 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 279,
+                                                            value: 276,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        Unit(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 278,
                                                         },
                                                     ),
                                                 ),
@@ -10593,7 +10434,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 34,
+                                        value: 36,
                                     },
                                 ),
                             ),
@@ -10752,7 +10593,7 @@
                                                         property_ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 252,
+                                                                    value: 251,
                                                                 },
                                                             ),
                                                         ),
@@ -10981,7 +10822,9 @@
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
-                                                    separator: None,
+                                                    separator: Some(
+                                                        0,
+                                                    ),
                                                 },
                                                 item_groups: [
                                                     Regular(
@@ -10990,7 +10833,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 35,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -11977,7 +11820,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 66,
+                                                                        value: 67,
                                                                     },
                                                                 ),
                                                             ),
@@ -11995,7 +11838,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 66,
+                                                                        value: 67,
                                                                     },
                                                                 ),
                                                             ),
@@ -12128,7 +11971,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -12166,6 +12009,18 @@
                                     data: [
                                         Ident {
                                             symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 282,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
@@ -12211,23 +12066,11 @@
                                             ),
                                         },
                                         Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 287,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
                                             symbol_modifier: None,
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 288,
+                                                        value: 287,
                                                     },
                                                 ),
                                             ),
@@ -12479,7 +12322,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 67,
+                                                                        value: 68,
                                                                     },
                                                                 ),
                                                             ),
@@ -13465,7 +13308,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 250,
+                                                            value: 249,
                                                         },
                                                     ),
                                                 ),
@@ -13545,7 +13388,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 242,
+                                                        value: 241,
                                                     },
                                                 ),
                                             ),
@@ -13668,7 +13511,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 34,
+                                        value: 36,
                                     },
                                 ),
                             ),
@@ -14120,7 +13963,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 44,
+                                                                        value: 46,
                                                                     },
                                                                 ),
                                                             ),
@@ -14205,6 +14048,16 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
+                                                        value: 293,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
                                                         value: 294,
                                                     },
                                                 ),
@@ -14216,16 +14069,6 @@
                                                 Coword(
                                                     Id {
                                                         value: 295,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 296,
                                                     },
                                                 ),
                                             ),

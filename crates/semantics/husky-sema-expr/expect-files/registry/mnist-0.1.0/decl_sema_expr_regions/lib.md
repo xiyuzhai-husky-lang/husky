@@ -92,7 +92,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 472,
+                                    value: 474,
                                 },
                             ),
                         ),
@@ -159,7 +159,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 497,
+                                    value: 499,
                                 },
                             ),
                         ),
@@ -178,7 +178,7 @@
                                 MajorItemSynNodePathData::Type(
                                     TypeSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                            path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -201,7 +201,7 @@
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -213,65 +213,10 @@
                     ),
                 ),
                 syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                6,
-                            ),
-                            LiteralData::Integer(
-                                UnspecifiedRegular(
-                                    30,
-                                ),
-                            ),
-                        ),
-                        SynExprData::List {
-                            lbox_regional_token_idx: RegionalTokenIdx(
-                                5,
-                            ),
-                            items: [
-                                SynCommaListItem {
-                                    syn_expr_idx: 1,
-                                    comma_regional_token_idx: None,
-                                },
-                            ],
-                            rbox_regional_token_idx: RegionalTokenIdx(
-                                7,
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::raw_bits::r32`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 2,
-                            argument_expr_idx: 3,
-                        },
-                    ],
+                    data: [],
                 },
                 principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `r32`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        8,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::raw_bits::r32`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ],
+                    data: [],
                 },
                 stmt_arena: Arena {
                     data: [],
@@ -303,12 +248,7 @@
                     pattern_ty_constraints: [],
                 },
                 syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::TupleStructFieldType,
-                        syn_expr_idx: 4,
-                    },
-                ],
+                syn_expr_roots: [],
                 has_self_lifetime: false,
                 has_self_place: false,
                 syn_pattern_to_current_syn_symbol_map: [],
@@ -321,7 +261,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 473,
+                                    value: 475,
                                 },
                             ),
                         ),
@@ -330,135 +270,7 @@
             ),
             sema_expr_arena: SemaExprArena(
                 Arena {
-                    data: [
-                        SemaExprEntry {
-                            data_result: Ok(
-                                Literal(
-                                    RegionalTokenIdx(
-                                        6,
-                                    ),
-                                    Integer(
-                                        UnspecifiedRegular(
-                                            30,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 52,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                ArrayFunctor {
-                                    lbox_regional_token_idx: RegionalTokenIdx(
-                                        5,
-                                    ),
-                                    items: [
-                                        SemaCommaListItem {
-                                            sema_expr_idx: SemaExprIdx(
-                                                1,
-                                            ),
-                                            comma_regional_token_idx: None,
-                                        },
-                                    ],
-                                    rbox_regional_token_idx: RegionalTokenIdx(
-                                        7,
-                                    ),
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 78,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                FunctionApplication {
-                                    function_sema_expr_idx: SemaExprIdx(
-                                        2,
-                                    ),
-                                    argument_sema_expr_idx: SemaExprIdx(
-                                        3,
-                                    ),
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ],
+                    data: [],
                 },
             ),
             sema_stmt_arena: SemaStmtArena(
@@ -466,107 +278,14 @@
                     data: [],
                 },
             ),
-            sema_expr_roots: [
-                (
-                    4,
-                    (
-                        SemaExprIdx(
-                            4,
-                        ),
-                        TupleStructFieldType,
-                    ),
-                ),
-            ],
+            sema_expr_roots: [],
             syn_pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [
-                (
-                    SemaExprIdx(
-                        1,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                Literal(
-                                    USize(
-                                        TermUSizeLiteral(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                (
-                    SemaExprIdx(
-                        2,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 115,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                (
-                    SemaExprIdx(
-                        3,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 78,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                (
-                    SemaExprIdx(
-                        4,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 116,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ],
+            sema_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: ArenaMap {
                     data: [],
@@ -597,217 +316,7 @@
                 },
                 expectations: Expectations {
                     arena: Arena {
-                        data: [
-                            FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
-                                    ExpectCoersion {
-                                        contract: Const,
-                                        ty_expected: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 1,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 1,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: Some(
-                                            Const,
-                                        ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 52,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            Coersion(
-                                                Trivial(
-                                                    TrivialFluffyCoersion {
-                                                        expectee_place: Const,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
-                                    ExpectEqsFunctionType {
-                                        final_destination: Sort,
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 2,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 2,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 2,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsFunctionCallType(
-                                                ExpectEqsFunctionTypeOutcome {
-                                                    template_parameter_substitutions: [],
-                                                    return_ty: FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Category(
-                                                                TermCategory {
-                                                                    universe: TermUniverse(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    variant: Curry {
-                                                        variance: Covariant,
-                                                        parameter_symbol: None,
-                                                        parameter_ty: FluffyTerm {
-                                                            place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        return_ty: FluffyTerm {
-                                                            place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
-                                    ExpectCurryDestination {
-                                        curry_destination: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 3,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 3,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Intact,
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 4,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 4,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                        ],
+                        data: [],
                     },
                     first_unresolved_expectation: 0,
                 },
@@ -819,7 +328,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 508,
+                                    value: 510,
                                 },
                             ),
                         ),
@@ -838,7 +347,7 @@
                                 MajorItemSynNodePathData::Type(
                                     TypeSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                            path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -861,7 +370,7 @@
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -873,65 +382,10 @@
                     ),
                 ),
                 syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                6,
-                            ),
-                            LiteralData::Integer(
-                                UnspecifiedRegular(
-                                    31,
-                                ),
-                            ),
-                        ),
-                        SynExprData::List {
-                            lbox_regional_token_idx: RegionalTokenIdx(
-                                5,
-                            ),
-                            items: [
-                                SynCommaListItem {
-                                    syn_expr_idx: 1,
-                                    comma_regional_token_idx: None,
-                                },
-                            ],
-                            rbox_regional_token_idx: RegionalTokenIdx(
-                                7,
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::raw_bits::r32`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 2,
-                            argument_expr_idx: 3,
-                        },
-                    ],
+                    data: [],
                 },
                 principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `r32`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        8,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::raw_bits::r32`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ],
+                    data: [],
                 },
                 stmt_arena: Arena {
                     data: [],
@@ -963,12 +417,7 @@
                     pattern_ty_constraints: [],
                 },
                 syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::TupleStructFieldType,
-                        syn_expr_idx: 4,
-                    },
-                ],
+                syn_expr_roots: [],
                 has_self_lifetime: false,
                 has_self_place: false,
                 syn_pattern_to_current_syn_symbol_map: [],
@@ -981,7 +430,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 474,
+                                    value: 476,
                                 },
                             ),
                         ),
@@ -990,135 +439,7 @@
             ),
             sema_expr_arena: SemaExprArena(
                 Arena {
-                    data: [
-                        SemaExprEntry {
-                            data_result: Ok(
-                                Literal(
-                                    RegionalTokenIdx(
-                                        6,
-                                    ),
-                                    Integer(
-                                        UnspecifiedRegular(
-                                            31,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 52,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                ArrayFunctor {
-                                    lbox_regional_token_idx: RegionalTokenIdx(
-                                        5,
-                                    ),
-                                    items: [
-                                        SemaCommaListItem {
-                                            sema_expr_idx: SemaExprIdx(
-                                                1,
-                                            ),
-                                            comma_regional_token_idx: None,
-                                        },
-                                    ],
-                                    rbox_regional_token_idx: RegionalTokenIdx(
-                                        7,
-                                    ),
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                PrincipalEntityPath {
-                                    path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 78,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    ty_path_disambiguation: OntologyConstructor,
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                        SemaExprEntry {
-                            data_result: Ok(
-                                FunctionApplication {
-                                    function_sema_expr_idx: SemaExprIdx(
-                                        2,
-                                    ),
-                                    argument_sema_expr_idx: SemaExprIdx(
-                                        3,
-                                    ),
-                                },
-                            ),
-                            ty_result: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ],
+                    data: [],
                 },
             ),
             sema_stmt_arena: SemaStmtArena(
@@ -1126,107 +447,14 @@
                     data: [],
                 },
             ),
-            sema_expr_roots: [
-                (
-                    4,
-                    (
-                        SemaExprIdx(
-                            4,
-                        ),
-                        TupleStructFieldType,
-                    ),
-                ),
-            ],
+            sema_expr_roots: [],
             syn_pattern_expr_ty_infos: ArenaMap {
                 data: [],
             },
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
-            sema_expr_terms: [
-                (
-                    SemaExprIdx(
-                        1,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                Literal(
-                                    USize(
-                                        TermUSizeLiteral(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                (
-                    SemaExprIdx(
-                        2,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 117,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                (
-                    SemaExprIdx(
-                        3,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 78,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                (
-                    SemaExprIdx(
-                        4,
-                    ),
-                    Ok(
-                        FluffyTerm {
-                            place: None,
-                            base: Ethereal(
-                                Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 118,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ],
+            sema_expr_terms: [],
             symbol_tys: SymbolMap {
                 inherited_syn_symbol_map: ArenaMap {
                     data: [],
@@ -1257,217 +485,7 @@
                 },
                 expectations: Expectations {
                     arena: Arena {
-                        data: [
-                            FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
-                                    ExpectCoersion {
-                                        contract: Const,
-                                        ty_expected: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 1,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 1,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: Some(
-                                            Const,
-                                        ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 52,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            Coersion(
-                                                Trivial(
-                                                    TrivialFluffyCoersion {
-                                                        expectee_place: Const,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
-                                    ExpectEqsFunctionType {
-                                        final_destination: Sort,
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 2,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 2,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 2,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsFunctionCallType(
-                                                ExpectEqsFunctionTypeOutcome {
-                                                    template_parameter_substitutions: [],
-                                                    return_ty: FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Category(
-                                                                TermCategory {
-                                                                    universe: TermUniverse(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                    variant: Curry {
-                                                        variance: Covariant,
-                                                        parameter_symbol: None,
-                                                        parameter_ty: FluffyTerm {
-                                                            place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        return_ty: FluffyTerm {
-                                                            place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
-                                    ExpectCurryDestination {
-                                        curry_destination: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 3,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 3,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Intact,
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
-                                    idx: 4,
-                                    src: ExpectationSource {
-                                        syn_expr_idx: 4,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                        ],
+                        data: [],
                     },
                     first_unresolved_expectation: 0,
                 },
@@ -1479,7 +497,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 509,
+                                    value: 511,
                                 },
                             ),
                         ),
@@ -1539,7 +557,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -1559,7 +577,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                 ),
                             ),
                         },
@@ -1613,7 +631,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 475,
+                                    value: 477,
                                 },
                             ),
                         ),
@@ -1632,16 +650,17 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 508,
+                                                        value: 510,
                                                     },
                                                 ),
                                             ),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -1654,6 +673,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -1695,7 +731,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 508,
+                                                    value: 510,
                                                 },
                                             ),
                                         ),
@@ -1745,7 +781,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -1763,6 +799,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -1797,7 +834,7 @@
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::visual::Visualize`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -1826,7 +863,7 @@
                                                         module_path: `mnist`,
                                                         trai_path: TraitPath(`core::visual::Visualize`),
                                                         ty_sketch: TypeSketch::Path(
-                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -1856,7 +893,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -1891,7 +928,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                 ),
                             ),
                         },
@@ -1949,7 +986,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 476,
+                                    value: 478,
                                 },
                             ),
                         ),
@@ -1975,9 +1012,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -1995,6 +1033,27 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 24,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -2005,16 +1064,17 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 508,
+                                                        value: 510,
                                                     },
                                                 ),
                                             ),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -2027,6 +1087,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    2,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -2100,7 +1177,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 508,
+                                                    value: 510,
                                                 },
                                             ),
                                         ),
@@ -2146,7 +1223,7 @@
                                 expectation: AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -2168,6 +1245,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -2179,7 +1257,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
                                         syn_expr_idx: 2,
@@ -2197,6 +1275,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -2220,7 +1299,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 508,
+                                    value: 510,
                                 },
                             ),
                         ),
@@ -2249,7 +1328,7 @@
                                                                         module_path: `mnist`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -2290,7 +1369,7 @@
                                                                     module_path: `mnist`,
                                                                     trai_path: TraitPath(`core::visual::Visualize`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -2320,7 +1399,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -2355,7 +1434,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -2426,7 +1505,7 @@
                                                                                 module_path: `mnist`,
                                                                                 trai_path: TraitPath(`core::visual::Visualize`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -2529,7 +1608,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 482,
+                                    value: 484,
                                 },
                             ),
                         ),
@@ -2555,9 +1634,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -2570,6 +1650,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -2661,7 +1758,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -2679,6 +1776,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -2702,7 +1800,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 508,
+                                    value: 510,
                                 },
                             ),
                         ),
@@ -2723,7 +1821,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 512,
+                                                    value: 514,
                                                 },
                                             ),
                                         ),
@@ -2749,7 +1847,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 512,
+                                                            value: 514,
                                                         },
                                                     ),
                                                 ),
@@ -2768,7 +1866,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -2788,7 +1886,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                 ),
                             ),
                         },
@@ -2842,7 +1940,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 477,
+                                    value: 479,
                                 },
                             ),
                         ),
@@ -2861,16 +1959,17 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 508,
+                                                        value: 510,
                                                     },
                                                 ),
                                             ),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -2883,6 +1982,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -2924,7 +2040,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 508,
+                                                    value: 510,
                                                 },
                                             ),
                                         ),
@@ -2974,7 +2090,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -2992,6 +2108,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -3015,7 +2132,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 508,
+                                    value: 510,
                                 },
                             ),
                         ),
@@ -3062,7 +2179,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 512,
+                                                                        value: 514,
                                                                     },
                                                                 ),
                                                             ),
@@ -3081,7 +2198,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -3101,7 +2218,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -3229,7 +2346,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 483,
+                                    value: 485,
                                 },
                             ),
                         ),
@@ -3247,7 +2364,7 @@
                                     ),
                                 ),
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -3260,6 +2377,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -3301,7 +2435,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 508,
+                                                    value: 510,
                                                 },
                                             ),
                                         ),
@@ -3351,7 +2485,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -3369,6 +2503,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -3392,7 +2527,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 508,
+                                    value: 510,
                                 },
                             ),
                         ),
@@ -3415,7 +2550,7 @@
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::ops::IntIndex`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -3444,7 +2579,7 @@
                                                         module_path: `mnist`,
                                                         trai_path: TraitPath(`core::ops::IntIndex`),
                                                         ty_sketch: TypeSketch::Path(
-                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -3474,7 +2609,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -3551,7 +2686,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                 ),
                             ),
                         },
@@ -3609,7 +2744,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 478,
+                                    value: 480,
                                 },
                             ),
                         ),
@@ -3635,9 +2770,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -3655,6 +2791,27 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 24,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -3665,16 +2822,17 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 508,
+                                                        value: 510,
                                                     },
                                                 ),
                                             ),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -3687,6 +2845,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    2,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -3760,7 +2935,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 508,
+                                                    value: 510,
                                                 },
                                             ),
                                         ),
@@ -3806,7 +2981,7 @@
                                 expectation: AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -3828,6 +3003,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -3839,7 +3015,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
                                         syn_expr_idx: 2,
@@ -3857,6 +3033,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -3880,7 +3057,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 508,
+                                    value: 510,
                                 },
                             ),
                         ),
@@ -3909,7 +3086,7 @@
                                                                         module_path: `mnist`,
                                                                         trai_path: TraitPath(`core::ops::IntIndex`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -3950,7 +3127,7 @@
                                                                     module_path: `mnist`,
                                                                     trai_path: TraitPath(`core::ops::IntIndex`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -3980,7 +3157,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -4057,7 +3234,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -4128,7 +3305,7 @@
                                                                                 module_path: `mnist`,
                                                                                 trai_path: TraitPath(`core::ops::IntIndex`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -4231,7 +3408,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 484,
+                                    value: 486,
                                 },
                             ),
                         ),
@@ -4257,9 +3434,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -4272,6 +3450,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -4363,7 +3558,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -4381,6 +3576,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -4404,7 +3600,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 508,
+                                    value: 510,
                                 },
                             ),
                         ),
@@ -4427,7 +3623,7 @@
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::visual::Visualize`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -4456,7 +3652,7 @@
                                                         module_path: `mnist`,
                                                         trai_path: TraitPath(`core::visual::Visualize`),
                                                         ty_sketch: TypeSketch::Path(
-                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -4486,7 +3682,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -4521,7 +3717,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                 ),
                             ),
                         },
@@ -4579,7 +3775,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 479,
+                                    value: 481,
                                 },
                             ),
                         ),
@@ -4605,9 +3801,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -4625,6 +3822,27 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 24,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -4635,16 +3853,17 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 509,
+                                                        value: 511,
                                                     },
                                                 ),
                                             ),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -4657,6 +3876,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    2,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -4730,7 +3966,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 509,
+                                                    value: 511,
                                                 },
                                             ),
                                         ),
@@ -4776,7 +4012,7 @@
                                 expectation: AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -4798,6 +4034,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -4809,7 +4046,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
                                         syn_expr_idx: 2,
@@ -4827,6 +4064,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -4850,7 +4088,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 509,
+                                    value: 511,
                                 },
                             ),
                         ),
@@ -4879,7 +4117,7 @@
                                                                         module_path: `mnist`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -4920,7 +4158,7 @@
                                                                     module_path: `mnist`,
                                                                     trai_path: TraitPath(`core::visual::Visualize`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -4950,7 +4188,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -4985,7 +4223,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -5056,7 +4294,7 @@
                                                                                 module_path: `mnist`,
                                                                                 trai_path: TraitPath(`core::visual::Visualize`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -5159,7 +4397,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 485,
+                                    value: 487,
                                 },
                             ),
                         ),
@@ -5185,9 +4423,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -5200,6 +4439,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -5291,7 +4547,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -5309,6 +4565,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -5332,7 +4589,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 509,
+                                    value: 511,
                                 },
                             ),
                         ),
@@ -5353,7 +4610,7 @@
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 515,
+                                                    value: 517,
                                                 },
                                             ),
                                         ),
@@ -5379,7 +4636,7 @@
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 515,
+                                                            value: 517,
                                                         },
                                                     ),
                                                 ),
@@ -5398,7 +4655,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -5418,7 +4675,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                 ),
                             ),
                         },
@@ -5472,7 +4729,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 480,
+                                    value: 482,
                                 },
                             ),
                         ),
@@ -5491,16 +4748,17 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 509,
+                                                        value: 511,
                                                     },
                                                 ),
                                             ),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -5513,6 +4771,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -5554,7 +4829,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 509,
+                                                    value: 511,
                                                 },
                                             ),
                                         ),
@@ -5604,7 +4879,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -5622,6 +4897,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -5645,7 +4921,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 509,
+                                    value: 511,
                                 },
                             ),
                         ),
@@ -5692,7 +4968,7 @@
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 515,
+                                                                        value: 517,
                                                                     },
                                                                 ),
                                                             ),
@@ -5711,7 +4987,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -5731,7 +5007,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -5859,7 +5135,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 486,
+                                    value: 488,
                                 },
                             ),
                         ),
@@ -5877,7 +5153,7 @@
                                     ),
                                 ),
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -5890,6 +5166,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -5931,7 +5224,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 509,
+                                                    value: 511,
                                                 },
                                             ),
                                         ),
@@ -5981,7 +5274,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -5999,6 +5292,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -6022,7 +5316,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 509,
+                                    value: 511,
                                 },
                             ),
                         ),
@@ -6045,7 +5339,7 @@
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::ops::IntIndex`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -6074,7 +5368,7 @@
                                                         module_path: `mnist`,
                                                         trai_path: TraitPath(`core::ops::IntIndex`),
                                                         ty_sketch: TypeSketch::Path(
-                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -6104,7 +5398,7 @@
                             opt_path: Some(
                                 PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -6181,7 +5475,7 @@
                             ),
                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                 ),
                             ),
                         },
@@ -6239,7 +5533,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 481,
+                                    value: 483,
                                 },
                             ),
                         ),
@@ -6265,9 +5559,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -6285,6 +5580,27 @@
                                     ),
                                 },
                             ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 24,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
                         SemaExprEntry {
                             data_result: Ok(
@@ -6295,16 +5611,17 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 509,
+                                                        value: 511,
                                                     },
                                                 ),
                                             ),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -6317,6 +5634,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    2,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -6390,7 +5724,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 509,
+                                                    value: 511,
                                                 },
                                             ),
                                         ),
@@ -6436,7 +5770,7 @@
                                 expectation: AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -6458,6 +5792,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -6469,7 +5804,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
                                         syn_expr_idx: 2,
@@ -6487,6 +5822,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -6510,7 +5846,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 509,
+                                    value: 511,
                                 },
                             ),
                         ),
@@ -6539,7 +5875,7 @@
                                                                         module_path: `mnist`,
                                                                         trai_path: TraitPath(`core::ops::IntIndex`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -6580,7 +5916,7 @@
                                                                     module_path: `mnist`,
                                                                     trai_path: TraitPath(`core::ops::IntIndex`),
                                                                     ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -6610,7 +5946,7 @@
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                             ),
                                         ),
@@ -6687,7 +6023,7 @@
                                         ),
                                         principal_entity_path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                     },
@@ -6758,7 +6094,7 @@
                                                                                 module_path: `mnist`,
                                                                                 trai_path: TraitPath(`core::ops::IntIndex`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -6861,7 +6197,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 487,
+                                    value: 489,
                                 },
                             ),
                         ),
@@ -6887,9 +6223,10 @@
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
+                                    instantiation: None,
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -6902,6 +6239,23 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -6993,7 +6347,7 @@
                                         ),
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -7011,6 +6365,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             EqsSort(
@@ -7034,7 +6389,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 509,
+                                    value: 511,
                                 },
                             ),
                         ),

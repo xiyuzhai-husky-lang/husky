@@ -59,7 +59,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 210,
+                                                            value: 209,
                                                         },
                                                     ),
                                                 ),
@@ -83,7 +83,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 391,
+                                                            value: 390,
                                                         },
                                                     ),
                                                 ),
@@ -177,13 +177,6 @@ SynNodeDeclSheet {
                                                     ),
                                                 ),
                                             },
-                                            SynExprData::Prefix {
-                                                opr: Tilde,
-                                                opr_regional_token_idx: RegionalTokenIdx(
-                                                    11,
-                                                ),
-                                                opd: 3,
-                                            },
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 3,
                                                 opt_path: Some(
@@ -195,8 +188,15 @@ SynNodeDeclSheet {
                                                 ),
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 4,
-                                                argument_expr_idx: 5,
+                                                function_expr_idx: 3,
+                                                argument_expr_idx: 4,
+                                            },
+                                            SynExprData::Prefix {
+                                                opr: Tilde,
+                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                    11,
+                                                ),
+                                                opd: 5,
                                             },
                                         ],
                                     },
@@ -314,7 +314,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 210,
+                                                                    value: 209,
                                                                 },
                                                             ),
                                                         ),
@@ -334,7 +334,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 391,
+                                                                    value: 390,
                                                                 },
                                                             ),
                                                         ),

@@ -51,7 +51,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 297,
+                                        value: 296,
                                     },
                                 ),
                             ),
@@ -134,7 +134,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 276,
+                                                    value: 275,
                                                 },
                                             ),
                                         ),
@@ -416,7 +416,7 @@
                     body_with_hir_expr_region: Some(
                         (
                             Lazy(
-                                89,
+                                88,
                             ),
                             Lazy(
                                 HirLazyExprRegion(

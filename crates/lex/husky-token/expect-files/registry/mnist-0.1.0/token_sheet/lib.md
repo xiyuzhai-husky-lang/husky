@@ -129,7 +129,7 @@ TokenSheetData {
         ),
         TokenData::Keyword(
             Keyword::TypeEntity(
-                Struct,
+                Extern,
             ),
         ),
         TokenData::Ident(
@@ -137,40 +137,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
-                    Par,
-                ),
-            ),
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Bra(
-                    Box,
-                ),
-            ),
-        ),
-        TokenData::Literal(
-            LiteralData::Integer(
-                UnspecifiedRegular(
-                    30,
-                ),
-            ),
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Ket(
-                    Box,
-                ),
-            ),
-        ),
-        TokenData::Ident(
-            `r32`,
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Ket(
-                    Par,
-                ),
+                PunctuationMapped::Semicolon,
             ),
         ),
         TokenData::Keyword(
@@ -345,7 +312,7 @@ TokenSheetData {
         ),
         TokenData::Keyword(
             Keyword::TypeEntity(
-                Struct,
+                Extern,
             ),
         ),
         TokenData::Ident(
@@ -353,40 +320,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
-                    Par,
-                ),
-            ),
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Bra(
-                    Box,
-                ),
-            ),
-        ),
-        TokenData::Literal(
-            LiteralData::Integer(
-                UnspecifiedRegular(
-                    31,
-                ),
-            ),
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Ket(
-                    Box,
-                ),
-            ),
-        ),
-        TokenData::Ident(
-            `r32`,
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Ket(
-                    Par,
-                ),
+                PunctuationMapped::Semicolon,
             ),
         ),
         TokenData::Keyword(
@@ -649,42 +583,52 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
+                35,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
                 40,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                45,
+                47,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                52,
+                50,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                55,
+                59,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                64,
+                68,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                73,
+                72,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                77,
+                76,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                86,
+                81,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                88,
             ),
         ),
         TokenGroupStart(
@@ -694,27 +638,17 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                98,
+                100,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                101,
+                109,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                110,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                119,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                123,
+                113,
             ),
         ),
     ],

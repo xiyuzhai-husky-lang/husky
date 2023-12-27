@@ -299,19 +299,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 389,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 453,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                            ident: `One`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -326,19 +317,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 389,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 453,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                            ident: `One`,
+                                            index: U8(
+                                                1,
                                             ),
                                         },
                                     ),
@@ -723,19 +705,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 378,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 442,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ident: `Yes`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -750,19 +723,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 378,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 442,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ident: `Yes`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -996,16 +960,42 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        5,
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        20,
+                        PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `None`,
+                                            index: U8(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 5,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::BeVariable {
-                            pattern_symbol_idx: 5,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
+                    data: TokenInfoData::Entity(
+                        EntityPath::TypeVariant(
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `None`,
+                                            index: U8(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
                 },
             ),
             None,
@@ -1042,7 +1032,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        20,
+                        21,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -1130,7 +1120,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        21,
+                        22,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -1161,7 +1151,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        22,
+                        23,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -1194,7 +1184,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        23,
+                        24,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
@@ -1214,25 +1204,16 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        24,
+                        25,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 378,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 442,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ident: `Yes`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -1247,19 +1228,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 378,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 442,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ident: `Yes`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -1276,9 +1248,9 @@ Ok(
                         6,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
+                        current_syn_symbol_idx: 5,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 6,
+                            pattern_symbol_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1372,7 +1344,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        25,
+                        26,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
@@ -1404,7 +1376,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        26,
+                        27,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -1433,7 +1405,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        27,
+                        28,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -1467,7 +1439,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        28,
+                        29,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
@@ -1498,7 +1470,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        29,
+                        30,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
@@ -1529,7 +1501,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        30,
+                        31,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
@@ -1575,7 +1547,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        31,
+                        32,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -1604,7 +1576,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        32,
+                        33,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
@@ -1650,7 +1622,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        33,
+                        34,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
@@ -1741,18 +1713,47 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        7,
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        35,
+                        PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `Some`,
+                                            index: U8(
+                                                0,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 7,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::BeVariable {
-                            pattern_symbol_idx: 7,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
+                    data: TokenInfoData::Entity(
+                        EntityPath::TypeVariant(
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `Some`,
+                                            index: U8(
+                                                0,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
                 },
             ),
+            None,
+            None,
+            None,
             None,
             None,
             Some(
@@ -1844,12 +1845,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        8,
+                        9,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 8,
+                        current_syn_symbol_idx: 6,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 8,
+                            pattern_symbol_idx: 7,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1933,12 +1934,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        9,
+                        10,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 9,
+                        current_syn_symbol_idx: 7,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 9,
+                            pattern_symbol_idx: 8,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1953,9 +1954,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 8,
+                        current_syn_symbol_idx: 6,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 8,
+                            pattern_symbol_idx: 7,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1983,9 +1984,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 9,
+                        current_syn_symbol_idx: 7,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 9,
+                            pattern_symbol_idx: 8,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2007,7 +2008,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        34,
+                        36,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -2151,7 +2152,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        35,
+                        37,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -2185,9 +2186,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 9,
+                        current_syn_symbol_idx: 7,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 9,
+                            pattern_symbol_idx: 8,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2215,9 +2216,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 9,
+                        current_syn_symbol_idx: 7,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 9,
+                            pattern_symbol_idx: 8,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2243,9 +2244,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 9,
+                        current_syn_symbol_idx: 7,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 9,
+                            pattern_symbol_idx: 8,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2298,23 +2299,52 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        10,
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        38,
+                        PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `Some`,
+                                            index: U8(
+                                                0,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 10,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::BeVariable {
-                            pattern_symbol_idx: 10,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
+                    data: TokenInfoData::Entity(
+                        EntityPath::TypeVariant(
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `Some`,
+                                            index: U8(
+                                                0,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
                 },
             ),
+            None,
+            None,
+            None,
             None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        36,
+                        39,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -2343,7 +2373,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        37,
+                        40,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
@@ -2389,7 +2419,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        38,
+                        41,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
@@ -2435,7 +2465,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        39,
+                        42,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
@@ -2515,9 +2545,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
+                        current_syn_symbol_idx: 5,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 6,
+                            pattern_symbol_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2529,12 +2559,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        11,
+                        13,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 11,
+                        current_syn_symbol_idx: 8,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 11,
+                            pattern_symbol_idx: 10,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2616,12 +2646,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        12,
+                        14,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 12,
+                        current_syn_symbol_idx: 9,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 12,
+                            pattern_symbol_idx: 11,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2636,9 +2666,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 11,
+                        current_syn_symbol_idx: 8,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 11,
+                            pattern_symbol_idx: 10,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2661,12 +2691,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        13,
+                        15,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 13,
+                        current_syn_symbol_idx: 10,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 13,
+                            pattern_symbol_idx: 12,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2750,12 +2780,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        14,
+                        16,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 14,
+                        current_syn_symbol_idx: 11,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 14,
+                            pattern_symbol_idx: 13,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2770,9 +2800,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 13,
+                        current_syn_symbol_idx: 10,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 13,
+                            pattern_symbol_idx: 12,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2794,7 +2824,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        40,
+                        43,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`malamute::narrow_down`, `FunctionGn`),
@@ -2828,9 +2858,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 12,
+                        current_syn_symbol_idx: 9,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 12,
+                            pattern_symbol_idx: 11,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2856,9 +2886,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 14,
+                        current_syn_symbol_idx: 11,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 14,
+                            pattern_symbol_idx: 13,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2899,9 +2929,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 6,
+                        current_syn_symbol_idx: 5,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 6,
+                            pattern_symbol_idx: 5,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2913,12 +2943,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        15,
+                        17,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 15,
+                        current_syn_symbol_idx: 12,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 15,
+                            pattern_symbol_idx: 14,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2928,7 +2958,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        41,
+                        44,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -2959,12 +2989,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        16,
+                        18,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 16,
+                        current_syn_symbol_idx: 13,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 16,
+                            pattern_symbol_idx: 15,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2974,7 +3004,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        42,
+                        45,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -3005,12 +3035,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        17,
+                        19,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 17,
+                        current_syn_symbol_idx: 14,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 17,
+                            pattern_symbol_idx: 16,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3025,9 +3055,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 15,
+                        current_syn_symbol_idx: 12,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 15,
+                            pattern_symbol_idx: 14,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3042,9 +3072,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 16,
+                        current_syn_symbol_idx: 13,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 16,
+                            pattern_symbol_idx: 15,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3054,12 +3084,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        18,
+                        20,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 18,
+                        current_syn_symbol_idx: 15,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 18,
+                            pattern_symbol_idx: 17,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3074,9 +3104,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 17,
+                        current_syn_symbol_idx: 14,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 17,
+                            pattern_symbol_idx: 16,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3091,9 +3121,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 15,
+                        current_syn_symbol_idx: 12,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 15,
+                            pattern_symbol_idx: 14,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3108,9 +3138,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 17,
+                        current_syn_symbol_idx: 14,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 17,
+                            pattern_symbol_idx: 16,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3128,9 +3158,9 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 17,
+                        current_syn_symbol_idx: 14,
                         current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 17,
+                            pattern_symbol_idx: 16,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3141,7 +3171,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        43,
+                        46,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
@@ -3161,25 +3191,16 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        44,
+                        47,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 378,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 442,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ident: `Yes`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),
@@ -3194,19 +3215,10 @@ Ok(
                                 ItemPathId {
                                     data: ItemPathData::TypeVariant(
                                         TypeVariantPathData {
-                                            parent_ty_path: TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 378,
-                                                    },
-                                                ),
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 442,
-                                                    },
-                                                ),
+                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ident: `Yes`,
+                                            index: U8(
+                                                0,
                                             ),
                                         },
                                     ),

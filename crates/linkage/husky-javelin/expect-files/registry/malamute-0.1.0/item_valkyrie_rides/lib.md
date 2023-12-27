@@ -24,7 +24,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 536,
+                                                value: 534,
                                             },
                                         ),
                                     ),
@@ -97,11 +97,38 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 536,
+                                                value: 534,
                                             },
                                         ),
                                     ),
                                     traits: [],
+                                },
+                            },
+                            HirTemplateParameter {
+                                symbol: Const(
+                                    HirConstSymbol(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ),
+                                data: Constant {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 537,
+                                            },
+                                        ),
+                                    ),
+                                    ty: Symbol(
+                                        Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
                                 },
                             },
                         ],
@@ -209,7 +236,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 536,
+                                                value: 534,
                                             },
                                         ),
                                     ),
@@ -228,7 +255,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 539,
+                                                value: 537,
                                             },
                                         ),
                                     ),

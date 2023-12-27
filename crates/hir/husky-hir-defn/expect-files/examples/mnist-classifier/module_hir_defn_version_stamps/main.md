@@ -5,6 +5,21 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
+                        value: 259,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            None,
+        ),
+    ),
+    (
+        Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
                         value: 260,
                     },
                 ),
@@ -90,27 +105,12 @@
         ),
     ),
     (
-        Submodule(
-            Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 266,
-                    },
-                ),
-            ),
-        ),
-        Some(
-            None,
-        ),
-    ),
-    (
         MajorItem(
             Fugitive(
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 267,
+                            value: 266,
                         },
                     ),
                 ),

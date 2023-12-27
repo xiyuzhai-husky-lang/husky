@@ -819,12 +819,12 @@ EntitySynTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -844,12 +844,12 @@ EntitySynTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -3201,12 +3201,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -3218,7 +3218,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -3240,12 +3240,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -3257,7 +3257,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -6147,12 +6147,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -6164,7 +6164,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -6186,12 +6186,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -6203,7 +6203,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -11360,12 +11360,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -11377,7 +11377,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -11399,12 +11399,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -11416,7 +11416,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -17425,12 +17425,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -17442,7 +17442,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -17464,12 +17464,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -17481,7 +17481,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -20250,12 +20250,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -20267,7 +20267,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -20289,12 +20289,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -20306,7 +20306,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -22676,7 +22676,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 27,
+                                ast_idx: 26,
                                 ident_token: IdentToken {
                                     ident: `open_one_match`,
                                     token_idx: TokenIdx(
@@ -22740,7 +22740,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 28,
+                                ast_idx: 27,
                                 ident_token: IdentToken {
                                     ident: `almost_closed`,
                                     token_idx: TokenIdx(
@@ -22804,7 +22804,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 29,
+                                ast_idx: 28,
                                 ident_token: IdentToken {
                                     ident: `is_zero`,
                                     token_idx: TokenIdx(
@@ -22816,7 +22816,7 @@ EntitySynTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                12..26,
+                                                12..25,
                                             ),
                                         },
                                     ),
@@ -22909,7 +22909,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -22940,7 +22940,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -22971,7 +22971,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23002,7 +23002,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23033,7 +23033,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23064,7 +23064,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23095,7 +23095,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23126,7 +23126,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23157,7 +23157,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23188,7 +23188,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23225,7 +23225,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23268,7 +23268,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23311,7 +23311,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23354,7 +23354,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23397,7 +23397,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23440,7 +23440,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23483,7 +23483,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23526,7 +23526,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23565,7 +23565,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23618,7 +23618,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23671,7 +23671,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23724,7 +23724,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23777,7 +23777,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23830,7 +23830,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23848,12 +23848,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -23865,7 +23865,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -23877,13 +23877,13 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23901,12 +23901,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -23918,7 +23918,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -23930,13 +23930,13 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -23989,7 +23989,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24026,7 +24026,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24063,7 +24063,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24100,7 +24100,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24137,7 +24137,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24174,7 +24174,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24211,7 +24211,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24248,7 +24248,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24285,7 +24285,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24338,7 +24338,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24391,7 +24391,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24444,7 +24444,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24497,7 +24497,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24550,7 +24550,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24603,7 +24603,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24656,7 +24656,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24721,7 +24721,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24774,7 +24774,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24827,7 +24827,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24880,7 +24880,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24933,7 +24933,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -24986,7 +24986,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25039,7 +25039,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25104,7 +25104,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25169,7 +25169,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25234,7 +25234,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25287,7 +25287,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25340,7 +25340,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25393,7 +25393,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25446,7 +25446,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25511,7 +25511,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25576,7 +25576,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25641,7 +25641,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25706,7 +25706,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25771,7 +25771,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25836,7 +25836,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25901,7 +25901,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25966,7 +25966,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
                                 ),
-                                ast_idx: 26,
+                                ast_idx: 25,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -25977,7 +25977,7 @@ EntitySynTreeCrateBundle {
             once_use_rules: UseOneRules(
                 [
                     UseOneRule {
-                        ast_idx: 26,
+                        ast_idx: 25,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
@@ -26011,7 +26011,7 @@ EntitySynTreeCrateBundle {
                     UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
-                        ast_idx: 26,
+                        ast_idx: 25,
                         use_expr_idx: 1,
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::zero`,
@@ -26178,7 +26178,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `upmost`,
                                     token_idx: TokenIdx(
-                                        524,
+                                        530,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -26242,7 +26242,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `downmost`,
                                     token_idx: TokenIdx(
-                                        553,
+                                        559,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -26306,7 +26306,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `hat`,
                                     token_idx: TokenIdx(
-                                        587,
+                                        593,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -27366,12 +27366,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -27383,7 +27383,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -27395,7 +27395,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -27419,12 +27419,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -27436,7 +27436,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -27448,7 +27448,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -29568,7 +29568,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 51,
+                                ast_idx: 50,
                                 ident_token: IdentToken {
                                     ident: `six_match`,
                                     token_idx: TokenIdx(
@@ -29632,7 +29632,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 52,
+                                ast_idx: 51,
                                 ident_token: IdentToken {
                                     ident: `six_match_refined1`,
                                     token_idx: TokenIdx(
@@ -29696,7 +29696,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 53,
+                                ast_idx: 52,
                                 ident_token: IdentToken {
                                     ident: `is_six`,
                                     token_idx: TokenIdx(
@@ -29708,7 +29708,7 @@ EntitySynTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                27..39,
+                                                27..38,
                                             ),
                                         },
                                     ),
@@ -29760,11 +29760,11 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 54,
+                                ast_idx: 53,
                                 ident_token: IdentToken {
                                     ident: `upmost`,
                                     token_idx: TokenIdx(
-                                        303,
+                                        308,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -29772,7 +29772,7 @@ EntitySynTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                39..42,
+                                                38..41,
                                             ),
                                         },
                                     ),
@@ -29824,11 +29824,11 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 55,
+                                ast_idx: 54,
                                 ident_token: IdentToken {
                                     ident: `bottom1`,
                                     token_idx: TokenIdx(
-                                        332,
+                                        337,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -29836,7 +29836,7 @@ EntitySynTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                44..50,
+                                                43..49,
                                             ),
                                         },
                                     ),
@@ -29951,7 +29951,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -29982,7 +29982,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30013,7 +30013,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30044,7 +30044,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30075,7 +30075,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30106,7 +30106,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30137,7 +30137,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30168,7 +30168,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30199,7 +30199,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30230,7 +30230,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30267,7 +30267,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30310,7 +30310,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30353,7 +30353,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30396,7 +30396,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30439,7 +30439,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30482,7 +30482,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30525,7 +30525,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30568,7 +30568,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30607,7 +30607,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30660,7 +30660,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30713,7 +30713,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30766,7 +30766,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30819,7 +30819,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30872,7 +30872,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30890,12 +30890,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -30907,7 +30907,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -30919,13 +30919,13 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -30943,12 +30943,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -30960,7 +30960,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -30972,13 +30972,13 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31031,7 +31031,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31068,7 +31068,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31105,7 +31105,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31142,7 +31142,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31179,7 +31179,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31216,7 +31216,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31253,7 +31253,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31290,7 +31290,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31327,7 +31327,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31380,7 +31380,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31433,7 +31433,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31486,7 +31486,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31539,7 +31539,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31592,7 +31592,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31645,7 +31645,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31698,7 +31698,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31763,7 +31763,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31816,7 +31816,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31869,7 +31869,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31922,7 +31922,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -31975,7 +31975,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32028,7 +32028,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32081,7 +32081,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32146,7 +32146,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32211,7 +32211,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32276,7 +32276,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32329,7 +32329,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32382,7 +32382,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32435,7 +32435,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32488,7 +32488,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32553,7 +32553,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32618,7 +32618,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32683,7 +32683,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32748,7 +32748,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32813,7 +32813,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32878,7 +32878,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -32943,7 +32943,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -33008,7 +33008,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 49,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -33019,7 +33019,7 @@ EntitySynTreeCrateBundle {
             once_use_rules: UseOneRules(
                 [
                     UseOneRule {
-                        ast_idx: 50,
+                        ast_idx: 49,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
@@ -33053,7 +33053,7 @@ EntitySynTreeCrateBundle {
                     UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
-                        ast_idx: 50,
+                        ast_idx: 49,
                         use_expr_idx: 1,
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
@@ -33224,7 +33224,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `uparc`,
                                     token_idx: TokenIdx(
-                                        165,
+                                        171,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -33288,7 +33288,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `downarc`,
                                     token_idx: TokenIdx(
-                                        202,
+                                        208,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -33352,7 +33352,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `back`,
                                     token_idx: TokenIdx(
-                                        239,
+                                        245,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -34414,12 +34414,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -34431,7 +34431,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -34443,7 +34443,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -34467,12 +34467,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -34484,7 +34484,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -34496,7 +34496,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -36940,7 +36940,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `displacement_downwards`,
                                     token_idx: TokenIdx(
-                                        255,
+                                        270,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -37004,7 +37004,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `cc_box_heights`,
                                     token_idx: TokenIdx(
-                                        284,
+                                        299,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -38088,12 +38088,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -38105,7 +38105,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -38117,7 +38117,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -38141,12 +38141,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -38158,7 +38158,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -38170,7 +38170,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -41312,12 +41312,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -41329,7 +41329,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -41341,7 +41341,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -41365,12 +41365,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -41382,7 +41382,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -41394,7 +41394,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -43514,7 +43514,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 40,
+                                ast_idx: 38,
                                 ident_token: IdentToken {
                                     ident: `simple_seven_match`,
                                     token_idx: TokenIdx(
@@ -43578,7 +43578,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 41,
+                                ast_idx: 39,
                                 ident_token: IdentToken {
                                     ident: `simple_leftdown_pattern`,
                                     token_idx: TokenIdx(
@@ -43642,7 +43642,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 42,
+                                ast_idx: 40,
                                 ident_token: IdentToken {
                                     ident: `special_seven_match`,
                                     token_idx: TokenIdx(
@@ -43706,7 +43706,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 43,
+                                ast_idx: 41,
                                 ident_token: IdentToken {
                                     ident: `leftupcc_pattern`,
                                     token_idx: TokenIdx(
@@ -43770,7 +43770,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 44,
+                                ast_idx: 42,
                                 ident_token: IdentToken {
                                     ident: `leftdowncc_pattern`,
                                     token_idx: TokenIdx(
@@ -43834,7 +43834,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 45,
+                                ast_idx: 43,
                                 ident_token: IdentToken {
                                     ident: `is_seven`,
                                     token_idx: TokenIdx(
@@ -43846,7 +43846,7 @@ EntitySynTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                29..39,
+                                                29..37,
                                             ),
                                         },
                                     ),
@@ -43972,7 +43972,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44003,7 +44003,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44034,7 +44034,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44065,7 +44065,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44096,7 +44096,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44127,7 +44127,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44158,7 +44158,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44189,7 +44189,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44220,7 +44220,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44251,7 +44251,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44288,7 +44288,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44331,7 +44331,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44374,7 +44374,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44417,7 +44417,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44460,7 +44460,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44503,7 +44503,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44546,7 +44546,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44589,7 +44589,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44628,7 +44628,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44681,7 +44681,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44734,7 +44734,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44787,7 +44787,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44840,7 +44840,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44893,7 +44893,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44911,12 +44911,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -44928,7 +44928,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -44940,13 +44940,13 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -44964,12 +44964,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -44981,7 +44981,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -44993,13 +44993,13 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45052,7 +45052,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45089,7 +45089,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45126,7 +45126,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45163,7 +45163,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45200,7 +45200,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45237,7 +45237,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45274,7 +45274,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45311,7 +45311,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45348,7 +45348,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45401,7 +45401,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45454,7 +45454,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45507,7 +45507,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45560,7 +45560,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45613,7 +45613,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45666,7 +45666,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45719,7 +45719,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45784,7 +45784,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45837,7 +45837,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45890,7 +45890,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45943,7 +45943,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45996,7 +45996,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46049,7 +46049,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46102,7 +46102,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46167,7 +46167,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46232,7 +46232,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46297,7 +46297,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46350,7 +46350,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46403,7 +46403,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46456,7 +46456,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46509,7 +46509,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46574,7 +46574,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46639,7 +46639,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46704,7 +46704,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46769,7 +46769,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46834,7 +46834,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46899,7 +46899,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46964,7 +46964,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47029,7 +47029,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47040,7 +47040,7 @@ EntitySynTreeCrateBundle {
             once_use_rules: UseOneRules(
                 [
                     UseOneRule {
-                        ast_idx: 39,
+                        ast_idx: 37,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
@@ -47074,7 +47074,7 @@ EntitySynTreeCrateBundle {
                     UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
-                        ast_idx: 39,
+                        ast_idx: 37,
                         use_expr_idx: 1,
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
@@ -47113,7 +47113,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 19,
+                                ast_idx: 15,
                                 ident_token: IdentToken {
                                     ident: `upper_mouth_match`,
                                     token_idx: TokenIdx(
@@ -47177,7 +47177,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 20,
+                                ast_idx: 16,
                                 ident_token: IdentToken {
                                     ident: `is_eight`,
                                     token_idx: TokenIdx(
@@ -47189,7 +47189,7 @@ EntitySynTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                7..14,
+                                                7..10,
                                             ),
                                         },
                                     ),
@@ -47241,11 +47241,11 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 21,
+                                ast_idx: 17,
                                 ident_token: IdentToken {
                                     ident: `big_mouth`,
                                     token_idx: TokenIdx(
-                                        89,
+                                        73,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -47253,7 +47253,7 @@ EntitySynTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                16..18,
+                                                12..14,
                                             ),
                                         },
                                     ),
@@ -47346,7 +47346,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47377,7 +47377,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47408,7 +47408,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47439,7 +47439,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47470,7 +47470,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47501,7 +47501,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47532,7 +47532,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47563,7 +47563,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47594,7 +47594,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47625,7 +47625,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47662,7 +47662,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47705,7 +47705,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47748,7 +47748,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47791,7 +47791,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47834,7 +47834,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47877,7 +47877,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47920,7 +47920,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47963,7 +47963,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48002,7 +48002,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48055,7 +48055,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48108,7 +48108,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48161,7 +48161,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48214,7 +48214,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48267,7 +48267,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48285,12 +48285,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -48302,7 +48302,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -48314,13 +48314,13 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48338,12 +48338,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -48355,7 +48355,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -48367,13 +48367,13 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48426,7 +48426,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48463,7 +48463,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48500,7 +48500,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48537,7 +48537,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48574,7 +48574,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48611,7 +48611,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48648,7 +48648,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48685,7 +48685,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48722,7 +48722,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48775,7 +48775,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48828,7 +48828,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48881,7 +48881,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48934,7 +48934,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48987,7 +48987,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49040,7 +49040,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49093,7 +49093,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49158,7 +49158,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49211,7 +49211,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49264,7 +49264,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49317,7 +49317,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49370,7 +49370,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49423,7 +49423,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49476,7 +49476,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49541,7 +49541,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49606,7 +49606,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49671,7 +49671,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49724,7 +49724,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49777,7 +49777,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49830,7 +49830,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49883,7 +49883,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -49948,7 +49948,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -50013,7 +50013,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -50078,7 +50078,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -50143,7 +50143,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -50208,7 +50208,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -50273,7 +50273,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -50338,7 +50338,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -50403,7 +50403,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
                                 ),
-                                ast_idx: 18,
+                                ast_idx: 14,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -50414,7 +50414,7 @@ EntitySynTreeCrateBundle {
             once_use_rules: UseOneRules(
                 [
                     UseOneRule {
-                        ast_idx: 18,
+                        ast_idx: 14,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
@@ -50448,7 +50448,7 @@ EntitySynTreeCrateBundle {
                     UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
-                        ast_idx: 18,
+                        ast_idx: 14,
                         use_expr_idx: 1,
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
@@ -50487,7 +50487,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 37,
+                                ast_idx: 35,
                                 ident_token: IdentToken {
                                     ident: `nine_match`,
                                     token_idx: TokenIdx(
@@ -50551,7 +50551,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 38,
+                                ast_idx: 36,
                                 ident_token: IdentToken {
                                     ident: `nine_match_refine`,
                                     token_idx: TokenIdx(
@@ -50615,7 +50615,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 37,
                                 ident_token: IdentToken {
                                     ident: `is_nine`,
                                     token_idx: TokenIdx(
@@ -50627,7 +50627,7 @@ EntitySynTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                18..29,
+                                                18..27,
                                             ),
                                         },
                                     ),
@@ -50679,11 +50679,11 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 40,
+                                ast_idx: 38,
                                 ident_token: IdentToken {
                                     ident: `downmost`,
                                     token_idx: TokenIdx(
-                                        215,
+                                        216,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -50691,7 +50691,7 @@ EntitySynTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                29..32,
+                                                27..30,
                                             ),
                                         },
                                     ),
@@ -50743,11 +50743,11 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 41,
+                                ast_idx: 39,
                                 ident_token: IdentToken {
                                     ident: `big_cc`,
                                     token_idx: TokenIdx(
-                                        244,
+                                        245,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -50755,7 +50755,7 @@ EntitySynTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                32..36,
+                                                30..34,
                                             ),
                                         },
                                     ),
@@ -50870,7 +50870,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -50901,7 +50901,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -50932,7 +50932,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -50963,7 +50963,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -50994,7 +50994,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51025,7 +51025,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51056,7 +51056,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51087,7 +51087,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51118,7 +51118,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51149,7 +51149,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51186,7 +51186,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51229,7 +51229,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51272,7 +51272,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51315,7 +51315,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51358,7 +51358,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51401,7 +51401,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51444,7 +51444,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51487,7 +51487,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51526,7 +51526,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51579,7 +51579,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51632,7 +51632,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51685,7 +51685,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51738,7 +51738,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51791,7 +51791,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51809,12 +51809,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -51826,7 +51826,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -51838,13 +51838,13 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51862,12 +51862,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -51879,7 +51879,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -51891,13 +51891,13 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51950,7 +51950,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -51987,7 +51987,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52024,7 +52024,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52061,7 +52061,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52098,7 +52098,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52135,7 +52135,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52172,7 +52172,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52209,7 +52209,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52246,7 +52246,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52299,7 +52299,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52352,7 +52352,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52405,7 +52405,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52458,7 +52458,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52511,7 +52511,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52564,7 +52564,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52617,7 +52617,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52682,7 +52682,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52735,7 +52735,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52788,7 +52788,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52841,7 +52841,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52894,7 +52894,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -52947,7 +52947,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53000,7 +53000,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53065,7 +53065,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53130,7 +53130,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53195,7 +53195,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53248,7 +53248,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53301,7 +53301,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53354,7 +53354,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53407,7 +53407,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53472,7 +53472,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53537,7 +53537,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53602,7 +53602,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53667,7 +53667,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53732,7 +53732,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53797,7 +53797,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53862,7 +53862,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53927,7 +53927,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
                                 ),
-                                ast_idx: 36,
+                                ast_idx: 34,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -53938,7 +53938,7 @@ EntitySynTreeCrateBundle {
             once_use_rules: UseOneRules(
                 [
                     UseOneRule {
-                        ast_idx: 36,
+                        ast_idx: 34,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
@@ -53972,7 +53972,7 @@ EntitySynTreeCrateBundle {
                     UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
-                        ast_idx: 36,
+                        ast_idx: 34,
                         use_expr_idx: 1,
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::nine`,
@@ -54011,7 +54011,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 51,
+                                ast_idx: 45,
                                 ident_token: IdentToken {
                                     ident: `two_match`,
                                     token_idx: TokenIdx(
@@ -54075,7 +54075,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 52,
+                                ast_idx: 46,
                                 ident_token: IdentToken {
                                     ident: `left_cc_pattern`,
                                     token_idx: TokenIdx(
@@ -54139,7 +54139,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 53,
+                                ast_idx: 47,
                                 ident_token: IdentToken {
                                     ident: `right_cc_pattern`,
                                     token_idx: TokenIdx(
@@ -54203,7 +54203,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 54,
+                                ast_idx: 48,
                                 ident_token: IdentToken {
                                     ident: `down_cc_pattern`,
                                     token_idx: TokenIdx(
@@ -54267,7 +54267,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 55,
+                                ast_idx: 49,
                                 ident_token: IdentToken {
                                     ident: `is_two`,
                                     token_idx: TokenIdx(
@@ -54279,7 +54279,7 @@ EntitySynTreeCrateBundle {
                                     body: Some(
                                         FugitiveBody {
                                             ast_idx_range: ArenaIdxRange(
-                                                32..50,
+                                                32..44,
                                             ),
                                         },
                                     ),
@@ -54394,7 +54394,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54425,7 +54425,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54456,7 +54456,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54487,7 +54487,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54518,7 +54518,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54549,7 +54549,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54580,7 +54580,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54611,7 +54611,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54642,7 +54642,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54673,7 +54673,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54710,7 +54710,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54753,7 +54753,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54796,7 +54796,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54839,7 +54839,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54882,7 +54882,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54925,7 +54925,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -54968,7 +54968,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55011,7 +55011,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55050,7 +55050,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55103,7 +55103,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55156,7 +55156,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55209,7 +55209,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55262,7 +55262,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55315,7 +55315,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55333,12 +55333,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -55350,7 +55350,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -55362,13 +55362,13 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55386,12 +55386,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -55403,7 +55403,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -55415,13 +55415,13 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55474,7 +55474,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55511,7 +55511,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55548,7 +55548,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55585,7 +55585,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55622,7 +55622,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55659,7 +55659,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55696,7 +55696,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55733,7 +55733,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55770,7 +55770,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55823,7 +55823,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55876,7 +55876,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55929,7 +55929,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -55982,7 +55982,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56035,7 +56035,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56088,7 +56088,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56141,7 +56141,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56206,7 +56206,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56259,7 +56259,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56312,7 +56312,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56365,7 +56365,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56418,7 +56418,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56471,7 +56471,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56524,7 +56524,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56589,7 +56589,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56654,7 +56654,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56719,7 +56719,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56772,7 +56772,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56825,7 +56825,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56878,7 +56878,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56931,7 +56931,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -56996,7 +56996,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -57061,7 +57061,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -57126,7 +57126,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -57191,7 +57191,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -57256,7 +57256,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -57321,7 +57321,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -57386,7 +57386,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -57451,7 +57451,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 44,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -57462,7 +57462,7 @@ EntitySynTreeCrateBundle {
             once_use_rules: UseOneRules(
                 [
                     UseOneRule {
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
@@ -57496,7 +57496,7 @@ EntitySynTreeCrateBundle {
                     UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
-                        ast_idx: 50,
+                        ast_idx: 44,
                         use_expr_idx: 1,
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
@@ -58448,12 +58448,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -58465,7 +58465,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -58487,12 +58487,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -58504,7 +58504,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(

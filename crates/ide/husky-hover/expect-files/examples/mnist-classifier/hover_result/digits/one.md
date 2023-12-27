@@ -279,18 +279,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 279;\n\ntoken_line_group_idx = 27\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 279;\n\ntoken_line_group_idx = 27\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Dot,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
                                 line: 50,
-                                character: 66,
+                                character: 59,
                             },
                             end: Position {
                                 line: 50,
-                                character: 67,
+                                character: 60,
                             },
                         },
                     ),
@@ -309,18 +309,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 310;\n\ntoken_line_group_idx = 30\n\ntoken = TokenData::Ident(\n    `long_vertical_dp`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                141,\n            ),\n        ),\n        data: TokenInfoData::CurrentSynSymbol {\n            current_syn_symbol_idx: 9,\n            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {\n                pattern_symbol_idx: 9,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentSynSymbol {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        273,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                334,\n            ),\n        ),\n    ),\n    data: CurrentSynSymbolData::LetVariable {\n        ident: `long_vertical_dp`,\n        pattern_symbol_idx: 9,\n    },\n}\n",
+                            value: "\ntoken_idx = 310;\n\ntoken_line_group_idx = 29\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 53,
-                                character: 20,
+                                line: 52,
+                                character: 61,
                             },
                             end: Position {
-                                line: 53,
-                                character: 36,
+                                line: 52,
+                                character: 62,
                             },
                         },
                     ),
@@ -339,18 +339,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 341;\n\ntoken_line_group_idx = 31\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Question,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 341;\n\ntoken_line_group_idx = 31\n\ntoken = TokenData::Literal(\n    LiteralData::Integer(\n        UnspecifiedRegular(\n            2,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 59,
-                                character: 13,
+                                line: 58,
+                                character: 23,
                             },
                             end: Position {
-                                line: 59,
-                                character: 14,
+                                line: 58,
+                                character: 24,
                             },
                         },
                     ),
@@ -369,18 +369,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 372;\n\ntoken_line_group_idx = 34\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Dot,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 372;\n\ntoken_line_group_idx = 33\n\ntoken = TokenData::Ident(\n    `_`,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 67,
-                                character: 31,
+                                line: 65,
+                                character: 23,
                             },
                             end: Position {
-                                line: 67,
-                                character: 32,
+                                line: 65,
+                                character: 24,
                             },
                         },
                     ),
@@ -399,18 +399,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 403;\n\ntoken_line_group_idx = 34\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 403;\n\ntoken_line_group_idx = 34\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Exclamation,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
                                 line: 69,
-                                character: 61,
+                                character: 42,
                             },
                             end: Position {
                                 line: 69,
-                                character: 62,
+                                character: 43,
                             },
                         },
                     ),
@@ -429,18 +429,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 434;\n\ntoken_line_group_idx = 37\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Eq,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 434;\n\ntoken_line_group_idx = 36\n\ntoken = TokenData::Ident(\n    `start`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                204,\n            ),\n        ),\n        data: TokenInfoData::Method,\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 75,
-                                character: 28,
+                                line: 74,
+                                character: 63,
                             },
                             end: Position {
-                                line: 75,
-                                character: 29,
+                                line: 74,
+                                character: 68,
                             },
                         },
                     ),
@@ -459,18 +459,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 465;\n\ntoken_line_group_idx = 39\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "Other\ntoken_idx = 465;\n\ntoken_line_group_idx = 39\n\ntoken = TokenData::Keyword(\n    Keyword::Stmt(\n        Let,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
                                 line: 77,
-                                character: 57,
+                                character: 8,
                             },
                             end: Position {
                                 line: 77,
-                                character: 58,
+                                character: 11,
                             },
                         },
                     ),
@@ -489,17 +489,17 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 496;\n\ntoken_line_group_idx = 43\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Dot,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 496;\n\ntoken_line_group_idx = 42\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Dot,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 85,
+                                line: 84,
                                 character: 41,
                             },
                             end: Position {
-                                line: 85,
+                                line: 84,
                                 character: 42,
                             },
                         },
@@ -519,18 +519,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 527;\n\ntoken_line_group_idx = 49\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Tilde,\n    ),\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                2,\n            ),\n        ),\n        data: TokenInfoData::SemaPrefixTypeOpr,\n    },\n);\n\nSemaPrefixTypeOpr\n",
+                            value: "\ntoken_idx = 527;\n\ntoken_line_group_idx = 48\n\ntoken = TokenData::Ident(\n    `Yes`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            47,\n            PrincipalEntityPath::TypeVariant(\n                TypeVariantPath(\n                    ItemPathId {\n                        data: ItemPathData::TypeVariant(\n                            TypeVariantPathData {\n                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),\n                                ident: `Yes`,\n                                index: U8(\n                                    0,\n                                ),\n                            },\n                        ),\n                    },\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::TypeVariant(\n                Room32,\n                TypeVariantPath(\n                    ItemPathId {\n                        data: ItemPathData::TypeVariant(\n                            TypeVariantPathData {\n                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),\n                                ident: `Yes`,\n                                index: U8(\n                                    0,\n                                ),\n                            },\n                        ),\n                    },\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 92,
-                                character: 14,
+                                line: 90,
+                                character: 18,
                             },
                             end: Position {
-                                line: 92,
-                                character: 15,
+                                line: 90,
+                                character: 21,
                             },
                         },
                     ),
@@ -549,18 +549,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 558;\n\ntoken_line_group_idx = 53\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 558;\n\ntoken_line_group_idx = 53\n\ntoken = TokenData::Ident(\n    `downmost`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::MajorItem(\n                MajorItemSynNodePath::Fugitive(\n                    FugitiveSynNodePath(\n                        ItemSynNodePathId {\n                            data: ItemSynNodePathData::MajorItem(\n                                MajorItemSynNodePathData::Fugitive(\n                                    FugitiveSynNodePathData {\n                                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                                            path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),\n                                            disambiguator: 0,\n                                        },\n                                    },\n                                ),\n                            ),\n                        },\n                    ),\n                ),\n            ),\n            MajorItem {\n                module_item_kind: Fugitive(\n                    FunctionFn,\n                ),\n                connection: Connected,\n            },\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
                                 line: 97,
-                                character: 33,
+                                character: 3,
                             },
                             end: Position {
                                 line: 97,
-                                character: 34,
+                                character: 11,
                             },
                         },
                     ),
@@ -579,18 +579,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 589;\n\ntoken_line_group_idx = 57\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Colon,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 589;\n\ntoken_line_group_idx = 56\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Dot,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 102,
-                                character: 9,
+                                line: 100,
+                                character: 13,
                             },
                             end: Position {
-                                line: 102,
-                                character: 10,
+                                line: 100,
+                                character: 14,
                             },
                         },
                     ),
@@ -609,18 +609,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 620;\n\ntoken_line_group_idx = 61\n\ntoken = TokenData::Ident(\n    `y`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                12,\n            ),\n        ),\n        data: TokenInfoData::Field,\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 620;\n\ntoken_line_group_idx = 60\n\ntoken = TokenData::Ident(\n    `x`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemaExpr(\n            SemaExprIdx(\n                8,\n            ),\n        ),\n        data: TokenInfoData::Field,\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 106,
-                                character: 8,
+                                line: 105,
+                                character: 15,
                             },
                             end: Position {
-                                line: 106,
-                                character: 9,
+                                line: 105,
+                                character: 16,
                             },
                         },
                     ),

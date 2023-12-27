@@ -51,7 +51,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 277,
+                                        value: 276,
                                     },
                                 ),
                             ),
@@ -113,7 +113,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 279,
+                                        value: 278,
                                     },
                                 ),
                             ),
@@ -196,7 +196,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 276,
+                                                    value: 275,
                                                 },
                                             ),
                                         ),
@@ -384,19 +384,10 @@
                                                     ItemPathId {
                                                         data: ItemPathData::TypeVariant(
                                                             TypeVariantPathData {
-                                                                parent_ty_path: TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 75,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                ident: Ident(
-                                                                    Coword(
-                                                                        Id {
-                                                                            value: 116,
-                                                                        },
-                                                                    ),
+                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                ident: `Some`,
+                                                                index: U8(
+                                                                    0,
                                                                 ),
                                                             },
                                                         ),
@@ -478,7 +469,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 379,
+                                                        value: 378,
                                                     },
                                                 ),
                                             ),
@@ -589,7 +580,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 276,
+                                                    value: 275,
                                                 },
                                             ),
                                         ),
@@ -777,19 +768,10 @@
                                                     ItemPathId {
                                                         data: ItemPathData::TypeVariant(
                                                             TypeVariantPathData {
-                                                                parent_ty_path: TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 75,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                ident: Ident(
-                                                                    Coword(
-                                                                        Id {
-                                                                            value: 116,
-                                                                        },
-                                                                    ),
+                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                ident: `Some`,
+                                                                index: U8(
+                                                                    0,
                                                                 ),
                                                             },
                                                         ),
@@ -871,7 +853,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 379,
+                                                        value: 378,
                                                     },
                                                 ),
                                             ),
@@ -982,7 +964,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 276,
+                                                    value: 275,
                                                 },
                                             ),
                                         ),
@@ -1170,19 +1152,10 @@
                                                     ItemPathId {
                                                         data: ItemPathData::TypeVariant(
                                                             TypeVariantPathData {
-                                                                parent_ty_path: TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 75,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                ident: Ident(
-                                                                    Coword(
-                                                                        Id {
-                                                                            value: 116,
-                                                                        },
-                                                                    ),
+                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                ident: `Some`,
+                                                                index: U8(
+                                                                    0,
                                                                 ),
                                                             },
                                                         ),
@@ -1264,7 +1237,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 379,
+                                                        value: 378,
                                                     },
                                                 ),
                                             ),

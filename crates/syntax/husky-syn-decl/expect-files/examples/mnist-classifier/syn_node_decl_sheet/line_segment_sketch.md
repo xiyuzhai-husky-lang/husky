@@ -271,7 +271,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 252,
+                                                            value: 251,
                                                         },
                                                     ),
                                                 ),
@@ -419,13 +419,6 @@ SynNodeDeclSheet {
                                                     ),
                                                 ),
                                             },
-                                            SynExprData::Prefix {
-                                                opr: Tilde,
-                                                opr_regional_token_idx: RegionalTokenIdx(
-                                                    7,
-                                                ),
-                                                opd: 1,
-                                            },
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 2,
                                                 opt_path: Some(
@@ -437,8 +430,15 @@ SynNodeDeclSheet {
                                                 ),
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 2,
-                                                argument_expr_idx: 3,
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
+                                            },
+                                            SynExprData::Prefix {
+                                                opr: Tilde,
+                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                    7,
+                                                ),
+                                                opd: 3,
                                             },
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 3,
@@ -730,7 +730,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 252,
+                                                                    value: 251,
                                                                 },
                                                             ),
                                                         ),
@@ -903,7 +903,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 330,
+                                                            value: 329,
                                                         },
                                                     ),
                                                 ),
@@ -927,7 +927,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 366,
+                                                            value: 365,
                                                         },
                                                     ),
                                                 ),
@@ -1135,7 +1135,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 330,
+                                                                    value: 329,
                                                                 },
                                                             ),
                                                         ),
@@ -1155,7 +1155,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 366,
+                                                                    value: 365,
                                                                 },
                                                             ),
                                                         ),
@@ -1436,7 +1436,7 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `u`,
@@ -1445,7 +1445,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `r`,
@@ -1823,7 +1823,7 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `u`,
@@ -1832,7 +1832,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `r`,
@@ -2261,7 +2261,7 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `ct`,
@@ -2270,7 +2270,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `start`,
@@ -2279,7 +2279,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `r`,
@@ -2797,7 +2797,7 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `ct`,
@@ -2806,7 +2806,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `start0`,
@@ -2815,7 +2815,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `end`,
@@ -2824,7 +2824,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `r`,
@@ -3312,7 +3312,7 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `ct`,
@@ -3321,7 +3321,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `r`,
@@ -4612,7 +4612,7 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `ct`,
@@ -4621,7 +4621,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `from`,
@@ -4630,7 +4630,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `to`,
@@ -6749,7 +6749,7 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `ct`,
@@ -6758,7 +6758,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `r`,

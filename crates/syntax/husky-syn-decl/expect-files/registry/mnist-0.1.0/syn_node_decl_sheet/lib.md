@@ -119,7 +119,7 @@ SynNodeDeclSheet {
                                 MajorItemSynNodePathData::Type(
                                     TypeSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                            path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -131,15 +131,15 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
-                    TypeSynNodeDecl::TupleStruct(
-                        TupleStructTypeSynNodeDecl {
+                    TypeSynNodeDecl::Extern(
+                        ExternTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -149,33 +149,6 @@ SynNodeDeclSheet {
                             ),
                             template_parameter_decl_list: Ok(
                                 None,
-                            ),
-                            lpar: LparRegionalToken(
-                                RegionalTokenIdx(
-                                    4,
-                                ),
-                            ),
-                            field_comma_list: Ok(
-                                PunctuatedSmallList {
-                                    elements: [
-                                        TupleFieldSyndicate {
-                                            decorators: [],
-                                            visibility: None,
-                                            ty: 4,
-                                        },
-                                    ],
-                                    separators: [],
-                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
-                                },
-                            ),
-                            rpar: Ok(
-                                TupleStructRparRegionalToken(
-                                    RparRegionalToken(
-                                        RegionalTokenIdx(
-                                            9,
-                                        ),
-                                    ),
-                                ),
                             ),
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -189,7 +162,7 @@ SynNodeDeclSheet {
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -201,65 +174,10 @@ SynNodeDeclSheet {
                                         ),
                                     ),
                                     syn_expr_arena: Arena {
-                                        data: [
-                                            SynExprData::Literal(
-                                                RegionalTokenIdx(
-                                                    6,
-                                                ),
-                                                LiteralData::Integer(
-                                                    UnspecifiedRegular(
-                                                        30,
-                                                    ),
-                                                ),
-                                            ),
-                                            SynExprData::List {
-                                                lbox_regional_token_idx: RegionalTokenIdx(
-                                                    5,
-                                                ),
-                                                items: [
-                                                    SynCommaListItem {
-                                                        syn_expr_idx: 1,
-                                                        comma_regional_token_idx: None,
-                                                    },
-                                                ],
-                                                rbox_regional_token_idx: RegionalTokenIdx(
-                                                    7,
-                                                ),
-                                            },
-                                            SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
-                                                opt_path: Some(
-                                                    PrincipalEntityPath::MajorItem(
-                                                        MajorItemPath::Type(
-                                                            TypePath(`core::raw_bits::r32`, `Extern`),
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                            SynExprData::ExplicitApplication {
-                                                function_expr_idx: 2,
-                                                argument_expr_idx: 3,
-                                            },
-                                        ],
+                                        data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
-                                        data: [
-                                            SynPrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameRegionalToken::Ident(
-                                                    IdentRegionalToken {
-                                                        ident: `r32`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            8,
-                                                        ),
-                                                    },
-                                                ),
-                                                principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::raw_bits::r32`, `Extern`),
-                                                    ),
-                                                ),
-                                            },
-                                        ],
+                                        data: [],
                                     },
                                     stmt_arena: Arena {
                                         data: [],
@@ -291,12 +209,7 @@ SynNodeDeclSheet {
                                         pattern_ty_constraints: [],
                                     },
                                     syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
-                                        SynExprRoot {
-                                            kind: SynExprRootKind::TupleStructFieldType,
-                                            syn_expr_idx: 4,
-                                        },
-                                    ],
+                                    syn_expr_roots: [],
                                     has_self_lifetime: false,
                                     has_self_place: false,
                                     syn_pattern_to_current_syn_symbol_map: [],
@@ -316,7 +229,7 @@ SynNodeDeclSheet {
                                 MajorItemSynNodePathData::Type(
                                     TypeSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                            path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -328,15 +241,15 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
-                    TypeSynNodeDecl::TupleStruct(
-                        TupleStructTypeSynNodeDecl {
+                    TypeSynNodeDecl::Extern(
+                        ExternTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -346,33 +259,6 @@ SynNodeDeclSheet {
                             ),
                             template_parameter_decl_list: Ok(
                                 None,
-                            ),
-                            lpar: LparRegionalToken(
-                                RegionalTokenIdx(
-                                    4,
-                                ),
-                            ),
-                            field_comma_list: Ok(
-                                PunctuatedSmallList {
-                                    elements: [
-                                        TupleFieldSyndicate {
-                                            decorators: [],
-                                            visibility: None,
-                                            ty: 4,
-                                        },
-                                    ],
-                                    separators: [],
-                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
-                                },
-                            ),
-                            rpar: Ok(
-                                TupleStructRparRegionalToken(
-                                    RparRegionalToken(
-                                        RegionalTokenIdx(
-                                            9,
-                                        ),
-                                    ),
-                                ),
                             ),
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -386,7 +272,7 @@ SynNodeDeclSheet {
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                        path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -398,65 +284,10 @@ SynNodeDeclSheet {
                                         ),
                                     ),
                                     syn_expr_arena: Arena {
-                                        data: [
-                                            SynExprData::Literal(
-                                                RegionalTokenIdx(
-                                                    6,
-                                                ),
-                                                LiteralData::Integer(
-                                                    UnspecifiedRegular(
-                                                        31,
-                                                    ),
-                                                ),
-                                            ),
-                                            SynExprData::List {
-                                                lbox_regional_token_idx: RegionalTokenIdx(
-                                                    5,
-                                                ),
-                                                items: [
-                                                    SynCommaListItem {
-                                                        syn_expr_idx: 1,
-                                                        comma_regional_token_idx: None,
-                                                    },
-                                                ],
-                                                rbox_regional_token_idx: RegionalTokenIdx(
-                                                    7,
-                                                ),
-                                            },
-                                            SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
-                                                opt_path: Some(
-                                                    PrincipalEntityPath::MajorItem(
-                                                        MajorItemPath::Type(
-                                                            TypePath(`core::raw_bits::r32`, `Extern`),
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                            SynExprData::ExplicitApplication {
-                                                function_expr_idx: 2,
-                                                argument_expr_idx: 3,
-                                            },
-                                        ],
+                                        data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
-                                        data: [
-                                            SynPrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameRegionalToken::Ident(
-                                                    IdentRegionalToken {
-                                                        ident: `r32`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            8,
-                                                        ),
-                                                    },
-                                                ),
-                                                principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::raw_bits::r32`, `Extern`),
-                                                    ),
-                                                ),
-                                            },
-                                        ],
+                                        data: [],
                                     },
                                     stmt_arena: Arena {
                                         data: [],
@@ -488,12 +319,7 @@ SynNodeDeclSheet {
                                         pattern_ty_constraints: [],
                                     },
                                     syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
-                                        SynExprRoot {
-                                            kind: SynExprRootKind::TupleStructFieldType,
-                                            syn_expr_idx: 4,
-                                        },
-                                    ],
+                                    syn_expr_roots: [],
                                     has_self_lifetime: false,
                                     has_self_place: false,
                                     syn_pattern_to_current_syn_symbol_map: [],
@@ -600,7 +426,7 @@ SynNodeDeclSheet {
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
-                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -620,7 +446,7 @@ SynNodeDeclSheet {
                                                 ),
                                                 principal_entity_path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                             },
@@ -685,7 +511,7 @@ SynNodeDeclSheet {
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::visual::Visualize`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -710,7 +536,7 @@ SynNodeDeclSheet {
                                                     module_path: `mnist`,
                                                     trai_path: TraitPath(`core::visual::Visualize`),
                                                     ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -766,7 +592,7 @@ SynNodeDeclSheet {
                                                                         module_path: `mnist`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -796,7 +622,7 @@ SynNodeDeclSheet {
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                             ),
@@ -831,7 +657,7 @@ SynNodeDeclSheet {
                                             ),
                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -905,7 +731,7 @@ SynNodeDeclSheet {
                                                                         module_path: `mnist`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -946,7 +772,7 @@ SynNodeDeclSheet {
                                                                                 module_path: `mnist`,
                                                                                 trai_path: TraitPath(`core::visual::Visualize`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -1030,7 +856,7 @@ SynNodeDeclSheet {
                                                                                         module_path: `mnist`,
                                                                                         trai_path: TraitPath(`core::visual::Visualize`),
                                                                                         ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                                         ),
                                                                                         disambiguator: 0,
                                                                                     },
@@ -1060,7 +886,7 @@ SynNodeDeclSheet {
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
-                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -1095,7 +921,7 @@ SynNodeDeclSheet {
                                                             ),
                                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
-                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -1166,7 +992,7 @@ SynNodeDeclSheet {
                                                                                                     module_path: `mnist`,
                                                                                                     trai_path: TraitPath(`core::visual::Visualize`),
                                                                                                     ty_sketch: TypeSketch::Path(
-                                                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                                                     ),
                                                                                                     disambiguator: 0,
                                                                                                 },
@@ -1278,7 +1104,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 478,
+                                                    value: 480,
                                                 },
                                             ),
                                         ),
@@ -1300,7 +1126,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 478,
+                                                        value: 480,
                                                     },
                                                 ),
                                             ),
@@ -1343,7 +1169,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 478,
+                                                                            value: 480,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1362,7 +1188,7 @@ SynNodeDeclSheet {
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                             ),
@@ -1382,7 +1208,7 @@ SynNodeDeclSheet {
                                             ),
                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -1533,7 +1359,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 478,
+                                                                                            value: 480,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1552,7 +1378,7 @@ SynNodeDeclSheet {
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
-                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -1572,7 +1398,7 @@ SynNodeDeclSheet {
                                                             ),
                                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
-                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -1711,7 +1537,7 @@ SynNodeDeclSheet {
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::ops::IntIndex`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -1736,7 +1562,7 @@ SynNodeDeclSheet {
                                                     module_path: `mnist`,
                                                     trai_path: TraitPath(`core::ops::IntIndex`),
                                                     ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -1792,7 +1618,7 @@ SynNodeDeclSheet {
                                                                         module_path: `mnist`,
                                                                         trai_path: TraitPath(`core::ops::IntIndex`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -1822,7 +1648,7 @@ SynNodeDeclSheet {
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     ),
                                                 ),
                                             ),
@@ -1899,7 +1725,7 @@ SynNodeDeclSheet {
                                             ),
                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -1973,7 +1799,7 @@ SynNodeDeclSheet {
                                                                         module_path: `mnist`,
                                                                         trai_path: TraitPath(`core::ops::IntIndex`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -2014,7 +1840,7 @@ SynNodeDeclSheet {
                                                                                 module_path: `mnist`,
                                                                                 trai_path: TraitPath(`core::ops::IntIndex`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -2063,7 +1889,7 @@ SynNodeDeclSheet {
                                                                                         module_path: `mnist`,
                                                                                         trai_path: TraitPath(`core::ops::IntIndex`),
                                                                                         ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                                         ),
                                                                                         disambiguator: 0,
                                                                                     },
@@ -2093,7 +1919,7 @@ SynNodeDeclSheet {
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
-                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -2170,7 +1996,7 @@ SynNodeDeclSheet {
                                                             ),
                                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
-                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -2241,7 +2067,7 @@ SynNodeDeclSheet {
                                                                                                     module_path: `mnist`,
                                                                                                     trai_path: TraitPath(`core::ops::IntIndex`),
                                                                                                     ty_sketch: TypeSketch::Path(
-                                                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                                                                                     ),
                                                                                                     disambiguator: 0,
                                                                                                 },
@@ -2355,7 +2181,7 @@ SynNodeDeclSheet {
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::visual::Visualize`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -2380,7 +2206,7 @@ SynNodeDeclSheet {
                                                     module_path: `mnist`,
                                                     trai_path: TraitPath(`core::visual::Visualize`),
                                                     ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -2436,7 +2262,7 @@ SynNodeDeclSheet {
                                                                         module_path: `mnist`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -2466,7 +2292,7 @@ SynNodeDeclSheet {
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                             ),
@@ -2501,7 +2327,7 @@ SynNodeDeclSheet {
                                             ),
                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -2575,7 +2401,7 @@ SynNodeDeclSheet {
                                                                         module_path: `mnist`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -2616,7 +2442,7 @@ SynNodeDeclSheet {
                                                                                 module_path: `mnist`,
                                                                                 trai_path: TraitPath(`core::visual::Visualize`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -2700,7 +2526,7 @@ SynNodeDeclSheet {
                                                                                         module_path: `mnist`,
                                                                                         trai_path: TraitPath(`core::visual::Visualize`),
                                                                                         ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                                         ),
                                                                                         disambiguator: 0,
                                                                                     },
@@ -2730,7 +2556,7 @@ SynNodeDeclSheet {
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
-                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -2765,7 +2591,7 @@ SynNodeDeclSheet {
                                                             ),
                                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
-                                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -2836,7 +2662,7 @@ SynNodeDeclSheet {
                                                                                                     module_path: `mnist`,
                                                                                                     trai_path: TraitPath(`core::visual::Visualize`),
                                                                                                     ty_sketch: TypeSketch::Path(
-                                                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                                                     ),
                                                                                                     disambiguator: 0,
                                                                                                 },
@@ -2948,7 +2774,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 481,
+                                                    value: 483,
                                                 },
                                             ),
                                         ),
@@ -2970,7 +2796,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 481,
+                                                        value: 483,
                                                     },
                                                 ),
                                             ),
@@ -3013,7 +2839,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 481,
+                                                                            value: 483,
                                                                         },
                                                                     ),
                                                                 ),
@@ -3032,7 +2858,7 @@ SynNodeDeclSheet {
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                             ),
@@ -3052,7 +2878,7 @@ SynNodeDeclSheet {
                                             ),
                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -3203,7 +3029,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 481,
+                                                                                            value: 483,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3222,7 +3048,7 @@ SynNodeDeclSheet {
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
-                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -3242,7 +3068,7 @@ SynNodeDeclSheet {
                                                             ),
                                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
-                                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -3381,7 +3207,7 @@ SynNodeDeclSheet {
                                                 module_path: `mnist`,
                                                 trai_path: TraitPath(`core::ops::IntIndex`),
                                                 ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -3406,7 +3232,7 @@ SynNodeDeclSheet {
                                                     module_path: `mnist`,
                                                     trai_path: TraitPath(`core::ops::IntIndex`),
                                                     ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -3462,7 +3288,7 @@ SynNodeDeclSheet {
                                                                         module_path: `mnist`,
                                                                         trai_path: TraitPath(`core::ops::IntIndex`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -3492,7 +3318,7 @@ SynNodeDeclSheet {
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     ),
                                                 ),
                                             ),
@@ -3569,7 +3395,7 @@ SynNodeDeclSheet {
                                             ),
                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -3643,7 +3469,7 @@ SynNodeDeclSheet {
                                                                         module_path: `mnist`,
                                                                         trai_path: TraitPath(`core::ops::IntIndex`),
                                                                         ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -3684,7 +3510,7 @@ SynNodeDeclSheet {
                                                                                 module_path: `mnist`,
                                                                                 trai_path: TraitPath(`core::ops::IntIndex`),
                                                                                 ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                                 ),
                                                                                 disambiguator: 0,
                                                                             },
@@ -3733,7 +3559,7 @@ SynNodeDeclSheet {
                                                                                         module_path: `mnist`,
                                                                                         trai_path: TraitPath(`core::ops::IntIndex`),
                                                                                         ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                            TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                                         ),
                                                                                         disambiguator: 0,
                                                                                     },
@@ -3763,7 +3589,7 @@ SynNodeDeclSheet {
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
-                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                     ),
                                                                 ),
                                                             ),
@@ -3840,7 +3666,7 @@ SynNodeDeclSheet {
                                                             ),
                                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
-                                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                 ),
                                                             ),
                                                         },
@@ -3911,7 +3737,7 @@ SynNodeDeclSheet {
                                                                                                     module_path: `mnist`,
                                                                                                     trai_path: TraitPath(`core::ops::IntIndex`),
                                                                                                     ty_sketch: TypeSketch::Path(
-                                                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                                                                     ),
                                                                                                     disambiguator: 0,
                                                                                                 },

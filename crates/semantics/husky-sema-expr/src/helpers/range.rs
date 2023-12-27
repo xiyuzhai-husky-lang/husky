@@ -288,7 +288,13 @@ impl<'a> SemaExprRangeCalculator<'a> {
             }
             SynPatternExprData::Tuple { .. } => todo!(),
             SynPatternExprData::TupleStruct { .. } => todo!(),
-            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
+            SynPatternExprData::TupleTypeVariant {
+                path_expr_idx,
+                rpar,
+                ..
+            } => self.principal_entity_path_expr_ranges[path_expr_idx.index()].to(
+                RegionalTokenIdxRangeEnd::new_after(rpar.regional_token_idx()),
+            ),
             SynPatternExprData::TupleStruct { .. } => todo!(),
             SynPatternExprData::TupleTypeVariant { .. } => todo!(),
             SynPatternExprData::Props { name, ref fields } => todo!(),

@@ -243,7 +243,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 238,
+                                                                    value: 237,
                                                                 },
                                                             ),
                                                         ),
@@ -263,7 +263,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 426,
+                                                                    value: 425,
                                                                 },
                                                             ),
                                                         ),
@@ -395,13 +395,6 @@ SynDeclSheet {
                                                     9,
                                                 ),
                                             },
-                                            SynExprData::Prefix {
-                                                opr: Tilde,
-                                                opr_regional_token_idx: RegionalTokenIdx(
-                                                    7,
-                                                ),
-                                                opd: 1,
-                                            },
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
                                                 opt_path: Some(
@@ -413,8 +406,15 @@ SynDeclSheet {
                                                 ),
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 2,
-                                                argument_expr_idx: 3,
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
+                                            },
+                                            SynExprData::Prefix {
+                                                opr: Tilde,
+                                                opr_regional_token_idx: RegionalTokenIdx(
+                                                    7,
+                                                ),
+                                                opd: 3,
                                             },
                                             SynExprData::List {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
@@ -589,7 +589,7 @@ SynDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `concave_components`,
@@ -598,7 +598,7 @@ SynDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `templates`,

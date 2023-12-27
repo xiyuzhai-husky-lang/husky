@@ -637,14 +637,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),
@@ -4412,14 +4412,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),
@@ -4746,14 +4746,14 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     ),

@@ -41,7 +41,7 @@
                     ),
                 ),
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
                         ),
@@ -77,7 +77,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::Fugitive(
                             FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                         ),
@@ -157,7 +157,7 @@
                     ),
                 ),
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::Fugitive(
                             FugitivePath(`quick_sort::partition`, `FunctionFn`),
                         ),
@@ -191,7 +191,7 @@
                             separator: None,
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::Fugitive(
                             FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                         ),
@@ -271,7 +271,7 @@
                     ),
                 ),
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
                         ),
@@ -330,7 +330,17 @@
                         [],
                     ),
                 ),
-                rides: [],
+                rides: [
+                    ValkyrieRide::VecConstructor {
+                        element_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                template_arguments: [],
+                                always_copyable: true,
+                            },
+                        ),
+                    },
+                ],
             },
         ),
     ),
@@ -347,7 +357,30 @@
                         [],
                     ),
                 ),
-                rides: [],
+                rides: [
+                    ValkyrieRide::VecConstructor {
+                        element_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::mem::Ref`, `Extern`),
+                                template_arguments: [
+                                    HirTemplateArgument::Constant(
+                                        StaticLifetime,
+                                    ),
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::str::str`, `Extern`),
+                                                template_arguments: [],
+                                                always_copyable: false,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                                always_copyable: false,
+                            },
+                        ),
+                    },
+                ],
             },
         ),
     ),

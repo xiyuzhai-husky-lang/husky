@@ -16,7 +16,13 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
             HirType::PathLeading(path_leading_hir_ty) => {
                 let template_arguments = path_leading_hir_ty.template_arguments(db);
                 match path_leading_hir_ty.ty_path(db).refine(db) {
-                    Left(PreludeTypePath::Container(PreludeContainerTypePath::Array)) => {
+                    Left(PreludeTypePath::REF) => {
+                        debug_assert_eq!(template_arguments.len(), 2);
+                        builder.punctuation(RustPunctuation::Ambersand);
+                        template_arguments[0].transpile_to_rust(builder);
+                        template_arguments[1].transpile_to_rust(builder)
+                    }
+                    Left(PreludeTypePath::ARRAY) => {
                         debug_assert_eq!(template_arguments.len(), 2);
                         builder.bracketed(RustBracket::Box, |builder| {
                             template_arguments[1].transpile_to_rust(builder);
@@ -24,7 +30,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
                             template_arguments[0].transpile_to_rust(builder);
                         })
                     }
-                    Left(PreludeTypePath::Container(PreludeContainerTypePath::Slice)) => {
+                    Left(PreludeTypePath::SLICE) => {
                         debug_assert_eq!(template_arguments.len(), 1);
                         builder.bracketed(RustBracket::Box, |builder| {
                             template_arguments[0].transpile_to_rust(builder)
@@ -130,6 +136,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirConstant {
             HirConstant::RSize(_) => todo!(),
             HirConstant::Symbol(symbol) => builder.hir_template_symbol(symbol),
             HirConstant::TypeVariant(path) => path.transpile_to_rust(builder),
+            HirConstant::StaticLifetime => todo!(),
         }
     }
 }

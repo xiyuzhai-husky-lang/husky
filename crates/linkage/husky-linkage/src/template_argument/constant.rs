@@ -43,6 +43,7 @@ impl LinkageConstant {
             HirConstant::RSize(value) => JavelinConstant::RSize(value),
             HirConstant::Symbol(_) => todo!("use javelin instantiation"),
             HirConstant::TypeVariant(_) => unreachable!(),
+            HirConstant::StaticLifetime => todo!(),
         })
     }
 }

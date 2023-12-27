@@ -362,7 +362,7 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `cc`,
@@ -583,19 +583,10 @@ SynNodeDeclSheet {
                                                             ItemPathId {
                                                                 data: ItemPathData::TypeVariant(
                                                                     TypeVariantPathData {
-                                                                        parent_ty_path: TypePath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 335,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                        ident: Ident(
-                                                                            Coword(
-                                                                                Id {
-                                                                                    value: 435,
-                                                                                },
-                                                                            ),
+                                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                        ident: `Zero`,
+                                                                        index: U8(
+                                                                            0,
                                                                         ),
                                                                     },
                                                                 ),
@@ -678,19 +669,10 @@ SynNodeDeclSheet {
                                                             ItemPathId {
                                                                 data: ItemPathData::TypeVariant(
                                                                     TypeVariantPathData {
-                                                                        parent_ty_path: TypePath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 335,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                        ident: Ident(
-                                                                            Coword(
-                                                                                Id {
-                                                                                    value: 435,
-                                                                                },
-                                                                            ),
+                                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                        ident: `Zero`,
+                                                                        index: U8(
+                                                                            0,
                                                                         ),
                                                                     },
                                                                 ),

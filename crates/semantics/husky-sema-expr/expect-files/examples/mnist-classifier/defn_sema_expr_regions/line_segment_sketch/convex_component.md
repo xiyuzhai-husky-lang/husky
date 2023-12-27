@@ -445,7 +445,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 441,
+                                    value: 443,
                                 },
                             ),
                         ),
@@ -463,7 +463,7 @@
                                     ),
                                 ),
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: Some(
                                         StackPure {
@@ -488,6 +488,35 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    1,
+                                    FluffyTerm {
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 258,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                         SemaExprEntry {
@@ -527,7 +556,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 391,
+                                                    value: 390,
                                                 },
                                             ),
                                         ),
@@ -567,7 +596,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 77,
+                                                                value: 55,
                                                             },
                                                         ),
                                                     ),
@@ -577,7 +606,7 @@
                                     },
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: Some(
                                         StackPure {
@@ -592,12 +621,37 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 77,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    2,
+                                    FluffyTerm {
+                                        place: Some(
+                                            StackPure {
+                                                location: StackLocationIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 55,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                         SemaExprEntry {
@@ -642,7 +696,7 @@
                                                     TraitForTypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 199,
+                                                                value: 191,
                                                             },
                                                         ),
                                                     ),
@@ -655,7 +709,7 @@
                                                             Application(
                                                                 EtherealTermApplication(
                                                                     Id {
-                                                                        value: 76,
+                                                                        value: 54,
                                                                     },
                                                                 ),
                                                             ),
@@ -687,7 +741,7 @@
                                                         (
                                                             EtherealTermSymbol(
                                                                 Id {
-                                                                    value: 7,
+                                                                    value: 3,
                                                                 },
                                                             ),
                                                             Explicit(
@@ -697,7 +751,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 76,
+                                                                                    value: 54,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -723,7 +777,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -740,6 +794,27 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    3,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 88,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                         SemaExprEntry {
@@ -752,7 +827,7 @@
                                     ),
                                 },
                             ),
-                            ty_result: Ok(
+                            immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
                                     base: Ethereal(
@@ -769,6 +844,27 @@
                                         ),
                                     ),
                                 },
+                            ),
+                            expectation_idx_and_ty: Some(
+                                (
+                                    4,
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 88,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
                             ),
                         },
                     ],
@@ -785,11 +881,13 @@
                                     ),
                                     outcome: Some(
                                         Coersion(
-                                            Trivial(
-                                                TrivialFluffyCoersion {
-                                                    expectee_place: Transient,
-                                                },
-                                            ),
+                                            ExpectCoersionOutcome {
+                                                coersion: Trivial(
+                                                    TrivialFluffyCoersion {
+                                                        expectee_place: Transient,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                     eol_semicolon: Ok(
@@ -872,7 +970,7 @@
                                 expectation: AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
                                         syn_expr_idx: 1,
@@ -902,6 +1000,7 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -909,7 +1008,7 @@
                                 expectation: AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
                                         syn_expr_idx: 2,
@@ -929,12 +1028,13 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 77,
+                                                        value: 55,
                                                     },
                                                 ),
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Intact,
                                 },
                             },
@@ -960,7 +1060,7 @@
                                         },
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 3,
                                     src: ExpectationSource {
                                         syn_expr_idx: 3,
@@ -982,14 +1082,17 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             Coersion(
-                                                Trivial(
-                                                    TrivialFluffyCoersion {
-                                                        expectee_place: Transient,
-                                                    },
-                                                ),
+                                                ExpectCoersionOutcome {
+                                                    coersion: Trivial(
+                                                        TrivialFluffyCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         ),
                                     ),
@@ -1017,7 +1120,7 @@
                                         },
                                     },
                                 ),
-                                meta: ExpectationState {
+                                state: ExpectationState {
                                     idx: 4,
                                     src: ExpectationSource {
                                         syn_expr_idx: 4,
@@ -1039,14 +1142,17 @@
                                             ),
                                         ),
                                     },
+                                    implicit_parameter_substitutions: [],
                                     resolve_progress: Resolved(
                                         Ok(
                                             Coersion(
-                                                Trivial(
-                                                    TrivialFluffyCoersion {
-                                                        expectee_place: Transient,
-                                                    },
-                                                ),
+                                                ExpectCoersionOutcome {
+                                                    coersion: Trivial(
+                                                        TrivialFluffyCoersion {
+                                                            expectee_place: Transient,
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         ),
                                     ),

@@ -227,7 +227,7 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: Some(
                                                         RefMut(
                                                             RefRegionalToken {
@@ -686,7 +686,7 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: Some(
                                                         RefMut(
                                                             RefRegionalToken {
@@ -708,7 +708,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `low`,
@@ -717,7 +717,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `high`,
@@ -1288,7 +1288,7 @@ SynNodeDeclSheet {
                                     pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: Some(
                                                         RefMut(
                                                             RefRegionalToken {
@@ -1310,7 +1310,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `low`,
@@ -1319,7 +1319,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     },
                                                 },
-                                                SynPatternExpr::Ident {
+                                                SynPatternExprData::Ident {
                                                     symbol_modifier_tokens: None,
                                                     ident_token: IdentRegionalToken {
                                                         ident: `high`,

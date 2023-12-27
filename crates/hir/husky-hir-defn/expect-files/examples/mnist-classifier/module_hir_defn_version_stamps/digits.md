@@ -5,6 +5,21 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
+                        value: 312,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            None,
+        ),
+    ),
+    (
+        Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
                         value: 313,
                     },
                 ),
@@ -126,21 +141,6 @@
                 ItemPathId(
                     Id {
                         value: 321,
-                    },
-                ),
-            ),
-        ),
-        Some(
-            None,
-        ),
-    ),
-    (
-        Submodule(
-            Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 322,
                     },
                 ),
             ),

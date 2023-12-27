@@ -94,7 +94,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 183,
+                                                    value: 182,
                                                 },
                                             ),
                                         ),
@@ -288,7 +288,32 @@
                                             data: HirEagerExprData::FunctionFnCall {
                                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                                 instantiation: HirInstantiation {
-                                                    symbol_map: [],
+                                                    symbol_map: [
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::Symbol(
+                                                                        HirTypeSymbol::Type {
+                                                                            attrs: HirTemplateSymbolAttrs {
+                                                                                class: Comptime,
+                                                                            },
+                                                                            variance: None,
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ],
                                                     separator: None,
                                                 },
                                                 item_groups: [
@@ -566,7 +591,17 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 183,
+                                                    value: 182,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    Ident {
+                                        symbol_modifier: None,
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 184,
                                                 },
                                             ),
                                         ),
@@ -577,16 +612,6 @@
                                             Coword(
                                                 Id {
                                                     value: 185,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    Ident {
-                                        symbol_modifier: None,
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 186,
                                                 },
                                             ),
                                         ),
@@ -736,7 +761,32 @@
                                             data: HirEagerExprData::FunctionFnCall {
                                                 path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                                                 instantiation: HirInstantiation {
-                                                    symbol_map: [],
+                                                    symbol_map: [
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::Symbol(
+                                                                        HirTypeSymbol::Type {
+                                                                            attrs: HirTemplateSymbolAttrs {
+                                                                                class: Comptime,
+                                                                            },
+                                                                            variance: None,
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ],
                                                     separator: None,
                                                 },
                                                 item_groups: [
@@ -886,7 +936,32 @@
                                             data: HirEagerExprData::FunctionFnCall {
                                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                                 instantiation: HirInstantiation {
-                                                    symbol_map: [],
+                                                    symbol_map: [
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::Symbol(
+                                                                        HirTypeSymbol::Type {
+                                                                            attrs: HirTemplateSymbolAttrs {
+                                                                                class: Comptime,
+                                                                            },
+                                                                            variance: None,
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ],
                                                     separator: None,
                                                 },
                                                 item_groups: [
@@ -1030,7 +1105,32 @@
                                             data: HirEagerExprData::FunctionFnCall {
                                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                                 instantiation: HirInstantiation {
-                                                    symbol_map: [],
+                                                    symbol_map: [
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::Symbol(
+                                                                        HirTypeSymbol::Type {
+                                                                            attrs: HirTemplateSymbolAttrs {
+                                                                                class: Comptime,
+                                                                            },
+                                                                            variance: None,
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ],
                                                     separator: None,
                                                 },
                                                 item_groups: [
@@ -1167,7 +1267,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 187,
+                                                        value: 186,
                                                     },
                                                 ),
                                             ),
@@ -1350,7 +1450,17 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 183,
+                                                    value: 182,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    Ident {
+                                        symbol_modifier: None,
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 184,
                                                 },
                                             ),
                                         ),
@@ -1361,16 +1471,6 @@
                                             Coword(
                                                 Id {
                                                     value: 185,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    Ident {
-                                        symbol_modifier: None,
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 186,
                                                 },
                                             ),
                                         ),
@@ -2489,6 +2589,18 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
+                                                        value: 188,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
                                                         value: 189,
                                                     },
                                                 ),
@@ -2502,18 +2614,6 @@
                                                 Coword(
                                                     Id {
                                                         value: 190,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 191,
                                                     },
                                                 ),
                                             ),
@@ -2766,6 +2866,13 @@
                                                     10,
                                                     11,
                                                 ],
+                                                element_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                        template_arguments: [],
+                                                        always_copyable: true,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: false,
@@ -2817,7 +2924,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 193,
+                                                        value: 192,
                                                     },
                                                 ),
                                             ),
@@ -2988,6 +3095,26 @@
                                                     5,
                                                     6,
                                                 ],
+                                                element_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::mem::Ref`, `Extern`),
+                                                        template_arguments: [
+                                                            HirTemplateArgument::Constant(
+                                                                StaticLifetime,
+                                                            ),
+                                                            HirTemplateArgument::Type(
+                                                                HirType::PathLeading(
+                                                                    HirTypePathLeading {
+                                                                        ty_path: TypePath(`core::str::str`, `Extern`),
+                                                                        template_arguments: [],
+                                                                        always_copyable: false,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                             },
                                             ty_place: Transient,
                                             is_ty_always_copyable: false,
@@ -3025,7 +3152,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 195,
+                                                        value: 194,
                                                     },
                                                 ),
                                             ),

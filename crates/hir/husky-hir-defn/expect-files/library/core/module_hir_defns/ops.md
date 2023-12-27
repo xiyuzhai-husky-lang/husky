@@ -1320,7 +1320,7 @@
                                     data: [
                                         HirEagerComptimeSymbolEntry {
                                             name: HirEagerComptimeSymbolName::Ident(
-                                                `R`,
+                                                `B`,
                                             ),
                                             data: Current,
                                             hir_comptime_symbol: HirTemplateSymbol::Type(

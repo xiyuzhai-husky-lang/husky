@@ -27,6 +27,7 @@ pub enum JavelinConstant {
     R64(u64),
     R128(u128),
     RSize(usize),
+    StaticLifetime,
 }
 
 impl JavelinConstant {
@@ -58,6 +59,7 @@ impl JavelinConstant {
             HirConstant::RSize(value) => JavelinConstant::RSize(value),
             HirConstant::Symbol(_) => todo!("use javelin instantiation"),
             HirConstant::TypeVariant(_) => todo!(),
+            HirConstant::StaticLifetime => JavelinConstant::StaticLifetime,
         }
     }
 }

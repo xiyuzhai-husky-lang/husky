@@ -230,7 +230,7 @@
         ),
         end_line: 88,
         end_character: Some(
-            55,
+            60,
         ),
         kind: Some(
             Region,
@@ -244,7 +244,7 @@
         ),
         end_line: 92,
         end_character: Some(
-            13,
+            10,
         ),
         kind: Some(
             Region,

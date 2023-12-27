@@ -152,7 +152,7 @@ EntitySynTreeSheet {
                         ident_token: IdentToken {
                             ident: `upmost`,
                             token_idx: TokenIdx(
-                                524,
+                                530,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -216,7 +216,7 @@ EntitySynTreeSheet {
                         ident_token: IdentToken {
                             ident: `downmost`,
                             token_idx: TokenIdx(
-                                553,
+                                559,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -280,7 +280,7 @@ EntitySynTreeSheet {
                         ident_token: IdentToken {
                             ident: `hat`,
                             token_idx: TokenIdx(
-                                587,
+                                593,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -1340,12 +1340,12 @@ EntitySynTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1357,7 +1357,7 @@ EntitySynTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1369,7 +1369,7 @@ EntitySynTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1393,12 +1393,12 @@ EntitySynTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1410,7 +1410,7 @@ EntitySynTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1422,7 +1422,7 @@ EntitySynTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                             ),
                         ),
                         visibility: Scope::PubUnder(

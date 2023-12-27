@@ -2654,19 +2654,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -2678,19 +2669,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -2707,19 +2689,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -2736,19 +2709,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -2779,19 +2743,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -2803,19 +2758,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -2832,19 +2778,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -2861,19 +2798,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -5449,19 +5377,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -5473,19 +5392,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -5502,19 +5412,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -5531,19 +5432,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -5562,19 +5454,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -5607,19 +5490,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -5631,19 +5505,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -5660,19 +5525,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -5689,19 +5545,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -5720,19 +5567,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -8742,19 +8580,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -8766,19 +8595,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -8795,19 +8615,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -8824,19 +8635,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -8855,19 +8657,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -8900,19 +8693,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -8924,19 +8708,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -8953,19 +8728,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -8982,19 +8748,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -9013,19 +8770,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -11663,19 +11411,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -11687,19 +11426,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -11716,19 +11446,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -11745,19 +11466,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -11776,19 +11488,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -11821,19 +11524,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -11845,19 +11539,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -11874,19 +11559,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -11903,19 +11579,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -11934,19 +11601,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -14848,19 +14506,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -14872,19 +14521,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -14901,19 +14541,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -14930,19 +14561,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -14961,19 +14583,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -15006,19 +14619,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -15030,19 +14634,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -15059,19 +14654,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -15088,19 +14674,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -15119,19 +14696,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -17769,19 +17337,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -17793,19 +17352,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -17822,19 +17372,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -17851,19 +17392,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -17882,19 +17414,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -17927,19 +17450,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -17951,19 +17465,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -17980,19 +17485,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -18009,19 +17505,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -18040,19 +17527,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -20684,19 +20162,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -20708,19 +20177,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -20737,19 +20197,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -20766,19 +20217,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -20797,19 +20239,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -20842,19 +20275,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -20866,19 +20290,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -20895,19 +20310,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -20924,19 +20330,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -20955,19 +20352,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -23679,19 +23067,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -23703,19 +23082,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -23732,19 +23102,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -23761,19 +23122,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -23792,19 +23144,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -23837,19 +23180,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -23861,19 +23195,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -23890,19 +23215,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -23919,19 +23235,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -23950,19 +23257,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -26856,19 +26154,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -26880,19 +26169,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -26909,19 +26189,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -26938,19 +26209,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -26969,19 +26231,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -27014,19 +26267,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -27038,19 +26282,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -27067,19 +26302,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -27096,19 +26322,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -27127,19 +26344,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -30678,19 +29886,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -30702,19 +29901,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -30731,19 +29921,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -30760,19 +29941,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -30791,19 +29963,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -30836,19 +29999,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -30860,19 +30014,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -30889,19 +30034,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -30918,19 +30054,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -30949,19 +30076,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -34268,7 +33386,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `ControlFlow`,
                                     token_idx: TokenIdx(
-                                        448,
+                                        446,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -36607,19 +35725,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -36631,19 +35740,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -36660,19 +35760,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -36689,19 +35780,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -36720,19 +35802,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -36765,19 +35838,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -36789,19 +35853,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -36818,19 +35873,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -36847,19 +35893,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -36878,19 +35915,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -37401,19 +36429,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -37425,19 +36444,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -37460,19 +36470,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -37484,19 +36485,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -39646,19 +38638,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -39670,19 +38653,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -39699,19 +38673,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -39728,19 +38693,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -39759,19 +38715,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -39804,19 +38751,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -39828,19 +38766,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -39857,19 +38786,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -39886,19 +38806,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -39917,19 +38828,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -41048,19 +39950,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -41072,19 +39965,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -41101,19 +39985,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -41138,19 +40013,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -41162,19 +40028,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -41191,19 +40048,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -44484,19 +43332,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -44508,19 +43347,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -44537,19 +43367,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -44566,19 +43387,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -44597,19 +43409,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -44642,19 +43445,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -44666,19 +43460,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -44695,19 +43480,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -44724,19 +43500,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -44755,19 +43522,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -45270,7 +44028,7 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 8,
+                                ast_idx: 7,
                                 ident_token: IdentToken {
                                     ident: `Result`,
                                     token_idx: TokenIdx(
@@ -45333,19 +44091,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 79,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 126,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                    ident: `Ok`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -45357,19 +44106,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 79,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 126,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                    ident: `Ok`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -45377,7 +44117,7 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 7,
+                                ast_idx: 6,
                                 use_expr_idx: 3,
                             },
                         ),
@@ -45392,19 +44132,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 79,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 127,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                    ident: `Err`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -45416,19 +44147,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 79,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 127,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                    ident: `Err`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -45436,7 +44158,7 @@ EntitySynTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 7,
+                                ast_idx: 6,
                                 use_expr_idx: 3,
                             },
                         ),
@@ -45467,7 +44189,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45498,7 +44220,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45529,7 +44251,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45560,7 +44282,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45591,7 +44313,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45622,7 +44344,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45653,7 +44375,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45684,7 +44406,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45715,7 +44437,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45746,7 +44468,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45777,7 +44499,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45808,7 +44530,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45839,7 +44561,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45870,7 +44592,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45901,7 +44623,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45932,7 +44654,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45963,7 +44685,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -45994,7 +44716,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46025,7 +44747,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46076,7 +44798,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46127,7 +44849,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46178,7 +44900,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46229,7 +44951,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46280,7 +45002,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46331,7 +45053,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46382,7 +45104,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46433,7 +45155,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46484,7 +45206,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46535,7 +45257,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46586,7 +45308,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46637,7 +45359,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46688,7 +45410,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46739,7 +45461,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46790,7 +45512,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46841,7 +45563,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46892,7 +45614,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46943,7 +45665,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -46994,7 +45716,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47045,7 +45767,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47096,7 +45818,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47147,7 +45869,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47198,7 +45920,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47249,7 +45971,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47300,7 +46022,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47351,7 +46073,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47402,7 +46124,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47453,7 +46175,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47504,7 +46226,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47555,7 +46277,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47578,19 +46300,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -47602,19 +46315,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -47631,19 +46335,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -47660,19 +46355,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -47691,19 +46377,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -47713,7 +46390,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47736,19 +46413,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -47760,19 +46428,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -47789,19 +46448,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -47818,19 +46468,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -47849,19 +46490,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -47871,7 +46503,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47922,7 +46554,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -47973,7 +46605,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48024,7 +46656,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48075,7 +46707,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48126,7 +46758,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48177,7 +46809,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48228,7 +46860,7 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `core::result`,
                                 ),
-                                ast_idx: 6,
+                                ast_idx: 5,
                                 use_expr_idx: 1,
                             },
                         ),
@@ -48281,7 +46913,7 @@ EntitySynTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 9,
+                            ast_idx: 8,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     28,
@@ -48298,7 +46930,7 @@ EntitySynTreeCrateBundle {
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            4..6,
+                                            3..5,
                                         ),
                                     },
                                 ),
@@ -48310,7 +46942,7 @@ EntitySynTreeCrateBundle {
             once_use_rules: UseOneRules(
                 [
                     UseOneRule {
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
                             `core::result`,
@@ -48337,7 +46969,7 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     UseOneRule {
-                        ast_idx: 7,
+                        ast_idx: 6,
                         use_expr_idx: 4,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::Parent {
@@ -48365,7 +46997,7 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     UseOneRule {
-                        ast_idx: 7,
+                        ast_idx: 6,
                         use_expr_idx: 3,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::UseAllTypeVariants {
@@ -48389,7 +47021,7 @@ EntitySynTreeCrateBundle {
                     UseAllRule {
                         parent_module_path: `core`,
                         is_same_crate: true,
-                        ast_idx: 6,
+                        ast_idx: 5,
                         use_expr_idx: 1,
                         visibility: Scope::PubUnder(
                             `core::result`,
@@ -50610,19 +49242,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -50634,19 +49257,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -50663,19 +49277,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -50692,19 +49297,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -50723,19 +49319,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -50768,19 +49355,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -50792,19 +49370,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -50821,19 +49390,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -50850,19 +49410,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -50881,19 +49432,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -53643,19 +52185,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -53667,19 +52200,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -53696,19 +52220,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -53725,19 +52240,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -53756,19 +52262,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -53801,19 +52298,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -53825,19 +52313,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -53854,19 +52333,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -53883,19 +52353,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -53914,19 +52375,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -56800,19 +55252,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -56824,19 +55267,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -56853,19 +55287,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -56882,19 +55307,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -56913,19 +55329,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -56958,19 +55365,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -56982,19 +55380,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -57011,19 +55400,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -57040,19 +55420,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -57071,19 +55442,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),
@@ -59784,19 +58146,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -59808,19 +58161,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 116,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `Some`,
+                                                                            index: U8(
+                                                                                0,
                                                                             ),
                                                                         },
                                                                     ),
@@ -59837,19 +58181,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 116,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `Some`,
+                                                                    index: U8(
+                                                                        0,
                                                                     ),
                                                                 },
                                                             ),
@@ -59866,19 +58201,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 116,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `Some`,
+                                                            index: U8(
+                                                                0,
                                                             ),
                                                         },
                                                     ),
@@ -59897,19 +58223,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 116,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `Some`,
+                                                    index: U8(
+                                                        0,
                                                     ),
                                                 },
                                             ),
@@ -59942,19 +58259,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -59966,19 +58274,10 @@ EntitySynTreeCrateBundle {
                                                                 ItemPathId {
                                                                     data: ItemPathData::TypeVariant(
                                                                         TypeVariantPathData {
-                                                                            parent_ty_path: TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 75,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            ident: Ident(
-                                                                                Coword(
-                                                                                    Id {
-                                                                                        value: 117,
-                                                                                    },
-                                                                                ),
+                                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                            ident: `None`,
+                                                                            index: U8(
+                                                                                1,
                                                                             ),
                                                                         },
                                                                     ),
@@ -59995,19 +58294,10 @@ EntitySynTreeCrateBundle {
                                                         ItemPathId {
                                                             data: ItemPathData::TypeVariant(
                                                                 TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 75,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    ident: Ident(
-                                                                        Coword(
-                                                                            Id {
-                                                                                value: 117,
-                                                                            },
-                                                                        ),
+                                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    ident: `None`,
+                                                                    index: U8(
+                                                                        1,
                                                                     ),
                                                                 },
                                                             ),
@@ -60024,19 +58314,10 @@ EntitySynTreeCrateBundle {
                                                 ItemPathId {
                                                     data: ItemPathData::TypeVariant(
                                                         TypeVariantPathData {
-                                                            parent_ty_path: TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 75,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                            ident: Ident(
-                                                                Coword(
-                                                                    Id {
-                                                                        value: 117,
-                                                                    },
-                                                                ),
+                                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                            ident: `None`,
+                                                            index: U8(
+                                                                1,
                                                             ),
                                                         },
                                                     ),
@@ -60055,19 +58336,10 @@ EntitySynTreeCrateBundle {
                                         ItemPathId {
                                             data: ItemPathData::TypeVariant(
                                                 TypeVariantPathData {
-                                                    parent_ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 75,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 117,
-                                                            },
-                                                        ),
+                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    ident: `None`,
+                                                    index: U8(
+                                                        1,
                                                     ),
                                                 },
                                             ),

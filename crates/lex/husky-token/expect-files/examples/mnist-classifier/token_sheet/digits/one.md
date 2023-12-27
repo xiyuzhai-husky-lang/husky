@@ -659,7 +659,7 @@ TokenSheetData {
             WordOpr::Be,
         ),
         TokenData::Ident(
-            `none`,
+            `None`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -1297,7 +1297,24 @@ TokenSheetData {
             WordOpr::Be,
         ),
         TokenData::Ident(
-            `some`,
+            `Some`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Par,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `_`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Par,
+                ),
+            ),
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -1824,7 +1841,24 @@ TokenSheetData {
             WordOpr::Be,
         ),
         TokenData::Ident(
-            `some`,
+            `Some`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Bra(
+                    Par,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `_`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Par,
+                ),
+            ),
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -3238,82 +3272,77 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                263,
+                266,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                283,
+                286,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                302,
+                305,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                310,
+                313,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                316,
+                319,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                343,
+                346,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                365,
+                368,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                370,
+                376,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                412,
+                418,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                416,
+                422,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                433,
+                439,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                441,
+                447,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                460,
+                466,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                468,
+                474,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                483,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
-                487,
+                489,
             ),
         ),
         TokenGroupStart(
@@ -3338,27 +3367,27 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                516,
+                517,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                520,
+                522,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                523,
+                526,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                535,
+                529,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                543,
+                541,
             ),
         ),
         TokenGroupStart(
@@ -3368,17 +3397,17 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                552,
+                555,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                564,
+                558,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                572,
+                570,
             ),
         ),
         TokenGroupStart(
@@ -3388,17 +3417,17 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                586,
+                584,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                598,
+                592,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                606,
+                604,
             ),
         ),
         TokenGroupStart(
@@ -3409,6 +3438,11 @@ TokenSheetData {
         TokenGroupStart(
             TokenIdx(
                 618,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                624,
             ),
         ),
     ],

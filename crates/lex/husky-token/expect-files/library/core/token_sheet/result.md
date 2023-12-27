@@ -233,12 +233,15 @@ TokenSheetData {
             `E2`,
         ),
         TokenData::Keyword(
+            Keyword::Static,
+        ),
+        TokenData::Keyword(
             Keyword::Fugitive(
                 Fn,
             ),
         ),
         TokenData::Ident(
-            `branch`,
+            `unveil`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -289,11 +292,8 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Colon,
+                PunctuationMapped::Semicolon,
             ),
-        ),
-        TokenData::Keyword(
-            Keyword::Todo,
         ),
     ],
     token_group_starts: [
@@ -337,11 +337,6 @@ TokenSheetData {
                 55,
             ),
         ),
-        TokenGroupStart(
-            TokenIdx(
-                69,
-            ),
-        ),
     ],
     indents: [
         0,
@@ -352,6 +347,5 @@ TokenSheetData {
         0,
         4,
         4,
-        8,
     ],
 }

@@ -10,11 +10,14 @@ use husky_entity_path::{
 use husky_ethereal_signature::signature::HasEtherealSignatureTemplate;
 use husky_hir_decl::HasHirDecl;
 use husky_hir_ty::{ritchie::HirEagerContract, trai::HirTrait, HirType};
-use husky_javelin::{javelin::JavelinData, path::JavelinPath};
+use husky_javelin::{
+    javelin::JavelinData, path::JavelinPath, template_argument::constant::JavelinConstant,
+};
 use husky_linkage::{
     instantiation::{LinkageInstantiate, LinkageInstantiation, LinkageTermSymbolResolution},
     linkage::LinkageStructField,
     template_argument::{
+        constant::LinkageConstant,
         place,
         ty::{LinkageRitchieParameter, LinkageRitchieType, LinkageType},
         LinkageTemplateArgument,
@@ -286,9 +289,38 @@ impl<E> TranspileToRustWith<E> for LinkageTemplateArgument {
         match self {
             LinkageTemplateArgument::Vacant => todo!(),
             LinkageTemplateArgument::Type(linkage_ty) => linkage_ty.transpile_to_rust(builder),
-            LinkageTemplateArgument::Constant(constant) => todo!(),
+            LinkageTemplateArgument::Constant(constant) => constant.transpile_to_rust(builder),
             LinkageTemplateArgument::Lifetime => todo!(),
             LinkageTemplateArgument::Place(_) => todo!(),
+        }
+    }
+}
+
+impl<E> TranspileToRustWith<E> for LinkageConstant {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        match self.0 {
+            JavelinConstant::Unit(_) => todo!(),
+            JavelinConstant::Bool(_) => todo!(),
+            JavelinConstant::Char(_) => todo!(),
+            JavelinConstant::I8(_) => todo!(),
+            JavelinConstant::I16(_) => todo!(),
+            JavelinConstant::I32(_) => todo!(),
+            JavelinConstant::I64(_) => todo!(),
+            JavelinConstant::I128(_) => todo!(),
+            JavelinConstant::ISize(_) => todo!(),
+            JavelinConstant::U8(_) => todo!(),
+            JavelinConstant::U16(_) => todo!(),
+            JavelinConstant::U32(_) => todo!(),
+            JavelinConstant::U64(_) => todo!(),
+            JavelinConstant::U128(_) => todo!(),
+            JavelinConstant::USize(_) => todo!(),
+            JavelinConstant::R8(_) => todo!(),
+            JavelinConstant::R16(_) => todo!(),
+            JavelinConstant::R32(_) => todo!(),
+            JavelinConstant::R64(_) => todo!(),
+            JavelinConstant::R128(_) => todo!(),
+            JavelinConstant::RSize(_) => todo!(),
+            JavelinConstant::StaticLifetime => builder.static_lifetime(),
         }
     }
 }

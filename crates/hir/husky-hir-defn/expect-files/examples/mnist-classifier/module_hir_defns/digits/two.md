@@ -51,7 +51,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 287,
+                                        value: 286,
                                     },
                                 ),
                             ),
@@ -134,7 +134,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 276,
+                                                    value: 275,
                                                 },
                                             ),
                                         ),
@@ -349,7 +349,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 379,
+                                                        value: 378,
                                                     },
                                                 ),
                                             ),
@@ -460,7 +460,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 276,
+                                                    value: 275,
                                                 },
                                             ),
                                         ),
@@ -675,7 +675,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 379,
+                                                        value: 378,
                                                     },
                                                 ),
                                             ),
@@ -786,7 +786,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 276,
+                                                    value: 275,
                                                 },
                                             ),
                                         ),
@@ -1001,7 +1001,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 379,
+                                                        value: 378,
                                                     },
                                                 ),
                                             ),
@@ -1086,12 +1086,12 @@
                     body_with_hir_expr_region: Some(
                         (
                             Eager(
-                                108,
+                                102,
                             ),
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 295,
+                                        value: 294,
                                     },
                                 ),
                             ),

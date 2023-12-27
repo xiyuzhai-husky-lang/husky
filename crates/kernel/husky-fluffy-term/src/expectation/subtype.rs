@@ -158,7 +158,6 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 ty_ethereal_term,
             } => todo!(),
             FluffyTermData::Hole(_, hole) => {
-                p!(hole);
                 state.set_ok(
                     ExpectSubtypeOutcome {},
                     smallvec![FluffyTermResolveAction::FillHole {

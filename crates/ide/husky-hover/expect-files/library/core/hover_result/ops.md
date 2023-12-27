@@ -579,18 +579,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 437;\n\ntoken_line_group_idx = 60\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::LaOrLt,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 437;\n\ntoken_line_group_idx = 60\n\ntoken = TokenData::Ident(\n    `ControlFlow`,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
                                 line: 88,
-                                character: 34,
+                                character: 30,
                             },
                             end: Position {
                                 line: 88,
-                                character: 35,
+                                character: 41,
                             },
                         },
                     ),
@@ -609,18 +609,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 460;\n\ntoken_line_group_idx = 63\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 460;\n\ntoken_line_group_idx = 63\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
                                 line: 92,
-                                character: 10,
+                                character: 9,
                             },
                             end: Position {
                                 line: 92,
-                                character: 11,
+                                character: 10,
                             },
                         },
                     ),

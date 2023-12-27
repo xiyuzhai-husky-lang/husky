@@ -14,9 +14,9 @@ pub fn is_three() -> malamute::OneVsAll {
     let downarc = three_fermi_match().matches[0 as usize];
     let uparc = three_fermi_match().matches[1 as usize];
     let back = three_fermi_match().matches[2 as usize];
-    require!(let some = downarc);
+    require!(let Some(_) = downarc);
     require!(downarc.unwrap().norm() > 3.0f32);
-    require!(let some = uparc);
+    require!(let Some(_) = uparc);
     let de = downarc.unwrap().end_tangent().angle(true);
     require!(de > 0.0f32 || de < -100.0f32);
     let downarc_enpoint = downarc.unwrap().end();
@@ -31,20 +31,20 @@ pub fn is_three() -> malamute::OneVsAll {
 #[rustfmt::skip]
 pub fn uparc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y.into_inner() <= 0.0f32);
+    require!(dp.y <= 0.0f32);
     Option::Some(-cc.bounding_box().ymin())
 }
 
 #[rustfmt::skip]
 pub fn downarc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y.into_inner() <= 0.0f32);
+    require!(dp.y <= 0.0f32);
     Option::Some(-cc.bounding_box().ymin())
 }
 
 #[rustfmt::skip]
 pub fn back(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y.into_inner() >= 0.0f32);
+    require!(dp.y >= 0.0f32);
     Option::Some(-cc.bounding_box().ymin())
 }

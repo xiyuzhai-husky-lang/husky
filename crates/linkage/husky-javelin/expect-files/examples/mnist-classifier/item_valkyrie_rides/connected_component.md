@@ -98,7 +98,16 @@
                     ),
                 ),
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::VecConstructor {
+                        element_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                template_arguments: [],
+                                always_copyable: false,
+                            },
+                        ),
+                    },
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId {
@@ -131,7 +140,7 @@
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
-                                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     template_arguments: [],
                                                     always_copyable: false,
                                                 },
@@ -145,7 +154,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                         ),
@@ -305,7 +314,7 @@
             ValkyrieRides {
                 hir_template_parameters: None,
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
                         ),
@@ -339,7 +348,36 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::VecConstructor {
+                        element_ty: HirType::PathLeading(
+                            HirTypePathLeading {
+                                ty_path: TypePath(`core::option::Option`, `Enum`),
+                                template_arguments: [
+                                    HirTemplateArgument::Type(
+                                        HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                template_arguments: [
+                                                    HirTemplateArgument::Type(
+                                                        HirType::PathLeading(
+                                                            HirTypePathLeading {
+                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                template_arguments: [],
+                                                                always_copyable: false,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                                always_copyable: true,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                                always_copyable: true,
+                            },
+                        ),
+                    },
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
                         ),
@@ -389,7 +427,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                         ),
@@ -463,7 +501,7 @@
             ValkyrieRides {
                 hir_template_parameters: None,
                 rides: [
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                         ),
@@ -497,7 +535,7 @@
                             ),
                         },
                     },
-                    ValkyrieRide {
+                    ValkyrieRide::PathLeading {
                         javelin_item_path: JavelinPath::TypeItem(
                             TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                         ),

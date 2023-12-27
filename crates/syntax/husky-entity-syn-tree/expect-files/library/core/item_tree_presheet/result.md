@@ -22,7 +22,7 @@ EntitySynTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 8,
+                        ast_idx: 7,
                         ident_token: IdentToken {
                             ident: `Result`,
                             token_idx: TokenIdx(
@@ -67,7 +67,7 @@ EntitySynTreePresheet {
     use_one_rules: UseOneRules(
         [
             UseOneRule {
-                ast_idx: 6,
+                ast_idx: 5,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `core::result`,
@@ -88,7 +88,7 @@ EntitySynTreePresheet {
                 state: UseOneRuleState::Unresolved,
             },
             UseOneRule {
-                ast_idx: 7,
+                ast_idx: 6,
                 use_expr_idx: 4,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {

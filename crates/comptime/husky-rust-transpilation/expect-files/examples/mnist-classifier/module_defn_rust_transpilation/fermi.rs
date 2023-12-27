@@ -1,7 +1,8 @@
 use crate::*;
 
 #[rustfmt::skip]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[ad_hoc_task_dependency::value_conversion]
+#[derive(Debug, Clone, PartialEq)]
 pub struct FermiMatchResult {
     pub matches: Vec<Option<Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>>>,
     pub others: Vec<Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>>,
@@ -29,8 +30,8 @@ pub fn fermi_match(concave_components: Leash<Vec<crate::line_segment_sketch::con
 
 #[rustfmt::skip]
 impl crate::fermi::FermiMatchResult {
-    #[ad_hoc_task_dependency::memoized_field(21)]
-pub fn norm(&'static self) -> f32 {
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 21)]
+    pub fn norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..self.others.ilen() {
             norm = norm.max(self.others[i as usize].norm())
@@ -38,8 +39,8 @@ pub fn norm(&'static self) -> f32 {
         return norm;
     }
 
-    #[ad_hoc_task_dependency::memoized_field(22)]
-pub fn rel_norm(&'static self) -> f32 {
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 22)]
+    pub fn rel_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..self.others.ilen() {
             norm = norm.max(self.others[i as usize].rel_norm())
@@ -47,8 +48,8 @@ pub fn rel_norm(&'static self) -> f32 {
         return norm;
     }
 
-    #[ad_hoc_task_dependency::memoized_field(23)]
-pub fn angle_change_norm(&'static self) -> f32 {
+    #[ad_hoc_task_dependency::memoized_field(ingredient_index = 23)]
+    pub fn angle_change_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..self.others.ilen() {
             norm = norm.max(self.others[i as usize].angle_change().abs())

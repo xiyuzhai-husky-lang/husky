@@ -274,5 +274,6 @@ fn val_repr_eval_works() {
         let val_repr = ValRepr::new_val_item(fugitive_path, db);
         runtime.eval_val_repr_at_pedestal(val_repr, InputId::from_index(0).into());
     }
-    todo!();
+    // ad hoc
+    std::mem::forget(runtime)
 }

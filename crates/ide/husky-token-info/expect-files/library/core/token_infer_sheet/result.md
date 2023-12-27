@@ -490,6 +490,7 @@ Ok(
                 },
             ),
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
@@ -517,8 +518,8 @@ Ok(
                                                                                     disambiguator: 0,
                                                                                 },
                                                                             },
-                                                                            ident: `branch`,
-                                                                            item_kind: MethodFn,
+                                                                            ident: `unveil`,
+                                                                            item_kind: AssociatedFunctionFn,
                                                                         },
                                                                     ),
                                                                 ),
@@ -535,7 +536,7 @@ Ok(
                         ),
                         AssociatedItem {
                             associated_item_kind: TraitForTypeItem(
-                                MethodFn,
+                                AssociatedFunctionFn,
                             ),
                         },
                     ),
@@ -670,16 +671,6 @@ Ok(
                 },
             ),
             None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::Todo,
-                },
-            ),
         ],
     },
 )

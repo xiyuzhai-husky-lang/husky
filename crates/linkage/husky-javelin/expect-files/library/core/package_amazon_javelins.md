@@ -2,97 +2,6 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::basic::bool`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::basic::never`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::basic::unit`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::basic::Trait`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::basic::Module`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::basic::Lifetime`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::basic::Place`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
                 path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {
@@ -117,189 +26,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::i8`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::i16`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::i32`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::i64`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::i128`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::isize`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::u8`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::u16`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::u32`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::u64`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::u128`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::usize`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::f32`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::num::f64`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -312,7 +41,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -325,7 +56,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -359,7 +92,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -372,7 +107,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -385,7 +122,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -419,7 +158,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -432,7 +173,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -445,7 +188,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -458,7 +203,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -492,7 +239,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -505,7 +254,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -539,7 +290,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -552,7 +305,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -586,7 +341,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -599,7 +356,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -633,7 +392,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -646,7 +407,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -680,7 +443,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -693,7 +458,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -727,7 +494,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -740,7 +509,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -774,7 +545,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -787,7 +560,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -821,7 +596,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -834,7 +611,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -868,7 +647,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -881,7 +662,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -915,7 +698,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -928,7 +713,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -941,7 +728,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -954,7 +743,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -967,7 +758,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -980,7 +773,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -993,7 +788,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -1006,7 +803,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -1019,7 +818,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -1053,7 +854,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -1066,7 +869,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -1079,7 +884,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -1113,20 +920,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::raw_bits::r32`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -1139,7 +935,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -1152,7 +950,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -1165,7 +965,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -1178,7 +980,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
+                    separator: Some(
+                        0,
+                    ),
                 },
             },
         },
@@ -1191,343 +995,9 @@
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::result`,
-                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::result::Result`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `Continue`,
-                                        item_kind: AssociatedType,
-                                    },
-                                ),
-                            ),
-                        },
+                    separator: Some(
+                        0,
                     ),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::result`,
-                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::result::Result`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `branch`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::slice`,
-                                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `Output`,
-                                        item_kind: AssociatedType,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::str::str`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::str::StringLiteral`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
-                    TypePath(`core::visual::Html`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
                 },
             },
         },

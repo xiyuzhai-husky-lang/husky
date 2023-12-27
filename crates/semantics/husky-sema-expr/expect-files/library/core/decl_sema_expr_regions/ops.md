@@ -3773,7 +3773,7 @@
                                     annotated_variance_token: None,
                                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                         ident_token: IdentRegionalToken {
-                                            ident: `R`,
+                                            ident: `B`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 5,
                                             ),

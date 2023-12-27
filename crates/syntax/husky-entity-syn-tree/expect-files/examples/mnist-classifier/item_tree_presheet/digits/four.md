@@ -348,7 +348,7 @@ EntitySynTreePresheet {
                         ident_token: IdentToken {
                             ident: `displacement_downwards`,
                             token_idx: TokenIdx(
-                                255,
+                                270,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -412,7 +412,7 @@ EntitySynTreePresheet {
                         ident_token: IdentToken {
                             ident: `cc_box_heights`,
                             token_idx: TokenIdx(
-                                284,
+                                299,
                             ),
                         },
                         block: DefnBlock::Fugitive {

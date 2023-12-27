@@ -435,8 +435,8 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TraitForTypeItem(
-            TraitForTypeItemHirDecl::MethodFn(
-                TraitForTypeMethodFnHirDecl {
+            TraitForTypeItemHirDecl::AssociatedFn(
+                TraitForTypeAssociatedFnHirDecl {
                     path: TraitForTypeItemPath(
                         ItemPathId {
                             data: ItemPathData::AssociatedItem(
@@ -452,8 +452,8 @@
                                                 disambiguator: 0,
                                             },
                                         },
-                                        ident: `branch`,
-                                        item_kind: MethodFn,
+                                        ident: `unveil`,
+                                        item_kind: AssociatedFunctionFn,
                                     },
                                 ),
                             ),
@@ -462,16 +462,6 @@
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    self_value_parameter: HirEagerSelfValueParameter {
-                        contract: Pure,
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
-                        ),
-                    },
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Ordinary {
@@ -559,8 +549,8 @@
                                                                 disambiguator: 0,
                                                             },
                                                         },
-                                                        ident: `branch`,
-                                                        item_kind: MethodFn,
+                                                        ident: `unveil`,
+                                                        item_kind: AssociatedFunctionFn,
                                                     },
                                                 ),
                                             ),
