@@ -4,7 +4,7 @@ use crate::{val_repr::ValArgumentReprInterface, DevEvalContext};
 pub trait IsLinkageImpl: Send + Copy + 'static {
     type Pedestal: Copy + 'static;
     type Value: IsValue;
-    type Error;
+    type Error: std::fmt::Debug;
 
     /// assumed that pedestal has already been
     fn eval(
