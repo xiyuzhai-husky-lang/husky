@@ -2,7 +2,7 @@ use crate::*;
 
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::value_conversion]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct ConnectedComponentDistribution {
     pub row_start: i32,
     pub row_end: i32,
@@ -23,7 +23,7 @@ impl ConnectedComponentDistribution {
 
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::value_conversion]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct EffHoles {
     pub matches: Vec<Option<Leash<crate::raw_contour::RawContour>>>,
 }
@@ -45,7 +45,7 @@ pub fn hole_tmpl(ct: Leash<crate::raw_contour::RawContour>) -> Option<f32> {
 
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::value_conversion]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct ConnectedComponent {
     pub mask: mnist::BinaryImage28,
 }

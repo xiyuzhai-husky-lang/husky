@@ -15,6 +15,7 @@ husky-task-prelude.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
 wild-utils = { path = "../../utils/husky-wild-utils" }
+husky-print-utils.workspace = true
 # vm
 husky-standard-value-macros.workspace = true
 

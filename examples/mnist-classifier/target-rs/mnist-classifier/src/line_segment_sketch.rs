@@ -12,7 +12,7 @@ use crate::*;
 
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::value_conversion]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct LineSegmentStroke {
     pub points: CyclicSliceLeashed<crate::geom2d::Point2d>,
     pub start: crate::geom2d::Point2d,
@@ -33,7 +33,7 @@ impl LineSegmentStroke {
 
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::value_conversion]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct LineSegmentSketch {
     pub contour: Leash<crate::raw_contour::RawContour>,
     pub strokes: Vec<crate::line_segment_sketch::LineSegmentStroke>,
@@ -50,22 +50,22 @@ impl LineSegmentSketch {
 
 #[rustfmt::skip]
 pub fn go_right(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
-    let L = (u.x.into_inner() * u.x.into_inner() + u.y.into_inner() * u.y.into_inner()).sqrt();
+    let L = (u.x * u.x + u.y * u.y).sqrt();
     assert!(L > r);
     let dr = r * L / (L * L - r * r).sqrt();
-    let dx = dr * u.y.into_inner() / L;
-    let dy = -dr * u.x.into_inner() / L;
-    crate::geom2d::Vector2d::__constructor(u.x.into_inner() + dx, u.y.into_inner() + dy)
+    let dx = dr * u.y / L;
+    let dy = -dr * u.x / L;
+    crate::geom2d::Vector2d::__constructor(u.x + dx, u.y + dy)
 }
 
 #[rustfmt::skip]
 pub fn go_left(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
-    let L = (u.x.into_inner() * u.x.into_inner() + u.y.into_inner() * u.y.into_inner()).sqrt();
+    let L = (u.x * u.x + u.y * u.y).sqrt();
     assert!(L > r);
     let dr = r * L / (L * L - r * r).sqrt();
-    let dx = -dr * u.y.into_inner() / L;
-    let dy = dr * u.x.into_inner() / L;
-    crate::geom2d::Vector2d::__constructor(u.x.into_inner() + dx, u.y.into_inner() + dy)
+    let dx = -dr * u.y / L;
+    let dy = dr * u.x / L;
+    crate::geom2d::Vector2d::__constructor(u.x + dx, u.y + dy)
 }
 
 #[rustfmt::skip]
@@ -228,16 +228,16 @@ impl crate::line_segment_sketch::LineSegmentSketch {
     #[ad_hoc_task_dependency::memoized_field(ingredient_index = 14, return_ref)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &self.strokes[0 as usize].start;
-        let mut xmin = start_point.x.into_inner();
-        let mut xmax = start_point.x.into_inner();
-        let mut ymin = start_point.y.into_inner();
-        let mut ymax = start_point.y.into_inner();
+        let mut xmin = start_point.x;
+        let mut xmax = start_point.x;
+        let mut ymin = start_point.y;
+        let mut ymax = start_point.y;
         for i in 0..self.strokes.ilen() {
             let point = &self.strokes[i as usize].end;
-            xmin = xmin.min(point.x.into_inner());
-            xmax = xmax.max(point.x.into_inner());
-            ymin = ymin.min(point.y.into_inner());
-            ymax = ymax.max(point.y.into_inner())
+            xmin = xmin.min(point.x);
+            xmax = xmax.max(point.x);
+            ymin = ymin.min(point.y);
+            ymax = ymax.max(point.y)
         }
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }

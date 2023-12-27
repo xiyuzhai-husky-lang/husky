@@ -2,7 +2,7 @@ use super::*;
 
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::value_conversion]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct ConcaveComponent {
     pub line_segment_sketch: Leash<crate::line_segment_sketch::LineSegmentSketch>,
     pub strokes: CyclicSliceLeashed<crate::line_segment_sketch::LineSegmentStroke>,
@@ -83,16 +83,16 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
     #[ad_hoc_task_dependency::memoized_field(ingredient_index = 19, return_ref)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &self.strokes.first().unwrap().start;
-        let mut xmin = start_point.x.into_inner();
-        let mut xmax = start_point.x.into_inner();
-        let mut ymin = start_point.y.into_inner();
-        let mut ymax = start_point.y.into_inner();
+        let mut xmin = start_point.x;
+        let mut xmax = start_point.x;
+        let mut ymin = start_point.y;
+        let mut ymax = start_point.y;
         for i in self.strokes.start()..self.strokes.end() {
             let point = &self.strokes[i as usize].end;
-            xmin = xmin.min(point.x.into_inner());
-            xmax = xmax.max(point.x.into_inner());
-            ymin = ymin.min(point.y.into_inner());
-            ymax = ymax.max(point.y.into_inner())
+            xmin = xmin.min(point.x);
+            xmax = xmax.max(point.x);
+            ymin = ymin.min(point.y);
+            ymax = ymax.max(point.y)
         }
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }

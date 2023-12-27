@@ -22,7 +22,7 @@ pub fn is_eight() -> malamute::OneVsAll {
 #[rustfmt::skip]
 pub fn big_mouth(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     if cc.relative_bounding_box().ymax() > 0.5f32 {
-        require!(cc.strokes.first().unwrap().start.x.into_inner() > cc.strokes.first().unwrap().end.x.into_inner());
+        require!(cc.strokes.first().unwrap().start.x > cc.strokes.first().unwrap().end.x);
     }
     Some(cc.relative_bounding_box().ymax())
 }

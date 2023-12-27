@@ -33,6 +33,8 @@ pub trait IsValue:
     + Into<u64>
     + From<u128>
     + Into<u128>
+    + From<usize>
+    + Into<usize>
     + From<i8>
     + Into<i8>
     + From<i16>
@@ -43,6 +45,8 @@ pub trait IsValue:
     + Into<i64>
     + From<i128>
     + Into<i128>
+    + From<isize>
+    + Into<isize>
     + From<f32>
     + Into<f32>
     + From<f64>
@@ -66,9 +70,11 @@ pub trait IsValue:
     fn from_enum_u8(index_raw: u8) -> Self;
     fn share(&'static self) -> Self;
     fn to_bool(self) -> bool;
+    fn to_usize(self) -> usize;
     fn r#move(&mut self) -> Self;
     /// should unreachable if not an option
     fn is_none(self) -> bool;
     /// should unreachable if not an option
     fn is_some(self) -> bool;
+    fn index(self, index: usize) -> Self;
 }

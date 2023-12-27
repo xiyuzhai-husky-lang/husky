@@ -2,7 +2,7 @@ use super::*;
 
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::value_conversion]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct ConvexComponent {
     pub line_segment_sketch: Leash<crate::line_segment_sketch::LineSegmentSketch>,
     pub line_segments: CyclicSliceLeashed<crate::line_segment_sketch::LineSegmentStroke>,

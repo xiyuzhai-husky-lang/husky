@@ -9,22 +9,22 @@ pub fn two_match() -> crate::fermi::FermiMatchResult {
 #[rustfmt::skip]
 pub fn left_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y.into_inner() < 0.0f32);
-    Some(dp.y.into_inner())
+    require!(dp.y < 0.0f32);
+    Some(dp.y)
 }
 
 #[rustfmt::skip]
 pub fn right_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.y.into_inner() > 0.0f32);
-    Some(dp.y.into_inner())
+    require!(dp.y > 0.0f32);
+    Some(dp.y)
 }
 
 #[rustfmt::skip]
 pub fn down_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
-    require!(dp.x.into_inner() > 0.0f32);
-    Some(dp.x.into_inner())
+    require!(dp.x > 0.0f32);
+    Some(dp.x)
 }
 
 #[rustfmt::skip]
@@ -45,8 +45,8 @@ pub fn is_two() -> malamute::OneVsAll {
         let a = right_cc.unwrap().angle_change();
         require!(a > -180.0f32);
         let end_tan = left_cc.unwrap().end_tangent().angle(true);
-        let x = left_cc.unwrap().end_tangent().x.into_inner();
-        let y = left_cc.unwrap().end_tangent().y.into_inner();
+        let x = left_cc.unwrap().end_tangent().x;
+        let y = left_cc.unwrap().end_tangent().y;
         let left_ymax = left_cc.unwrap().relative_bounding_box().ymax();
         let left_ymin = left_cc.unwrap().relative_bounding_box().ymin();
         let left_mid_y = (left_ymax + left_ymin) / 2.0f32;

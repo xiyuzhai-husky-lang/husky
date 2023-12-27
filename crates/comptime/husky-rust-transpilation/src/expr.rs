@@ -336,10 +336,7 @@ impl HirEagerExprSite {
                 )
                     .transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
-                ident.transpile_to_rust(builder);
-                if field_ty.is_float(db) {
-                    builder.call_into_inner_method_of_not_nan()
-                }
+                ident.transpile_to_rust(builder)
             }
             HirEagerExprData::MemoizedField {
                 owner_hir_expr_idx,

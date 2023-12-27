@@ -109,15 +109,6 @@ impl TranspileToRustWith for PropsStructHirDefn {
                                             .transpile_to_rust(builder)
                                     })
                                 }
-                                #[deprecated(note = "remove this; no need to conver to not nan")]
-                                if field.ty().is_float(db) {
-                                    builder.on_fresh_semicolon_line(|builder| {
-                                        builder.keyword(RustKeyword::Let);
-                                        field.ident().transpile_to_rust(builder);
-                                        builder.punctuation(RustPunctuation::Assign);
-                                        builder.new_not_nan(field.ident())
-                                    })
-                                }
                             }
                             builder.on_fresh_line(|builder| {
                                 builder.self_ty();
@@ -139,9 +130,6 @@ struct HirEagerParenateParameterFromField {
     ty: HirType,
 }
 
-#[deprecated(note = "remove this; no need to conver to not nan")]
-struct FieldHirType(HirType);
-
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameterFromField {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.ident.transpile_to_rust(builder);
@@ -150,26 +138,12 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameterFromFi
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for FieldHirType {
-    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
-        let db = builder.db();
-        if self.0.is_float(db) {
-            builder.not_nan();
-            builder.bracketed(RustBracket::Angle, |builder| {
-                self.0.transpile_to_rust(builder)
-            })
-        } else {
-            self.0.transpile_to_rust(builder)
-        }
-    }
-}
-
 impl TranspileToRustWith<HirEagerExprRegion> for PropsStructFieldHirDecl {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::Pub);
         self.ident().transpile_to_rust(builder);
         builder.punctuation(RustPunctuation::Colon);
-        FieldHirType(self.ty()).transpile_to_rust(builder)
+        self.ty().transpile_to_rust(builder)
     }
 }
 

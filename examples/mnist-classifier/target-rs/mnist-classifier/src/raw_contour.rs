@@ -2,7 +2,7 @@ use crate::*;
 
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::value_conversion]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct RawContour {
     pub cc: Leash<crate::connected_component::ConnectedComponent>,
     pub points: Vec<crate::geom2d::Point2d>,
@@ -19,7 +19,7 @@ impl RawContour {
 
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::value_conversion]
-#[derive(Debug, Clone, PartialEq, Eq, Copy)]
+#[derive(Debug, Clone, PartialEq, Copy, Eq)]
 pub enum Direction {
     Up,
     Left,
@@ -205,7 +205,7 @@ pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_dire
 
 #[rustfmt::skip]
 #[ad_hoc_task_dependency::value_conversion]
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct StreakCache {
     pub prev1: i32,
     pub prev2: i32,
@@ -225,7 +225,7 @@ pub fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::
     let N = points.ilen();
     let p0 = &points[(N - 2) as usize];
     let p2 = &points[(N - 1) as usize];
-    crate::geom2d::Point2d::__constructor((p0.x.into_inner() + p2.x.into_inner()) / 2.0f32, (p0.y.into_inner() + p2.y.into_inner()) / 2.0f32)
+    crate::geom2d::Point2d::__constructor((p0.x + p2.x) / 2.0f32, (p0.y + p2.y) / 2.0f32)
 }
 
 #[rustfmt::skip]
@@ -330,16 +330,16 @@ impl crate::raw_contour::RawContour {
     #[ad_hoc_task_dependency::memoized_field(ingredient_index = 10, return_ref)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &self.points[0 as usize];
-        let mut xmin = start_point.x.into_inner();
-        let mut xmax = start_point.x.into_inner();
-        let mut ymin = start_point.y.into_inner();
-        let mut ymax = start_point.y.into_inner();
+        let mut xmin = start_point.x;
+        let mut xmax = start_point.x;
+        let mut ymin = start_point.y;
+        let mut ymax = start_point.y;
         for i in 0..self.points.ilen() {
             let point = &self.points[i as usize];
-            xmin = xmin.min(point.x.into_inner());
-            xmax = xmax.max(point.x.into_inner());
-            ymin = ymin.min(point.y.into_inner());
-            ymax = ymax.max(point.y.into_inner())
+            xmin = xmin.min(point.x);
+            xmax = xmax.max(point.x);
+            ymin = ymin.min(point.y);
+            ymax = ymax.max(point.y)
         }
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }
@@ -355,11 +355,11 @@ impl crate::raw_contour::RawContour {
         for i in (0 + 1)..self.points.ilen() {
             let a = &self.points[(i - 1) as usize];
             let b = &self.points[i as usize];
-            contour_len += (a.x.into_inner() - b.x.into_inner()).abs() + (a.y.into_inner() - b.y.into_inner()).abs()
+            contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
         }
         let a = &self.points[(self.points.ilen() - 1) as usize];
         let b = &self.points[0 as usize];
-        contour_len += (a.x.into_inner() - b.x.into_inner()).abs() + (a.y.into_inner() - b.y.into_inner()).abs();
+        contour_len += (a.x - b.x).abs() + (a.y - b.y).abs();
         return contour_len;
     }
 

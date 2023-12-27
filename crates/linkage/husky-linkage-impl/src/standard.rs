@@ -185,9 +185,15 @@ macro_rules! struct_field_linkage_impl {
                         .$field,
                 )
                 .into_value(),
-                Value::Leash(owner) => todo!("Leash"),
-                Value::Ref(owner) => todo!("Ref"),
-                Value::Mut(owner) => todo!("Mut"),
+                Value::Leash(owner) => __ValueLeashTest(
+                    (&((owner as &'static dyn std::any::Any)
+                        .downcast_ref::<$owner_ty>()
+                        .unwrap()
+                        .$field) as &'static _),
+                )
+                .into_value(),
+                Value::Ref(owner) => todo!("struct_field_wrapper Ref"),
+                Value::Mut(owner) => todo!("struct_field_wrapper Mut"),
                 _ => unreachable!(),
             }
         }
@@ -195,4 +201,14 @@ macro_rules! struct_field_linkage_impl {
             struct_field_wrapper,
         }
     }};
+}
+
+#[test]
+fn struct_field_linkage_impl_works() {
+    use crate::standard::ugly::__ValueLeashTest;
+    struct A {
+        x: i32,
+    }
+
+    let _: LinkageImpl<()> = struct_field_linkage_impl!(A, x);
 }
