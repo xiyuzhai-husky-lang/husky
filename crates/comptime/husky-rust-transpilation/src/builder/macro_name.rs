@@ -14,6 +14,7 @@ pub enum RustMacroName {
     FnLinkageImpl,
     UnveilFnLinkageImpl,
     GnLinkageImpl,
+    StructFieldLinkageImpl,
 }
 
 impl RustMacroName {
@@ -32,6 +33,7 @@ impl RustMacroName {
             RustMacroName::FnLinkageImpl => "fn_linkage_impl!",
             RustMacroName::UnveilFnLinkageImpl => "unveil_fn_linkage_impl!",
             RustMacroName::GnLinkageImpl => "gn_linkage_impl!",
+            RustMacroName::StructFieldLinkageImpl => "struct_field_linkage_impl!",
         }
     }
 }

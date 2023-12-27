@@ -25,6 +25,9 @@ where
         ) -> ValControlFlow,
         fn_pointer: fn(),
     },
+    StructField {
+        struct_field_wrapper: fn(Value) -> Value,
+    },
     RitchieUnveilFn {
         /// it's the wrapper's responsibility to properly set ctx
         fn_wrapper: fn(
@@ -75,6 +78,16 @@ where
                     val_argument_reprs,
                 )?;
                 gn_specific_wrapper(val_argument_reprs, value_at_generic_pedestal)
+            }
+            LinkageImpl::StructField {
+                struct_field_wrapper,
+            } => {
+                debug_assert_eq!(val_argument_reprs.len(), 1);
+                let ValArgumentReprInterface::Ordinary(owner) = val_argument_reprs[0] else {
+                    unreachable!()
+                };
+                let owner = ctx.eval_val_repr(owner)?;
+                ValControlFlow::Continue(struct_field_wrapper(owner))
             }
         }
     }
@@ -156,6 +169,30 @@ macro_rules! gn_linkage_impl {
             generic_pedestal: <$gn_item as __IsGnItem>::generic_pedestal,
             gn_generic_wrapper,
             gn_specific_wrapper,
+        }
+    }};
+}
+
+#[macro_export]
+macro_rules! struct_field_linkage_impl {
+    ($owner_ty: ty, $field: ident) => {{
+        fn struct_field_wrapper(owner: Value) -> Value {
+            match owner {
+                Value::Box(owner) => __ValueLeashTest(
+                    (owner as Box<dyn std::any::Any>)
+                        .downcast::<$owner_ty>()
+                        .unwrap()
+                        .$field,
+                )
+                .into_value(),
+                Value::Leash(owner) => todo!("Leash"),
+                Value::Ref(owner) => todo!("Ref"),
+                Value::Mut(owner) => todo!("Mut"),
+                _ => unreachable!(),
+            }
+        }
+        LinkageImpl::StructField {
+            struct_field_wrapper,
         }
     }};
 }

@@ -105,6 +105,11 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
+        LinkageData::StructField { self_ty, .. } => {
+            let hir_defn: HirDefn = self_ty.ty_path(db).hir_defn(db).unwrap().into();
+            builder.add(hir_defn);
+            builder.add_template_arguments(self_ty.template_arguments(db))
+        }
         LinkageData::TypeVariantConstructor {
             path,
             instantiation,
@@ -114,7 +119,6 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add_instantiation(instantiation)
         }
         &LinkageData::VecConstructor { element_ty } => builder.add(element_ty),
-        &LinkageData::PropsStructField { self_ty, ident } => builder.add(self_ty),
         LinkageData::Index => todo!(),
     }
     builder.finish()

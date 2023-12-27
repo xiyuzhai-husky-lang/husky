@@ -13,6 +13,7 @@ use husky_hir_ty::{ritchie::HirEagerContract, trai::HirTrait, HirType};
 use husky_javelin::{javelin::JavelinData, path::JavelinPath};
 use husky_linkage::{
     instantiation::{LinkageInstantiate, LinkageInstantiation, LinkageTermSymbolResolution},
+    linkage::LinkageStructField,
     template_argument::{
         place,
         ty::{LinkageRitchieParameter, LinkageRitchieType, LinkageType},
@@ -108,7 +109,6 @@ impl TranspileToRustWith<()> for Linkage {
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 path.transpile_to_rust(builder)
             }),
-            LinkageData::PropsStructField { .. } => todo!(),
             LinkageData::Index => todo!(),
             LinkageData::TypeVariantConstructor {
                 path,
@@ -116,6 +116,16 @@ impl TranspileToRustWith<()> for Linkage {
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
+            LinkageData::StructField { self_ty, field } => {
+                builder.macro_call(RustMacroName::StructFieldLinkageImpl, |builder| {
+                    self_ty.transpile_to_rust(builder);
+                    builder.punctuation(RustPunctuation::CommaSpaced);
+                    match field {
+                        LinkageStructField::Tuple => todo!(),
+                        LinkageStructField::Props { ident } => ident.transpile_to_rust(builder),
+                    }
+                })
+            }
             LinkageData::VecConstructor { element_ty } => {
                 builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                     builder.bracketed(RustBracket::Vertical, |builder| {

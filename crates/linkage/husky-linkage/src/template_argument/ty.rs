@@ -55,7 +55,7 @@ impl LinkageInstantiate for HirType {
     }
 }
 
-#[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
+#[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = pub(crate) new)]
 pub struct LinkageTypePathLeading {
     pub ty_path: TypePath,
     /// phantom arguments are ignored
