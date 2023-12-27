@@ -103,4 +103,9 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
             }
         }
     }
+
+    fn debug_drop(self) {
+        use std::mem::forget;
+        // forget(self.gn_values);
+    }
 }

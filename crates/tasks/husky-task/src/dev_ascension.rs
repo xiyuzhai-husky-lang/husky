@@ -35,6 +35,8 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
         slf: &'static std::ffi::c_void,
         f: impl FnOnce(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
+
+    fn debug_drop(self);
 }
 
 pub type LocalDevEvalContext<LinkageImpl> =
