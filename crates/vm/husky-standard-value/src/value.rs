@@ -287,7 +287,11 @@ impl IsValue for Value {
             Value::OptionLeash(opt) => opt.is_none(),
             Value::OptionSizedRef(opt) => opt.is_none(),
             Value::OptionSizedMut(opt) => opt.is_none(),
-            _ => unreachable!(),
+            Value::Leash(opt) => opt.is_none_dyn(),
+            _ => {
+                use husky_print_utils::p;
+                unreachable!()
+            }
         }
     }
 
@@ -298,6 +302,86 @@ impl IsValue for Value {
             Value::OptionSizedRef(opt) => opt.is_some(),
             Value::OptionSizedMut(opt) => opt.is_some(),
             _ => unreachable!(),
+        }
+    }
+
+    fn to_usize(self) -> usize {
+        match self {
+            Value::Invalid => todo!(),
+            Value::Moved => todo!(),
+            Value::Unit(_) => todo!(),
+            Value::Bool(_) => todo!(),
+            Value::Char(_) => todo!(),
+            Value::I8(_) => todo!(),
+            Value::I16(_) => todo!(),
+            Value::I32(slf) => slf as usize,
+            Value::I64(_) => todo!(),
+            Value::I128(_) => todo!(),
+            Value::ISize(_) => todo!(),
+            Value::U8(_) => todo!(),
+            Value::U16(_) => todo!(),
+            Value::U32(_) => todo!(),
+            Value::U64(_) => todo!(),
+            Value::U128(_) => todo!(),
+            Value::USize(slf) => slf,
+            Value::R8(_) => todo!(),
+            Value::R16(_) => todo!(),
+            Value::R32(_) => todo!(),
+            Value::R64(_) => todo!(),
+            Value::R128(_) => todo!(),
+            Value::RSize(_) => todo!(),
+            Value::F32(_) => todo!(),
+            Value::F64(_) => todo!(),
+            Value::StringLiteral(_) => todo!(),
+            Value::Box(_) => todo!(),
+            Value::Leash(_) => todo!(),
+            Value::Ref(_) => todo!(),
+            Value::Mut(_) => todo!(),
+            Value::OptionBox(_) => todo!(),
+            Value::OptionLeash(_) => todo!(),
+            Value::OptionSizedRef(_) => todo!(),
+            Value::OptionSizedMut(_) => todo!(),
+            Value::EnumU8(_) => todo!(),
+        }
+    }
+
+    fn index(self, index: usize) -> Self {
+        match self {
+            Value::Invalid => todo!(),
+            Value::Moved => todo!(),
+            Value::Unit(_) => todo!(),
+            Value::Bool(_) => todo!(),
+            Value::Char(_) => todo!(),
+            Value::I8(_) => todo!(),
+            Value::I16(_) => todo!(),
+            Value::I32(_) => todo!(),
+            Value::I64(_) => todo!(),
+            Value::I128(_) => todo!(),
+            Value::ISize(_) => todo!(),
+            Value::U8(_) => todo!(),
+            Value::U16(_) => todo!(),
+            Value::U32(_) => todo!(),
+            Value::U64(_) => todo!(),
+            Value::U128(_) => todo!(),
+            Value::USize(_) => todo!(),
+            Value::R8(_) => todo!(),
+            Value::R16(_) => todo!(),
+            Value::R32(_) => todo!(),
+            Value::R64(_) => todo!(),
+            Value::R128(_) => todo!(),
+            Value::RSize(_) => todo!(),
+            Value::F32(_) => todo!(),
+            Value::F64(_) => todo!(),
+            Value::StringLiteral(_) => todo!(),
+            Value::Box(_) => todo!(),
+            Value::Leash(slf) => Value::Leash(slf.index_ref_dyn(index)),
+            Value::Ref(_) => todo!(),
+            Value::Mut(_) => todo!(),
+            Value::OptionBox(_) => todo!(),
+            Value::OptionLeash(_) => todo!(),
+            Value::OptionSizedRef(_) => todo!(),
+            Value::OptionSizedMut(_) => todo!(),
+            Value::EnumU8(_) => todo!(),
         }
     }
 }

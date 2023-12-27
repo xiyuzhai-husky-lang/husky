@@ -8,6 +8,26 @@ use husky_decl_macro_utils::{
 pub trait Static: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
     type Frozen: Frozen<Static = Self>;
     unsafe fn freeze(&self) -> Self::Frozen;
+
+    fn is_some(&self) -> bool {
+        panic!(
+            "type `{}` is not an Option",
+            std::any::type_name_of_val(self)
+        )
+    }
+    fn is_none(&self) -> bool {
+        panic!(
+            "type `{}` is not an Option",
+            std::any::type_name_of_val(self)
+        )
+    }
+
+    fn index_ref<'a>(&'a self, index: usize) -> &'a dyn StaticDyn {
+        panic!(
+            "type `{}` doesn't support indexing",
+            std::any::type_name_of_val(self)
+        )
+    }
 }
 
 impl<T> Static for *mut T
@@ -27,6 +47,12 @@ pub trait StaticDyn:
     unsafe fn snapshot(&self) -> Arc<dyn SnapshotDyn>;
 
     fn type_name_dyn(&self) -> &'static str;
+
+    fn is_some_dyn(&self) -> bool;
+
+    fn is_none_dyn(&self) -> bool;
+
+    fn index_ref_dyn<'a>(&'a self, index: usize) -> &'a dyn StaticDyn;
 }
 
 impl<T> StaticDyn for T
@@ -40,6 +66,18 @@ where
     fn type_name_dyn(&self) -> &'static str {
         std::any::type_name::<T>()
     }
+
+    fn is_some_dyn(&self) -> bool {
+        self.is_some()
+    }
+
+    fn is_none_dyn(&self) -> bool {
+        self.is_none()
+    }
+
+    fn index_ref_dyn<'a>(&'a self, index: usize) -> &'a dyn StaticDyn {
+        self.index_ref(index)
+    }
 }
 
 impl<T> Static for Vec<T>
@@ -50,6 +88,10 @@ where
 
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
+    }
+
+    fn index_ref<'a>(&'a self, index: usize) -> &'a dyn StaticDyn {
+        &self[index]
     }
 }
 
@@ -69,6 +111,13 @@ where
     T: Static,
 {
     type Frozen = Option<T::Frozen>;
+
+    fn is_some(&self) -> bool {
+        self.is_some()
+    }
+    fn is_none(&self) -> bool {
+        self.is_none()
+    }
 
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()

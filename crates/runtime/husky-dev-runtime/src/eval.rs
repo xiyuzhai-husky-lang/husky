@@ -65,7 +65,7 @@ impl<Task: IsTask> DevRuntime<Task> {
             }
             ValOpn::Literal(lit) => {
                 // ad hoc
-                let value = match lit {
+                let value: TaskValue<Task> = match lit {
                     TermLiteral::Unit(_) => todo!(),
                     TermLiteral::Bool(_) => todo!(),
                     TermLiteral::I8(_) => todo!(),
@@ -79,7 +79,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                     TermLiteral::U32(_) => todo!(),
                     TermLiteral::U64(_) => todo!(),
                     TermLiteral::U128(_) => todo!(),
-                    TermLiteral::USize(_) => todo!(),
+                    TermLiteral::USize(lit) => (lit.value(self.db()) as usize).into(),
                     TermLiteral::R8(_) => todo!(),
                     TermLiteral::R16(_) => todo!(),
                     TermLiteral::R32(_) => todo!(),
@@ -159,7 +159,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                     }
                     return self.eval_stmts(stmts);
                 }
-                unreachable!("one of the branches should return")
+                ValControlFlow::Continue(().into())
             }
             ValOpn::TypeVariant(path) => match path.index(db) {
                 TypeVariantIndex::U8(index_raw) => {
@@ -193,8 +193,8 @@ impl<Task: IsTask> DevRuntime<Task> {
                 let ValArgumentRepr::Ordinary(index) = arguments[1] else {
                     unreachable!()
                 };
-                let index = self.eval_val_repr(index)?;
-                todo!()
+                let index = self.eval_val_repr(index)?.to_usize();
+                ValControlFlow::Continue(owner.index(index))
             }
         }
     }

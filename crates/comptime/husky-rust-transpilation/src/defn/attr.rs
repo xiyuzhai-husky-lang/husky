@@ -41,7 +41,6 @@ impl DeriveAttrs {
                 item_path_menu.debug_trai_path(),
                 item_path_menu.clone_trai_path(),
                 item_path_menu.partial_eq_trai_path,
-                item_path_menu.eq_trai_path,
             ]),
         }
     }
