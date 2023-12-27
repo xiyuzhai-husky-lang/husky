@@ -91,12 +91,9 @@ impl Value {
     {
         match self {
             Value::Box(slf) => *(slf as Box<dyn std::any::Any>).downcast().unwrap(),
-            Value::Leash(slf) => {
-                *(slf.copy_dyn() as Box<dyn std::any::Any>)
-                    .downcast()
-                    .unwrap();
-                todo!()
-            }
+            Value::Leash(slf) => *(slf.copy_dyn() as Box<dyn std::any::Any>)
+                .downcast()
+                .unwrap(),
             _ => unreachable!("self is {self:?}"),
         }
     }
