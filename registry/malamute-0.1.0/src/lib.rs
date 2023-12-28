@@ -33,7 +33,7 @@ where
     }
 
     fn copy(&self) -> Box<dyn __StaticDyn> {
-        Box::new(*self)
+        Box::<Class<Label>>::new(self.clone())
     }
 }
 
