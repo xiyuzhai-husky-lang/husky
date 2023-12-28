@@ -47,7 +47,7 @@ where
             ValControlFlow::LoopContinue => todo!(),
             ValControlFlow::LoopBreak(_) => todo!(),
             ValControlFlow::Return(_) => todo!(),
-            ValControlFlow::Undefined => todo!(),
+            ValControlFlow::Undefined => return Ok(None),
             ValControlFlow::Err(_) => todo!(),
         };
         let mut features: SmallVec<[NotNan<f32>; 4]> = smallvec![];

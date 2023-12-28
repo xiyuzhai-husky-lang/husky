@@ -178,13 +178,9 @@ macro_rules! struct_field_linkage_impl {
     ($owner_ty: ty, $field: ident) => {{
         fn struct_field_wrapper(owner: Value) -> Value {
             match owner {
-                Value::Box(owner) => __ValueLeashTest(
-                    (owner as Box<dyn std::any::Any>)
-                        .downcast::<$owner_ty>()
-                        .unwrap()
-                        .$field,
-                )
-                .into_value(),
+                Value::Owned(owner) => {
+                    __ValueLeashTest(owner.downcast_into_owned::<$owner_ty>().$field).into_value()
+                }
                 Value::Leash(owner) => __ValueLeashTest(
                     (&((owner as &'static dyn std::any::Any)
                         .downcast_ref::<$owner_ty>()
