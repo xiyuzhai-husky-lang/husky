@@ -250,40 +250,8 @@ impl<Task: IsTask> DevRuntime<Task> {
     }
 }
 
-// #[test]
-// fn val_repr_eval_works() {
-//     use husky_dev_comptime::DevComptime;
-//     use husky_ml_task::MlTask;
-//     use husky_ml_task_prelude::InputId;
-//     use husky_path_utils::dev_paths::*;
-//     use husky_vfs::VfsDb;
-//     use husky_visual_protocol::trivial::TrivialVisualProtocol;
-
-//     let dev_paths = HuskyLangDevPaths::new();
-//     let runtime = DevRuntime::new(
-//         MlTask::<TrivialVisualProtocol>::new(),
-//         dev_paths.dev_root().join("examples/mnist-classifier"),
-//         None,
-//     )
-//     .unwrap();
-//     let db = runtime.db();
-//     let DevComptimeTarget::SingleCrate(crate_path) = runtime.comptime_target() else {
-//         unreachable!()
-//     };
-//     for &item_path in module_item_paths(db, crate_path.root_module_path(db)) {
-//         let ItemPath::MajorItem(MajorItemPath::Fugitive(fugitive_path)) = item_path else {
-//             continue;
-//         };
-//         let val_repr = ValRepr::new_val_item(fugitive_path, db);
-//         runtime.eval_val_repr_at_pedestal(val_repr, InputId::from_index(0).into());
-//     }
-//     // ad hoc
-//     runtime.comptime;
-//     runtime.storage.debug_drop();
-// }
-
 #[test]
-fn runtime_storage_drop_works() {
+fn val_repr_eval_works() {
     use husky_dev_comptime::DevComptime;
     use husky_ml_task::MlTask;
     use husky_ml_task_prelude::InputId;
@@ -306,24 +274,7 @@ fn runtime_storage_drop_works() {
         let ItemPath::MajorItem(MajorItemPath::Fugitive(fugitive_path)) = item_path else {
             continue;
         };
-        if fugitive_path.ident(db).data(db) == "main" {
-            let val_repr = ValRepr::new_val_item(fugitive_path, db);
-            runtime.eval_val_repr_at_pedestal(val_repr, InputId::from_index(0).into());
-        }
+        let val_repr = ValRepr::new_val_item(fugitive_path, db);
+        runtime.eval_val_repr_at_pedestal(val_repr, InputId::from_index(0).into());
     }
-    use husky_mono_linktime::MonoLinkTime;
-    let DevComptime {
-        db,
-        target,
-        target_path,
-        linktime: MonoLinkTime::<_> { internal },
-        ingredient_vals,
-    } = runtime.comptime;
-    let MonoLinkTimeInternal {
-        target_path,
-        libraries,
-        linkage_impls,
-    } = internal.into_inner().unwrap();
-    std::mem::drop(libraries);
-    runtime.storage.debug_drop();
 }
