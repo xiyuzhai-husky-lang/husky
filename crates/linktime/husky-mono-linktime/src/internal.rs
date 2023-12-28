@@ -12,9 +12,9 @@ pub struct MonoLinkTimeInternal<LinkageImpl>
 where
     LinkageImpl: IsLinkageImpl,
 {
-    target_path: LinktimeTargetPath,
-    libraries: MonoLinkageLibraries,
-    linkage_impls: LinkageImplMap<LinkageImpl>,
+    /* ad hoc pub*/ pub target_path: LinktimeTargetPath,
+    /* ad hoc pub*/ pub libraries: MonoLinkageLibraries,
+    /* ad hoc pub*/ pub linkage_impls: LinkageImplMap<LinkageImpl>,
 }
 
 impl<LinkageImpl: IsLinkageImpl> MonoLinkTimeInternal<LinkageImpl>

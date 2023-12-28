@@ -58,3 +58,6 @@ husky-val-repr.workspace = true
 husky-ast = { workspace = true, features = ["test_utils"] }
 # protocols
 husky-visual-protocol = { workspace = true, features = ["trivial"] }
+# ad hoc
+# linktime
+husky-mono-linktime.workspace = true
