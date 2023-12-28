@@ -34,22 +34,24 @@ where
     fn revive_dyn(&self) -> (Option<ValueStand>, Box<dyn StaticDyn>) {
         let (stand, static_self) = self.revive();
         (
-            stand.map(|stand| ValueStand::Box(Box::new(stand))),
-            Box::new(static_self),
+            stand.map(|stand| ValueStand::Box(Box::<T::Stand>::new(stand))),
+            Box::<T::Static>::new(static_self),
         )
     }
 
     fn revive_ref_dyn(self: Arc<Self>) -> (ValueStand, *const dyn StaticDyn) {
-        let slf: *const <Self as Frozen>::Static =
-            unsafe { std::mem::transmute(&*self as *const Self) };
-        (ValueStand::Arc(self), slf)
+        todo!()
+        // let slf: *const <Self as Frozen>::Static =
+        //     unsafe { std::mem::transmute(&*self as *const Self) };
+        // (ValueStand::Arc(self), slf)
     }
 
     fn revive_mut_dyn(&self) -> (ValueStand, *mut dyn StaticDyn) {
-        let mut slf = self.clone();
-        let slf_mut: *mut <Self as Frozen>::Static =
-            unsafe { std::mem::transmute(&mut slf as *mut Self) };
-        (ValueStand::Box(Box::new(slf)), slf_mut)
+        todo!()
+        // let mut slf = self.clone();
+        // let slf_mut: *mut <Self as Frozen>::Static =
+        //     unsafe { std::mem::transmute(&mut slf as *mut Self) };
+        // (ValueStand::Box(Box::new(slf)), slf_mut)
     }
 }
 

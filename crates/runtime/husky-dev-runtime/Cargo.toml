@@ -56,3 +56,5 @@ husky-val-repr.workspace = true
 
 [dev-dependencies]
 husky-ast = { workspace = true, features = ["test_utils"] }
+# protocols
+husky-visual-protocol = { workspace = true, features = ["trivial"] }

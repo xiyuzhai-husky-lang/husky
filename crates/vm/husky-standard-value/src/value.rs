@@ -1,5 +1,6 @@
-use std::cmp::Ordering;
+pub mod owned;
 
+use self::owned::*;
 use crate::{
     frozen::{ValueStand, ValueStands},
     r#static::{Static, StaticDyn},
@@ -7,6 +8,7 @@ use crate::{
 };
 use husky_decl_macro_utils::*;
 use husky_task_prelude::{val_control_flow::ValControlFlow, value::IsValue};
+use std::cmp::Ordering;
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
 
@@ -42,7 +44,7 @@ pub enum Value {
     F64(f64),
     StringLiteral(StringLiteralId),
     /// `Box<T>`
-    Box(Box<dyn StaticDyn>),
+    Owned(OwnedValue),
     // ad hoc
     /// `~T`
     Leash(&'static dyn StaticDyn),
@@ -56,6 +58,51 @@ pub enum Value {
     OptionSizedMut(Option<*mut dyn StaticDyn>),
     EnumU8(u8),
 }
+
+// impl Drop for Value {
+//     fn drop(&mut self) {
+//         match self {
+//             Value::Invalid => (),
+//             Value::Moved => (),
+//             Value::Unit(_) => (),
+//             Value::Bool(_) => (),
+//             Value::Char(_) => (),
+//             Value::I8(_) => (),
+//             Value::I16(_) => (),
+//             Value::I32(_) => (),
+//             Value::I64(_) => (),
+//             Value::I128(_) => (),
+//             Value::ISize(_) => (),
+//             Value::U8(_) => (),
+//             Value::U16(_) => (),
+//             Value::U32(_) => (),
+//             Value::U64(_) => (),
+//             Value::U128(_) => (),
+//             Value::USize(_) => (),
+//             Value::R8(_) => (),
+//             Value::R16(_) => (),
+//             Value::R32(_) => (),
+//             Value::R64(_) => (),
+//             Value::R128(_) => (),
+//             Value::RSize(_) => (),
+//             Value::F32(_) => (),
+//             Value::F64(_) => (),
+//             Value::StringLiteral(_) => (),
+//             Value::Box(boxed_value) => println!(
+//                 "boxed value of type `{}` is being dropped",
+//                 boxed_value.type_name_dyn()
+//             ),
+//             Value::Leash(_) => (),
+//             Value::Ref(_) => (),
+//             Value::Mut(_) => (),
+//             Value::OptionBox(_) => (),
+//             Value::OptionLeash(_) => (),
+//             Value::OptionSizedRef(_) => (),
+//             Value::OptionSizedMut(_) => (),
+//             Value::EnumU8(_) => (),
+//         }
+//     }
+// }
 
 unsafe impl Send for Value {}
 
@@ -82,7 +129,7 @@ impl Value {
     where
         T: Static,
     {
-        Value::Box(Box::new(t))
+        Value::Owned(OwnedValue::upcast_from_owned(t))
     }
 
     pub fn into_owned<T>(self) -> T
@@ -90,7 +137,7 @@ impl Value {
         T: 'static,
     {
         match self {
-            Value::Box(slf) => *(slf as Box<dyn std::any::Any>).downcast().unwrap(),
+            Value::Owned(slf) => slf.downcast_into_owned(),
             Value::Leash(slf) => *(slf.copy_dyn() as Box<dyn std::any::Any>)
                 .downcast()
                 .unwrap(),
@@ -133,15 +180,13 @@ impl Value {
             Value::F32(_) => todo!(),
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
-            Value::Box(boxed_value) => {
-                let Some(t): Option<&<T as WeakStatic>::Static> =
-                    ((&*boxed_value as &dyn StaticDyn) as &dyn std::any::Any).downcast_ref()
-                else {
-                    unreachable!()
-                };
+            Value::Owned(slf) => {
                 // todo: make the whole function unsafe
-                let t: &'a T = unsafe { std::mem::transmute(t) };
-                value_stands.unwrap().push(ValueStand::Box(boxed_value));
+                let t: &T = slf.downcast_as_ref();
+                let t = unsafe { std::mem::transmute(t) };
+                value_stands
+                    .unwrap()
+                    .push(ValueStand::Box(slf.into_inner()));
                 t
             }
             Value::Leash(slf) => {
@@ -234,7 +279,7 @@ impl IsValue for Value {
             Value::F32(slf) => Value::F32(slf),
             Value::F64(slf) => Value::F64(slf),
             Value::StringLiteral(slf) => Value::StringLiteral(slf),
-            Value::Box(ref slf) => Value::Leash(&**slf), // Clone the boxed value
+            Value::Owned(ref slf) => Value::Leash(slf.as_ref()), // Clone the boxed value
             Value::Leash(slf) => Value::Leash(slf),
             Value::Ref(slf) => unreachable!(),
             Value::Mut(slf) => unreachable!(),
@@ -274,7 +319,7 @@ impl IsValue for Value {
             Value::F32(_) => todo!(),
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
-            Value::Box(_) => todo!(),
+            Value::Owned(_) => todo!(),
             Value::Leash(_) => todo!(),
             Value::Ref(_) => todo!(),
             Value::Mut(_) => todo!(),
@@ -343,7 +388,7 @@ impl IsValue for Value {
             Value::F32(_) => todo!(),
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
-            Value::Box(_) => todo!(),
+            Value::Owned(_) => todo!(),
             Value::Leash(_) => todo!(),
             Value::Ref(_) => todo!(),
             Value::Mut(_) => todo!(),
@@ -383,7 +428,7 @@ impl IsValue for Value {
             Value::F32(_) => todo!(),
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
-            Value::Box(_) => todo!(),
+            Value::Owned(_) => todo!(),
             Value::Leash(slf) => Value::Leash(slf.index_ref_dyn(index)),
             Value::Ref(_) => todo!(),
             Value::Mut(_) => todo!(),
@@ -423,7 +468,7 @@ impl PartialEq for Value {
             (Self::F32(l0), Self::F32(r0)) => l0 == r0,
             (Self::F64(l0), Self::F64(r0)) => l0 == r0,
             (Self::StringLiteral(l0), Self::StringLiteral(r0)) => todo!(),
-            (Self::Box(l0), Self::Box(r0)) => todo!(),
+            (Self::Owned(l0), Self::Owned(r0)) => todo!(),
             (Self::Leash(l0), Self::Leash(r0)) => todo!(),
             (Self::Ref(l0), Self::Ref(r0)) => todo!(),
             (Self::Mut(l0), Self::Mut(r0)) => todo!(),
@@ -459,7 +504,7 @@ impl PartialOrd for Value {
             (F32(f1), F32(f2)) => f1.partial_cmp(f2),
             (F64(f1), F64(f2)) => f1.partial_cmp(f2),
             (StringLiteral(l0), StringLiteral(r0)) => todo!(),
-            (Value::Box(l0), Value::Box(r0)) => todo!(),
+            (Value::Owned(l0), Value::Owned(r0)) => todo!(),
             (Leash(l0), Leash(r0)) => todo!(),
             (Ref(l0), Ref(r0)) => todo!(),
             (Mut(l0), Mut(r0)) => todo!(),
