@@ -1,9 +1,8 @@
-/* ad hoc pub */
-pub mod internal;
+mod internal;
 #[cfg(test)]
 mod tests;
 
-use self::internal::MonoLinkTimeInternal;
+use self::internal::MonoLinktimeInternal;
 #[cfg(test)]
 use self::tests::*;
 use husky_linkage::linkage::Linkage;
@@ -13,14 +12,14 @@ use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use std::{collections::HashMap, marker::PhantomData};
 
 // this will transpile everything compilable to Rust
-pub struct MonoLinkTime<LinkageImpl>
+pub struct MonoLinktime<LinkageImpl>
 where
     LinkageImpl: IsLinkageImpl,
 {
-    /* ad hoc pub*/ pub internal: std::sync::RwLock<MonoLinkTimeInternal<LinkageImpl>>,
+    /* ad hoc pub*/ pub internal: std::sync::RwLock<MonoLinktimeInternal<LinkageImpl>>,
 }
 
-impl<LinkageImpl> IsLinktime for MonoLinkTime<LinkageImpl>
+impl<LinkageImpl> IsLinktime for MonoLinktime<LinkageImpl>
 where
     LinkageImpl: IsLinkageImpl,
 {
@@ -44,7 +43,7 @@ where
 
     fn new_linktime(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
         Self {
-            internal: std::sync::RwLock::new(MonoLinkTimeInternal::new(target_path, db)),
+            internal: std::sync::RwLock::new(MonoLinktimeInternal::new(target_path, db)),
         }
     }
 }

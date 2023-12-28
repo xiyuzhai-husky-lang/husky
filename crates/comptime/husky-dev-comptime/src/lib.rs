@@ -27,12 +27,11 @@ use husky_vfs::{
 use std::path::Path;
 
 pub struct DevComptime<Task: IsTask> {
-    /* ad hoc */ pub db: DevComptimeDb,
-    /* ad hoc */ pub target: DevComptimeTarget,
-    /* ad hoc */ pub target_path: Option<LinktimeTargetPath>,
-    /* ad hoc */ pub linktime: TaskDevLinkTime<Task>,
-    /* ad hoc */
-    pub ingredient_vals: Vec<(
+    db: DevComptimeDb,
+    target: DevComptimeTarget,
+    target_path: Option<LinktimeTargetPath>,
+    linktime: TaskDevLinkTime<Task>,
+    ingredient_vals: Vec<(
         PackagePath,
         Vec<(IngredientPath, Option<ValRepr>, Option<Val>)>,
     )>,

@@ -82,7 +82,8 @@ fn generate_linkage_storage_works() {
     let mut db = DevComptimeDb::default();
     db.vfs_plain_test(
         |db, package_path: PackagePath| {
-            MonoLinkageLibraries::generate(LinktimeTargetPath::new_package(package_path, db), db);
+            MonoLinkageLibraries::generate(LinktimeTargetPath::new_package(package_path, db), db)
+                .unwrap();
         },
         &VfsTestConfig::new("generate_linkage_storage")
             .with_vfs_test_domains_config(VfsTestDomainsConfig::ExamplesOnly),

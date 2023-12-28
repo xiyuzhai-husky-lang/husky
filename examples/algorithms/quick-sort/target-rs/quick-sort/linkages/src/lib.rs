@@ -7,5 +7,5 @@ linkage_impls![
     fn_linkage_impl!(quick_sort::quick_sort_works_for_integers),
     fn_linkage_impl!(quick_sort::quick_sort_works_for_strs),
     fn_linkage_impl!(|v: Vec<i32>|v),
-    fn_linkage_impl!(|v: Vec<Ref<'static, str>>|v),
+    fn_linkage_impl!(|v: Vec<&'static str>|v),
 ];
