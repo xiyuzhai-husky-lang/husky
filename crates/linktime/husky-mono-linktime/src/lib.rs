@@ -1,4 +1,5 @@
-mod internal;
+/* ad hoc pub */
+pub mod internal;
 #[cfg(test)]
 mod tests;
 
@@ -16,7 +17,7 @@ pub struct MonoLinkTime<LinkageImpl>
 where
     LinkageImpl: IsLinkageImpl,
 {
-    internal: std::sync::RwLock<MonoLinkTimeInternal<LinkageImpl>>,
+    /* ad hoc pub*/ pub internal: std::sync::RwLock<MonoLinkTimeInternal<LinkageImpl>>,
 }
 
 impl<LinkageImpl> IsLinktime for MonoLinkTime<LinkageImpl>

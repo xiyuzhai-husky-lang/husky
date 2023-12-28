@@ -3,6 +3,9 @@ use husky_entity_path::{ItemPath, MajorItemPath, TypeVariantIndex};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_fluffy_term::FluffyTermEngine;
 use husky_hir_opr::binary::HirBinaryOpr;
+// ad hoc
+#[cfg(test)]
+use husky_mono_linktime::internal::MonoLinkTimeInternal;
 use husky_opr::BinaryComparisonOpr;
 use husky_task::{
     dev_ascension::{dev_eval_context, with_runtime_and_base_point},
@@ -308,6 +311,19 @@ fn runtime_storage_drop_works() {
             runtime.eval_val_repr_at_pedestal(val_repr, InputId::from_index(0).into());
         }
     }
-    runtime.comptime;
+    use husky_mono_linktime::MonoLinkTime;
+    let DevComptime {
+        db,
+        target,
+        target_path,
+        linktime: MonoLinkTime::<_> { internal },
+        ingredient_vals,
+    } = runtime.comptime;
+    let MonoLinkTimeInternal {
+        target_path,
+        libraries,
+        linkage_impls,
+    } = internal.into_inner().unwrap();
+    std::mem::drop(libraries);
     runtime.storage.debug_drop();
 }
