@@ -32,9 +32,9 @@ use std::path::Path;
 
 pub struct DevRuntime<Task: IsTask> {
     task: Task,
-    comptime: DevComptime<Task>,
-    storage: DevRuntimeStorage<Task>,
     config: DevRuntimeConfig<Task>,
+    storage: DevRuntimeStorage<Task>,
+    comptime: DevComptime<Task>,
 }
 
 impl<Task: IsTask> DevRuntime<Task> {
