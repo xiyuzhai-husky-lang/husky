@@ -25,7 +25,7 @@ where
         label0: Label,
     ) -> Result<Self, ()> {
         let mut stalks: Vec<Stalk> = vec![];
-        for i in 0..500 {
+        for i in 0..5 {
             let input_id = __InputId::from_index(i);
             if let Some(stalk) =
                 Self::from_features_aux(val_domain_repr, input_id, arguments, label0)?
@@ -94,7 +94,7 @@ where
         raw_flag_ranges
             .iter()
             .enumerate()
-            .map(|(idx, raw_flag_range)| {
+            .filter_map(|(idx, raw_flag_range)| {
                 self.flag_range(ntrim, border_expand_rate, idx, raw_flag_range)
             })
             .collect()
@@ -106,12 +106,15 @@ where
         border_expand_rate: f32,
         idx: usize,
         raw: &FlagRange,
-    ) -> FlagRange {
+    ) -> Option<FlagRange> {
         let true_values_sorted = self.true_values_sorted(idx);
         assert!(border_expand_rate < 0.4);
         assert!(border_expand_rate > 0.0);
         assert!(skip >= 0);
         let skip = skip as usize;
+        if skip >= true_values_sorted.len() {
+            return None;
+        }
         let interval_width = raw.true_range.end - raw.true_range.start;
         let epsilon = interval_width * border_expand_rate;
         let start = if raw.ambiguous_start() {
@@ -124,10 +127,10 @@ where
         } else {
             raw.true_range.end
         };
-        FlagRange {
+        Some(FlagRange {
             true_range: ClosedRange { start, end },
             false_range: raw.false_range,
-        }
+        })
     }
 
     fn true_values(&self, idx: usize) -> Vec<NotNan<f32>> {
