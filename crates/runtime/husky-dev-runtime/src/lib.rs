@@ -30,6 +30,9 @@ use husky_vfs::{error::VfsResult, linktime_target_path::LinktimeTargetPath};
 
 use std::path::Path;
 
+/// Dropping libraries or linkage_impls before runtime storage will lead to segmentation fault
+///
+/// so it's necessary to pub `storage` field before `comptime`
 pub struct DevRuntime<Task: IsTask> {
     task: Task,
     config: DevRuntimeConfig<Task>,
