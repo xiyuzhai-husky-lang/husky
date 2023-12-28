@@ -8,16 +8,18 @@ use husky_linkage::{linkage::LinkageData, version_stamp::LinkageVersionStamp};
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use version_stamp::HasVersionStamp;
 
-pub struct MonoLinkTimeInternal<LinkageImpl>
+pub struct MonoLinktimeInternal<LinkageImpl>
 where
     LinkageImpl: IsLinkageImpl,
 {
-    /* ad hoc pub*/ pub target_path: LinktimeTargetPath,
-    /* ad hoc pub*/ pub libraries: MonoLinkageLibraries,
-    /* ad hoc pub*/ pub linkage_impls: LinkageImplMap<LinkageImpl>,
+    target_path: LinktimeTargetPath,
+    /// this is needed to kep Box<dyn StaticDyn> valid
+    past_libraries: Vec<MonoLinkageLibraries>,
+    libraries: MonoLinkageLibraries,
+    linkage_impls: LinkageImplMap<LinkageImpl>,
 }
 
-impl<LinkageImpl: IsLinkageImpl> MonoLinkTimeInternal<LinkageImpl>
+impl<LinkageImpl: IsLinkageImpl> MonoLinktimeInternal<LinkageImpl>
 where
     LinkageImpl: IsLinkageImpl,
 {
@@ -28,6 +30,7 @@ where
         let linkage_impls = generate_linkage_impls(target_path, &libraries, db);
         Self {
             target_path,
+            past_libraries: vec![],
             libraries,
             linkage_impls,
         }
@@ -86,7 +89,11 @@ where
     }
 
     fn reload(&mut self, db: &::salsa::Db) {
-        self.libraries = MonoLinkageLibraries::generate(self.target_path, db).unwrap();
+        let libraries = std::mem::replace(
+            &mut self.libraries,
+            MonoLinkageLibraries::generate(self.target_path, db).unwrap(),
+        );
+        self.past_libraries.push(libraries);
         self.linkage_impls = generate_linkage_impls(self.target_path, &self.libraries, db)
     }
 }

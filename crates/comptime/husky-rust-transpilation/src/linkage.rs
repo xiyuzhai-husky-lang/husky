@@ -276,10 +276,23 @@ impl<E> TranspileToRustWith<E> for LinkageTrait {
 impl<E> TranspileToRustWith<E> for LinkageTypePathLeading {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db;
-        self.ty_path(db).transpile_to_rust(builder);
         let template_arguments = self.template_arguments(db);
-        if !template_arguments.is_empty() {
-            builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
+        match self.ty_path(db).refine(db) {
+            Left(PreludeTypePath::REF) => {
+                debug_assert_eq!(template_arguments.len(), 2);
+                builder.punctuation(RustPunctuation::Ambersand);
+                template_arguments[0].transpile_to_rust(builder);
+                template_arguments[1].transpile_to_rust(builder)
+            }
+            Left(PreludeTypePath::REF_MUT) => todo!(),
+            Left(PreludeTypePath::SLICE) => todo!(),
+            _ => {
+                self.ty_path(db).transpile_to_rust(builder);
+                let template_arguments = self.template_arguments(db);
+                if !template_arguments.is_empty() {
+                    builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
+                }
+            }
         }
     }
 }

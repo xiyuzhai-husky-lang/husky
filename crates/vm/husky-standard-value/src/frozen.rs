@@ -81,6 +81,17 @@ where
     }
 }
 
+// maybe impl Frozen for &'static T where T: ?Sized
+impl Frozen for &'static str {
+    type Static = Self;
+
+    type Stand = ();
+
+    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
+        todo!()
+    }
+}
+
 impl<T> Frozen for Option<T>
 where
     T: Frozen,

@@ -152,6 +152,14 @@ macro_rules! impl_static_for_primitive_ty {
 
 for_all_primitive_tys!(impl_static_for_primitive_ty);
 
+impl Static for &'static str {
+    type Frozen = Self;
+
+    unsafe fn freeze(&self) -> Self::Frozen {
+        todo!()
+    }
+}
+
 macro_rules! impl_static_for_ritchie_ty {
     (
         [$($input:ident),*], $output:ident

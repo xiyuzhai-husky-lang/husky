@@ -2,7 +2,7 @@
 
 // use self::runtime_storage::*;
 // use husky_hir_deps::HirDepsDb;
-// use husky_mono_linktime::MonoLinkTime;
+// use husky_mono_linktime::MonoLinktime;
 // use husky_standard_value::RegularValue;
 // use husky_task::{linkage::IsLinkage, IsDevAscension, IsTask};
 // use std::marker::PhantomData;
@@ -35,7 +35,7 @@
 // {
 //     type Base = DevInput;
 
-//     type LinkTime = MonoLinkTime<ComptimeDb, MlLinkage>;
+//     type LinkTime = MonoLinktime<ComptimeDb, MlLinkage>;
 
 //     type Value = RegularValue;
 

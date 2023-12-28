@@ -2,7 +2,7 @@ mod runtime_storage;
 
 use self::runtime_storage::*;
 use husky_ml_task_prelude::{DevEvalContext, InputId, MlPedestal, DEV_EVAL_CONTEXT};
-use husky_mono_linktime::MonoLinkTime;
+use husky_mono_linktime::MonoLinktime;
 use husky_standard_value::Value;
 use husky_task::{
     dev_ascension::{IsDevAscension, LocalDevEvalContext},
@@ -48,7 +48,7 @@ impl<VisualProtocol> IsDevAscension for MlDevAscension<VisualProtocol>
 where
     VisualProtocol: IsVisualProtocol,
 {
-    type Linktime = MonoLinkTime<LinkageImpl>;
+    type Linktime = MonoLinktime<LinkageImpl>;
 
     type RuntimeStorage = MlDevRuntimeStorage;
 

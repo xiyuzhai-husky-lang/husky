@@ -94,6 +94,18 @@ pub(crate) fn value(
 
         #primitive_ty_value_conversions
 
+        impl FromValue for &'static str {
+            fn from_value_aux(value: #value_ty, value_stands: Option<&mut ValueStands>) -> Self {
+                todo!()
+            }
+        }
+
+        impl IntoValue for &'static str {
+            fn into_value(self) -> #value_ty {
+                todo!()
+            }
+        }
+
         // repeat the above code with type u8 replaced by u8~u128,usize, i8~i128,isze
 
 
