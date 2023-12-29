@@ -34,7 +34,7 @@ husky-linkage.workspace = true
 # syntax
 husky-entity-syn-tree.workspace = true
 # task
-husky-task-prelude.workspace = true
+husky-task-interface.workspace = true
 # val
 husky-val.workspace = true
 # utils

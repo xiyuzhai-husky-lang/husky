@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ml_task_prelude::InputId;
+use husky_ml_task_interface::InputId;
 
 lazy_static::lazy_static! {
     pub(crate) static ref MNIST_DATASET: MnistDataset = MnistDataset::new(35016232u64);

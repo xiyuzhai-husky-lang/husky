@@ -1,5 +1,5 @@
 [package]
-name = "husky-ml-task-prelude"
+name = "husky-ml-task-interface"
 version = "0.1.0"
 edition = "2021"
 
@@ -12,8 +12,8 @@ serde.workspace = true
 # linkage
 husky-linkage-impl.workspace = true
 # tasks
-husky-task-prelude.workspace = true
-husky-ml-task-prelude-macros.workspace = true
+husky-task-interface.workspace = true
+husky-ml-task-interface-macros.workspace = true
 # protocols
 husky-trace-protocol.workspace = true
 # vm

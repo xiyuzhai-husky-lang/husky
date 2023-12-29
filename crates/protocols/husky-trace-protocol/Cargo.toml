@@ -10,6 +10,7 @@ futures = { workspace = true, optional = true }
 futures-util = { workspace = true, optional = true }
 rustc-hash.workspace = true
 serde.workspace = true
+serde_json.workspace = true
 smallvec.workspace = true
 thiserror = { workspace = true, optional = true }
 tokio = { workspace = true, optional = true }
@@ -23,6 +24,8 @@ vec-like.workspace = true
 # protocols
 husky-token-protocol = { workspace = true, features = ["serde"] }
 husky-visual-protocol.workspace = true
+# tasks
+husky-task-interface.workspace = true
 # utils
 husky-websocket-utils = { path = "../../utils/husky-websocket-utils", features = [
     "serde_json"

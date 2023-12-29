@@ -25,8 +25,8 @@ husky-mono-linktime.workspace = true
 husky-trace-protocol.workspace = true
 husky-visual-protocol.workspace = true
 # tasks
-husky-task-prelude.workspace = true
+husky-task-interface.workspace = true
 husky-task.workspace = true
-husky-ml-task-prelude.workspace = true
+husky-ml-task-interface.workspace = true
 # val
 husky-val.workspace = true

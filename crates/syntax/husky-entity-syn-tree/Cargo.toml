@@ -41,7 +41,7 @@ husky-defn-ast = { path = "../../syntax/husky-defn-ast" }
 # infer
 husky-manifest.workspace = true
 # task
-husky-task-prelude.workspace = true
+husky-task-interface.workspace = true
 # utils
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils.workspace = true

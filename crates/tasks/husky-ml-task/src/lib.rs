@@ -1,7 +1,7 @@
 mod runtime_storage;
 
 use self::runtime_storage::*;
-use husky_ml_task_prelude::{DevEvalContext, InputId, MlPedestal, DEV_EVAL_CONTEXT};
+use husky_ml_task_interface::{DevEvalContext, InputId, MlPedestal, DEV_EVAL_CONTEXT};
 use husky_mono_linktime::MonoLinktime;
 use husky_standard_value::Value;
 use husky_task::{

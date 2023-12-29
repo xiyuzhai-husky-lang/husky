@@ -161,12 +161,12 @@ husky-syn-opr = { path = "crates/syntax/husky-syn-opr" }
 husky-entity-syn-tree = { path = "crates/syntax/husky-entity-syn-tree" }
 # tasks
 husky-task = { path = "crates/tasks/husky-task" }
-husky-task-prelude = { path = "crates/tasks/husky-task-prelude" }
-husky-task-prelude-macros = {path = "crates/tasks/husky-task-prelude-macros"}
+husky-task-interface = { path = "crates/tasks/husky-task-interface" }
+husky-task-interface-macros = {path = "crates/tasks/husky-task-interface-macros"}
 husky-io-task = {path = "crates/tasks/husky-io-task"}
 husky-ml-task = {path = "crates/tasks/husky-ml-task"}
-husky-ml-task-prelude = {path = "crates/tasks/husky-ml-task-prelude"}
-husky-ml-task-prelude-macros = {path = "crates/tasks/husky-ml-task-prelude-macros"}
+husky-ml-task-interface = {path = "crates/tasks/husky-ml-task-interface"}
+husky-ml-task-interface-macros = {path = "crates/tasks/husky-ml-task-interface-macros"}
 # toml
 husky-corgi-config-ast = { path = "crates/toml/husky-corgi-config-ast" }
 husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }

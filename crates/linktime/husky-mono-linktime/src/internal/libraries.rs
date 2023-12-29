@@ -5,7 +5,7 @@ use husky_linkage_impl::AnyLinkageImpls;
 use husky_manifest::{has_manifest::HasPackageManifest, HasAllPackages};
 use husky_rust_transpilation::{db::RustTranspilationJar, transpile_to_fs::TranspileToFsFull};
 use husky_task::IsTask;
-use husky_task_prelude::TaskJarIndex;
+use husky_task_interface::TaskJarIndex;
 use husky_vfs::{linktime_target_path::LinktimeTargetPathData, PackagePath};
 use libloading::Library;
 use std::path::PathBuf;

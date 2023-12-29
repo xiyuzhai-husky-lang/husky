@@ -27,7 +27,7 @@ husky-linkage.workspace = true
 husky-linkage-impl.workspace = true
 # semantics
 # tasks
-husky-task-prelude.workspace = true
+husky-task-interface.workspace = true
 # utils
 husky-cargo-utils.workspace = true
 husky-print-utils.workspace = true

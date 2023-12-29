@@ -18,4 +18,4 @@ husky-vfs.workspace = true
 husky-linkage.workspace = true
 husky-linkage-impl.workspace = true
 # tasks
-husky-task-prelude.workspace = true
+husky-task-interface.workspace = true

@@ -5,9 +5,10 @@ pub mod ugly;
 pub mod val_control_flow;
 pub mod val_repr;
 pub mod value;
+pub mod vm_control_flow;
 
 pub use self::linkage_impl::*;
-pub use husky_task_prelude_macros::*;
+pub use husky_task_interface_macros::*;
 
 use once_cell::sync::OnceCell;
 use shifted_unsigned_int::ShiftedU32;

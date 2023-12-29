@@ -9,8 +9,8 @@ use husky_task::{
     helpers::{TaskError, TaskValue},
     IsTask,
 };
-use husky_task_prelude::value::IsValue;
-use husky_task_prelude::{val_control_flow::ValControlFlow, IsLinkageImpl};
+use husky_task_interface::value::IsValue;
+use husky_task_interface::{val_control_flow::ValControlFlow, IsLinkageImpl};
 use husky_term_prelude::TermLiteral;
 use husky_val::{ValOpn, ValPatternData};
 use husky_val_repr::repr::{ValArgumentRepr, ValRepr};
@@ -251,7 +251,7 @@ impl<Task: IsTask> DevRuntime<Task> {
 fn val_repr_eval_works() {
     use husky_dev_comptime::DevComptime;
     use husky_ml_task::MlTask;
-    use husky_ml_task_prelude::InputId;
+    use husky_ml_task_interface::InputId;
     use husky_path_utils::dev_paths::*;
     use husky_vfs::VfsDb;
     use husky_visual_protocol::trivial::TrivialVisualProtocol;

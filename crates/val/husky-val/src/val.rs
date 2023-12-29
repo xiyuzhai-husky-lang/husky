@@ -3,7 +3,7 @@ use husky_coword::Ident;
 use husky_entity_path::{FugitivePath, TypeVariantPath};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_linkage::linkage::Linkage;
-use husky_task_prelude::val_repr::ValRuntimeConstantInterface;
+use husky_task_interface::val_repr::ValRuntimeConstantInterface;
 use husky_term_prelude::TermLiteral;
 use smallvec::SmallVec;
 

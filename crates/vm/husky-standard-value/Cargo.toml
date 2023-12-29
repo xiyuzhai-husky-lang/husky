@@ -11,7 +11,7 @@ smallvec.workspace = true
 husky-term-prelude = { path = "../../kernel/husky-term-prelude", optional = true }
 husky-hir-prelude = { path = "../../hir/husky-hir-prelude", optional = true }
 # tasks
-husky-task-prelude.workspace = true
+husky-task-interface.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
 wild-utils = { path = "../../utils/husky-wild-utils" }

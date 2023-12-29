@@ -2,7 +2,7 @@ use super::*;
 use crate::helpers::paths::{module_item_paths, HasItemPaths, HasModulePaths};
 use husky_entity_kind::*;
 use husky_entity_path::{FugitivePath, ItemPath, ItemPathId};
-use husky_task_prelude::TaskIngredientIndex;
+use husky_task_interface::TaskIngredientIndex;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

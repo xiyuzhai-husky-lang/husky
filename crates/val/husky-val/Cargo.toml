@@ -17,7 +17,7 @@ husky-hir-opr.workspace = true
 # linkage
 husky-linkage.workspace = true
 # task
-husky-task-prelude.workspace = true
+husky-task-interface.workspace = true
 
 [dev-dependencies]
 husky-val = { path = ".", features = ["test_utils"] }

@@ -5,8 +5,8 @@ authors = ["my_name"]
 edition = "2021"
 
 [workspace.dependencies]
-husky-task-prelude = { path = "../../crates/tasks/husky-task-prelude" }
-husky-ml-task-prelude = { path = "../../crates/tasks/husky-ml-task-prelude" }
+husky-task-interface = { path = "../../crates/tasks/husky-task-interface" }
+husky-ml-task-interface = { path = "../../crates/tasks/husky-ml-task-interface" }
 husky-linkage-impl = { path = "../../crates/linkage/husky-linkage-impl", features = [
     "standard"
 ] }
@@ -15,8 +15,8 @@ husky-xrng-utils = { path = "../../crates/utils/husky-rng-utils" }
 lazy_static = "1.4.0"
 
 [dependencies]
-husky-task-prelude.workspace = true
-husky-ml-task-prelude.workspace = true
+husky-task-interface.workspace = true
+husky-ml-task-interface.workspace = true
 husky-linkage-impl.workspace = true
 lazy_static.workspace = true
 husky-xrng-utils.workspace = true

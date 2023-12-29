@@ -8,7 +8,7 @@ use husky_entity_path::FugitivePath;
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_linkage::linkage::Linkage;
-use husky_task_prelude::val_repr::{
+use husky_task_interface::val_repr::{
     ValArgumentReprInterface, ValDomainReprInterface, ValReprInterface,
 };
 use husky_val::{Val, ValArgument, ValDomain, ValOpn, ValRuntimeConstant};
