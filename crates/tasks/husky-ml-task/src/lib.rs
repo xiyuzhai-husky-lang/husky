@@ -68,5 +68,6 @@ impl<VisualProtocol> IsTraceProtocol for MlTraceProtocol<VisualProtocol>
 where
     VisualProtocol: IsVisualProtocol,
 {
+    type Pedestal = MlPedestal;
     type VisualProtocol = VisualProtocol;
 }

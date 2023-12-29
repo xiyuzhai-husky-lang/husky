@@ -23,9 +23,9 @@ where
     >,
 }
 
-impl<TraceProtocol: IsTraceProtocol, Notifier> TraceClient<TraceProtocol, Notifier>
+impl<TraceProtocol, Notifier> TraceClient<TraceProtocol, Notifier>
 where
-    TraceProtocol: IsTraceProtocol,
+    TraceProtocol: IsTraceProtocolFull,
     Notifier: Notify,
 {
     pub fn new(

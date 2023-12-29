@@ -7,7 +7,7 @@ use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
 use husky_task::IsTask;
 use husky_trace_protocol::{
     client::TraceClient,
-    protocol::{mock::MockTraceProtocol, IsTraceProtocol},
+    protocol::{mock::MockTraceProtocol, IsTraceProtocol, IsTraceProtocolFull},
     view::action::TraceViewActionBuffer,
 };
 use husky_visual_protocol::IsVisualComponent;
@@ -27,7 +27,7 @@ where
 impl<TraceProtocol, Settings, UiActionBuffer> IsUiComponent<egui::Ui, Settings, UiActionBuffer>
     for TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
-    TraceProtocol: IsTraceProtocol,
+    TraceProtocol: IsTraceProtocolFull,
     Settings: HasTraceViewDocSettings,
 {
     fn update(
@@ -50,7 +50,7 @@ where
 #[cfg(feature = "egui")]
 impl<TraceProtocol> TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
-    TraceProtocol: IsTraceProtocol,
+    TraceProtocol: IsTraceProtocolFull,
 {
     fn render<Settings>(&mut self, ui: &mut Ui, settings: &mut Settings)
     where

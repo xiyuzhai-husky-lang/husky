@@ -58,9 +58,7 @@ where
     S: IsEasyWebsocketServer,
     <S::SerdeImpl as IsSerdeImpl>::Error: Send,
 {
-    use tower_http::{
-        trace::{DefaultMakeSpan, TraceLayer},
-    };
+    use tower_http::trace::{DefaultMakeSpan, TraceLayer};
     use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
     tracing_subscriber::registry()
         .with(
