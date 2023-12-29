@@ -1,5 +1,5 @@
 [package]
-name = "husky-task-prelude"
+name = "husky-task-interface"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,9 +7,10 @@ edition = "2021"
 [dependencies]
 once_cell.workspace = true
 smallvec.workspace = true
+serde.workspace = true
 # abstractions
 shifted-unsigned-int.workspace = true
 # tasks
-husky-task-prelude-macros.workspace = true
+husky-task-interface-macros.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true

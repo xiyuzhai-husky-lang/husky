@@ -2,10 +2,10 @@ pub mod label;
 pub mod ugly;
 
 use husky_linkage_impl::standard::ValControlFlow;
-pub use husky_ml_task_prelude_macros::*;
+pub use husky_ml_task_interface_macros::*;
 
 use husky_standard_value::{ugly::__ValueStands, FromValue, Value};
-use husky_task_prelude::val_repr::{
+use husky_task_interface::val_repr::{
     ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface,
 };
 use husky_trace_protocol::protocol::IsPedestal;
@@ -65,7 +65,7 @@ impl MlPedestal {
 }
 
 pub type DevEvalContext =
-    husky_task_prelude::DevEvalContext<husky_linkage_impl::standard::LinkageImpl<MlPedestal>>;
+    husky_task_interface::DevEvalContext<husky_linkage_impl::standard::LinkageImpl<MlPedestal>>;
 
 thread_local! {
     pub static DEV_EVAL_CONTEXT: Cell<std::option::Option<DevEvalContext>> = Cell::new(None);

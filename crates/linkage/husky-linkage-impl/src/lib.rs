@@ -5,8 +5,8 @@ pub mod standard;
 
 pub use self::any::AnyLinkageImpls;
 
-use husky_task_prelude::{val_control_flow::ValControlFlow, LinkageImplValControlFlow};
-use husky_task_prelude::{
+use husky_task_interface::{val_control_flow::ValControlFlow, LinkageImplValControlFlow};
+use husky_task_interface::{
     val_repr::{ValArgumentReprInterface, ValReprInterface},
     DevEvalContext, IsLinkageImpl,
 };

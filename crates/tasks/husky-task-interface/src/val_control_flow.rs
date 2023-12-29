@@ -1,11 +1,11 @@
+use crate::value::IsValue;
+use serde::{Deserialize, Serialize};
 use std::{
     convert::Infallible,
     ops::{FromResidual, Try},
 };
 
-use crate::value::IsValue;
-
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub enum ValControlFlow<C, B, E> {
     Continue(C),
     LoopContinue,

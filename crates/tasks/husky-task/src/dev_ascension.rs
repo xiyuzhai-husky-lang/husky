@@ -1,8 +1,8 @@
 use crate::*;
-use husky_task_prelude::{
+use husky_task_interface::{
     value::IsValue, IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
-use husky_task_prelude::{DevEvalContext, IsDevRuntime, IsDevRuntimeDyn};
+use husky_task_interface::{DevEvalContext, IsDevRuntime, IsDevRuntimeDyn};
 use husky_trace_protocol::protocol::{IsTraceProtocol, IsTraceProtocolFull};
 use husky_val::Val;
 use husky_vfs::VfsDb;

@@ -7,13 +7,13 @@ use crate::{
     *,
 };
 use husky_decl_macro_utils::*;
-use husky_task_prelude::{val_control_flow::ValControlFlow, value::IsValue};
+use husky_task_interface::{val_control_flow::ValControlFlow, value::IsValue};
 use std::cmp::Ordering;
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
 
 /// we use this layout instead of struct to reduce size to `2 * std::mem::size_of::<usize>()`
-#[husky_task_prelude::value]
+#[husky_task_interface::value]
 #[derive(Debug)]
 #[repr(u8)]
 pub enum Value {

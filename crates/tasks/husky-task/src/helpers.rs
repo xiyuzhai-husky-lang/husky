@@ -1,4 +1,4 @@
-use husky_task_prelude::{IsLinkageImpl, LinkageImplValControlFlow};
+use husky_task_interface::{IsLinkageImpl, LinkageImplValControlFlow};
 
 use crate::*;
 

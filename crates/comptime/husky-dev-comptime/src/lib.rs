@@ -15,8 +15,8 @@ use husky_task::{
     linktime::IsLinktime,
     IsTask,
 };
-use husky_task_prelude::TaskIngredientIndex;
-use husky_task_prelude::TaskJarIndex;
+use husky_task_interface::TaskIngredientIndex;
+use husky_task_interface::TaskJarIndex;
 use husky_toolchain_config::toolchain_config;
 use husky_val::Val;
 use husky_val_repr::repr::ValRepr;

@@ -3,8 +3,8 @@ use dashmap::DashMap;
 use husky_linkage_impl::standard::ValControlFlow;
 use husky_standard_value::Value;
 use husky_task::dev_ascension::IsRuntimeStorage;
-use husky_task_prelude::TaskJarIndex;
-use husky_task_prelude::{LinkageImplValControlFlow, TaskIngredientIndex};
+use husky_task_interface::TaskJarIndex;
+use husky_task_interface::{LinkageImplValControlFlow, TaskIngredientIndex};
 use husky_val::{version_stamp::ValVersionStamp, Val};
 use std::sync::{Arc, Mutex};
 

@@ -1,6 +1,6 @@
 use crate::*;
 use husky_linkage::linkage::Linkage;
-use husky_task_prelude::{value::IsValue, IsLinkageImpl};
+use husky_task_interface::{value::IsValue, IsLinkageImpl};
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
 
 pub trait IsLinktime: Sized + Send {

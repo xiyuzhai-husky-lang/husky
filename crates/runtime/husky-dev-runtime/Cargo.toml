@@ -40,9 +40,9 @@ husky-visual-protocol.workspace = true
 husky-entity-syn-tree.workspace = true
 husky-ast.workspace = true
 # tasks
-husky-task-prelude.workspace = true
+husky-task-interface.workspace = true
 husky-task.workspace = true
-husky-ml-task-prelude.workspace = true
+husky-ml-task-interface.workspace = true
 husky-ml-task.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }

@@ -18,7 +18,7 @@ use husky_task::{
     helpers::{DevRuntimeStorage, TaskDevLinkTime, TaskDevPedestal},
     IsTask,
 };
-use husky_task_prelude::{
+use husky_task_interface::{
     val_control_flow::ValControlFlow,
     val_repr::{ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface},
     IsDevRuntime, IsDevRuntimeDyn, IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex,
@@ -164,7 +164,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &self,
         val_runtime_constant: ValRuntimeConstantInterface,
     ) -> <TaskLinkageImpl<Task> as IsLinkageImpl>::Value {
-        use husky_task_prelude::value::IsValue;
+        use husky_task_interface::value::IsValue;
         let db = self.db();
         let val_runtime_constant: ValRuntimeConstant =
             unsafe { std::mem::transmute(val_runtime_constant) };

@@ -6,11 +6,11 @@ pub use husky_standard_value::{
 
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
-use husky_task_prelude::{val_repr::ValDomainReprInterface, DevEvalContext};
+use husky_task_interface::{val_repr::ValDomainReprInterface, DevEvalContext};
 use smallvec::SmallVec;
 
 pub type ValControlFlow<C = Value, B = Value> =
-    husky_task_prelude::val_control_flow::ValControlFlow<C, B, ()>;
+    husky_task_interface::val_control_flow::ValControlFlow<C, B, ()>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LinkageImpl<Pedestal>

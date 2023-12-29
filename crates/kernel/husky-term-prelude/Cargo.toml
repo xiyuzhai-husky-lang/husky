@@ -13,7 +13,7 @@ husky-entity-path.workspace = true
 husky-vfs.workspace = true
 husky-coword.workspace = true
 # task
-husky-task-prelude.workspace = true
+husky-task-interface.workspace = true
 # utils
 husky-print-utils.workspace = true
 

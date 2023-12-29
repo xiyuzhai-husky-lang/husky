@@ -1,7 +1,7 @@
 pub mod float;
 
 use crate::{float::*, *};
-use husky_task_prelude::value::IsValue;
+use husky_task_interface::value::IsValue;
 use ordered_float::{NotNan, OrderedFloat};
 use salsa::Db;
 
