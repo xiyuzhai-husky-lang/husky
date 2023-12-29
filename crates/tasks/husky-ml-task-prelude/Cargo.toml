@@ -6,12 +6,15 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 # abstractions
-shifted-unsigned-int.workspace = true
+shifted-unsigned-int = { workspace = true, features = ["serde"] }
 enum-class.workspace = true
+serde.workspace = true
 # linkage
 husky-linkage-impl.workspace = true
 # tasks
 husky-task-prelude.workspace = true
 husky-ml-task-prelude-macros.workspace = true
+# protocols
+husky-trace-protocol.workspace = true
 # vm
 husky-standard-value.workspace = true

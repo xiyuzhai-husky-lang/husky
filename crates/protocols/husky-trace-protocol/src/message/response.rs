@@ -1,14 +1,13 @@
 use super::*;
 use crate::cache::TraceCache;
 
-
 /// message sent from trace client to trace server
 #[derive(Debug, Serialize, Deserialize)]
-pub enum TraceResponse<VisualComponent> {
+pub enum TraceResponse<TraceProtocol: IsTraceProtocol> {
     Init {
-        cache: TraceCache<VisualComponent>,
+        cache: TraceCache<TraceProtocol>,
     },
     TakeCacheAction {
-        cache_actions: smallvec::SmallVec<[TraceCacheAction<VisualComponent>; 3]>,
+        cache_actions: smallvec::SmallVec<[TraceCacheAction<TraceProtocol>; 3]>,
     },
 }

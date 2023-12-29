@@ -6,5 +6,6 @@ use super::*;
 pub struct TrivialTraceProtocol;
 
 impl IsTraceProtocol for TrivialTraceProtocol {
+    type Pedestal = ();
     type VisualProtocol = TrivialVisualProtocol;
 }

@@ -8,10 +8,12 @@ use husky_standard_value::{ugly::__ValueStands, FromValue, Value};
 use husky_task_prelude::val_repr::{
     ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface,
 };
+use husky_trace_protocol::protocol::IsPedestal;
+use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, convert::Infallible, thread::LocalKey};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize, Hash)]
 pub struct InputId(ShiftedU32);
 
 impl InputId {
@@ -45,11 +47,13 @@ fn sample_id_size_works() {
 }
 
 #[enum_class::from_variants]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub enum MlPedestal {
     Specific(InputId),
     Generic,
 }
+
+impl IsPedestal for MlPedestal {}
 
 impl MlPedestal {
     pub fn input_id(self) -> Option<InputId> {

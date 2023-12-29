@@ -9,11 +9,11 @@ use vec_like::VecPairMap;
 
 /// synced across server and client
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCache<TraceProtocol> {
+pub struct TraceCache<TraceProtocol: IsTraceProtocol> {
     /// None means not set
     root_trace_ids: Vec<TraceId>,
-    entries: VecPairMap<TraceId, TraceCacheEntry>,
-    visual_components: Vec<TraceProtocol>,
+    entries: VecPairMap<TraceId, TraceCacheEntry<TraceProtocol>>,
+    visual_components: Vec<<TraceProtocol::VisualProtocol as IsVisualProtocol>::VisualComponent>,
     actions: Vec<TraceCacheAction<TraceProtocol>>,
 }
 
@@ -21,7 +21,7 @@ pub struct TraceCache<TraceProtocol> {
 impl<TraceProtocol: IsTraceProtocol> TraceCache<TraceProtocol> {
     pub fn new(root_traces: impl Iterator<Item = (TraceId, TraceViewData)>) -> Self {
         let mut root_trace_ids: Vec<TraceId> = vec![];
-        let mut entries: VecPairMap<TraceId, TraceCacheEntry> = Default::default();
+        let mut entries: VecPairMap<TraceId, TraceCacheEntry<TraceProtocol>> = Default::default();
         for (root_trace_id, view_data) in root_traces {
             root_trace_ids.push(root_trace_id);
             entries
@@ -61,7 +61,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceCache<TraceProtocol> {
 }
 
 impl<TraceProtocol: IsTraceProtocol> std::ops::Index<TraceId> for TraceCache<TraceProtocol> {
-    type Output = TraceCacheEntry;
+    type Output = TraceCacheEntry<TraceProtocol>;
 
     fn index(&self, id: TraceId) -> &Self::Output {
         &self.entries[id].1

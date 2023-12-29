@@ -3,7 +3,7 @@ use husky_task_prelude::{
     value::IsValue, IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
 use husky_task_prelude::{DevEvalContext, IsDevRuntime, IsDevRuntimeDyn};
-use husky_trace_protocol::protocol::IsTraceProtocol;
+use husky_trace_protocol::protocol::{IsTraceProtocol, IsTraceProtocolFull};
 use husky_val::Val;
 use husky_vfs::VfsDb;
 use std::{cell::Cell, thread::LocalKey};
@@ -12,7 +12,7 @@ pub trait IsDevAscension {
     type Linktime: IsLinktime;
     type RuntimeStorage: IsRuntimeStorage<<Self::Linktime as IsLinktime>::LinkageImpl>;
     type RuntimeSpecificConfig: Default + Send;
-    type TraceProtocol: IsTraceProtocol;
+    type TraceProtocol: IsTraceProtocolFull;
     fn dev_eval_context_local_key(
     ) -> &'static LocalDevEvalContext<<Self::Linktime as IsLinktime>::LinkageImpl>;
 }

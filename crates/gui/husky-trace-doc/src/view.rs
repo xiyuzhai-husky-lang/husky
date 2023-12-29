@@ -70,8 +70,12 @@ where
         }
     }
 
-    fn render_trace_view(&mut self, trace_id: TraceId, entry: &TraceCacheEntry, ui: &mut egui::Ui)
-    where
+    fn render_trace_view(
+        &mut self,
+        trace_id: TraceId,
+        entry: &TraceCacheEntry<TraceProtocol>,
+        ui: &mut egui::Ui,
+    ) where
         TraceProtocol: IsTraceProtocol,
     {
         let response = egui::Frame::none()
@@ -181,7 +185,7 @@ where
         &mut self,
         line_data: &TraceViewLineData,
         trace_id: TraceId,
-        entry: &TraceCacheEntry,
+        entry: &TraceCacheEntry<TraceProtocol>,
         ui: &mut egui::Ui,
     ) {
         ui.horizontal(|ui| {
@@ -195,7 +199,7 @@ where
         &mut self,
         token_data: &TraceViewTokenData,
         trace_id: TraceId,
-        entry: &TraceCacheEntry,
+        entry: &TraceCacheEntry<TraceProtocol>,
         ui: &mut egui::Ui,
     ) {
         let token_foreground_colors = self

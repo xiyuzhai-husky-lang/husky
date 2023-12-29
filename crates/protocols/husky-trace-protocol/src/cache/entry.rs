@@ -1,23 +1,25 @@
+use super::*;
+use rustc_hash::FxHashMap;
 use vec_like::SmallVecSet;
 
-use super::*;
-
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCacheEntry {
+pub struct TraceCacheEntry<TraceProtocol: IsTraceProtocol> {
     view_data: TraceViewData,
     /// None means not calculated
     subtrace_ids: Option<Vec<TraceId>>,
     associated_trace_ids: SmallVecSet<TraceId, 2>,
     expanded: bool,
+    stalks: FxHashMap<TraceProtocol::Pedestal, TraceStalk>,
 }
 
-impl TraceCacheEntry {
+impl<TraceProtocol: IsTraceProtocol> TraceCacheEntry<TraceProtocol> {
     pub fn new(view_data: TraceViewData) -> Self {
         Self {
             view_data,
             subtrace_ids: None,
             associated_trace_ids: Default::default(),
             expanded: false,
+            stalks: todo!(),
         }
     }
 

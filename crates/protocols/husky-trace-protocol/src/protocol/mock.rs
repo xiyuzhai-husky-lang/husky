@@ -5,5 +5,6 @@ use husky_visual_protocol::mock::MockVisualProtocol;
 pub struct MockTraceProtocol;
 
 impl IsTraceProtocol for MockTraceProtocol {
+    type Pedestal = ();
     type VisualProtocol = MockVisualProtocol;
 }

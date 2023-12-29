@@ -57,7 +57,11 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     }
 }
 
-impl<Tracetime: IsTracetime> IsEasyWebsocketServer for TraceServer<Tracetime> {
+impl<Tracetime> IsEasyWebsocketServer for TraceServer<Tracetime>
+where
+    Tracetime: IsTracetime,
+    Tracetime::TraceProtocol: Serialize + for<'a> Deserialize<'a>,
+{
     type Response = TraceResponse<Tracetime::TraceProtocol>;
 
     type Request = TraceRequest<Tracetime::TraceProtocol>;
@@ -148,7 +152,7 @@ pub trait IsTracetime: Send + 'static + Sized {
     type Trace: IsTrace;
     //  Send + Eq + std::hash::Hash + Copy;
 
-    type TraceProtocol: IsTraceProtocol;
+    type TraceProtocol: IsTraceProtocolFull;
 
     type SerdeImpl: serde_impl::IsSerdeImpl;
 
