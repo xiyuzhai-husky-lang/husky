@@ -1,11 +1,11 @@
 use crate::*;
 
 pub trait TraceDb {
-    fn root_traces(&self, crate_path: CratePath) -> &[TraceId];
+    fn root_traces(&self, crate_path: CratePath) -> &[Trace];
 }
 
 impl TraceDb for ::salsa::Db {
-    fn root_traces(&self, crate_path: CratePath) -> &[TraceId] {
+    fn root_traces(&self, crate_path: CratePath) -> &[Trace] {
         crate::trace::root_traces(self, crate_path).as_ref()
     }
 }
@@ -13,7 +13,7 @@ impl TraceDb for ::salsa::Db {
 #[salsa::jar(db = TraceDb)]
 pub struct TraceJar(
     crate::trace::TracePath,
-    crate::trace::TraceId,
+    crate::trace::Trace,
     crate::trace::trace_view_lines,
     crate::trace::trace_have_subtraces,
     crate::trace::trace_subtraces,

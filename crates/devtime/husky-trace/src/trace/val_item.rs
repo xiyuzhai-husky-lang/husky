@@ -17,11 +17,11 @@ pub struct ValItemTraceData {
     val_item_path: FugitivePath,
 }
 
-impl TraceId {
+impl Trace {
     pub fn from_val_item_path(val_item_path: FugitivePath, db: &::salsa::Db) -> Self {
         debug_assert_eq!(val_item_path.fugitive_kind(db), FugitiveKind::Val);
         let path = TracePath::new(ValItemTracePathData { val_item_path }, db);
-        TraceId::new(
+        Trace::new(
             path,
             ValItemTraceData {
                 path,
@@ -53,7 +53,7 @@ impl ValItemTraceData {
         self.val_item_path.hir_defn(db).is_some()
     }
 
-    pub(super) fn subtraces(&self, trace: TraceId, db: &::salsa::Db) -> Vec<TraceId> {
+    pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         let biological_parent_path = self.path;
         let biological_parent = trace;
         let val_item_path = self.val_item_path;
@@ -70,7 +70,7 @@ impl ValItemTraceData {
         let sema_expr_arena = sema_expr_region_data.sema_expr_arena();
         match sema_expr_region_contains_gn(db, sema_expr_region) {
             true => match body.data(sema_expr_arena) {
-                &SemaExprData::Block { stmts } => TraceId::new_lazy_stmts(
+                &SemaExprData::Block { stmts } => Trace::new_lazy_stmts(
                     biological_parent_path,
                     biological_parent,
                     stmts,
@@ -80,7 +80,7 @@ impl ValItemTraceData {
                 _ => todo!(),
             },
             false => match body.data(sema_expr_arena) {
-                &SemaExprData::Block { stmts } => TraceId::new_eager_stmts(
+                &SemaExprData::Block { stmts } => Trace::new_eager_stmts(
                     biological_parent_path,
                     biological_parent,
                     stmts,
@@ -96,11 +96,7 @@ impl ValItemTraceData {
         ValRepr::new_val_item(self.val_item_path, db)
     }
 
-    pub(super) fn val_repr_expansion(
-        &self,
-        trace_id: TraceId,
-        db: &::salsa::Db,
-    ) -> ValReprExpansion {
+    pub(super) fn val_repr_expansion(&self, trace_id: Trace, db: &::salsa::Db) -> ValReprExpansion {
         trace_id
             .val_repr(db)
             .expect("should be some")

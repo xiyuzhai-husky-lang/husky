@@ -25,7 +25,7 @@ pub enum LazyPatternExprEssence {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct LazyPatternExprTraceData {
     path: TracePath,
-    biological_parent: TraceId,
+    biological_parent: Trace,
     syn_pattern_expr_idx: SynPatternExprIdx,
     hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
     hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
@@ -33,10 +33,10 @@ pub struct LazyPatternExprTraceData {
     hir_lazy_expr_region: HirLazyExprRegion,
 }
 
-impl TraceId {
+impl Trace {
     pub(crate) fn new_lazy_pattern_expr(
         biological_parent_path: TracePath,
-        biological_parent: TraceId,
+        biological_parent: Trace,
         syn_pattern_expr_idx: SynPatternExprIdx,
         hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
         hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
@@ -54,7 +54,7 @@ impl TraceId {
             },
             db,
         );
-        TraceId::new(
+        Trace::new(
             path,
             LazyPatternExprTraceData {
                 path,
@@ -76,7 +76,7 @@ impl LazyPatternExprTraceData {
         false
     }
 
-    pub(super) fn subtraces(&self) -> Vec<TraceId> {
+    pub(super) fn subtraces(&self) -> Vec<Trace> {
         vec![]
     }
 
@@ -96,7 +96,7 @@ impl LazyPatternExprTraceData {
         )
     }
 
-    pub(super) fn val_repr(&self, trace_id: TraceId, db: &::salsa::Db) -> Option<ValRepr> {
+    pub(super) fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<ValRepr> {
         let val_repr_expansion = trace_val_repr_expansion(db, trace_id);
         match self.hir_lazy_expr_region.hir_lazy_pattern_expr_arena(db)
             [self.hir_lazy_pattern_expr_idx?]

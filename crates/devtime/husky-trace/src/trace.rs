@@ -70,20 +70,20 @@ impl TracePath {
 }
 
 #[salsa::tracked(db = TraceDb, jar = TraceJar, constructor = new_inner)]
-pub struct TraceId {
+pub struct Trace {
     #[id]
     path: TracePath,
     #[return_ref]
     data: TraceData,
 }
 
-impl From<::husky_trace_protocol::id::TraceId> for TraceId {
+impl From<::husky_trace_protocol::id::TraceId> for Trace {
     fn from(id: ::husky_trace_protocol::id::TraceId) -> Self {
         unsafe { std::mem::transmute(id) }
     }
 }
 
-impl Into<::husky_trace_protocol::id::TraceId> for TraceId {
+impl Into<::husky_trace_protocol::id::TraceId> for Trace {
     fn into(self) -> ::husky_trace_protocol::id::TraceId {
         unsafe { std::mem::transmute(self) }
     }
@@ -106,11 +106,11 @@ pub enum TraceData {
     EagerStmt(EagerStmtTraceData),
 }
 
-impl TraceId {
+impl Trace {
     fn from_item_path(item_path: ItemPath, db: &::salsa::Db) -> Option<Self> {
         match item_path {
             ItemPath::Submodule(_, submodule_path) => {
-                TraceId::new_submodule(submodule_path, db).map(Into::into)
+                Trace::new_submodule(submodule_path, db).map(Into::into)
             }
             ItemPath::MajorItem(major_item_path) => Self::from_major_item_path(major_item_path, db),
             _ => None,
@@ -126,13 +126,13 @@ impl TraceId {
 
     fn from_fugitive_path(fugitive_path: FugitivePath, db: &::salsa::Db) -> Option<Self> {
         match fugitive_path.fugitive_kind(db) {
-            FugitiveKind::Val => Some(TraceId::from_val_item_path(fugitive_path, db).into()),
+            FugitiveKind::Val => Some(Trace::from_val_item_path(fugitive_path, db).into()),
             FugitiveKind::FunctionFn | FugitiveKind::FunctionGn | FugitiveKind::AliasType => None,
         }
     }
 
     #[cfg(test)]
-    fn associated_traces(self, db: &::salsa::Db) -> Vec<TraceId> {
+    fn associated_traces(self, db: &::salsa::Db) -> Vec<Trace> {
         self.view_data(db)
             .associated_trace_ids()
             .into_iter()
@@ -160,7 +160,7 @@ impl TraceId {
         trace_have_subtraces(db, self)
     }
 
-    pub fn subtraces(self, db: &::salsa::Db) -> &[TraceId] {
+    pub fn subtraces(self, db: &::salsa::Db) -> &[Trace] {
         trace_subtraces(db, self)
     }
 
@@ -191,7 +191,7 @@ impl TraceData {
         }
     }
 
-    pub fn val_repr(&self, trace_id: TraceId, db: &::salsa::Db) -> Option<ValRepr> {
+    pub fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<ValRepr> {
         match self {
             TraceData::ValItem(slf) => Some(slf.val_repr(db)),
             TraceData::LazyExpr(slf) => slf.val_repr(trace_id, db),
@@ -210,27 +210,27 @@ impl TraceData {
 }
 
 #[salsa::tracked(jar = TraceJar)]
-fn trace_view_lines(db: &::salsa::Db, trace_id: TraceId) -> TraceViewLines {
+fn trace_view_lines(db: &::salsa::Db, trace_id: Trace) -> TraceViewLines {
     trace_id.data(db).view_lines(trace_id, db)
 }
 
 #[salsa::tracked(jar = TraceJar)]
-fn trace_have_subtraces(db: &::salsa::Db, trace_id: TraceId) -> bool {
+fn trace_have_subtraces(db: &::salsa::Db, trace_id: Trace) -> bool {
     trace_id.data(db).have_subtraces(db)
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
-fn trace_subtraces(db: &::salsa::Db, trace_id: TraceId) -> Vec<TraceId> {
+fn trace_subtraces(db: &::salsa::Db, trace_id: Trace) -> Vec<Trace> {
     trace_id.data(db).subtraces(trace_id, db)
 }
 
 #[salsa::tracked(jar = TraceJar)]
-fn trace_val_repr_expansion(db: &::salsa::Db, trace_id: TraceId) -> ValReprExpansion {
+fn trace_val_repr_expansion(db: &::salsa::Db, trace_id: Trace) -> ValReprExpansion {
     trace_id.data(db).val_repr_expansion(trace_id, db)
 }
 
 impl TraceData {
-    fn view_lines(&self, trace_id: TraceId, db: &::salsa::Db) -> TraceViewLines {
+    fn view_lines(&self, trace_id: Trace, db: &::salsa::Db) -> TraceViewLines {
         match self {
             TraceData::Submodule(slf) => slf.view_lines(db),
             TraceData::ValItem(slf) => slf.view_lines(db),
@@ -264,7 +264,7 @@ impl TraceData {
         }
     }
 
-    fn subtraces(&self, trace_id: TraceId, db: &::salsa::Db) -> Vec<TraceId> {
+    fn subtraces(&self, trace_id: Trace, db: &::salsa::Db) -> Vec<Trace> {
         match self {
             TraceData::Submodule(slf) => slf.subtraces(db),
             TraceData::ValItem(slf) => slf.subtraces(trace_id, db),
@@ -281,7 +281,7 @@ impl TraceData {
         }
     }
 
-    fn val_repr_expansion(&self, trace_id: TraceId, db: &::salsa::Db) -> ValReprExpansion {
+    fn val_repr_expansion(&self, trace_id: Trace, db: &::salsa::Db) -> ValReprExpansion {
         match self {
             TraceData::Submodule(_) => unreachable!(),
             TraceData::ValItem(slf) => slf.val_repr_expansion(trace_id, db),
@@ -299,14 +299,14 @@ impl TraceData {
     }
 }
 
-impl IsTrace for TraceId {}
+impl IsTrace for Trace {}
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
-pub(crate) fn root_traces(db: &::salsa::Db, crate_path: CratePath) -> Vec<TraceId> {
+pub(crate) fn root_traces(db: &::salsa::Db, crate_path: CratePath) -> Vec<Trace> {
     let root_module_path = crate_path.root_module_path(db);
     module_item_paths(db, root_module_path)
         .iter()
-        .filter_map(|&item_path| TraceId::from_item_path(item_path, db))
+        .filter_map(|&item_path| Trace::from_item_path(item_path, db))
         .collect()
 }
 
@@ -325,9 +325,9 @@ fn find_traces<R>(
     crate_path: CratePath,
     max_depth: u8,
     db: &::salsa::Db,
-    f: impl Fn(TraceId) -> R,
-) -> Vec<(TraceId, R)> {
-    let mut traces: Vec<(TraceId, R)> = vec![];
+    f: impl Fn(Trace) -> R,
+) -> Vec<(Trace, R)> {
+    let mut traces: Vec<(Trace, R)> = vec![];
     for &root_trace in root_traces(db, crate_path) {
         find_traces_aux(root_trace, max_depth - 1, &f, &mut traces, db)
     }
@@ -336,10 +336,10 @@ fn find_traces<R>(
 
 #[cfg(test)]
 fn find_traces_aux<R>(
-    trace: TraceId,
+    trace: Trace,
     max_depth: u8,
-    f: &impl Fn(TraceId) -> R,
-    traces: &mut Vec<(TraceId, R)>,
+    f: &impl Fn(Trace) -> R,
+    traces: &mut Vec<(Trace, R)>,
     db: &::salsa::Db,
 ) {
     traces.push((trace, f(trace)));

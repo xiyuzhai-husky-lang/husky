@@ -251,6 +251,7 @@ where
                                     }
                                     Err(e) => {
                                         p!(e, response);
+                                        println!("response = {response}");
                                         todo!()
                                     }
                                 },

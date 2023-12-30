@@ -14,6 +14,7 @@ pub trait IsTraceProtocol:
 
 pub trait IsPedestal:
     std::fmt::Debug
+    + Default
     + PartialEq
     + Eq
     + Clone

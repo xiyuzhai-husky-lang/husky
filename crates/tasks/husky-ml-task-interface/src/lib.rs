@@ -53,6 +53,12 @@ pub enum MlPedestal {
     Generic,
 }
 
+impl Default for MlPedestal {
+    fn default() -> Self {
+        MlPedestal::Specific(InputId::from_index(0))
+    }
+}
+
 impl IsPedestal for MlPedestal {}
 
 impl MlPedestal {

@@ -9,7 +9,7 @@ use super::*;
 #[derive(Debug, Serialize, Deserialize)]
 pub enum TraceRequest<TraceProtocol> {
     Init {
-        trace_protocol: TraceProtocol,
+        trace_protocol_type_name: String,
     },
     /// view action are not handled on client side,
     /// ask the server to handle it and return cache actions
@@ -31,7 +31,7 @@ where
 {
     fn default() -> Self {
         TraceRequest::Init {
-            trace_protocol: Default::default(),
+            trace_protocol_type_name: std::any::type_name::<TraceProtocol>().to_string(),
         }
     }
 }

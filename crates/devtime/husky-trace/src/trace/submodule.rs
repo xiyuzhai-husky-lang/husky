@@ -12,12 +12,12 @@ pub struct SubmoduleTracePathData {
     submodule_item_path: SubmoduleItemPath,
 }
 
-impl TraceId {
+impl Trace {
     pub fn new_submodule(submodule_item_path: SubmoduleItemPath, db: &::salsa::Db) -> Option<Self> {
         if !submodule_contains_val_item(db, submodule_item_path) {
             return None;
         }
-        Some(TraceId::new(
+        Some(Trace::new(
             TracePath::new(
                 TracePathData::Submodule(SubmoduleTracePathData {
                     submodule_item_path,
@@ -57,10 +57,10 @@ impl SubmoduleTraceData {
         true
     }
 
-    pub(super) fn subtraces(self, db: &::salsa::Db) -> Vec<TraceId> {
+    pub(super) fn subtraces(self, db: &::salsa::Db) -> Vec<Trace> {
         module_item_paths(db, self.submodule_item_path.self_module_path(db))
             .iter()
-            .filter_map(|&item_path| TraceId::from_item_path(item_path, db))
+            .filter_map(|&item_path| Trace::from_item_path(item_path, db))
             .collect()
     }
 }

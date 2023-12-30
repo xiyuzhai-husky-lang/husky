@@ -43,7 +43,7 @@ pub enum EagerStmtEssence {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerStmtTraceData {
     pub path: TracePath,
-    pub biological_parent: TraceId,
+    pub biological_parent: Trace,
     pub sema_stmt_idx: SemaStmtIdx,
     pub hir_eager_stmt_idx: Option<HirEagerStmtIdx>,
     pub eager_stmt_data_sketch: EagerStmtDataSketch,
@@ -84,10 +84,10 @@ pub enum EagerStmtDataSketch {
     },
 }
 
-impl TraceId {
+impl Trace {
     pub(crate) fn new_eager_stmt(
         biological_parent_path: TracePath,
-        biological_parent: TraceId,
+        biological_parent: Trace,
         essence: EagerStmtEssence,
         registry: &mut crate::registry::trace_path::TracePathRegistry<EagerStmtEssence>,
         sema_stmt_idx: SemaStmtIdx,
@@ -108,7 +108,7 @@ impl TraceId {
         let hir_eager_stmt_idx = hir_eager_expr_source_map
             .data(db)
             .sema_to_hir_eager_stmt_idx(sema_stmt_idx);
-        TraceId::new(
+        Trace::new(
             path,
             EagerStmtTraceData {
                 path,
@@ -126,10 +126,10 @@ impl TraceId {
 
     pub(crate) fn new_eager_stmts_from_syn_body_with_syn_expr_region(
         parent_trace_path: TracePath,
-        parent_trace: TraceId,
+        parent_trace: Trace,
         syn_defn: Option<ItemSynDefn>,
         db: &::salsa::Db,
-    ) -> Vec<TraceId> {
+    ) -> Vec<Trace> {
         let Some(ItemSynDefn {
             body,
             syn_expr_region,
@@ -149,19 +149,19 @@ impl TraceId {
 
     pub(crate) fn new_eager_stmts(
         parent_trace_path: TracePath,
-        parent_trace: TraceId,
+        parent_trace: Trace,
         stmts: husky_sema_expr::SemaStmtIdxRange,
         sema_expr_region: husky_sema_expr::SemaExprRegion,
         db: &::salsa::Db,
-    ) -> Vec<TraceId> {
+    ) -> Vec<Trace> {
         let mut registry = TracePathRegistry::<EagerStmtEssence>::default();
-        let mut subtraces: Vec<TraceId> = vec![];
+        let mut subtraces: Vec<Trace> = vec![];
         let sema_stmt_arena = sema_expr_region.data(db).sema_stmt_arena();
         for stmt in stmts {
             match stmt.data(sema_stmt_arena) {
                 SemaStmtData::Let { .. } => {
                     let essence = EagerStmtEssence::Let {};
-                    let eager_stmt_trace = TraceId::new_eager_stmt(
+                    let eager_stmt_trace = Trace::new_eager_stmt(
                         parent_trace_path,
                         parent_trace,
                         essence,
@@ -175,7 +175,7 @@ impl TraceId {
                 }
                 SemaStmtData::Return { .. } => {
                     let essence = EagerStmtEssence::Return {};
-                    let eager_stmt_trace = TraceId::new_eager_stmt(
+                    let eager_stmt_trace = Trace::new_eager_stmt(
                         parent_trace_path,
                         parent_trace,
                         essence,
@@ -192,7 +192,7 @@ impl TraceId {
                     condition: _,
                 } => {
                     let path_data = EagerStmtEssence::Require {};
-                    let eager_stmt_trace = TraceId::new_eager_stmt(
+                    let eager_stmt_trace = Trace::new_eager_stmt(
                         parent_trace_path,
                         parent_trace,
                         path_data,
@@ -209,7 +209,7 @@ impl TraceId {
                     condition: _,
                 } => {
                     let path_data = EagerStmtEssence::Assert {};
-                    let eager_stmt_trace = TraceId::new_eager_stmt(
+                    let eager_stmt_trace = Trace::new_eager_stmt(
                         parent_trace_path,
                         parent_trace,
                         path_data,
@@ -223,7 +223,7 @@ impl TraceId {
                 }
                 SemaStmtData::Break { break_token: _ } => {
                     let path_data = EagerStmtEssence::Break {};
-                    let eager_stmt_trace = TraceId::new_eager_stmt(
+                    let eager_stmt_trace = Trace::new_eager_stmt(
                         parent_trace_path,
                         parent_trace,
                         path_data,
@@ -237,7 +237,7 @@ impl TraceId {
                 }
                 SemaStmtData::Eval { .. } => {
                     let path_data = EagerStmtEssence::Eval {};
-                    let eager_stmt_trace = TraceId::new_eager_stmt(
+                    let eager_stmt_trace = Trace::new_eager_stmt(
                         parent_trace_path,
                         parent_trace,
                         path_data,
@@ -255,7 +255,7 @@ impl TraceId {
                     block,
                     ..
                 } => subtraces.push(
-                    TraceId::new_eager_stmt(
+                    Trace::new_eager_stmt(
                         parent_trace_path,
                         parent_trace,
                         EagerStmtEssence::ForBetween,
@@ -277,7 +277,7 @@ impl TraceId {
                     eol_colon,
                     block,
                 } => subtraces.push(
-                    TraceId::new_eager_stmt(
+                    Trace::new_eager_stmt(
                         parent_trace_path,
                         parent_trace,
                         EagerStmtEssence::ForIn,
@@ -318,7 +318,7 @@ impl TraceId {
                     else_branch: sema_else_branch,
                 } => {
                     subtraces.push(
-                        TraceId::new_eager_stmt(
+                        Trace::new_eager_stmt(
                             parent_trace_path,
                             parent_trace,
                             EagerStmtEssence::IfBranch,
@@ -338,7 +338,7 @@ impl TraceId {
                     {
                         let elif_branch_idx = elif_branch_idx.try_into().unwrap();
                         subtraces.push(
-                            TraceId::new_eager_stmt(
+                            Trace::new_eager_stmt(
                                 parent_trace_path,
                                 parent_trace,
                                 EagerStmtEssence::ElifBranch { elif_branch_idx },
@@ -358,7 +358,7 @@ impl TraceId {
                     }
                     if let Some(sema_else_branch) = sema_else_branch {
                         subtraces.push(
-                            TraceId::new_eager_stmt(
+                            Trace::new_eager_stmt(
                                 parent_trace_path,
                                 parent_trace,
                                 EagerStmtEssence::ElseBranch,
@@ -390,7 +390,7 @@ impl TraceId {
 }
 
 impl EagerStmtTraceData {
-    pub(super) fn view_lines(&self, trace_id: TraceId, db: &::salsa::Db) -> TraceViewLines {
+    pub(super) fn view_lines(&self, trace_id: Trace, db: &::salsa::Db) -> TraceViewLines {
         let sema_stmt_idx = self.sema_stmt_idx;
         let sema_expr_region = self.sema_expr_region;
         let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
@@ -455,7 +455,7 @@ impl EagerStmtTraceData {
         }
     }
 
-    pub(super) fn subtraces(&self, trace: TraceId, db: &::salsa::Db) -> Vec<TraceId> {
+    pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         match self.eager_stmt_data_sketch {
             EagerStmtDataSketch::BasicStmt => vec![],
             EagerStmtDataSketch::IfBranch { stmts, .. }
@@ -463,27 +463,27 @@ impl EagerStmtTraceData {
             | EagerStmtDataSketch::ElseBranch { stmts, .. }
             | EagerStmtDataSketch::ForIn { stmts, .. }
             | EagerStmtDataSketch::ForBetween { stmts, .. } => {
-                TraceId::new_eager_stmts(self.path, trace, stmts, self.sema_expr_region, db)
+                Trace::new_eager_stmts(self.path, trace, stmts, self.sema_expr_region, db)
             }
         }
     }
 }
 
 struct EagerStmtAssociatedTraceRegistry<'a> {
-    parent_trace: TraceId,
+    parent_trace: Trace,
     sema_expr_region: SemaExprRegion,
     hir_eager_expr_region: HirEagerExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
     hir_eager_expr_source_map: HirEagerExprSourceMap,
     hir_eager_expr_source_map_data: &'a HirEagerExprSourceMapData,
     eager_expr_trace_path_registry: TracePathRegistry<EagerExprEssence>,
-    eager_expr_traces_issued: VecPairMap<SemaExprIdx, TraceId>,
+    eager_expr_traces_issued: VecPairMap<SemaExprIdx, Trace>,
     eager_pattern_expr_trace_path_registry: TracePathRegistry<EagerPatternExprEssence>,
-    eager_pattern_expr_traces_issued: VecPairMap<SynPatternExprIdx, TraceId>,
+    eager_pattern_expr_traces_issued: VecPairMap<SynPatternExprIdx, Trace>,
 }
 
 impl<'a> EagerStmtAssociatedTraceRegistry<'a> {
-    fn new(parent_trace: TraceId, sema_expr_region: SemaExprRegion, db: &'a ::salsa::Db) -> Self {
+    fn new(parent_trace: Trace, sema_expr_region: SemaExprRegion, db: &'a ::salsa::Db) -> Self {
         let (hir_eager_expr_region, hir_eager_expr_source_map) =
             hir_eager_expr_region_with_source_map(db, sema_expr_region);
         EagerStmtAssociatedTraceRegistry {
@@ -506,7 +506,7 @@ impl<'a> IsAssociatedTraceRegistry for EagerStmtAssociatedTraceRegistry<'a> {
         &mut self,
         source: TokenInfoSource,
         db: &::salsa::Db,
-    ) -> Option<TraceId> {
+    ) -> Option<Trace> {
         match source {
             TokenInfoSource::UseExpr(_) => None,
             TokenInfoSource::SemaExpr(sema_expr_idx) => Some(
@@ -515,7 +515,7 @@ impl<'a> IsAssociatedTraceRegistry for EagerStmtAssociatedTraceRegistry<'a> {
                         let hir_eager_expr_idx = self
                             .hir_eager_expr_source_map_data
                             .sema_to_hir_eager_expr_idx(sema_expr_idx);
-                        TraceId::new_eager_expr(
+                        Trace::new_eager_expr(
                             self.parent_trace.path(db),
                             self.parent_trace,
                             sema_expr_idx,
@@ -535,14 +535,14 @@ impl<'a> IsAssociatedTraceRegistry for EagerStmtAssociatedTraceRegistry<'a> {
             ) => match syn_principal_entity_path {
                 PrincipalEntityPath::Module(_) => None,
                 PrincipalEntityPath::MajorItem(major_item_path) => {
-                    TraceId::from_major_item_path(major_item_path, db)
+                    Trace::from_major_item_path(major_item_path, db)
                 }
                 PrincipalEntityPath::TypeVariant(_) => None,
             },
             TokenInfoSource::PatternExpr(syn_pattern_expr_idx) => Some(
                 self.eager_pattern_expr_traces_issued
                     .get_value_copied_or_insert_with(syn_pattern_expr_idx, || {
-                        TraceId::new_eager_pattern_expr(
+                        Trace::new_eager_pattern_expr(
                             self.parent_trace.path(db),
                             self.parent_trace,
                             syn_pattern_expr_idx,

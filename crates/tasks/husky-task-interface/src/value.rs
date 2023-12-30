@@ -84,4 +84,10 @@ pub trait IsValue:
 
     type SerdeImpl: IsSerdeImpl;
     fn serialize_to_value(&self) -> <Self::SerdeImpl as IsSerdeImpl>::Value;
+
+    fn serialize_to_value_in_general<SerdeImpl: IsSerdeImpl>(
+        &self,
+    ) -> <SerdeImpl as IsSerdeImpl>::Value {
+        SerdeImpl::to_value(self.serialize_to_value()).unwrap()
+    }
 }

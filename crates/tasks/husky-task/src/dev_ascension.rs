@@ -9,12 +9,13 @@ use husky_vfs::VfsDb;
 use std::{cell::Cell, thread::LocalKey};
 
 pub trait IsDevAscension {
-    type Linktime: IsLinktime;
-    type RuntimeStorage: IsRuntimeStorage<<Self::Linktime as IsLinktime>::LinkageImpl>;
+    type Pedestal;
+    type LinkageImpl: IsLinkageImpl<Pedestal = Self::Pedestal>;
+    type Linktime: IsLinktime<LinkageImpl = Self::LinkageImpl>;
+    type RuntimeStorage: IsRuntimeStorage<Self::LinkageImpl>;
     type RuntimeSpecificConfig: Default + Send;
-    type TraceProtocol: IsTraceProtocolFull;
-    fn dev_eval_context_local_key(
-    ) -> &'static LocalDevEvalContext<<Self::Linktime as IsLinktime>::LinkageImpl>;
+    type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
+    fn dev_eval_context_local_key() -> &'static LocalDevEvalContext<Self::LinkageImpl>;
 }
 
 pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {

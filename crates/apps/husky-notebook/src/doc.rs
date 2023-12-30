@@ -5,10 +5,11 @@ pub(crate) use self::tab::*;
 
 use self::arena::*;
 use super::*;
-
+use husky_graphics2d_visual_protocol::Graphics2dVisualProtocol;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
-use husky_trace_doc::doc::{MockTraceDoc};
-use ui::{UiComponent};
+use husky_ml_task::MlTraceProtocol;
+use husky_trace_doc::doc::TraceDoc;
+use ui::UiComponent;
 
 pub struct Doc {
     title: String,
@@ -43,10 +44,12 @@ impl NotebookApp {
     pub fn add_default_docs(&mut self, ctx: &egui::Context) {
         self.add_doc(Doc {
             title: "mock trace view doc".to_string(),
-            component: UiComponent::new(MockTraceDoc::new_mock(
-                self.tokio_runtime.clone(),
-                EguiRepaintSignal::new(ctx.clone()),
-            )),
+            component: UiComponent::new(
+                TraceDoc::<MlTraceProtocol<Graphics2dVisualProtocol>, _>::new(
+                    self.tokio_runtime.clone(),
+                    EguiRepaintSignal::new(ctx.clone()),
+                ),
+            ),
         });
         // self.add_doc(Doc {
         //     title: "Settings".to_string(),

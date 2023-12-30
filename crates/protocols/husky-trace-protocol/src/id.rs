@@ -12,6 +12,12 @@ impl TraceId {
         Self { value: raw }
     }
 
+    pub fn from_index(index: u32) -> Self {
+        Self {
+            value: unsafe { NonZeroU32::new_unchecked(index + 1) },
+        }
+    }
+
     pub fn value(&self) -> NonZeroU32 {
         self.value
     }

@@ -69,6 +69,7 @@ rustc_version = "0.4"
 quote = "1.0"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
+serde_with = "3.4.0"
 smallvec = "1.10.0"
 syn = { version = "2.0.38", features = ["full", "extra-traits", "visit-mut"] }
 thiserror = "1.0.37"
@@ -145,6 +146,7 @@ husky-linkage-impl = { path = "crates/linkage/husky-linkage-impl" }
 husky-mono-linktime = { path = "crates/linktime/husky-mono-linktime" }
 # protocols
 husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }
+husky-graphics2d-visual-protocol = { path = "crates/protocols/husky-graphics2d-visual-protocol" }
 husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
 husky-token-protocol = { path = "crates/protocols/husky-token-protocol" }
 husky-trace-protocol = { path = "crates/protocols/husky-trace-protocol" }

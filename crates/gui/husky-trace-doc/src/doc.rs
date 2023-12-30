@@ -70,12 +70,8 @@ where
     }
 }
 
-#[cfg(feature = "mock")]
-pub type MockTraceDoc = TraceDoc<MockTraceProtocol, EguiRepaintSignal>;
-
-#[cfg(feature = "mock")]
-impl TraceDoc<MockTraceProtocol, EguiRepaintSignal> {
-    pub fn new_mock(
+impl<TraceProtocol: IsTraceProtocolFull> TraceDoc<TraceProtocol, EguiRepaintSignal> {
+    pub fn new(
         tokio_runtime: Arc<tokio::runtime::Runtime>,
         repaint_signal: EguiRepaintSignal,
     ) -> Self {

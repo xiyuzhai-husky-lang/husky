@@ -1,4 +1,4 @@
-pub mod cache;
+pub mod center;
 #[cfg(feature = "client")]
 pub mod client;
 pub mod id;
@@ -11,7 +11,7 @@ pub mod settings;
 pub mod stalk;
 pub mod view;
 
-use self::cache::*;
+use self::center::*;
 use self::id::*;
 use self::protocol::*;
 use self::stalk::*;
