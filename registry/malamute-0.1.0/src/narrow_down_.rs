@@ -73,7 +73,7 @@ where
             let v: f32 = match __eval_val_repr(feature, None) {
                 ValControlFlow::Continue(v) => v,
                 ValControlFlow::LoopContinue => todo!(),
-                ValControlFlow::LoopBreak(_) => todo!(),
+                ValControlFlow::LoopExit(_) => todo!(),
                 ValControlFlow::Return(_) => todo!(),
                 ValControlFlow::Undefined => todo!(),
                 ValControlFlow::Err(_) => todo!(),

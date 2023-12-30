@@ -45,7 +45,7 @@ where
         match __eval_val_domain_repr_at_input(val_domain_repr, input_id, None) {
             ValControlFlow::Continue(_) => (),
             ValControlFlow::LoopContinue => todo!(),
-            ValControlFlow::LoopBreak(_) => todo!(),
+            ValControlFlow::LoopExit(_) => todo!(),
             ValControlFlow::Return(_) => todo!(),
             ValControlFlow::Undefined => return Ok(None),
             ValControlFlow::Err(_) => todo!(),
@@ -55,7 +55,7 @@ where
             let feature = match __eval_val_repr_at_input(argument, input_id, None) {
                 ValControlFlow::Continue(feature) => feature,
                 ValControlFlow::LoopContinue => todo!(),
-                ValControlFlow::LoopBreak(_) => todo!(),
+                ValControlFlow::LoopExit(_) => todo!(),
                 ValControlFlow::Return(_) => todo!(),
                 ValControlFlow::Undefined => todo!(),
                 ValControlFlow::Err(_) => todo!(),
