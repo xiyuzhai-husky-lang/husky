@@ -1,5 +1,6 @@
 use crate::value::IsValue;
 use serde::{Deserialize, Serialize};
+use serde_impl::IsSerdeImpl;
 use std::{
     convert::Infallible,
     ops::{FromResidual, Try},
@@ -9,7 +10,7 @@ use std::{
 pub enum ValControlFlow<C, B, E> {
     Continue(C),
     LoopContinue,
-    LoopBreak(B),
+    LoopExit(B),
     Return(B),
     Undefined,
     Err(E),
@@ -34,8 +35,8 @@ impl<C, B, E> std::ops::Try for ValControlFlow<C, B, E> {
             ValControlFlow::LoopContinue => {
                 std::ops::ControlFlow::Break(ValControlFlow::LoopContinue)
             }
-            ValControlFlow::LoopBreak(b) => {
-                std::ops::ControlFlow::Break(ValControlFlow::LoopBreak(b))
+            ValControlFlow::LoopExit(b) => {
+                std::ops::ControlFlow::Break(ValControlFlow::LoopExit(b))
             }
             ValControlFlow::Return(b) => std::ops::ControlFlow::Break(ValControlFlow::Return(b)),
             ValControlFlow::Undefined => std::ops::ControlFlow::Break(ValControlFlow::Undefined),
@@ -49,7 +50,7 @@ impl<C, B, E> FromResidual<ValControlFlow<Infallible, B, E>> for ValControlFlow<
         match residual {
             ValControlFlow::Continue(_) => unreachable!(),
             ValControlFlow::LoopContinue => ValControlFlow::LoopContinue,
-            ValControlFlow::LoopBreak(b) => ValControlFlow::LoopBreak(b),
+            ValControlFlow::LoopExit(b) => ValControlFlow::LoopExit(b),
             ValControlFlow::Return(b) => ValControlFlow::Return(b),
             ValControlFlow::Undefined => ValControlFlow::Undefined,
             ValControlFlow::Err(e) => ValControlFlow::Err(e),
@@ -86,19 +87,24 @@ impl<C1, C2: FromIterator<C1>, B, E> std::iter::FromIterator<ValControlFlow<C1, 
 
 impl<Value, E> ValControlFlow<Value, Value, E>
 where
-    Value: IsValue,
     E: 'static,
 {
-    pub unsafe fn share_unchecked(&self) -> Self {
+    pub unsafe fn share_unchecked(&self) -> Self
+    where
+        Value: IsValue,
+    {
         let slf: &'static Self = std::mem::transmute(self);
         slf.share()
     }
 
-    fn share(&'static self) -> Self {
+    fn share(&'static self) -> Self
+    where
+        Value: IsValue,
+    {
         match self {
             ValControlFlow::Continue(value) => ValControlFlow::Continue(value.share()),
             ValControlFlow::LoopContinue => todo!(),
-            ValControlFlow::LoopBreak(_) => todo!(),
+            ValControlFlow::LoopExit(_) => todo!(),
             ValControlFlow::Return(_) => todo!(),
             ValControlFlow::Undefined => todo!(),
             ValControlFlow::Err(_) => todo!(),
@@ -111,6 +117,29 @@ where
             std::ops::ControlFlow::Break(_) => panic!(),
         }
     }
+
+    pub(crate) fn serialize_inner(
+        &self,
+    ) -> ValControlFlow<
+        <<Value as IsValue>::SerdeImpl as IsSerdeImpl>::Value,
+        <<Value as IsValue>::SerdeImpl as IsSerdeImpl>::Value,
+        <<Value as IsValue>::SerdeImpl as IsSerdeImpl>::Value,
+    >
+    where
+        Value: IsValue,
+        E: std::fmt::Debug + Serialize,
+    {
+        match self {
+            ValControlFlow::Continue(value) => ValControlFlow::Continue(value.serialize_to_value()),
+            ValControlFlow::LoopContinue => ValControlFlow::LoopContinue,
+            ValControlFlow::LoopExit(value) => ValControlFlow::LoopExit(value.serialize_to_value()),
+            ValControlFlow::Return(value) => ValControlFlow::Return(value.serialize_to_value()),
+            ValControlFlow::Undefined => ValControlFlow::Undefined,
+            ValControlFlow::Err(e) => ValControlFlow::Err(
+                <<Value as IsValue>::SerdeImpl as IsSerdeImpl>::to_value(e).unwrap(),
+            ),
+        }
+    }
 }
 
 impl<C1, B, E> ValControlFlow<C1, B, E> {
@@ -118,7 +147,7 @@ impl<C1, B, E> ValControlFlow<C1, B, E> {
         match self {
             ValControlFlow::Continue(c1) => ValControlFlow::Continue(f(c1)),
             ValControlFlow::LoopContinue => ValControlFlow::LoopContinue,
-            ValControlFlow::LoopBreak(b) => ValControlFlow::LoopBreak(b),
+            ValControlFlow::LoopExit(b) => ValControlFlow::LoopExit(b),
             ValControlFlow::Return(b) => ValControlFlow::Return(b),
             ValControlFlow::Undefined => ValControlFlow::Undefined,
             ValControlFlow::Err(e) => ValControlFlow::Err(e),

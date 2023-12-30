@@ -214,7 +214,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                 ValControlFlow::Continue(value)
             }
             ValControlFlow::LoopContinue => unreachable!(),
-            ValControlFlow::LoopBreak(_) => unreachable!(),
+            ValControlFlow::LoopExit(_) => unreachable!(),
             ValControlFlow::Undefined => unreachable!(),
             ValControlFlow::Err(e) => ValControlFlow::Err(e),
         }

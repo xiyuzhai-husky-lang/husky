@@ -95,6 +95,7 @@ original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
 propagate = { path = "crates/abstractions/propagate" }
 salsa = { path = "crates/abstractions/salsa" }
+serde-impl = {path = "crates/abstractions/serde-impl"}
 shifted-unsigned-int = { path = "crates/abstractions/shifted-unsigned-int" }
 ui = { path = "crates/abstractions/ui" }
 vec-like = { path = "crates/abstractions/vec-like" }
