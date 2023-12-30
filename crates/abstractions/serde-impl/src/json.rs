@@ -1,3 +1,5 @@
+use serde::Serialize;
+
 use crate::IsSerdeImpl;
 
 pub struct SerdeJson;
@@ -5,7 +7,13 @@ pub struct SerdeJson;
 impl IsSerdeImpl for SerdeJson {
     type Error = serde_json::Error;
 
-    fn to_string<T: serde::Serialize>(t: &T) -> Result<String, Self::Error> {
+    type Value = serde_json::Value;
+
+    fn to_value<T: Serialize>(t: T) -> Result<Self::Value, Self::Error> {
+        serde_json::to_value(t)
+    }
+
+    fn to_string<T: Serialize>(t: &T) -> Result<String, Self::Error> {
         serde_json::to_string(t)
     }
 

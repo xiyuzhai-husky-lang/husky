@@ -1,3 +1,6 @@
+use serde::Serialize;
+use serde_impl::IsSerdeImpl;
+
 pub trait IsValue:
     std::fmt::Debug
     + Sized
@@ -78,4 +81,7 @@ pub trait IsValue:
     /// should unreachable if not an option
     fn is_some(self) -> bool;
     fn index(self, index: usize) -> Self;
+
+    type SerdeImpl: IsSerdeImpl;
+    fn serialize_to_value(&self) -> <Self::SerdeImpl as IsSerdeImpl>::Value;
 }

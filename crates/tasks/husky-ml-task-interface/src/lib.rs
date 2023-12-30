@@ -119,7 +119,7 @@ pub fn eval_val_domain_repr_at_input(
             match eval_val_repr_at_input::<()>(stmt_val_repr, input_id, value_stands) {
                 ValControlFlow::Continue(_) => ValControlFlow::Continue(()),
                 ValControlFlow::LoopContinue => todo!(),
-                ValControlFlow::LoopBreak(_) => todo!(),
+                ValControlFlow::LoopExit(_) => todo!(),
                 ValControlFlow::Return(_) | ValControlFlow::Undefined => ValControlFlow::Undefined,
                 ValControlFlow::Err(_) => todo!(),
             }
