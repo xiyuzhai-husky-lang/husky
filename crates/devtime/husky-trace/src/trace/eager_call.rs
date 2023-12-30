@@ -12,14 +12,14 @@ pub struct EagerCallTracePathData {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct EagerCallTraceData {
     path: TracePath,
-    biological_parent: TraceId,
+    biological_parent: Trace,
     callee_path: ItemPath,
 }
 
-impl TraceId {
+impl Trace {
     pub(crate) fn new_eager_call(
         biological_parent_path: TracePath,
-        biological_parent: TraceId,
+        biological_parent: Trace,
         callee_path: ItemPath,
         db: &::salsa::Db,
     ) -> Self {
@@ -30,7 +30,7 @@ impl TraceId {
             },
             db,
         );
-        TraceId::new(
+        Trace::new(
             path,
             EagerCallTraceData {
                 path,
@@ -60,10 +60,10 @@ impl EagerCallTraceData {
         item_syn_defn(db, self.callee_path).is_some()
     }
 
-    pub(super) fn subtraces(&self, trace: TraceId, db: &::salsa::Db) -> Vec<TraceId> {
+    pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         let biological_parent_path = self.path;
         let biological_parent = trace;
-        TraceId::new_eager_stmts_from_syn_body_with_syn_expr_region(
+        Trace::new_eager_stmts_from_syn_body_with_syn_expr_region(
             biological_parent_path,
             biological_parent,
             item_syn_defn(db, self.callee_path),

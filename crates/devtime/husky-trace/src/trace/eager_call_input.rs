@@ -12,7 +12,7 @@ pub struct EagerCallInputTracePathData {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerCallInputTraceData {
     path: TracePath,
-    biological_parent: TraceId,
+    biological_parent: Trace,
     input_sketch: EagerCallInputSketch,
     caller_sema_expr_region: SemaExprRegion,
     callee_syn_expr_region: SynExprRegion,
@@ -29,10 +29,10 @@ pub enum EagerCallInputSketch {
     Keyed,
 }
 
-impl TraceId {
+impl Trace {
     pub(crate) fn new_eager_call_input(
         biological_parent_path: TracePath,
-        biological_parent: TraceId,
+        biological_parent: Trace,
         input_sketch: EagerCallInputSketch,
         caller_sema_expr_region: SemaExprRegion,
         callee_syn_expr_region: SynExprRegion,
@@ -44,7 +44,7 @@ impl TraceId {
             },
             db,
         );
-        TraceId::new(
+        Trace::new(
             path,
             EagerCallInputTraceData {
                 path,
@@ -90,7 +90,7 @@ impl EagerCallInputTraceData {
         false
     }
 
-    pub fn subtraces(&self) -> Vec<TraceId> {
+    pub fn subtraces(&self) -> Vec<Trace> {
         vec![]
     }
 

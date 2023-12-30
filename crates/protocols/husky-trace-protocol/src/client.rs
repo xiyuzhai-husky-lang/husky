@@ -3,7 +3,7 @@ pub mod error;
 pub mod mock;
 
 use crate::{
-    cache::action::TraceCacheToggleExpansion, message::*, view::action::TraceViewAction, *,
+    center::action::TraceCacheToggleExpansion, message::*, view::action::TraceViewAction, *,
 };
 use husky_websocket_utils::imgui_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
@@ -15,7 +15,7 @@ pub struct TraceClient<TraceProtocol: IsTraceProtocol, Notifier>
 where
     Notifier: Notify,
 {
-    opt_cache: Option<TraceCache<TraceProtocol>>,
+    center: Option<TraceCenter<TraceProtocol>>,
     connection: ImmediateWebsocketClientConnection<
         TraceRequest<TraceProtocol>,
         TraceResponse<TraceProtocol>,
@@ -34,7 +34,7 @@ where
         notifier: Notifier,
     ) -> Self {
         Self {
-            opt_cache: None,
+            center: None,
             connection: ImmediateWebsocketClientConnection::new(
                 tokio_runtime,
                 server_address.into(),
@@ -53,15 +53,16 @@ where
     fn process_response(&mut self, response: TraceResponse<TraceProtocol>) {
         match response {
             TraceResponse::Init { cache } => {
-                debug_assert!(self.opt_cache.is_none());
-                self.opt_cache = Some(cache)
+                debug_assert!(self.center.is_none());
+                self.center = Some(cache)
             }
             TraceResponse::TakeCacheAction { cache_actions } => {
-                let Some(ref mut cache) = self.opt_cache else {
+                let Some(ref mut cache) = self.center else {
                     unreachable!()
                 };
                 cache.take_actions(cache_actions)
             }
+            TraceResponse::Err(e) => panic!("{e}"),
         }
     }
 
@@ -73,25 +74,25 @@ where
     }
 
     pub fn root_trace_ids(&self) -> Option<&[TraceId]> {
-        Some(self.opt_cache.as_ref()?.root_trace_ids())
+        Some(self.center.as_ref()?.root_trace_ids())
     }
 
     pub fn connection_error(&self) -> Option<&WebsocketClientConnectionError> {
         self.connection.error()
     }
 
-    pub fn opt_cache(&self) -> Option<&TraceCache<TraceProtocol>> {
-        self.opt_cache.as_ref()
+    pub fn opt_cache(&self) -> Option<&TraceCenter<TraceProtocol>> {
+        self.center.as_ref()
     }
 
     #[track_caller]
-    fn cache(&self) -> &TraceCache<TraceProtocol> {
-        self.opt_cache.as_ref().unwrap()
+    fn cache(&self) -> &TraceCenter<TraceProtocol> {
+        self.center.as_ref().unwrap()
     }
 
     #[track_caller]
-    fn cache_mut(&mut self) -> &mut TraceCache<TraceProtocol> {
-        self.opt_cache.as_mut().unwrap()
+    fn cache_mut(&mut self) -> &mut TraceCenter<TraceProtocol> {
+        self.center.as_mut().unwrap()
     }
 
     pub fn take_view_action(

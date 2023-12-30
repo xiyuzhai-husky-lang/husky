@@ -48,6 +48,10 @@ impl<VisualProtocol> IsDevAscension for MlDevAscension<VisualProtocol>
 where
     VisualProtocol: IsVisualProtocol,
 {
+    type Pedestal = MlPedestal;
+
+    type LinkageImpl = LinkageImpl;
+
     type Linktime = MonoLinktime<LinkageImpl>;
 
     type RuntimeStorage = MlDevRuntimeStorage;

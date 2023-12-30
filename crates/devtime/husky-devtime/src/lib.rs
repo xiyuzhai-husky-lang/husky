@@ -9,7 +9,8 @@ use husky_task::{
     helpers::{TaskDevLinkTime, TaskTraceProtocol},
     IsTask,
 };
-use husky_trace::{db::TraceDb, trace::TraceId};
+use husky_trace::{db::TraceDb, trace::Trace};
+use husky_trace_protocol::stalk::TraceStalk;
 use husky_vfs::error::VfsResult;
 use std::path::Path;
 
@@ -55,7 +56,7 @@ where
 }
 
 impl<Task: IsTask> IsTracetime for Devtime<Task> {
-    type Trace = TraceId;
+    type Trace = Trace;
 
     type TraceProtocol = TaskTraceProtocol<Task>;
 
@@ -74,6 +75,30 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
 
     fn get_trace_view_data(&self, trace: Self::Trace) -> husky_trace_protocol::view::TraceViewData {
         trace.view_data(self.db())
+    }
+
+    fn get_trace_stalk(
+        &self,
+        pedestal: <Self::TraceProtocol as husky_trace_protocol::protocol::IsTraceProtocol>::Pedestal,
+        trace: Self::Trace,
+    ) -> husky_trace_protocol::stalk::TraceStalk {
+        let db = self.runtime.db();
+        if let Some(val_repr) = trace.val_repr(db) {
+            use husky_print_utils::p;
+            p!(self
+                .runtime
+                .eval_val_repr_at_pedestal(val_repr, pedestal)
+                .serialize_inner::<Self::SerdeImpl>());
+            todo!();
+            TraceStalk::Val(
+                self.runtime
+                    .eval_val_repr_at_pedestal(val_repr, pedestal)
+                    .serialize_inner::<Self::SerdeImpl>(),
+            )
+        } else {
+            // ad hoc
+            TraceStalk::None
+        }
     }
 }
 

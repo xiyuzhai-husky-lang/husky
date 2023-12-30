@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 pub trait IsSerdeImpl {
-    type Value;
+    type Value: Serialize;
 
     type Error: Send + std::fmt::Debug + std::fmt::Display + 'static;
 

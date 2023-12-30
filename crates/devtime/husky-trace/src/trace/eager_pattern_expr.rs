@@ -19,21 +19,21 @@ pub enum EagerPatternExprEssence {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct EagerPatternExprTrace(TraceId);
+pub struct EagerPatternExprTrace(Trace);
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerPatternExprTraceData {
     path: TracePath,
-    biological_parent: TraceId,
+    biological_parent: Trace,
     syn_pattern_expr_idx: SynPatternExprIdx,
     hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeSymbolIdx>>,
     sema_expr_region: SemaExprRegion,
 }
 
-impl TraceId {
+impl Trace {
     pub(crate) fn new_eager_pattern_expr(
         biological_parent_path: TracePath,
-        biological_parent: TraceId,
+        biological_parent: Trace,
         syn_pattern_expr_idx: SynPatternExprIdx,
         hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeSymbolIdx>>,
         sema_expr_region: SemaExprRegion,
@@ -49,7 +49,7 @@ impl TraceId {
             },
             db,
         );
-        TraceId::new(
+        Trace::new(
             path,
             EagerPatternExprTraceData {
                 path,
@@ -85,7 +85,7 @@ impl EagerPatternExprTraceData {
         false
     }
 
-    pub fn subtraces(&self) -> Vec<TraceId> {
+    pub fn subtraces(&self) -> Vec<Trace> {
         vec![]
     }
 }

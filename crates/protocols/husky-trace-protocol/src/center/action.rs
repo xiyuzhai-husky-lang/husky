@@ -19,7 +19,7 @@ where
 {
     type Outcome;
 
-    fn act(&self, cache: &mut TraceCache<TraceProtocol>) -> Self::Outcome;
+    fn act(&self, cache: &mut TraceCenter<TraceProtocol>) -> Self::Outcome;
 }
 
 impl<TraceProtocol> IsTraceCacheAction<TraceProtocol> for TraceCacheAction<TraceProtocol>
@@ -28,7 +28,7 @@ where
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCache<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, cache: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
         match self {
             TraceCacheAction::NewTrace(action) => action.act(cache),
             TraceCacheAction::ToggleExpansion(action) => action.act(cache),
@@ -46,7 +46,7 @@ where
     }
 }
 
-impl<TraceProtocol> TraceCache<TraceProtocol>
+impl<TraceProtocol> TraceCenter<TraceProtocol>
 where
     TraceProtocol: IsTraceProtocol,
 {
@@ -90,10 +90,10 @@ where
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCache<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, cache: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
         cache
             .entries
-            .insert_new((self.trace_id, TraceCacheEntry::new(self.view_data.clone())))
+            .insert_new((self.trace_id, TraceCenterEntry::new(self.view_data.clone())))
             .unwrap()
     }
 }
@@ -110,7 +110,7 @@ where
 {
     type Outcome = ();
 
-    fn act(&self, _cache: &mut TraceCache<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, _cache: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
         todo!()
     }
 }
@@ -132,7 +132,7 @@ where
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCache<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, cache: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
         cache[self.trace_id].toggle_expansion()
     }
 }
@@ -158,7 +158,7 @@ where
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCache<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, cache: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
         cache[self.trace_id].set_subtraces(self.subtrace_ids.clone())
     }
 }

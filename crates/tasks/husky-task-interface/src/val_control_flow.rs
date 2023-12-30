@@ -118,26 +118,30 @@ where
         }
     }
 
-    pub(crate) fn serialize_inner(
+    pub fn serialize_inner<SerdeImpl: IsSerdeImpl>(
         &self,
     ) -> ValControlFlow<
-        <<Value as IsValue>::SerdeImpl as IsSerdeImpl>::Value,
-        <<Value as IsValue>::SerdeImpl as IsSerdeImpl>::Value,
-        <<Value as IsValue>::SerdeImpl as IsSerdeImpl>::Value,
+        <SerdeImpl as IsSerdeImpl>::Value,
+        <SerdeImpl as IsSerdeImpl>::Value,
+        <SerdeImpl as IsSerdeImpl>::Value,
     >
     where
         Value: IsValue,
         E: std::fmt::Debug + Serialize,
     {
         match self {
-            ValControlFlow::Continue(value) => ValControlFlow::Continue(value.serialize_to_value()),
+            ValControlFlow::Continue(value) => {
+                ValControlFlow::Continue(value.serialize_to_value_in_general::<SerdeImpl>())
+            }
             ValControlFlow::LoopContinue => ValControlFlow::LoopContinue,
-            ValControlFlow::LoopExit(value) => ValControlFlow::LoopExit(value.serialize_to_value()),
-            ValControlFlow::Return(value) => ValControlFlow::Return(value.serialize_to_value()),
+            ValControlFlow::LoopExit(value) => {
+                ValControlFlow::LoopExit(value.serialize_to_value_in_general::<SerdeImpl>())
+            }
+            ValControlFlow::Return(value) => {
+                ValControlFlow::Return(value.serialize_to_value_in_general::<SerdeImpl>())
+            }
             ValControlFlow::Undefined => ValControlFlow::Undefined,
-            ValControlFlow::Err(e) => ValControlFlow::Err(
-                <<Value as IsValue>::SerdeImpl as IsSerdeImpl>::to_value(e).unwrap(),
-            ),
+            ValControlFlow::Err(e) => ValControlFlow::Err(SerdeImpl::to_value(e).unwrap()),
         }
     }
 }

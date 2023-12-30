@@ -4,7 +4,7 @@ use egui::{
     Widget,
 };
 use husky_trace_protocol::{
-    cache::{TraceCache, TraceCacheEntry},
+    center::{TraceCenter, TraceCenterEntry},
     id::{TraceId, TraceKind},
     protocol::IsTraceProtocol,
     view::{action::TraceViewActionBuffer, TraceViewLineData, TraceViewTokenData},
@@ -15,7 +15,7 @@ where
     TraceProtocol: IsTraceProtocol,
     Settings: HasTraceViewDocSettings,
 {
-    trace_cache: &'a TraceCache<TraceProtocol>,
+    trace_cache: &'a TraceCenter<TraceProtocol>,
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
     // cached values
@@ -29,7 +29,7 @@ where
     Settings: HasTraceViewDocSettings,
 {
     pub(crate) fn new(
-        trace_cache: &'a TraceCache<TraceProtocol>,
+        trace_cache: &'a TraceCenter<TraceProtocol>,
         action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
         ui: &mut egui::Ui,
         settings: &'a mut Settings,
@@ -73,7 +73,7 @@ where
     fn render_trace_view(
         &mut self,
         trace_id: TraceId,
-        entry: &TraceCacheEntry<TraceProtocol>,
+        entry: &TraceCenterEntry<TraceProtocol>,
         ui: &mut egui::Ui,
     ) where
         TraceProtocol: IsTraceProtocol,
@@ -185,7 +185,7 @@ where
         &mut self,
         line_data: &TraceViewLineData,
         trace_id: TraceId,
-        entry: &TraceCacheEntry<TraceProtocol>,
+        entry: &TraceCenterEntry<TraceProtocol>,
         ui: &mut egui::Ui,
     ) {
         ui.horizontal(|ui| {
@@ -199,7 +199,7 @@ where
         &mut self,
         token_data: &TraceViewTokenData,
         trace_id: TraceId,
-        entry: &TraceCacheEntry<TraceProtocol>,
+        entry: &TraceCenterEntry<TraceProtocol>,
         ui: &mut egui::Ui,
     ) {
         let token_foreground_colors = self

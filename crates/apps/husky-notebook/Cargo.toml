@@ -24,5 +24,8 @@ husky-trace-doc = { path = "../../gui/husky-trace-doc", features = [
 # protocols
 husky-token-protocol = { path = "../../protocols/husky-token-protocol" }
 husky-trace-protocol.workspace = true
+husky-graphics2d-visual-protocol.workspace = true
+# tasks
+husky-ml-task.workspace = true
 # utils
 husky-unicode-symbols.workspace = true

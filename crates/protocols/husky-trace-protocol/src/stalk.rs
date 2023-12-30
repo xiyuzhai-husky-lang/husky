@@ -5,6 +5,7 @@ type JsonValue = serde_json::Value;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum TraceStalk {
-    Val(Option<ValControlFlow<JsonValue, JsonValue, ()>>),
-    Vm(Option<VmControlFlow<JsonValue, JsonValue, ()>>),
+    None,
+    Val(ValControlFlow<JsonValue, JsonValue, JsonValue>),
+    Vm(VmControlFlow<JsonValue, JsonValue, JsonValue>),
 }

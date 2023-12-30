@@ -13,14 +13,14 @@ pub struct LazyCallTracePathData {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct LazyCallTraceData {
     path: TracePath,
-    biological_parent: TraceId,
+    biological_parent: Trace,
     callee_path: ItemPath,
 }
 
-impl TraceId {
+impl Trace {
     pub(crate) fn new_lazy_call(
         biological_parent_path: TracePath,
-        biological_parent: TraceId,
+        biological_parent: Trace,
         callee_path: ItemPath,
         db: &::salsa::Db,
     ) -> Self {
@@ -31,7 +31,7 @@ impl TraceId {
             },
             db,
         );
-        TraceId::new(
+        Trace::new(
             path,
             LazyCallTraceData {
                 path,
@@ -61,8 +61,8 @@ impl LazyCallTraceData {
         item_syn_defn(db, self.callee_path).is_some()
     }
 
-    pub(super) fn subtraces(&self, trace: TraceId, db: &::salsa::Db) -> Vec<TraceId> {
-        TraceId::new_lazy_stmts_from_syn_body_with_syn_expr_region(
+    pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
+        Trace::new_lazy_stmts_from_syn_body_with_syn_expr_region(
             self.path,
             trace,
             item_syn_defn(db, self.callee_path),
