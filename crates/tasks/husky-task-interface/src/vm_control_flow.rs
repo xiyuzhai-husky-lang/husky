@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 pub enum VmControlFlow<C, B, E> {
     Continue(C),
     LoopContinue,
-    LoopBreak(B),
+    LoopExit(B),
     Return(B),
     Err(E),
 }
