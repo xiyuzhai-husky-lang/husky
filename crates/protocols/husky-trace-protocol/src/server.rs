@@ -85,7 +85,7 @@ but client's trace protocol is of type `{trace_protocol_type_name}`."#,
                 let Some(cache) = self.center.clone() else {
                     unreachable!()
                 };
-                Some(TraceResponse::Init { cache })
+                Some(TraceResponse::Init { center: cache })
             }
             TraceRequest::TakeViewAction {
                 view_action,
