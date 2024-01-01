@@ -1,6 +1,6 @@
 [
     (
-        TraceId(
+        Trace(
             Id {
                 value: 1484,
             },

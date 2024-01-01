@@ -1,6 +1,6 @@
 [
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {

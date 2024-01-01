@@ -1,6 +1,6 @@
 [
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
@@ -33,7 +33,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
@@ -66,7 +66,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -111,7 +111,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -132,7 +132,7 @@
                             value: 16,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 14,
                         },
@@ -160,7 +160,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -189,7 +189,7 @@
                             value: 17,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 16,
                         },
@@ -221,7 +221,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -266,7 +266,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -295,7 +295,7 @@
                             value: 17,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 16,
                         },
@@ -327,7 +327,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -364,7 +364,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -387,7 +387,7 @@
                             value: 19,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -475,7 +475,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -506,7 +506,7 @@
                             value: 32,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 19,
                         },
@@ -534,7 +534,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -565,7 +565,7 @@
                             value: 33,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 19,
                         },
@@ -621,7 +621,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -652,7 +652,7 @@
                             value: 34,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 19,
                         },
@@ -708,7 +708,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -739,7 +739,7 @@
                             value: 35,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 19,
                         },
@@ -795,7 +795,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -826,7 +826,7 @@
                             value: 36,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 19,
                         },
@@ -854,7 +854,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -885,7 +885,7 @@
                             value: 37,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 19,
                         },
@@ -941,7 +941,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -972,7 +972,7 @@
                             value: 38,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 19,
                         },
@@ -1021,7 +1021,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -1066,7 +1066,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -1087,7 +1087,7 @@
                             value: 40,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 19,
                         },
@@ -1148,7 +1148,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -1169,7 +1169,7 @@
                             value: 41,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 19,
                         },
@@ -1256,7 +1256,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -1279,7 +1279,7 @@
                             value: 20,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -1307,7 +1307,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -1328,7 +1328,7 @@
                             value: 42,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 20,
                         },
@@ -1365,7 +1365,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -1386,7 +1386,7 @@
                             value: 43,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 20,
                         },
@@ -1459,7 +1459,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -1504,7 +1504,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -1525,7 +1525,7 @@
                             value: 43,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 20,
                         },
@@ -1598,7 +1598,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -1621,7 +1621,7 @@
                             value: 21,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -1649,7 +1649,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -1670,7 +1670,7 @@
                             value: 44,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 21,
                         },
@@ -1786,7 +1786,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -1807,7 +1807,7 @@
                             value: 45,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 21,
                         },
@@ -1880,7 +1880,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -1901,7 +1901,7 @@
                             value: 46,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 21,
                         },
@@ -1968,7 +1968,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -1989,7 +1989,7 @@
                             value: 47,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 21,
                         },
@@ -2062,7 +2062,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -2083,7 +2083,7 @@
                             value: 48,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 21,
                         },
@@ -2150,7 +2150,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -2171,7 +2171,7 @@
                             value: 49,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 21,
                         },
@@ -2244,7 +2244,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -2265,7 +2265,7 @@
                             value: 50,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 21,
                         },
@@ -2332,7 +2332,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -2353,7 +2353,7 @@
                             value: 44,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 21,
                         },
@@ -2469,7 +2469,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -2492,7 +2492,7 @@
                             value: 22,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -2548,7 +2548,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -2569,7 +2569,7 @@
                             value: 51,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 22,
                         },
@@ -2642,7 +2642,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -2663,7 +2663,7 @@
                             value: 52,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 22,
                         },
@@ -2730,7 +2730,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -2753,7 +2753,7 @@
                             value: 23,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -2809,7 +2809,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -2854,7 +2854,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -2875,7 +2875,7 @@
                             value: 53,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 23,
                         },
@@ -2942,7 +2942,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -2963,7 +2963,7 @@
                             value: 54,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 23,
                         },
@@ -3034,7 +3034,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -3057,7 +3057,7 @@
                             value: 24,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -3113,7 +3113,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -3158,7 +3158,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -3179,7 +3179,7 @@
                             value: 55,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 24,
                         },
@@ -3246,7 +3246,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -3267,7 +3267,7 @@
                             value: 56,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 24,
                         },
@@ -3338,7 +3338,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -3361,7 +3361,7 @@
                             value: 25,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -3389,7 +3389,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -3410,7 +3410,7 @@
                             value: 57,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 25,
                         },
@@ -3447,7 +3447,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -3492,7 +3492,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -3513,7 +3513,7 @@
                             value: 58,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 25,
                         },
@@ -3580,7 +3580,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -3601,7 +3601,7 @@
                             value: 59,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 25,
                         },
@@ -3672,7 +3672,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -3695,7 +3695,7 @@
                             value: 26,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -3723,7 +3723,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -3744,7 +3744,7 @@
                             value: 60,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 26,
                         },
@@ -3781,7 +3781,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -3802,7 +3802,7 @@
                             value: 61,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 26,
                         },
@@ -3862,7 +3862,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -3883,7 +3883,7 @@
                             value: 62,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 26,
                         },
@@ -3950,7 +3950,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -3971,7 +3971,7 @@
                             value: 63,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 26,
                         },
@@ -4041,7 +4041,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -4062,7 +4062,7 @@
                             value: 64,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 26,
                         },
@@ -4122,7 +4122,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -4143,7 +4143,7 @@
                             value: 65,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 26,
                         },
@@ -4210,7 +4210,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -4231,7 +4231,7 @@
                             value: 66,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 26,
                         },
@@ -4301,7 +4301,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -4324,7 +4324,7 @@
                             value: 27,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -4352,7 +4352,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -4373,7 +4373,7 @@
                             value: 67,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 27,
                         },
@@ -4410,7 +4410,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -4455,7 +4455,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -4476,7 +4476,7 @@
                             value: 69,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 27,
                         },
@@ -4543,7 +4543,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -4564,7 +4564,7 @@
                             value: 70,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 27,
                         },
@@ -4634,7 +4634,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -4679,7 +4679,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -4700,7 +4700,7 @@
                             value: 71,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 27,
                         },
@@ -4767,7 +4767,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -4788,7 +4788,7 @@
                             value: 72,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 27,
                         },
@@ -4858,7 +4858,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -4881,7 +4881,7 @@
                             value: 28,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -4909,7 +4909,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -4930,7 +4930,7 @@
                             value: 73,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 28,
                         },
@@ -4967,7 +4967,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -4988,7 +4988,7 @@
                             value: 74,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 28,
                         },
@@ -5052,7 +5052,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -5073,7 +5073,7 @@
                             value: 75,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 28,
                         },
@@ -5137,7 +5137,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -5160,7 +5160,7 @@
                             value: 29,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -5216,7 +5216,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -5237,7 +5237,7 @@
                             value: 76,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 29,
                         },
@@ -5301,7 +5301,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -5324,7 +5324,7 @@
                             value: 30,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -5352,7 +5352,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -5373,7 +5373,7 @@
                             value: 77,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 30,
                         },
@@ -5410,7 +5410,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -5431,7 +5431,7 @@
                             value: 78,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 30,
                         },
@@ -5504,7 +5504,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -5525,7 +5525,7 @@
                             value: 79,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 30,
                         },
@@ -5592,7 +5592,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -5615,7 +5615,7 @@
                             value: 31,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 15,
                         },
@@ -5643,7 +5643,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
@@ -5676,7 +5676,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -5721,7 +5721,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -5742,7 +5742,7 @@
                             value: 82,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 85,
                         },
@@ -5770,7 +5770,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -5799,7 +5799,7 @@
                             value: 83,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 87,
                         },
@@ -5831,7 +5831,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -5876,7 +5876,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -5905,7 +5905,7 @@
                             value: 83,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 87,
                         },
@@ -5937,7 +5937,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -5974,7 +5974,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -5997,7 +5997,7 @@
                             value: 84,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 86,
                         },
@@ -6025,7 +6025,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -6046,7 +6046,7 @@
                             value: 88,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 90,
                         },
@@ -6151,7 +6151,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -6196,7 +6196,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -6217,7 +6217,7 @@
                             value: 89,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 90,
                         },
@@ -6278,7 +6278,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -6323,7 +6323,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -6344,7 +6344,7 @@
                             value: 88,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 90,
                         },
@@ -6449,7 +6449,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -6472,7 +6472,7 @@
                             value: 85,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 86,
                         },
@@ -6500,7 +6500,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -6521,7 +6521,7 @@
                             value: 91,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 91,
                         },
@@ -6558,7 +6558,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -6579,7 +6579,7 @@
                             value: 92,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 91,
                         },
@@ -6652,7 +6652,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -6697,7 +6697,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -6718,7 +6718,7 @@
                             value: 92,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 91,
                         },
@@ -6791,7 +6791,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -6814,7 +6814,7 @@
                             value: 86,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 86,
                         },
@@ -6973,7 +6973,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -7004,7 +7004,7 @@
                             value: 93,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 92,
                         },
@@ -7032,7 +7032,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -7063,7 +7063,7 @@
                             value: 94,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 92,
                         },
@@ -7137,7 +7137,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -7168,7 +7168,7 @@
                             value: 95,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 92,
                         },
@@ -7196,7 +7196,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -7217,7 +7217,7 @@
                             value: 96,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 92,
                         },
@@ -7290,7 +7290,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -7311,7 +7311,7 @@
                             value: 97,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 92,
                         },
@@ -7378,7 +7378,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -7401,7 +7401,7 @@
                             value: 87,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 86,
                         },
@@ -7560,7 +7560,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -7591,7 +7591,7 @@
                             value: 98,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -7647,7 +7647,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -7678,7 +7678,7 @@
                             value: 99,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -7734,7 +7734,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -7765,7 +7765,7 @@
                             value: 100,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -7793,7 +7793,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -7824,7 +7824,7 @@
                             value: 101,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -7852,7 +7852,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -7883,7 +7883,7 @@
                             value: 102,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -7911,7 +7911,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -7942,7 +7942,7 @@
                             value: 103,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8031,7 +8031,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8062,7 +8062,7 @@
                             value: 104,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8090,7 +8090,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8121,7 +8121,7 @@
                             value: 105,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8177,7 +8177,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8208,7 +8208,7 @@
                             value: 106,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8236,7 +8236,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8267,7 +8267,7 @@
                             value: 107,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8295,7 +8295,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8326,7 +8326,7 @@
                             value: 108,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8415,7 +8415,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8446,7 +8446,7 @@
                             value: 109,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8520,7 +8520,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8551,7 +8551,7 @@
                             value: 110,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8607,7 +8607,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8638,7 +8638,7 @@
                             value: 111,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8666,7 +8666,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8697,7 +8697,7 @@
                             value: 112,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8725,7 +8725,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8756,7 +8756,7 @@
                             value: 113,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8784,7 +8784,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8815,7 +8815,7 @@
                             value: 114,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8843,7 +8843,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8874,7 +8874,7 @@
                             value: 115,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8902,7 +8902,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -8933,7 +8933,7 @@
                             value: 116,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -8989,7 +8989,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -9020,7 +9020,7 @@
                             value: 117,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -9048,7 +9048,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -9079,7 +9079,7 @@
                             value: 118,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -9107,7 +9107,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -9138,7 +9138,7 @@
                             value: 119,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -9166,7 +9166,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -9197,7 +9197,7 @@
                             value: 120,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -9225,7 +9225,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -9256,7 +9256,7 @@
                             value: 121,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -9312,7 +9312,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -9343,7 +9343,7 @@
                             value: 122,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -9399,7 +9399,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -9430,7 +9430,7 @@
                             value: 123,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 93,
                         },
@@ -9458,7 +9458,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
@@ -9491,7 +9491,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -9536,7 +9536,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -9557,7 +9557,7 @@
                             value: 127,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 132,
                         },
@@ -9585,7 +9585,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -9614,7 +9614,7 @@
                             value: 128,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 135,
                         },
@@ -9646,7 +9646,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -9691,7 +9691,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -9720,7 +9720,7 @@
                             value: 128,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 135,
                         },
@@ -9752,7 +9752,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -9797,7 +9797,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -9818,7 +9818,7 @@
                             value: 129,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 133,
                         },
@@ -9846,7 +9846,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -9875,7 +9875,7 @@
                             value: 130,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 138,
                         },
@@ -9907,7 +9907,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -9952,7 +9952,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -9981,7 +9981,7 @@
                             value: 130,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 138,
                         },
@@ -10013,7 +10013,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -10050,7 +10050,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -10073,7 +10073,7 @@
                             value: 131,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 134,
                         },
@@ -10101,7 +10101,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -10122,7 +10122,7 @@
                             value: 142,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 141,
                         },
@@ -10159,7 +10159,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -10204,7 +10204,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -10225,7 +10225,7 @@
                             value: 143,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 141,
                         },
@@ -10290,7 +10290,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -10313,7 +10313,7 @@
                             value: 132,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 134,
                         },
@@ -10363,7 +10363,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -10384,7 +10384,7 @@
                             value: 144,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 142,
                         },
@@ -10438,7 +10438,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -10461,7 +10461,7 @@
                             value: 133,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 134,
                         },
@@ -10489,7 +10489,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -10510,7 +10510,7 @@
                             value: 145,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 143,
                         },
@@ -10547,7 +10547,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -10592,7 +10592,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -10613,7 +10613,7 @@
                             value: 146,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 143,
                         },
@@ -10680,7 +10680,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -10703,7 +10703,7 @@
                             value: 134,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 134,
                         },
@@ -10731,7 +10731,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -10752,7 +10752,7 @@
                             value: 147,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 144,
                         },
@@ -10789,7 +10789,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -10834,7 +10834,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -10855,7 +10855,7 @@
                             value: 148,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 144,
                         },
@@ -10922,7 +10922,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -10967,7 +10967,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -10988,7 +10988,7 @@
                             value: 149,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 144,
                         },
@@ -11055,7 +11055,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11078,7 +11078,7 @@
                             value: 135,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 134,
                         },
@@ -11177,7 +11177,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11208,7 +11208,7 @@
                             value: 150,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -11236,7 +11236,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11267,7 +11267,7 @@
                             value: 151,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -11295,7 +11295,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11326,7 +11326,7 @@
                             value: 152,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -11354,7 +11354,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11385,7 +11385,7 @@
                             value: 153,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -11413,7 +11413,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11444,7 +11444,7 @@
                             value: 154,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -11472,7 +11472,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11503,7 +11503,7 @@
                             value: 155,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -11531,7 +11531,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11562,7 +11562,7 @@
                             value: 156,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -11618,7 +11618,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11649,7 +11649,7 @@
                             value: 157,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -11738,7 +11738,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11769,7 +11769,7 @@
                             value: 158,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -11797,7 +11797,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11828,7 +11828,7 @@
                             value: 159,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -11856,7 +11856,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11887,7 +11887,7 @@
                             value: 160,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -11961,7 +11961,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -11992,7 +11992,7 @@
                             value: 161,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -12041,7 +12041,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -12062,7 +12062,7 @@
                             value: 162,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -12129,7 +12129,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -12150,7 +12150,7 @@
                             value: 163,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 145,
                         },
@@ -12221,7 +12221,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -12244,7 +12244,7 @@
                             value: 136,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 134,
                         },
@@ -12272,7 +12272,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -12293,7 +12293,7 @@
                             value: 164,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 146,
                         },
@@ -12399,7 +12399,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -12444,7 +12444,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -12465,7 +12465,7 @@
                             value: 165,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 146,
                         },
@@ -12532,7 +12532,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -12553,7 +12553,7 @@
                             value: 164,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 146,
                         },
@@ -12659,7 +12659,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -12682,7 +12682,7 @@
                             value: 137,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 134,
                         },
@@ -12756,7 +12756,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -12787,7 +12787,7 @@
                             value: 166,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 147,
                         },
@@ -12843,7 +12843,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -12888,7 +12888,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -12909,7 +12909,7 @@
                             value: 167,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 147,
                         },
@@ -12976,7 +12976,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -12999,7 +12999,7 @@
                             value: 138,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 134,
                         },
@@ -13055,7 +13055,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -13076,7 +13076,7 @@
                             value: 168,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 148,
                         },
@@ -13143,7 +13143,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -13164,7 +13164,7 @@
                             value: 169,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 148,
                         },
@@ -13235,7 +13235,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -13256,7 +13256,7 @@
                             value: 170,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 148,
                         },
@@ -13323,7 +13323,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -13344,7 +13344,7 @@
                             value: 171,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 148,
                         },
@@ -13414,7 +13414,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -13437,7 +13437,7 @@
                             value: 139,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 134,
                         },
@@ -13511,7 +13511,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -13542,7 +13542,7 @@
                             value: 172,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 149,
                         },
@@ -13598,7 +13598,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -13619,7 +13619,7 @@
                             value: 173,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 149,
                         },
@@ -13686,7 +13686,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -13707,7 +13707,7 @@
                             value: 174,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 149,
                         },
@@ -13778,7 +13778,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -13801,7 +13801,7 @@
                             value: 140,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 134,
                         },
@@ -13857,7 +13857,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -13878,7 +13878,7 @@
                             value: 175,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 150,
                         },
@@ -13942,7 +13942,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -13965,7 +13965,7 @@
                             value: 141,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 134,
                         },
@@ -13993,7 +13993,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
@@ -14026,7 +14026,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -14071,7 +14071,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -14092,7 +14092,7 @@
                             value: 178,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 192,
                         },
@@ -14120,7 +14120,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -14149,7 +14149,7 @@
                             value: 179,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 194,
                         },
@@ -14181,7 +14181,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -14226,7 +14226,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -14255,7 +14255,7 @@
                             value: 179,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 194,
                         },
@@ -14287,7 +14287,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -14332,7 +14332,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -14353,7 +14353,7 @@
                             value: 180,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -14381,7 +14381,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -14426,7 +14426,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -14455,7 +14455,7 @@
                             value: 197,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 197,
                         },
@@ -14487,7 +14487,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -14508,7 +14508,7 @@
                             value: 181,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -14536,7 +14536,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -14581,7 +14581,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -14610,7 +14610,7 @@
                             value: 198,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 198,
                         },
@@ -14642,7 +14642,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -14663,7 +14663,7 @@
                             value: 182,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -14691,7 +14691,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -14712,7 +14712,7 @@
                             value: 199,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 199,
                         },
@@ -14743,7 +14743,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -14788,7 +14788,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -14817,7 +14817,7 @@
                             value: 200,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 199,
                         },
@@ -14849,7 +14849,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -14870,7 +14870,7 @@
                             value: 183,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -14898,7 +14898,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -14919,7 +14919,7 @@
                             value: 201,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 200,
                         },
@@ -14950,7 +14950,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -14995,7 +14995,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -15024,7 +15024,7 @@
                             value: 202,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 200,
                         },
@@ -15056,7 +15056,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -15077,7 +15077,7 @@
                             value: 184,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -15105,7 +15105,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -15126,7 +15126,7 @@
                             value: 203,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 201,
                         },
@@ -15157,7 +15157,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -15202,7 +15202,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -15231,7 +15231,7 @@
                             value: 204,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 201,
                         },
@@ -15263,7 +15263,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -15284,7 +15284,7 @@
                             value: 185,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -15312,7 +15312,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -15341,7 +15341,7 @@
                             value: 205,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 202,
                         },
@@ -15373,7 +15373,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -15394,7 +15394,7 @@
                             value: 186,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -15422,7 +15422,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -15451,7 +15451,7 @@
                             value: 206,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 203,
                         },
@@ -15483,7 +15483,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -15512,7 +15512,7 @@
                             value: 207,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 203,
                         },
@@ -15544,7 +15544,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -15565,7 +15565,7 @@
                             value: 187,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -15593,7 +15593,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -15622,7 +15622,7 @@
                             value: 208,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 204,
                         },
@@ -15654,7 +15654,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -15675,7 +15675,7 @@
                             value: 188,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -15703,7 +15703,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -15724,7 +15724,7 @@
                             value: 209,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 205,
                         },
@@ -15755,7 +15755,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -15784,7 +15784,7 @@
                             value: 210,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 205,
                         },
@@ -15816,7 +15816,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -15845,7 +15845,7 @@
                             value: 211,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 205,
                         },
@@ -15877,7 +15877,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -15906,7 +15906,7 @@
                             value: 212,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 205,
                         },
@@ -15938,7 +15938,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -15959,7 +15959,7 @@
                             value: 189,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -15987,7 +15987,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -16016,7 +16016,7 @@
                             value: 213,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 206,
                         },
@@ -16048,7 +16048,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -16077,7 +16077,7 @@
                             value: 214,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 206,
                         },
@@ -16109,7 +16109,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -16130,7 +16130,7 @@
                             value: 190,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -16158,7 +16158,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -16179,7 +16179,7 @@
                             value: 215,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 207,
                         },
@@ -16210,7 +16210,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -16239,7 +16239,7 @@
                             value: 216,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 207,
                         },
@@ -16271,7 +16271,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -16300,7 +16300,7 @@
                             value: 217,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 207,
                         },
@@ -16332,7 +16332,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -16353,7 +16353,7 @@
                             value: 191,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -16381,7 +16381,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -16402,7 +16402,7 @@
                             value: 218,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 208,
                         },
@@ -16433,7 +16433,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -16462,7 +16462,7 @@
                             value: 219,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 208,
                         },
@@ -16494,7 +16494,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -16523,7 +16523,7 @@
                             value: 220,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 208,
                         },
@@ -16555,7 +16555,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -16576,7 +16576,7 @@
                             value: 192,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -16604,7 +16604,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -16625,7 +16625,7 @@
                             value: 221,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 209,
                         },
@@ -16656,7 +16656,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -16685,7 +16685,7 @@
                             value: 222,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 209,
                         },
@@ -16717,7 +16717,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -16746,7 +16746,7 @@
                             value: 223,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 209,
                         },
@@ -16778,7 +16778,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -16807,7 +16807,7 @@
                             value: 224,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 209,
                         },
@@ -16839,7 +16839,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -16860,7 +16860,7 @@
                             value: 193,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -16888,7 +16888,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -16917,7 +16917,7 @@
                             value: 225,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 210,
                         },
@@ -16949,7 +16949,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -16970,7 +16970,7 @@
                             value: 194,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -16998,7 +16998,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -17043,7 +17043,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -17072,7 +17072,7 @@
                             value: 226,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 211,
                         },
@@ -17104,7 +17104,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -17125,7 +17125,7 @@
                             value: 195,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -17153,7 +17153,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -17182,7 +17182,7 @@
                             value: 227,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 212,
                         },
@@ -17214,7 +17214,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -17243,7 +17243,7 @@
                             value: 228,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 212,
                         },
@@ -17275,7 +17275,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -17296,7 +17296,7 @@
                             value: 196,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 193,
                         },
@@ -17324,7 +17324,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
@@ -17357,7 +17357,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -17402,7 +17402,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -17423,7 +17423,7 @@
                             value: 233,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 252,
                         },
@@ -17451,7 +17451,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -17480,7 +17480,7 @@
                             value: 234,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 256,
                         },
@@ -17512,7 +17512,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -17557,7 +17557,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -17586,7 +17586,7 @@
                             value: 234,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 256,
                         },
@@ -17618,7 +17618,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -17663,7 +17663,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -17684,7 +17684,7 @@
                             value: 235,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 253,
                         },
@@ -17712,7 +17712,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -17741,7 +17741,7 @@
                             value: 236,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 259,
                         },
@@ -17773,7 +17773,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -17818,7 +17818,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -17847,7 +17847,7 @@
                             value: 236,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 259,
                         },
@@ -17879,7 +17879,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -17924,7 +17924,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -17945,7 +17945,7 @@
                             value: 237,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 254,
                         },
@@ -17973,7 +17973,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -18002,7 +18002,7 @@
                             value: 238,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 262,
                         },
@@ -18034,7 +18034,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -18079,7 +18079,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -18108,7 +18108,7 @@
                             value: 238,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 262,
                         },
@@ -18140,7 +18140,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -18185,7 +18185,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -18206,7 +18206,7 @@
                             value: 239,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 255,
                         },
@@ -18234,7 +18234,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -18279,7 +18279,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -18308,7 +18308,7 @@
                             value: 250,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 265,
                         },
@@ -18340,7 +18340,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -18361,7 +18361,7 @@
                             value: 240,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 255,
                         },
@@ -18389,7 +18389,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -18434,7 +18434,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -18463,7 +18463,7 @@
                             value: 251,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 266,
                         },
@@ -18495,7 +18495,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -18516,7 +18516,7 @@
                             value: 241,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 255,
                         },
@@ -18544,7 +18544,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -18565,7 +18565,7 @@
                             value: 252,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 267,
                         },
@@ -18596,7 +18596,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -18641,7 +18641,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -18670,7 +18670,7 @@
                             value: 253,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 267,
                         },
@@ -18702,7 +18702,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -18723,7 +18723,7 @@
                             value: 242,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 255,
                         },
@@ -18751,7 +18751,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -18780,7 +18780,7 @@
                             value: 254,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 268,
                         },
@@ -18812,7 +18812,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -18841,7 +18841,7 @@
                             value: 255,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 268,
                         },
@@ -18873,7 +18873,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -18894,7 +18894,7 @@
                             value: 243,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 255,
                         },
@@ -18922,7 +18922,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -18943,7 +18943,7 @@
                             value: 256,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 269,
                         },
@@ -18974,7 +18974,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -19019,7 +19019,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -19048,7 +19048,7 @@
                             value: 257,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 269,
                         },
@@ -19080,7 +19080,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -19101,7 +19101,7 @@
                             value: 244,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 255,
                         },
@@ -19129,7 +19129,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -19158,7 +19158,7 @@
                             value: 258,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 270,
                         },
@@ -19190,7 +19190,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -19211,7 +19211,7 @@
                             value: 245,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 255,
                         },
@@ -19239,7 +19239,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -19260,7 +19260,7 @@
                             value: 259,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 271,
                         },
@@ -19291,7 +19291,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -19320,7 +19320,7 @@
                             value: 260,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 271,
                         },
@@ -19352,7 +19352,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -19381,7 +19381,7 @@
                             value: 261,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 271,
                         },
@@ -19413,7 +19413,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -19442,7 +19442,7 @@
                             value: 262,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 271,
                         },
@@ -19474,7 +19474,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -19495,7 +19495,7 @@
                             value: 246,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 255,
                         },
@@ -19523,7 +19523,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -19544,7 +19544,7 @@
                             value: 263,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 272,
                         },
@@ -19575,7 +19575,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -19620,7 +19620,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -19649,7 +19649,7 @@
                             value: 264,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 272,
                         },
@@ -19681,7 +19681,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -19726,7 +19726,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -19755,7 +19755,7 @@
                             value: 265,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 272,
                         },
@@ -19787,7 +19787,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -19808,7 +19808,7 @@
                             value: 247,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 255,
                         },
@@ -19836,7 +19836,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -19865,7 +19865,7 @@
                             value: 266,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 273,
                         },
@@ -19897,7 +19897,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -19918,7 +19918,7 @@
                             value: 248,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 255,
                         },
@@ -19962,7 +19962,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -19983,7 +19983,7 @@
                             value: 267,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20011,7 +20011,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20032,7 +20032,7 @@
                             value: 268,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20060,7 +20060,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20081,7 +20081,7 @@
                             value: 269,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20109,7 +20109,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20130,7 +20130,7 @@
                             value: 270,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20158,7 +20158,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20179,7 +20179,7 @@
                             value: 271,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20207,7 +20207,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20228,7 +20228,7 @@
                             value: 272,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20256,7 +20256,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20277,7 +20277,7 @@
                             value: 273,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20305,7 +20305,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20326,7 +20326,7 @@
                             value: 274,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20354,7 +20354,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20375,7 +20375,7 @@
                             value: 275,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20403,7 +20403,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20424,7 +20424,7 @@
                             value: 276,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20452,7 +20452,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20473,7 +20473,7 @@
                             value: 277,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20501,7 +20501,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20522,7 +20522,7 @@
                             value: 278,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20550,7 +20550,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20571,7 +20571,7 @@
                             value: 279,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20599,7 +20599,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20620,7 +20620,7 @@
                             value: 280,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20648,7 +20648,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -20677,7 +20677,7 @@
                             value: 281,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20709,7 +20709,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -20738,7 +20738,7 @@
                             value: 282,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 274,
                         },
@@ -20770,7 +20770,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20791,7 +20791,7 @@
                             value: 249,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 255,
                         },
@@ -20819,7 +20819,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
@@ -20852,7 +20852,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -20897,7 +20897,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -20918,7 +20918,7 @@
                             value: 284,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 315,
                         },
@@ -20946,7 +20946,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
@@ -20979,7 +20979,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -21024,7 +21024,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -21045,7 +21045,7 @@
                             value: 288,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 317,
                         },
@@ -21073,7 +21073,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -21102,7 +21102,7 @@
                             value: 289,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 320,
                         },
@@ -21134,7 +21134,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -21179,7 +21179,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -21208,7 +21208,7 @@
                             value: 289,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 320,
                         },
@@ -21240,7 +21240,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -21285,7 +21285,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -21306,7 +21306,7 @@
                             value: 290,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 318,
                         },
@@ -21334,7 +21334,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -21363,7 +21363,7 @@
                             value: 291,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 323,
                         },
@@ -21395,7 +21395,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -21440,7 +21440,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -21469,7 +21469,7 @@
                             value: 291,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 323,
                         },
@@ -21501,7 +21501,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -21546,7 +21546,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -21567,7 +21567,7 @@
                             value: 292,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 319,
                         },
@@ -21595,7 +21595,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -21640,7 +21640,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -21669,7 +21669,7 @@
                             value: 300,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 326,
                         },
@@ -21701,7 +21701,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -21722,7 +21722,7 @@
                             value: 293,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 319,
                         },
@@ -21750,7 +21750,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -21771,7 +21771,7 @@
                             value: 301,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 327,
                         },
@@ -21802,7 +21802,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -21847,7 +21847,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -21876,7 +21876,7 @@
                             value: 302,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 327,
                         },
@@ -21908,7 +21908,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -21929,7 +21929,7 @@
                             value: 294,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 319,
                         },
@@ -21973,7 +21973,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -21994,7 +21994,7 @@
                             value: 303,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 328,
                         },
@@ -22022,7 +22022,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -22043,7 +22043,7 @@
                             value: 304,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 328,
                         },
@@ -22071,7 +22071,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -22092,7 +22092,7 @@
                             value: 305,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 328,
                         },
@@ -22136,7 +22136,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -22157,7 +22157,7 @@
                             value: 306,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 328,
                         },
@@ -22185,7 +22185,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -22214,7 +22214,7 @@
                             value: 307,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 328,
                         },
@@ -22246,7 +22246,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -22267,7 +22267,7 @@
                             value: 295,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 319,
                         },
@@ -22311,7 +22311,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -22332,7 +22332,7 @@
                             value: 308,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 329,
                         },
@@ -22360,7 +22360,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -22381,7 +22381,7 @@
                             value: 309,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 329,
                         },
@@ -22409,7 +22409,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -22430,7 +22430,7 @@
                             value: 310,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 329,
                         },
@@ -22458,7 +22458,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -22487,7 +22487,7 @@
                             value: 311,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 329,
                         },
@@ -22519,7 +22519,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -22540,7 +22540,7 @@
                             value: 296,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 319,
                         },
@@ -22568,7 +22568,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -22613,7 +22613,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -22642,7 +22642,7 @@
                             value: 312,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 330,
                         },
@@ -22674,7 +22674,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -22695,7 +22695,7 @@
                             value: 297,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 319,
                         },
@@ -22723,7 +22723,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -22744,7 +22744,7 @@
                             value: 313,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 331,
                         },
@@ -22775,7 +22775,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -22820,7 +22820,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -22849,7 +22849,7 @@
                             value: 314,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 331,
                         },
@@ -22881,7 +22881,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -22902,7 +22902,7 @@
                             value: 298,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 319,
                         },
@@ -22930,7 +22930,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -22951,7 +22951,7 @@
                             value: 299,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 319,
                         },
@@ -22979,7 +22979,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
@@ -23012,7 +23012,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -23057,7 +23057,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -23078,7 +23078,7 @@
                             value: 317,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 353,
                         },
@@ -23106,7 +23106,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -23135,7 +23135,7 @@
                             value: 318,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 355,
                         },
@@ -23167,7 +23167,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -23212,7 +23212,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -23241,7 +23241,7 @@
                             value: 318,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 355,
                         },
@@ -23273,7 +23273,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -23318,7 +23318,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -23339,7 +23339,7 @@
                             value: 319,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 354,
                         },
@@ -23367,7 +23367,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -23388,7 +23388,7 @@
                             value: 322,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 358,
                         },
@@ -23419,7 +23419,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -23464,7 +23464,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -23493,7 +23493,7 @@
                             value: 323,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 358,
                         },
@@ -23525,7 +23525,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -23570,7 +23570,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -23599,7 +23599,7 @@
                             value: 324,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 358,
                         },
@@ -23631,7 +23631,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -23652,7 +23652,7 @@
                             value: 320,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 354,
                         },
@@ -23696,7 +23696,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -23717,7 +23717,7 @@
                             value: 325,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 359,
                         },
@@ -23761,7 +23761,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -23782,7 +23782,7 @@
                             value: 326,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 359,
                         },
@@ -23810,7 +23810,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -23855,7 +23855,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -23884,7 +23884,7 @@
                             value: 327,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 359,
                         },
@@ -23916,7 +23916,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -23945,7 +23945,7 @@
                             value: 328,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 359,
                         },
@@ -23977,7 +23977,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -23998,7 +23998,7 @@
                             value: 321,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 354,
                         },
@@ -24026,7 +24026,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
@@ -24059,7 +24059,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -24104,7 +24104,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -24125,7 +24125,7 @@
                             value: 332,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 371,
                         },
@@ -24153,7 +24153,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -24182,7 +24182,7 @@
                             value: 333,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 374,
                         },
@@ -24214,7 +24214,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -24259,7 +24259,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -24288,7 +24288,7 @@
                             value: 333,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 374,
                         },
@@ -24320,7 +24320,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -24365,7 +24365,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -24386,7 +24386,7 @@
                             value: 334,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 372,
                         },
@@ -24414,7 +24414,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -24443,7 +24443,7 @@
                             value: 335,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 377,
                         },
@@ -24475,7 +24475,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -24520,7 +24520,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -24549,7 +24549,7 @@
                             value: 335,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 377,
                         },
@@ -24581,7 +24581,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -24626,7 +24626,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -24647,7 +24647,7 @@
                             value: 336,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 373,
                         },
@@ -24675,7 +24675,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -24696,7 +24696,7 @@
                             value: 345,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 380,
                         },
@@ -24727,7 +24727,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -24772,7 +24772,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -24801,7 +24801,7 @@
                             value: 346,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 380,
                         },
@@ -24833,7 +24833,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -24854,7 +24854,7 @@
                             value: 337,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 373,
                         },
@@ -24882,7 +24882,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -24911,7 +24911,7 @@
                             value: 347,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 381,
                         },
@@ -24943,7 +24943,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -24972,7 +24972,7 @@
                             value: 348,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 381,
                         },
@@ -25004,7 +25004,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -25025,7 +25025,7 @@
                             value: 338,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 373,
                         },
@@ -25053,7 +25053,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -25074,7 +25074,7 @@
                             value: 349,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 382,
                         },
@@ -25105,7 +25105,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -25150,7 +25150,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -25179,7 +25179,7 @@
                             value: 350,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 382,
                         },
@@ -25211,7 +25211,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -25232,7 +25232,7 @@
                             value: 339,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 373,
                         },
@@ -25260,7 +25260,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -25289,7 +25289,7 @@
                             value: 351,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 383,
                         },
@@ -25321,7 +25321,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -25342,7 +25342,7 @@
                             value: 340,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 373,
                         },
@@ -25370,7 +25370,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -25391,7 +25391,7 @@
                             value: 352,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 384,
                         },
@@ -25422,7 +25422,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -25451,7 +25451,7 @@
                             value: 353,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 384,
                         },
@@ -25483,7 +25483,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -25512,7 +25512,7 @@
                             value: 354,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 384,
                         },
@@ -25544,7 +25544,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -25573,7 +25573,7 @@
                             value: 355,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 384,
                         },
@@ -25605,7 +25605,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -25626,7 +25626,7 @@
                             value: 341,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 373,
                         },
@@ -25654,7 +25654,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -25675,7 +25675,7 @@
                             value: 356,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 385,
                         },
@@ -25706,7 +25706,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -25751,7 +25751,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -25780,7 +25780,7 @@
                             value: 357,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 385,
                         },
@@ -25812,7 +25812,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -25857,7 +25857,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -25886,7 +25886,7 @@
                             value: 358,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 385,
                         },
@@ -25918,7 +25918,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -25939,7 +25939,7 @@
                             value: 342,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 373,
                         },
@@ -25967,7 +25967,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -25996,7 +25996,7 @@
                             value: 359,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 386,
                         },
@@ -26028,7 +26028,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26049,7 +26049,7 @@
                             value: 343,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 373,
                         },
@@ -26093,7 +26093,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26114,7 +26114,7 @@
                             value: 360,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26142,7 +26142,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26163,7 +26163,7 @@
                             value: 361,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26191,7 +26191,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26212,7 +26212,7 @@
                             value: 362,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26240,7 +26240,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26261,7 +26261,7 @@
                             value: 363,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26289,7 +26289,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26310,7 +26310,7 @@
                             value: 364,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26338,7 +26338,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26359,7 +26359,7 @@
                             value: 365,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26387,7 +26387,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26408,7 +26408,7 @@
                             value: 366,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26436,7 +26436,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26457,7 +26457,7 @@
                             value: 367,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26485,7 +26485,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26506,7 +26506,7 @@
                             value: 368,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26534,7 +26534,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26555,7 +26555,7 @@
                             value: 369,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26583,7 +26583,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26604,7 +26604,7 @@
                             value: 370,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26632,7 +26632,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26653,7 +26653,7 @@
                             value: 371,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26681,7 +26681,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26702,7 +26702,7 @@
                             value: 372,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26730,7 +26730,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26751,7 +26751,7 @@
                             value: 373,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26779,7 +26779,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -26808,7 +26808,7 @@
                             value: 374,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26840,7 +26840,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -26869,7 +26869,7 @@
                             value: 375,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 387,
                         },
@@ -26901,7 +26901,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -26922,7 +26922,7 @@
                             value: 344,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 373,
                         },
@@ -26950,7 +26950,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
@@ -26983,7 +26983,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -27028,7 +27028,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -27049,7 +27049,7 @@
                             value: 378,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 424,
                         },
@@ -27077,7 +27077,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -27106,7 +27106,7 @@
                             value: 379,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 426,
                         },
@@ -27138,7 +27138,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -27183,7 +27183,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -27212,7 +27212,7 @@
                             value: 379,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 426,
                         },
@@ -27244,7 +27244,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -27289,7 +27289,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -27310,7 +27310,7 @@
                             value: 380,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 425,
                         },
@@ -27338,7 +27338,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -27359,7 +27359,7 @@
                             value: 392,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 429,
                         },
@@ -27390,7 +27390,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -27435,7 +27435,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -27464,7 +27464,7 @@
                             value: 393,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 429,
                         },
@@ -27496,7 +27496,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -27517,7 +27517,7 @@
                             value: 381,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 425,
                         },
@@ -27545,7 +27545,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -27566,7 +27566,7 @@
                             value: 394,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 430,
                         },
@@ -27597,7 +27597,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -27642,7 +27642,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -27671,7 +27671,7 @@
                             value: 395,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 430,
                         },
@@ -27703,7 +27703,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -27724,7 +27724,7 @@
                             value: 382,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 425,
                         },
@@ -27752,7 +27752,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -27781,7 +27781,7 @@
                             value: 396,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 431,
                         },
@@ -27813,7 +27813,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -27842,7 +27842,7 @@
                             value: 397,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 431,
                         },
@@ -27874,7 +27874,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -27895,7 +27895,7 @@
                             value: 383,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 425,
                         },
@@ -27923,7 +27923,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -27944,7 +27944,7 @@
                             value: 398,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 432,
                         },
@@ -27975,7 +27975,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -28020,7 +28020,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -28049,7 +28049,7 @@
                             value: 399,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 432,
                         },
@@ -28081,7 +28081,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -28102,7 +28102,7 @@
                             value: 384,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 425,
                         },
@@ -28130,7 +28130,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -28151,7 +28151,7 @@
                             value: 400,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 433,
                         },
@@ -28182,7 +28182,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -28227,7 +28227,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -28256,7 +28256,7 @@
                             value: 401,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 433,
                         },
@@ -28288,7 +28288,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -28309,7 +28309,7 @@
                             value: 385,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 425,
                         },
@@ -28337,7 +28337,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -28358,7 +28358,7 @@
                             value: 402,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 434,
                         },
@@ -28389,7 +28389,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -28434,7 +28434,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -28463,7 +28463,7 @@
                             value: 403,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 434,
                         },
@@ -28495,7 +28495,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -28516,7 +28516,7 @@
                             value: 386,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 425,
                         },
@@ -28544,7 +28544,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -28573,7 +28573,7 @@
                             value: 404,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 435,
                         },
@@ -28605,7 +28605,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -28626,7 +28626,7 @@
                             value: 387,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 425,
                         },
@@ -28654,7 +28654,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -28675,7 +28675,7 @@
                             value: 405,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 436,
                         },
@@ -28706,7 +28706,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -28751,7 +28751,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -28780,7 +28780,7 @@
                             value: 406,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 436,
                         },
@@ -28812,7 +28812,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -28857,7 +28857,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -28886,7 +28886,7 @@
                             value: 407,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 436,
                         },
@@ -28918,7 +28918,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -28939,7 +28939,7 @@
                             value: 388,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 425,
                         },
@@ -28967,7 +28967,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -28996,7 +28996,7 @@
                             value: 408,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 437,
                         },
@@ -29028,7 +29028,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29049,7 +29049,7 @@
                             value: 389,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 425,
                         },
@@ -29093,7 +29093,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29114,7 +29114,7 @@
                             value: 409,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29142,7 +29142,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29163,7 +29163,7 @@
                             value: 410,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29191,7 +29191,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29212,7 +29212,7 @@
                             value: 411,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29240,7 +29240,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29261,7 +29261,7 @@
                             value: 412,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29289,7 +29289,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29310,7 +29310,7 @@
                             value: 413,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29338,7 +29338,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29359,7 +29359,7 @@
                             value: 414,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29387,7 +29387,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29408,7 +29408,7 @@
                             value: 415,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29436,7 +29436,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29457,7 +29457,7 @@
                             value: 416,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29485,7 +29485,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29506,7 +29506,7 @@
                             value: 417,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29534,7 +29534,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29555,7 +29555,7 @@
                             value: 418,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29583,7 +29583,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29604,7 +29604,7 @@
                             value: 419,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29632,7 +29632,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29653,7 +29653,7 @@
                             value: 420,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29681,7 +29681,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29702,7 +29702,7 @@
                             value: 421,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29730,7 +29730,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29751,7 +29751,7 @@
                             value: 422,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29779,7 +29779,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -29808,7 +29808,7 @@
                             value: 423,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 438,
                         },
@@ -29840,7 +29840,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29861,7 +29861,7 @@
                             value: 390,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 425,
                         },
@@ -29905,7 +29905,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29926,7 +29926,7 @@
                             value: 424,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 439,
                         },
@@ -29954,7 +29954,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -29975,7 +29975,7 @@
                             value: 425,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 439,
                         },
@@ -30003,7 +30003,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -30024,7 +30024,7 @@
                             value: 426,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 439,
                         },
@@ -30052,7 +30052,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -30073,7 +30073,7 @@
                             value: 427,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 439,
                         },
@@ -30101,7 +30101,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -30122,7 +30122,7 @@
                             value: 428,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 439,
                         },
@@ -30150,7 +30150,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -30179,7 +30179,7 @@
                             value: 429,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 439,
                         },
@@ -30211,7 +30211,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -30232,7 +30232,7 @@
                             value: 391,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 425,
                         },
@@ -30260,7 +30260,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
@@ -30293,7 +30293,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -30338,7 +30338,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -30359,7 +30359,7 @@
                             value: 433,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 486,
                         },
@@ -30387,7 +30387,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -30416,7 +30416,7 @@
                             value: 434,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 493,
                         },
@@ -30448,7 +30448,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerCallInput(
                     EagerCallInputTracePathData {
@@ -30467,7 +30467,7 @@
                             value: 436,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 494,
                         },
@@ -30496,7 +30496,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerCall(
                     EagerCallTracePathData {
@@ -30526,7 +30526,7 @@
                             value: 437,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 494,
                         },
@@ -30548,7 +30548,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -30593,7 +30593,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -30622,7 +30622,7 @@
                             value: 434,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 493,
                         },
@@ -30654,7 +30654,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerCallInput(
                     EagerCallInputTracePathData {
@@ -30673,7 +30673,7 @@
                             value: 436,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 494,
                         },
@@ -30702,7 +30702,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerCall(
                     EagerCallTracePathData {
@@ -30732,7 +30732,7 @@
                             value: 437,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 494,
                         },
@@ -30754,7 +30754,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -30799,7 +30799,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -30820,7 +30820,7 @@
                             value: 438,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 487,
                         },
@@ -30848,7 +30848,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -30869,7 +30869,7 @@
                             value: 442,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 498,
                         },
@@ -30900,7 +30900,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -30921,7 +30921,7 @@
                             value: 439,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 487,
                         },
@@ -30949,7 +30949,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -30970,7 +30970,7 @@
                             value: 443,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 499,
                         },
@@ -31001,7 +31001,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -31022,7 +31022,7 @@
                             value: 440,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 487,
                         },
@@ -31068,7 +31068,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -31089,7 +31089,7 @@
                             value: 444,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 500,
                         },
@@ -31117,7 +31117,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -31138,7 +31138,7 @@
                             value: 446,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 504,
                         },
@@ -31169,7 +31169,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -31214,7 +31214,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -31243,7 +31243,7 @@
                             value: 447,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 504,
                         },
@@ -31275,7 +31275,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -31304,7 +31304,7 @@
                             value: 448,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 504,
                         },
@@ -31336,7 +31336,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -31357,7 +31357,7 @@
                             value: 445,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 500,
                         },
@@ -31401,7 +31401,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -31422,7 +31422,7 @@
                             value: 449,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 505,
                         },
@@ -31450,7 +31450,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -31471,7 +31471,7 @@
                             value: 450,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 505,
                         },
@@ -31499,7 +31499,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -31528,7 +31528,7 @@
                             value: 451,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 505,
                         },
@@ -31560,7 +31560,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -31589,7 +31589,7 @@
                             value: 452,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 505,
                         },
@@ -31621,7 +31621,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -31650,7 +31650,7 @@
                             value: 453,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 500,
                         },
@@ -31680,7 +31680,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -31725,7 +31725,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -31746,7 +31746,7 @@
                             value: 433,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 515,
                         },
@@ -31774,7 +31774,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -31803,7 +31803,7 @@
                             value: 454,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 500,
                         },
@@ -31835,7 +31835,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerCall(
                     EagerCallTracePathData {
@@ -31865,7 +31865,7 @@
                             value: 455,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 516,
                         },
@@ -31887,7 +31887,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -31908,7 +31908,7 @@
                             value: 441,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 487,
                         },
@@ -31936,7 +31936,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -31981,7 +31981,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -32002,7 +32002,7 @@
                             value: 433,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 519,
                         },
@@ -32030,7 +32030,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -32059,7 +32059,7 @@
                             value: 456,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 501,
                         },
@@ -32091,7 +32091,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -32136,7 +32136,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -32157,7 +32157,7 @@
                             value: 457,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 488,
                         },
@@ -32185,7 +32185,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -32206,7 +32206,7 @@
                             value: 460,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 522,
                         },
@@ -32237,7 +32237,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -32258,7 +32258,7 @@
                             value: 458,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 488,
                         },
@@ -32304,7 +32304,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -32325,7 +32325,7 @@
                             value: 461,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 523,
                         },
@@ -32353,7 +32353,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -32382,7 +32382,7 @@
                             value: 462,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 526,
                         },
@@ -32414,7 +32414,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -32459,7 +32459,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -32488,7 +32488,7 @@
                             value: 463,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 526,
                         },
@@ -32520,7 +32520,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -32549,7 +32549,7 @@
                             value: 464,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 526,
                         },
@@ -32581,7 +32581,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -32610,7 +32610,7 @@
                             value: 465,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 523,
                         },
@@ -32640,7 +32640,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -32685,7 +32685,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -32706,7 +32706,7 @@
                             value: 433,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 532,
                         },
@@ -32734,7 +32734,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -32763,7 +32763,7 @@
                             value: 466,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 523,
                         },
@@ -32795,7 +32795,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerCall(
                     EagerCallTracePathData {
@@ -32825,7 +32825,7 @@
                             value: 467,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 533,
                         },
@@ -32847,7 +32847,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -32868,7 +32868,7 @@
                             value: 459,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 488,
                         },
@@ -32896,7 +32896,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -32925,7 +32925,7 @@
                             value: 468,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 524,
                         },
@@ -32957,7 +32957,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -33002,7 +33002,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33023,7 +33023,7 @@
                             value: 438,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 537,
                         },
@@ -33051,7 +33051,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33072,7 +33072,7 @@
                             value: 439,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 537,
                         },
@@ -33100,7 +33100,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33121,7 +33121,7 @@
                             value: 440,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 537,
                         },
@@ -33167,7 +33167,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33188,7 +33188,7 @@
                             value: 441,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 537,
                         },
@@ -33216,7 +33216,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -33245,7 +33245,7 @@
                             value: 469,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 524,
                         },
@@ -33277,7 +33277,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -33322,7 +33322,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33343,7 +33343,7 @@
                             value: 470,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 489,
                         },
@@ -33371,7 +33371,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -33416,7 +33416,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33437,7 +33437,7 @@
                             value: 438,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 544,
                         },
@@ -33465,7 +33465,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33486,7 +33486,7 @@
                             value: 439,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 544,
                         },
@@ -33514,7 +33514,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33535,7 +33535,7 @@
                             value: 440,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 544,
                         },
@@ -33581,7 +33581,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33602,7 +33602,7 @@
                             value: 441,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 544,
                         },
@@ -33630,7 +33630,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -33659,7 +33659,7 @@
                             value: 471,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 543,
                         },
@@ -33691,7 +33691,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -33736,7 +33736,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33757,7 +33757,7 @@
                             value: 472,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 490,
                         },
@@ -33785,7 +33785,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -33830,7 +33830,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33851,7 +33851,7 @@
                             value: 438,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 551,
                         },
@@ -33879,7 +33879,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33900,7 +33900,7 @@
                             value: 439,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 551,
                         },
@@ -33928,7 +33928,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -33949,7 +33949,7 @@
                             value: 440,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 551,
                         },
@@ -33995,7 +33995,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -34016,7 +34016,7 @@
                             value: 441,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 551,
                         },
@@ -34044,7 +34044,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -34073,7 +34073,7 @@
                             value: 473,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 550,
                         },
@@ -34105,7 +34105,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -34150,7 +34150,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -34171,7 +34171,7 @@
                             value: 474,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 491,
                         },
@@ -34199,7 +34199,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -34244,7 +34244,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -34265,7 +34265,7 @@
                             value: 472,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 558,
                         },
@@ -34293,7 +34293,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -34322,7 +34322,7 @@
                             value: 475,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 557,
                         },
@@ -34354,7 +34354,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -34399,7 +34399,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -34420,7 +34420,7 @@
                             value: 476,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 492,
                         },
@@ -34448,7 +34448,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -34493,7 +34493,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -34514,7 +34514,7 @@
                             value: 474,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 562,
                         },
@@ -34542,7 +34542,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -34571,7 +34571,7 @@
                             value: 477,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 561,
                         },
@@ -34603,7 +34603,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -34648,7 +34648,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -34669,7 +34669,7 @@
                             value: 478,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 3,
                         },
@@ -34697,7 +34697,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -34734,7 +34734,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -34757,7 +34757,7 @@
                             value: 84,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 575,
                         },
@@ -34785,7 +34785,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -34806,7 +34806,7 @@
                             value: 88,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 576,
                         },
@@ -34911,7 +34911,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -34956,7 +34956,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -34977,7 +34977,7 @@
                             value: 89,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 576,
                         },
@@ -35038,7 +35038,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -35083,7 +35083,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -35104,7 +35104,7 @@
                             value: 88,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 576,
                         },
@@ -35209,7 +35209,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -35232,7 +35232,7 @@
                             value: 85,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 575,
                         },
@@ -35260,7 +35260,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -35281,7 +35281,7 @@
                             value: 91,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 577,
                         },
@@ -35318,7 +35318,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -35339,7 +35339,7 @@
                             value: 92,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 577,
                         },
@@ -35412,7 +35412,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -35457,7 +35457,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -35478,7 +35478,7 @@
                             value: 92,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 577,
                         },
@@ -35551,7 +35551,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -35574,7 +35574,7 @@
                             value: 86,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 575,
                         },
@@ -35733,7 +35733,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -35764,7 +35764,7 @@
                             value: 93,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 578,
                         },
@@ -35792,7 +35792,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -35823,7 +35823,7 @@
                             value: 94,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 578,
                         },
@@ -35897,7 +35897,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -35928,7 +35928,7 @@
                             value: 95,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 578,
                         },
@@ -35956,7 +35956,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -35977,7 +35977,7 @@
                             value: 96,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 578,
                         },
@@ -36050,7 +36050,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -36071,7 +36071,7 @@
                             value: 97,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 578,
                         },
@@ -36138,7 +36138,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -36161,7 +36161,7 @@
                             value: 87,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 575,
                         },
@@ -36320,7 +36320,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -36351,7 +36351,7 @@
                             value: 98,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -36407,7 +36407,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -36438,7 +36438,7 @@
                             value: 99,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -36494,7 +36494,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -36525,7 +36525,7 @@
                             value: 100,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -36553,7 +36553,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -36584,7 +36584,7 @@
                             value: 101,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -36612,7 +36612,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -36643,7 +36643,7 @@
                             value: 102,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -36671,7 +36671,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -36702,7 +36702,7 @@
                             value: 103,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -36791,7 +36791,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -36822,7 +36822,7 @@
                             value: 104,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -36850,7 +36850,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -36881,7 +36881,7 @@
                             value: 105,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -36937,7 +36937,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -36968,7 +36968,7 @@
                             value: 106,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -36996,7 +36996,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37027,7 +37027,7 @@
                             value: 107,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37055,7 +37055,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37086,7 +37086,7 @@
                             value: 108,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37175,7 +37175,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37206,7 +37206,7 @@
                             value: 109,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37280,7 +37280,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37311,7 +37311,7 @@
                             value: 110,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37367,7 +37367,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37398,7 +37398,7 @@
                             value: 111,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37426,7 +37426,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37457,7 +37457,7 @@
                             value: 112,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37485,7 +37485,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37516,7 +37516,7 @@
                             value: 113,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37544,7 +37544,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37575,7 +37575,7 @@
                             value: 114,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37603,7 +37603,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37634,7 +37634,7 @@
                             value: 115,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37662,7 +37662,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37693,7 +37693,7 @@
                             value: 116,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37749,7 +37749,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37780,7 +37780,7 @@
                             value: 117,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37808,7 +37808,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37839,7 +37839,7 @@
                             value: 118,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37867,7 +37867,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37898,7 +37898,7 @@
                             value: 119,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37926,7 +37926,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -37957,7 +37957,7 @@
                             value: 120,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -37985,7 +37985,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -38016,7 +38016,7 @@
                             value: 121,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -38072,7 +38072,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -38103,7 +38103,7 @@
                             value: 122,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -38159,7 +38159,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -38190,7 +38190,7 @@
                             value: 123,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 579,
                         },
@@ -38218,7 +38218,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -38239,7 +38239,7 @@
                             value: 479,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 3,
                         },
@@ -38267,7 +38267,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -38304,7 +38304,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -38327,7 +38327,7 @@
                             value: 131,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 618,
                         },
@@ -38355,7 +38355,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -38376,7 +38376,7 @@
                             value: 142,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 619,
                         },
@@ -38413,7 +38413,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -38458,7 +38458,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -38479,7 +38479,7 @@
                             value: 143,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 619,
                         },
@@ -38544,7 +38544,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -38567,7 +38567,7 @@
                             value: 132,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 618,
                         },
@@ -38617,7 +38617,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -38638,7 +38638,7 @@
                             value: 144,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 620,
                         },
@@ -38692,7 +38692,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -38715,7 +38715,7 @@
                             value: 133,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 618,
                         },
@@ -38743,7 +38743,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -38764,7 +38764,7 @@
                             value: 145,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 621,
                         },
@@ -38801,7 +38801,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -38846,7 +38846,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -38867,7 +38867,7 @@
                             value: 146,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 621,
                         },
@@ -38934,7 +38934,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -38957,7 +38957,7 @@
                             value: 134,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 618,
                         },
@@ -38985,7 +38985,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -39006,7 +39006,7 @@
                             value: 147,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 622,
                         },
@@ -39043,7 +39043,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -39088,7 +39088,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -39109,7 +39109,7 @@
                             value: 148,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 622,
                         },
@@ -39176,7 +39176,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -39221,7 +39221,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -39242,7 +39242,7 @@
                             value: 149,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 622,
                         },
@@ -39309,7 +39309,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -39332,7 +39332,7 @@
                             value: 135,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 618,
                         },
@@ -39431,7 +39431,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -39462,7 +39462,7 @@
                             value: 150,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -39490,7 +39490,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -39521,7 +39521,7 @@
                             value: 151,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -39549,7 +39549,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -39580,7 +39580,7 @@
                             value: 152,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -39608,7 +39608,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -39639,7 +39639,7 @@
                             value: 153,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -39667,7 +39667,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -39698,7 +39698,7 @@
                             value: 154,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -39726,7 +39726,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -39757,7 +39757,7 @@
                             value: 155,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -39785,7 +39785,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -39816,7 +39816,7 @@
                             value: 156,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -39872,7 +39872,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -39903,7 +39903,7 @@
                             value: 157,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -39992,7 +39992,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -40023,7 +40023,7 @@
                             value: 158,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -40051,7 +40051,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -40082,7 +40082,7 @@
                             value: 159,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -40110,7 +40110,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -40141,7 +40141,7 @@
                             value: 160,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -40215,7 +40215,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -40246,7 +40246,7 @@
                             value: 161,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -40295,7 +40295,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -40316,7 +40316,7 @@
                             value: 162,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -40383,7 +40383,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -40404,7 +40404,7 @@
                             value: 163,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 623,
                         },
@@ -40475,7 +40475,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -40498,7 +40498,7 @@
                             value: 136,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 618,
                         },
@@ -40526,7 +40526,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -40547,7 +40547,7 @@
                             value: 164,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 624,
                         },
@@ -40653,7 +40653,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -40698,7 +40698,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -40719,7 +40719,7 @@
                             value: 165,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 624,
                         },
@@ -40786,7 +40786,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -40807,7 +40807,7 @@
                             value: 164,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 624,
                         },
@@ -40913,7 +40913,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -40936,7 +40936,7 @@
                             value: 137,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 618,
                         },
@@ -41010,7 +41010,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -41041,7 +41041,7 @@
                             value: 166,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 625,
                         },
@@ -41097,7 +41097,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -41142,7 +41142,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -41163,7 +41163,7 @@
                             value: 167,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 625,
                         },
@@ -41230,7 +41230,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -41253,7 +41253,7 @@
                             value: 138,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 618,
                         },
@@ -41309,7 +41309,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -41330,7 +41330,7 @@
                             value: 168,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 626,
                         },
@@ -41397,7 +41397,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -41418,7 +41418,7 @@
                             value: 169,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 626,
                         },
@@ -41489,7 +41489,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -41510,7 +41510,7 @@
                             value: 170,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 626,
                         },
@@ -41577,7 +41577,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -41598,7 +41598,7 @@
                             value: 171,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 626,
                         },
@@ -41668,7 +41668,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -41691,7 +41691,7 @@
                             value: 139,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 618,
                         },
@@ -41765,7 +41765,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -41796,7 +41796,7 @@
                             value: 172,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 627,
                         },
@@ -41852,7 +41852,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -41873,7 +41873,7 @@
                             value: 173,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 627,
                         },
@@ -41940,7 +41940,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -41961,7 +41961,7 @@
                             value: 174,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 627,
                         },
@@ -42032,7 +42032,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -42055,7 +42055,7 @@
                             value: 140,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 618,
                         },
@@ -42111,7 +42111,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -42132,7 +42132,7 @@
                             value: 175,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 628,
                         },
@@ -42196,7 +42196,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -42219,7 +42219,7 @@
                             value: 141,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 618,
                         },
@@ -42247,7 +42247,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -42268,7 +42268,7 @@
                             value: 480,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 3,
                         },
@@ -42296,7 +42296,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -42333,7 +42333,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -42356,7 +42356,7 @@
                             value: 19,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -42444,7 +42444,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -42475,7 +42475,7 @@
                             value: 32,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 671,
                         },
@@ -42503,7 +42503,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -42534,7 +42534,7 @@
                             value: 33,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 671,
                         },
@@ -42590,7 +42590,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -42621,7 +42621,7 @@
                             value: 34,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 671,
                         },
@@ -42677,7 +42677,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -42708,7 +42708,7 @@
                             value: 35,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 671,
                         },
@@ -42764,7 +42764,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -42795,7 +42795,7 @@
                             value: 36,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 671,
                         },
@@ -42823,7 +42823,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -42854,7 +42854,7 @@
                             value: 37,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 671,
                         },
@@ -42910,7 +42910,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -42941,7 +42941,7 @@
                             value: 38,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 671,
                         },
@@ -42990,7 +42990,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -43035,7 +43035,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -43056,7 +43056,7 @@
                             value: 40,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 671,
                         },
@@ -43117,7 +43117,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -43138,7 +43138,7 @@
                             value: 41,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 671,
                         },
@@ -43225,7 +43225,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -43248,7 +43248,7 @@
                             value: 20,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -43276,7 +43276,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -43297,7 +43297,7 @@
                             value: 42,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 672,
                         },
@@ -43334,7 +43334,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -43355,7 +43355,7 @@
                             value: 43,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 672,
                         },
@@ -43428,7 +43428,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -43473,7 +43473,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -43494,7 +43494,7 @@
                             value: 43,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 672,
                         },
@@ -43567,7 +43567,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -43590,7 +43590,7 @@
                             value: 21,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -43618,7 +43618,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -43639,7 +43639,7 @@
                             value: 44,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 673,
                         },
@@ -43755,7 +43755,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -43776,7 +43776,7 @@
                             value: 45,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 673,
                         },
@@ -43849,7 +43849,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -43870,7 +43870,7 @@
                             value: 46,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 673,
                         },
@@ -43937,7 +43937,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -43958,7 +43958,7 @@
                             value: 47,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 673,
                         },
@@ -44031,7 +44031,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -44052,7 +44052,7 @@
                             value: 48,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 673,
                         },
@@ -44119,7 +44119,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -44140,7 +44140,7 @@
                             value: 49,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 673,
                         },
@@ -44213,7 +44213,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -44234,7 +44234,7 @@
                             value: 50,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 673,
                         },
@@ -44301,7 +44301,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -44322,7 +44322,7 @@
                             value: 44,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 673,
                         },
@@ -44438,7 +44438,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -44461,7 +44461,7 @@
                             value: 22,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -44517,7 +44517,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -44538,7 +44538,7 @@
                             value: 51,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 674,
                         },
@@ -44611,7 +44611,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -44632,7 +44632,7 @@
                             value: 52,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 674,
                         },
@@ -44699,7 +44699,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -44722,7 +44722,7 @@
                             value: 23,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -44778,7 +44778,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -44823,7 +44823,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -44844,7 +44844,7 @@
                             value: 53,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 675,
                         },
@@ -44911,7 +44911,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -44932,7 +44932,7 @@
                             value: 54,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 675,
                         },
@@ -45003,7 +45003,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -45026,7 +45026,7 @@
                             value: 24,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -45082,7 +45082,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -45127,7 +45127,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -45148,7 +45148,7 @@
                             value: 55,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 676,
                         },
@@ -45215,7 +45215,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -45236,7 +45236,7 @@
                             value: 56,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 676,
                         },
@@ -45307,7 +45307,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -45330,7 +45330,7 @@
                             value: 25,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -45358,7 +45358,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -45379,7 +45379,7 @@
                             value: 57,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 677,
                         },
@@ -45416,7 +45416,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -45461,7 +45461,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -45482,7 +45482,7 @@
                             value: 58,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 677,
                         },
@@ -45549,7 +45549,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -45570,7 +45570,7 @@
                             value: 59,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 677,
                         },
@@ -45641,7 +45641,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -45664,7 +45664,7 @@
                             value: 26,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -45692,7 +45692,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -45713,7 +45713,7 @@
                             value: 60,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 678,
                         },
@@ -45750,7 +45750,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -45771,7 +45771,7 @@
                             value: 61,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 678,
                         },
@@ -45831,7 +45831,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -45852,7 +45852,7 @@
                             value: 62,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 678,
                         },
@@ -45919,7 +45919,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -45940,7 +45940,7 @@
                             value: 63,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 678,
                         },
@@ -46010,7 +46010,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -46031,7 +46031,7 @@
                             value: 64,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 678,
                         },
@@ -46091,7 +46091,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -46112,7 +46112,7 @@
                             value: 65,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 678,
                         },
@@ -46179,7 +46179,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -46200,7 +46200,7 @@
                             value: 66,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 678,
                         },
@@ -46270,7 +46270,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -46293,7 +46293,7 @@
                             value: 27,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -46321,7 +46321,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -46342,7 +46342,7 @@
                             value: 67,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 679,
                         },
@@ -46379,7 +46379,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -46424,7 +46424,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -46445,7 +46445,7 @@
                             value: 69,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 679,
                         },
@@ -46512,7 +46512,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -46533,7 +46533,7 @@
                             value: 70,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 679,
                         },
@@ -46603,7 +46603,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -46648,7 +46648,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -46669,7 +46669,7 @@
                             value: 71,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 679,
                         },
@@ -46736,7 +46736,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -46757,7 +46757,7 @@
                             value: 72,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 679,
                         },
@@ -46827,7 +46827,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -46850,7 +46850,7 @@
                             value: 28,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -46878,7 +46878,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -46899,7 +46899,7 @@
                             value: 73,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 680,
                         },
@@ -46936,7 +46936,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -46957,7 +46957,7 @@
                             value: 74,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 680,
                         },
@@ -47021,7 +47021,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -47042,7 +47042,7 @@
                             value: 75,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 680,
                         },
@@ -47106,7 +47106,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -47129,7 +47129,7 @@
                             value: 29,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -47185,7 +47185,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -47206,7 +47206,7 @@
                             value: 76,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 681,
                         },
@@ -47270,7 +47270,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -47293,7 +47293,7 @@
                             value: 30,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -47321,7 +47321,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyPatternExpr(
                     LazyPatternExprTracePathData {
@@ -47342,7 +47342,7 @@
                             value: 77,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 682,
                         },
@@ -47379,7 +47379,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -47400,7 +47400,7 @@
                             value: 78,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 682,
                         },
@@ -47473,7 +47473,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyExpr(
                     LazyExprTracePathData {
@@ -47494,7 +47494,7 @@
                             value: 79,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 682,
                         },
@@ -47561,7 +47561,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
@@ -47584,7 +47584,7 @@
                             value: 31,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 670,
                         },
@@ -47612,7 +47612,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -47633,7 +47633,7 @@
                             value: 481,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 3,
                         },
@@ -47661,7 +47661,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -47706,7 +47706,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -47727,7 +47727,7 @@
                             value: 292,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 737,
                         },
@@ -47755,7 +47755,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -47800,7 +47800,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -47829,7 +47829,7 @@
                             value: 300,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 738,
                         },
@@ -47861,7 +47861,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -47882,7 +47882,7 @@
                             value: 293,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 737,
                         },
@@ -47910,7 +47910,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -47931,7 +47931,7 @@
                             value: 301,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 739,
                         },
@@ -47962,7 +47962,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -48007,7 +48007,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -48036,7 +48036,7 @@
                             value: 302,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 739,
                         },
@@ -48068,7 +48068,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -48089,7 +48089,7 @@
                             value: 294,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 737,
                         },
@@ -48133,7 +48133,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -48154,7 +48154,7 @@
                             value: 303,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 740,
                         },
@@ -48182,7 +48182,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -48203,7 +48203,7 @@
                             value: 304,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 740,
                         },
@@ -48231,7 +48231,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -48252,7 +48252,7 @@
                             value: 305,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 740,
                         },
@@ -48296,7 +48296,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -48317,7 +48317,7 @@
                             value: 306,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 740,
                         },
@@ -48345,7 +48345,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -48374,7 +48374,7 @@
                             value: 307,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 740,
                         },
@@ -48406,7 +48406,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -48427,7 +48427,7 @@
                             value: 295,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 737,
                         },
@@ -48471,7 +48471,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -48492,7 +48492,7 @@
                             value: 308,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 741,
                         },
@@ -48520,7 +48520,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -48541,7 +48541,7 @@
                             value: 309,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 741,
                         },
@@ -48569,7 +48569,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -48590,7 +48590,7 @@
                             value: 310,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 741,
                         },
@@ -48618,7 +48618,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -48647,7 +48647,7 @@
                             value: 311,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 741,
                         },
@@ -48679,7 +48679,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -48700,7 +48700,7 @@
                             value: 296,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 737,
                         },
@@ -48728,7 +48728,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -48773,7 +48773,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -48802,7 +48802,7 @@
                             value: 312,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 742,
                         },
@@ -48834,7 +48834,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -48855,7 +48855,7 @@
                             value: 297,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 737,
                         },
@@ -48883,7 +48883,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -48904,7 +48904,7 @@
                             value: 313,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 743,
                         },
@@ -48935,7 +48935,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -48980,7 +48980,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -49009,7 +49009,7 @@
                             value: 314,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 743,
                         },
@@ -49041,7 +49041,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -49062,7 +49062,7 @@
                             value: 298,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 737,
                         },
@@ -49090,7 +49090,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -49111,7 +49111,7 @@
                             value: 299,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 737,
                         },
@@ -49139,7 +49139,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -49160,7 +49160,7 @@
                             value: 482,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 3,
                         },
@@ -49188,7 +49188,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -49233,7 +49233,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -49254,7 +49254,7 @@
                             value: 319,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 765,
                         },
@@ -49282,7 +49282,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -49303,7 +49303,7 @@
                             value: 322,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 766,
                         },
@@ -49334,7 +49334,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -49379,7 +49379,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -49408,7 +49408,7 @@
                             value: 323,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 766,
                         },
@@ -49440,7 +49440,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -49485,7 +49485,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -49514,7 +49514,7 @@
                             value: 324,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 766,
                         },
@@ -49546,7 +49546,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -49567,7 +49567,7 @@
                             value: 320,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 765,
                         },
@@ -49611,7 +49611,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -49632,7 +49632,7 @@
                             value: 325,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 767,
                         },
@@ -49676,7 +49676,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -49697,7 +49697,7 @@
                             value: 326,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 767,
                         },
@@ -49725,7 +49725,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -49770,7 +49770,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -49799,7 +49799,7 @@
                             value: 327,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 767,
                         },
@@ -49831,7 +49831,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -49860,7 +49860,7 @@
                             value: 328,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 767,
                         },
@@ -49892,7 +49892,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -49913,7 +49913,7 @@
                             value: 321,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 765,
                         },
@@ -49941,7 +49941,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -49962,7 +49962,7 @@
                             value: 483,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 3,
                         },
@@ -49990,7 +49990,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -50035,7 +50035,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -50056,7 +50056,7 @@
                             value: 180,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -50084,7 +50084,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -50129,7 +50129,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -50158,7 +50158,7 @@
                             value: 197,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 780,
                         },
@@ -50190,7 +50190,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -50211,7 +50211,7 @@
                             value: 181,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -50239,7 +50239,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -50284,7 +50284,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -50313,7 +50313,7 @@
                             value: 198,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 781,
                         },
@@ -50345,7 +50345,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -50366,7 +50366,7 @@
                             value: 182,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -50394,7 +50394,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -50415,7 +50415,7 @@
                             value: 199,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 782,
                         },
@@ -50446,7 +50446,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -50491,7 +50491,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -50520,7 +50520,7 @@
                             value: 200,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 782,
                         },
@@ -50552,7 +50552,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -50573,7 +50573,7 @@
                             value: 183,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -50601,7 +50601,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -50622,7 +50622,7 @@
                             value: 201,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 783,
                         },
@@ -50653,7 +50653,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -50698,7 +50698,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -50727,7 +50727,7 @@
                             value: 202,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 783,
                         },
@@ -50759,7 +50759,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -50780,7 +50780,7 @@
                             value: 184,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -50808,7 +50808,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -50829,7 +50829,7 @@
                             value: 203,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 784,
                         },
@@ -50860,7 +50860,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -50905,7 +50905,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -50934,7 +50934,7 @@
                             value: 204,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 784,
                         },
@@ -50966,7 +50966,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -50987,7 +50987,7 @@
                             value: 185,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -51015,7 +51015,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -51044,7 +51044,7 @@
                             value: 205,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 785,
                         },
@@ -51076,7 +51076,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -51097,7 +51097,7 @@
                             value: 186,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -51125,7 +51125,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -51154,7 +51154,7 @@
                             value: 206,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 786,
                         },
@@ -51186,7 +51186,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -51215,7 +51215,7 @@
                             value: 207,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 786,
                         },
@@ -51247,7 +51247,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -51268,7 +51268,7 @@
                             value: 187,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -51296,7 +51296,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -51325,7 +51325,7 @@
                             value: 208,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 787,
                         },
@@ -51357,7 +51357,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -51378,7 +51378,7 @@
                             value: 188,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -51406,7 +51406,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -51427,7 +51427,7 @@
                             value: 209,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 788,
                         },
@@ -51458,7 +51458,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -51487,7 +51487,7 @@
                             value: 210,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 788,
                         },
@@ -51519,7 +51519,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -51548,7 +51548,7 @@
                             value: 211,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 788,
                         },
@@ -51580,7 +51580,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -51609,7 +51609,7 @@
                             value: 212,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 788,
                         },
@@ -51641,7 +51641,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -51662,7 +51662,7 @@
                             value: 189,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -51690,7 +51690,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -51719,7 +51719,7 @@
                             value: 213,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 789,
                         },
@@ -51751,7 +51751,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -51780,7 +51780,7 @@
                             value: 214,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 789,
                         },
@@ -51812,7 +51812,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -51833,7 +51833,7 @@
                             value: 190,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -51861,7 +51861,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -51882,7 +51882,7 @@
                             value: 215,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 790,
                         },
@@ -51913,7 +51913,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -51942,7 +51942,7 @@
                             value: 216,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 790,
                         },
@@ -51974,7 +51974,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -52003,7 +52003,7 @@
                             value: 217,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 790,
                         },
@@ -52035,7 +52035,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -52056,7 +52056,7 @@
                             value: 191,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -52084,7 +52084,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -52105,7 +52105,7 @@
                             value: 218,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 791,
                         },
@@ -52136,7 +52136,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -52165,7 +52165,7 @@
                             value: 219,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 791,
                         },
@@ -52197,7 +52197,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -52226,7 +52226,7 @@
                             value: 220,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 791,
                         },
@@ -52258,7 +52258,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -52279,7 +52279,7 @@
                             value: 192,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -52307,7 +52307,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -52328,7 +52328,7 @@
                             value: 221,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 792,
                         },
@@ -52359,7 +52359,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -52388,7 +52388,7 @@
                             value: 222,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 792,
                         },
@@ -52420,7 +52420,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -52449,7 +52449,7 @@
                             value: 223,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 792,
                         },
@@ -52481,7 +52481,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -52510,7 +52510,7 @@
                             value: 224,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 792,
                         },
@@ -52542,7 +52542,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -52563,7 +52563,7 @@
                             value: 193,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -52591,7 +52591,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -52620,7 +52620,7 @@
                             value: 225,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 793,
                         },
@@ -52652,7 +52652,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -52673,7 +52673,7 @@
                             value: 194,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -52701,7 +52701,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -52746,7 +52746,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -52775,7 +52775,7 @@
                             value: 226,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 794,
                         },
@@ -52807,7 +52807,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -52828,7 +52828,7 @@
                             value: 195,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -52856,7 +52856,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -52885,7 +52885,7 @@
                             value: 227,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 795,
                         },
@@ -52917,7 +52917,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -52946,7 +52946,7 @@
                             value: 228,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 795,
                         },
@@ -52978,7 +52978,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -52999,7 +52999,7 @@
                             value: 196,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 779,
                         },
@@ -53027,7 +53027,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -53048,7 +53048,7 @@
                             value: 484,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 3,
                         },
@@ -53076,7 +53076,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -53121,7 +53121,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -53142,7 +53142,7 @@
                             value: 336,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 835,
                         },
@@ -53170,7 +53170,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -53191,7 +53191,7 @@
                             value: 345,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 836,
                         },
@@ -53222,7 +53222,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -53267,7 +53267,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -53296,7 +53296,7 @@
                             value: 346,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 836,
                         },
@@ -53328,7 +53328,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -53349,7 +53349,7 @@
                             value: 337,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 835,
                         },
@@ -53377,7 +53377,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -53406,7 +53406,7 @@
                             value: 347,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 837,
                         },
@@ -53438,7 +53438,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -53467,7 +53467,7 @@
                             value: 348,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 837,
                         },
@@ -53499,7 +53499,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -53520,7 +53520,7 @@
                             value: 338,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 835,
                         },
@@ -53548,7 +53548,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -53569,7 +53569,7 @@
                             value: 349,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 838,
                         },
@@ -53600,7 +53600,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -53645,7 +53645,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -53674,7 +53674,7 @@
                             value: 350,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 838,
                         },
@@ -53706,7 +53706,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -53727,7 +53727,7 @@
                             value: 339,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 835,
                         },
@@ -53755,7 +53755,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -53784,7 +53784,7 @@
                             value: 351,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 839,
                         },
@@ -53816,7 +53816,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -53837,7 +53837,7 @@
                             value: 340,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 835,
                         },
@@ -53865,7 +53865,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -53886,7 +53886,7 @@
                             value: 352,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 840,
                         },
@@ -53917,7 +53917,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -53946,7 +53946,7 @@
                             value: 353,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 840,
                         },
@@ -53978,7 +53978,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -54007,7 +54007,7 @@
                             value: 354,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 840,
                         },
@@ -54039,7 +54039,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -54068,7 +54068,7 @@
                             value: 355,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 840,
                         },
@@ -54100,7 +54100,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -54121,7 +54121,7 @@
                             value: 341,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 835,
                         },
@@ -54149,7 +54149,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -54170,7 +54170,7 @@
                             value: 356,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 841,
                         },
@@ -54201,7 +54201,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -54246,7 +54246,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -54275,7 +54275,7 @@
                             value: 357,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 841,
                         },
@@ -54307,7 +54307,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -54352,7 +54352,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -54381,7 +54381,7 @@
                             value: 358,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 841,
                         },
@@ -54413,7 +54413,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -54434,7 +54434,7 @@
                             value: 342,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 835,
                         },
@@ -54462,7 +54462,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -54491,7 +54491,7 @@
                             value: 359,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 842,
                         },
@@ -54523,7 +54523,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -54544,7 +54544,7 @@
                             value: 343,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 835,
                         },
@@ -54588,7 +54588,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -54609,7 +54609,7 @@
                             value: 360,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -54637,7 +54637,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -54658,7 +54658,7 @@
                             value: 361,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -54686,7 +54686,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -54707,7 +54707,7 @@
                             value: 362,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -54735,7 +54735,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -54756,7 +54756,7 @@
                             value: 363,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -54784,7 +54784,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -54805,7 +54805,7 @@
                             value: 364,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -54833,7 +54833,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -54854,7 +54854,7 @@
                             value: 365,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -54882,7 +54882,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -54903,7 +54903,7 @@
                             value: 366,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -54931,7 +54931,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -54952,7 +54952,7 @@
                             value: 367,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -54980,7 +54980,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -55001,7 +55001,7 @@
                             value: 368,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -55029,7 +55029,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -55050,7 +55050,7 @@
                             value: 369,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -55078,7 +55078,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -55099,7 +55099,7 @@
                             value: 370,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -55127,7 +55127,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -55148,7 +55148,7 @@
                             value: 371,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -55176,7 +55176,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -55197,7 +55197,7 @@
                             value: 372,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -55225,7 +55225,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -55246,7 +55246,7 @@
                             value: 373,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -55274,7 +55274,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -55303,7 +55303,7 @@
                             value: 374,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -55335,7 +55335,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -55364,7 +55364,7 @@
                             value: 375,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 843,
                         },
@@ -55396,7 +55396,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -55417,7 +55417,7 @@
                             value: 344,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 835,
                         },
@@ -55445,7 +55445,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -55466,7 +55466,7 @@
                             value: 485,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 3,
                         },
@@ -55494,7 +55494,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -55539,7 +55539,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -55560,7 +55560,7 @@
                             value: 284,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 880,
                         },
@@ -55588,7 +55588,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -55609,7 +55609,7 @@
                             value: 486,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 3,
                         },
@@ -55637,7 +55637,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -55682,7 +55682,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -55703,7 +55703,7 @@
                             value: 380,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 882,
                         },
@@ -55731,7 +55731,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -55752,7 +55752,7 @@
                             value: 392,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 883,
                         },
@@ -55783,7 +55783,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -55828,7 +55828,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -55857,7 +55857,7 @@
                             value: 393,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 883,
                         },
@@ -55889,7 +55889,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -55910,7 +55910,7 @@
                             value: 381,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 882,
                         },
@@ -55938,7 +55938,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -55959,7 +55959,7 @@
                             value: 394,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 884,
                         },
@@ -55990,7 +55990,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -56035,7 +56035,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -56064,7 +56064,7 @@
                             value: 395,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 884,
                         },
@@ -56096,7 +56096,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -56117,7 +56117,7 @@
                             value: 382,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 882,
                         },
@@ -56145,7 +56145,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -56174,7 +56174,7 @@
                             value: 396,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 885,
                         },
@@ -56206,7 +56206,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -56235,7 +56235,7 @@
                             value: 397,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 885,
                         },
@@ -56267,7 +56267,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -56288,7 +56288,7 @@
                             value: 383,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 882,
                         },
@@ -56316,7 +56316,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -56337,7 +56337,7 @@
                             value: 398,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 886,
                         },
@@ -56368,7 +56368,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -56413,7 +56413,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -56442,7 +56442,7 @@
                             value: 399,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 886,
                         },
@@ -56474,7 +56474,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -56495,7 +56495,7 @@
                             value: 384,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 882,
                         },
@@ -56523,7 +56523,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -56544,7 +56544,7 @@
                             value: 400,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 887,
                         },
@@ -56575,7 +56575,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -56620,7 +56620,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -56649,7 +56649,7 @@
                             value: 401,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 887,
                         },
@@ -56681,7 +56681,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -56702,7 +56702,7 @@
                             value: 385,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 882,
                         },
@@ -56730,7 +56730,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -56751,7 +56751,7 @@
                             value: 402,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 888,
                         },
@@ -56782,7 +56782,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -56827,7 +56827,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -56856,7 +56856,7 @@
                             value: 403,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 888,
                         },
@@ -56888,7 +56888,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -56909,7 +56909,7 @@
                             value: 386,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 882,
                         },
@@ -56937,7 +56937,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -56966,7 +56966,7 @@
                             value: 404,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 889,
                         },
@@ -56998,7 +56998,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57019,7 +57019,7 @@
                             value: 387,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 882,
                         },
@@ -57047,7 +57047,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerPatternExpr(
                     EagerPatternExprTracePathData {
@@ -57068,7 +57068,7 @@
                             value: 405,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 890,
                         },
@@ -57099,7 +57099,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -57144,7 +57144,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -57173,7 +57173,7 @@
                             value: 406,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 890,
                         },
@@ -57205,7 +57205,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
@@ -57250,7 +57250,7 @@
         ),
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -57279,7 +57279,7 @@
                             value: 407,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 890,
                         },
@@ -57311,7 +57311,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57332,7 +57332,7 @@
                             value: 388,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 882,
                         },
@@ -57360,7 +57360,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -57389,7 +57389,7 @@
                             value: 408,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 891,
                         },
@@ -57421,7 +57421,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57442,7 +57442,7 @@
                             value: 389,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 882,
                         },
@@ -57486,7 +57486,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57507,7 +57507,7 @@
                             value: 409,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -57535,7 +57535,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57556,7 +57556,7 @@
                             value: 410,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -57584,7 +57584,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57605,7 +57605,7 @@
                             value: 411,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -57633,7 +57633,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57654,7 +57654,7 @@
                             value: 412,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -57682,7 +57682,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57703,7 +57703,7 @@
                             value: 413,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -57731,7 +57731,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57752,7 +57752,7 @@
                             value: 414,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -57780,7 +57780,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57801,7 +57801,7 @@
                             value: 415,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -57829,7 +57829,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57850,7 +57850,7 @@
                             value: 416,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -57878,7 +57878,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57899,7 +57899,7 @@
                             value: 417,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -57927,7 +57927,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57948,7 +57948,7 @@
                             value: 418,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -57976,7 +57976,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -57997,7 +57997,7 @@
                             value: 419,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -58025,7 +58025,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -58046,7 +58046,7 @@
                             value: 420,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -58074,7 +58074,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -58095,7 +58095,7 @@
                             value: 421,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -58123,7 +58123,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -58144,7 +58144,7 @@
                             value: 422,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -58172,7 +58172,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -58201,7 +58201,7 @@
                             value: 423,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 892,
                         },
@@ -58233,7 +58233,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -58254,7 +58254,7 @@
                             value: 390,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 882,
                         },
@@ -58298,7 +58298,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -58319,7 +58319,7 @@
                             value: 424,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 893,
                         },
@@ -58347,7 +58347,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -58368,7 +58368,7 @@
                             value: 425,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 893,
                         },
@@ -58396,7 +58396,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -58417,7 +58417,7 @@
                             value: 426,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 893,
                         },
@@ -58445,7 +58445,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -58466,7 +58466,7 @@
                             value: 427,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 893,
                         },
@@ -58494,7 +58494,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -58515,7 +58515,7 @@
                             value: 428,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 893,
                         },
@@ -58543,7 +58543,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerExpr(
                     EagerExprTracePathData {
@@ -58572,7 +58572,7 @@
                             value: 429,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 893,
                         },
@@ -58604,7 +58604,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -58625,7 +58625,7 @@
                             value: 391,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 882,
                         },
@@ -58653,7 +58653,7 @@
         None,
     ),
     (
-        TraceId {
+        Trace {
             path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
@@ -58674,7 +58674,7 @@
                             value: 487,
                         },
                     ),
-                    biological_parent: TraceId(
+                    biological_parent: Trace(
                         Id {
                             value: 3,
                         },

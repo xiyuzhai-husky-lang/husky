@@ -52,7 +52,7 @@ where
 
     fn process_response(&mut self, response: TraceResponse<TraceProtocol>) {
         match response {
-            TraceResponse::Init { cache } => {
+            TraceResponse::Init { center: cache } => {
                 debug_assert!(self.center.is_none());
                 self.center = Some(cache)
             }
