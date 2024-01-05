@@ -8,6 +8,7 @@ edition = "2021"
 # abstractions
 salsa = { workspace = true, optional = true }
 serde.workspace = true
+serde_json.workspace = true
 serde-impl = { workspace = true, features = ["json"] }
 smallvec.workspace = true
 husky-term-prelude = { path = "../../kernel/husky-term-prelude", optional = true }

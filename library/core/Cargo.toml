@@ -9,5 +9,5 @@ edition = "2021"
 husky-standard-value = { path = "../../crates/vm/husky-standard-value" }
 
 [dependencies]
-ordered-float = "4.2.0"
+ordered-float = { version = "4.2.0", features = ["serde"] }
 husky-standard-value.workspace = true

@@ -152,7 +152,7 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, __Serialize)]
 pub struct FlagRange {
     true_range: ClosedRange<NotNan<f32>>,
     false_range: ClosedRange<NotNan<f32>>,
@@ -212,7 +212,7 @@ impl FlagRangeApplyResult {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, __Serialize)]
 pub struct ClosedRange<T>
 where
     T: PartialOrd + Ord,
