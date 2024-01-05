@@ -9,14 +9,14 @@ use husky_core::*;
 ad_hoc_task_dependency::init_crate!();
 
 // #[ad_hoc_task_dependency::value_conversion]
-#[derive(Debug, Clone, PartialEq, Eq, Copy)]
+#[derive(Debug, Clone, PartialEq, Eq, Copy, __Serialize)]
 pub enum Class<Label> {
     Known(Label),
     Unknown,
 }
 impl<Label> __WeakStatic for Class<Label>
 where
-    Label: __WeakStatic<Static = Label> + __Static + Copy,
+    Label: __WeakStatic<Static = Label> + __Static + __Serialize + Copy,
 {
     type Static = Class<<Label as __WeakStatic>::Static>;
     unsafe fn into_static(self) -> Self::Static {
@@ -25,7 +25,7 @@ where
 }
 impl<Label> __Static for Class<Label>
 where
-    Label: __WeakStatic<Static = Label> + __Static + Copy,
+    Label: __WeakStatic<Static = Label> + __Static + __Serialize + Copy,
 {
     type Frozen = Class<Label>;
     unsafe fn freeze(&self) -> Self::Frozen {
@@ -37,13 +37,13 @@ where
     }
 
     fn serialize_to_value(&self) -> __JsonValue {
-        todo!("Class<Label> serialize_to_value")
+        __to_json_value(self).unwrap()
     }
 }
 
 impl<Label> __Frozen for Class<Label>
 where
-    Label: __WeakStatic<Static = Label> + __Static + Copy,
+    Label: __WeakStatic<Static = Label> + __Static + __Serialize + Copy,
 {
     type Static = Class<Label>;
     type Stand = ();
@@ -61,7 +61,7 @@ where
 }
 impl<Label> __IntoValue for Class<Label>
 where
-    Label: __WeakStatic<Static = Label> + __Static + Copy,
+    Label: __WeakStatic<Static = Label> + __Static + __Serialize + Copy,
 {
     fn into_value(self) -> __Value {
         __Value::from_owned(self)
