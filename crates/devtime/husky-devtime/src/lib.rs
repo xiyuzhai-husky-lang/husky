@@ -84,12 +84,6 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
     ) -> husky_trace_protocol::stalk::TraceStalk {
         let db = self.runtime.db();
         if let Some(val_repr) = trace.val_repr(db) {
-            use husky_print_utils::p;
-            p!(self
-                .runtime
-                .eval_val_repr_at_pedestal(val_repr, pedestal)
-                .serialize_inner::<Self::SerdeImpl>());
-            todo!();
             TraceStalk::Val(
                 self.runtime
                     .eval_val_repr_at_pedestal(val_repr, pedestal)
