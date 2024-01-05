@@ -196,7 +196,12 @@ impl Diagnose for OriginalSemaExprTypeError {
             OriginalSemaExprTypeError::CannotUnwrap => {
                 format!("Type Error: cannot unwrap")
             }
-            OriginalSemaExprTypeError::NoConstructor => todo!(),
+            OriginalSemaExprTypeError::NoConstructor => {
+                format!("Type Error: no constructor")
+            }
+            OriginalSemaExprTypeError::NoBitOprForInteger => {
+                format!("Type Error: no bit opr for integer")
+            }
         }
     }
 

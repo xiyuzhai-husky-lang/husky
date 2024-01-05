@@ -63,6 +63,9 @@ pub enum OriginalSemaExprTypeError {
     CannotUnwrap,
     #[error("no constructor")]
     NoConstructor,
+    /// in husky, i8 ~ isize, u8 ~ usize cannot be used for bit operation
+    #[error("no bit opr for integer")]
+    NoBitOprForInteger,
 }
 
 impl OriginalError for OriginalSemaExprTypeError {
