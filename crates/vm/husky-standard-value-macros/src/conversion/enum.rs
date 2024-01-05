@@ -26,6 +26,8 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
     });
     if is_trivial {
         quote::quote! {
+            #[derive(__Serialize)]
+            #[serde(crate = "self::serde")]
             #item
 
             impl #generics __WeakStatic for #self_ty where #impl_weak_static_generic_constraints {
@@ -42,6 +44,10 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
                 unsafe fn freeze(&self) -> Self::Frozen {
                     // MutFrozen::new(*self)
                     todo!()
+                }
+
+                fn serialize_to_value(&self) -> __JsonValue {
+                    __to_json_value(self).unwrap()
                 }
             }
 
@@ -77,6 +83,8 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
         .into()
     } else {
         quote::quote! {
+            #[derive(__Serialize)]
+            #[serde(crate = "self::serde")]
             #item
 
             impl #generics __WeakStatic for #self_ty where #impl_weak_static_generic_constraints {
@@ -93,6 +101,10 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
                 unsafe fn freeze(&self) -> Self::Frozen {
                     // MutFrozen::new(*self)
                     todo!()
+                }
+
+                fn serialize_to_value(&self) -> __JsonValue {
+                    __to_json_value(self).unwrap()
                 }
             }
 

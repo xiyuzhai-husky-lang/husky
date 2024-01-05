@@ -8,11 +8,64 @@ use smallvec::SmallVec;
 #[allow(warnings, non_snake_case)]
 pub struct narrow_down<Label>(std::marker::PhantomData<Label>);
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-#[value_conversion]
+#[derive(Debug, PartialEq, Eq, Clone, __Serialize)]
+// #[value_conversion]
 pub struct NarrowDownInternal<Label> {
     label0: Label,
     flag_ranges: SmallVec<[FlagRange; 4]>,
+}
+impl<Label> __WeakStatic for NarrowDownInternal<Label>
+where
+    Label: __WeakStatic<Static = Label>
+        + __Static<Frozen = Label>
+        + __Frozen<Static = Label>
+        + __Serialize,
+{
+    type Static = NarrowDownInternal<Label>;
+    unsafe fn into_static(self) -> Self::Static {
+        self
+    }
+}
+impl<Label> __Static for NarrowDownInternal<Label>
+where
+    Label: __Static<Frozen = Label> + __Frozen<Static = Label> + __Serialize,
+{
+    type Frozen = NarrowDownInternal<Label>;
+    unsafe fn freeze(&self) -> Self::Frozen {
+        todo!()
+    }
+    fn serialize_to_value(&self) -> __JsonValue {
+        __to_json_value(self).unwrap()
+    }
+}
+impl<Label> __Frozen for NarrowDownInternal<Label>
+where
+    Label: __Frozen<Static = Label> + __Static<Frozen = Label> + __Serialize,
+{
+    type Static = NarrowDownInternal<<Label as __Frozen>::Static>;
+    type Stand = ();
+    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
+        todo!()
+    }
+}
+impl<Label> __FromValue for NarrowDownInternal<Label>
+where
+    Label: __WeakStatic<Static = Label> + __Static,
+{
+    fn from_value_aux(value: __Value, _value_stands: Option<&mut __ValueStands>) -> Self {
+        value.into_owned()
+    }
+}
+impl<Label> __IntoValue for NarrowDownInternal<Label>
+where
+    Label: __WeakStatic<Static = Label>
+        + __Static<Frozen = Label>
+        + __Frozen<Static = Label>
+        + __Serialize,
+{
+    fn into_value(self) -> __Value {
+        __Value::from_owned(self)
+    }
 }
 
 impl<Label> __IsGnItem for narrow_down<Label>

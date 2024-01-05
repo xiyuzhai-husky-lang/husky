@@ -22,7 +22,7 @@ fn impl_weak_static_generic_constraints(generics: &syn::Generics) -> proc_macro2
         .map(|param| match param {
             syn::GenericParam::Lifetime(param) => quote! {},
             syn::GenericParam::Type(param) => quote! {
-                #param: __WeakStatic<Static = #param> + __Static
+                #param: __WeakStatic<Static = #param> + __Static + __Serialize
             },
             syn::GenericParam::Const(_) => quote! {},
         })
@@ -62,7 +62,7 @@ fn impl_static_generic_constraints(generics: &syn::Generics) -> proc_macro2::Tok
                 #param: 'static,
             },
             syn::GenericParam::Type(param) => quote! {
-                #param: __Static
+                #param: __Static + __Serialize
             },
             syn::GenericParam::Const(_) => quote! {},
         })

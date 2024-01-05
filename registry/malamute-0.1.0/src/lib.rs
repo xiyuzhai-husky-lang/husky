@@ -35,6 +35,10 @@ where
     fn copy(&self) -> Box<dyn __StaticDyn> {
         Box::<Class<Label>>::new(self.clone())
     }
+
+    fn serialize_to_value(&self) -> __JsonValue {
+        todo!("Class<Label> serialize_to_value")
+    }
 }
 
 impl<Label> __Frozen for Class<Label>

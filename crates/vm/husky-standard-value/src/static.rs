@@ -3,6 +3,7 @@ use crate::frozen::{mut_frozen::MutFrozen, Frozen, SnapshotDyn};
 use husky_decl_macro_utils::{
     for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
 };
+use serde::Serialize;
 
 /// Stand is the static version of a type
 pub trait Static: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
@@ -36,6 +37,8 @@ pub trait Static: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
             std::any::type_name_of_val(self)
         )
     }
+
+    fn serialize_to_value(&self) -> serde_json::Value;
 }
 
 impl<T> Static for *mut T
@@ -46,6 +49,10 @@ where
 
     unsafe fn freeze(&self) -> Self::Frozen {
         MutFrozen::new(*self)
+    }
+
+    fn serialize_to_value(&self) -> serde_json::Value {
+        todo!()
     }
 }
 
@@ -63,6 +70,8 @@ pub trait StaticDyn:
     fn index_ref_dyn<'a>(&'a self, index: usize) -> &'a dyn StaticDyn;
 
     fn copy_dyn(&self) -> Box<dyn StaticDyn>;
+
+    fn serialize_to_value_dyn(&self) -> serde_json::Value;
 }
 
 impl<T> StaticDyn for T
@@ -92,6 +101,10 @@ where
     fn copy_dyn(&self) -> Box<dyn StaticDyn> {
         self.copy()
     }
+
+    fn serialize_to_value_dyn(&self) -> serde_json::Value {
+        self.serialize_to_value()
+    }
 }
 
 impl<T> Static for Vec<T>
@@ -107,6 +120,10 @@ where
     fn index_ref<'a>(&'a self, index: usize) -> &'a dyn StaticDyn {
         &self[index]
     }
+
+    fn serialize_to_value(&self) -> serde_json::Value {
+        todo!()
+    }
 }
 
 impl<T> Static for &'static T
@@ -116,6 +133,10 @@ where
     type Frozen = Self;
 
     unsafe fn freeze(&self) -> Self::Frozen {
+        todo!()
+    }
+
+    fn serialize_to_value(&self) -> serde_json::Value {
         todo!()
     }
 }
@@ -136,6 +157,12 @@ where
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
     }
+
+    fn serialize_to_value(&self) -> serde_json::Value {
+        self.as_ref()
+            .map(|slf| slf.serialize_to_value())
+            .unwrap_or_default()
+    }
 }
 
 macro_rules! impl_static_for_primitive_ty {
@@ -145,6 +172,10 @@ macro_rules! impl_static_for_primitive_ty {
 
             unsafe fn freeze(&self) -> Self::Frozen {
                 *self
+            }
+
+            fn serialize_to_value(&self) -> serde_json::Value {
+                serde_json::to_value(self).unwrap()
             }
         }
     };
@@ -157,6 +188,10 @@ impl Static for &'static str {
 
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
+    }
+
+    fn serialize_to_value(&self) -> serde_json::Value {
+        todo!("&'static str serialize_to_value")
     }
 }
 
@@ -172,6 +207,10 @@ macro_rules! impl_static_for_ritchie_ty {
 
             unsafe fn freeze(&self) -> Self::Frozen {
                 *self
+            }
+
+            fn serialize_to_value(&self) -> serde_json::Value {
+                todo!("impl_static_for_ritchie_ty serialize_to_value")
             }
         }
     };
@@ -191,6 +230,10 @@ macro_rules! impl_static_for_non_unit_tuple_ty {
 
             unsafe fn freeze(&self) -> Self::Frozen {
                 todo!()
+            }
+
+            fn serialize_to_value(&self) -> serde_json::Value {
+                todo!("impl_static_for_non_unit_tuple_ty serialize_to_value")
             }
         }
     };

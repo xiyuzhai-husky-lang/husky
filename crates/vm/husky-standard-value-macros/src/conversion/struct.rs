@@ -21,6 +21,8 @@ pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
     let impl_from_value_generic_constraints = impl_from_value_generic_constraints(generics);
     let impl_into_value_generic_constraints = impl_into_value_generic_constraints(generics);
     quote::quote! {
+        #[derive(__Serialize)]
+        #[serde(crate = "self::serde")]
         #item
 
         impl #generics __WeakStatic for #self_ty where #impl_weak_static_generic_constraints {
@@ -37,6 +39,10 @@ pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
             unsafe fn freeze(&self) -> Self::Frozen {
                 // MutFrozen::new(*self)
                 todo!()
+            }
+
+            fn serialize_to_value(&self) -> __JsonValue {
+                __to_json_value(self).unwrap()
             }
         }
 

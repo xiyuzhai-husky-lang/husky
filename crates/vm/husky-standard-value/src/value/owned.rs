@@ -3,6 +3,14 @@ use super::*;
 #[derive(Debug)]
 pub struct OwnedValue(Box<dyn StaticDyn>);
 
+impl std::ops::Deref for OwnedValue {
+    type Target = dyn StaticDyn;
+
+    fn deref(&self) -> &Self::Target {
+        &*self.0
+    }
+}
+
 impl OwnedValue {
     pub(super) fn upcast_from_owned<T>(t: T) -> Self
     where

@@ -471,7 +471,7 @@ impl IsValue for Value {
             Value::F32(_) => todo!(),
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
-            Value::Owned(_) => todo!(),
+            Value::Owned(value) => value.serialize_to_value_dyn(),
             Value::Leash(_) => todo!(),
             Value::Ref(_) => todo!(),
             Value::Mut(_) => todo!(),

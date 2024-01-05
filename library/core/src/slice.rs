@@ -1,7 +1,8 @@
 use crate::*;
 
 // #[husky_standard_value::value_conversion]
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, serde::Serialize)]
+#[serde(crate = "self::serde")]
 pub struct CyclicSliceLeashed<T>
 where
     T: 'static,
@@ -18,6 +19,10 @@ where
     type Frozen = Self;
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
+    }
+
+    fn serialize_to_value(&self) -> __JsonValue {
+        todo!("CyclicSlice serialize_to_value")
     }
 }
 impl<T> __Frozen for CyclicSliceLeashed<T>
