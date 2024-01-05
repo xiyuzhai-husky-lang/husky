@@ -132,18 +132,20 @@ impl<'a> SemaExprEngine<'a> {
                     PreludeTypePath::Basic(_) => todo!(),
                     PreludeTypePath::Num(num_ty_path) => match num_ty_path {
                         PreludeNumTypePath::Int(int_ty_path) => match int_ty_path {
-                            PreludeIntTypePath::I8 => todo!(),
-                            PreludeIntTypePath::I16 => todo!(),
-                            PreludeIntTypePath::I32 => todo!(),
-                            PreludeIntTypePath::I64 => todo!(),
-                            PreludeIntTypePath::I128 => todo!(),
-                            PreludeIntTypePath::ISize => todo!(),
-                            PreludeIntTypePath::U8 => todo!(),
-                            PreludeIntTypePath::U16 => todo!(),
-                            PreludeIntTypePath::U32 => todo!(),
-                            PreludeIntTypePath::U64 => todo!(),
-                            PreludeIntTypePath::U128 => todo!(),
-                            PreludeIntTypePath::USize => todo!(),
+                            PreludeIntTypePath::I8
+                            | PreludeIntTypePath::I16
+                            | PreludeIntTypePath::I32
+                            | PreludeIntTypePath::I64
+                            | PreludeIntTypePath::I128
+                            | PreludeIntTypePath::ISize
+                            | PreludeIntTypePath::U8
+                            | PreludeIntTypePath::U16
+                            | PreludeIntTypePath::U32
+                            | PreludeIntTypePath::U64
+                            | PreludeIntTypePath::U128
+                            | PreludeIntTypePath::USize => {
+                                Err(OriginalSemaExprTypeError::NoBitOprForInteger)?
+                            }
                             raw_bit_ty_path @ (PreludeIntTypePath::R8
                             | PreludeIntTypePath::R16
                             | PreludeIntTypePath::R32
