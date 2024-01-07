@@ -116,7 +116,7 @@ where
                                     EntityKind::Module => todo!(),
                                     EntityKind::MajorItem {
                                         module_item_kind,
-                                        connection,
+                                        connection: _,
                                     } => match module_item_kind {
                                         MajorItemKind::Fugitive(FugitiveKind::Val) => {
                                             DisambiguatedTokenData::SynBinaryOpr(
@@ -132,7 +132,7 @@ where
                                         ),
                                     },
                                     EntityKind::AssociatedItem {
-                                        associated_item_kind,
+                                        associated_item_kind: _,
                                     } => todo!(),
                                     EntityKind::TypeVariant => todo!(),
                                     EntityKind::ImplBlock => todo!(),

@@ -1,8 +1,8 @@
 use crate::SynKeyedCallListItem;
 
 use super::*;
-use husky_print_utils::p;
-use salsa::DebugWithDb;
+
+
 
 /// stack based expression parsing.
 ///
@@ -55,17 +55,17 @@ impl SynExprData {
         match self {
             SynExprData::Literal(_, _) => BaseEntityPath::None,
             SynExprData::PrincipalEntityPath {
-                path_expr_idx,
+                path_expr_idx: _,
                 opt_path,
             } => match opt_path {
                 &Some(path) => BaseEntityPath::Some(path.into()),
                 None => todo!(),
             },
             SynExprData::AssociatedItem {
-                parent_expr_idx,
-                parent_path,
-                colon_colon_regional_token,
-                ident_token,
+                parent_expr_idx: _,
+                parent_path: _,
+                colon_colon_regional_token: _,
+                ident_token: _,
             } => todo!(),
             SynExprData::InheritedSynSymbol { .. } | SynExprData::CurrentSynSymbol { .. } => {
                 BaseEntityPath::None
@@ -82,17 +82,17 @@ impl SynExprData {
             SynExprData::ExplicitApplication { .. } => todo!(),
             SynExprData::FunctionApplicationOrCall { .. } => todo!(),
             SynExprData::At {
-                at_regional_token_idx,
-                place_label_regional_token,
+                at_regional_token_idx: _,
+                place_label_regional_token: _,
             } => todo!(),
             // although unit is a valid item,
             // but unit doesn't contains any subitem, so effectively none
             // ad hoc
             SynExprData::Unit { .. } => BaseEntityPath::None,
             SynExprData::NewTuple {
-                lpar_regional_token_idx,
-                items,
-                rpar_regional_token_idx,
+                
+                
+                
                 ..
             } => todo!(),
             SynExprData::List { .. } => BaseEntityPath::None,
@@ -110,30 +110,30 @@ impl SynExprData {
             SynExprData::TemplateInstantiation { template, .. } => {
                 arena[template].base_item_path(db, arena)
             }
-            SynExprData::Block { stmts } => BaseEntityPath::None,
+            SynExprData::Block { stmts: _ } => BaseEntityPath::None,
             SynExprData::Be {
-                src,
-                be_regional_token_idx,
-                target,
+                src: _,
+                be_regional_token_idx: _,
+                target: _,
             } => todo!(),
             SynExprData::BoxColonList { .. } => todo!(),
             SynExprData::FrameVarDecl {
-                regional_token_idx,
-                ident,
+                
+                
                 ..
             } => todo!(),
             SynExprData::IndexOrCompositionWithList {
                 owner,
-                lbox_regional_token_idx,
-                items: indices,
-                rbox_regional_token_idx,
+                lbox_regional_token_idx: _,
+                items: _indices,
+                rbox_regional_token_idx: _,
             } => arena[owner].base_item_path(db, arena),
             SynExprData::EmptyHtmlTag { .. } => BaseEntityPath::Err,
             SynExprData::FunctionCall { .. } => todo!(),
             SynExprData::Ritchie { .. } => todo!(),
-            SynExprData::Sorry { regional_token_idx } => todo!(),
-            SynExprData::Todo { regional_token_idx } => todo!(),
-            SynExprData::Unreachable { regional_token_idx } => todo!(),
+            SynExprData::Sorry { regional_token_idx: _ } => todo!(),
+            SynExprData::Todo { regional_token_idx: _ } => todo!(),
+            SynExprData::Unreachable { regional_token_idx: _ } => todo!(),
         }
     }
 }
@@ -325,7 +325,7 @@ where
                 IncompleteSynExpr::KeyedArgument {
                     key_regional_token_idx,
                     key,
-                    eq_token,
+                    eq_token: _,
                 } => {
                     self.reduce_aux(|this, opt_complete_expr, incomplete_expr| {
                         let Some(argument_expr) = opt_complete_expr else {
@@ -335,7 +335,7 @@ where
                         match incomplete_expr {
                             IncompleteSynExpr::CommaList {
                                 opr: IncompleteCommaListOpr::FunctionApplicationOrCall { function },
-                                bra,
+                                bra: _,
                                 bra_regional_token_idx,
                                 items,
                             } => {
@@ -363,14 +363,14 @@ where
                             IncompleteSynExpr::CommaList {
                                 opr:
                                     IncompleteCommaListOpr::MethodApplicationOrCall {
-                                        self_expr,
-                                        dot_regional_token_idx,
-                                        ident_token,
-                                        generic_arguments,
+                                        self_expr: _,
+                                        dot_regional_token_idx: _,
+                                        ident_token: _,
+                                        generic_arguments: _,
                                     },
-                                bra,
-                                bra_regional_token_idx,
-                                items,
+                                bra: _,
+                                bra_regional_token_idx: _,
+                                items: _,
                             } => todo!(),
                             IncompleteSynExpr::CallList { .. } => todo!(),
                             _ => unreachable!(),
@@ -401,10 +401,10 @@ where
         for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
             match unfinished_expr {
                 IncompleteSynExpr::CommaList {
-                    opr,
+                    opr: _,
                     bra,
-                    bra_regional_token_idx,
-                    items,
+                    bra_regional_token_idx: _,
+                    items: _,
                 } => return Some(*bra),
                 IncompleteSynExpr::CallList { .. } => return Some(SynBracket::Par),
                 _ => (),

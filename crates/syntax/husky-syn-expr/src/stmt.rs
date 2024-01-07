@@ -128,12 +128,11 @@ impl<'a> SynStmtContext<'a> {
                 else_branch: self.parse_else_branch(else_branch),
             },
             DefnAst::MatchStmt {
-                regional_token_group_idx: token_group_idx,
-                pattern_stmt,
+                regional_token_group_idx,
                 case_branches,
                 ..
             } => {
-                let mut parser = self.expr_parser(token_group_idx);
+                let mut parser = self.expr_parser(regional_token_group_idx);
                 SynStmtData::Match {
                     match_token: parser.try_parse_option().unwrap().unwrap(),
                     match_expr: parser.parse_expr_expected(
