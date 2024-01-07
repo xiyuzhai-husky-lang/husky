@@ -90,3 +90,6 @@ test-build-timings:
 	cargo clean
 	cargo build --tests --timings
 	cp target/cargo-timings/cargo-timing.html benchmarks/test-build-timings.html
+
+doc:
+	cargo doc --open

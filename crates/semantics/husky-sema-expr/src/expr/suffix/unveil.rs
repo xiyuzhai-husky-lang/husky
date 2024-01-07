@@ -18,8 +18,8 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let db = self.db;
-        self.unveiler.initialize_if_not(self.return_ty, db);
+        let db = self.db();
+        self.unveiler.initialize_if_not(self.return_ty(), db);
         match self.unveiler {
             Unveiler::UniqueFullyInstantiated {
                 opd_ty,
@@ -39,7 +39,7 @@ impl<'a> SemaExprEngine<'a> {
                         opr_regional_token_idx,
                         unveil_output_ty_signature,
                         unveil_associated_fn_path,
-                        return_ty: self.return_ty.unwrap(),
+                        return_ty: self.return_ty().unwrap(),
                     }),
                     Ok(unveil_output_ty.into()),
                 )
@@ -48,8 +48,8 @@ impl<'a> SemaExprEngine<'a> {
                 let (opd_sema_expr_idx, opd_ty) =
                     self.build_sema_expr_with_ty(opd_syn_expr_idx, ExpectAnyOriginal);
                 let Some(opd_ty) = opd_ty else {
-                    p!(self.syn_expr_region_data.path().debug(db));
-                    p!(self.syn_expr_region_data[opd_syn_expr_idx].debug(db));
+                    // p!(self.syn_expr_region_data.path().debug(db));
+                    // p!(self.syn_expr_region_data[opd_syn_expr_idx].debug(db));
                     todo!()
                 };
                 let reduced_opd_ty: FluffyTerm = match opd_ty.base_ty_data(self) {
@@ -74,10 +74,10 @@ impl<'a> SemaExprEngine<'a> {
                 };
                 match reduced_opd_ty.base_resolved(self) {
                     FluffyTermBase::Ethereal(opd_ty) => {
-                        match template.instantiate_trai(&[opd_ty], self.db) {
+                        match template.instantiate_trai(&[opd_ty], db) {
                             JustOk(template) => {
                                 let associated_output_template =
-                                    match template.associated_output_template(self.db) {
+                                    match template.associated_output_template(db) {
                                         Ok(associated_output_template) => {
                                             associated_output_template
                                         }
@@ -91,7 +91,7 @@ impl<'a> SemaExprEngine<'a> {
                                         ),
                                     };
                                 let Some(unveil_output_ty_signature) =
-                                    associated_output_template.try_into_signature(self.db)
+                                    associated_output_template.try_into_signature(db)
                                 else {
                                     todo!()
                                 };
@@ -105,7 +105,7 @@ impl<'a> SemaExprEngine<'a> {
                                             db,
                                         ),
                                         unveil_output_ty_signature,
-                                        return_ty: self.return_ty.unwrap(),
+                                        return_ty: self.return_ty().unwrap(),
                                     }),
                                     Ok(ty_term),
                                 )

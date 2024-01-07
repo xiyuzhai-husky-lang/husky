@@ -68,7 +68,7 @@ impl<'a> SemaExprEngine<'a> {
                 // here we differs from Rust, but agrees with C
                 (
                     Ok((opd_sema_expr_idx, SemaPrefixOpr::Not)),
-                    Ok(self.term_menu.bool_ty_ontology().into()),
+                    Ok(self.term_menu().bool_ty_ontology().into()),
                 )
             }
             SynPrefixOpr::Tilde => match final_destination {
@@ -78,8 +78,8 @@ impl<'a> SemaExprEngine<'a> {
                             expr_idx,
                             Variance::Covariant,
                             None,
-                            self.term_menu.ty0().into(),
-                            self.term_menu.ty0().into(),
+                            self.term_menu().ty0().into(),
+                            self.term_menu().ty0().into(),
                             opd,
                         );
                     (Ok((opd_sema_expr_idx, SemaPrefixOpr::LeashType)), ty_result)
@@ -101,7 +101,7 @@ impl<'a> SemaExprEngine<'a> {
                 // Should consider more cases, could also be taking references
                 (
                     Ok((opd_sema_expr_idx, SemaPrefixOpr::RefType)),
-                    Ok(self.term_menu.ty0().into()),
+                    Ok(self.term_menu().ty0().into()),
                 )
             }
             SynPrefixOpr::Option => {
@@ -109,7 +109,7 @@ impl<'a> SemaExprEngine<'a> {
                 let opd_sema_expr_idx = self.build_sema_expr(opd, self.expect_ty0_subtype());
                 (
                     Ok((opd_sema_expr_idx, SemaPrefixOpr::Option)),
-                    Ok(self.term_menu.ty0().into()),
+                    Ok(self.term_menu().ty0().into()),
                 )
             }
         }

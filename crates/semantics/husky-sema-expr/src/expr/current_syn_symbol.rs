@@ -7,7 +7,7 @@ impl<'a> SemaExprEngine<'a> {
         current_syn_symbol_idx: CurrentSynSymbolIdx,
     ) -> SemaExprTypeResult<FluffyTerm> {
         Ok(self
-            .symbol_tys
+            .symbol_tys()
             .current_syn_symbol_map()
             .get(current_syn_symbol_idx)
             .copied()
