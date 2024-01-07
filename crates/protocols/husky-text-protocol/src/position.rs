@@ -5,10 +5,7 @@ pub use column::*;
 pub use line::*;
 
 use serde::{Deserialize, Serialize};
-use std::{
-    fmt::Write,
-    path::{Path, PathBuf},
-};
+use std::path::{Path, PathBuf};
 
 #[derive(
     Debug, Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,

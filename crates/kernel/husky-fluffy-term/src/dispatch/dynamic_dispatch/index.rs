@@ -3,8 +3,6 @@ mod hollow;
 mod solid;
 
 use self::ethereal::*;
-use self::hollow::*;
-use self::solid::*;
 use super::*;
 
 pub type FluffyIndexDynamicDispatch = FluffyDynamicDispatch<FluffyIndexSignature>;

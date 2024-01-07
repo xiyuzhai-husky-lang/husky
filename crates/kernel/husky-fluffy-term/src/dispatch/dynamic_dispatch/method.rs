@@ -2,13 +2,9 @@ mod ethereal;
 mod hollow;
 mod solid;
 
-pub(crate) use self::ethereal::*;
-pub(crate) use self::hollow::*;
-pub(crate) use self::solid::*;
-
 use super::*;
 use husky_coword::Ident;
-use husky_entity_syn_tree::helpers::{TraitInUseItemRecord, TraitInUseItemsWithGivenIdent};
+use husky_entity_syn_tree::helpers::TraitInUseItemsWithGivenIdent;
 use husky_regional_token::IdentRegionalToken;
 
 pub type FluffyMethodDynamicDispatch = FluffyDynamicDispatch<MethodFluffySignature>;
@@ -19,7 +15,7 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
         ident_regional_token: IdentRegionalToken,
-        mut indirections: FluffyIndirections,
+        indirections: FluffyIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
         self.trai_method_dispatch_aux(
             engine,
