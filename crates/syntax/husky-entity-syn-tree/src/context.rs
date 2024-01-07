@@ -1,5 +1,4 @@
 use crate::*;
-
 use husky_coword::Ident;
 use husky_token::IdentToken;
 use vec_like::VecMap;
@@ -88,10 +87,6 @@ where
                 SubitemPath::Associated => todo!(),
             }
         }
-    }
-
-    pub(crate) fn crate_path(&self) -> CratePath {
-        self.crate_path
     }
 
     pub(crate) fn crate_root(&self) -> ModulePath {
