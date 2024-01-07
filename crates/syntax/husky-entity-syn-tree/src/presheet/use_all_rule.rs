@@ -14,6 +14,7 @@ pub struct UseAllRule {
     is_same_crate: bool,
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
+    /// the scope where it's visible
     visibility: Scope,
     // how many symbols have been checked
     progress: Result<usize, ()>,
