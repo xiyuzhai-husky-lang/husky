@@ -1,4 +1,3 @@
-use crate::*;
 use husky_manifest::ManifestError;
 use husky_vfs::{error::VfsError, *};
 use thiserror::Error;
@@ -8,8 +7,6 @@ use thiserror::Error;
 pub enum PreludeError {
     #[error("{0}")]
     Toolchain(#[from] ToolchainError),
-    #[error("core prelude")]
-    CorePreludeEntityTreeSheet(Box<EntitySynTreeError>),
     #[error("manifest error")]
     ManifestError,
     #[error("vfs error {0}")]
