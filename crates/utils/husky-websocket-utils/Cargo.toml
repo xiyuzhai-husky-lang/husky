@@ -18,7 +18,7 @@ tracing-subscriber.workspace = true
 tower-http.workspace = true
 # abstractions
 serde-impl = { path = "../../abstractions/serde-impl" }
-notify = { path = "../../abstractions/notify" }
+notify-change = { path = "../../abstractions/notify-change" }
 # utils
 husky-print-utils.workspace = true
 

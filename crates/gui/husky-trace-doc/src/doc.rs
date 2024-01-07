@@ -11,13 +11,13 @@ use husky_trace_protocol::{
     view::action::TraceViewActionBuffer,
 };
 use husky_visual_protocol::IsVisualComponent;
-use notify::Notify;
+use notify_change::NotifyChange;
 use ui::IsUiComponent;
 
 pub struct TraceDoc<TraceProtocol, RepaintSignal>
 where
     TraceProtocol: IsTraceProtocol,
-    RepaintSignal: Notify,
+    RepaintSignal: NotifyChange,
 {
     trace_client: TraceClient<TraceProtocol, RepaintSignal>,
     action_buffer: TraceViewActionBuffer<TraceProtocol>,

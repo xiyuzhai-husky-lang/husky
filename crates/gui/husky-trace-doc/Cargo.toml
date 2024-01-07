@@ -11,7 +11,7 @@ serde.workspace = true
 egui = { workspace = true, optional = true }
 # abstractions
 ui.workspace = true
-notify = { path = "../../abstractions/notify" }
+notify-change = { path = "../../abstractions/notify-change" }
 # kernel
 husky-task.workspace = true
 # gui

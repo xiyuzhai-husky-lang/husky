@@ -8,12 +8,12 @@ use crate::{
 use husky_websocket_utils::imgui_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
 };
-use notify::Notify;
+use notify_change::NotifyChange;
 use std::sync::Arc;
 
 pub struct TraceClient<TraceProtocol: IsTraceProtocol, Notifier>
 where
-    Notifier: Notify,
+    Notifier: NotifyChange,
 {
     center: Option<TraceCenter<TraceProtocol>>,
     connection: ImmediateWebsocketClientConnection<
@@ -26,7 +26,7 @@ where
 impl<TraceProtocol, Notifier> TraceClient<TraceProtocol, Notifier>
 where
     TraceProtocol: IsTraceProtocolFull,
-    Notifier: Notify,
+    Notifier: NotifyChange,
 {
     pub fn new(
         tokio_runtime: Arc<tokio::runtime::Runtime>,
