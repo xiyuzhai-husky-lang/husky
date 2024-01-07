@@ -13,7 +13,7 @@ pub(crate) use self::punctuation::*;
 use crate::{expr::site::HirEagerExprSite, *};
 use husky_corgi_config::transpilation_setup::{RustTranspilationSetupData, TranspilationSetup};
 use husky_coword::{Ident, Label};
-use husky_entity_path::{PreludeTypePath, PrincipalEntityPath, TypePath};
+use husky_entity_path::{PreludeTypePath, TypePath};
 use husky_hir_eager_expr::{
     symbol::{
         comptime_symbol::HirEagerComptimeSymbolName,

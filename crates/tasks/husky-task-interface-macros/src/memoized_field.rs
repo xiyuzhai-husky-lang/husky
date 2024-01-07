@@ -95,6 +95,5 @@ impl syn::parse::Parse for MemoizedFieldArgs {
                 panic!()
             }
         }
-        Ok(slf)
     }
 }

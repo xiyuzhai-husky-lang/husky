@@ -1,9 +1,7 @@
 pub mod float;
 
 use crate::{float::*, *};
-
-use ordered_float::{OrderedFloat};
-
+use ordered_float::OrderedFloat;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]
@@ -75,15 +73,9 @@ fn term_literal_size_works() {
 }
 
 impl TermLiteral {
-    #[inline(always)]
-    pub(crate) fn from_declarative(_db: &::salsa::Db, _valid_term: TermLiteral) -> Self {
-        todo!()
-    }
-
     pub fn ty(self) -> PreludeTypePath {
         match self {
             TermLiteral::Unit(()) => PreludeBasicTypePath::Unit.into(),
-            TermLiteral::Unit(()) => PreludeBasicTypePath::Never.into(),
             TermLiteral::Bool(_) => PreludeBasicTypePath::Bool.into(),
             TermLiteral::I8(_) => PreludeIntTypePath::I8.into(),
             TermLiteral::I16(_) => PreludeIntTypePath::I16.into(),

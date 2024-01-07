@@ -22,10 +22,6 @@ impl TermUniverse {
         TermUniverse::new(_term.raw())
     }
 
-    pub(crate) fn zero() -> Self {
-        TermUniverse(0)
-    }
-
     pub fn raw(self) -> u8 {
         self.0
     }
@@ -35,21 +31,6 @@ impl TermUniverse {
             return Err(TermPreludeError::UniverseOverflow);
         }
         Ok(TermUniverse(self.0 + 1))
-    }
-
-    // pub(crate) fn prev(self) -> Option<Self> {
-    //     if self.0 == 0 {
-    //         return None;
-    //     }
-    //     Some(Universe(self.0 - 1))
-    // }
-
-    pub(crate) fn max(self, other: TermUniverse) -> TermUniverse {
-        TermUniverse(self.0.max(other.0))
-    }
-
-    pub(crate) fn positive(self) -> bool {
-        self.0 > 0
     }
 }
 

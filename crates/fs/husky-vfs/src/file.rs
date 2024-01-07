@@ -167,20 +167,7 @@ impl ::salsa::DebugWithDb for File {
         debug_struct.finish()
     }
 }
+
 impl salsa::salsa_struct::SalsaStructInDb for File {
     fn register_dependent_fn(_db: &::salsa::Db, _index: salsa::routes::IngredientIndex) {}
-}
-
-#[salsa::tracked(jar = VfsJar)]
-pub(crate) fn package_manifest_file(
-    db: &::salsa::Db,
-    package_path: PackagePath,
-) -> VfsResult<File> {
-    db.file_from_virtual_path(package_manifest_path(db, package_path)?)
-}
-
-#[salsa::tracked(jar = VfsJar )]
-pub(crate) fn module_file(db: &::salsa::Db, module_path: ModulePath) -> VfsResult<File> {
-    let abs_path = module_virtual_path(db, module_path)?;
-    db.file_from_virtual_path(abs_path)
 }

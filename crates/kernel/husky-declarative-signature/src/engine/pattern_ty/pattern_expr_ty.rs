@@ -40,8 +40,6 @@ impl<'a> DeclarativeTermEngine<'a> {
             SynPatternExprData::Tuple { .. } => todo!(),
             SynPatternExprData::TupleStruct { .. } => todo!(),
             SynPatternExprData::TupleTypeVariant { .. } => todo!(),
-            SynPatternExprData::TupleStruct { .. } => todo!(),
-            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
             SynPatternExprData::Props { name, ref fields } => todo!(),
             SynPatternExprData::OneOf { ref options } => todo!(),
             SynPatternExprData::Binding {

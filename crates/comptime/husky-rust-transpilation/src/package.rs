@@ -2,12 +2,7 @@ use husky_corgi_config::transpilation_setup::TranspilationSetup;
 use husky_entity_syn_tree::helpers::paths::crate_module_paths;
 use husky_io_utils::error::IOResult;
 use husky_manifest::HasPackageManifest;
-use husky_print_utils::p;
-use husky_task::IsTask;
-use husky_vfs::{
-    path::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData},
-    PackagePathSource,
-};
+use husky_vfs::path::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};
 use pathdiff::diff_paths;
 use std::path::Path;
 
@@ -47,7 +42,6 @@ impl RustTranspilationPackage {
         rust_workspace_abs_dir: &Path,
         db: &::salsa::Db,
     ) -> String {
-        use salsa::DebugWithDb;
         match self.kind {
             RustTranspilationPackageKind::Source => {
                 if self.package_path.is_virtual(db) {

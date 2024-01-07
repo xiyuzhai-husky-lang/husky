@@ -7,13 +7,8 @@ mod ty_variant;
 
 use crate::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
-use husky_entity_kind::{
-    AssociatedItemKind, EntityKind, FugitiveKind, MajorItemKind, TraitItemKind, TypeItemKind,
-};
-use husky_entity_path::{ItemPath, MajorItemPath};
-use husky_entity_syn_tree::helpers::paths::{
-    crate_module_paths, module_item_paths, module_submodule_item_paths, HasModulePaths,
-};
+use husky_entity_kind::{EntityKind, FugitiveKind, MajorItemKind};
+use husky_entity_syn_tree::helpers::paths::{module_item_paths, module_submodule_item_paths};
 use husky_hir_decl::parameter::{
     parenate::eager::{HirEagerParenateParameter, HirEagerParenateParameters},
     self_value::eager::HirEagerSelfValueParameter,
@@ -122,20 +117,6 @@ fn module_defn_rust_transpilation_works() {
             .with_vfs_test_domains_config(VfsTestDomainsConfig::ExcludeLibrary)
             .with_expect_file_extension("rs"),
     );
-}
-
-impl TranspileToRustWith for HirDefn {
-    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
-        todo!();
-        match self {
-            HirDefn::Submodule(hir_defn) => hir_defn.transpile_to_rust(builder),
-            HirDefn::MajorItem(hir_defn) => hir_defn.transpile_to_rust(builder),
-            HirDefn::TypeVariant(hir_defn) => hir_defn.transpile_to_rust(builder),
-            HirDefn::ImplBlock(hir_defn) => hir_defn.transpile_to_rust(builder),
-            HirDefn::AssociatedItem(hir_defn) => hir_defn.transpile_to_rust(builder),
-            HirDefn::Attr(hir_defn) => hir_defn.transpile_to_rust(builder),
-        }
-    }
 }
 
 impl TranspileToRustWith<HirEagerExprRegion> for &HirTemplateParameter {

@@ -29,7 +29,7 @@ pub(crate) fn ast_token_idx_range_sheet(
 fn ast_range_sheet_works() {
     use tests::*;
     DB::default().token_expect_test_debug_with_db(
-        |db, module_path| db.ast_token_idx_range_sheet(module_path),
+        |db, module_path: ModulePath| module_path.ast_token_idx_range_sheet(db),
         &TokenTestConfig::new("ast_range_sheet"),
     );
 }

@@ -1,5 +1,4 @@
 use serde::{Deserialize, Serialize};
-use std::fmt::Write;
 
 /// Line position in a document (zero-based)
 #[derive(Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize)]

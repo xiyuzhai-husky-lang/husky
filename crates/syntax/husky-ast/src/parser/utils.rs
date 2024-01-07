@@ -75,9 +75,6 @@ impl<'a> BasicAuxAstParser<'a> {
         self.token_iter.save_state()
     }
 
-    pub(crate) fn db(&self) -> &::salsa::Db {
-        self.db
-    }
     // todo: where to put this?
     pub(crate) fn parse_visibility_expr(&mut self) -> VisibilityExprResult<VisibilityExpr> {
         VisibilityExpr::parse_from_token_stream(self.db, self.module_path, &mut self.token_iter)

@@ -1,18 +1,13 @@
 use crate::*;
 use either::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
-use husky_entity_kind::FugitiveKind;
 use husky_entity_path::{
-    AssociatedItemPath, FugitivePath, MajorItemPath, PatternPath, PreludeIntTypePath,
-    PreludeNumTypePath, PreludeTypePath, PrincipalEntityPath, TraitForTypeItemPath, TraitItemPath,
-    TraitPath, TypeItemPath, TypePath, TypeSketch, TypeVariantPath,
+    AssociatedItemPath, FugitivePath, PreludeTypePath, TraitForTypeItemPath, TraitItemPath,
+    TypeItemPath, TypeVariantPath,
 };
 use husky_ethereal_signature::signature::HasEtherealSignatureTemplate;
-use husky_hir_decl::HasHirDecl;
 use husky_hir_ty::{ritchie::HirEagerContract, trai::HirTrait, HirType};
-use husky_javelin::{
-    javelin::JavelinData, path::JavelinPath, template_argument::constant::JavelinConstant,
-};
+use husky_javelin::template_argument::constant::JavelinConstant;
 use husky_linkage::{
     instantiation::{LinkageInstantiate, LinkageInstantiation, LinkageTermSymbolResolution},
     linkage::LinkageStructField,
@@ -28,8 +23,6 @@ use husky_linkage::{
     linkage::{package_linkages, Linkage, LinkageData},
     template_argument::ty::LinkageTypePathLeading,
 };
-use husky_vfs::{CrateKind, ModulePathData, PackagePathSource};
-use salsa::DebugWithDb;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
 pub(crate) fn package_linkages_transpilation(

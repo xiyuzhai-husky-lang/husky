@@ -11,10 +11,9 @@ pub use self::menu::*;
 pub use self::module_path::*;
 pub use self::package_path::*;
 pub use self::virtual_path::*;
-use ::salsa::Db;
-use husky_minimal_toml_utils::read_package_name_from_manifest;
 
 use crate::*;
+use husky_minimal_toml_utils::read_package_name_from_manifest;
 
 pub(crate) fn package_manifest_path(
     db: &::salsa::Db,

@@ -1,8 +1,8 @@
 use crate::*;
 use husky_entity_kind::FugitiveKind;
-use husky_entity_path::{FugitivePath, MajorItemPath, PrincipalEntityPath};
+use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 
-use husky_hir_defn::{FugitiveHirDefn, HasHirDefn, HirDefn, MajorItemHirDefn};
+use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
     helpers::control_flow::{HasControlFlow, HirLazyExprRegionControlFlowChart},
@@ -19,7 +19,6 @@ use husky_hir_ty::{
 use husky_linkage::{instantiation::LinkageInstantiation, linkage::Linkage};
 
 use husky_val::{ValOpn, ValPatternData, ValRuntimeConstant, ValRuntimeConstantData};
-use husky_vfs::ModulePath;
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::tracked(db = ValReprDb, jar = ValReprJar)]
@@ -750,7 +749,7 @@ fn runtime_constants(
 fn val_item_val_repr_expansions(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<(FugitivePath, Option<ValReprExpansion>)> {
+) -> Vec<(husky_entity_path::FugitivePath, Option<ValReprExpansion>)> {
     val_item_val_reprs(db, module_path)
         .into_iter()
         .map(|(path, val_repr)| (path, val_repr.expansion(db)))

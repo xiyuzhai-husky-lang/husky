@@ -3,7 +3,6 @@ use crate::*;
 use husky_entity_path::{FugitivePath, TypeVariantPath};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_linkage::linkage::Linkage;
-use husky_task_interface::val_repr::ValRuntimeConstantInterface;
 use husky_term_prelude::TermLiteral;
 use smallvec::SmallVec;
 
@@ -39,6 +38,8 @@ pub enum ValRuntimeConstantData {
 
 #[test]
 fn val_runtime_constants_works() {
+    use husky_task_interface::val_repr::ValRuntimeConstantInterface;
+
     assert_eq!(
         std::mem::size_of::<ValRuntimeConstant>(),
         std::mem::size_of::<ValRuntimeConstantInterface>(),

@@ -9,10 +9,9 @@ mod transformer;
 pub use self::dependency::*;
 pub use self::error::*;
 pub use self::menu::*;
-pub use self::sections::*;
 
+use self::sections::*;
 use self::transformer::*;
-
 use husky_toml_ast::*;
 use husky_vfs::{error::VfsResult, *};
 

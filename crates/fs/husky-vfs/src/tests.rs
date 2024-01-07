@@ -1,10 +1,8 @@
 use crate::{
-    db::VfsDbInner,
     // watch::{WatchedVfs, DEBOUNCE_TEST_SLEEP_TIME},
     *,
 };
 use husky_coword::CowordJar;
-use std::ops::Deref;
 
 #[salsa::db(VfsJar, CowordJar)]
 #[derive(Default)]

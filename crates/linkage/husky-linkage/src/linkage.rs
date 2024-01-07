@@ -5,18 +5,12 @@ use crate::{
 use either::*;
 use husky_coword::Ident;
 use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
-use husky_entity_path::{
-    AssociatedItemPath, FugitivePath, PreludeTraitPath, TypeVariantPath,
-};
+use husky_entity_path::{AssociatedItemPath, FugitivePath, PreludeTraitPath, TypeVariantPath};
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
-use husky_hir_decl::{
-    HasHirDecl, TypeHirDecl,
-};
+use husky_hir_decl::{HasHirDecl, TypeHirDecl};
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
 use husky_hir_expr::HirExprIdx;
-use husky_hir_ty::{
-    instantiation::HirInstantiation, HirType,
-};
+use husky_hir_ty::{instantiation::HirInstantiation, HirType};
 use husky_javelin::{
     javelin::{package_javelins, Javelin, JavelinData},
     path::JavelinPath,
@@ -315,7 +309,6 @@ impl Linkage {
     }
 }
 
-#[deprecated(note = "ad hoc implementation")]
 #[salsa::tracked(jar = LinkageJar, return_ref)]
 fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVec<[Linkage; 4]> {
     match *javelin.data(db) {
