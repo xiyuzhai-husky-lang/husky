@@ -35,7 +35,6 @@ pub struct EntitySynTreePresheet {
     use_one_rules: UseOneRules,
     use_all_rules: UseAllRules,
     use_expr_arena: UseExprArena,
-    errors: Vec<EntitySynTreeError>,
 }
 
 impl std::ops::Index<UseExprIdx> for EntitySynTreePresheet {
@@ -54,7 +53,7 @@ impl EntitySynTreePresheet {
             symbol_table: self.major_item_node_table.item_symbol_table(db),
             use_one_rules: self.use_one_rules.clone(),
             all_module_items_use_rules: self.use_all_rules.clone(),
-            errors: self.errors.clone(),
+            errors: vec![],
             use_expr_arena: &self.use_expr_arena,
         }
     }
@@ -157,7 +156,6 @@ impl<'a> EntityTreePresheetBuilder<'a> {
             use_one_rules: self.item_use_trackers,
             use_all_rules: Default::default(),
             use_expr_arena: self.use_expr_arena,
-            errors: self.registry.finish_with_errors(),
         }
     }
 

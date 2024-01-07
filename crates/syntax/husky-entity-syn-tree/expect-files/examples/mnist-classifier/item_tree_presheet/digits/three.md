@@ -386,5 +386,4 @@ EntitySynTreePresheet {
             ),
         ],
     },
-    errors: [],
 }

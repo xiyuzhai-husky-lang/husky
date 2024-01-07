@@ -337,5 +337,4 @@ EntitySynTreePresheet {
     use_expr_arena: Arena {
         data: [],
     },
-    errors: [],
 }

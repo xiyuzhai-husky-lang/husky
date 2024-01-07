@@ -1,12 +1,5 @@
-
-use vec_like::VecMapGetEntry;
-
 use super::*;
-
-pub struct TraitsInUse {
-    prelude_traits: TraitOrderedSet,
-    module_specific_traits: TraitOrderedSet,
-}
+use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]

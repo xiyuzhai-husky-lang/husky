@@ -1,6 +1,4 @@
-use crate::{
-    EntityTreeBundleError, ItemSynNodePath, PreludeError,
-};
+use crate::{EntityTreeBundleError, ItemSynNodePath, PreludeError};
 use husky_entity_path::{EntityPathError, TypePath};
 use husky_token::IdentToken;
 use husky_vfs::{error::VfsError, ModulePath, ToolchainError};
@@ -8,7 +6,6 @@ use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
-#[deprecated(note = "put this into syntax error")]
 pub enum EntitySynTreeError {
     #[error("original {0}")]
     Original(#[from] OriginalEntityTreeError),
