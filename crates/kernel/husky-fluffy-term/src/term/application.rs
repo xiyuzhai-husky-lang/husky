@@ -25,7 +25,6 @@ impl FluffyTerm {
             }
             _ => {
                 let data = match function.data(engine) {
-                    FluffyTermData::Literal(_) => todo!(),
                     FluffyTermData::TypeOntology {
                         ty_path: path,
                         refined_ty_path: refined_path,
@@ -40,53 +39,17 @@ impl FluffyTerm {
                             arguments,
                         }
                     }
-                    FluffyTermData::Curry {
-                        curry_kind,
-                        variance,
-                        parameter_rune,
-                        parameter_ty,
-                        return_ty,
-                        ty_ethereal_term,
-                    } => todo!(),
                     FluffyTermData::Hole(_, _) => todo!(),
-                    FluffyTermData::Category(_) => todo!(),
-                    FluffyTermData::Ritchie {
-                        ritchie_kind,
-                        parameter_contracted_tys,
-                        return_ty,
-                        ..
-                    } => todo!(),
                     FluffyTermData::Symbol { .. } => todo!(),
                     FluffyTermData::Rune { .. } => todo!(),
-                    FluffyTermData::TypeVariant { path } => todo!(),
+                    FluffyTermData::TypeVariant { .. } => todo!(),
+                    FluffyTermData::Category(_)
+                    | FluffyTermData::Literal(_)
+                    | FluffyTermData::Curry { .. }
+                    | FluffyTermData::Ritchie { .. } => unreachable!(),
                 };
                 Ok(HollowTerm::new(engine, data).into())
-            } // (FluffyTermBase::Ethereal(function), argument) => {
-              //     let expansion = function.application_expansion(db);
-              //     match expansion.function() {
-              //         TermFunctionReduced::TypeOntology(path) => {
-              //             let mut arguments: SmallVec<[FluffyTerm; 2]> = expansion
-              //                 .arguments(db)
-              //                 .iter()
-              //                 .copied()
-              //                 .map(Into::into)
-              //                 .collect();
-              //             arguments.push(argument.into());
-              //             Ok(engine.fluffy_term_region_mut().intern_unresolved_term(
-              //                 src,
-              //                 FluffyTermData::TypeOntology(FluffyTermTypeOntology {
-              //                     path,
-              //                     arguments,
-              //                 }),
-              //             ))
-              //         }
-              //         TermFunctionReduced::Trait(_) => todo!(),
-              //         TermFunctionReduced::Other(_) => todo!(),
-              //     }
-              // }
-              // (FluffyTerm::Unresolved(_), FluffyTermBase::Ethereal(_)) => todo!(),
-              // (FluffyTerm::Unresolved(_), FluffyTerm::Unresolved(_)) => todo!(),
-              // _ => todo!(),
+            }
         }
     }
 
