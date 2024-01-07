@@ -12,6 +12,7 @@ pub use self::major_item::*;
 pub use self::submodule::*;
 pub use self::ty_variant::*;
 
+use crate::helpers::paths::module_item_syn_node_paths;
 use crate::*;
 use enum_class::Room32;
 use husky_token::IdentToken;
@@ -30,7 +31,7 @@ pub enum ItemSynNodePath {
 }
 
 impl ItemSynNodePath {
-    pub fn syn_node<'a>(self, _db: &'a ::salsa::Db) -> &'a ItemSynNode {
+    pub(crate) fn syn_node<'a>(self, _db: &'a ::salsa::Db) -> &'a ItemSynNode {
         match self {
             ItemSynNodePath::Submodule(_, _) => todo!(),
             ItemSynNodePath::MajorItem(_) => todo!(),
@@ -94,8 +95,6 @@ impl ItemSynNodePathId {
 
 #[test]
 fn syn_node_path_id_conversion_works() {
-    use husky_entity_syn_tree::helpers::paths::module_item_syn_node_paths;
-
     DB::default().ast_plain_test(
         |db, module_path| {
             for &syn_node_path in module_item_syn_node_paths(db, module_path) {

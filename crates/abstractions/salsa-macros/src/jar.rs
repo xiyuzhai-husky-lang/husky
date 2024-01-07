@@ -126,7 +126,7 @@ pub(crate) fn jar_impl(
             const JAR_INDEX: ::salsa::jar::JarIndex = ::salsa::jar::JarIndex::#jar_struct;
         }
 
-        impl<'salsa_db> ::salsa::jar::Jar<'salsa_db> for #jar_struct {
+        impl ::salsa::jar::Jar for #jar_struct {
             fn initialize(&mut self, routes: &mut salsa::routes::Routes)
             {
                 #(#field_initializations)*

@@ -76,7 +76,7 @@ pub struct FunctionIngredient<C: Configuration> {
 }
 
 pub trait Configuration {
-    type Jar: for<'db> Jar<'db>;
+    type Jar: Jar;
 
     /// The "salsa struct type" that this function is associated with.
     /// This can be just `salsa::Id` for functions that intern their arguments
