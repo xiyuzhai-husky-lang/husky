@@ -84,12 +84,16 @@ fn crate_specific_prelude(
     let package_path = crate_path.package_path(db);
     let package_dependencies = package_path.dependencies(db)?;
     let mut entries: EntitySymbolTable = Default::default();
-    entries.push(EntitySymbolEntry::new_crate_root(db, crate_path));
+    entries
+        .push(EntitySymbolEntry::new_crate_root(db, crate_path))
+        .unwrap();
     for package_dependency in package_dependencies {
-        entries.push(EntitySymbolEntry::new_package_dependency(
-            db,
-            package_dependency,
-        )?);
+        entries
+            .push(EntitySymbolEntry::new_package_dependency(
+                db,
+                package_dependency,
+            )?)
+            .unwrap();
     }
     Ok(entries)
 }
