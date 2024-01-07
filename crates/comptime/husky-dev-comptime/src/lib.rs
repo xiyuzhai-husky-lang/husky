@@ -4,9 +4,7 @@ use self::db::DevComptimeDb;
 
 use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::{AssociatedItemPath, ItemPath, MajorItemPath};
-use husky_entity_syn_tree::helpers::{
-    ingredient::{HasIngredientPaths, IngredientPath},
-};
+use husky_entity_syn_tree::helpers::ingredient::{HasIngredientPaths, IngredientPath};
 use husky_linkage::linkage::Linkage;
 use husky_manifest::HasAllPackages;
 use husky_task::{
@@ -56,9 +54,10 @@ impl<Task: IsTask> DevComptime<Task> {
         let target = DevComptimeTarget::SingleCrate(target_crate_path);
         let target_path = match target {
             DevComptimeTarget::None => None,
-            DevComptimeTarget::SingleCrate(crate_path) => {
-                Some(LinktimeTargetPath::new_package(crate_path.package_path(&db), &db))
-            }
+            DevComptimeTarget::SingleCrate(crate_path) => Some(LinktimeTargetPath::new_package(
+                crate_path.package_path(&db),
+                &db,
+            )),
         };
         let ingredient_vals = target_path
             .map(|target_path| ingredient_vals(target_path, &db))
@@ -177,7 +176,7 @@ where
     fn default() -> Self {
         Self {
             target: DevComptimeTarget::None,
-            db: todo!(),
+            db: Default::default(),
             linktime: Default::default(),
             target_path: None,
             ingredient_vals: vec![],

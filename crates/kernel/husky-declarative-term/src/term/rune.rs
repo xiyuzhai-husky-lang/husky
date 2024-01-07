@@ -3,7 +3,6 @@ mod set;
 
 use crate::helpers::DeclarativeTermFamily;
 
-
 pub use self::set::*;
 
 use super::*;
@@ -73,7 +72,11 @@ impl DeclarativeTermRune {
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermRune {
-    fn substitute(self, _db: &::salsa::Db, _substituation: &DeclarativeTermSubstitution) -> Self {
+    fn substitute_copy(
+        self,
+        _db: &::salsa::Db,
+        _substituation: &DeclarativeTermSubstitution,
+    ) -> Self {
         todo!()
     }
 }

@@ -36,31 +36,31 @@ use crate::*;
 //     builder.finalize()
 // }
 
-pub(crate) struct InstructionBuilder<'a> {
-    db: &'a ::salsa::Db,
-    // sheet: Instructions,
-    // context: LocalValue<InstructionGenContext>,
-}
+// pub(crate) struct InstructionBuilder<'a> {
+//     db: &'a ::salsa::Db,
+//     // sheet: Instructions,
+//     // context: LocalValue<InstructionGenContext>,
+// }
 
-impl<'a> InstructionBuilder<'a> {
-    fn new(db: &'a ::salsa::Db, _inputs: impl Iterator<Item = Ident>, _has_this: bool) -> Self {
-        Self {
-            db,
-            // sheet: Instructions::new(inputs, has_this),
-            // context: LocalValue::new(InstructionGenContext::Normal),
-        }
-    }
+// impl<'a> InstructionBuilder<'a> {
+//     fn new(db: &'a ::salsa::Db, _inputs: impl Iterator<Item = Ident>, _has_this: bool) -> Self {
+//         Self {
+//             db,
+//             // sheet: Instructions::new(inputs, has_this),
+//             // context: LocalValue::new(InstructionGenContext::Normal),
+//         }
+//     }
 
-    fn subsheet_builder(&self) -> Self {
-        Self {
-            db: self.db,
-            // sheet: self.sheet.init_subsheet(),
-            // context: LocalValue::new(InstructionGenContext::Normal),
-        }
-    }
+//     fn subsheet_builder(&self) -> Self {
+//         Self {
+//             db: self.db,
+//             // sheet: self.sheet.init_subsheet(),
+//             // context: LocalValue::new(InstructionGenContext::Normal),
+//         }
+//     }
 
-    fn finalize(self) -> Instructions {
-        todo!()
-        // Arc::new(self.sheet)
-    }
-}
+//     fn finalize(self) -> Instructions {
+//         todo!()
+//         // Arc::new(self.sheet)
+//     }
+// }

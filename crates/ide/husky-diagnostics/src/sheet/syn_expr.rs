@@ -295,9 +295,6 @@ impl Diagnose for OriginalSynExprError {
             OriginalSynExprError::SelfValueNotAllowed(_) => {
                 format!("Syntax Error: SelfValueNotAllowed")
             }
-            OriginalSynExprError::ExpectedIdentAfterDot { .. } => {
-                format!("Syntax Error: ExpectedIdentAfterDot")
-            }
             OriginalSynExprError::ExpectedExprBeforeDot { .. } => {
                 format!("Syntax Error: ExpectedExprBeforeDot")
             }

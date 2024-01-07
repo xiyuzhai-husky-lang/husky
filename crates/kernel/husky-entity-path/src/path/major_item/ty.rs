@@ -34,7 +34,11 @@ impl TypePath {
     }
 
     pub fn eqs_lifetime_ty_path(self, db: &::salsa::Db) -> bool {
-        self.prelude_ty_path(db) == Some(PreludeTypePath::Lifetime)
+        self.prelude_ty_path(db) == Some(PreludeTypePath::LIFETIME)
+    }
+
+    pub fn eqs_place_ty_path(self, db: &::salsa::Db) -> bool {
+        self.prelude_ty_path(db) == Some(PreludeTypePath::PLACE)
     }
 
     pub fn crate_path(self, db: &::salsa::Db) -> CratePath {
@@ -139,6 +143,7 @@ pub enum PreludeTypePath {
     // RawBits
     Nat,
     Lifetime,
+    Place,
     Module,
     Trait,
     List,
@@ -159,6 +164,8 @@ impl PreludeTypePath {
     pub const SLICE: Self = PreludeTypePath::Container(PreludeContainerTypePath::Slice);
     pub const CYCLIC_SLICE: Self =
         PreludeTypePath::Container(PreludeContainerTypePath::CyclicSlice);
+    pub const LIFETIME: Self = PreludeTypePath::Lifetime;
+    pub const PLACE: Self = PreludeTypePath::Place;
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -279,7 +286,8 @@ fn prelude_ty_path(db: &::salsa::Db, path: TypePath) -> Option<PreludeTypePath> 
         path if path == menu.rsize_ty_path() => PreludeIntTypePath::RSize.into(),
         path if path == menu.f32_ty_path() => PreludeFloatTypePath::F32.into(),
         path if path == menu.f64_ty_path() => PreludeFloatTypePath::F64.into(),
-        path if path == menu.lifetime_ty_path() => PreludeTypePath::Lifetime.into(),
+        path if path == menu.lifetime_ty_path() => PreludeTypePath::LIFETIME,
+        path if path == menu.place_ty_path() => PreludeTypePath::PLACE,
         path if path == menu.module_ty_path() => PreludeTypePath::Module.into(),
         path if path == menu.trai_ty_path() => PreludeTypePath::Trait.into(),
         path if path == menu.ref_ty_path() => PreludeIndirectionTypePath::Ref.into(),

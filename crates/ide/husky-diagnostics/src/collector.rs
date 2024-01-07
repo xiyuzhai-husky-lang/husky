@@ -23,22 +23,8 @@ impl<'a> ModuleDiagnosticsCollector<'a> {
         RegionDiagnosticsCollector::new(db, syn_expr_region, self)
     }
 
-    pub(crate) fn visit_atom(
-        &mut self,
-        atom: &impl Diagnose<Context<'a> = SheetDiagnosticsContext<'a>>,
-    ) {
-        self.diagnostics.push(atom.to_diagnostic(&self.context));
-    }
     pub(crate) fn finish(self) -> Vec<Diagnostic> {
         self.diagnostics
-    }
-
-    pub(crate) fn db(&self) -> &'a ::salsa::Db {
-        self.context.db()
-    }
-
-    pub(crate) fn ctx(&self) -> &SheetDiagnosticsContext<'a> {
-        &self.context
     }
 }
 

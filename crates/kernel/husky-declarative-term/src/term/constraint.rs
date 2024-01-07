@@ -18,7 +18,11 @@ impl DeclarativeTermTraitConstraint {
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermTraitConstraint {
-    fn substitute(self, _db: &::salsa::Db, _substituation: &DeclarativeTermSubstitution) -> Self {
+    fn substitute_copy(
+        self,
+        _db: &::salsa::Db,
+        _substituation: &DeclarativeTermSubstitution,
+    ) -> Self {
         todo!()
     }
 }

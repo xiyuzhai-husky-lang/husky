@@ -158,6 +158,7 @@ impl<'a> SemaExprEngine<'a> {
                     PreludeTypePath::Indirection(_) => todo!(),
                     PreludeTypePath::Nat => todo!(),
                     PreludeTypePath::Lifetime => todo!(),
+                    PreludeTypePath::Place => todo!(),
                     PreludeTypePath::Module => todo!(),
                     PreludeTypePath::Trait => todo!(),
                     PreludeTypePath::List => todo!(),

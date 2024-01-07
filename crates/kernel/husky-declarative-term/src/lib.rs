@@ -8,13 +8,13 @@ mod menu;
 mod rewrite;
 mod term;
 
-pub use self::context::*;
 pub use self::db::*;
 pub use self::error::*;
 pub use self::menu::*;
 pub use self::rewrite::*;
 pub use self::term::*;
 
+use self::context::*;
 use husky_coword::*;
 use husky_term_prelude::*;
 use husky_vfs::Toolchain;

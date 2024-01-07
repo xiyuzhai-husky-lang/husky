@@ -114,7 +114,11 @@ impl salsa::DisplayWithDb for DeclarativeRitchieParameter {
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermRitchie {
-    fn substitute(self, _db: &::salsa::Db, _substituation: &DeclarativeTermSubstitution) -> Self {
+    fn substitute_copy(
+        self,
+        _db: &::salsa::Db,
+        _substituation: &DeclarativeTermSubstitution,
+    ) -> Self {
         todo!()
     }
 }

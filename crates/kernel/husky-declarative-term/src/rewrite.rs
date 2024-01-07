@@ -9,7 +9,8 @@ pub trait DeclarativeTermRewrite: Sized {
 }
 
 pub trait DeclarativeTermRewriteCopy: Copy {
-    fn substitute(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self;
+    fn substitute_copy(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution)
+        -> Self;
 }
 
 impl<T> DeclarativeTermRewrite for T
@@ -17,12 +18,12 @@ where
     T: DeclarativeTermRewriteCopy,
 {
     fn substitute(&self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self {
-        self.substitute(db, substituation)
+        self.substitute_copy(db, substituation)
     }
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTerm {
-    fn substitute(self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self {
+    fn substitute_copy(self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self {
         match self {
             DeclarativeTerm::Rune(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),
@@ -34,13 +35,15 @@ impl DeclarativeTermRewriteCopy for DeclarativeTerm {
             | DeclarativeTerm::Category(_)
             | DeclarativeTerm::Universe(_)
             | DeclarativeTerm::LeashOrBitNot(_) => self,
-            DeclarativeTerm::Curry(term) => term.substitute(db, substitution).into(),
-            DeclarativeTerm::Abstraction(term) => term.substitute(db, substitution).into(),
-            DeclarativeTerm::ExplicitApplication(term) => term.substitute(db, substitution).into(),
+            DeclarativeTerm::Curry(term) => term.substitute_copy(db, substitution).into(),
+            DeclarativeTerm::Abstraction(term) => term.substitute_copy(db, substitution).into(),
+            DeclarativeTerm::ExplicitApplication(term) => {
+                term.substitute_copy(db, substitution).into()
+            }
             DeclarativeTerm::ExplicitApplicationOrRitchieCall(_term) => todo!(),
-            DeclarativeTerm::Subitem(term) => term.substitute(db, substitution).into(),
-            DeclarativeTerm::AsTraitSubitem(term) => term.substitute(db, substitution).into(),
-            DeclarativeTerm::TraitConstraint(term) => term.substitute(db, substitution).into(),
+            DeclarativeTerm::Subitem(term) => term.substitute_copy(db, substitution).into(),
+            DeclarativeTerm::AsTraitSubitem(term) => term.substitute_copy(db, substitution).into(),
+            DeclarativeTerm::TraitConstraint(term) => term.substitute_copy(db, substitution).into(),
             DeclarativeTerm::Ritchie(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
             DeclarativeTerm::Wrapper(_) => todo!(),

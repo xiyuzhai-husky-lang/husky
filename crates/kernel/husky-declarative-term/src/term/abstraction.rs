@@ -23,7 +23,11 @@ impl DeclarativeTermAbstraction {
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermAbstraction {
-    fn substitute(self, _db: &::salsa::Db, _substituation: &DeclarativeTermSubstitution) -> Self {
+    fn substitute_copy(
+        self,
+        _db: &::salsa::Db,
+        _substituation: &DeclarativeTermSubstitution,
+    ) -> Self {
         todo!()
     }
 }

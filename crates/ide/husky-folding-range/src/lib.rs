@@ -5,9 +5,7 @@ mod tests;
 
 pub use error::*;
 
-use calc::*;
-use husky_ast::AstDb;
-
+use self::calc::*;
 use husky_token::TokenDb;
 use husky_vfs::*;
 use lsp_types::FoldingRange;

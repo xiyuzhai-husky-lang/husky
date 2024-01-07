@@ -45,14 +45,14 @@ impl salsa::DisplayWithDb for DeclarativeTermExplicitApplication {
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermExplicitApplication {
-    fn substitute(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self
+    fn substitute_copy(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self
     where
         Self: Copy,
     {
         let old_m = self.function(db);
-        let m = old_m.substitute(db, substituation);
+        let m = old_m.substitute_copy(db, substituation);
         let old_n = self.argument(db);
-        let n = old_n.substitute(db, substituation);
+        let n = old_n.substitute_copy(db, substituation);
         if old_m == m && old_n == n {
             return self;
         }

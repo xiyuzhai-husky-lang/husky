@@ -21,14 +21,14 @@ impl DeclarativeTermAsTraitSubitem {
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermAsTraitSubitem {
-    fn substitute(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self
+    fn substitute_copy(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self
     where
         Self: Copy,
     {
         let old_parent = self.parent(db);
-        let parent = old_parent.substitute(db, substituation);
+        let parent = old_parent.substitute_copy(db, substituation);
         let old_trai = self.trai(db);
-        let trai = old_trai.substitute(db, substituation);
+        let trai = old_trai.substitute_copy(db, substituation);
         if old_parent == parent && old_trai == trai {
             return self;
         }
