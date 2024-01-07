@@ -12,7 +12,6 @@ pub use self::major_item::*;
 pub use self::submodule::*;
 pub use self::ty_variant::*;
 
-use crate::helpers::paths::module_item_syn_node_paths;
 use crate::*;
 use enum_class::Room32;
 use husky_token::IdentToken;
@@ -28,19 +27,6 @@ pub enum ItemSynNodePath {
     ImplBlock(ImplBlockSynNodePath),
     AssociatedItem(AssociatedItemSynNodePath),
     Attr(Room32, AttrSynNodePath),
-}
-
-impl ItemSynNodePath {
-    pub(crate) fn syn_node<'a>(self, _db: &'a ::salsa::Db) -> &'a ItemSynNode {
-        match self {
-            ItemSynNodePath::Submodule(_, _) => todo!(),
-            ItemSynNodePath::MajorItem(_) => todo!(),
-            ItemSynNodePath::TypeVariant(_, _) => todo!(),
-            ItemSynNodePath::ImplBlock(_) => todo!(),
-            ItemSynNodePath::AssociatedItem(_) => todo!(),
-            ItemSynNodePath::Attr(_, _) => todo!(),
-        }
-    }
 }
 
 impl std::ops::Deref for ItemSynNodePath {
@@ -95,6 +81,12 @@ impl ItemSynNodePathId {
 
 #[test]
 fn syn_node_path_id_conversion_works() {
+    use crate::helpers::paths::module_item_syn_node_paths;
+
+    println!(
+        "TypeId::of::<EntitySynTreeJar>() = {:?}",
+        std::any::TypeId::of::<EntitySynTreeJar>()
+    );
     DB::default().ast_plain_test(
         |db, module_path| {
             for &syn_node_path in module_item_syn_node_paths(db, module_path) {
