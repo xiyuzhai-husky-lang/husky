@@ -1,5 +1,4 @@
 use crate::*;
-use husky_sema_expr::SemaExprDb;
 
 pub trait DiagnosticsDb {
     fn diagnostic_sheet(&self, module_path: ModulePath) -> DiagnosticSheet;
