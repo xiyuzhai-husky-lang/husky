@@ -26,7 +26,7 @@ pub use self::subtype::*;
 
 use super::*;
 use husky_print_utils::p;
-use idx_arena::{Arena, ArenaIdx};
+use idx_arena::ArenaIdx;
 use thiserror::Error;
 
 #[salsa::debug_with_db]
@@ -163,25 +163,6 @@ pub enum ExpectationOutcome {
     FinalDestination(ExpectFinalDestinationOutcome),
     AnyOriginal(ExpectAnyOriginalOutcome),
     AnyDerived(ExpectAnyDerivedOutcome),
-}
-
-impl ExpectationOutcome {
-    fn resolved(&self) -> Option<EtherealTerm> {
-        match self {
-            ExpectationOutcome::ExplicitlyConvertible(_) => todo!(),
-            ExpectationOutcome::Coersion(_) => todo!(),
-            ExpectationOutcome::EqsSort(_) => todo!(),
-            ExpectationOutcome::Subtype(result) => result.resolved(),
-            ExpectationOutcome::EqsFunctionCallType(_) => todo!(),
-            ExpectationOutcome::EqsRitchieCallType(_) => todo!(),
-            ExpectationOutcome::IntType(_) => todo!(),
-            ExpectationOutcome::ConditionType(_) => todo!(),
-            ExpectationOutcome::CurryDestination(_) => todo!(),
-            ExpectationOutcome::FinalDestination(_) => todo!(),
-            ExpectationOutcome::AnyDerived(_) => todo!(),
-            ExpectationOutcome::AnyOriginal(_) => todo!(),
-        }
-    }
 }
 
 #[derive(Debug, PartialEq, Eq)]

@@ -1,5 +1,5 @@
 use super::*;
-use idx_arena::{Arena, ArenaIdx};
+use idx_arena::Arena;
 
 #[salsa::debug_with_db]
 #[derive(Default, Debug, PartialEq, Eq)]

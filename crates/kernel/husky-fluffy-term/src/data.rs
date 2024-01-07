@@ -66,9 +66,9 @@ impl<'a> FluffyTermData<'a> {
                 None => {
                     use std::fmt::Write;
                     let mut s = String::default();
-                    write!(s, "{}", ty_path.ident(db).data(db));
+                    write!(s, "{}", ty_path.ident(db).data(db)).unwrap();
                     for ty_argument in ty_arguments.iter() {
-                        write!(s, " {}", ty_argument.show(db, terms));
+                        write!(s, " {}", ty_argument.show(db, terms)).unwrap();
                     }
                     s
                 }

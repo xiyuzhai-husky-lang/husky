@@ -2,9 +2,6 @@ mod ethereal;
 mod hollow;
 mod solid;
 
-use self::ethereal::*;
-use self::hollow::*;
-use self::solid::*;
 use super::*;
 use husky_coword::Ident;
 use husky_ethereal_signature::{HasTypeItemTemplates, TypeItemEtherealSignatureTemplates};
@@ -60,7 +57,7 @@ impl FluffyTerm {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_rune: parameter_rune,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,

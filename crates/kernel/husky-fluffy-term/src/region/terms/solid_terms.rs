@@ -1,6 +1,5 @@
 use super::*;
-use salsa::DisplayWithDb;
-use vec_like::{AsVecMapEntry, VecMap, VecSet};
+use vec_like::VecSet;
 
 // `Default` is not implemented because we might need to initialize it from the parent
 #[derive(Debug, PartialEq, Eq)]

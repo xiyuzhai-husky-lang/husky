@@ -1,5 +1,4 @@
 use super::*;
-use vec_like::VecSet;
 
 // `Default` is derived because we never inherited hollow terms
 #[salsa::debug_with_db]
@@ -150,7 +149,7 @@ impl HollowTerms {
             HollowTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_rune: parameter_rune,
+                parameter_rune,
                 parameter_ty,
                 return_ty,
             } => {
@@ -375,14 +374,6 @@ pub struct HollowTermEntry {
 impl HollowTermEntry {
     pub fn data(&self) -> &HollowTermData {
         &self.data
-    }
-
-    pub(crate) fn resolve_progress(&self) -> Option<FluffyTerm> {
-        todo!()
-        // match self.resolve_progress {
-        //     Ok(resolve_progress) => Some(resolve_progress),
-        //     Err(_) => None,
-        // }
     }
 
     pub(crate) fn is_resolved(&self) -> bool {
