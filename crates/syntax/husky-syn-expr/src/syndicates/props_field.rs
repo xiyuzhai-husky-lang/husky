@@ -146,7 +146,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldVi
         let Some(pub_token) = ctx.try_parse_option::<PubRegionalToken>()? else {
             return Ok(None);
         };
-        let Some(lpar_token) = ctx.try_parse_option::<LparRegionalToken>()? else {
+        let Some(_lpar_token) = ctx.try_parse_option::<LparRegionalToken>()? else {
             return Ok(Some(FieldVisibilityExpr::Pub { pub_token }));
         };
         todo!()

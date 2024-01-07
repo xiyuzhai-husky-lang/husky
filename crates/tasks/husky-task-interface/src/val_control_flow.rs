@@ -25,7 +25,7 @@ impl<C, B, E> std::ops::Try for ValControlFlow<C, B, E> {
 
     type Residual = ValControlFlow<Infallible, B, E>;
 
-    fn from_output(output: Self::Output) -> Self {
+    fn from_output(_output: Self::Output) -> Self {
         todo!()
     }
 

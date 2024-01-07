@@ -33,7 +33,7 @@ pub use self::syndicates::*;
 use self::snippet::*;
 use husky_coword::*;
 use husky_entity_path::{EntityPath, MajorItemPath, PrincipalEntityPath};
-use husky_entity_syn_tree::{helpers::tokra_region::*, *};
+use husky_entity_syn_tree::{*};
 use husky_regional_token::*;
 use husky_syn_opr::*;
 use husky_term_prelude::*;

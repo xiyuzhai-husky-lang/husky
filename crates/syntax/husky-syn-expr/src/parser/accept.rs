@@ -390,9 +390,9 @@ where
                 match self.last_incomplete_expr_mut() {
                     Some(expr) => match expr {
                         IncompleteSynExpr::CommaList {
-                            opr,
-                            bra,
-                            bra_regional_token_idx,
+                            opr: _,
+                            bra: _,
+                            bra_regional_token_idx: _,
                             items,
                         } => {
                             items.push(SynCommaListItem::new(item, Some(comma_regional_token_idx)))
@@ -412,10 +412,10 @@ where
             None => match self.last_incomplete_expr_mut() {
                 Some(expr) => match expr {
                     IncompleteSynExpr::CommaList {
-                        opr,
-                        bra,
-                        bra_regional_token_idx,
-                        items,
+                        opr: _,
+                        bra: _,
+                        bra_regional_token_idx: _,
+                        items: _,
                     } => todo!(),
                     IncompleteSynExpr::CallList { items, .. } => match items.last_mut() {
                         Some(last_item) => match last_item.separator() {

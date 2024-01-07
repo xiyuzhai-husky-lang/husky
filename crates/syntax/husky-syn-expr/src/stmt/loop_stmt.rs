@@ -169,7 +169,7 @@ impl SynForextParticulars {
 impl<'a> SynStmtContext<'a> {
     pub(super) fn parse_for_loop_stmt(
         &mut self,
-        token_group_idx: RegionalTokenGroupIdx,
+        _token_group_idx: RegionalTokenGroupIdx,
         for_token: StmtForRegionalToken,
         expr: SynExprIdx,
         eol_colon: SynExprResult<EolRegionalToken>,
@@ -179,7 +179,7 @@ impl<'a> SynStmtContext<'a> {
             SynExprData::Binary {
                 lopd,
                 opr: SynBinaryOpr::Comparison(comparison_opr),
-                opr_regional_token_idx,
+                opr_regional_token_idx: _,
                 ropd,
             } => {
                 let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr);
@@ -223,10 +223,10 @@ impl<'a> SynStmtContext<'a> {
                 }
             }
             SynExprData::Binary {
-                lopd,
+                lopd: _,
                 opr: SynBinaryOpr::In,
-                opr_regional_token_idx,
-                ropd,
+                opr_regional_token_idx: _,
+                ropd: _,
             } => SynStmtData::ForIn {
                 for_token,
                 condition: todo!(),
@@ -282,7 +282,7 @@ impl<'a> SynStmtContext<'a> {
                 SynExprData::Binary {
                     lopd: llopd,
                     opr: SynBinaryOpr::Comparison(initial_comparison),
-                    opr_regional_token_idx,
+                    opr_regional_token_idx: _,
                     ropd: lropd,
                 } => {
                     let lropd_expr = &self.syn_expr_arena()[lropd];
@@ -311,7 +311,7 @@ impl<'a> SynStmtContext<'a> {
 
     pub(super) fn parse_forext_loop_stmt(
         &mut self,
-        token_group_idx: RegionalTokenGroupIdx,
+        _token_group_idx: RegionalTokenGroupIdx,
         forext_token: ForextRegionalToken,
         expr: SynExprIdx,
         eol_colon: SynExprResult<EolRegionalToken>,
@@ -320,7 +320,7 @@ impl<'a> SynStmtContext<'a> {
         let SynExprData::Binary {
             lopd: forext_loop_var_expr_idx,
             opr: SynBinaryOpr::Comparison(opr),
-            opr_regional_token_idx,
+            opr_regional_token_idx: _,
             ropd: bound_expr,
         } = self.syn_expr_arena()[expr]
         else {
@@ -331,14 +331,14 @@ impl<'a> SynStmtContext<'a> {
                 SynExprData::InheritedSynSymbol {
                     ident,
                     regional_token_idx,
-                    inherited_syn_symbol_idx,
-                    inherited_syn_symbol_kind,
+                    inherited_syn_symbol_idx: _,
+                    inherited_syn_symbol_kind: _,
                 } => (ident, regional_token_idx),
                 SynExprData::CurrentSynSymbol {
                     ident,
                     regional_token_idx,
-                    current_syn_symbol_idx,
-                    current_syn_symbol_kind,
+                    current_syn_symbol_idx: _,
+                    current_syn_symbol_kind: _,
                 } => (ident, regional_token_idx),
                 _ => todo!(),
             };

@@ -14,18 +14,18 @@ impl SynPatternExprData {
             SynPatternExprData::TupleStruct { .. } => todo!(),
             // ad hoc
             SynPatternExprData::TupleTypeVariant { .. } => TermContract::Pure,
-            SynPatternExprData::Props { name, ref fields } => todo!(),
+            SynPatternExprData::Props { name: _, fields: _ } => todo!(),
             // ad hoc
-            SynPatternExprData::OneOf { options } => TermContract::Pure,
+            SynPatternExprData::OneOf { options: _ } => TermContract::Pure,
             SynPatternExprData::Binding {
-                ident_token,
-                asperand_token,
-                src,
+                ident_token: _,
+                asperand_token: _,
+                src: _,
             } => todo!(),
             SynPatternExprData::Range {
-                start,
-                dot_dot_token,
-                end,
+                start: _,
+                dot_dot_token: _,
+                end: _,
             } => todo!(),
         }
     }
