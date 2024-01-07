@@ -23,7 +23,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprDataResult<Option<FluffyInstantiation>>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let db = self.db;
+        let db = self.db();
         match path {
             PrincipalEntityPath::Module(_) => unreachable!(),
             PrincipalEntityPath::MajorItem(path) => match path {
@@ -31,7 +31,7 @@ impl<'a> SemaExprEngine<'a> {
                     // for ontology constructor, we don't need to fill in template parameters
                     TypePathDisambiguation::OntologyConstructor => (
                         Ok(None),
-                        path.ty(self.db, ty_path_disambiguation)
+                        path.ty(db, ty_path_disambiguation)
                             .map(Into::into)
                             .map_err(Into::into),
                     ),
@@ -138,8 +138,9 @@ impl<'a> SemaExprEngine<'a> {
         path: TypeVariantPath,
         expr_ty_expectation: &impl ExpectFluffyTerm,
     ) -> SemaExprTypeResult<FluffyTerm> {
-        let parent_ty_path = path.parent_ty_path(self.db);
-        match path.ethereal_signature_template(self.db)? {
+        let db = self.db();
+        let parent_ty_path = path.parent_ty_path(db);
+        match path.ethereal_signature_template(db)? {
             TypeVariantEtherealSignatureTemplate::Props(_) => todo!(),
             TypeVariantEtherealSignatureTemplate::Unit(_) => {
                 match expr_ty_expectation.destination() {
@@ -149,12 +150,12 @@ impl<'a> SemaExprEngine<'a> {
                         {
                             Ok(destination)
                         }
-                        _ => Ok(path.ty(self.db)?.into()),
+                        _ => Ok(path.ty(db)?.into()),
                     },
-                    None => Ok(path.ty(self.db)?.into()),
+                    None => Ok(path.ty(db)?.into()),
                 }
             }
-            TypeVariantEtherealSignatureTemplate::Tuple(_) => Ok(path.ty(self.db)?.into()),
+            TypeVariantEtherealSignatureTemplate::Tuple(_) => Ok(path.ty(db)?.into()),
         }
     }
 }

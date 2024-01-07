@@ -40,7 +40,7 @@ pub(crate) struct SemaExprEngine<'a> {
     stack_location_registry: StackLocationRegistry,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
-    sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
+    pub(crate) sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
     fluffy_term_region: FluffyTermRegion,
     sema_expr_term_results: VecPairMap<SemaExprIdx, SemaExprTermResult<FluffyTerm>>,
     symbol_terms: SymbolMap<FluffyTerm>,
@@ -49,7 +49,7 @@ pub(crate) struct SemaExprEngine<'a> {
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
     pattern_expr_contracts: SynPatternExprMap<TermContract>,
     return_ty: Option<EtherealTerm>,
-    unveiler: Unveiler,
+    pub(crate) unveiler: Unveiler,
     self_ty: Option<EtherealTerm>,
     self_value: Option<EtherealTermSymbol>,
     self_value_ty: Option<FluffyTerm>,
@@ -207,60 +207,56 @@ impl<'a> SemaExprEngine<'a> {
         self.infer_all_exprs()
     }
 
-    fn infer_all_exprs(&mut self) {
-        for root in self.syn_expr_region_data.syn_expr_roots() {
-            let sema_expr_idx = match root.kind() {
-                SynExprRootKind::SelfType
-                | SynExprRootKind::ReturnType
-                | SynExprRootKind::ReturnType
-                | SynExprRootKind::PropsStructFieldType { .. }
-                | SynExprRootKind::TupleStructFieldType
-                | SynExprRootKind::ConstantImplicitParameterType
-                | SynExprRootKind::ExplicitParameterType
-                | SynExprRootKind::AssociatedTypeTerm => {
-                    let sema_expr_idx = self.build_sema_expr(
-                        root.syn_expr_idx(),
-                        ExpectEqsCategory::new_expect_eqs_ty_kind(),
-                    );
-                    self.infer_expr_term(sema_expr_idx);
-                    sema_expr_idx
-                }
-                SynExprRootKind::Trait => {
-                    let sema_expr_idx =
-                        self.build_sema_expr(root.syn_expr_idx(), ExpectAnyOriginal);
-                    self.infer_expr_term(sema_expr_idx);
-                    sema_expr_idx
-                }
-                SynExprRootKind::BlockExpr => match self.return_ty {
-                    Some(return_ty) => self.build_sema_expr(
-                        root.syn_expr_idx(),
-                        ExpectCoersion::new_move(return_ty.into()),
-                    ),
-                    None => self.build_sema_expr(root.syn_expr_idx(), ExpectAnyDerived),
-                },
-                SynExprRootKind::FieldBindInitialValue { ty_syn_expr_idx }
-                | SynExprRootKind::ExplicitParameterDefaultValue { ty_syn_expr_idx } => {
-                    let (ty_sema_expr_idx, _) = self.sema_expr_roots[ty_syn_expr_idx].1;
-                    match self.infer_expr_term(ty_sema_expr_idx) {
-                        Some(ty) => {
-                            self.build_sema_expr(root.syn_expr_idx(), ExpectCoersion::new_move(ty))
-                        }
-                        _ => todo!(),
-                    }
-                }
-                SynExprRootKind::ReturnExpr
-                | SynExprRootKind::Condition
-                | SynExprRootKind::HtmlArgumentExpr
-                | SynExprRootKind::LetStmtType
-                | SynExprRootKind::LetStmtInitialValue
-                | SynExprRootKind::EvalExpr => continue,
-                SynExprRootKind::Snippet => todo!(),
-                SynExprRootKind::ValExpr => todo!(),
-            };
-            self.sema_expr_roots
-                .insert_new((root.syn_expr_idx(), (sema_expr_idx, root.kind())))
-                .expect("impossible")
-        }
+    pub(crate) fn alloc_sema_expr(
+        &mut self,
+        data_result: Result<SemaExprData, SemaExprDataError>,
+        immediate_ty_result: Result<FluffyTerm, SemaExprTypeError>,
+        expectation_idx_and_ty: Option<(FluffyTermExpectationIdx, FluffyTerm)>,
+    ) -> SemaExprIdx {
+        let sema_expr_idx = self.sema_expr_arena.alloc_one(
+            data_result,
+            immediate_ty_result,
+            expectation_idx_and_ty,
+        );
+        self.fluffy_term_region
+            .resolve_as_much_as_possible(self.db());
+        sema_expr_idx
+    }
+
+    pub(crate) fn db(&self) -> &'a ::salsa::Db {
+        self.db
+    }
+
+    pub(crate) fn expr_region_data(&self) -> &SynExprRegionData {
+        self.syn_expr_region_data
+    }
+
+    pub(crate) fn item_path_menu(&self) -> &ItemPathMenu {
+        self.item_path_menu
+    }
+
+    pub(crate) fn toolchain(&self) -> Toolchain {
+        self.toolchain
+    }
+
+    pub(crate) fn eth_term_menu(&self) -> &EtherealTermMenu {
+        self.term_menu
+    }
+
+    pub(crate) fn token_data(&self, regional_token_idx: RegionalTokenIdx) -> TokenData {
+        self.regional_tokens_data[regional_token_idx]
+    }
+
+    pub(crate) fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
+        self.syn_expr_region_data
+    }
+
+    pub(crate) fn add_symbol_ty(&mut self, symbol_idx: CurrentSynSymbolIdx, symbol_ty: SymbolType) {
+        self.symbol_tys.insert_new(symbol_idx, symbol_ty)
+    }
+
+    pub(crate) fn sema_expr_arena(&self) -> &SemaExprArena {
+        &self.sema_expr_arena
     }
 
     pub(crate) fn finish(mut self) -> SemaExprRegion {
@@ -285,40 +281,20 @@ impl<'a> SemaExprEngine<'a> {
         )
     }
 
-    pub(crate) fn db(&self) -> &'a ::salsa::Db {
-        self.db
+    pub(crate) fn return_ty(&self) -> Option<EtherealTerm> {
+        self.return_ty
     }
 
-    pub(crate) fn expr_region_data(&self) -> &SynExprRegionData {
-        self.syn_expr_region_data
+    pub(crate) fn symbol_tys(&self) -> &SymbolMap<SymbolType> {
+        &self.symbol_tys
     }
 
-    pub(crate) fn item_path_menu(&self) -> &ItemPathMenu {
-        self.item_path_menu
+    pub(crate) fn self_ty(&self) -> Option<EtherealTerm> {
+        self.self_ty
     }
 
-    pub(crate) fn toolchain(&self) -> Toolchain {
-        self.toolchain
-    }
-
-    pub(crate) fn eth_term_menu(&self) -> &EtherealTermMenu {
-        self.term_menu
-    }
-
-    fn token_data(&self, regional_token_idx: RegionalTokenIdx) -> TokenData {
-        self.regional_tokens_data[regional_token_idx]
-    }
-
-    pub(crate) fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
-        self.syn_expr_region_data
-    }
-
-    pub(crate) fn add_symbol_ty(&mut self, symbol_idx: CurrentSynSymbolIdx, symbol_ty: SymbolType) {
-        self.symbol_tys.insert_new(symbol_idx, symbol_ty)
-    }
-
-    pub(crate) fn sema_expr_arena(&self) -> &SemaExprArena {
-        &self.sema_expr_arena
+    pub(crate) fn self_value_ty(&self) -> Option<FluffyTerm> {
+        self.self_value_ty
     }
 }
 

@@ -40,7 +40,7 @@ impl<'a> SemaExprEngine<'a> {
                     ty_result,
                 ),
                 Err(e) => {
-                    p!(e);
+                    husky_print_utils::p!(e);
                     todo!()
                 }
             },

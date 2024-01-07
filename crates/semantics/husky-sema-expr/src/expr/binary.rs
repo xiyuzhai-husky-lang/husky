@@ -33,7 +33,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
         SemaExprTypeResult<FluffyTerm>,
     ) {
-        let menu = self.term_menu;
+        let menu = self.term_menu();
         match opr {
             SynBinaryOpr::Closed(opr) => self.calc_binary_closed_expr_ty(lopd, ropd, opr, menu),
             SynBinaryOpr::Shift(opr) => self.calc_binary_shift_expr_ty(lopd, ropd, opr, menu),
@@ -79,7 +79,7 @@ impl<'a> SemaExprEngine<'a> {
             SemaBinaryOpr::ShortCircuitLogic(opr),
             ropd_sema_expr_idx,
             Ok(SemaBinaryOprDynamicDispatch::builtin()),
-            Ok(self.term_menu.bool_ty_ontology().into()),
+            Ok(self.term_menu().bool_ty_ontology().into()),
         )
     }
 
@@ -126,7 +126,7 @@ impl<'a> SemaExprEngine<'a> {
             SemaBinaryOpr::Ins,
             ropd_sema_expr_idx,
             todo!(),
-            Ok(self.term_menu.prop().into()),
+            Ok(self.term_menu().prop().into()),
         )
     }
 
@@ -223,7 +223,7 @@ impl<'a> SemaExprEngine<'a> {
         //         self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
         //     }
         // };
-        // Ok(self.term_menu.unit().into())
+        // Ok(self.term_menu().unit().into())
     }
 
     fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: FluffyTerm, ropd: SynExprIdx) {

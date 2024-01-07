@@ -85,7 +85,7 @@ impl<'a> SemaExprEngine<'a> {
             SemaBinaryOpr::AssignClosed(opr),
             ropd_sema_expr_idx,
             Ok(SemaBinaryOprDynamicDispatch::builtin()),
-            Ok(self.term_menu.unit_ty_ontology().into()),
+            Ok(self.term_menu().unit_ty_ontology().into()),
         )
     }
 }

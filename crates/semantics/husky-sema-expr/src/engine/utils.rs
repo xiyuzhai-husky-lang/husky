@@ -16,7 +16,7 @@ impl<'a> SemaExprEngine<'a> {
 #[macro_use]
 macro_rules! print_debug_expr {
     ($self: expr, $expr_idx: expr) => {{
-        p!(
+        ::husky_print_utils::p!(
             $self.path(),
             $self.expr_region_data()[$expr_idx].debug($self.db())
         );

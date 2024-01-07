@@ -108,6 +108,6 @@ impl<'a> SemaExprEngine<'a> {
             FluffyTermData::Rune { .. } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
-        Ok(self.term_menu.unit_ty_ontology().into())
+        Ok(self.term_menu().unit_ty_ontology().into())
     }
 }

@@ -12,7 +12,7 @@ use super::*;
 
 impl<'a> SemaExprEngine<'a> {
     /// perform this during finish stage
-    pub(super) fn infer_expr_term(&mut self, sema_expr_idx: SemaExprIdx) -> Option<FluffyTerm> {
+    pub(crate) fn infer_expr_term(&mut self, sema_expr_idx: SemaExprIdx) -> Option<FluffyTerm> {
         if let Some(term_result) = self.sema_expr_term_results.get_value(sema_expr_idx) {
             return term_result.as_ref().ok().copied();
         }
