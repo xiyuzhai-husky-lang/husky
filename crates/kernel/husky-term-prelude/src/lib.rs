@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 mod category;
 mod contract;
 mod curry;

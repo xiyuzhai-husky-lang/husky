@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 pub mod expansion;
 pub mod jar;
 pub mod repr;

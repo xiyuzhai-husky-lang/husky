@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 #![feature(associated_type_bounds)]
 pub mod instantiation;
 pub mod jar;

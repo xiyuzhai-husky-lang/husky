@@ -1,6 +1,5 @@
 #![feature(let_chains)]
 #![feature(stmt_expr_attributes)]
-#![feature(trait_upcasting)]
 mod bundle;
 mod collector;
 mod context;
@@ -49,4 +48,3 @@ use husky_token_data::*;
 use husky_vfs::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DebugWithDb;
-

@@ -1,5 +1,4 @@
 #![feature(step_trait)]
-#![feature(trait_upcasting)]
 #![feature(const_trait_impl)]
 mod db;
 mod helpers;
@@ -35,4 +34,4 @@ use husky_coword::Ident;
 use husky_term_prelude::*;
 use husky_text_protocol::range::TextRange;
 use husky_token_data::*;
-use husky_vfs::{ModulePath};
+use husky_vfs::ModulePath;

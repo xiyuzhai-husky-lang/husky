@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 #![feature(const_trait_impl)]
 pub mod db;
 mod error;

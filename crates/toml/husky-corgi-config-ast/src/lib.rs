@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 mod db;
 mod error;
 mod menu;

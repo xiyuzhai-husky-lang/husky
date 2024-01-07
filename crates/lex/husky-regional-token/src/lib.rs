@@ -1,7 +1,6 @@
 //! `Region` is a concept coined to achieve fast incremental compilation, it is the smallest unit of change.
 //!
 //!
-#![feature(trait_upcasting)]
 mod base;
 #[cfg(test)]
 mod tests;
@@ -24,7 +23,7 @@ use husky_coword::Ident;
 use husky_opr::Bracket;
 use husky_token::TokenGroupStart;
 use husky_token::*;
-use husky_token_data::{*};
+use husky_token_data::*;
 #[cfg(test)]
 use parsec::TryParseOptionFromStream;
 use parsec::{HasStreamState, IsStreamParser};

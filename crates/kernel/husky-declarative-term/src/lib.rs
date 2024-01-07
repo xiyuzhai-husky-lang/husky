@@ -1,5 +1,4 @@
 #![feature(if_let_guard)]
-#![feature(trait_upcasting)]
 #![feature(let_chains)]
 mod context;
 mod db;
@@ -19,7 +18,6 @@ pub use self::term::*;
 use husky_coword::*;
 use husky_term_prelude::*;
 use husky_vfs::Toolchain;
-
 
 #[salsa::jar(db =  DeclarativeTermDb)]
 pub struct DeclarativeTermJar(

@@ -1,11 +1,9 @@
 #![feature(let_chains)]
-#![feature(trait_upcasting)]
 mod builder;
 mod db;
 mod error;
 mod sections;
 pub mod transpilation_setup;
-
 
 pub use self::error::*;
 pub use self::sections::*;
@@ -13,7 +11,6 @@ pub use self::sections::*;
 use self::builder::*;
 use husky_corgi_config_ast::*;
 use husky_vfs::{error::VfsResult, *};
-
 
 #[salsa::jar(db = CorgiConfigDb)]
 pub struct CorgiConfigJar(

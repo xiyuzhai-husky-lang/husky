@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 pub mod db;
 pub mod helpers;
 mod region;

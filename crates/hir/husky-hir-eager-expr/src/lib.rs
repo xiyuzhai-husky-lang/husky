@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 pub mod builder;
 pub mod coersion;
 pub mod db;

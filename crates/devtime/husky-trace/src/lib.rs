@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 pub mod db;
 mod helpers;
 mod registry;

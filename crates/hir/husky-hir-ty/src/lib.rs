@@ -1,5 +1,4 @@
 #![feature(if_let_guard)]
-#![feature(trait_upcasting)]
 pub mod db;
 pub mod indirections;
 pub mod instantiation;
