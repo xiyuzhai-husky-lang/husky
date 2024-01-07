@@ -174,7 +174,7 @@ pub(crate) fn trai_item_syn_nodes(
 > {
     let trai_node = trai_node_path.syn_node(db);
     let module_path = trai_node_path.module_path(db);
-    let ast_sheet = db.ast_sheet(module_path);
+    let ast_sheet = module_path.ast_sheet(db);
     let DefnBlock::Trait { path: _, items } = trai_node.block else {
         unreachable!()
     };

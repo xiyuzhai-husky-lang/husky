@@ -69,7 +69,7 @@ fn build_decl_tokra_region(
     db: &::salsa::Db,
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     let token_sheet_data = db.token_sheet_data(module_path);
-    let ast_sheet = db.ast_sheet(module_path);
+    let ast_sheet = module_path.ast_sheet(db);
     let (token_group_idx, ast, saved_regional_stream_state) = match ast_sheet[ast_idx] {
         Ast::Attr {
             token_group_idx,

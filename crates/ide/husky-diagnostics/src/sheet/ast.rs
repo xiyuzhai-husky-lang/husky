@@ -1,4 +1,5 @@
-use husky_ast::{Ast, AstDb, AstError, OriginalAstError};
+use husky_ast::HasAstSheet;
+use husky_ast::{Ast, AstError, OriginalAstError};
 use husky_scope_expr::OriginalVisibilityExprError;
 use husky_token::TokenGroupIdx;
 
@@ -17,7 +18,7 @@ pub(crate) fn ast_diagnostic_sheet(
 ) -> AstDiagnosticSheet {
     let mut diagnostics = vec![];
     let ctx = SheetDiagnosticsContext::new(db, module_path);
-    for ast in db.ast_sheet(module_path).data() {
+    for ast in module_path.ast_sheet(db).data() {
         match ast {
             Ast::Err {
                 token_group_idx,

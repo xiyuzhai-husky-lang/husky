@@ -27,8 +27,10 @@ pub struct FoldingRangeJar(folding_ranges);
 
 #[salsa::tracked(jar = FoldingRangeJar, return_ref)]
 fn folding_ranges(db: &::salsa::Db, module_path: ModulePath) -> Vec<FoldingRange> {
-    let ast_sheet = db.ast_sheet(module_path);
-    let ast_range_sheet = db.ast_token_idx_range_sheet(module_path);
+    use husky_ast::HasAstSheet;
+
+    let ast_sheet = module_path.ast_sheet(db);
+    let ast_range_sheet = module_path.ast_token_idx_range_sheet(db);
     let ranged_token_sheet = db.ranged_token_sheet(module_path);
     calc_folding_ranges(ast_sheet, ast_range_sheet, ranged_token_sheet)
 }

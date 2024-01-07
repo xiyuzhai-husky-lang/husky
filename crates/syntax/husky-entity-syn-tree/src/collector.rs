@@ -3,7 +3,6 @@ mod action;
 
 use crate::*;
 
-
 use husky_token::TokenDb;
 use vec_like::{VecMap, VecPairMap};
 
@@ -80,10 +79,11 @@ impl<'a> EntityTreeCollector<'a> {
     fn collect_impl_node_block_tables(
         &mut self,
     ) -> Vec<VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>> {
+        let db = self.db;
         let mut impl_blocks_for_each_module = vec![];
         for presheet in self.presheets.iter() {
             let module_path = presheet.module_path();
-            let ast_sheet = self.db.ast_sheet(module_path);
+            let ast_sheet = module_path.ast_sheet(db);
             let impl_blocks = VecPairMap::from_iter_assuming_no_repetitions(
                 ast_sheet
                     .all_ast_indexed_iter()
