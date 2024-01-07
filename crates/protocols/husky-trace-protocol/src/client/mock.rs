@@ -1,5 +1,5 @@
 use super::*;
-use crate::protocol::mock::MockTraceProtocol;
+
 use notify_change::NotifyChange;
 
 const MOCK_SERVER: &str = "ws://localhost:51718/ws";

@@ -2,7 +2,7 @@ use cargo::{
     core::{compiler::Compilation, Workspace},
     util::command_prelude::CompileMode,
 };
-use husky_print_utils::p;
+
 
 pub fn compile_workspace<R>(
     manifest_path: &std::path::Path,
@@ -16,7 +16,7 @@ pub fn compile_workspace<R>(
     compile_opts.spec = cargo::ops::Packages::Default;
     match cargo::ops::compile(&workspace, &compile_opts) {
         Ok(compilation) => Ok(f(compilation)),
-        Err(error) => {
+        Err(_error) => {
             // p!(manifest_path, error);
             // todo!()
             Err(())

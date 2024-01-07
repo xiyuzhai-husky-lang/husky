@@ -14,14 +14,14 @@ impl std::fmt::Debug for Room32 {
 
 impl PartialEq for Room32 {
     #[inline(always)]
-    fn eq(&self, other: &Self) -> bool {
+    fn eq(&self, _other: &Self) -> bool {
         true
     }
 }
 
 impl std::hash::Hash for Room32 {
     #[inline(always)]
-    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {}
+    fn hash<H: std::hash::Hasher>(&self, _state: &mut H) {}
 }
 
 impl Eq for Room32 {}
