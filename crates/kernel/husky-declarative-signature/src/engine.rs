@@ -31,7 +31,7 @@ pub(crate) fn declarative_term_region(
     let parent_expr_region = expr_region_data.parent();
     let parent_term_symbol_region =
         parent_expr_region.map(|r| declarative_term_region(db, r).term_symbol_region());
-    let mut engine = DeclarativeTermEngine::new(db, syn_expr_region, parent_term_symbol_region);
+    let engine = DeclarativeTermEngine::new(db, syn_expr_region, parent_term_symbol_region);
     engine.infer_all()
 }
 
@@ -285,7 +285,6 @@ impl<'a> DeclarativeTermEngine<'a> {
                 SynExprRootKind::Trait
                 | SynExprRootKind::ReturnType
                 | SynExprRootKind::TupleStructFieldType
-                | SynExprRootKind::ReturnType
                 | SynExprRootKind::ExplicitParameterDefaultValue { .. }
                 | SynExprRootKind::AssociatedTypeTerm => (),
                 SynExprRootKind::SelfType => {
@@ -503,16 +502,16 @@ impl<'a> DeclarativeTermEngine<'a> {
                     template_arguments.rangle_regional_token_idx()
                 );
                 todo!();
-                let mut template_term = self.infer_new_expr_term(template)?;
-                for arg in template_arguments.arguments() {
-                    template_term = DeclarativeTermExplicitApplication::new(
-                        self.db,
-                        template_term,
-                        self.infer_new_expr_term(arg.syn_expr_idx())?,
-                    )
-                    .into()
-                }
-                Ok(template_term)
+                // let mut template_term = self.infer_new_expr_term(template)?;
+                // for arg in template_arguments.arguments() {
+                //     template_term = DeclarativeTermExplicitApplication::new(
+                //         self.db,
+                //         template_term,
+                //         self.infer_new_expr_term(arg.syn_expr_idx())?,
+                //     )
+                //     .into()
+                // }
+                // Ok(template_term)
             }
             SynExprData::FunctionApplicationOrCall {
                 function,

@@ -11,7 +11,7 @@ pub use self::unit::*;
 use self::expect_test::*;
 use crate::*;
 use husky_path_utils::*;
-use salsa::{Db, DebugWith};
+use salsa::Db;
 use std::path::PathBuf;
 
 pub trait VfsTestUtils {

@@ -1,9 +1,9 @@
 use crate::*;
 
 use husky_fs_specs::FsSpecsError;
-use husky_path_utils::collect_husky_package_dirs;
 use salsa::Db;
 use vec_like::VecSet;
+
 pub trait VfsDb {
     fn vfs_path_menu(&self, toolchain: Toolchain) -> &VfsPathMenu;
     /// live packages are those whose information have been queried or modified through this db
@@ -15,6 +15,7 @@ pub trait VfsDb {
     fn resolve_module_path(&self, path: &Path) -> VfsResult<ModulePath>;
     fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path;
 }
+
 // don't leak this outside the crate
 pub trait VfsDbInner {
     fn file_from_virtual_path(&self, path: VirtualPath) -> VfsResult<File>;
@@ -320,8 +321,6 @@ pub struct VfsJar(
     package_dir,
     package_manifest_path,
     module_virtual_path,
-    package_manifest_file,
-    module_file,
     crate::toolchain::Toolchain,
     crate::toolchain::PublishedToolchain,
     crate::toolchain::published_toolchain_library_path,

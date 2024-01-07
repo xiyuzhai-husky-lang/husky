@@ -51,7 +51,7 @@ fn list_like_index_signature(
         FluffyTermData::Curry {
             curry_kind,
             variance,
-            parameter_rune: parameter_rune,
+            parameter_rune,
             parameter_ty,
             return_ty,
             ty_ethereal_term,

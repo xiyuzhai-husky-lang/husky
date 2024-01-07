@@ -5,10 +5,7 @@ use husky_entity_path::{
     PreludeNumTypePath, PreludeTypePath, PrincipalEntityPath, TraitForTypeItemPath, TraitItemPath,
     TraitPath, TypeItemPath, TypePath, TypeSketch, TypeVariantPath,
 };
-use husky_ethereal_signature::signature::HasEtherealSignatureTemplate;
-use husky_hir_ty::HirType;
-use husky_linkage::instantiation::LinkageInstantiation;
-use husky_vfs::{CrateKind, ModulePathData, PackagePathSource};
+use husky_vfs::{ModulePathData, PackagePathSource};
 
 impl<E> TranspileToRustWith<E> for AssociatedItemPath {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {

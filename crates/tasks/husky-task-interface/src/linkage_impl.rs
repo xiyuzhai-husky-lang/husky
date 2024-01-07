@@ -17,7 +17,5 @@ pub trait IsLinkageImpl: Send + Copy + 'static {
     ) -> LinkageImplValControlFlow<Self>;
 }
 
-pub type LinkageImplValControlFlow<
-    LinkageImpl: IsLinkageImpl,
-    C = <LinkageImpl as IsLinkageImpl>::Value,
-> = ValControlFlow<C, LinkageImpl::Value, LinkageImpl::Error>;
+pub type LinkageImplValControlFlow<LinkageImpl, C = <LinkageImpl as IsLinkageImpl>::Value> =
+    ValControlFlow<C, <LinkageImpl as IsLinkageImpl>::Value, <LinkageImpl as IsLinkageImpl>::Error>;

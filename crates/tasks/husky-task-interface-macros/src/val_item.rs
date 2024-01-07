@@ -110,6 +110,5 @@ impl syn::parse::Parse for ValItemArgs {
                 slf.return_ref = true
             }
         }
-        Ok(slf)
     }
 }

@@ -3,10 +3,8 @@ mod error;
 #[cfg(test)]
 mod tests;
 
-use ::salsa::Db;
 pub use db::*;
 pub use error::*;
-use husky_fs_specs::library_path;
 
 use super::*;
 use date::*;

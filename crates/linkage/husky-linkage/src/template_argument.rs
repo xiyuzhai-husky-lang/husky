@@ -6,7 +6,7 @@ use self::{constant::LinkageConstant, ty::*};
 use super::*;
 use crate::{instantiation::LinkageInstantiation, template_argument::place::LinkagePlace};
 use husky_hir_ty::HirTemplateArgument;
-use husky_javelin::template_argument::{JavelinTemplateArgument};
+use husky_javelin::template_argument::JavelinTemplateArgument;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

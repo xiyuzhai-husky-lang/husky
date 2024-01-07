@@ -1,4 +1,3 @@
-use serde::Serialize;
 use serde_impl::IsSerdeImpl;
 
 pub trait IsValue:

@@ -8,8 +8,7 @@ use cargo_manifest::{
 };
 use husky_corgi_config::transpilation_setup::{HasTranspilationSetup, TranspilationSetup};
 use husky_manifest::HasPackageManifest;
-use husky_print_utils::p;
-use husky_vfs::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};
+use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use pathdiff::diff_paths;
 
 #[derive(Debug, PartialEq)]
