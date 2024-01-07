@@ -1,7 +1,7 @@
 use either::*;
 use husky_fluffy_term::{FluffyLifetime, FluffyPlace};
 use husky_stack_location::StackLocationIdx;
-use husky_term_prelude::TermContract;
+
 
 use crate::lifetime::HirLifetime;
 

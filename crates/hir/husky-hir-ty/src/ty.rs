@@ -12,9 +12,9 @@ use husky_ethereal_term::{
     TermFunctionReduced,
 };
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
-use husky_print_utils::p;
+
 use husky_term_prelude::TermEntityPath;
-use salsa::DebugWithDb;
+
 
 /// this is much simpler than that in Term, right?
 #[salsa::debug_with_db]
@@ -94,10 +94,10 @@ impl HirType {
     pub fn always_copyable(self, db: &::salsa::Db) -> bool {
         match self {
             HirType::PathLeading(slf) => slf.always_copyable(db),
-            HirType::Symbol(slf) => false, // ad hoc: todo check traits
-            HirType::TypeAssociatedType(slf) => false, // ad hoc: todo check traits
-            HirType::TraitAssociatedType(slf) => false, // ad hoc: todo check traits
-            HirType::Ritchie(slf) => true,
+            HirType::Symbol(_slf) => false, // ad hoc: todo check traits
+            HirType::TypeAssociatedType(_slf) => false, // ad hoc: todo check traits
+            HirType::TraitAssociatedType(_slf) => false, // ad hoc: todo check traits
+            HirType::Ritchie(_slf) => true,
         }
     }
     pub fn is_float(self, db: &::salsa::Db) -> bool {

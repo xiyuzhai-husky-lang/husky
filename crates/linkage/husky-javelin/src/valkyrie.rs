@@ -1,5 +1,5 @@
 use crate::{
-    amazon::{package_amazon_javelins, AmazonJavelin},
+    amazon::{package_amazon_javelins},
     instantiation::JavelinInstantiation,
     javelin::JavelinData,
     path::JavelinPath,
@@ -11,14 +11,14 @@ use husky_entity_path::{ItemPathId, MajorItemPath, PrincipalEntityPath};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_hir_decl::{parameter::template::HirTemplateParameters, HasHirDecl};
 use husky_hir_defn::HasHirDefn;
-use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprRegion, HirEagerStmtData};
+use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprRegion};
 use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::HirLazyStmtData;
 use husky_hir_lazy_expr::{HirLazyExprData, HirLazyExprRegion};
 use husky_hir_ty::{instantiation::HirInstantiation, HirType};
 use husky_manifest::HasPackageManifest;
 use husky_vfs::PackagePath;
-use smallvec::ToSmallVec;
+
 use vec_like::VecSet;
 
 /// a Valkyrie javelin is one with non empty instantiation
@@ -34,8 +34,8 @@ impl ValkyrieJavelin {
             JavelinData::PathLeading { instantiation, .. } => {
                 debug_assert!(!instantiation.is_univalent())
             }
-            JavelinData::VecConstructor { element_ty } => todo!(),
-            JavelinData::TypeDefault { ty } => todo!(),
+            JavelinData::VecConstructor { element_ty: _ } => todo!(),
+            JavelinData::TypeDefault { ty: _ } => todo!(),
         }
         Self(javelin)
     }
@@ -141,7 +141,7 @@ impl ValkyrieRides {
             #[deprecated(note = "incomplete")]
             match entry.data {
                 HirEagerExprData::AssociatedFn {
-                    associated_item_path,
+                    associated_item_path: _,
                 } => (), // ad hoc
                 HirEagerExprData::PrincipalEntityPath(path) => match path {
                     PrincipalEntityPath::Module(_) => unreachable!(),
@@ -150,9 +150,9 @@ impl ValkyrieRides {
                         MajorItemPath::Trait(_) => (),
                         MajorItemPath::Fugitive(_) => (),
                     },
-                    PrincipalEntityPath::TypeVariant(path) => (),
+                    PrincipalEntityPath::TypeVariant(_path) => (),
                 },
-                HirEagerExprData::Be { src, ref target } => (),
+                HirEagerExprData::Be { src: _, target: _ } => (),
                 HirEagerExprData::TypeConstructorFnCall {
                     path,
                     ref instantiation,
@@ -178,14 +178,14 @@ impl ValkyrieRides {
                     }
                 }
                 HirEagerExprData::PropsStructField {
-                    owner_hir_expr_idx,
-                    ident,
-                    field_ty,
+                    owner_hir_expr_idx: _,
+                    ident: _,
+                    field_ty: _,
                 } => (),
                 HirEagerExprData::MemoizedField {
-                    owner_hir_expr_idx,
-                    ident,
-                    path,
+                    owner_hir_expr_idx: _,
+                    ident: _,
+                    path: _,
                 } =>
                 /* ad hoc */
                 {
@@ -200,10 +200,10 @@ impl ValkyrieRides {
                         self.try_add_path_leading_ride(javelin_path, instantiation)
                     }
                 }
-                HirEagerExprData::NewTuple { ref items } => (),
+                HirEagerExprData::NewTuple { items: _ } => (),
                 HirEagerExprData::Index {
-                    owner_hir_expr_idx,
-                    ref items,
+                    owner_hir_expr_idx: _,
+                    items: _,
                 } => (),
                 HirEagerExprData::NewList { element_ty, .. } => {
                     self.add_vec_constructor_ride(element_ty)
@@ -211,7 +211,7 @@ impl ValkyrieRides {
                 HirEagerExprData::Unveil {
                     unveil_associated_fn_path,
                     ref instantiation,
-                    opd_hir_expr_idx,
+                    
                     ..
                 } => {
                     if let Some(javelin_path) =
@@ -236,7 +236,7 @@ impl ValkyrieRides {
                 | HirEagerExprData::Unwrap { .. } => (),
             }
         }
-        for data in hir_eager_expr_region.stmt_arena(db) {
+        for _data in hir_eager_expr_region.stmt_arena(db) {
             // todo!()
             // match *data {
             //     HirEagerStmtData::Require { return_ty, .. } => todo!(),
@@ -252,11 +252,11 @@ impl ValkyrieRides {
     ) {
         for data in hir_lazy_expr_region.hir_lazy_expr_arena(db) {
             match *data {
-                HirLazyExprData::AssociatedFn { path } => (),
+                HirLazyExprData::AssociatedFn { path: _ } => (),
                 HirLazyExprData::PrincipalEntityPath(_) => (),
                 HirLazyExprData::Be {
-                    src,
-                    pattern: ref target,
+                    src: _,
+                    pattern: ref _target,
                 } =>
                 /* ad hoc */
                 {
@@ -295,10 +295,10 @@ impl ValkyrieRides {
                 }
                 HirLazyExprData::PropsStructField { .. } => (),
                 HirLazyExprData::MemoizedField {
-                    owner,
-                    ident,
+                    owner: _,
+                    ident: _,
                     path,
-                    ref indirections,
+                    indirections: _,
                     ref instantiation,
                 } => {
                     if let Some(javelin_path) = JavelinPath::try_from_item_path(path.into(), db) {
@@ -314,15 +314,15 @@ impl ValkyrieRides {
                         self.try_add_path_leading_ride(javelin_path, instantiation)
                     }
                 }
-                HirLazyExprData::NewTuple { ref items } => (),
-                HirLazyExprData::Index { owner, ref items } => (),
+                HirLazyExprData::NewTuple { items: _ } => (),
+                HirLazyExprData::Index { owner: _, items: _ } => (),
                 HirLazyExprData::ConstructList { element_ty, .. } => {
                     self.add_vec_constructor_ride(element_ty)
                 }
                 HirLazyExprData::Unveil {
-                    unveil_associated_fn_path,
-                    ref instantiation,
-                    opd_hir_expr_idx,
+                    unveil_associated_fn_path: _,
+                    instantiation: _,
+                    opd_hir_expr_idx: _,
                 } => (),
                 HirLazyExprData::Literal(_)
                 | HirLazyExprData::ConstSymbol(_)
@@ -401,8 +401,8 @@ pub(crate) fn javelin_generated_valkyrie_javelins(
                 .map(|ride| ride.to_javelin(instantiation, db))
                 .collect()
         }
-        JavelinData::VecConstructor { element_ty } => Default::default(),
-        JavelinData::TypeDefault { ty } => Default::default(),
+        JavelinData::VecConstructor { element_ty: _ } => Default::default(),
+        JavelinData::TypeDefault { ty: _ } => Default::default(),
     }
 }
 

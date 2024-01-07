@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_path::TypeVariantPath;
+
 use husky_hir_ty::HirConstant;
 
 #[salsa::debug_with_db]
@@ -33,7 +33,7 @@ pub enum JavelinConstant {
 impl JavelinConstant {
     pub(crate) fn from_hir(
         hir_constant: HirConstant,
-        javelin_instantiation: Option<&JavelinInstantiation>,
+        _javelin_instantiation: Option<&JavelinInstantiation>,
     ) -> JavelinConstant {
         match hir_constant {
             HirConstant::Unit(value) => JavelinConstant::Unit(value),

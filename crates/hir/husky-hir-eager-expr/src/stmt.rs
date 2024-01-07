@@ -215,7 +215,7 @@ impl ToHirEager for SemaCondition {
         match *self {
             SemaCondition::Be {
                 src,
-                be_regional_token_idx,
+                be_regional_token_idx: _,
                 target,
             } => HirEagerCondition::Be {
                 src: src.to_hir_eager(builder),

@@ -43,7 +43,7 @@ pub(crate) struct InstructionBuilder<'a> {
 }
 
 impl<'a> InstructionBuilder<'a> {
-    fn new(db: &'a ::salsa::Db, inputs: impl Iterator<Item = Ident>, has_this: bool) -> Self {
+    fn new(db: &'a ::salsa::Db, _inputs: impl Iterator<Item = Ident>, _has_this: bool) -> Self {
         Self {
             db,
             // sheet: Instructions::new(inputs, has_this),

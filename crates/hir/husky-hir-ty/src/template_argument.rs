@@ -1,6 +1,6 @@
 use crate::{path_leading::HirTypePathLeading, ritchie::HirRitchieType, *};
 use husky_ethereal_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
-use husky_ethereal_term::{EtherealTerm, EtherealTermSymbolIndexInner};
+use husky_ethereal_term::{EtherealTerm};
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 use husky_term_prelude::TermEntityPath;
 
@@ -45,7 +45,7 @@ impl HirTemplateArgument {
             EtherealTerm::Symbol(symbol) => HirTemplateSymbol::from_ethereal(symbol, db)?.into(),
             EtherealTerm::Rune(_) => todo!(),
             EtherealTerm::EntityPath(path) => match path {
-                TermEntityPath::Fugitive(path) => todo!(),
+                TermEntityPath::Fugitive(_path) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),
                 TermEntityPath::TypeOntology(ty_path) => {
                     let always_copyable = is_ty_term_always_copyable(argument, db).unwrap()?;

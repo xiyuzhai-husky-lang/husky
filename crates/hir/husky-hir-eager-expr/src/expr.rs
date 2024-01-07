@@ -4,15 +4,15 @@ mod html;
 pub use self::call_list::*;
 pub use self::html::*;
 
-use crate::{coersion::HirEagerCoersion, symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
+use crate::{symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature, StaticDispatch};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirInstantiation, place::HirPlace, ritchie::HirEagerContract, HirConstSymbol,
+    instantiation::HirInstantiation, place::HirPlace, ritchie::HirEagerContract,
     HirType,
 };
-use husky_print_utils::p;
+
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{InheritedSynSymbolKind, InheritedTemplateParameterSynSymbol};
@@ -167,11 +167,11 @@ impl ToHirEager for SemaExprIdx {
                 ..
             } => match inherited_syn_symbol_kind {
                 InheritedSynSymbolKind::TemplateParameter(symbol) => match symbol {
-                    InheritedTemplateParameterSynSymbol::Lifetime { label } => {
+                    InheritedTemplateParameterSynSymbol::Lifetime { label: _ } => {
                         todo!()
                     }
-                    InheritedTemplateParameterSynSymbol::Place { label } => todo!(),
-                    InheritedTemplateParameterSynSymbol::Type { ident } => todo!(),
+                    InheritedTemplateParameterSynSymbol::Place { label: _ } => todo!(),
+                    InheritedTemplateParameterSynSymbol::Type { ident: _ } => todo!(),
                     InheritedTemplateParameterSynSymbol::Constant { ident } => {
                         HirEagerExprData::ConstSymbol { ident }
                     }
@@ -273,7 +273,7 @@ impl ToHirEager for SemaExprIdx {
                 ..
             } => {
                 let db = builder.db();
-                let template_arguments = template_arguments.as_ref().map(|_| todo!());
+                let _template_arguments = template_arguments.as_ref().map(|_| todo!());
                 let item_groups =
                     builder.new_call_list_item_groups(ritchie_parameter_argument_matches);
                 match *builder.sema_expr_arena_ref()[function_sema_expr_idx].data() {
@@ -347,7 +347,7 @@ impl ToHirEager for SemaExprIdx {
                         .unwrap(),
                 },
                 FluffyFieldSignature::Memoized {
-                    ty,
+                    ty: _,
                     path,
                     ref instantiation,
                 } => {
@@ -365,7 +365,7 @@ impl ToHirEager for SemaExprIdx {
                 self_contract,
                 ident_token,
                 ref dispatch,
-                ref template_arguments,
+                
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {

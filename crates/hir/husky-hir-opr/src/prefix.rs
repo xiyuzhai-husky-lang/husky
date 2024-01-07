@@ -25,10 +25,10 @@ impl HirPrefixOpr {
             SemaPrefixOpr::Minus => HirPrefixOpr::Minus,
             SemaPrefixOpr::Not => match opd_ty.base_ty_data_inner(db, fluffy_terms) {
                 husky_fluffy_term::FluffyBaseTypeData::TypeOntology {
-                    ty_path,
+                    ty_path: _,
                     refined_ty_path: Left(prelude_ty_path),
-                    ty_arguments,
-                    ty_ethereal_term,
+                    ty_arguments: _,
+                    ty_ethereal_term: _,
                 } => match prelude_ty_path {
                     PreludeTypePath::BOOL => HirPrefixOpr::NotBool,
                     PreludeTypePath::Num(PreludeNumTypePath::Int(_)) => HirPrefixOpr::NotInt,

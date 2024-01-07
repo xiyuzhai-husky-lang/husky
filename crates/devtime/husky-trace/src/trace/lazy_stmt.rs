@@ -155,7 +155,7 @@ impl LazyStmtTraceData {
         TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
     }
 
-    pub(super) fn have_subtraces(&self, db: &::salsa::Db) -> bool {
+    pub(super) fn have_subtraces(&self, _db: &::salsa::Db) -> bool {
         match self.lazy_stmt_sketch {
             LazyStmtSketch::BasicStmt => false,
             LazyStmtSketch::IfBranch { .. } => true,

@@ -16,30 +16,30 @@ fn term_trait_constraint_size_works() {
 
 impl EtherealTermTraitConstraint {
     pub(crate) fn from_declarative(
-        db: &::salsa::Db,
-        valid_term: DeclarativeTermTraitConstraint,
-        term_ty_expectation: TermTypeExpectation,
+        _db: &::salsa::Db,
+        _valid_term: DeclarativeTermTraitConstraint,
+        _term_ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<Self> {
         todo!()
     }
 
-    pub(super) fn check(self, db: &::salsa::Db) -> EtherealTermResult<()> {
+    pub(super) fn check(self, _db: &::salsa::Db) -> EtherealTermResult<()> {
         todo!()
     }
 
     #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-        ctx: &mut TermShowContext,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &::salsa::Db,
+        _ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 }
 
 impl EtherealTermTraitConstraint {
-    fn substitute(self, db: &::salsa::Db, substituation: &TermSubstitution) -> EtherealTerm {
+    fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm {
         todo!()
     }
 }

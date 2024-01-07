@@ -109,11 +109,11 @@ impl LazyPatternExprTraceData {
                 Some(val_repr_expansion.hir_lazy_variable_val_repr_map(db)[hir_lazy_variable_idx])
             }
             HirLazyPatternExpr::Unit(_) => todo!(),
-            HirLazyPatternExpr::Tuple { path, fields } => todo!(),
-            HirLazyPatternExpr::Props { path, fields } => todo!(),
-            HirLazyPatternExpr::OneOf { options } => todo!(),
-            HirLazyPatternExpr::Binding { ident, src } => todo!(),
-            HirLazyPatternExpr::Range { start, end } => todo!(),
+            HirLazyPatternExpr::Tuple { path: _, fields: _ } => todo!(),
+            HirLazyPatternExpr::Props { path: _, fields: _ } => todo!(),
+            HirLazyPatternExpr::OneOf { options: _ } => todo!(),
+            HirLazyPatternExpr::Binding { ident: _, src: _ } => todo!(),
+            HirLazyPatternExpr::Range { start: _, end: _ } => todo!(),
         }
     }
 

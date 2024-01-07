@@ -72,7 +72,7 @@ impl JavelinPath {
         }
     }
 
-    pub fn hir_defn(self, db: &::salsa::Db) -> HirDefn {
+    pub fn hir_defn(self, _db: &::salsa::Db) -> HirDefn {
         todo!()
     }
 }

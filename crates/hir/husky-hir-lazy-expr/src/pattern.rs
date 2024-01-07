@@ -58,15 +58,15 @@ impl ToHirLazy for BePatternSynSyndicate {
         let pattern_expr_arena = builder.syn_expr_region_data().pattern_expr_arena();
         match pattern_expr_arena[self.syn_pattern_root().syn_pattern_expr_idx()] {
             SynPatternExprData::Literal {
-                regional_token_idx,
-                literal,
+                regional_token_idx: _,
+                literal: _,
             } => todo!(),
             SynPatternExprData::Ident {
-                symbol_modifier_tokens,
-                ident_token,
+                symbol_modifier_tokens: _,
+                ident_token: _,
             } => todo!(),
             SynPatternExprData::UnitTypeVariant {
-                path_expr_idx,
+                path_expr_idx: _,
                 path,
             } => {
                 // ad hoc
@@ -88,17 +88,17 @@ impl ToHirLazy for BePatternSynSyndicate {
             }
             SynPatternExprData::TupleStruct { .. } => todo!(),
             SynPatternExprData::TupleTypeVariant { .. } => todo!(),
-            SynPatternExprData::Props { name, ref fields } => todo!(),
-            SynPatternExprData::OneOf { ref options } => todo!(),
+            SynPatternExprData::Props { name: _, fields: _ } => todo!(),
+            SynPatternExprData::OneOf { options: _ } => todo!(),
             SynPatternExprData::Binding {
-                ident_token,
-                asperand_token,
-                src,
+                ident_token: _,
+                asperand_token: _,
+                src: _,
             } => todo!(),
             SynPatternExprData::Range {
-                start,
-                dot_dot_token,
-                end,
+                start: _,
+                dot_dot_token: _,
+                end: _,
             } => todo!(),
         }
     }

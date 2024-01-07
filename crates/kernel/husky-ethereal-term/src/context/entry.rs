@@ -1,4 +1,4 @@
-use husky_entity_path::{MajorItemPath, TypePath};
+
 use vec_like::AsVecMapEntry;
 
 use super::*;
@@ -18,10 +18,10 @@ impl TermSymbolShowEntry {
     #[inline(never)]
     pub(crate) fn show(
         &self,
-        db: &::salsa::Db,
+        _db: &::salsa::Db,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
-        if let Some(external_symbol_ident) = self.external_symbol_ident
+        if let Some(_external_symbol_ident) = self.external_symbol_ident
             && self.level == 0
         {
             todo!()

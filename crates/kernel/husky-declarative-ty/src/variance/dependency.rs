@@ -39,7 +39,7 @@ pub(crate) fn item_variance_crate_dependencies(
             MajorItemPath::Trait(path) => trai_item_variance_crate_dependencies(db, path, id.idx)
                 .as_ref()
                 .map(|t| t.as_ref()),
-            MajorItemPath::Fugitive(path) => {
+            MajorItemPath::Fugitive(_path) => {
                 todo!()
                 // form_item_variance_crate_dependencies(db, path, id.idx)
                 //     .as_ref()

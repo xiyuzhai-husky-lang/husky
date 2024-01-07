@@ -3,12 +3,9 @@ mod hollow;
 mod solid;
 
 pub(crate) use self::ethereal::*;
-pub(crate) use self::hollow::*;
-pub(crate) use self::solid::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_ethereal_signature::{PropsFieldEtherealSignature, TypeMemoizedFieldEtherealSignature};
 
 #[deprecated(note = "use FluffyMemberDynamicDispatch instantiation instead")]
 #[salsa::debug_with_db]

@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_sema_expr::SemaExprDb;
+
 
 pub trait TokenInfoDb {
     #[deprecated]

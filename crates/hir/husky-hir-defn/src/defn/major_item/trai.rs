@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_syn_tree::HasAssociatedItemPaths;
+
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
 pub struct TraitHirDefn {

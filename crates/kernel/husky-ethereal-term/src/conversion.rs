@@ -9,7 +9,7 @@ impl EtherealTerm {
     ) -> EtherealTermResult<bool> {
         match other_ty {
             Left(other_ty) if other_ty == self => Ok(true),
-            Left(other_ty) => {
+            Left(_other_ty) => {
                 // ad hoc
                 Ok(false)
             }

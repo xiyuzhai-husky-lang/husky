@@ -1,11 +1,9 @@
 use crate::*;
-
 use husky_text_protocol::{
     position::{FilePosition, TextPosition},
     range::RangeInfo,
 };
 use husky_token::TokenDb;
-use husky_token_info::TokenInfoDb;
 
 pub trait HoverDb {
     fn hover_result(&self, module_path: ModulePath, position: TextPosition) -> Option<HoverResult>;

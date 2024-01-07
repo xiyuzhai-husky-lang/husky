@@ -2,7 +2,7 @@ mod keyed;
 mod regular;
 mod variadic;
 
-use salsa::Db;
+
 
 pub use self::keyed::*;
 pub use self::regular::*;
@@ -87,7 +87,7 @@ impl EtherealTermRitchie {
         ))
     }
 
-    pub(super) fn reduce(self, db: &::salsa::Db) -> EtherealTermRitchie {
+    pub(super) fn reduce(self, _db: &::salsa::Db) -> EtherealTermRitchie {
         // ad hoc
         self
     }
@@ -160,7 +160,7 @@ impl EtherealRitchieParameter {
 impl EtherealInstantiate for EtherealRitchieParameter {
     type Output = Self;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(self, _db: &::salsa::Db, _instantiation: &EtherealInstantiation) -> Self::Output {
         todo!()
     }
 }
@@ -249,7 +249,7 @@ impl EtherealRitchieParameter {
 }
 
 impl EtherealTermRitchie {
-    fn substitute(self, db: &::salsa::Db, substituation: &TermSubstitution) -> EtherealTerm {
+    fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm {
         todo!()
     }
 }

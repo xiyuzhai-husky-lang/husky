@@ -1,6 +1,6 @@
 use husky_entity_path::PrincipalEntityPath;
 use husky_hir_eager_expr::{
-    builder::hir_eager_expr_region_with_source_map, helpers::hir_eager_expr_source_map_from_sema,
+    builder::hir_eager_expr_region_with_source_map,
     HirEagerExprRegion, HirEagerExprSourceMap, HirEagerExprSourceMapData, HirEagerStmtIdx,
 };
 use husky_regional_token::{
@@ -444,7 +444,7 @@ impl EagerStmtTraceData {
         TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
     }
 
-    pub(super) fn have_subtraces(&self, db: &::salsa::Db) -> bool {
+    pub(super) fn have_subtraces(&self, _db: &::salsa::Db) -> bool {
         match self.eager_stmt_data_sketch {
             EagerStmtDataSketch::BasicStmt => false,
             EagerStmtDataSketch::IfBranch { .. } => true,

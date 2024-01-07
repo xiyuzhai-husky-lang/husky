@@ -2,7 +2,7 @@ use super::*;
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 use husky_hir_eager_expr::HirEagerExprIdx;
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
-use husky_syn_defn::ItemSynDefn;
+
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EagerCallInputTracePathData {
@@ -68,7 +68,7 @@ impl EagerCallInputTraceData {
         match self.input_sketch {
             EagerCallInputSketch::Regular {
                 argument_sema_expr_idx,
-                argument_hir_eager_expr_idx,
+                argument_hir_eager_expr_idx: _,
             } => {
                 let argument_regional_token_idx_range =
                     caller_sema_expr_range_region_data[argument_sema_expr_idx];

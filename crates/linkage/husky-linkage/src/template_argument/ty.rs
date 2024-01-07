@@ -7,7 +7,7 @@ use husky_hir_ty::{
 use husky_javelin::template_argument::ty::{
     JavelinRitchieParameter, JavelinType, JavelinTypePathLeading,
 };
-use salsa::DebugWithDb;
+
 use smallvec::SmallVec;
 
 #[salsa::debug_with_db]

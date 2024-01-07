@@ -1,11 +1,11 @@
 use crate::*;
 use husky_task_interface::{
-    value::IsValue, IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
+    IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
-use husky_task_interface::{DevEvalContext, IsDevRuntime, IsDevRuntimeDyn};
+use husky_task_interface::{DevEvalContext, IsDevRuntime};
 use husky_trace_protocol::protocol::{IsTraceProtocol, IsTraceProtocolFull};
 use husky_val::Val;
-use husky_vfs::VfsDb;
+
 use std::{cell::Cell, thread::LocalKey};
 
 pub trait IsDevAscension {
@@ -70,7 +70,7 @@ pub fn with_runtime_and_base_point<
     base_point: <<DevAscension::Linktime as IsLinktime>::LinkageImpl as IsLinkageImpl>::Pedestal,
     f: impl FnOnce() -> R,
 ) -> R {
-    let local_dev_eval_context = DevAscension::dev_eval_context_local_key();
+    let _local_dev_eval_context = DevAscension::dev_eval_context_local_key();
     with_dev_eval_context::<DevAscension, _>(
         DevEvalContext::new(
             unsafe { runtime.cast_to_static_self_static_ref() },

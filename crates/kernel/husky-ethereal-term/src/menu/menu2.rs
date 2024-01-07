@@ -18,7 +18,7 @@ impl std::ops::Deref for TermMenu2 {
 }
 
 impl TermMenu2 {
-    pub(crate) fn new(db: &::salsa::Db, toolchain: Toolchain, menu1: TermMenu1) -> Self {
+    pub(crate) fn new(db: &::salsa::Db, _toolchain: Toolchain, menu1: TermMenu1) -> Self {
         TermMenu2 {
             static_str_ref: EtherealTermApplication::new(
                 db,

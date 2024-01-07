@@ -13,11 +13,10 @@ use husky_entity_path::{
 use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    indirections::HirIndirections, instantiation::HirInstantiation, HirConstSymbol,
-    HirTemplateArguments, HirType,
+    indirections::HirIndirections, instantiation::HirInstantiation, HirConstSymbol, HirType,
 };
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
-use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
+use husky_sema_opr::{binary::SemaBinaryOpr};
 use husky_term_prelude::TermLiteral;
 use idx_arena::ArenaRef;
 
@@ -251,7 +250,7 @@ impl ToHirLazy for SemaExprIdx {
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
-                let function_hir_lazy_expr_idx = function_sema_expr_idx.to_hir_lazy(builder);
+                let _function_hir_lazy_expr_idx = function_sema_expr_idx.to_hir_lazy(builder);
                 let item_groups =
                     builder.new_call_list_item_groups(ritchie_parameter_argument_matches);
                 match *builder.sema_expr_arena_ref()[function_sema_expr_idx].data() {
@@ -302,7 +301,7 @@ impl ToHirLazy for SemaExprIdx {
                         }
                     },
                     SemaExprData::AssociatedItem {
-                        ref static_dispatch,
+                        
                         ..
                     } => todo!(),
                     _ => todo!(),
@@ -324,7 +323,7 @@ impl ToHirLazy for SemaExprIdx {
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
-                FluffyFieldSignature::PropsStruct { ty } => HirLazyExprData::PropsStructField {
+                FluffyFieldSignature::PropsStruct { ty: _ } => HirLazyExprData::PropsStructField {
                     owner: owner_sema_expr_idx.to_hir_lazy(builder),
                     owner_base_ty: HirType::from_fluffy(
                         owner_ty,
@@ -335,7 +334,7 @@ impl ToHirLazy for SemaExprIdx {
                     ident: ident_token.ident(),
                 },
                 FluffyFieldSignature::Memoized {
-                    ty,
+                    ty: _,
                     path,
                     ref instantiation,
                 } => {

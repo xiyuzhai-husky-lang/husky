@@ -19,31 +19,31 @@ fn main() {
     clean_target_rs()
 }
 
-fn clean_target_rs() {
+pub fn clean_target_rs() {
     for dir in find_dirs_ending_with(Path::new("."), "target-rs") {
         clear_directory(&dir).unwrap()
     }
 }
 
-fn clean_expect_files() {
+pub fn clean_expect_files() {
     for dir in collect_rust_package_dirs(".") {
         assert!(dir.join("Cargo.toml").exists());
         let expect_files_dir = dir.join("expect-files");
         if expect_files_dir.exists() {
             assert!(expect_files_dir.is_dir());
         }
-        clear_directory(&expect_files_dir);
+        clear_directory(&expect_files_dir).unwrap();
     }
 }
 
-fn clean_library_adversarials() {
+pub fn clean_library_adversarials() {
     for dir in collect_rust_package_dirs(".") {
         assert!(dir.join("Cargo.toml").exists());
         let library_adversarials_dir = dir.join("adversarials/library");
         if library_adversarials_dir.exists() {
             assert!(library_adversarials_dir.is_dir());
         }
-        clear_directory(&library_adversarials_dir);
+        clear_directory(&library_adversarials_dir).unwrap();
     }
 }
 

@@ -1,5 +1,5 @@
 use husky_hir_ty::HirType;
-use husky_print_utils::p;
+
 use husky_sema_expr::LetPatternSemaSyndicate;
 use husky_syn_expr::BePatternSynSyndicate;
 

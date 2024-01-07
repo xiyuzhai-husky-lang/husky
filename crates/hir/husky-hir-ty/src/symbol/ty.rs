@@ -19,14 +19,14 @@ impl HirTypeSymbol {
     pub(crate) fn from_ethereal(symbol: EtherealTermSymbol, db: &::salsa::Db) -> Option<Self> {
         Some(match symbol.index(db).inner() {
             EtherealTermSymbolIndexInner::ExplicitLifetime {
-                attrs,
-                variance,
-                disambiguator,
+                attrs: _,
+                variance: _,
+                disambiguator: _,
             } => todo!(),
             EtherealTermSymbolIndexInner::ExplicitPlace {
-                attrs,
-                variance,
-                disambiguator,
+                attrs: _,
+                variance: _,
+                disambiguator: _,
             } => todo!(),
             EtherealTermSymbolIndexInner::Type {
                 attrs,
@@ -37,23 +37,23 @@ impl HirTypeSymbol {
                 variance,
                 disambiguator,
             },
-            EtherealTermSymbolIndexInner::Prop { disambiguator } => {
+            EtherealTermSymbolIndexInner::Prop { disambiguator: _ } => {
                 todo!()
             }
             EtherealTermSymbolIndexInner::ConstPathLeading {
-                attrs,
-                disambiguator,
-                ty_path,
+                attrs: _,
+                disambiguator: _,
+                ty_path: _,
             } => todo!(),
             EtherealTermSymbolIndexInner::ConstOther {
-                attrs,
-                disambiguator,
+                attrs: _,
+                disambiguator: _,
             } => todo!(),
             EtherealTermSymbolIndexInner::EphemPathLeading {
-                disambiguator,
-                ty_path,
+                disambiguator: _,
+                ty_path: _,
             } => todo!(),
-            EtherealTermSymbolIndexInner::EphemOther { disambiguator } => {
+            EtherealTermSymbolIndexInner::EphemOther { disambiguator: _ } => {
                 todo!()
             }
             EtherealTermSymbolIndexInner::SelfType => HirTypeSymbol::SelfType,

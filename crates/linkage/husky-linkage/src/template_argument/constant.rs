@@ -17,7 +17,7 @@ impl std::ops::Deref for LinkageConstant {
 impl LinkageConstant {
     pub(crate) fn from_hir(
         hir_constant: HirConstant,
-        javelin_instantiation: Option<&LinkageInstantiation>,
+        _javelin_instantiation: Option<&LinkageInstantiation>,
     ) -> Self {
         Self(match hir_constant {
             HirConstant::Unit(value) => JavelinConstant::Unit(value),

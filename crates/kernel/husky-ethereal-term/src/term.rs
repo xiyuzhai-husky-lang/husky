@@ -8,7 +8,7 @@ mod ritchie;
 mod rune;
 mod symbol;
 
-use std::fmt::{Debug, Display};
+use std::fmt::{Debug};
 
 pub use self::abstraction::*;
 pub use self::application::*;
@@ -121,7 +121,7 @@ impl EtherealTerm {
                                                         Err(_) => todo!(),
                                                     },
                                                     PreludeIntTypePath::I64 => match i.try_into() {
-                                                        Ok::<i64, _>(i) => {
+                                                        Ok::<i64, _>(_i) => {
                                                             todo!()
                                                             // TermLiteral::I64(i).into()
                                                         }
@@ -129,7 +129,7 @@ impl EtherealTerm {
                                                     },
                                                     PreludeIntTypePath::I128 => {
                                                         match i.try_into() {
-                                                            Ok::<i128, _>(i) => {
+                                                            Ok::<i128, _>(_i) => {
                                                                 todo!()
                                                                 // TermLiteral::I128(i).into()
                                                             }
@@ -138,7 +138,7 @@ impl EtherealTerm {
                                                     }
                                                     PreludeIntTypePath::ISize => match i.try_into()
                                                     {
-                                                        Ok::<isize, _>(i) => {
+                                                        Ok::<isize, _>(_i) => {
                                                             todo!()
                                                             // TermLiteral::ISize(i).into()
                                                         }
@@ -161,14 +161,14 @@ impl EtherealTerm {
                                                         Err(_) => todo!(), // Or handle the error as appropriate
                                                     },
                                                     PreludeIntTypePath::U64 => match i.try_into() {
-                                                        Ok::<u64, _>(i) => {
+                                                        Ok::<u64, _>(_i) => {
                                                             TermLiteral::U64(todo!()).into()
                                                         }
                                                         Err(_) => todo!(), // Or handle the error as appropriate
                                                     },
                                                     PreludeIntTypePath::U128 => {
                                                         match i.try_into() {
-                                                            Ok::<u128, _>(i) => {
+                                                            Ok::<u128, _>(_i) => {
                                                                 TermLiteral::U128(todo!()).into()
                                                             }
                                                             Err(_) => todo!(), // Or handle the error as appropriate
@@ -321,7 +321,7 @@ impl EtherealTerm {
         }
     }
 
-    pub fn from_raw_inner(db: &::salsa::Db, valid_term: DeclarativeTerm) -> Self {
+    pub fn from_raw_inner(_db: &::salsa::Db, _valid_term: DeclarativeTerm) -> Self {
         todo!()
     }
 
@@ -354,7 +354,7 @@ impl EtherealTerm {
         self.reduce(db) == self
     }
 
-    pub fn substitute(self, db: &::salsa::Db, substitution: &TermSubstitution) -> Self {
+    pub fn substitute(self, _db: &::salsa::Db, _substitution: &TermSubstitution) -> Self {
         todo!()
         // match self {
         //     EtherealTerm::Symbol(symbol) => match symbol == substitution.src() {

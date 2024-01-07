@@ -1,5 +1,5 @@
 use crate::*;
-use husky_coword::Ident;
+
 use husky_entity_path::{FugitivePath, TypeVariantPath};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_linkage::linkage::Linkage;
@@ -54,7 +54,7 @@ pub enum ValDomain {
 }
 
 impl Val {
-    pub unsafe fn from_raw(raw: u32) -> Self {
+    pub unsafe fn from_raw(_raw: u32) -> Self {
         todo!()
     }
 }
@@ -99,7 +99,7 @@ pub enum ValPatternData {
 pub struct ValSuffixOpr;
 
 impl ValSuffixOpr {
-    pub fn from_hir(opr: HirSuffixOpr) -> Self {
+    pub fn from_hir(_opr: HirSuffixOpr) -> Self {
         Self
     }
 }

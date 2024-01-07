@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::AstIdx;
+
 use husky_entity_kind::{TraitItemKind, TypeItemKind};
 use husky_entity_syn_tree::helpers::paths::{module_item_paths, module_item_syn_node_paths};
 use husky_syn_expr::helpers::block_expr::parse_defn_block_expr;
@@ -18,7 +18,7 @@ pub fn item_syn_node_defn(
 ) -> Option<ItemSynNodeDefn> {
     let syn_node_path = item_syn_node_path_id.syn_node_path(db);
     let (allow_self_ty, allow_self_value) = match syn_node_path {
-        ItemSynNodePath::MajorItem(MajorItemSynNodePath::Fugitive(path)) => {
+        ItemSynNodePath::MajorItem(MajorItemSynNodePath::Fugitive(_path)) => {
             (AllowSelfType::False, AllowSelfValue::False)
         }
         ItemSynNodePath::AssociatedItem(path) => (

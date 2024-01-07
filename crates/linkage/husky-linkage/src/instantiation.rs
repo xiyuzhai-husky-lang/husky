@@ -1,19 +1,19 @@
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolResolution},
-    HirTemplateSymbol, HirTemplateSymbolClass, HirType,
+    HirTemplateSymbol, HirTemplateSymbolClass,
 };
 use husky_javelin::{
     instantiation::{JavelinInstantiation, JavelinTermSymbolResolution},
     template_argument::JavelinTemplateArgument,
 };
-use salsa::DebugWithDb;
+
 use smallvec::*;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
 use crate::template_argument::{
     constant::LinkageConstant,
     place::LinkagePlace,
-    ty::{LinkageType, LinkageTypePathLeading},
+    ty::{LinkageType},
     LinkageTemplateArgument,
 };
 

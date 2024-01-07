@@ -12,7 +12,7 @@ pub struct InstructionJar(Instructions);
 // fn dataset_config_instruction_sheet(&self, target_entrance: ItemPath) -> InstructionRegion;
 // fn enum_literal_to_i32(&self, item_path: ItemPath) -> i32;
 
-fn item_instruction_sheet(db: &::salsa::Db, _item_path: ItemPath) -> Option<InstructionRegion> {
+fn item_instruction_sheet(_db: &::salsa::Db, _item_path: ItemPath) -> Option<InstructionRegion> {
     todo!()
     // let item_defn = db.item_defn(route).unwrap();
     // match item_defn.variant {

@@ -99,7 +99,7 @@ impl LazyExprTraceData {
             HirLazyExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
             HirLazyExprData::AssociatedFn { path } => path.hir_defn(db).is_some(),
             HirLazyExprData::FunctionGnItemCall { path, .. } => path.hir_defn(db).is_some(),
-            HirLazyExprData::Block { stmts } => unreachable!(),
+            HirLazyExprData::Block { stmts: _ } => unreachable!(),
             _ => false,
         }
     }

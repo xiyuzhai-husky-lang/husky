@@ -22,7 +22,7 @@ pub fn hir_body_with_expr_region(
     db: &::salsa::Db,
 ) -> Option<(HirExprIdx, HirExprRegion)> {
     let ItemSynDefn {
-        body,
+        body: _,
         syn_expr_region,
     } = item_syn_defn(db, path)?;
     let sema_expr_region = db.sema_expr_region(syn_expr_region);

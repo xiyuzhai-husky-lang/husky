@@ -17,5 +17,5 @@ use husky_hir_decl::*;
 use husky_hir_eager_expr::*;
 use husky_hir_expr::*;
 use husky_hir_lazy_expr::*;
-use husky_syn_defn::*;
+
 use husky_vfs::*;

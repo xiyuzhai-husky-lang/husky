@@ -101,7 +101,7 @@ fn hir_template_symbol_from_ethereal(
             }
             .into(),
         ),
-        EtherealTermSymbolIndexInner::Prop { disambiguator } => todo!(),
+        EtherealTermSymbolIndexInner::Prop { disambiguator: _ } => todo!(),
         EtherealTermSymbolIndexInner::ConstPathLeading {
             attrs,
             disambiguator,
@@ -133,10 +133,10 @@ fn hir_template_symbol_from_ethereal(
             .into(),
         ),
         EtherealTermSymbolIndexInner::EphemPathLeading {
-            disambiguator,
-            ty_path,
+            disambiguator: _,
+            ty_path: _,
         } => None,
-        EtherealTermSymbolIndexInner::EphemOther { disambiguator } => None,
+        EtherealTermSymbolIndexInner::EphemOther { disambiguator: _ } => None,
         EtherealTermSymbolIndexInner::SelfType => Some(HirTypeSymbol::SelfType.into()),
         EtherealTermSymbolIndexInner::SelfValue => todo!(),
         EtherealTermSymbolIndexInner::SelfLifetime => Some(HirTypeSymbol::SelfLifetime.into()),

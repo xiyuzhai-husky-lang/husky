@@ -1,6 +1,6 @@
 mod utils;
 
-use salsa::Db;
+
 
 pub(crate) use self::utils::*;
 
@@ -62,7 +62,7 @@ impl EtherealTermCurry {
         }
     }
 
-    pub fn substitute(self, db: &::salsa::Db, substituation: &TermSubstitution) -> EtherealTerm {
+    pub fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm {
         todo!()
     }
 }
