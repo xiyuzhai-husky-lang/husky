@@ -1,3 +1,3 @@
 pub trait NotifyChange: Send + Clone + 'static {
-    fn notify(&self);
+    fn notify_change(&self);
 }

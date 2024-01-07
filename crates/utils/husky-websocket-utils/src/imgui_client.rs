@@ -266,7 +266,7 @@ where
                         None => todo!(),
                     }
                     communication_status.store(CommunicationStatus::ResponseReady, ORDERING);
-                    notifier.notify()
+                    notifier.notify_change()
                 } else {
                     communication_status.store(CommunicationStatus::AwaitingRequest, ORDERING);
                 }
