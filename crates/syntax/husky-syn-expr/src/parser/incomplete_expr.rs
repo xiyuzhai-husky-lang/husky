@@ -1,13 +1,12 @@
 mod call_list;
 mod comma_list;
 
-pub(crate) use self::call_list::*;
-pub(crate) use self::comma_list::*;
-
-use parsec::TryParseOptionFromStream;
-use smallvec::SmallVec;
+pub(super) use self::call_list::*;
+pub(super) use self::comma_list::*;
 
 use super::*;
+use parsec::TryParseOptionFromStream;
+use smallvec::SmallVec;
 
 #[derive(Debug, PartialEq, Eq)]
 pub(super) enum IncompleteSynExpr {

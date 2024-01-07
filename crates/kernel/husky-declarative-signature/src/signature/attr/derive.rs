@@ -1,6 +1,4 @@
 use super::*;
-use husky_entity_syn_tree::HasAttrPaths;
-use vec_like::{SmallVecPairMap, SmallVecSet, VecMapGetEntry};
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct DeriveAttrDeclarativeSignatureTemplate {

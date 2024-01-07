@@ -73,7 +73,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builders<'a>(
     Ok(builders)
 }
 
-#[deprecated(note = "derive any should check argument ty trai satisfaction")]
+// todo: check argument ty trai satisfaction
 pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
     db: &'a ::salsa::Db,
     trai_path: TraitPath,

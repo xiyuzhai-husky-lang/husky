@@ -1,5 +1,4 @@
 use husky_hir_ty::ritchie::HirEagerContract;
-use husky_term_prelude::TermContract;
 
 use super::*;
 

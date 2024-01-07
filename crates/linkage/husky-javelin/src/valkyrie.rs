@@ -1,10 +1,6 @@
 use crate::{
-    amazon::{package_amazon_javelins},
-    instantiation::JavelinInstantiation,
-    javelin::JavelinData,
-    path::JavelinPath,
-    template_argument::ty::JavelinType,
-    *,
+    amazon::package_amazon_javelins, instantiation::JavelinInstantiation, javelin::JavelinData,
+    path::JavelinPath, template_argument::ty::JavelinType, *,
 };
 use fxhash::FxHashMap;
 use husky_entity_path::{ItemPathId, MajorItemPath, PrincipalEntityPath};
@@ -18,7 +14,6 @@ use husky_hir_lazy_expr::{HirLazyExprData, HirLazyExprRegion};
 use husky_hir_ty::{instantiation::HirInstantiation, HirType};
 use husky_manifest::HasPackageManifest;
 use husky_vfs::PackagePath;
-
 use vec_like::VecSet;
 
 /// a Valkyrie javelin is one with non empty instantiation
@@ -211,7 +206,6 @@ impl ValkyrieRides {
                 HirEagerExprData::Unveil {
                     unveil_associated_fn_path,
                     ref instantiation,
-                    
                     ..
                 } => {
                     if let Some(javelin_path) =

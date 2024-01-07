@@ -636,13 +636,9 @@ impl<'a> DeclarativeTermEngine<'a> {
                         .into(),
                 )
             }
-            SynExprData::Sorry {
-                regional_token_idx: token_idx,
-            } => todo!(),
-            SynExprData::Todo {
-                regional_token_idx: token_idx,
-            } => todo!(),
-            SynExprData::Unreachable { regional_token_idx } => todo!(),
+            SynExprData::Sorry { .. } => todo!(),
+            SynExprData::Todo { .. } => todo!(),
+            SynExprData::Unreachable { .. } => todo!(),
         }
     }
 

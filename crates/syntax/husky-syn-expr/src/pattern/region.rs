@@ -41,8 +41,6 @@ impl SynPatternExprRegion {
             SynPatternExprData::TupleStruct { .. } => todo!(),
             // ad hoc
             SynPatternExprData::TupleTypeVariant { .. } => Default::default(),
-            SynPatternExprData::TupleStruct { .. } => todo!(),
-            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
             SynPatternExprData::Props { .. } => todo!(),
             SynPatternExprData::OneOf { ref options } => {
                 debug_assert!(options.elements().len() > 1);

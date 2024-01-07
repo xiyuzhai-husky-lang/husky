@@ -1,5 +1,3 @@
-use husky_entity_syn_tree::TypeImplBlockSynNodePath;
-
 use super::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]

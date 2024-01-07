@@ -1,8 +1,6 @@
-use crate::*;
 use either::*;
 use husky_entity_kind::TypeKind;
 use husky_entity_path::*;
-use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_hir_defn::HirDefn;
 
 #[salsa::debug_with_db]
@@ -27,6 +25,9 @@ impl std::ops::Deref for JavelinPath {
 
 #[test]
 fn javelin_item_path_deref_works() {
+    use crate::*;
+    use husky_entity_syn_tree::helpers::paths::module_item_paths;
+
     DB::default().ast_plain_test(
         |db, module_path| {
             for &item_path in module_item_paths(db, module_path) {

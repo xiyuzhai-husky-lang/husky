@@ -1,4 +1,3 @@
-use super::*;
 use husky_syn_expr::SelfValueParameterSyndicate;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

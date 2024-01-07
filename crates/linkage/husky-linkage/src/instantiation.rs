@@ -11,10 +11,7 @@ use smallvec::*;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
 use crate::template_argument::{
-    constant::LinkageConstant,
-    place::LinkagePlace,
-    ty::{LinkageType},
-    LinkageTemplateArgument,
+    constant::LinkageConstant, place::LinkagePlace, ty::LinkageType, LinkageTemplateArgument,
 };
 
 #[salsa::debug_with_db]

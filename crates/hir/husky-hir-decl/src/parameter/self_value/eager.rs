@@ -1,7 +1,7 @@
 use super::*;
 use husky_hir_ty::ritchie::HirEagerContract;
 use husky_syn_expr::SelfValueParameterSyndicate;
-use husky_term_prelude::{SymbolModifier, TermContract};
+use husky_term_prelude::TermContract;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct HirEagerSelfValueParameter {
