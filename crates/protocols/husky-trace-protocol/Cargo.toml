@@ -20,7 +20,7 @@ tokio-tungstenite = { workspace = true, optional = true }
 shifted-unsigned-int = { path = "../../abstractions/shifted-unsigned-int" }
 serde-impl = { path = "../../abstractions/serde-impl" }
 enum-class.workspace = true
-notify = { path = "../../abstractions/notify" }
+notify-change = { path = "../../abstractions/notify-change" }
 vec-like.workspace = true
 # protocols
 husky-token-protocol = { workspace = true, features = ["serde"] }

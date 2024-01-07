@@ -1,7 +1,7 @@
 //! meant for immediate mode gui
 use futures_util::{SinkExt, StreamExt};
 use husky_print_utils::p;
-use notify::Notify;
+use notify_change::NotifyChange;
 use std::sync::Arc;
 use thiserror::Error;
 use tokio_tungstenite::tungstenite::{self, Message};
@@ -13,7 +13,7 @@ const ORDERING: core::sync::atomic::Ordering = core::sync::atomic::Ordering::Seq
 /// all apis are sync
 pub struct ImmediateWebsocketClientConnection<Request, Response, Notifier>
 where
-    Notifier: Notify,
+    Notifier: NotifyChange,
 {
     tokio_runtime: Arc<tokio::runtime::Runtime>,
     creation_status: CreationStatus<Request, Response, Notifier>,
@@ -36,7 +36,7 @@ pub enum CommunicationStatus {
 
 pub enum CreationStatus<Request, Response, Notifier>
 where
-    Notifier: Notify,
+    Notifier: NotifyChange,
 {
     Await(Arc<std::sync::Mutex<CreationAwaitStatus<Request, Response, Notifier>>>),
     Ok,
@@ -45,7 +45,7 @@ where
 
 pub enum CreationAwaitStatus<Request, Response, Notifier>
 where
-    Notifier: Notify,
+    Notifier: NotifyChange,
 {
     Await,
     Ok {
@@ -78,7 +78,7 @@ impl<Request, Response, Notifier> ImmediateWebsocketClientConnection<Request, Re
 where
     Request: Send + 'static,
     Response: Send + 'static,
-    Notifier: Notify + 'static,
+    Notifier: NotifyChange + 'static,
 {
     pub fn new(
         tokio_runtime: Arc<tokio::runtime::Runtime>,
@@ -138,7 +138,7 @@ impl<Request, Response, Notifier> ImmediateWebsocketClientConnection<Request, Re
 where
     Request: serde::Serialize + Send + 'static + NeedResponse + Default,
     Response: for<'a> serde::Deserialize<'a> + Send + 'static,
-    Notifier: Notify + 'static,
+    Notifier: NotifyChange + 'static,
 {
     pub fn try_send_request(
         &mut self,

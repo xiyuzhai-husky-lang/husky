@@ -9,7 +9,7 @@ impl EguiRepaintSignal {
     }
 }
 
-impl notify::Notify for EguiRepaintSignal {
+impl notify_change::NotifyChange for EguiRepaintSignal {
     fn notify(&self) {
         self.ctx.request_repaint()
     }
