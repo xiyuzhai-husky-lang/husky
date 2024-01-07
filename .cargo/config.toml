@@ -6,7 +6,7 @@ linker = "clang"
 # rustflags = ["-Awarnings", "-Clink-arg=-fuse-ld=lld", "-Zshare-generics=y"]
 # following instructions on https://github.com/rui314/mold to install mold
 # use g++-10 instead of c++ in the cmake flag
-rustflags = ["-Clink-arg=-fuse-ld=mold", "-Zshare-generics=y"]
+rustflags = ["-Awarnings", "-Clink-arg=-fuse-ld=mold", "-Zshare-generics=y"]
 
 # NOTE: you must manually install https://github.com/michaeleisel/zld on mac. you can easily do this with the "brew" package manager:
 # `brew install michaeleisel/zld/zld`
