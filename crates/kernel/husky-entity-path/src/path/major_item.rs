@@ -10,7 +10,7 @@ pub use self::trai::*;
 pub use self::ty::*;
 
 use crate::*;
-use salsa::Db;
+
 use utils::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -69,7 +69,7 @@ impl MajorItemPathData {
         }
     }
 
-    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+    pub fn module_path(self, _db: &::salsa::Db) -> ModulePath {
         match self {
             MajorItemPathData::Type(data) => data.module_path(),
             MajorItemPathData::Trait(data) => data.module_path(),
@@ -88,7 +88,7 @@ impl MajorItemPathData {
         self.module_path(db).crate_path(db)
     }
 
-    pub(crate) fn entity_kind(self, db: &::salsa::Db) -> EntityKind {
+    pub(crate) fn entity_kind(self, _db: &::salsa::Db) -> EntityKind {
         match self {
             MajorItemPathData::Type(data) => data.item_kind(),
             MajorItemPathData::Trait(data) => EntityKind::MajorItem {

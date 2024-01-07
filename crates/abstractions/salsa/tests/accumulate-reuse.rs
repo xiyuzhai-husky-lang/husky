@@ -3,7 +3,7 @@
 //! Tests behavior when a query's only inputs
 //! are the accumulated values from another query.
 
-use husky_salsa_log_utils::{HasLogger, Logger};
+use husky_salsa_log_utils::{HasLogger};
 
 use expect_test::expect;
 use salsa::Db;

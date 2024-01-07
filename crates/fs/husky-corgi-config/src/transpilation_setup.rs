@@ -50,15 +50,15 @@ impl TranspilationSetup {
         self._rust_data(db).as_ref()
     }
 
-    pub fn c_data<'a>(self, db: &'a ::salsa::Db) -> Option<&'a CTranspilationSetupData> {
+    pub fn c_data<'a>(self, _db: &'a ::salsa::Db) -> Option<&'a CTranspilationSetupData> {
         todo!()
     }
 
-    pub fn llvm_data<'a>(self, db: &'a ::salsa::Db) -> Option<&'a LlvmTranspilationSetupData> {
+    pub fn llvm_data<'a>(self, _db: &'a ::salsa::Db) -> Option<&'a LlvmTranspilationSetupData> {
         todo!()
     }
 
-    pub fn mlir_data<'a>(self, db: &'a ::salsa::Db) -> Option<&'a MlirTranspilationSetupData> {
+    pub fn mlir_data<'a>(self, _db: &'a ::salsa::Db) -> Option<&'a MlirTranspilationSetupData> {
         todo!()
     }
 }

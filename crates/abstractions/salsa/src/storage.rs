@@ -48,7 +48,7 @@ impl Storage {
     /// here we use fn instead of impl FnOnce to save compilation time
     pub fn new(initialize_jars: fn(&mut Jars, &mut Routes)) -> Self {
         let mut routes = Routes::new();
-        let shared = unsafe {
+        let shared = {
             let mut jars = Default::default();
             initialize_jars(&mut jars, &mut routes);
             Shared {

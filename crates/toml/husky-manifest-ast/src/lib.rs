@@ -7,7 +7,7 @@ mod menu;
 mod sections;
 mod transformer;
 
-pub use self::db::*;
+
 pub use self::dependency::*;
 pub use self::error::*;
 pub use self::menu::*;

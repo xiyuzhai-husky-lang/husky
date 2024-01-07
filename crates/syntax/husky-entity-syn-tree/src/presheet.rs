@@ -2,7 +2,7 @@ mod action;
 mod use_all_rule;
 mod use_one_rule;
 
-use husky_vfs::error::VfsResult;
+
 pub use use_all_rule::*;
 pub use use_one_rule::*;
 

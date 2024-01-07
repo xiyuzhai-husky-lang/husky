@@ -1,7 +1,7 @@
-use crate::*;
+
 use husky_ast::AstError;
 use husky_vfs::error::VfsError;
-use salsa::Db;
+
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]

@@ -1,4 +1,4 @@
-use salsa::Storage;
+
 
 #[salsa::db(
     husky_coword::CowordJar,

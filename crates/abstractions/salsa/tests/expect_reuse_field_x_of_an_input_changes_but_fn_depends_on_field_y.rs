@@ -3,7 +3,7 @@
 //! compiles and executes successfully.
 #![allow(dead_code)]
 
-use husky_salsa_log_utils::{HasLogger, Logger};
+use husky_salsa_log_utils::{HasLogger};
 
 use expect_test::expect;
 use salsa::Db;

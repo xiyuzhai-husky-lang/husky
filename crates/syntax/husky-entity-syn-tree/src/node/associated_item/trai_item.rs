@@ -81,7 +81,7 @@ impl TraitItemSynNodePathData {
         self.maybe_ambiguous_path.path.item_kind(db)
     }
 
-    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+    pub fn ast_idx(self, _id: ItemSynNodePathId, _db: &::salsa::Db) -> AstIdx {
         todo!()
         // TraitItemSynNodePath(id).syn_node(db).ast_idx
     }

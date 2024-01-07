@@ -1,12 +1,12 @@
 mod r#enum;
 mod r#struct;
 
-use husky_macro_utils::{generics_without_bounds, self_ty};
+use husky_macro_utils::{self_ty};
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::Ident;
 
-pub fn value_conversion(args: TokenStream, input: TokenStream) -> TokenStream {
+pub fn value_conversion(_args: TokenStream, input: TokenStream) -> TokenStream {
     let item = syn::parse_macro_input!(input as syn::Item);
     match item {
         syn::Item::Enum(item) => r#enum::enum_value_conversion(item),
@@ -20,7 +20,7 @@ fn impl_weak_static_generic_constraints(generics: &syn::Generics) -> proc_macro2
         .params
         .iter()
         .map(|param| match param {
-            syn::GenericParam::Lifetime(param) => quote! {},
+            syn::GenericParam::Lifetime(_param) => quote! {},
             syn::GenericParam::Type(param) => quote! {
                 #param: __WeakStatic<Static = #param> + __Static + __Serialize
             },
@@ -42,7 +42,7 @@ fn impl_weak_static_associated_ty_static(
                     let ident = &param.ident;
                     Some(quote! { <#ident as __WeakStatic>::Static })
                 }
-                syn::GenericParam::Lifetime(param) => None,
+                syn::GenericParam::Lifetime(_param) => None,
                 syn::GenericParam::Const(param) => {
                     let ident = &param.ident;
                     Some(quote! { #ident })
@@ -82,7 +82,7 @@ fn impl_static_associated_ty_frozen(
                     let ident = &param.ident;
                     Some(quote! { <#ident as __Static>::Frozen })
                 }
-                syn::GenericParam::Lifetime(param) => None,
+                syn::GenericParam::Lifetime(_param) => None,
                 syn::GenericParam::Const(param) => {
                     let ident = &param.ident;
                     Some(quote! { #ident })
@@ -122,7 +122,7 @@ fn impl_frozen_associated_ty_static(
                     let ident = &param.ident;
                     Some(quote! { <#ident as __Frozen>::Static })
                 }
-                syn::GenericParam::Lifetime(param) => None,
+                syn::GenericParam::Lifetime(_param) => None,
                 syn::GenericParam::Const(param) => {
                     let ident = &param.ident;
                     Some(quote! { #ident })
@@ -138,7 +138,7 @@ fn impl_from_value_generic_constraints(generics: &syn::Generics) -> proc_macro2:
         .params
         .iter()
         .map(|param| match param {
-            syn::GenericParam::Lifetime(param) => quote! {},
+            syn::GenericParam::Lifetime(_param) => quote! {},
             syn::GenericParam::Type(param) => quote! {
                 // ad hoc
                 #param: __WeakStatic<Static = #param> + __Static
@@ -153,7 +153,7 @@ fn impl_into_value_generic_constraints(generics: &syn::Generics) -> proc_macro2:
         .params
         .iter()
         .map(|param| match param {
-            syn::GenericParam::Lifetime(param) => quote! {},
+            syn::GenericParam::Lifetime(_param) => quote! {},
             syn::GenericParam::Type(param) => quote! {
                 // ad hoc
                 #param: __WeakStatic<Static = #param> + __Static

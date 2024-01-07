@@ -74,7 +74,7 @@ impl TraitForTypeItemPathData {
         self.impl_block.toolchain(db)
     }
 
-    pub fn entity_kind(self, db: &::salsa::Db) -> EntityKind {
+    pub fn entity_kind(self, _db: &::salsa::Db) -> EntityKind {
         EntityKind::AssociatedItem {
             associated_item_kind: AssociatedItemKind::TraitForTypeItem(self.item_kind),
         }

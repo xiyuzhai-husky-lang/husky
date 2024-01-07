@@ -1,9 +1,9 @@
 pub mod float;
 
 use crate::{float::*, *};
-use husky_task_interface::value::IsValue;
-use ordered_float::{NotNan, OrderedFloat};
-use salsa::Db;
+
+use ordered_float::{OrderedFloat};
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]

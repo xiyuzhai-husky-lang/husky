@@ -3,7 +3,7 @@ mod set;
 
 use crate::helpers::DeclarativeTermFamily;
 
-pub use self::r#abstract::*;
+
 pub use self::set::*;
 
 use super::*;

@@ -6,7 +6,7 @@ pub mod submodule;
 pub mod ty_variant;
 
 use enum_class::Room32;
-use salsa::Db;
+
 
 pub use self::associated_item::*;
 pub use self::attr::*;
@@ -100,9 +100,9 @@ impl ItemPathData {
             ItemPathData::SubmoduleItem(_) => EntityKind::Module,
             ItemPathData::MajorItem(slf) => slf.entity_kind(db),
             ItemPathData::AssociatedItem(slf) => slf.entity_kind(db),
-            ItemPathData::TypeVariant(slf) => EntityKind::TypeVariant,
-            ItemPathData::ImplBlock(slf) => EntityKind::ImplBlock,
-            ItemPathData::Attr(slf) => EntityKind::Attr,
+            ItemPathData::TypeVariant(_slf) => EntityKind::TypeVariant,
+            ItemPathData::ImplBlock(_slf) => EntityKind::ImplBlock,
+            ItemPathData::Attr(_slf) => EntityKind::Attr,
         }
     }
 }
@@ -272,7 +272,7 @@ impl salsa::DisplayWithDb for ItemPath {
             ItemPath::MajorItem(path) => path.display_with_db_fmt(f, db),
             ItemPath::AssociatedItem(path) => path.display_with_db_fmt(f, db),
             ItemPath::TypeVariant(_, path) => path.display_with_db_fmt(f, db),
-            ItemPath::ImplBlock(path) => todo!(),
+            ItemPath::ImplBlock(_path) => todo!(),
             ItemPath::Attr(_, _) => todo!(),
         }
     }

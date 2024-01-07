@@ -4,7 +4,7 @@ use husky_entity_path::*;
 use husky_vfs::Toolchain;
 use salsa::DisplayWithDb;
 
-use super::*;
+
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]

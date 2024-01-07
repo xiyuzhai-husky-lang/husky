@@ -3,7 +3,7 @@
 //! * entities not created in a revision are deleted, as is any memoized data keyed on them.
 
 use expect_test::expect;
-use husky_salsa_log_utils::{HasLogger, Logger};
+use husky_salsa_log_utils::{HasLogger};
 use salsa::*;
 use test_log::test;
 

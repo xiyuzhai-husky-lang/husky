@@ -1,5 +1,5 @@
 use crate::*;
-use husky_vfs::error::VfsResult;
+
 
 pub trait HasAstSheet: Copy {
     fn ast_sheet(self, db: &::salsa::Db) -> &AstSheet;

@@ -282,7 +282,7 @@ where
         K: Copy + PartialEq,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
-            Some(entry) => unsafe { update(&mut entry.1) },
+            Some(entry) => update(&mut entry.1),
             None => self.entries.push((key, v)),
         }
     }
@@ -297,7 +297,7 @@ where
         K: Copy + PartialEq,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
-            Some(entry) => unsafe { update(&mut entry.1) },
+            Some(entry) => update(&mut entry.1),
             None => self.entries.push((key, f())),
         }
     }

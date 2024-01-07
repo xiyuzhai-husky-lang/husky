@@ -1,5 +1,5 @@
 use crate::*;
-use husky_vfs::{error::VfsResult, *};
+use husky_vfs::{*};
 
 pub trait EntitySynTreeDb {
     fn submodules(&self, module_path: ModulePath) -> &[SubmodulePath];

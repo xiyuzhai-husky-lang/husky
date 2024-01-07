@@ -305,7 +305,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
     /// Generate `impl salsa::DebugWithDb for Foo`
     pub(crate) fn as_debug_with_db_impl(&self) -> TokenStream {
         let ident = self.id_ident();
-        let jar_ty = self.jar_ty();
+        let _jar_ty = self.jar_ty();
         let ident_string = ident.to_string();
 
         // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`

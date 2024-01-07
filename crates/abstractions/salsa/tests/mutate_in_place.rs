@@ -1,8 +1,8 @@
 //! Test that a setting a field on a `#[salsa::input]`
 //! overwrites and returns the old value.
 
-use husky_salsa_log_utils::{HasLogger, Logger};
-use salsa::*;
+
+
 use test_log::test;
 
 #[salsa::jar(db = Db)]

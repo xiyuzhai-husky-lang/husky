@@ -35,4 +35,4 @@ use husky_coword::Ident;
 use husky_term_prelude::*;
 use husky_text_protocol::range::TextRange;
 use husky_token_data::*;
-use husky_vfs::{error::VfsResult, ModulePath};
+use husky_vfs::{ModulePath};

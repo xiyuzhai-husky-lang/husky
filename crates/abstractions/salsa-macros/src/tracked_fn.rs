@@ -826,7 +826,7 @@ fn accumulated_fn(
         -> Vec<<__A as salsa::accumulator::Accumulator>::Data>
     };
 
-    let (db_lifetime, _) = db_lifetime_and_ty(&mut accumulated_fn.sig)?;
+    let (_db_lifetime, _) = db_lifetime_and_ty(&mut accumulated_fn.sig)?;
 
     let (db_var, arg_names) = fn_args(item_fn)?;
     accumulated_fn.block = parse_quote! {

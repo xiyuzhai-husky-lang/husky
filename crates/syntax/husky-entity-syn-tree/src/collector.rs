@@ -3,7 +3,7 @@ mod action;
 
 use crate::*;
 
-use husky_print_utils::p;
+
 use husky_token::TokenDb;
 use vec_like::{VecMap, VecPairMap};
 
@@ -51,7 +51,7 @@ impl<'a> EntityTreeCollector<'a> {
                 panic!();
             }
             let actions = self.collect_possible_actions();
-            let db = self.db;
+            let _db = self.db;
             if actions.len() == 0 {
                 break;
             }

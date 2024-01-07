@@ -5,7 +5,7 @@ use husky_coword::CowordJar;
 use husky_entity_path::EntityPathJar;
 use husky_expect_test_snippets_utils::*;
 use husky_vfs::{snippet::Snippet, *};
-use salsa::{DebugWithDb, Storage};
+use salsa::{DebugWithDb};
 
 #[salsa::db(
     CowordJar,

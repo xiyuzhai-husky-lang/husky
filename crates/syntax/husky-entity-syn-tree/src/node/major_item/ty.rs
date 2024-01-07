@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_kind::TypeKind;
-use husky_print_utils::p;
+
 use smallvec::SmallVec;
 
 #[salsa::debug_with_db]

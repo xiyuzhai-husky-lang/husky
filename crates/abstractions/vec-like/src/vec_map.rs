@@ -398,7 +398,7 @@ impl<K, V> VecPairMap<K, V> {
         K: Copy + Eq,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
-            Some(entry) => unsafe { update(&mut entry.1) },
+            Some(entry) => update(&mut entry.1),
             None => self.entries.push((key, v)),
         }
     }
@@ -413,7 +413,7 @@ impl<K, V> VecPairMap<K, V> {
         K: Copy + Eq,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
-            Some(entry) => unsafe { update(&mut entry.1) },
+            Some(entry) => update(&mut entry.1),
             None => self.entries.push((key, f())),
         }
     }
@@ -458,7 +458,7 @@ where
         let mut map = Self::default();
         for v in iter {
             // ignore errors
-            map.insert_new(v);
+            let _ = map.insert_new(v);
         }
         map
     }

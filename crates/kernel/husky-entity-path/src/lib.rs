@@ -11,7 +11,7 @@ mod tests;
 mod utils;
 
 pub use self::ancestry::*;
-pub use self::db::*;
+
 pub use self::error::*;
 pub use self::menu::*;
 pub use self::path::*;

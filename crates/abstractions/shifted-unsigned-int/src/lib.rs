@@ -1,5 +1,4 @@
-#[cfg(feature = "serde")]
-use serde::{Deserialize, Serialize};
+
 use std::{
     num::{NonZeroU16, NonZeroU32, NonZeroU64, NonZeroU8, NonZeroUsize},
     ops::AddAssign,

@@ -177,7 +177,7 @@ impl InternedStruct {
     /// Implementation of `SalsaStructInDb`.
     fn salsa_struct_in_db_impl(&self) -> syn::ItemImpl {
         let ident = self.id_ident();
-        let jar_ty = self.jar_ty();
+        let _jar_ty = self.jar_ty();
         parse_quote! {
             impl salsa::salsa_struct::SalsaStructInDb for #ident
             {

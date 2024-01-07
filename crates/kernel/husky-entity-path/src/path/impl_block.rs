@@ -1,5 +1,5 @@
 use super::*;
-use salsa::Db;
+
 use vec_like::VecPairMap;
 
 #[salsa::debug_with_db]
@@ -43,7 +43,7 @@ impl ImplBlockPathData {
         }
     }
 
-    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+    pub fn module_path(self, _db: &::salsa::Db) -> ModulePath {
         match self {
             ImplBlockPathData::TypeImplBlock(data) => data.module_path(),
             ImplBlockPathData::TraitForTypeImplBlock(data) => data.module_path(),

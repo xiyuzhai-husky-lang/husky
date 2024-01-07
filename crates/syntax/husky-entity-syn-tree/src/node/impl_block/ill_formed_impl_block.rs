@@ -33,7 +33,7 @@ impl IllFormedImplBlockSynNodePathData {
         IllFormedImplBlockSynNodePath(id)
     }
 
-    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+    pub fn module_path(self, _db: &::salsa::Db) -> ModulePath {
         self.module_path
     }
 
