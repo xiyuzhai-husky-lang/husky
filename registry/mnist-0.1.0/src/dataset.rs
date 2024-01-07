@@ -15,7 +15,7 @@ impl MnistDataset {
     fn new(seed: u64) -> Self {
         let (images, labels) = load_mnist_images_and_labels();
         let permutation = husky_xrng_utils::generate_random_permutation(60000, seed);
-        println!("permutation[0] = {}", permutation[0]);
+        // println!("permutation[0] = {}", permutation[0]);
         // debug_assert_eq!(permutation[0], 17306);
         Self {
             images,
