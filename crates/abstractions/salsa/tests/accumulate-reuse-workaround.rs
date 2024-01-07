@@ -2,7 +2,7 @@
 //! `accumulated` in a tracked function to get better
 //! reuse.
 use expect_test::expect;
-use husky_salsa_log_utils::{HasLogger, Logger};
+use husky_salsa_log_utils::{HasLogger};
 use salsa::*;
 use test_log::test;
 

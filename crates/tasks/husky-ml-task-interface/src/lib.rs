@@ -2,16 +2,16 @@ pub mod label;
 pub mod ugly;
 
 use husky_linkage_impl::standard::ValControlFlow;
-pub use husky_ml_task_interface_macros::*;
 
-use husky_standard_value::{ugly::__ValueStands, FromValue, Value};
+
+use husky_standard_value::{ugly::__ValueStands, FromValue};
 use husky_task_interface::val_repr::{
     ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface,
 };
 use husky_trace_protocol::protocol::IsPedestal;
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
-use std::{cell::Cell, convert::Infallible, thread::LocalKey};
+use std::{cell::Cell, convert::Infallible};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize, Hash)]
 pub struct InputId(ShiftedU32);
@@ -95,7 +95,7 @@ pub fn eval_val_repr<T>(
 where
     T: FromValue + 'static,
 {
-    let mut value = dev_eval_context().eval_val_repr(val_repr)?;
+    let value = dev_eval_context().eval_val_repr(val_repr)?;
     ValControlFlow::Continue(<T as FromValue>::from_value_aux(value, value_stands))
 }
 

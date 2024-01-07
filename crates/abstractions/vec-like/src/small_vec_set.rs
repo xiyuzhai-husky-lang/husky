@@ -62,11 +62,11 @@ where
     }
 }
 
-impl<K, const N: usize, const n: usize> From<[K; n]> for SmallVecSet<K, N>
+impl<K, const N: usize, const N2: usize> From<[K; N2]> for SmallVecSet<K, N>
 where
     [K; N]: Array<Item = K>,
 {
-    fn from(value: [K; n]) -> Self {
+    fn from(value: [K; N2]) -> Self {
         Self::from_iter(value.into_iter())
     }
 }

@@ -2,12 +2,12 @@ use super::*;
 
 pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
     let syn::ItemEnum {
-        ref attrs,
-        ref vis,
-        enum_token,
+        attrs: _,
+        vis: _,
+        enum_token: _,
         ref ident,
         ref generics,
-        brace_token,
+        brace_token: _,
         ref variants,
     } = item;
     let self_ty = self_ty(ident, generics);

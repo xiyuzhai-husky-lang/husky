@@ -3,7 +3,7 @@
 //! Check that we accumulate the appropriate, new values.
 
 use expect_test::expect;
-use husky_salsa_log_utils::{HasLogger, Logger};
+
 use salsa::*;
 use test_log::test;
 

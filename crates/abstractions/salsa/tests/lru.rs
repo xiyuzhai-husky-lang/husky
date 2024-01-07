@@ -6,7 +6,7 @@ use std::sync::{
     Arc,
 };
 
-use husky_salsa_log_utils::{HasLogger, Logger};
+use husky_salsa_log_utils::{HasLogger};
 use salsa::Db;
 use test_log::test;
 

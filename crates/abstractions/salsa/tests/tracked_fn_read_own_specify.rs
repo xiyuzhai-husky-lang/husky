@@ -1,5 +1,5 @@
 use expect_test::expect;
-use husky_salsa_log_utils::{HasLogger, Logger};
+use husky_salsa_log_utils::{HasLogger};
 use salsa::{Db, DebugWithDb};
 
 #[salsa::jar(db = Db)]

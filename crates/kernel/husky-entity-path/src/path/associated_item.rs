@@ -2,7 +2,7 @@ mod trai_for_ty_item;
 mod trai_item;
 mod ty_item;
 
-use salsa::Db;
+
 pub use trai_for_ty_item::*;
 pub use trai_item::*;
 pub use ty_item::*;
@@ -65,7 +65,7 @@ impl AssociatedItemPathData {
         }
     }
 
-    pub fn ident(self, db: &::salsa::Db) -> Ident {
+    pub fn ident(self, _db: &::salsa::Db) -> Ident {
         match self {
             AssociatedItemPathData::TypeItem(slf) => slf.ident,
             AssociatedItemPathData::TraitItem(slf) => slf.ident,

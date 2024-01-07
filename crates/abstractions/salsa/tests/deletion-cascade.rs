@@ -2,8 +2,8 @@
 //!
 //! * when we delete memoized data, also delete outputs from that data
 
-use husky_salsa_log_utils::{HasLogger, Logger};
-use salsa::{Db, DebugWithDb};
+use husky_salsa_log_utils::{HasLogger};
+use salsa::{Db};
 
 use expect_test::expect;
 use test_log::test;

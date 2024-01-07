@@ -4,7 +4,7 @@ pub use self::error::*;
 
 use husky_scope::Scope;
 use husky_token::*;
-use husky_vfs::{ModulePath, VfsDb};
+use husky_vfs::{ModulePath};
 use parsec::IsStreamParser;
 
 #[derive(Debug, PartialEq, Eq)]

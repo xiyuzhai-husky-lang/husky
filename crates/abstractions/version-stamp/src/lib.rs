@@ -1,4 +1,4 @@
-use salsa::Db;
+
 
 pub trait HasVersionStamp: Copy {
     type VersionStamp;

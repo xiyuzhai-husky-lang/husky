@@ -1,5 +1,5 @@
 use crate::{
-    EntitySynTreeDb, EntitySynTreeJar, EntityTreeBundleError, ItemSynNodePath, PreludeError,
+    EntityTreeBundleError, ItemSynNodePath, PreludeError,
 };
 use husky_entity_path::{EntityPathError, TypePath};
 use husky_token::IdentToken;

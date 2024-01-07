@@ -76,7 +76,7 @@ impl ImplBlockSynNodePathData {
         match self {
             ImplBlockSynNodePathData::TypeImplBlock(slf) => Some(slf.path().into()),
             ImplBlockSynNodePathData::TraitForTypeImplBlock(slf) => Some(slf.path.into()),
-            ImplBlockSynNodePathData::IllFormedImplBlock(slf) => None,
+            ImplBlockSynNodePathData::IllFormedImplBlock(_slf) => None,
         }
     }
 

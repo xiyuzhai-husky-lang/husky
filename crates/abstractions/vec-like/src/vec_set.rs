@@ -51,8 +51,8 @@ impl<K> FromIterator<K> for VecSet<K> {
     }
 }
 
-impl<const n: usize, K> From<[K; n]> for VecSet<K> {
-    fn from(value: [K; n]) -> Self {
+impl<const N: usize, K> From<[K; N]> for VecSet<K> {
+    fn from(value: [K; N]) -> Self {
         Self::from_iter(value.into_iter())
     }
 }

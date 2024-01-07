@@ -99,7 +99,7 @@ pub(crate) fn has_ingredients_for_impl(
 
 pub(crate) fn jar_impl(
     jar_struct: &Ident,
-    jar_trait: &Path,
+    _jar_trait: &Path,
     input: &ItemStruct,
 ) -> proc_macro2::TokenStream {
     let field_initializations: Vec<_> = input

@@ -1,6 +1,6 @@
 use crate::*;
-use husky_token::TokenDb;
-use husky_vfs::{error::VfsResult, *};
+
+use husky_vfs::{*};
 
 pub trait AstDb {
     #[deprecated(note = "use HasAstSheet trait instead")]

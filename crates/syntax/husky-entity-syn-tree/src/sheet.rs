@@ -186,7 +186,7 @@ impl EntitySynTreeSheet {
 
     pub fn all_impl_block_ill_forms<'a>(
         &'a self,
-        db: &'a ::salsa::Db,
+        _db: &'a ::salsa::Db,
     ) -> impl Iterator<Item = &'a ImplBlockIllForm> + 'a {
         self.impl_block_syn_node_table
             .iter()

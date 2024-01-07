@@ -1,6 +1,6 @@
 use super::*;
 use husky_term_prelude::float::{TermF32Literal, TermF64Literal};
-use ordered_float::NotNan;
+
 use std::ops::Neg;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

@@ -2,7 +2,7 @@
 //! compiles and executes successfully.
 
 use expect_test::expect;
-use husky_salsa_log_utils::{HasLogger, Logger};
+use husky_salsa_log_utils::{HasLogger};
 use salsa::Db;
 use test_log::test;
 

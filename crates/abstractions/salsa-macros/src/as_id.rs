@@ -35,7 +35,7 @@ pub(crate) fn as_id(
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let options = syn::parse_macro_input!(args as Args);
-    let jar_ty = options.jar_ty();
+    let _jar_ty = options.jar_ty();
     let item = syn::parse_macro_input!(input as Item);
     let Item::Struct(ref item) = item else {
         panic!("expect struct for `wrap_id`")

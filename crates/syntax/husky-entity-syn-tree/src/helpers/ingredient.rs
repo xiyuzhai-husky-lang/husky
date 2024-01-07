@@ -1,7 +1,7 @@
 use super::*;
-use crate::helpers::paths::{module_item_paths, HasItemPaths, HasModulePaths};
+use crate::helpers::paths::{HasItemPaths};
 use husky_entity_kind::*;
-use husky_entity_path::{FugitivePath, ItemPath, ItemPathId};
+use husky_entity_path::{ItemPath, ItemPathId};
 use husky_task_interface::TaskIngredientIndex;
 
 #[salsa::debug_with_db]
@@ -45,7 +45,7 @@ impl IngredientPath {
             EntityKind::Module => false,
             EntityKind::MajorItem {
                 module_item_kind,
-                connection,
+                connection: _,
             } => match module_item_kind {
                 MajorItemKind::Type(_) => false,
                 MajorItemKind::Fugitive(fugitive_kind) => match fugitive_kind {

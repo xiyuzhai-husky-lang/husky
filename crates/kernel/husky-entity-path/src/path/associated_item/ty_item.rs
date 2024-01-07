@@ -75,8 +75,8 @@ impl salsa::DebugWithDb for TypeItemPath {
 impl salsa::DisplayWithDb for TypeItemPath {
     fn display_with_db_fmt(
         &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &::salsa::Db,
     ) -> std::fmt::Result {
         todo!()
     }
@@ -100,7 +100,7 @@ impl TypeItemPathData {
         self.item_kind
     }
 
-    pub fn entity_kind(self, db: &::salsa::Db) -> EntityKind {
+    pub fn entity_kind(self, _db: &::salsa::Db) -> EntityKind {
         EntityKind::AssociatedItem {
             associated_item_kind: AssociatedItemKind::TypeItem(self.item_kind),
         }

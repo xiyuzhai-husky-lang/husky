@@ -2,13 +2,13 @@ use super::*;
 
 pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
     let syn::ItemStruct {
-        ref attrs,
-        ref vis,
-        struct_token,
+        attrs: _,
+        vis: _,
+        struct_token: _,
         ref ident,
         ref generics,
-        ref fields,
-        semi_token,
+        fields: _,
+        semi_token: _,
     } = item;
     let self_ty = self_ty(ident, generics);
     let impl_weak_static_generic_constraints = impl_weak_static_generic_constraints(generics);

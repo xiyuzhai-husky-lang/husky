@@ -147,7 +147,7 @@ impl From<&AstError> for AstError {
 }
 
 impl From<VfsError> for AstError {
-    fn from(e: VfsError) -> Self {
+    fn from(_e: VfsError) -> Self {
         todo!()
     }
 }

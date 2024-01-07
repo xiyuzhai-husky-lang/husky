@@ -3,7 +3,7 @@
 //! Singleton structs are created only once. Subsequent `get`s and `new`s after creation return the same `Id`.
 
 use expect_test::expect;
-use husky_salsa_log_utils::{HasLogger, Logger};
+
 use salsa::DebugWithDb;
 
 use test_log::test;

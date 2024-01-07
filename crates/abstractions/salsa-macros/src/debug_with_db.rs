@@ -15,7 +15,7 @@ pub(crate) fn debug_with_db(
     args: proc_macro::TokenStream,
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
-    let options = syn::parse_macro_input!(args as Args);
+    let _options = syn::parse_macro_input!(args as Args);
     let item = syn::parse_macro_input!(input as Item);
     let impl_debug_with_db = match item {
         Item::Enum(ref item) => enum_debug_with_db_impl(item),

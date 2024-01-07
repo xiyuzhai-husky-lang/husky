@@ -14,7 +14,7 @@ mod universe;
 pub use self::category::*;
 pub use self::contract::*;
 pub use self::curry::*;
-pub use self::db::*;
+
 pub use self::error::*;
 pub use self::final_destination::*;
 pub use self::item_path::*;

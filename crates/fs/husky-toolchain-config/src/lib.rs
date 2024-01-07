@@ -3,7 +3,7 @@
 /// todo: refactor husky-vfs into two crates, let this crate depends on one and be dependent of the other
 mod db;
 
-pub use db::*;
+
 
 use husky_toml_utils::read_toml;
 use husky_vfs::{Toolchain, ToolchainData, VirtualPath};
@@ -38,7 +38,7 @@ pub struct ToolchainSection {
 }
 
 /// ad hoc
-pub fn toolchain_config(mut dir: &Path, db: &::salsa::Db) -> ToolchainConfig {
+pub fn toolchain_config(dir: &Path, db: &::salsa::Db) -> ToolchainConfig {
     let mut dir: &Path = &dir.canonicalize().unwrap();
     let husky_toolchain_toml_path = loop {
         let husky_toolchain_toml_path = dir.join("husky-toolchain.toml");

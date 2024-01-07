@@ -1,7 +1,7 @@
 use std::path::Path;
 
-use husky_coword::{CowordJar, Kebab};
-use salsa::Db;
+use husky_coword::{Kebab};
+
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]

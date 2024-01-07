@@ -9,7 +9,7 @@ mod tests;
 
 use salsa::Db;
 
-pub use self::db::*;
+
 pub use self::ident::*;
 pub use self::kebab::*;
 pub use self::label::*;

@@ -5,7 +5,7 @@ mod visibility;
 pub use self::visibility::*;
 
 use husky_regional_token::RegionalTokenIdxRange;
-use husky_vfs::{ModulePath, VfsDb, VfsJar};
+use husky_vfs::{ModulePath};
 use std::cmp::Ordering;
 use with_db::PartialOrdWithDb;
 

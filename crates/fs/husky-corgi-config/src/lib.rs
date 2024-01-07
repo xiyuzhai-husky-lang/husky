@@ -6,14 +6,14 @@ mod error;
 mod sections;
 pub mod transpilation_setup;
 
-pub use self::db::*;
+
 pub use self::error::*;
 pub use self::sections::*;
 
 use self::builder::*;
 use husky_corgi_config_ast::*;
 use husky_vfs::{error::VfsResult, *};
-use salsa::DebugWithDb;
+
 
 #[salsa::jar(db = CorgiConfigDb)]
 pub struct CorgiConfigJar(
