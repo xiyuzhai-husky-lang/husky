@@ -1104,5 +1104,4 @@ EntitySynTreePresheet {
             ),
         ],
     },
-    errors: [],
 }

@@ -2,15 +2,6 @@ use crate::*;
 
 use vec_like::VecMapGetEntry;
 
-#[salsa::tracked(jar = EntitySynTreeJar)]
-pub(crate) fn module_subitem_path(
-    _db: &::salsa::Db,
-    _parent: ModulePath,
-    _identifier: Ident,
-) -> EntitySynTreeResult<ItemPath> {
-    todo!()
-}
-
 #[enum_class::from_variants]
 pub enum SubitemPath {
     // submodules, module items, type variants

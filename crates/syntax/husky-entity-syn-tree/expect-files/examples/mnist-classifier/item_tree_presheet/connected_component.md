@@ -491,5 +491,4 @@ EntitySynTreePresheet {
             ),
         ],
     },
-    errors: [],
 }

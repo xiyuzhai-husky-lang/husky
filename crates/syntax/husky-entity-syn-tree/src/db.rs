@@ -1,5 +1,5 @@
 use crate::*;
-use husky_vfs::{*};
+use husky_vfs::*;
 
 pub trait EntitySynTreeDb {
     fn submodules(&self, module_path: ModulePath) -> &[SubmodulePath];
@@ -83,7 +83,6 @@ pub struct EntitySynTreeJar(
     item_tree_presheet,
     item_tree_crate_bundle,
     submodules,
-    module_subitem_path,
     all_modules_within_crate,
     // prelude
     crate_specific_prelude,

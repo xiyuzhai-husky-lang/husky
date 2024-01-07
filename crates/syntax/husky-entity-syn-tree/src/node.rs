@@ -83,10 +83,6 @@ impl ItemSynNodePathId {
 fn syn_node_path_id_conversion_works() {
     use crate::helpers::paths::module_item_syn_node_paths;
 
-    println!(
-        "TypeId::of::<EntitySynTreeJar>() = {:?}",
-        std::any::TypeId::of::<EntitySynTreeJar>()
-    );
     DB::default().ast_plain_test(
         |db, module_path| {
             for &syn_node_path in module_item_syn_node_paths(db, module_path) {

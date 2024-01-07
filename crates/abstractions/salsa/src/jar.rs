@@ -46,13 +46,6 @@ impl Jars {
     where
         Jar: for<'db> crate::jar::Jar + HasJarIndex + Send + Sync + 'static,
     {
-        if Jar::JAR_INDEX == JarIndex::EntitySynTreeJar {
-            println!(
-                "{:?} {:?}",
-                std::any::type_name::<Jar>(),
-                std::any::TypeId::of::<Jar>()
-            )
-        }
         let mut jar_maybe_uninitialized: MaybeUninit<Jar> = MaybeUninit::uninit();
         let jar: &mut Jar = unsafe { std::mem::transmute(&mut jar_maybe_uninitialized) };
         Jar::initialize(jar, routes);
@@ -74,17 +67,17 @@ impl Jars {
         match jar.downcast_ref() {
             Some(jar) => jar,
             None => {
-                println!(
+                eprintln!(
                     "jar_index = {:?}, expected = {:?}",
                     jar.jar_index_dyn(),
                     Jar::JAR_INDEX
                 );
-                println!(
+                eprintln!(
                     "jar.type_id() = {:?}, but expected = {:?}",
                     jar.type_id(),
                     std::any::TypeId::of::<Jar>()
                 );
-                println!(
+                eprintln!(
                     "jar.type_name() = `{}`, but expected = {:?}",
                     jar.type_name(),
                     std::any::type_name::<Jar>()

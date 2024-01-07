@@ -149,17 +149,6 @@ impl EntitySynTreeSheet {
         )
     }
 
-    pub(crate) fn all_ty_impl_block_syn_nodes<'a>(
-        &'a self,
-    ) -> impl Iterator<Item = &'a TypeImplBlockSynNode> + 'a {
-        self.impl_block_syn_node_table
-            .iter()
-            .filter_map(|(_, impl_block)| match impl_block {
-                ImplBlockSynNode::TypeImplBlock(impl_block) => Some(impl_block),
-                _ => None,
-            })
-    }
-
     pub fn all_trai_for_ty_impl_block_paths<'a>(
         &'a self,
         db: &'a ::salsa::Db,
@@ -169,18 +158,6 @@ impl EntitySynTreeSheet {
             .filter_map(|(syn_node_path, _)| match syn_node_path.path(db)? {
                 ImplBlockPath::TraitForTypeImplBlock(path) => Some(path),
                 ImplBlockPath::TypeImplBlock(_) => None,
-            })
-    }
-
-    pub(crate) fn all_trai_for_ty_impl_block_syn_nodes<'a>(
-        &'a self,
-    ) -> impl Iterator<Item = &'a TraitForTypeImplBlockSynNode> + 'a {
-        self.impl_block_syn_node_table
-            .iter()
-            .filter_map(|(_, impl_block)| match impl_block {
-                ImplBlockSynNode::TypeImplBlock(_) => None,
-                ImplBlockSynNode::TraitForTypeImplBlock(data) => Some(data),
-                ImplBlockSynNode::IllFormedImplBlock(_) => None,
             })
     }
 
