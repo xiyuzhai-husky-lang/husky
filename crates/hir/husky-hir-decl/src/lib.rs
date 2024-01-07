@@ -1,5 +1,4 @@
 #![feature(impl_trait_in_assoc_type)]
-#![feature(trait_upcasting)]
 mod builder;
 pub mod db;
 mod decl;

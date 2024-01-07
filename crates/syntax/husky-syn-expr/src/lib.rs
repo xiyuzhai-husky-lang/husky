@@ -1,5 +1,4 @@
 #![feature(result_flattening)]
-#![feature(trait_upcasting)]
 #![feature(let_chains)]
 mod context;
 mod db;

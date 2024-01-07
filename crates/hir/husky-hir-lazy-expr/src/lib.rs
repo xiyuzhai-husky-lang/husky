@@ -1,5 +1,4 @@
 #![feature(try_trait_v2)]
-#![feature(trait_upcasting)]
 pub mod builder;
 pub mod db;
 pub mod expr;

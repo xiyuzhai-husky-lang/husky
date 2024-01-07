@@ -1,6 +1,5 @@
 #![feature(let_chains)]
 #![feature(if_let_guard)]
-#![feature(trait_upcasting)]
 mod binding;
 mod builder;
 pub mod db;

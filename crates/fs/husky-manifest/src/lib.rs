@@ -1,10 +1,8 @@
-#![feature(trait_upcasting)]
 mod db;
 mod dependency;
 mod error;
 pub mod has_manifest;
 mod sections;
-
 
 pub use self::dependency::*;
 pub use self::error::*;

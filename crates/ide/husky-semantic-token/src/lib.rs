@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 mod collect;
 mod convert;
 mod db;

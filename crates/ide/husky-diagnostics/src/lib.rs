@@ -1,5 +1,4 @@
 #![feature(let_chains)]
-#![feature(trait_upcasting)]
 mod collector;
 mod context;
 mod db;

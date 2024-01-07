@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 #![allow(incomplete_features)]
 mod ancestry;
 mod db;

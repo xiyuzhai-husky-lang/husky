@@ -1,12 +1,10 @@
 #![feature(result_flattening)]
-#![feature(trait_upcasting)]
 mod db;
 mod dependency;
 mod error;
 mod menu;
 mod sections;
 mod transformer;
-
 
 pub use self::dependency::*;
 pub use self::error::*;

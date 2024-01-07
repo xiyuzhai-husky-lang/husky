@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 mod calc;
 mod config;
 mod db;

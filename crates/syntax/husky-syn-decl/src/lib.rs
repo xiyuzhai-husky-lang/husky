@@ -1,5 +1,4 @@
 #![feature(iter_advance_by)]
-#![feature(trait_upcasting)]
 #![feature(let_chains)]
 pub mod db;
 pub mod decl;
@@ -23,6 +22,6 @@ use derive_getters::Getters;
 use husky_entity_path::*;
 use husky_entity_syn_tree::*;
 use husky_syn_expr::*;
-use husky_vfs::{ModulePath};
+use husky_vfs::ModulePath;
 use parsec::IsStreamParser;
-use smallvec::{SmallVec};
+use smallvec::SmallVec;

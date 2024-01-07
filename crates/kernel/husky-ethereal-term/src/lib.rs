@@ -1,7 +1,6 @@
 #![feature(impl_trait_in_assoc_type)]
 #![feature(result_flattening)]
 #![doc = include_str ! ("../README.md")]
-#![feature(trait_upcasting)]
 #![feature(let_chains)]
 #![feature(if_let_guard)]
 // #![deny(unsafe_code, missing_docs, clippy::unwrap_used)]

@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 mod ast;
 mod children;
 mod db;
