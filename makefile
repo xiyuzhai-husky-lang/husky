@@ -95,5 +95,5 @@ doc:
 	cargo doc --open
 
 fix:
-	cargo fix -p
+	cargo fix
 	make update-expect-local
