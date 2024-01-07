@@ -1,6 +1,6 @@
 set -e
 . ./scripts/ci_env.sh
-cargo test --verbose
+cargo test --verbose -- --nocapture
 # check available disk spaces
 df -h 
 # print current path
