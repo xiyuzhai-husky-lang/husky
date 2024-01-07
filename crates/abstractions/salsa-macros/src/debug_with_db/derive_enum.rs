@@ -1,4 +1,4 @@
-use syn::{ItemEnum, Type, Variant};
+use syn::{ItemEnum, Variant};
 
 use super::*;
 

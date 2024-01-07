@@ -18,7 +18,7 @@ impl MnistDataset {
         // debug ci
         #[cfg(test)]
         println!("permutation[0] = {}", permutation[0]);
-        // debug_assert_eq!(permutation[0], 17306);
+        debug_assert_eq!(permutation[0], 17306);
         Self {
             images,
             labels,

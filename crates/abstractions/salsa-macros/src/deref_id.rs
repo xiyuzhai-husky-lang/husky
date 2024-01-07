@@ -1,4 +1,3 @@
-use crate::options::Options;
 use syn::Item;
 
 pub(crate) fn deref_id(

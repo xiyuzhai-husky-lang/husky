@@ -7,7 +7,7 @@ use crate::options::Options;
 use husky_macro_utils::generics_with_debug_with_db;
 use proc_macro2::Span;
 use syn::{spanned::Spanned, Item};
-use syn::{Ident, ItemStruct, Path};
+use syn::{Ident, ItemStruct};
 
 type Args = Options<DeriveDebugWithDb>;
 

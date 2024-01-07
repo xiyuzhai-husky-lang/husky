@@ -314,17 +314,6 @@ impl ItemSynNode {
             ItemSynNode::Attr(_) => todo!(),
         }
     }
-
-    pub fn ident_token(&self, db: &::salsa::Db) -> IdentToken {
-        match self {
-            ItemSynNode::Submodule(symbol) => symbol.ident_token,
-            ItemSynNode::MajorItem(symbol) => symbol.ident_token,
-            ItemSynNode::AssociatedItem(_) => todo!(),
-            ItemSynNode::TypeVariant(_) => todo!(),
-            ItemSynNode::ImplBlock(_) => todo!(),
-            ItemSynNode::Attr(_) => todo!(),
-        }
-    }
 }
 
 pub trait HasAssociatedItemPaths: Copy {
