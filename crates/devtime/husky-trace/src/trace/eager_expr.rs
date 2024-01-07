@@ -1,6 +1,6 @@
 use super::*;
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
-use husky_hir_decl::FugitiveHirDecl;
+
 use husky_hir_defn::HasHirDefn;
 use husky_hir_eager_expr::{
     HirEagerExprData, HirEagerExprIdx, HirEagerExprRegion, HirEagerExprSourceMap,
@@ -11,7 +11,7 @@ use husky_sema_expr::{
     SemaRitchieParameterArgumentMatch,
 };
 use husky_syn_decl::HasSynDecl;
-use husky_syn_defn::{item_syn_defn, ItemSynDefn};
+
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[cfg_attr(debug_assertions, salsa::debug_with_db(db = TraceDb))]
@@ -103,7 +103,7 @@ impl EagerExprTraceData {
             HirEagerExprData::FunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::AssociatedFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
-            HirEagerExprData::Block { stmts } => unreachable!(),
+            HirEagerExprData::Block { stmts: _ } => unreachable!(),
             HirEagerExprData::AssociatedFn {
                 associated_item_path,
             } => associated_item_path.hir_defn(db).is_some(),
@@ -124,7 +124,7 @@ impl EagerExprTraceData {
         match self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data {
             HirEagerExprData::FunctionFnCall {
                 path,
-                ref item_groups,
+                
                 ..
             } => {
                 let SemaExprData::FunctionRitchieCall {
@@ -157,7 +157,7 @@ impl EagerExprTraceData {
             }
             HirEagerExprData::AssociatedFunctionFnCall {
                 path,
-                ref item_groups,
+                
                 ..
             } => {
                 let SemaExprData::FunctionRitchieCall {
@@ -190,7 +190,7 @@ impl EagerExprTraceData {
             }
             HirEagerExprData::MethodFnCall {
                 path,
-                ref item_groups,
+                
                 ..
             } => {
                 let SemaExprData::MethodFnCall {
@@ -223,7 +223,7 @@ impl EagerExprTraceData {
             }
             HirEagerExprData::Block { .. } => unreachable!(),
             HirEagerExprData::AssociatedFn {
-                associated_item_path,
+                associated_item_path: _,
             } => todo!(),
             _ => vec![],
         }

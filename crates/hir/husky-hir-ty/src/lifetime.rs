@@ -4,7 +4,7 @@ use husky_fluffy_term::FluffyLifetime;
 pub enum HirLifetime {}
 
 impl HirLifetime {
-    pub fn from_fluffy(lifetime: FluffyLifetime) -> Self {
+    pub fn from_fluffy(_lifetime: FluffyLifetime) -> Self {
         todo!()
     }
 }

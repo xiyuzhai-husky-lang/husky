@@ -19,15 +19,15 @@ impl EtherealTermSymbols {
             (None, None) => None,
             (None, Some(snd)) => Some(snd),
             (Some(fst), None) => Some(fst),
-            (Some(fst), Some(snd)) => todo!(),
+            (Some(_fst), Some(_snd)) => todo!(),
         }
     }
 
     fn remove(
         symbols: impl Into<Option<Self>>,
-        symbol: impl Into<Option<EtherealTermSymbol>>,
+        _symbol: impl Into<Option<EtherealTermSymbol>>,
     ) -> Option<Self> {
-        let symbols = symbols.into()?;
+        let _symbols = symbols.into()?;
         todo!()
     }
 }

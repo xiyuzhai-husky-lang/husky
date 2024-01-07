@@ -1,7 +1,7 @@
 use crate::*;
 use husky_sema_expr::{SemaExprDb, SemaExprRegion};
 use husky_syn_defn::{item_syn_defn, ItemSynDefn};
-use husky_syn_expr::{SynExprIdx, SynExprRegion};
+use husky_syn_expr::{SynExprRegion};
 
 pub fn hir_eager_body_with_expr_region(
     item_path: ItemPath,

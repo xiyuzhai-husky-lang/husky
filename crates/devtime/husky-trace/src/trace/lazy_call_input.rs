@@ -1,4 +1,4 @@
-use husky_hir_lazy_expr::{HirLazyCallListItemGroup, HirLazyExprIdx};
+use husky_hir_lazy_expr::{HirLazyExprIdx};
 
 use super::*;
 
@@ -51,7 +51,7 @@ impl Trace {
 }
 
 impl LazyCallInputTraceData {
-    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub(super) fn view_lines(&self, _db: &::salsa::Db) -> TraceViewLines {
         todo!()
     }
 
@@ -63,7 +63,7 @@ impl LazyCallInputTraceData {
         vec![]
     }
 
-    pub(super) fn val_repr(&self, db: &::salsa::Db) -> ValRepr {
+    pub(super) fn val_repr(&self, _db: &::salsa::Db) -> ValRepr {
         todo!()
     }
 }

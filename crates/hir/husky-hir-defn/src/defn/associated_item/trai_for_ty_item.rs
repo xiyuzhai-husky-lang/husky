@@ -51,7 +51,7 @@ impl TraitForTypeItemHirDefn {
                 slf.hir_eager_expr_region(db).map(Into::into)
             }
             TraitForTypeItemHirDefn::MethodFn(slf) => slf.hir_eager_expr_region(db).map(Into::into),
-            TraitForTypeItemHirDefn::AssociatedType(slf) => None,
+            TraitForTypeItemHirDefn::AssociatedType(_slf) => None,
             TraitForTypeItemHirDefn::AssociatedVal(slf) => slf.hir_expr_region(db),
         }
     }

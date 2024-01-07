@@ -5,7 +5,7 @@ use husky_entity_path::{EntityPathError, ItemPath};
 use husky_entity_syn_tree::{EntitySynTreeError, EntityTreeBundleError};
 use husky_syn_decl::SynNodeDeclError;
 use maybe_result::MaybeResult;
-use std::sync::Arc;
+
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone, Copy)]
@@ -70,31 +70,31 @@ impl From<&EntityPathError> for EtherealTermError {
 }
 
 impl From<EntitySynTreeError> for EtherealTermError {
-    fn from(value: EntitySynTreeError) -> Self {
+    fn from(_value: EntitySynTreeError) -> Self {
         todo!()
     }
 }
 
 impl From<&EntityTreeBundleError> for EtherealTermError {
-    fn from(value: &EntityTreeBundleError) -> Self {
+    fn from(_value: &EntityTreeBundleError) -> Self {
         todo!()
     }
 }
 
 impl From<&SynNodeDeclError> for EtherealTermError {
-    fn from(value: &SynNodeDeclError) -> Self {
+    fn from(_value: &SynNodeDeclError) -> Self {
         todo!()
     }
 }
 
 impl From<EntityTreeBundleError> for EtherealTermError {
-    fn from(value: EntityTreeBundleError) -> Self {
+    fn from(_value: EntityTreeBundleError) -> Self {
         todo!()
     }
 }
 
 impl From<DeclarativeTermError> for EtherealTermError {
-    fn from(value: DeclarativeTermError) -> Self {
+    fn from(_value: DeclarativeTermError) -> Self {
         todo!()
     }
 }

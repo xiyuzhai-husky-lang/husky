@@ -1,4 +1,4 @@
-use crate::{template_argument::JavelinTemplateArgument, *};
+use crate::{template_argument::JavelinTemplateArgument};
 use husky_entity_path::ItemPath;
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolResolution},

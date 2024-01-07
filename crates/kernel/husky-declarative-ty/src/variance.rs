@@ -51,7 +51,7 @@ pub(crate) fn item_variances(db: &::salsa::Db, path: ItemPath) -> VarianceResult
         ItemPath::MajorItem(path) => match path {
             MajorItemPath::Type(path) => ty_path_variances(db, path).as_ref().map(Vec::as_ref),
             MajorItemPath::Trait(path) => trai_item_variances(db, path).as_ref().map(Vec::as_ref),
-            MajorItemPath::Fugitive(path) => {
+            MajorItemPath::Fugitive(_path) => {
                 todo!()
                 // form_item_variances(db, path).as_ref().map(Vec::as_ref)
             }

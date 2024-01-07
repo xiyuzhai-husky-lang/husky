@@ -5,7 +5,7 @@ pub use self::index::*;
 pub use self::set::*;
 
 use super::*;
-use salsa::Db;
+
 use thiserror::Error;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = pub new_inner)]
@@ -76,7 +76,7 @@ impl salsa::DisplayWithDb for EtherealTermSymbol {
 impl EtherealInstantiate for EtherealTermSymbol {
     type Output = EtherealTerm;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(self, _db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         /// it's assumed that all symbols will be replaced by its map
         /// otherwise it's illegal
         instantiation.symbol_mapped(self)

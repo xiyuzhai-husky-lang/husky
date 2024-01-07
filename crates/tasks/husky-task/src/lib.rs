@@ -5,7 +5,7 @@ pub mod linktime;
 
 use self::dev_ascension::*;
 use self::linktime::*;
-use husky_vfs::CratePath;
+
 
 pub trait IsTask: Send + 'static {
     type DevAscension: IsDevAscension;

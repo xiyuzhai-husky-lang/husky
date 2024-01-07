@@ -1,7 +1,7 @@
 use super::*;
 
 impl EtherealTerm {
-    pub fn final_destination(self, db: &::salsa::Db) -> FinalDestination {
+    pub fn final_destination(self, _db: &::salsa::Db) -> FinalDestination {
         match self {
             EtherealTerm::Literal(_) => todo!(),
             EtherealTerm::Symbol(_) => todo!(),
@@ -28,16 +28,16 @@ impl EtherealTerm {
 
 #[salsa::tracked(jar = EtherealTermJar)]
 fn ethereal_term_application_final_destination(
-    db: &::salsa::Db,
-    term_application: EtherealTermApplication,
+    _db: &::salsa::Db,
+    _term_application: EtherealTermApplication,
 ) -> FinalDestination {
     todo!()
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
 fn ethereal_term_curry_final_destination(
-    db: &::salsa::Db,
-    term_curry: EtherealTermCurry,
+    _db: &::salsa::Db,
+    _term_curry: EtherealTermCurry,
 ) -> FinalDestination {
     todo!()
 }

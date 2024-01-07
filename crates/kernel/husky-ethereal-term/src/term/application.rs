@@ -2,13 +2,13 @@ mod expansion;
 mod reduction;
 mod utils;
 
-use salsa::Db;
+
 
 pub use self::expansion::*;
 pub use self::reduction::*;
 
 use super::*;
-use std::fmt::{Debug, Display};
+use std::fmt::{Debug};
 
 /// in husky, application is generalized to include composition as a special case;
 ///
@@ -46,7 +46,7 @@ impl EtherealTermApplication {
         function: EtherealTerm,
         argument: EtherealTerm,
     ) -> EtherealTermResult<EtherealTerm> {
-        let (function_parameter_ty_curry_parameter_count, argument_expectation) = {
+        let (function_parameter_ty_curry_parameter_count, _argument_expectation) = {
             match function.raw_ty(db)? {
                 RawType::Declarative(DeclarativeTerm::Curry(function_declarative_ty)) => {
                     let parameter_ty = function_declarative_ty.parameter_ty(db);
@@ -134,7 +134,7 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
     db: &::salsa::Db,
     function: EtherealTerm,
     argument: DeclarativeTerm,
-    declarative_ty_expectation: TermTypeExpectation,
+    _declarative_ty_expectation: TermTypeExpectation,
 ) -> EtherealTermResult<EtherealTerm> {
     // todo: implicit arguments
     let (function_parameter_ty_curry_parameter_count, argument_expectation) = {
@@ -162,14 +162,14 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
 
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn parameter_ty_declarative_term_curry_to_argument_ty_expectation(
-    db: &::salsa::Db,
-    declarative_term_curry: DeclarativeTermCurry,
+    _db: &::salsa::Db,
+    _declarative_term_curry: DeclarativeTermCurry,
 ) -> TermTypeExpectation {
     todo!()
 }
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn parameter_ty_declarative_term_application_to_argument_ty_expectation(
-    db: &::salsa::Db,
+    _db: &::salsa::Db,
 ) -> TermTypeExpectation {
     todo!()
 }
@@ -334,7 +334,7 @@ impl salsa::DisplayWithDb for EtherealTermApplication {
 }
 
 impl EtherealTermApplication {
-    fn substitute(self, db: &::salsa::Db, substituation: &TermSubstitution) -> EtherealTerm
+    fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm
     where
         Self: Copy,
     {

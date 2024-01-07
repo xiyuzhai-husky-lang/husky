@@ -1,4 +1,4 @@
-use crate::{db::TraceDb, Trace};
+use crate::{Trace};
 use husky_token_info::TokenInfoSource;
 
 pub(crate) trait IsAssociatedTraceRegistry: Sized {

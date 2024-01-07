@@ -1,4 +1,4 @@
-mod action;
+pub mod action;
 mod components;
 mod doc;
 mod layout;

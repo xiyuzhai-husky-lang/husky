@@ -36,7 +36,7 @@ pub(crate) fn item_variance_reprs(
             MajorItemPath::Trait(path) => trai_item_variance_reprs(db, path),
             MajorItemPath::Fugitive(path) => form_item_variance_reprs(db, path),
         },
-        ItemPath::AssociatedItem(path) => todo!(),
+        ItemPath::AssociatedItem(_path) => todo!(),
         // match path {
         //     AssociatedItemPath::TypeItem(path) => ty_item_item_variance_reprs(db, path),
         //     AssociatedItemPath::TraitItem(_) => todo!(),

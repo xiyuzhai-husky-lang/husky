@@ -103,7 +103,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirEagerExprData::AssociatedFn {
                     associated_item_path,
                 } => self.add_item_path(associated_item_path),
-                HirEagerExprData::As { opd, ty } => self.add_hir_ty(ty),
+                HirEagerExprData::As { opd: _, ty } => self.add_hir_ty(ty),
             }
         }
     }

@@ -5,7 +5,7 @@ use husky_entity_path::ItemPath;
 use husky_sema_expr::{SemaExprDb, SemaExprRegion};
 use husky_syn_defn::item_syn_defn;
 use husky_syn_defn::ItemSynDefn;
-use husky_syn_expr::{SynExprIdx, SynExprRegion};
+use husky_syn_expr::{SynExprRegion};
 
 #[inline(always)]
 pub fn hir_lazy_body_with_expr_region(

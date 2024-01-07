@@ -74,7 +74,7 @@ impl ToHirEager for FluffyCoersion {
 impl ToHirEager for TrivialFluffyCoersion {
     type Output = TrivialHirEagerCoersion;
 
-    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+    fn to_hir_eager(&self, _builder: &mut HirEagerExprBuilder) -> Self::Output {
         TrivialHirEagerCoersion {
             expectee_place: HirPlace::from_fluffy(self.expectee_place),
         }
@@ -84,7 +84,7 @@ impl ToHirEager for TrivialFluffyCoersion {
 impl ToHirEager for DerefFluffyCoersion {
     type Output = DerefHirEagerCoersion;
 
-    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+    fn to_hir_eager(&self, _builder: &mut HirEagerExprBuilder) -> Self::Output {
         match *self {
             DerefFluffyCoersion::Leash => DerefHirEagerCoersion::Leash,
             DerefFluffyCoersion::Ref { lifetime } => DerefHirEagerCoersion::Ref {

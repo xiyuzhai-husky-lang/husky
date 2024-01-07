@@ -59,7 +59,7 @@ impl ToHirLazy for SemaStmtIdx {
             },
             SemaStmtData::Return {
                 result,
-                coersion_outcome,
+                
                 ..
             } => HirLazyStmtData::Return {
                 result: result.to_hir_lazy(builder),
@@ -83,7 +83,7 @@ impl ToHirLazy for SemaStmtIdx {
             },
             SemaStmtData::Eval {
                 sema_expr_idx: expr_idx,
-                outcome,
+                outcome: _,
                 eol_semicolon,
             } => HirLazyStmtData::Eval {
                 expr_idx: expr_idx.to_hir_lazy(builder),
@@ -153,7 +153,7 @@ impl ToHirLazy for SemaCondition {
         match *self {
             SemaCondition::Be {
                 src,
-                be_regional_token_idx,
+                be_regional_token_idx: _,
                 target,
             } => HirLazyCondition::Be {
                 src: src.to_hir_lazy(builder),

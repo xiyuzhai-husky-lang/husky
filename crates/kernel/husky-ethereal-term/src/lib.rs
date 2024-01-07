@@ -28,8 +28,7 @@ pub use self::term::*;
 pub use self::ty::*;
 
 // use self::template::*;
-#[cfg(test)]
-use self::tests::*;
+
 use either::*;
 use husky_coword::Ident;
 use husky_declarative_signature::*;

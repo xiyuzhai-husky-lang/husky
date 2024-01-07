@@ -27,8 +27,8 @@ fn enum_unit_variant_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: EnumUnitVariantHirDefn,
 ) -> HirDefnDependencies {
-    let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
-    let hir_decl = hir_defn.hir_decl(db);
+    let builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
+    let _hir_decl = hir_defn.hir_decl(db);
     // builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     builder.finish()
 }

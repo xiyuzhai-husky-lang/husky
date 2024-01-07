@@ -1,5 +1,5 @@
 use super::*;
-use either::*;
+
 
 #[salsa::interned(jar = HirTypeJar)]
 pub struct HirTypePathLeading {

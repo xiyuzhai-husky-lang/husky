@@ -149,7 +149,7 @@ fn linkage_ty_ritchie_version_stamp(
     db: &::salsa::Db,
     linkage_ty: LinkageRitchieType,
 ) -> LinkageVersionStamp {
-    let mut builder = LinkageVersionStampBuilder::new(LinkageType::Ritchie(linkage_ty), db);
+    let builder = LinkageVersionStampBuilder::new(LinkageType::Ritchie(linkage_ty), db);
     builder.finish()
 }
 

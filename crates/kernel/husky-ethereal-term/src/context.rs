@@ -2,8 +2,8 @@ mod entry;
 
 use crate::*;
 use entry::*;
-use husky_entity_path::ItemPath;
-use vec_like::{VecMap, VecPairMap, VecSet};
+
+use vec_like::{VecMap};
 
 #[derive(Default)]
 pub(crate) struct TermShowContext {
@@ -29,8 +29,8 @@ impl TermShowContext {
 
     pub(crate) fn fmt_variable(
         &mut self,
-        db: &::salsa::Db,
-        rune: EtherealTermRune,
+        _db: &::salsa::Db,
+        _rune: EtherealTermRune,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         // ad hoc
@@ -51,8 +51,8 @@ impl TermShowContext {
 
     pub(crate) fn fmt_with_variable(
         &mut self,
-        db: &::salsa::Db,
-        variable: EtherealTermRune,
+        _db: &::salsa::Db,
+        _variable: EtherealTermRune,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         // ad hoc

@@ -62,7 +62,7 @@ impl EtherealTermSymbolIndex {
                 variance,
                 disambiguator,
             },
-            DeclarativeTermSymbolIndexInner::Prop { disambiguator } => todo!(),
+            DeclarativeTermSymbolIndexInner::Prop { disambiguator: _ } => todo!(),
             DeclarativeTermSymbolIndexInner::ConstPathLeading {
                 attrs,
                 disambiguator,
@@ -80,8 +80,8 @@ impl EtherealTermSymbolIndex {
                 disambiguator,
             },
             DeclarativeTermSymbolIndexInner::ConstErr {
-                attrs,
-                disambiguator,
+                attrs: _,
+                disambiguator: _,
             } => todo!(),
             DeclarativeTermSymbolIndexInner::EphemPathLeading {
                 disambiguator,
@@ -90,15 +90,15 @@ impl EtherealTermSymbolIndex {
                 disambiguator,
                 ty_path,
             },
-            DeclarativeTermSymbolIndexInner::EphemOther { disambiguator } => todo!(),
-            DeclarativeTermSymbolIndexInner::EphemErr { disambiguator } => todo!(),
+            DeclarativeTermSymbolIndexInner::EphemOther { disambiguator: _ } => todo!(),
+            DeclarativeTermSymbolIndexInner::EphemErr { disambiguator: _ } => todo!(),
             DeclarativeTermSymbolIndexInner::SelfType => EtherealTermSymbolIndexInner::SelfType,
             DeclarativeTermSymbolIndexInner::SelfValue => EtherealTermSymbolIndexInner::SelfValue,
             DeclarativeTermSymbolIndexInner::SelfLifetime => {
                 EtherealTermSymbolIndexInner::SelfLifetime
             }
             DeclarativeTermSymbolIndexInner::SelfPlace => EtherealTermSymbolIndexInner::SelfPlace,
-            DeclarativeTermSymbolIndexInner::AdHoc { disambiguator } => unreachable!(),
+            DeclarativeTermSymbolIndexInner::AdHoc { disambiguator: _ } => unreachable!(),
         })
     }
 
@@ -139,21 +139,21 @@ impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
                     variance,
                     disambiguator,
                 },
-                EtherealTermSymbolIndexInner::Prop { disambiguator } => todo!(),
+                EtherealTermSymbolIndexInner::Prop { disambiguator: _ } => todo!(),
                 EtherealTermSymbolIndexInner::ConstPathLeading {
-                    attrs,
-                    disambiguator,
-                    ty_path,
+                    attrs: _,
+                    disambiguator: _,
+                    ty_path: _,
                 } => todo!(),
                 EtherealTermSymbolIndexInner::ConstOther {
-                    attrs,
-                    disambiguator,
+                    attrs: _,
+                    disambiguator: _,
                 } => todo!(),
                 EtherealTermSymbolIndexInner::EphemPathLeading {
-                    disambiguator,
-                    ty_path,
+                    disambiguator: _,
+                    ty_path: _,
                 } => todo!(),
-                EtherealTermSymbolIndexInner::EphemOther { disambiguator } => todo!(),
+                EtherealTermSymbolIndexInner::EphemOther { disambiguator: _ } => todo!(),
                 EtherealTermSymbolIndexInner::SelfType => todo!(),
                 EtherealTermSymbolIndexInner::SelfValue => todo!(),
                 EtherealTermSymbolIndexInner::SelfLifetime => todo!(),

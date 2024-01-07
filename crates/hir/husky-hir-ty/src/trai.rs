@@ -61,14 +61,14 @@ fn hir_trai_from_ethereal_term_application(
             )
             .filter_map(|(param, arg)| match param.symbol().index(db).inner() {
                 EtherealTermSymbolIndexInner::ExplicitLifetime {
-                    attrs,
-                    variance,
-                    disambiguator,
+                    attrs: _,
+                    variance: _,
+                    disambiguator: _,
                 } => todo!(),
                 EtherealTermSymbolIndexInner::ExplicitPlace {
-                    attrs,
-                    variance,
-                    disambiguator,
+                    attrs: _,
+                    variance: _,
+                    disambiguator: _,
                 } => todo!(),
                 EtherealTermSymbolIndexInner::Type { attrs, .. } => (!attrs.phantom())
                     .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db).unwrap())),

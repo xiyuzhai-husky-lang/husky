@@ -6,16 +6,16 @@ use either::*;
 use husky_coword::Ident;
 use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
 use husky_entity_path::{
-    AssociatedItemPath, FugitivePath, PreludeTraitPath, TypeItemPath, TypeVariantPath,
+    AssociatedItemPath, FugitivePath, PreludeTraitPath, TypeVariantPath,
 };
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
 use husky_hir_decl::{
-    parameter::template::item_hir_template_parameter_stats, HasHirDecl, TypeHirDecl,
+    HasHirDecl, TypeHirDecl,
 };
-use husky_hir_defn::{FugitiveHirDefn, HasHirDefn, HirDefn, MajorItemHirDefn};
+use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_hir_ty::{
-    instantiation::HirInstantiation, HirTemplateArgument, HirTemplateArguments, HirType,
+    instantiation::HirInstantiation, HirType,
 };
 use husky_javelin::{
     javelin::{package_javelins, Javelin, JavelinData},

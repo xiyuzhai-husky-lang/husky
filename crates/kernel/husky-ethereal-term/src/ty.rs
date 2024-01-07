@@ -85,7 +85,7 @@ impl HasType for TypeVariantPath {
 }
 
 impl HasTypeGivenToolchain for EtherealTerm {
-    fn ty(self, db: &::salsa::Db, toolchain: Toolchain) -> EtherealTermResult<EtherealTerm> {
+    fn ty(self, _db: &::salsa::Db, _toolchain: Toolchain) -> EtherealTermResult<EtherealTerm> {
         todo!()
         // self.ty_unchecked(db)?.checked(db)
     }
