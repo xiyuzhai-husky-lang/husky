@@ -23,7 +23,7 @@ fn ast_sheet_works() {
     use tests::*;
     let mut db = DB::default();
     db.token_expect_test_debug_with_db(
-        |db, module_path| db.ast_sheet(module_path),
+        |db, module_path: ModulePath| module_path.ast_sheet(db),
         &TokenTestConfig::new("ast_sheet"),
     );
 }

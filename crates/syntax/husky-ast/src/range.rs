@@ -1,6 +1,5 @@
 use husky_token::{HasTokenIdxRange, TokenDb, TokenIdxRange, TokenSheetData};
 
-
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -15,7 +14,7 @@ pub(crate) fn ast_token_idx_range_sheet(
     module_path: ModulePath,
 ) -> AstTokenIdxRangeSheet {
     let token_sheet_data = db.token_sheet_data(module_path);
-    let ast_sheet = db.ast_sheet(module_path);
+    let ast_sheet = module_path.ast_sheet(db);
     AstTokenIdxRangeSheet {
         ast_token_idx_ranges: AstTokenIdxRangeCalculator {
             token_sheet_data,

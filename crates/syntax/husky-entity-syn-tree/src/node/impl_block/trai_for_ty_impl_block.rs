@@ -187,7 +187,7 @@ impl TraitForTypeImplBlockSynNode {
         db: &::salsa::Db,
     ) -> Vec<(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemSynNode)> {
         let module_path = self.module_path(db);
-        let ast_sheet = db.ast_sheet(module_path);
+        let ast_sheet = module_path.ast_sheet(db);
         let Some(items) = self.items else {
             return vec![];
         };

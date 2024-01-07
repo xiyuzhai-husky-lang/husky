@@ -1,10 +1,11 @@
 use crate::*;
-use husky_ast::{Ast, AstDb, AstSheet};
+use husky_ast::{Ast, AstSheet};
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenIdxBase};
 use husky_sema_opr::prefix::SemaPrefixOpr;
 use husky_syn_decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 
+use husky_ast::HasAstSheet;
 use husky_entity_syn_tree::{helpers::paths::module_item_syn_node_paths, ParentUseExpr};
 use husky_sema_expr::{
     SemaExprData, SemaExprDb, SemaExprIdx, SemaExprRegionData, SemaHtmlArgumentExpr,
@@ -29,7 +30,7 @@ impl<'a> TokenInfoEngine<'a> {
             db,
             module_path,
             token_sheet_data,
-            ast_sheet: db.ast_sheet(module_path),
+            ast_sheet: module_path.ast_sheet(db),
             item_tree_presheet: db.item_syn_tree_presheet(module_path),
             item_tree_sheet: db.item_syn_tree_sheet(module_path),
             sheet: TokenInfoSheet::new(token_sheet_data),

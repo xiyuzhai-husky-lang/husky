@@ -1,11 +1,11 @@
 use crate::*;
 
-use husky_vfs::{*};
+use husky_vfs::*;
 use vec_like::VecSet;
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn submodules(db: &::salsa::Db, module_path: ModulePath) -> Vec<SubmodulePath> {
-    let ast_sheet = db.ast_sheet(module_path);
+    let ast_sheet = module_path.ast_sheet(db);
     ast_sheet
         .top_level_asts_iter()
         .filter_map(|ast| match ast {
