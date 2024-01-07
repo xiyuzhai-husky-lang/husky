@@ -1,5 +1,5 @@
 use super::*;
-use syn::{Fields, Type};
+use syn::Fields;
 
 pub(super) fn struct_debug_with_db_impl(item: &ItemStruct) -> proc_macro2::TokenStream {
     let ident = &item.ident;

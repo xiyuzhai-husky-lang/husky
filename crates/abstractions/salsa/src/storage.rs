@@ -1,16 +1,11 @@
-use crate::cycle::CycleRecoveryStrategy;
 use crate::ingredient::Ingredient;
-use crate::jar::Jar;
-use crate::key::DependencyIndex;
-use crate::runtime::local_state::QueryOrigin;
 use crate::runtime::Runtime;
+use crate::IngredientIndex;
 use crate::*;
-use crate::{DatabaseKeyIndex, Id, IngredientIndex};
 use parking_lot::Condvar;
-use std::{fmt, sync::Arc};
+use std::sync::Arc;
 
 use super::routes::Routes;
-use super::Revision;
 
 /// The "storage" struct stores all the data for the jars.
 /// It is shared between the main database and any active snapshots.

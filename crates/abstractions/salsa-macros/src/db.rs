@@ -1,4 +1,3 @@
-use proc_macro2::Literal;
 use syn::Token;
 
 pub(crate) fn db(
