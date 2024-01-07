@@ -165,9 +165,9 @@ pub enum SynExprData {
         items: SmallVec<[SynCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
-    /// [:] means Slice
-    /// [:n] means array as `[_;n]` in Rust
-    /// [:n1, n2, ...] means multidimensional array
+    /// `[:]` means Slice
+    /// `[:n]` means array as `[_;n]` in Rust
+    /// `[:n1, n2, ...]` means multidimensional array
     BoxColonList {
         lbox_regional_token_idx: RegionalTokenIdx,
         colon_regional_token_idx: RegionalTokenIdx,

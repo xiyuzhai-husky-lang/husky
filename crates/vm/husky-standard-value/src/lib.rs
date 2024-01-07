@@ -1,10 +1,10 @@
 #![feature(trait_upcasting)]
 //!
-//! Given struct A { x: &mut T, ys: Vec<i32>, .. } Regular Value Type
-//! - struct __StaticA { x: &'static mut T, ys: Vec<i32>, .. } Regular Value is its Stand version with every lifetime being static,
-//! - struct __SnapshotA { x: Box<T>, ys: Vec<i32>, .. } is its Snapshot version,
+//! Given `struct A { x: &mut T, ys: Vec<i32>, .. }` Regular Value Type
+//! - `struct __StaticA { x: &'static mut T, ys: Vec<i32>, .. }` Regular Value is its Stand version with every lifetime being static,
+//! - `struct __SnapshotA { x: Box<T>, ys: Vec<i32>, .. }` is its Snapshot version,
 //! which does have extra heap allocation
-//! - struct __IncubatorA { x: Box<T>, ys: ManuallyDrop<Vec<i32>>, .. } is its Stand version with Drop customized,
+//! - `struct __IncubatorA { x: Box<T>, ys: ManuallyDrop<Vec<i32>>, .. }` is its Stand version with Drop customized,
 //! which does have extra heap allocation
 //!
 //! All four types have the same size
