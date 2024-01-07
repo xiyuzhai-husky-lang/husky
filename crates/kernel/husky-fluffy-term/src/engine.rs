@@ -1,7 +1,6 @@
 use super::*;
-use husky_entity_syn_tree::{helpers::TraitInUseItemsTable, EntityTreeResultRef};
+use husky_entity_syn_tree::helpers::TraitInUseItemsTable;
 use husky_stack_location::{StackLocationIdx, StackLocationRegistry};
-use husky_vfs::VfsPathMenu;
 
 pub trait FluffyTermEngine<'a>: Sized {
     fn db(&self) -> &'a ::salsa::Db;

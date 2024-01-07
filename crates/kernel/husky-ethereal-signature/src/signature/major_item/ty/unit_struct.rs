@@ -17,18 +17,7 @@ impl UnitStructTypeEtherealSignatureTemplate {
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
             EtherealTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
-        let self_ty = todo!();
-        // let fields = declarative_signature_template
-        //     .fields(db)
-        //     .iter()
-        //     .copied()
-        //     .map(|declarative_signature_template| {
-        //         PropsFieldEtherealSignatureTemplate::from_declarative(
-        //             db,
-        //             declarative_signature_template,
-        //         )
-        //     })
-        //     .collect::<EtherealSignatureResult<_>>()?;
+        let self_ty = EtherealTerm::ty_from_declarative(db, tmpl.self_ty(db))?;
         Ok(Self::new(db, path, template_parameters, self_ty))
     }
 }

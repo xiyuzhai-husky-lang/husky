@@ -20,9 +20,13 @@ impl DeclarativeTermSubitem {
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermSubitem {
-    fn substitute(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self {
+    fn substitute_copy(
+        self,
+        db: &::salsa::Db,
+        substituation: &DeclarativeTermSubstitution,
+    ) -> Self {
         let old_parent = self.parent(db);
-        let parent = old_parent.substitute(db, substituation);
+        let parent = old_parent.substitute_copy(db, substituation);
         if old_parent == parent {
             return self;
         }

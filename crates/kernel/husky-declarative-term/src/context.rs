@@ -21,7 +21,7 @@ impl DeclarativeTermShowContext {
             entry.show(db, f)
         } else {
             let new_entry = self.new_external_entry(db, symbol, None);
-            new_entry.show(db, f);
+            new_entry.show(db, f)?;
             self.entries.insert_new(new_entry).unwrap();
             Ok(())
         }

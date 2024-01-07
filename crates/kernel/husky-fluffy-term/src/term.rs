@@ -6,9 +6,6 @@ pub mod rune;
 pub mod symbol_ty;
 mod utils;
 
-use salsa::DisplayWithDb;
-
-pub use self::application::*;
 pub use self::hole::*;
 pub use self::ritchie::*;
 pub use self::rune::*;

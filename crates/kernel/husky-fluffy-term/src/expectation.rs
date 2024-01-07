@@ -92,7 +92,6 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
     /// final destination of `Sort` is `FinalDestination::Sort`
     ///
     /// final destination of a type path `A` is `FinalDestination::TypePath(A)`
-    #[inline(always)]
     fn final_destination_inner(&self, db: &::salsa::Db, terms: &FluffyTerms) -> FinalDestination;
 
     #[inline(always)]

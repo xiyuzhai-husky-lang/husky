@@ -34,7 +34,7 @@ impl DeclarativeTermSymbolShowEntry {
                     5 => f.write_str("'f"),
                     idx => f.write_fmt(format_args!("'a{}", idx)),
                 },
-                DeclarativeTermSymbolShowKind::Binding => match self.idx {
+                DeclarativeTermSymbolShowKind::Place => match self.idx {
                     0 => f.write_str("'α"),
                     1 => f.write_str("'β"),
                     2 => f.write_str("'γ"),
@@ -92,7 +92,7 @@ impl AsVecMapEntry for DeclarativeTermSymbolShowEntry {
 #[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
 pub(crate) enum DeclarativeTermSymbolShowKind {
     Lifetime,
-    Binding,
+    Place,
     Prop,
     Type,
     Kind,
@@ -176,6 +176,11 @@ fn symbol_show_kind(
             if ty.eqs_lifetime_ty_path(db) =>
         {
             DeclarativeTermSymbolShowKind::Lifetime
+        }
+        DeclarativeTerm::EntityPath(DeclarativeTermEntityPath::Type(ty))
+            if ty.eqs_place_ty_path(db) =>
+        {
+            DeclarativeTermSymbolShowKind::Place
         }
         DeclarativeTerm::Category(cat) if cat.universe().raw() == 0 => {
             DeclarativeTermSymbolShowKind::Prop

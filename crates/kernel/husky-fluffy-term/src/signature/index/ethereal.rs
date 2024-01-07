@@ -60,6 +60,7 @@ fn prelude_ethereal_owner_ty_index_signature(
         PreludeTypePath::Indirection(_) => Nothing,
         PreludeTypePath::Nat => todo!(),
         PreludeTypePath::Lifetime => todo!(),
+        PreludeTypePath::Place => todo!(),
         PreludeTypePath::Module => todo!(),
         PreludeTypePath::Trait => todo!(),
         PreludeTypePath::List => todo!(),

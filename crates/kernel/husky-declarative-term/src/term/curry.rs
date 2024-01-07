@@ -86,7 +86,7 @@ impl DeclarativeTermCurry {
         substitute: DeclarativeTerm,
     ) -> DeclarativeTerm {
         match self.parameter_rune(db) {
-            Some(parameter_rune) => self.return_ty(db).substitute(
+            Some(parameter_rune) => self.return_ty(db).substitute_copy(
                 db,
                 &DeclarativeTermSubstitution::new(parameter_rune, substitute),
             ),
@@ -138,13 +138,17 @@ impl salsa::DisplayWithDb for DeclarativeTermCurry {
 }
 
 impl DeclarativeTermRewriteCopy for DeclarativeTermCurry {
-    fn substitute(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self {
+    fn substitute_copy(
+        self,
+        db: &::salsa::Db,
+        substituation: &DeclarativeTermSubstitution,
+    ) -> Self {
         let old_parameter_variable = self.parameter_rune(db);
-        let parameter_rune = old_parameter_variable.map(|v| v.substitute(db, substituation));
+        let parameter_rune = old_parameter_variable.map(|v| v.substitute_copy(db, substituation));
         let old_parameter_ty = self.parameter_ty(db);
-        let parameter_ty = old_parameter_ty.substitute(db, substituation);
+        let parameter_ty = old_parameter_ty.substitute_copy(db, substituation);
         let old_return_ty = self.return_ty(db);
-        let return_ty = old_return_ty.substitute(db, substituation);
+        let return_ty = old_return_ty.substitute_copy(db, substituation);
         if old_parameter_variable == parameter_rune
             && old_parameter_ty == parameter_ty
             && old_return_ty == return_ty

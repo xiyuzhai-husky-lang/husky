@@ -2,13 +2,11 @@ mod expansion;
 mod reduction;
 mod utils;
 
-
-
 pub use self::expansion::*;
 pub use self::reduction::*;
 
 use super::*;
-use std::fmt::{Debug};
+use std::fmt::Debug;
 
 /// in husky, application is generalized to include composition as a special case;
 ///
@@ -220,7 +218,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     // function_ty = (a: A) -> List a
     // function_ty_parameter_variable = a
     match shift {
-        0 => Ok(function_ty.return_ty(db).substitute(
+        0 => Ok(function_ty.return_ty(db).substitute_copy(
             db,
             &DeclarativeTermSubstitution::new(function_ty_parameter_variable, argument),
         )),
