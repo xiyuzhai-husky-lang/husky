@@ -1,7 +1,5 @@
 use crate::*;
-use husky_opr::BinaryClosedOpr;
 use husky_vfs::Toolchain;
-use smallvec::smallvec;
 use vec_like::VecPairMap;
 
 #[salsa::tracked(db = SynExprDb, jar = SynExprJar)]

@@ -64,22 +64,6 @@ impl TupleFieldEtherealSignatureTemplate {
         })
     }
 
-    // todo: move this to trait
-    fn instantiate(
-        self,
-        template_parameters: &EtherealTemplateParameters,
-        arguments: &[EtherealTerm],
-    ) -> TupleStructFieldEtherealSignature {
-        if template_parameters.data().len() != arguments.len() {
-            todo!()
-        }
-
-        if template_parameters.data().len() == 0 {
-            return TupleStructFieldEtherealSignature { ty: self.ty };
-        }
-        todo!()
-    }
-
     pub fn ty(&self) -> EtherealTerm {
         self.ty
     }

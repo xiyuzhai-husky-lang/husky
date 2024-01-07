@@ -112,7 +112,7 @@ impl TypeImplBlockPathData {
         self.ty_path.show_aux(f, db)?;
         use std::fmt::Display;
         f.write_str("(")?;
-        self.disambiguator.fmt(f);
+        self.disambiguator.fmt(f)?;
         f.write_str(")")
     }
 }

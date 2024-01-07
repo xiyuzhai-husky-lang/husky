@@ -1,6 +1,5 @@
-use std::fmt::Debug;
-
 use super::*;
+use std::fmt::Debug;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::as_id]
@@ -52,7 +51,7 @@ impl TypeItemPathData {
     fn show_aux(self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         f.write_str("(")?;
         self.impl_block.show_aux(f, db)?;
-        f.write_str("::");
+        f.write_str("::")?;
         f.write_str(self.ident.data(db))
     }
 }

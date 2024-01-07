@@ -5,11 +5,6 @@ mod memoized_field;
 mod method_fn;
 mod method_function;
 
-use std::ops::Deref;
-
-use husky_print_utils::p;
-use salsa::DebugWithDb;
-
 pub use self::associated_fn::*;
 pub use self::associated_ty::*;
 pub use self::associated_val::*;

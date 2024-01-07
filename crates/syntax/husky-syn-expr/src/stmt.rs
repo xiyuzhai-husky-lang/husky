@@ -3,7 +3,6 @@ mod if_else_stmt;
 mod loop_stmt;
 mod match_stmt;
 
-pub use self::condition::*;
 pub use self::if_else_stmt::*;
 pub use self::loop_stmt::*;
 pub use self::match_stmt::*;
