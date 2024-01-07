@@ -2,14 +2,14 @@ use super::*;
 use husky_cargo_utils::compile_workspace;
 use husky_corgi_config::transpilation_setup::HasTranspilationSetup;
 use husky_linkage_impl::AnyLinkageImpls;
-use husky_manifest::{has_manifest::HasPackageManifest, HasAllPackages};
-use husky_rust_transpilation::{db::RustTranspilationJar, transpile_to_fs::TranspileToFsFull};
-use husky_task::IsTask;
+use husky_manifest::{HasAllPackages};
+use husky_rust_transpilation::{transpile_to_fs::TranspileToFsFull};
+
 use husky_task_interface::TaskJarIndex;
-use husky_vfs::{linktime_target_path::LinktimeTargetPathData, PackagePath};
+use husky_vfs::{PackagePath};
 use libloading::Library;
 use std::path::PathBuf;
-use vec_like::{VecMap, VecPairMap, VecSet};
+use vec_like::{VecMap, VecPairMap};
 
 pub struct MonoLinkageLibraries {
     pub cdylibs: VecPairMap<PackagePath, Cdylib>,
@@ -58,7 +58,7 @@ impl MonoLinkageLibraries {
                         .cdylibs
                         .iter()
                         .enumerate()
-                        .map(|(i, unit_output)| {
+                        .map(|(_i, unit_output)| {
                             let (jar_index, package_path) =
                                 all_packages[unit_output.unit.pkg.manifest_path()];
                             (
@@ -77,8 +77,8 @@ impl MonoLinkageLibraries {
 #[test]
 fn generate_linkage_storage_works() {
     use husky_dev_comptime::db::DevComptimeDb;
-    use husky_print_utils::*;
-    use salsa::DebugWithDb;
+    
+    
     let mut db = DevComptimeDb::default();
     db.vfs_plain_test(
         |db, package_path: PackagePath| {

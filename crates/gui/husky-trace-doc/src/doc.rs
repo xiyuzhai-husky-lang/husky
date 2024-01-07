@@ -4,13 +4,13 @@ use crate::{view::TraceDocView, *};
 #[cfg(feature = "egui")]
 use egui::*;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
-use husky_task::IsTask;
+
 use husky_trace_protocol::{
     client::TraceClient,
-    protocol::{mock::MockTraceProtocol, IsTraceProtocol, IsTraceProtocolFull},
+    protocol::{IsTraceProtocol, IsTraceProtocolFull},
     view::action::TraceViewActionBuffer,
 };
-use husky_visual_protocol::IsVisualComponent;
+
 use notify_change::NotifyChange;
 use ui::IsUiComponent;
 

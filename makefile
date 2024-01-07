@@ -93,3 +93,7 @@ test-build-timings:
 
 doc:
 	cargo doc --open
+
+fix:
+	cargo fix -p
+	make update-expect-local
