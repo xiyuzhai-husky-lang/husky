@@ -32,7 +32,7 @@ impl<LinkageImpl: IsLinkageImpl> BootLinkTimeInternal<LinkageImpl>
 where
     LinkageImpl: IsLinkageImpl,
 {
-    pub(crate) fn new(target_path: LinktimeTargetPath, _db: &::salsa::Db) -> Self {
+    pub(crate) fn new(_target_path: LinktimeTargetPath, _db: &::salsa::Db) -> Self {
         todo!()
         // let library_storage = generate_library(target_crate, db);
         // let map = generate_map(target_crate, &library_storage, db);

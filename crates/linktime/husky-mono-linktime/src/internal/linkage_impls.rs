@@ -2,14 +2,14 @@ use std::iter::zip;
 
 use super::*;
 use husky_linkage::linkage::package_linkages;
-use husky_linkage_impl::AnyLinkageImpls;
+
 
 pub(crate) type LinkageImplMap<LinkageImpl> =
     fxhash::FxHashMap<Linkage, (LinkageVersionStamp, LinkageImpl)>;
 
 /// extract from library for efficient lookup
 pub(super) fn generate_linkage_impls<LinkageImpl: IsLinkageImpl>(
-    target_path: LinktimeTargetPath,
+    _target_path: LinktimeTargetPath,
     libraries: &MonoLinkageLibraries,
     db: &::salsa::Db,
 ) -> LinkageImplMap<LinkageImpl> {

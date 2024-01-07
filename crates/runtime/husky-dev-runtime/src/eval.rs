@@ -1,6 +1,6 @@
 use crate::*;
-use husky_entity_path::{ItemPath, MajorItemPath, TypeVariantIndex};
-use husky_entity_syn_tree::helpers::paths::module_item_paths;
+use husky_entity_path::{TypeVariantIndex};
+
 use husky_fluffy_term::FluffyTermEngine;
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_opr::BinaryComparisonOpr;
@@ -14,13 +14,10 @@ use husky_task_interface::{val_control_flow::ValControlFlow, IsLinkageImpl};
 use husky_term_prelude::TermLiteral;
 use husky_val::{ValOpn, ValPatternData};
 use husky_val_repr::repr::{ValArgumentRepr, ValRepr};
-use husky_vfs::PackagePath;
-use salsa::DebugWithDb;
-use smallvec::*;
-use std::{
-    convert::Infallible,
-    ops::{FromResidual, Try},
-};
+
+
+
+
 
 impl<Task: IsTask> DevRuntime<Task> {
     pub fn eval_val_repr_at_pedestal(
@@ -98,7 +95,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                 };
                 ValControlFlow::Continue(value)
             }
-            ValOpn::ValItemLazilyDefined(path) => {
+            ValOpn::ValItemLazilyDefined(_path) => {
                 let expansion = val_repr.expansion(db).unwrap();
                 self.eval_root_stmts(expansion.root_hir_lazy_stmt_val_reprs(db))
             }
@@ -239,8 +236,8 @@ impl<Task: IsTask> DevRuntime<Task> {
             ValArgumentRepr::Keyed(_) => todo!(),
             ValArgumentRepr::Variadic(_) => todo!(),
             ValArgumentRepr::Branch {
-                condition,
-                ref stmts,
+                condition: _,
+                stmts: _,
             } => todo!(),
             ValArgumentRepr::RuntimeConstants(_) => todo!(),
         }

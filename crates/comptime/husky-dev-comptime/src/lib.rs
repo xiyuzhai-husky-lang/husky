@@ -1,12 +1,11 @@
 pub mod db;
 
 use self::db::DevComptimeDb;
-use husky_coword::Kebab;
+
 use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::{AssociatedItemPath, ItemPath, MajorItemPath};
 use husky_entity_syn_tree::helpers::{
     ingredient::{HasIngredientPaths, IngredientPath},
-    jar::package_path_from_jar_index,
 };
 use husky_linkage::linkage::Linkage;
 use husky_manifest::HasAllPackages;
@@ -22,7 +21,6 @@ use husky_val::Val;
 use husky_val_repr::repr::ValRepr;
 use husky_vfs::{
     error::VfsResult, linktime_target_path::LinktimeTargetPath, CrateKind, CratePath, PackagePath,
-    VfsDb, VfsJar,
 };
 use std::path::Path;
 
@@ -59,7 +57,7 @@ impl<Task: IsTask> DevComptime<Task> {
         let target_path = match target {
             DevComptimeTarget::None => None,
             DevComptimeTarget::SingleCrate(crate_path) => {
-                Some({ LinktimeTargetPath::new_package(crate_path.package_path(&db), &db) })
+                Some(LinktimeTargetPath::new_package(crate_path.package_path(&db), &db))
             }
         };
         let ingredient_vals = target_path

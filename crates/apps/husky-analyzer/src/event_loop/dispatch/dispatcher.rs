@@ -1,6 +1,6 @@
 //! See [RequestDispatcher].
 use crate::{
-    db::{AnalyzerDB, AnalyzerDBSnapshot},
+    db::{AnalyzerDBSnapshot},
     server::{Server, TaskSet},
     utils::from_json,
     *,
