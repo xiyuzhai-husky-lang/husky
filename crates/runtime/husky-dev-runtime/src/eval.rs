@@ -1,7 +1,5 @@
 use crate::*;
-use husky_entity_path::{TypeVariantIndex};
-
-use husky_fluffy_term::FluffyTermEngine;
+use husky_entity_path::TypeVariantIndex;
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_opr::BinaryComparisonOpr;
 use husky_task::{
@@ -14,10 +12,6 @@ use husky_task_interface::{val_control_flow::ValControlFlow, IsLinkageImpl};
 use husky_term_prelude::TermLiteral;
 use husky_val::{ValOpn, ValPatternData};
 use husky_val_repr::repr::{ValArgumentRepr, ValRepr};
-
-
-
-
 
 impl<Task: IsTask> DevRuntime<Task> {
     pub fn eval_val_repr_at_pedestal(
@@ -246,11 +240,11 @@ impl<Task: IsTask> DevRuntime<Task> {
 
 #[test]
 fn val_repr_eval_works() {
-    use husky_dev_comptime::DevComptime;
+    use husky_entity_path::*;
+    use husky_entity_syn_tree::helpers::paths::module_item_paths;
     use husky_ml_task::MlTask;
     use husky_ml_task_interface::InputId;
     use husky_path_utils::dev_paths::*;
-    use husky_vfs::VfsDb;
     use husky_visual_protocol::trivial::TrivialVisualProtocol;
 
     let dev_paths = HuskyLangDevPaths::new();

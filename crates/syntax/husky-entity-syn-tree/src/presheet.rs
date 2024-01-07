@@ -2,7 +2,6 @@ mod action;
 mod use_all_rule;
 mod use_one_rule;
 
-
 pub use use_all_rule::*;
 pub use use_one_rule::*;
 
@@ -107,7 +106,7 @@ impl<'a> EntityTreePresheetMut<'a> {
     }
 
     #[cfg(test)]
-    pub(crate) fn use_all_rules(&self) -> &UseAllRules {
+    pub fn use_all_rules(&self) -> &UseAllRules {
         &self.all_module_items_use_rules
     }
 }
@@ -139,7 +138,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
         Self {
             db,
             module_path,
-            ast_sheet: db.ast_sheet(module_path),
+            ast_sheet: module_path.ast_sheet(db),
             token_sheet_data: db.token_sheet_data(module_path),
             use_expr_arena: Default::default(),
             item_node_table: Default::default(),

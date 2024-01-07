@@ -31,7 +31,7 @@
 // impl TestJars {
 //     pub fn initialize_jar<Jar>(&mut self, routes: &mut Routes)
 //     where
-//         Jar: for<'db> crate::jar::Jar<'db> + HasJarIndex + Send + Sync + 'static,
+//         Jar: for<'db> crate::jar::Jar + HasJarIndex + Send + Sync + 'static,
 //     {
 //         let mut jar_maybe_uninitialized: MaybeUninit<Jar> = MaybeUninit::uninit();
 //         let jar: &mut Jar = unsafe { std::mem::transmute(&mut jar_maybe_uninitialized) };
