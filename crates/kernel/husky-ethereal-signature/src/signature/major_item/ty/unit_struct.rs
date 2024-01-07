@@ -13,12 +13,10 @@ impl UnitStructTypeEtherealSignatureTemplate {
     pub(super) fn from_declarative(
         db: &::salsa::Db,
         path: TypePath,
-        declarative_signature_template: UnitStructTypeDeclarativeSignatureTemplate,
+        tmpl: UnitStructTypeDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTemplateParameters::from_declarative(
-            db,
-            declarative_signature_template.template_parameters(db),
-        )?;
+        let template_parameters =
+            EtherealTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
         let self_ty = todo!();
         // let fields = declarative_signature_template
         //     .fields(db)

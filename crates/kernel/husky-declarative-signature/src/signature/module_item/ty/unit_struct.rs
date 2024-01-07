@@ -4,6 +4,7 @@ use super::*;
 pub struct UnitStructTypeDeclarativeSignatureTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
+    pub self_ty: DeclarativeTerm,
 }
 
 impl UnitStructTypeDeclarativeSignatureTemplate {
@@ -22,7 +23,8 @@ impl UnitStructTypeDeclarativeSignatureTemplate {
             &declarative_term_region,
             declarative_term_menu,
         );
-        Ok(Self::new(db, template_parameters))
+        let self_ty = construct_self_ty(db, path, &template_parameters);
+        Ok(Self::new(db, template_parameters, self_ty))
     }
 }
 
