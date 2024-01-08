@@ -15,7 +15,7 @@ pub type ValControlFlow<C = Value, B = Value> =
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LinkageImpl<Pedestal>
 where
-    Pedestal: Copy + 'static,
+    Pedestal: std::fmt::Debug + Copy + 'static,
 {
     RitchieFn {
         /// it's the wrapper's responsibility to properly set ctx
@@ -51,7 +51,7 @@ where
 
 impl<Pedestal> IsLinkageImpl for LinkageImpl<Pedestal>
 where
-    Pedestal: Copy + 'static,
+    Pedestal: std::fmt::Debug + Copy + 'static,
 {
     type Pedestal = Pedestal;
     type Value = Value;

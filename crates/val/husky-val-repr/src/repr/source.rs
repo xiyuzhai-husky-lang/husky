@@ -19,7 +19,7 @@ pub enum ValReprSource {
 }
 
 impl ValReprSource {
-    pub fn info(self, db: &::salsa::Db) -> String {
+    pub fn debug_info(self, db: &::salsa::Db) -> String {
         // ad hoc
         let extra = match self {
             ValReprSource::ValItem(_) => "".to_string(),
@@ -27,7 +27,7 @@ impl ValReprSource {
                 parent_val_repr,
                 source,
             } => format!(
-                "regional_token_idx_range = {:?}",
+                r#"regional_token_idx_range = {:?}"#,
                 self.regional_token_idx_range(db)
             ),
         };

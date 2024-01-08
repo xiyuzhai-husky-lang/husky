@@ -1,15 +1,15 @@
 use crate::*;
+use husky_task_interface::{DevEvalContext, IsDevRuntime};
 use husky_task_interface::{
     IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
-use husky_task_interface::{DevEvalContext, IsDevRuntime};
 use husky_trace_protocol::protocol::{IsTraceProtocol, IsTraceProtocolFull};
 use husky_val::Val;
 
 use std::{cell::Cell, thread::LocalKey};
 
 pub trait IsDevAscension {
-    type Pedestal;
+    type Pedestal: std::fmt::Debug + Copy + 'static;
     type LinkageImpl: IsLinkageImpl<Pedestal = Self::Pedestal>;
     type Linktime: IsLinktime<LinkageImpl = Self::LinkageImpl>;
     type RuntimeStorage: IsRuntimeStorage<Self::LinkageImpl>;

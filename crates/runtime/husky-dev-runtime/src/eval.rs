@@ -3,7 +3,7 @@ use husky_entity_path::TypeVariantIndex;
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_opr::BinaryComparisonOpr;
 use husky_task::{
-    dev_ascension::{dev_eval_context, with_runtime_and_base_point},
+    dev_ascension::{dev_eval_context, with_runtime_and_base_point, IsDevAscension},
     helpers::{TaskError, TaskValue},
     IsTask,
 };
@@ -179,7 +179,13 @@ impl<Task: IsTask> DevRuntime<Task> {
             }
             ValOpn::Unwrap {} => {
                 use husky_print_utils::p;
-                p!(val_repr.source(db).info(db));
+                let pedestal =
+                    <TaskDevAscension<Task> as IsDevAscension>::dev_eval_context_local_key()
+                        .get()
+                        .expect("`DEV_EVAL_CONTEXT` not set")
+                        .pedestal();
+                p!(pedestal);
+                p!(val_repr.source(db).debug_info(db));
                 todo!()
             }
             ValOpn::Index => {
