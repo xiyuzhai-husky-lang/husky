@@ -1,6 +1,7 @@
 use super::*;
 use husky_hir_lazy_expr::{HirLazyExprIdx, HirLazyStmtIdx};
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ValReprSource {
     ValItem(FugitivePath),
@@ -8,6 +9,23 @@ pub enum ValReprSource {
         parent_val_repr: ValRepr,
         source: ValReprExpansionSource,
     },
+}
+
+impl ValReprSource {
+    pub fn info(self, db: &::salsa::Db) -> String {
+        // ad hoc
+        let extra = match self {
+            ValReprSource::ValItem(_) => "".to_string(),
+            ValReprSource::Expansion {
+                parent_val_repr,
+                source,
+            } => "".to_string(),
+        };
+        format!(
+            r#"self = {self:?},
+extra = {extra}"#
+        )
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
