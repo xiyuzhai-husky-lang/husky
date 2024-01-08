@@ -15,14 +15,8 @@
                 },
             ),
             arguments: [],
-            source: ValItem(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 269,
-                        },
-                    ),
-                ),
+            source: ValReprSource::ValItem(
+                FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
             ),
             caching_class: ValItem,
         },
@@ -35,14 +29,8 @@
                 FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
             ),
             arguments: [],
-            source: ValItem(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 271,
-                        },
-                    ),
-                ),
+            source: ValReprSource::ValItem(
+                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
             ),
             caching_class: ValItem,
         },

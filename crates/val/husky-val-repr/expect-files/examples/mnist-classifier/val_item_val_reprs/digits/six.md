@@ -15,14 +15,8 @@
                 },
             ),
             arguments: [],
-            source: ValItem(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 277,
-                        },
-                    ),
-                ),
+            source: ValReprSource::ValItem(
+                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
             ),
             caching_class: ValItem,
         },
@@ -43,14 +37,8 @@
                 },
             ),
             arguments: [],
-            source: ValItem(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 278,
-                        },
-                    ),
-                ),
+            source: ValReprSource::ValItem(
+                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
             ),
             caching_class: ValItem,
         },
@@ -63,14 +51,8 @@
                 FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
             ),
             arguments: [],
-            source: ValItem(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 279,
-                        },
-                    ),
-                ),
+            source: ValReprSource::ValItem(
+                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
             ),
             caching_class: ValItem,
         },
