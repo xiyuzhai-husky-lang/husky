@@ -82,6 +82,15 @@
                             },
                         ),
                         arguments: [],
+                        source: ValItem(
+                            FugitivePath(
+                                ItemPathId(
+                                    Id {
+                                        value: 315,
+                                    },
+                                ),
+                            ),
+                        ),
                         caching_class: ValItem,
                     },
                     ValRepr {
@@ -110,7 +119,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 2,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -164,7 +183,17 @@
                                 [],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 3,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -174,7 +203,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 4,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -199,7 +238,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 5,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -215,6 +264,15 @@
                             },
                         ),
                         arguments: [],
+                        source: ValItem(
+                            FugitivePath(
+                                ItemPathId(
+                                    Id {
+                                        value: 269,
+                                    },
+                                ),
+                            ),
+                        ),
                         caching_class: ValItem,
                     },
                     ValRepr {
@@ -249,7 +307,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 7,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: ConditionSatisfied(
@@ -283,6 +351,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: LetVariable {
+                                stmt: 1,
+                            },
+                        },
                         caching_class: Variable,
                     },
                     ValRepr {
@@ -304,7 +382,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 9,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: ConditionSatisfied(
@@ -335,7 +423,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 10,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -351,6 +449,15 @@
                             },
                         ),
                         arguments: [],
+                        source: ValItem(
+                            FugitivePath(
+                                ItemPathId(
+                                    Id {
+                                        value: 269,
+                                    },
+                                ),
+                            ),
+                        ),
                         caching_class: ValItem,
                     },
                     ValRepr {
@@ -389,7 +496,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 12,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -407,7 +524,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 13,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -434,7 +561,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 14,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -450,6 +587,15 @@
                             },
                         ),
                         arguments: [],
+                        source: ValItem(
+                            FugitivePath(
+                                ItemPathId(
+                                    Id {
+                                        value: 314,
+                                    },
+                                ),
+                            ),
+                        ),
                         caching_class: ValItem,
                     },
                     ValRepr {
@@ -510,7 +656,17 @@
                                 [],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 16,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -526,7 +682,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 17,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -557,7 +723,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 18,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -573,6 +749,15 @@
                             },
                         ),
                         arguments: [],
+                        source: ValItem(
+                            FugitivePath(
+                                ItemPathId(
+                                    Id {
+                                        value: 269,
+                                    },
+                                ),
+                            ),
+                        ),
                         caching_class: ValItem,
                     },
                     ValRepr {
@@ -611,7 +796,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 20,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -629,7 +824,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 21,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -656,7 +861,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 22,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -676,7 +891,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 23,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -713,7 +938,17 @@
                                 [],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 24,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -750,7 +985,17 @@
                                 [],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 25,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -787,6 +1032,16 @@
                                 [],
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: LetVariable {
+                                stmt: 5,
+                            },
+                        },
                         caching_class: Variable,
                     },
                     ValRepr {
@@ -808,7 +1063,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 27,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -839,7 +1104,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 28,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -865,7 +1140,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 29,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -881,6 +1166,15 @@
                             },
                         ),
                         arguments: [],
+                        source: ValItem(
+                            FugitivePath(
+                                ItemPathId(
+                                    Id {
+                                        value: 320,
+                                    },
+                                ),
+                            ),
+                        ),
                         caching_class: ValItem,
                     },
                     ValRepr {
@@ -933,7 +1227,17 @@
                                 [],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 32,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -973,7 +1277,17 @@
                                 [],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 33,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1013,6 +1327,16 @@
                                 [],
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: LetVariable {
+                                stmt: 9,
+                            },
+                        },
                         caching_class: Variable,
                     },
                     ValRepr {
@@ -1047,7 +1371,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 36,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1087,6 +1421,16 @@
                                 [],
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: LetVariable {
+                                stmt: 9,
+                            },
+                        },
                         caching_class: Variable,
                     },
                     ValRepr {
@@ -1121,7 +1465,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 38,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1161,6 +1515,16 @@
                                 [],
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: LetVariable {
+                                stmt: 9,
+                            },
+                        },
                         caching_class: Variable,
                     },
                     ValRepr {
@@ -1195,7 +1559,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 40,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1211,7 +1585,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 41,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1294,7 +1678,17 @@
                                 ],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 42,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1350,7 +1744,17 @@
                                 [],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 43,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1390,6 +1794,16 @@
                                 [],
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: LetVariable {
+                                stmt: 9,
+                            },
+                        },
                         caching_class: Variable,
                     },
                     ValRepr {
@@ -1424,7 +1838,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 45,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1445,7 +1869,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 46,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1476,7 +1910,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 47,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -1492,6 +1936,15 @@
                             },
                         ),
                         arguments: [],
+                        source: ValItem(
+                            FugitivePath(
+                                ItemPathId(
+                                    Id {
+                                        value: 315,
+                                    },
+                                ),
+                            ),
+                        ),
                         caching_class: ValItem,
                     },
                     ValRepr {
@@ -1526,7 +1979,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 49,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1564,7 +2027,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 50,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1582,7 +2055,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 51,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1609,7 +2092,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 52,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -1625,6 +2118,15 @@
                             },
                         ),
                         arguments: [],
+                        source: ValItem(
+                            FugitivePath(
+                                ItemPathId(
+                                    Id {
+                                        value: 315,
+                                    },
+                                ),
+                            ),
+                        ),
                         caching_class: ValItem,
                     },
                     ValRepr {
@@ -1659,7 +2161,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 54,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1697,7 +2209,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 55,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1715,7 +2237,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 56,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1742,7 +2274,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 57,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -1758,6 +2300,15 @@
                             },
                         ),
                         arguments: [],
+                        source: ValItem(
+                            FugitivePath(
+                                ItemPathId(
+                                    Id {
+                                        value: 315,
+                                    },
+                                ),
+                            ),
+                        ),
                         caching_class: ValItem,
                     },
                     ValRepr {
@@ -1792,7 +2343,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 59,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1830,7 +2391,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 60,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1848,7 +2419,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 61,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1875,7 +2456,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 62,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1902,6 +2493,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: LetVariable {
+                                stmt: 14,
+                            },
+                        },
                         caching_class: Variable,
                     },
                     ValRepr {
@@ -1922,7 +2523,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 64,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1956,7 +2567,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 65,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -1993,7 +2614,17 @@
                                 [],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 66,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -2020,6 +2651,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: LetVariable {
+                                stmt: 14,
+                            },
+                        },
                         caching_class: Variable,
                     },
                     ValRepr {
@@ -2040,7 +2681,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 68,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -2074,7 +2725,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 69,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -2111,7 +2772,17 @@
                                 [],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 70,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -2142,7 +2813,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 71,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -2158,6 +2839,15 @@
                             },
                         ),
                         arguments: [],
+                        source: ValItem(
+                            FugitivePath(
+                                ItemPathId(
+                                    Id {
+                                        value: 319,
+                                    },
+                                ),
+                            ),
+                        ),
                         caching_class: ValItem,
                     },
                     ValRepr {
@@ -2192,7 +2882,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 73,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -2229,7 +2929,17 @@
                                 [],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 74,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: Omni,
@@ -2245,6 +2955,15 @@
                             },
                         ),
                         arguments: [],
+                        source: ValItem(
+                            FugitivePath(
+                                ItemPathId(
+                                    Id {
+                                        value: 319,
+                                    },
+                                ),
+                            ),
+                        ),
                         caching_class: ValItem,
                     },
                     ValRepr {
@@ -2279,7 +2998,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 76,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -2316,7 +3045,17 @@
                                 [],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 77,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -2347,7 +3086,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 78,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -2378,6 +3127,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: LetVariable {
+                                stmt: 15,
+                            },
+                        },
                         caching_class: Variable,
                     },
                     ValRepr {
@@ -2409,6 +3168,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: LetVariable {
+                                stmt: 16,
+                            },
+                        },
                         caching_class: Variable,
                     },
                     ValRepr {
@@ -2440,7 +3209,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 81,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -2471,6 +3250,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: LetVariable {
+                                stmt: 17,
+                            },
+                        },
                         caching_class: Variable,
                     },
                     ValRepr {
@@ -2492,7 +3281,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 83,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -2523,7 +3322,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 84,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -2563,6 +3372,16 @@
                                 [],
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: LetVariable {
+                                stmt: 9,
+                            },
+                        },
                         caching_class: Variable,
                     },
                     ValRepr {
@@ -2597,7 +3416,17 @@
                                 ),
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 86,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -2623,7 +3452,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 87,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                 ],
                 hir_lazy_stmt_val_repr_map: [
@@ -2652,6 +3491,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 2,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -2679,6 +3528,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 3,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -2706,6 +3565,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 4,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -2733,6 +3602,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 6,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -2753,6 +3632,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 7,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -2796,6 +3685,16 @@
                                 ],
                             },
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 8,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -2823,6 +3722,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 11,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -2850,6 +3759,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 12,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -2877,6 +3796,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 13,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -2904,6 +3833,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 18,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                 ],
@@ -2949,6 +3888,16 @@
                                 ],
                             },
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 8,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -3005,7 +3954,17 @@
                                 [],
                             ),
                         ],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 43,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                     ValRepr {
                         val_domain_repr: StmtNotReturned(
@@ -3032,6 +3991,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 11,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -3059,6 +4028,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 12,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -3086,6 +4065,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 13,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -3113,6 +4102,16 @@
                                 ),
                             ),
                         ],
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Stmt {
+                                stmt: 18,
+                            },
+                        },
                         caching_class: Stmt,
                     },
                     ValRepr {
@@ -3139,7 +4138,17 @@
                             ),
                         ),
                         arguments: [],
-                        caching_class: Stmt,
+                        source: Expansion {
+                            parent_val_repr: ValRepr(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                            source: Expr {
+                                expr: 87,
+                            },
+                        },
+                        caching_class: Expr,
                     },
                 ],
             },

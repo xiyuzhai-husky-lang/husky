@@ -106,6 +106,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 269,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -261,6 +270,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -359,6 +377,15 @@
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 271,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -470,6 +497,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 8,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -616,6 +653,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 2,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -703,6 +750,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 3,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -790,6 +847,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 4,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -936,6 +1003,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 6,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -1016,6 +1093,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 7,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -1061,6 +1148,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -1143,7 +1239,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 2,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -1251,7 +1357,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 3,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -1454,7 +1570,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 33,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -1499,6 +1625,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -1593,7 +1728,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 33,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -1781,7 +1926,17 @@
                         ],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 42,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -1875,6 +2030,16 @@
                         [],
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 9,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -1963,7 +2128,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 36,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -2057,6 +2232,16 @@
                         [],
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 9,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -2145,7 +2330,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 38,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -2239,6 +2434,16 @@
                         [],
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 9,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -2327,7 +2532,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 40,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -2464,7 +2679,17 @@
                         ],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 42,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -2543,6 +2768,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 11,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -2637,6 +2872,16 @@
                         [],
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 9,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -2725,7 +2970,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 45,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -2804,6 +3059,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 12,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -2849,6 +3114,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -2937,7 +3211,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 49,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -3029,7 +3313,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 50,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -3108,6 +3402,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 13,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -3153,6 +3457,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -3241,7 +3554,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 54,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -3333,7 +3656,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 55,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -3487,6 +3820,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -3575,7 +3917,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 59,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -3667,7 +4019,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 60,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -3857,6 +4219,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 14,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -3945,7 +4317,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 65,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -4036,7 +4418,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 66,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -4117,6 +4509,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 14,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -4205,7 +4607,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 69,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -4296,7 +4708,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 70,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -4450,6 +4872,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 319,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -4538,7 +4969,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 73,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -4629,7 +5070,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 74,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -4674,6 +5125,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 319,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -4762,7 +5222,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 76,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -4853,7 +5323,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 77,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -5047,6 +5527,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 15,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -5132,6 +5622,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 16,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -5211,6 +5711,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 18,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -5296,6 +5806,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 17,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -5499,6 +6019,16 @@
                         [],
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 9,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -5587,7 +6117,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 86,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -5716,6 +6256,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 272,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -5871,6 +6420,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -5969,6 +6527,15 @@
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 273,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -6146,7 +6713,17 @@
                         ],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 6,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -6191,6 +6768,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -6273,7 +6859,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 3,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -6318,6 +6914,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 316,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -6444,7 +7049,17 @@
                         ],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 6,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -6647,7 +7262,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 11,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -6692,6 +7317,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -6786,7 +7420,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 11,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -6968,6 +7612,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 44,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -7132,6 +7786,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 3,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -7285,6 +7949,16 @@
                         [],
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 43,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -7373,7 +8047,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 13,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -7555,6 +8239,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 44,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -7642,6 +8336,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 16,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -7729,6 +8433,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 17,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -8026,6 +8740,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 21,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -8172,6 +8896,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 23,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -8410,6 +9144,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 26,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -8515,6 +9259,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 27,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -8602,6 +9356,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 28,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -8984,6 +9748,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 34,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -9307,6 +10081,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 39,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -9394,6 +10178,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 40,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -9531,6 +10325,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 277,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -9686,6 +10489,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -9792,6 +10604,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 278,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -9947,6 +10768,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -10045,6 +10875,15 @@
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 279,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -10199,6 +11038,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 277,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -10285,7 +11133,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 2,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -10358,6 +11216,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 21,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -10433,6 +11301,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 20,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -10587,6 +11465,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -10675,7 +11562,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 7,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -10829,6 +11726,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -10917,7 +11823,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 9,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -10962,6 +11878,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -11050,7 +11975,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 11,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -11172,6 +12107,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 24,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -11613,6 +12558,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 12,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -11733,6 +12688,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 13,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -11956,6 +12921,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 16,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -12036,6 +13011,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 17,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -12124,6 +13109,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 22,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -12216,7 +13211,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 14,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -12394,7 +13399,17 @@
                         ],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 84,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -12439,6 +13454,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 277,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -12527,7 +13551,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 82,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -12654,7 +13688,17 @@
                         ],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 84,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -12751,6 +13795,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 26,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -12838,6 +13892,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 18,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -12883,6 +13947,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 277,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -12971,7 +14044,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 87,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -13050,6 +14133,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 27,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -13138,6 +14231,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 22,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -13230,7 +14333,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 95,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -13318,7 +14431,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 99,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -13409,7 +14532,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 100,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -13506,6 +14639,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 28,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -13593,6 +14736,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 19,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -13681,6 +14834,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 22,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -13773,7 +14936,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 104,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -13852,6 +15025,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 29,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -13937,6 +15120,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 23,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -14066,6 +15259,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 282,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -14221,6 +15423,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -14327,6 +15538,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 283,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -14421,6 +15641,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -14576,6 +15805,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -14783,6 +16021,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 282,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -14990,6 +16237,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 282,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -15197,6 +16453,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 282,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -17038,6 +18303,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 282,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -17397,6 +18671,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 287,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -17552,6 +18835,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -17658,6 +18950,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 289,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -17813,6 +19114,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -17919,6 +19229,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 290,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -18074,6 +19393,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -18180,6 +19508,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 291,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -18274,6 +19611,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 287,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -18429,6 +19775,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 287,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -18636,6 +19991,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -19014,6 +20378,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 289,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -19615,6 +20988,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -19721,6 +21103,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -20892,6 +22283,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 294,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -21019,6 +22419,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 295,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -21174,6 +22583,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -21280,6 +22698,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 297,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -21435,6 +22862,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -21541,6 +22977,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 300,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -21635,6 +23080,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -21842,6 +23296,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 295,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -22608,6 +24071,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 297,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -22815,6 +24287,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 297,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -23052,6 +24533,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 301,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -23207,6 +24697,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -23313,6 +24812,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 302,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -23459,6 +24967,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -23565,6 +25082,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -23850,6 +25376,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -24099,6 +25634,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 304,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -24254,6 +25798,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -24360,6 +25913,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 305,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -24515,6 +26077,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -24621,6 +26192,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 306,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -24767,6 +26347,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -25145,6 +26734,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 304,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -25746,6 +27344,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -25852,6 +27459,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -27023,6 +28639,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 309,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -27178,6 +28803,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -27284,6 +28918,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 313,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -27430,6 +29073,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -27637,6 +29289,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -28015,6 +29676,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 309,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -28222,6 +29892,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 309,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -28429,6 +30108,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 309,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -28746,6 +30434,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -28852,6 +30549,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -30333,6 +32039,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 314,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -30588,6 +32303,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 348,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -30794,6 +32518,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -31209,6 +32942,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 314,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -31720,6 +33462,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 314,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -31976,6 +33727,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 314,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -32131,6 +33891,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 316,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -32454,6 +34223,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 314,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -32680,6 +34458,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 314,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -32997,6 +34784,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -33317,6 +35113,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 317,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -33411,6 +35216,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -33731,6 +35545,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 318,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -33825,6 +35648,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -34145,6 +35977,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 319,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -34239,6 +36080,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 318,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -34394,6 +36244,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -34488,6 +36347,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 319,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -34643,6 +36511,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 213,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -34729,6 +36606,15 @@
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 273,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -34906,7 +36792,17 @@
                         ],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 6,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -34951,6 +36847,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -35033,7 +36938,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 3,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -35078,6 +36993,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 316,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -35204,7 +37128,17 @@
                         ],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 6,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -35407,7 +37341,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 11,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -35452,6 +37396,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -35546,7 +37499,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 11,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -35728,6 +37691,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 44,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -35892,6 +37865,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 3,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -36045,6 +38028,16 @@
                         [],
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 43,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -36133,7 +38126,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 13,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -36315,6 +38318,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 44,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -36402,6 +38415,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 16,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -36489,6 +38512,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 17,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -36786,6 +38819,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 21,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -36932,6 +38975,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 23,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -37170,6 +39223,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 26,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -37275,6 +39338,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 27,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -37362,6 +39435,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 28,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -37744,6 +39827,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 34,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -38067,6 +40160,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 39,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -38154,6 +40257,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 40,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -38299,6 +40412,15 @@
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 279,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -38453,6 +40575,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 277,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -38539,7 +40670,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 2,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -38612,6 +40753,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 21,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -38687,6 +40838,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 20,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -38841,6 +41002,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -38929,7 +41099,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 7,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -39083,6 +41263,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -39171,7 +41360,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 9,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -39216,6 +41415,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -39304,7 +41512,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 11,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -39426,6 +41644,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 24,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -39867,6 +42095,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 12,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -39987,6 +42225,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 13,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -40210,6 +42458,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 16,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -40290,6 +42548,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 17,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -40378,6 +42646,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 22,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -40470,7 +42748,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 14,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -40648,7 +42936,17 @@
                         ],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 84,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -40693,6 +42991,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 277,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -40781,7 +43088,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 82,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -40908,7 +43225,17 @@
                         ],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 84,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -41005,6 +43332,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 26,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -41092,6 +43429,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 18,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -41137,6 +43484,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 277,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -41225,7 +43581,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 87,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -41304,6 +43670,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 27,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -41392,6 +43768,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 22,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -41484,7 +43870,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 95,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -41572,7 +43968,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 99,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -41663,7 +44069,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 100,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -41760,6 +44176,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 28,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -41847,6 +44273,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 19,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -41935,6 +44371,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 22,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -42027,7 +44473,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 104,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -42106,6 +44562,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 29,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -42191,6 +44657,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 23,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -42328,6 +44804,15 @@
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 271,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -42439,6 +44924,16 @@
                         ],
                     },
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 8,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -42585,6 +45080,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 2,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -42672,6 +45177,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 3,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -42759,6 +45274,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 4,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -42905,6 +45430,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 6,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -42985,6 +45520,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 7,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -43030,6 +45575,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -43112,7 +45666,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 2,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -43220,7 +45784,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 3,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -43423,7 +45997,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 33,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -43468,6 +46052,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -43562,7 +46155,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 33,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -43750,7 +46353,17 @@
                         ],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 42,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -43844,6 +46457,16 @@
                         [],
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 9,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -43932,7 +46555,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 36,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -44026,6 +46659,16 @@
                         [],
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 9,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -44114,7 +46757,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 38,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -44208,6 +46861,16 @@
                         [],
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 9,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -44296,7 +46959,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 40,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -44433,7 +47106,17 @@
                         ],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 42,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -44512,6 +47195,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 11,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -44606,6 +47299,16 @@
                         [],
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 9,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -44694,7 +47397,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 45,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -44773,6 +47486,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 12,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -44818,6 +47541,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -44906,7 +47638,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 49,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -44998,7 +47740,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 50,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -45077,6 +47829,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 13,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -45122,6 +47884,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -45210,7 +47981,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 54,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -45302,7 +48083,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 55,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -45456,6 +48247,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -45544,7 +48344,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 59,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -45636,7 +48446,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 60,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -45826,6 +48646,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 14,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -45914,7 +48744,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 65,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -46005,7 +48845,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 66,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -46086,6 +48936,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 14,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -46174,7 +49034,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 69,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -46265,7 +49135,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 70,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -46419,6 +49299,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 319,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -46507,7 +49396,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 73,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -46598,7 +49497,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 74,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -46643,6 +49552,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 319,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -46731,7 +49649,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 76,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -46822,7 +49750,17 @@
                         [],
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 77,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -47016,6 +49954,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 15,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -47101,6 +50049,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 16,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -47180,6 +50138,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Stmt {
+                        stmt: 18,
+                    },
+                },
                 caching_class: Stmt,
             },
         ),
@@ -47265,6 +50233,16 @@
                         ),
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 17,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -47468,6 +50446,16 @@
                         [],
                     ),
                 ],
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: LetVariable {
+                        stmt: 9,
+                    },
+                },
                 caching_class: Variable,
             },
         ),
@@ -47556,7 +50544,17 @@
                         ),
                     ),
                 ],
-                caching_class: Stmt,
+                source: Expansion {
+                    parent_val_repr: ValRepr(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    source: Expr {
+                        expr: 86,
+                    },
+                },
+                caching_class: Expr,
             },
         ),
     ),
@@ -47701,6 +50699,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 300,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -47795,6 +50802,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -48002,6 +51018,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 295,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -48768,6 +51793,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 297,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -48975,6 +52009,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 297,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -49228,6 +52271,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 302,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -49374,6 +52426,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -49480,6 +52541,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -49765,6 +52835,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -50030,6 +53109,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 283,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -50124,6 +53212,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -50279,6 +53376,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -50486,6 +53592,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 282,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -50693,6 +53808,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 282,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -50900,6 +54024,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 282,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -52741,6 +55874,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 282,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -53116,6 +56258,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 306,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -53262,6 +56413,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -53640,6 +56800,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 304,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -54241,6 +57410,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -54347,6 +57525,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -55534,6 +58721,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 294,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -55677,6 +58873,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 313,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -55823,6 +59028,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -56030,6 +59244,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -56408,6 +59631,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 309,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -56615,6 +59847,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 309,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -56822,6 +60063,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 309,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -57139,6 +60389,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),
@@ -57245,6 +60504,15 @@
                     },
                 ),
                 arguments: [],
+                source: ValItem(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 315,
+                            },
+                        ),
+                    ),
+                ),
                 caching_class: ValItem,
             },
         ),

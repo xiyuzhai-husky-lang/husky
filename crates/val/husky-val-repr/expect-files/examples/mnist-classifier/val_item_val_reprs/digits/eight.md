@@ -15,6 +15,15 @@
                 },
             ),
             arguments: [],
+            source: ValItem(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 301,
+                        },
+                    ),
+                ),
+            ),
             caching_class: ValItem,
         },
     ),
@@ -34,6 +43,15 @@
                 },
             ),
             arguments: [],
+            source: ValItem(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 302,
+                        },
+                    ),
+                ),
+            ),
             caching_class: ValItem,
         },
     ),
