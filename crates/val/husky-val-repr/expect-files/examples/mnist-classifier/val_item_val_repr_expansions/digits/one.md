@@ -131,14 +131,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 315,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -168,12 +162,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 3,
                             },
@@ -194,14 +194,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 316,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -213,12 +207,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 5,
                             },
@@ -295,12 +295,18 @@
                                 ],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 6,
                             },
@@ -355,12 +361,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 7,
                             },
@@ -381,14 +393,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 320,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -442,12 +448,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 10,
                             },
@@ -492,12 +504,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 11,
                             },
@@ -542,12 +560,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 43,
                             },
@@ -586,12 +610,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 13,
                             },
@@ -617,12 +647,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 14,
                             },
@@ -658,12 +694,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 15,
                             },
@@ -684,14 +726,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 315,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -727,12 +763,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 18,
                             },
@@ -753,12 +795,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 19,
                             },
@@ -836,12 +884,18 @@
                                 ],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 20,
                             },
@@ -902,12 +956,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 21,
                             },
@@ -928,14 +988,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 315,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -971,12 +1025,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 23,
                             },
@@ -1002,12 +1062,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 24,
                             },
@@ -1043,12 +1109,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 25,
                             },
@@ -1069,14 +1141,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 315,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -1112,12 +1178,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 27,
                             },
@@ -1143,12 +1215,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 28,
                             },
@@ -1184,12 +1262,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 29,
                             },
@@ -1220,12 +1304,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 30,
                             },
@@ -1246,14 +1336,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 315,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -1289,12 +1373,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 32,
                             },
@@ -1320,12 +1410,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 33,
                             },
@@ -1361,12 +1457,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 34,
                             },
@@ -1387,14 +1489,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 316,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -1417,12 +1513,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 36,
                             },
@@ -1458,12 +1560,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 37,
                             },
@@ -1484,14 +1592,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 272,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -1531,12 +1633,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 39,
                             },
@@ -1559,12 +1667,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 40,
                             },
@@ -1596,12 +1710,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 41,
                             },
@@ -1622,14 +1742,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 272,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -1669,12 +1783,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 43,
                             },
@@ -1697,12 +1817,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 44,
                             },
@@ -1734,12 +1860,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 45,
                             },
@@ -1760,14 +1892,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 272,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -1807,12 +1933,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 47,
                             },
@@ -1835,12 +1967,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 48,
                             },
@@ -1872,12 +2010,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 49,
                             },
@@ -1909,12 +2053,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 18,
                             },
@@ -1959,12 +2109,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 43,
                             },
@@ -2003,12 +2159,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 52,
                             },
@@ -2034,12 +2196,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 53,
                             },
@@ -2075,12 +2243,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 54,
                             },
@@ -2125,12 +2299,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 43,
                             },
@@ -2169,12 +2349,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 57,
                             },
@@ -2216,12 +2402,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 58,
                             },
@@ -2242,12 +2434,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 59,
                             },
@@ -2325,12 +2523,18 @@
                                 ],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 60,
                             },
@@ -2391,12 +2595,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 61,
                             },
@@ -2422,12 +2632,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 62,
                             },
@@ -2448,14 +2664,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 315,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -2491,12 +2701,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 64,
                             },
@@ -2532,12 +2748,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 65,
                             },
@@ -2558,14 +2780,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 315,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -2601,12 +2817,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 67,
                             },
@@ -2642,12 +2864,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 68,
                             },
@@ -2673,12 +2901,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 69,
                             },
@@ -2714,12 +2948,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 70,
                             },
@@ -2750,12 +2990,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 71,
                             },
@@ -2787,12 +3033,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 18,
                             },
@@ -2817,12 +3069,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 73,
                             },
@@ -2874,12 +3132,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 74,
                             },
@@ -2944,12 +3208,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 75,
                             },
@@ -2981,12 +3251,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 18,
                             },
@@ -3011,12 +3287,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 77,
                             },
@@ -3068,12 +3350,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 78,
                             },
@@ -3138,12 +3426,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 79,
                             },
@@ -3179,12 +3473,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 80,
                             },
@@ -3205,14 +3505,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 272,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3248,12 +3542,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 82,
                             },
@@ -3279,12 +3579,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 83,
                             },
@@ -3320,12 +3626,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 84,
                             },
@@ -3346,14 +3658,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 315,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3371,12 +3677,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 87,
                             },
@@ -3425,12 +3737,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 88,
                             },
@@ -3451,14 +3769,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 272,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3494,12 +3806,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 90,
                             },
@@ -3520,14 +3838,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 272,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3563,12 +3875,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 92,
                             },
@@ -3589,14 +3907,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 272,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3632,12 +3944,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 94,
                             },
@@ -3658,12 +3976,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 95,
                             },
@@ -3756,12 +4080,18 @@
                                 ],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 96,
                             },
@@ -3822,12 +4152,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 97,
                             },
@@ -3848,14 +4184,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 272,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -3895,12 +4225,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 100,
                             },
@@ -3923,12 +4259,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 101,
                             },
@@ -3960,12 +4302,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 102,
                             },
@@ -3990,12 +4338,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 103,
                             },
@@ -4034,12 +4388,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 104,
                             },
@@ -4060,14 +4420,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 272,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -4107,12 +4461,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 106,
                             },
@@ -4135,12 +4495,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 107,
                             },
@@ -4172,12 +4538,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 108,
                             },
@@ -4202,12 +4574,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 109,
                             },
@@ -4246,12 +4624,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 110,
                             },
@@ -4293,12 +4677,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 111,
                             },
@@ -4319,12 +4709,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 112,
                             },
@@ -4407,12 +4803,18 @@
                                 ],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 113,
                             },
@@ -4473,12 +4875,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 114,
                             },
@@ -4510,12 +4918,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 19,
                             },
@@ -4547,12 +4961,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 19,
                             },
@@ -4577,12 +4997,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 117,
                             },
@@ -4634,12 +5060,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 118,
                             },
@@ -4704,12 +5136,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 119,
                             },
@@ -4741,12 +5179,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 19,
                             },
@@ -4771,12 +5215,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 121,
                             },
@@ -4828,12 +5278,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 122,
                             },
@@ -4898,12 +5354,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 123,
                             },
@@ -4939,12 +5401,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 124,
                             },
@@ -4965,12 +5433,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 125,
                             },
@@ -5006,12 +5480,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 126,
                             },
@@ -5043,12 +5523,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 19,
                             },
@@ -5073,12 +5559,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 128,
                             },
@@ -5130,12 +5622,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 129,
                             },
@@ -5167,12 +5665,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 19,
                             },
@@ -5197,12 +5701,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 131,
                             },
@@ -5254,12 +5764,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 132,
                             },
@@ -5324,12 +5840,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 133,
                             },
@@ -5350,12 +5872,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 134,
                             },
@@ -5391,12 +5919,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 135,
                             },
@@ -5428,12 +5962,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 136,
                             },
@@ -5465,12 +6005,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 10,
                             },
@@ -5512,12 +6058,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 138,
                             },
@@ -5559,12 +6111,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 11,
                             },
@@ -5607,12 +6165,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 140,
                             },
@@ -5638,12 +6202,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 141,
                             },
@@ -5679,12 +6249,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 142,
                             },
@@ -5716,12 +6292,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 19,
                             },
@@ -5746,12 +6328,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 145,
                             },
@@ -5790,12 +6378,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 146,
                             },
@@ -5827,12 +6421,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 19,
                             },
@@ -5857,12 +6457,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 148,
                             },
@@ -5901,12 +6507,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 149,
                             },
@@ -5938,12 +6550,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 19,
                             },
@@ -5968,12 +6586,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 151,
                             },
@@ -6012,12 +6636,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 152,
                             },
@@ -6059,12 +6689,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 153,
                             },
@@ -6085,12 +6721,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 154,
                             },
@@ -6178,12 +6820,18 @@
                                 ],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 155,
                             },
@@ -6244,12 +6892,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 156,
                             },
@@ -6291,12 +6945,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 11,
                             },
@@ -6338,12 +6998,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 159,
                             },
@@ -6385,12 +7051,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 11,
                             },
@@ -6433,12 +7105,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 161,
                             },
@@ -6480,12 +7158,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 11,
                             },
@@ -6528,12 +7212,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 163,
                             },
@@ -6569,12 +7259,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 164,
                             },
@@ -6595,12 +7291,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 165,
                             },
@@ -6683,12 +7385,18 @@
                                 ],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 166,
                             },
@@ -6749,12 +7457,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 167,
                             },
@@ -6786,12 +7500,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 20,
                             },
@@ -6812,14 +7532,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 272,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -6859,12 +7573,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 171,
                             },
@@ -6887,12 +7607,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 172,
                             },
@@ -6924,12 +7650,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 173,
                             },
@@ -6954,12 +7686,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 174,
                             },
@@ -6998,12 +7736,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 175,
                             },
@@ -7024,14 +7768,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 272,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -7071,12 +7809,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 177,
                             },
@@ -7099,12 +7843,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 178,
                             },
@@ -7136,12 +7886,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 179,
                             },
@@ -7166,12 +7922,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 180,
                             },
@@ -7210,12 +7972,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 181,
                             },
@@ -7236,14 +8004,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 272,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -7283,12 +8045,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 183,
                             },
@@ -7311,12 +8079,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 184,
                             },
@@ -7348,12 +8122,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 185,
                             },
@@ -7378,12 +8158,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 186,
                             },
@@ -7422,12 +8208,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 187,
                             },
@@ -7469,12 +8261,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 188,
                             },
@@ -7495,12 +8293,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 189,
                             },
@@ -7588,12 +8392,18 @@
                                 ],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 190,
                             },
@@ -7654,12 +8464,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 191,
                             },
@@ -7695,12 +8511,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 22,
                             },
@@ -7721,12 +8543,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 193,
                             },
@@ -7762,12 +8590,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 194,
                             },
@@ -7799,12 +8633,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 18,
                             },
@@ -7829,12 +8669,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 196,
                             },
@@ -7886,12 +8732,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 197,
                             },
@@ -7923,12 +8775,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 18,
                             },
@@ -7953,12 +8811,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 199,
                             },
@@ -8010,12 +8874,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 200,
                             },
@@ -8080,12 +8950,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 201,
                             },
@@ -8117,12 +8993,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 202,
                             },
@@ -8154,12 +9036,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 29,
                             },
@@ -8201,12 +9089,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 204,
                             },
@@ -8238,12 +9132,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 18,
                             },
@@ -8268,12 +9168,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 206,
                             },
@@ -8325,12 +9231,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 207,
                             },
@@ -8362,12 +9274,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 18,
                             },
@@ -8392,12 +9310,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 209,
                             },
@@ -8449,12 +9373,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 210,
                             },
@@ -8519,12 +9449,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 211,
                             },
@@ -8545,12 +9481,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 212,
                             },
@@ -8586,12 +9528,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 213,
                             },
@@ -8623,12 +9571,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 214,
                             },
@@ -8660,12 +9614,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 31,
                             },
@@ -8707,12 +9667,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 216,
                             },
@@ -8754,12 +9720,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 30,
                             },
@@ -8802,12 +9774,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 219,
                             },
@@ -8849,12 +9827,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 32,
                             },
@@ -8897,12 +9881,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 221,
                             },
@@ -8923,12 +9913,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 222,
                             },
@@ -9011,12 +10007,18 @@
                                 ],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 223,
                             },
@@ -9077,12 +10079,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 224,
                             },
@@ -9118,12 +10126,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 22,
                             },
@@ -9144,12 +10158,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 226,
                             },
@@ -9185,12 +10205,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 227,
                             },
@@ -9211,14 +10237,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 315,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -9254,12 +10274,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 229,
                             },
@@ -9280,14 +10306,8 @@
                             },
                         ),
                         arguments: [],
-                        source: ValItem(
-                            FugitivePath(
-                                ItemPathId(
-                                    Id {
-                                        value: 315,
-                                    },
-                                ),
-                            ),
+                        source: ValReprSource::ValItem(
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
@@ -9323,12 +10343,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 231,
                             },
@@ -9367,12 +10393,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 35,
                             },
@@ -9411,12 +10443,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 36,
                             },
@@ -9452,12 +10490,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 234,
                             },
@@ -9493,12 +10537,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 37,
                             },
@@ -9537,12 +10587,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 35,
                             },
@@ -9578,12 +10634,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 237,
                             },
@@ -9619,12 +10681,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 37,
                             },
@@ -9650,12 +10718,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 239,
                             },
@@ -9682,12 +10756,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 240,
                             },
@@ -9723,12 +10803,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 241,
                             },
@@ -9764,12 +10850,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: LetVariable {
                                 stmt: 37,
                             },
@@ -9795,12 +10887,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 243,
                             },
@@ -9836,12 +10934,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 244,
                             },
@@ -9872,12 +10976,18 @@
                             ),
                         ),
                         arguments: [],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 245,
                             },
@@ -9911,12 +11021,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 1,
                             },
@@ -9950,12 +11066,18 @@
                                 ],
                             },
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 3,
                             },
@@ -9987,12 +11109,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 5,
                             },
@@ -10024,12 +11152,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 7,
                             },
@@ -10054,12 +11188,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 8,
                             },
@@ -10091,12 +11231,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 9,
                             },
@@ -10128,12 +11274,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 12,
                             },
@@ -10165,12 +11317,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 16,
                             },
@@ -10202,12 +11360,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 17,
                             },
@@ -10256,12 +11420,18 @@
                                 ],
                             },
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 21,
                             },
@@ -10293,12 +11463,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 23,
                             },
@@ -10347,12 +11523,18 @@
                                 ],
                             },
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 26,
                             },
@@ -10386,12 +11568,18 @@
                                 ],
                             },
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 27,
                             },
@@ -10423,12 +11611,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 28,
                             },
@@ -10460,12 +11654,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 34,
                             },
@@ -10497,12 +11697,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 39,
                             },
@@ -10534,12 +11740,18 @@
                                 ),
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 40,
                             },
@@ -10658,12 +11870,18 @@
                                 ],
                             },
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 44,
                             },
@@ -10720,12 +11938,18 @@
                                 [],
                             ),
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Expr {
                                 expr: 7,
                             },
@@ -10844,12 +12068,18 @@
                                 ],
                             },
                         ],
-                        source: Expansion {
-                            parent_val_repr: ValRepr(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                        source: ValReprSource::Expansion {
+                            parent_val_repr: ValRepr {
+                                val_domain_repr: Omni,
+                                opn: ValOpn::ValItemLazilyDefined(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                arguments: [],
+                                source: ValReprSource::ValItem(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ),
+                                caching_class: ValItem,
+                            },
                             source: Stmt {
                                 stmt: 44,
                             },

@@ -15,14 +15,8 @@
                 },
             ),
             arguments: [],
-            source: ValItem(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 287,
-                        },
-                    ),
-                ),
+            source: ValReprSource::ValItem(
+                FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
             ),
             caching_class: ValItem,
         },
@@ -43,14 +37,8 @@
                 },
             ),
             arguments: [],
-            source: ValItem(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 289,
-                        },
-                    ),
-                ),
+            source: ValReprSource::ValItem(
+                FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
             ),
             caching_class: ValItem,
         },
@@ -71,14 +59,8 @@
                 },
             ),
             arguments: [],
-            source: ValItem(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 290,
-                        },
-                    ),
-                ),
+            source: ValReprSource::ValItem(
+                FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
             ),
             caching_class: ValItem,
         },
@@ -99,14 +81,8 @@
                 },
             ),
             arguments: [],
-            source: ValItem(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 291,
-                        },
-                    ),
-                ),
+            source: ValReprSource::ValItem(
+                FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
             ),
             caching_class: ValItem,
         },

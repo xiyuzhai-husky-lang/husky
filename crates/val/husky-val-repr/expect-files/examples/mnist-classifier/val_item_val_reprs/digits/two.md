@@ -15,14 +15,8 @@
                 },
             ),
             arguments: [],
-            source: ValItem(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 309,
-                        },
-                    ),
-                ),
+            source: ValReprSource::ValItem(
+                FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
             ),
             caching_class: ValItem,
         },
@@ -43,14 +37,8 @@
                 },
             ),
             arguments: [],
-            source: ValItem(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 313,
-                        },
-                    ),
-                ),
+            source: ValReprSource::ValItem(
+                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
             ),
             caching_class: ValItem,
         },

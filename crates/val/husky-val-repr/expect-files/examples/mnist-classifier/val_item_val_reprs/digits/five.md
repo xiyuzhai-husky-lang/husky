@@ -15,14 +15,8 @@
                 },
             ),
             arguments: [],
-            source: ValItem(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 294,
-                        },
-                    ),
-                ),
+            source: ValReprSource::ValItem(
+                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
             ),
             caching_class: ValItem,
         },
