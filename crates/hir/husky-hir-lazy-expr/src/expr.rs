@@ -16,7 +16,7 @@ use husky_hir_ty::{
     indirections::HirIndirections, instantiation::HirInstantiation, HirConstSymbol, HirType,
 };
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
-use husky_sema_opr::{binary::SemaBinaryOpr};
+use husky_sema_opr::binary::SemaBinaryOpr;
 use husky_term_prelude::TermLiteral;
 use idx_arena::ArenaRef;
 
@@ -300,10 +300,7 @@ impl ToHirLazy for SemaExprIdx {
                             }
                         }
                     },
-                    SemaExprData::AssociatedItem {
-                        
-                        ..
-                    } => todo!(),
+                    SemaExprData::AssociatedItem { .. } => todo!(),
                     _ => todo!(),
                 }
             }

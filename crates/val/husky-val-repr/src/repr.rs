@@ -1,7 +1,9 @@
+pub mod source;
 mod val_domain_repr_guard;
 
 pub(crate) use self::val_domain_repr_guard::ValDomainReprGuard;
 
+use self::source::*;
 use crate::*;
 use husky_coword::Ident;
 use husky_entity_path::FugitivePath;
@@ -14,12 +16,14 @@ use husky_task_interface::val_repr::{
 use husky_val::{Val, ValArgument, ValDomain, ValOpn, ValRuntimeConstant};
 use smallvec::{smallvec, SmallVec};
 
-#[salsa::tracked(db = ValReprDb, jar = ValReprJar)]
+#[salsa::tracked(db = ValReprDb, jar = ValReprJar, constructor = new_inner)]
 pub struct ValRepr {
     pub val_domain_repr: ValDomainRepr,
     pub opn: ValOpn,
     #[return_ref]
     pub arguments: SmallVec<[ValArgumentRepr; 4]>,
+    /// the source tells the code and the dependent variables that generates this val
+    pub source: ValReprSource,
     pub caching_class: ValCachingClass,
 }
 
@@ -59,21 +63,34 @@ fn val_argument_repr_size_works() {
 }
 
 impl ValRepr {
+    pub fn new(
+        val_domain_repr: ValDomainRepr,
+        opn: ValOpn,
+        arguments: SmallVec<[ValArgumentRepr; 4]>,
+        source: ValReprSource,
+        db: &::salsa::Db,
+    ) -> Self {
+        Self::new_inner(
+            db,
+            val_domain_repr,
+            opn,
+            arguments,
+            source,
+            source.caching_class(),
+        )
+    }
+
     pub fn new_val_item(path: FugitivePath, db: &::salsa::Db) -> Self {
         val_item_val_repr(db, path)
     }
 
-    pub(crate) fn with_caching_class(
-        self,
-        caching_class: ValCachingClass,
-        db: &::salsa::Db,
-    ) -> Self {
+    pub(crate) fn with_source(self, source: ValReprSource, db: &::salsa::Db) -> Self {
         Self::new(
-            db,
             self.val_domain_repr(db),
             self.opn(db),
             self.arguments(db).clone(),
-            caching_class,
+            source,
+            db,
         )
     }
 }
@@ -90,7 +107,7 @@ fn val_item_val_repr(db: &::salsa::Db, path: FugitivePath) -> ValRepr {
     };
     let opds = smallvec![];
     let caching_class = ValCachingClass::ValItem;
-    ValRepr::new(db, domain, opn, opds, caching_class)
+    ValRepr::new(domain, opn, opds, ValReprSource::ValItem(path), db)
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -132,6 +149,7 @@ pub enum ValCachingClass {
     Variable,
     Expr,
     Stmt,
+    Condition,
     RuntimeConstant,
 }
 
