@@ -20,6 +20,7 @@ pub struct HirLazyExprSourceMapData {
     sema_to_hir_lazy_stmt_idx_map: SemaStmtMap<HirLazyStmtIdx>,
     syn_symbol_to_hir_lazy_variable_map: SynSymbolMap<HirLazyVariableIdx>,
 }
+
 impl HirLazyExprSourceMapData {
     pub fn syn_pattern_root_to_sema_expr_idx(
         &self,
@@ -56,6 +57,13 @@ impl HirLazyExprSourceMapData {
         self.syn_symbol_to_hir_lazy_variable_map
             .get_current(current_syn_symbol_idx)
             .copied()
+    }
+
+    pub fn sema_expr_idx(&self, expr: HirLazyExprIdx) -> SemaExprIdx {
+        self.sema_to_hir_lazy_expr_idx_map
+            .iter()
+            .find_map(|(sema_expr, &expr1)| (expr == expr1).then_some(sema_expr))
+            .unwrap()
     }
 }
 

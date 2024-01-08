@@ -206,6 +206,7 @@ impl<'a> HirLazyExprBuilder<'a> {
     }
 }
 
+/// todo: it's rather hard to find this function, put it somewhere else
 #[salsa::tracked(jar = HirLazyExprJar)]
 pub fn hir_lazy_expr_region_with_source_map(
     db: &::salsa::Db,

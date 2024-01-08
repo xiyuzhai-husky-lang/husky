@@ -425,6 +425,12 @@ impl<V> SemaExprMap<V> {
     pub fn get(&self, sema_expr_idx: SemaExprIdx) -> Option<&V> {
         self.0.get(sema_expr_idx.0)
     }
+
+    pub fn iter(&self) -> impl Iterator<Item = (SemaExprIdx, &V)> {
+        self.0
+            .key_value_iter()
+            .map(|(idx, v)| (SemaExprIdx(idx), v))
+    }
 }
 
 impl<V> std::ops::Index<SemaExprIdx> for SemaExprMap<V> {
