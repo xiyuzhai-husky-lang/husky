@@ -1,5 +1,6 @@
 use super::*;
 use husky_hir_lazy_expr::{HirLazyExprIdx, HirLazyStmtIdx};
+use salsa::DebugWithDb;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -22,8 +23,9 @@ impl ValReprSource {
             } => "".to_string(),
         };
         format!(
-            r#"self = {self:?},
-extra = {extra}"#
+            r#"self = {:?},
+extra = {extra}"#,
+            self.debug(db)
         )
     }
 }
