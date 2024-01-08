@@ -177,7 +177,11 @@ impl<Task: IsTask> DevRuntime<Task> {
                     .into(),
                 )
             }
-            ValOpn::Unwrap {} => todo!(),
+            ValOpn::Unwrap {} => {
+                use husky_print_utils::p;
+                p!(val_repr.source(db).info(db));
+                todo!()
+            }
             ValOpn::Index => {
                 // ad hoc
                 let arguments: &[_] = val_repr.arguments(db);
