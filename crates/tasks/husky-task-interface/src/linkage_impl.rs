@@ -4,7 +4,7 @@ use crate::{val_control_flow::ValControlFlow, val_repr::ValReprInterface, value:
 use crate::{val_repr::ValArgumentReprInterface, DevEvalContext};
 
 pub trait IsLinkageImpl: Send + Copy + 'static {
-    type Pedestal: Copy + 'static;
+    type Pedestal: std::fmt::Debug + Copy + 'static;
     type Value: IsValue;
     type Error: std::fmt::Debug + Serialize;
 
