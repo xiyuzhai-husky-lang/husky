@@ -29,10 +29,15 @@ husky-entity-path.workspace = true
 husky-coword.workspace = true
 husky-term-prelude.workspace = true
 husky-task.workspace = true
+# lex
+husky-regional-token.workspace = true
 # linkage
 husky-linkage.workspace = true
+# semantics
+husky-sema-expr.workspace = true
 # syntax
 husky-entity-syn-tree.workspace = true
+husky-syn-defn.workspace = true
 # task
 husky-task-interface.workspace = true
 # val

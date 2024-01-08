@@ -114,9 +114,9 @@ pub struct DefnTokraRegionSourceMap {
     pub ast_idx_map: Vec<AstIdx>,
 }
 
-impl ItemSynNodePath {
+impl ItemSynNodePathId {
     pub fn defn_tokra_region(self, db: &::salsa::Db) -> Option<DefnTokraRegion> {
-        Some(item_syn_defn_tokra_region_with_source_map(db, *self)?.0)
+        Some(item_syn_defn_tokra_region_with_source_map(db, self)?.0)
     }
 
     // use this only when necessary
@@ -124,7 +124,7 @@ impl ItemSynNodePath {
         self,
         db: &::salsa::Db,
     ) -> Option<DefnTokraRegionSourceMap> {
-        Some(item_syn_defn_tokra_region_with_source_map(db, *self)?.1)
+        Some(item_syn_defn_tokra_region_with_source_map(db, self)?.1)
     }
 
     pub fn defn_regional_token_idx_base(self, db: &::salsa::Db) -> Option<RegionalTokenIdxBase> {
