@@ -12,7 +12,7 @@ pub struct narrow_down<Label>(std::marker::PhantomData<Label>);
 // #[value_conversion]
 pub struct NarrowDownInternal<Label> {
     label0: Label,
-    flag_ranges: SmallVec<[FlagRange; 4]>,
+    flag_ranges: SmallVec<[Option<FlagRange>; 4]>,
 }
 impl<Label> __WeakStatic for NarrowDownInternal<Label>
 where
@@ -120,9 +120,13 @@ where
         let __ValArgumentReprInterface::Variadic(ref features) = val_argument_reprs[0] else {
             unreachable!()
         };
+        debug_assert_eq!(features.len(), value_at_generic_pedestal.flag_ranges.len());
         for (&feature, flag_range) in
             std::iter::zip(features, &value_at_generic_pedestal.flag_ranges)
         {
+            let Some(flag_range) = flag_range else {
+                continue;
+            };
             let v: f32 = match __eval_val_repr(feature, None) {
                 ValControlFlow::Continue(v) => v,
                 ValControlFlow::LoopContinue => todo!(),
