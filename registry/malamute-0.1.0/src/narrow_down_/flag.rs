@@ -89,12 +89,16 @@ where
             .collect()
     }
 
-    pub fn flag_ranges(&self, ntrim: i32, border_expand_rate: f32) -> SmallVec<[FlagRange; 4]> {
+    pub fn flag_ranges(
+        &self,
+        ntrim: i32,
+        border_expand_rate: f32,
+    ) -> SmallVec<[Option<FlagRange>; 4]> {
         let raw_flag_ranges = self.raw_flag_ranges();
         raw_flag_ranges
             .iter()
             .enumerate()
-            .filter_map(|(idx, raw_flag_range)| {
+            .map(|(idx, raw_flag_range)| {
                 self.flag_range(ntrim, border_expand_rate, idx, raw_flag_range)
             })
             .collect()
