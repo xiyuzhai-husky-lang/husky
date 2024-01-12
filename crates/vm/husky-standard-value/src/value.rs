@@ -59,7 +59,10 @@ pub enum Value {
     OptionLeash(Option<&'static dyn StaticDyn>),
     OptionSizedRef(Option<*const dyn StaticDyn>),
     OptionSizedMut(Option<*mut dyn StaticDyn>),
-    EnumU8(u8),
+    EnumU8 {
+        index: u8,
+        to_json_value: fn(u8) -> serde_json::Value,
+    },
 }
 
 // impl Drop for Value {
@@ -102,7 +105,7 @@ pub enum Value {
 //             Value::OptionLeash(_) => (),
 //             Value::OptionSizedRef(_) => (),
 //             Value::OptionSizedMut(_) => (),
-//             Value::EnumU8(_) => (),
+//             Value::EnumU8 { .. } => (),
 //         }
 //     }
 // }
@@ -205,7 +208,7 @@ impl Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8(_) => todo!(),
+            Value::EnumU8 { .. } => todo!(),
         }
     }
 
@@ -244,14 +247,20 @@ impl Value {
         todo!()
     }
 
-    pub fn from_enum_u8(index_raw: u8) -> Self {
-        Value::EnumU8(index_raw)
+    pub fn from_enum_u8(index: u8, to_json_value: fn(u8) -> serde_json::Value) -> Self {
+        Value::EnumU8 {
+            index,
+            to_json_value,
+        }
     }
 }
 
 impl IsValue for Value {
-    fn from_enum_u8(index_raw: u8) -> Self {
-        Value::EnumU8(index_raw)
+    fn from_enum_u8(index: u8, to_json_value: fn(u8) -> serde_json::Value) -> Self {
+        Value::EnumU8 {
+            index,
+            to_json_value,
+        }
     }
 
     fn share(&'static self) -> Self {
@@ -290,7 +299,13 @@ impl IsValue for Value {
             Value::OptionLeash(slf) => Value::OptionLeash(slf),
             Value::OptionSizedRef(slf) => unreachable!("not expecting temporary ref for sharing"),
             Value::OptionSizedMut(slf) => unreachable!("not expecting temporary mut for sharing"),
-            Value::EnumU8(slf) => Value::EnumU8(slf),
+            Value::EnumU8 {
+                index,
+                to_json_value,
+            } => Value::EnumU8 {
+                index,
+                to_json_value,
+            },
         }
     }
 
@@ -330,7 +345,7 @@ impl IsValue for Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8(_) => todo!(),
+            Value::EnumU8 { .. } => todo!(),
         }
     }
 
@@ -399,7 +414,7 @@ impl IsValue for Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8(_) => todo!(),
+            Value::EnumU8 { .. } => todo!(),
         }
     }
 
@@ -439,7 +454,7 @@ impl IsValue for Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8(_) => todo!(),
+            Value::EnumU8 { .. } => todo!(),
         }
     }
 
@@ -479,7 +494,7 @@ impl IsValue for Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8(_) => todo!(),
+            Value::EnumU8 { .. } => todo!(),
         }
     }
 
@@ -521,7 +536,7 @@ impl PartialEq for Value {
             (Self::OptionLeash(l0), Self::OptionLeash(r0)) => todo!(),
             (Self::OptionSizedRef(l0), Self::OptionSizedRef(r0)) => todo!(),
             (Self::OptionSizedMut(l0), Self::OptionSizedMut(r0)) => todo!(),
-            (Self::EnumU8(l0), Self::EnumU8(r0)) => l0 == r0,
+            (Self::EnumU8 { index: l0, .. }, Self::EnumU8 { index: r0, .. }) => l0 == r0,
             _ => unreachable!(),
         }
     }
@@ -557,7 +572,7 @@ impl PartialOrd for Value {
             (OptionLeash(l0), OptionLeash(r0)) => todo!(),
             (OptionSizedRef(l0), OptionSizedRef(r0)) => todo!(),
             (OptionSizedMut(l0), OptionSizedMut(r0)) => todo!(),
-            (EnumU8(l0), EnumU8(r0)) => todo!(),
+            (EnumU8 { index: l0, .. }, EnumU8 { index: r0, .. }) => todo!(),
             _ => unreachable!(),
         }
     }

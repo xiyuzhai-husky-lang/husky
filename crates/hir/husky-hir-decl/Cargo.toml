@@ -28,6 +28,7 @@ husky-term-prelude.workspace = true
 # semantics
 husky-sema-expr.workspace = true
 # syntax
+husky-entity-syn-tree.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 # utils
@@ -52,7 +53,6 @@ husky-declarative-signature.workspace = true
 husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
-husky-entity-syn-tree.workspace = true
 husky-syn-decl.workspace = true
 husky-corgi-config-ast.workspace = true
 husky-syn-expr.workspace = true

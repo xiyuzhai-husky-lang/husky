@@ -6,6 +6,7 @@ use crate::{
     *,
 };
 use ::version_stamp::HasVersionStamp;
+use husky_entity_path::TypePath;
 use husky_hir_defn::HasHirDefn;
 use husky_hir_defn::{version_stamp::HirDefnVersionStamp, HirDefn};
 
@@ -105,6 +106,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
+        &LinkageData::EnumU8ToJsonValue { ty_path } => builder.add_ty_path(ty_path, db),
         &LinkageData::StructField { self_ty, .. } => builder.add_ty_path_leading(self_ty),
         &LinkageData::TypeDefault { ty } => builder.add_ty(ty),
         LinkageData::TypeVariantConstructor {
@@ -184,9 +186,13 @@ impl<'a> LinkageVersionStampBuilder<'a> {
 
     fn add_ty_path_leading(&mut self, ty: LinkageTypePathLeading) {
         let db = self.db;
-        let hir_defn: HirDefn = ty.ty_path(db).hir_defn(db).unwrap().into();
-        self.add(hir_defn);
+        self.add_ty_path(ty.ty_path(db), db);
         self.add_template_arguments(ty.template_arguments(db))
+    }
+
+    fn add_ty_path(&mut self, ty_path: TypePath, db: &salsa::Db) {
+        let hir_defn: HirDefn = ty_path.hir_defn(db).unwrap().into();
+        self.add(hir_defn);
     }
 
     fn add_instantiation(&mut self, instantiation: &LinkageInstantiation) {

@@ -1,5 +1,10 @@
 [
     Linkage {
+        data: LinkageData::EnumU8ToJsonValue {
+            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+        },
+    },
+    Linkage {
         data: LinkageData::ValItem {
             path: FugitivePath(`mnist::input`, `Val`),
             instantiation: LinkageInstantiation {

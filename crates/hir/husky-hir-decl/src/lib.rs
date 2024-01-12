@@ -2,6 +2,7 @@
 mod builder;
 pub mod db;
 mod decl;
+pub mod helpers;
 pub mod parameter;
 #[cfg(test)]
 mod tests;

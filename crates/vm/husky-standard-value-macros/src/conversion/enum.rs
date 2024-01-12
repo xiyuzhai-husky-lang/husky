@@ -63,19 +63,20 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
 
             impl #generics __FromValue for #self_ty {
                 fn from_value_aux(value: __Value, _value_stands: Option<&mut __ValueStands>) -> Self {
-                    let __Value::EnumU8(index_raw) = value else {
+                    let __Value::EnumU8 { index, to_json_value } = value else {
                         unreachable!()
                     };
                     unsafe {
-                        std::mem::transmute(index_raw)
+                        std::mem::transmute(index)
                     }
                 }
             }
 
             impl #generics __IntoValue for #self_ty {
                 fn into_value(self) -> __Value {
-                    __Value::EnumU8(unsafe {
-                        std::mem::transmute(self)
+                    __Value::from_enum_u8(unsafe { std::mem::transmute(self) }, |index: u8| {
+                        let slf: Self = unsafe { std::mem::transmute(index) };
+                        __to_json_value(slf).unwrap()
                     })
                 }
             }

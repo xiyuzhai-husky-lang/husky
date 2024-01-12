@@ -6,10 +6,10 @@ mod eval;
 pub use self::config::*;
 
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
-use husky_entity_path::{TypeVariantIndex};
-
+use husky_entity_path::TypeVariantIndex;
+use husky_linkage::linkage::Linkage;
 use husky_task::{
-    dev_ascension::{IsRuntimeStorage},
+    dev_ascension::IsRuntimeStorage,
     helpers::{TaskDevAscension, TaskLinkageImpl, TaskValControlFlow, TaskValueResult},
 };
 use husky_task::{
@@ -18,8 +18,7 @@ use husky_task::{
 };
 use husky_task_interface::{
     val_repr::{ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface},
-    IsDevRuntime, IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex,
-    TaskJarIndex,
+    IsDevRuntime, IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
 use husky_val::{ValRuntimeConstant, ValRuntimeConstantData};
 use husky_val_repr::repr::ValRepr;
@@ -166,11 +165,23 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         let val_runtime_constant: ValRuntimeConstant =
             unsafe { std::mem::transmute(val_runtime_constant) };
         match val_runtime_constant.data(db) {
-            ValRuntimeConstantData::TypeVariantPath(path) => match path.index(db) {
-                TypeVariantIndex::U8(raw) => {
-                    <TaskLinkageImpl<Task> as IsLinkageImpl>::Value::from_enum_u8(raw)
+            ValRuntimeConstantData::TypeVariantPath(path) => {
+                let to_json_value = self
+                    .comptime
+                    .linkage_impl(Linkage::new_enum_u8_to_json_value(
+                        path.parent_ty_path(db),
+                        db,
+                    ))
+                    .enum_u8_to_json_value();
+                match path.index(db) {
+                    TypeVariantIndex::U8(raw) => {
+                        <TaskLinkageImpl<Task> as IsLinkageImpl>::Value::from_enum_u8(
+                            raw,
+                            to_json_value,
+                        )
+                    }
                 }
-            },
+            }
         }
     }
 }

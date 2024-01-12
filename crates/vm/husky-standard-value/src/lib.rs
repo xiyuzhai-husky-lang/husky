@@ -50,7 +50,10 @@ pub use husky_standard_value_macros::*;
 
 #[cfg(feature = "constant")]
 use husky_term_prelude::*;
+use serde_impl::IsSerdeImpl;
 use std::{
     panic::{RefUnwindSafe, UnwindSafe},
     sync::Arc,
 };
+
+pub type JsonValue = <serde_impl::json::SerdeJson as IsSerdeImpl>::Value;

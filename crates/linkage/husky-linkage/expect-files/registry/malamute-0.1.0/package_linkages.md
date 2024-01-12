@@ -1,5 +1,15 @@
 [
     Linkage {
+        data: LinkageData::EnumU8ToJsonValue {
+            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+        },
+    },
+    Linkage {
+        data: LinkageData::EnumU8ToJsonValue {
+            ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+        },
+    },
+    Linkage {
         data: LinkageData::AssociatedFunctionFn {
             path: AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(

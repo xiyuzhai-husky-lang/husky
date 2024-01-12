@@ -159,7 +159,7 @@ impl<Task: IsTask> DevRuntime<Task> {
             }
             ValOpn::TypeVariant(path) => match path.index(db) {
                 TypeVariantIndex::U8(index_raw) => {
-                    ValControlFlow::Continue(TaskValue::<Task>::from_enum_u8(index_raw))
+                    ValControlFlow::Continue(TaskValue::<Task>::from_enum_u8(index_raw, todo!()))
                 }
             },
             ValOpn::Be { pattern_data } => {
