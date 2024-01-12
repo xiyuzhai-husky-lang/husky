@@ -459,7 +459,7 @@ impl IsValue for Value {
     }
 
     fn serialize_to_value(&self) -> <Self::SerdeImpl as IsSerdeImpl>::Value {
-        match self {
+        match *self {
             Value::Invalid => unreachable!(),
             Value::Moved => unreachable!(),
             Value::Unit(_) => todo!(),
@@ -486,7 +486,7 @@ impl IsValue for Value {
             Value::F32(_) => todo!(),
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
-            Value::Owned(value) => value.serialize_to_value_dyn(),
+            Value::Owned(ref value) => value.serialize_to_value_dyn(),
             Value::Leash(_) => todo!(),
             Value::Ref(_) => todo!(),
             Value::Mut(_) => todo!(),
@@ -494,7 +494,10 @@ impl IsValue for Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8 { .. } => todo!(),
+            Value::EnumU8 {
+                index,
+                to_json_value,
+            } => to_json_value(index),
         }
     }
 
