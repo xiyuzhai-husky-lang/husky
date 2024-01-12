@@ -7,6 +7,7 @@ use husky_coword::Ident;
 use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
 use husky_entity_path::{AssociatedItemPath, FugitivePath, PreludeTraitPath, TypeVariantPath};
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
+use husky_hir_decl::helpers::enum_ty_has_only_unit_variants;
 use husky_hir_decl::{HasHirDecl, TypeHirDecl};
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
 use husky_hir_expr::HirExprIdx;
@@ -75,6 +76,9 @@ pub enum LinkageData {
     },
     TypeDefault {
         ty: LinkageType,
+    },
+    EnumU8ToJsonValue {
+        ty_path: TypePath,
     },
 }
 
@@ -307,6 +311,10 @@ impl Linkage {
             },
         )
     }
+
+    pub fn new_enum_u8_to_json_value(ty_path: TypePath, db: &::salsa::Db) -> Self {
+        Self::new(db, LinkageData::EnumU8ToJsonValue { ty_path })
+    }
 }
 
 #[salsa::tracked(jar = LinkageJar, return_ref)]
@@ -462,7 +470,13 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                 }
             },
             JavelinPath::TypeConstructor(path) => match path.ty_kind(db) {
-                TypeKind::Enum => smallvec![],
+                TypeKind::Enum => {
+                    if enum_ty_has_only_unit_variants(db, path) {
+                        smallvec![Linkage::new_enum_u8_to_json_value(path, db)]
+                    } else {
+                        smallvec![]
+                    }
+                }
                 TypeKind::Inductive => unreachable!(),
                 TypeKind::Record => unreachable!(),
                 TypeKind::Struct => {

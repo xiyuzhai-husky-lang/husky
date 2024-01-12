@@ -1,5 +1,6 @@
 pub mod ugly;
 
+use husky_standard_value::JsonValue;
 pub use husky_standard_value::{
     frozen::ValueStands, value_conversion, FromValue, IntoValue, Value, ValueLeashTest,
 };
@@ -47,6 +48,8 @@ where
         /// no need to set ctx
         gn_specific_wrapper: fn(&[ValArgumentReprInterface], Value) -> ValControlFlow,
     },
+    /// used to get the json value of an enum u8-represented given only the index
+    EnumU8ToJsonValue { to_json_value: fn(u8) -> JsonValue },
 }
 
 impl<Pedestal> IsLinkageImpl for LinkageImpl<Pedestal>
@@ -89,6 +92,16 @@ where
                 let owner = ctx.eval_val_repr(owner)?;
                 ValControlFlow::Continue(struct_field_wrapper(owner))
             }
+            LinkageImpl::EnumU8ToJsonValue { to_json_value } => {
+                unreachable!("this linkage is not meant to be evaluated like this")
+            }
+        }
+    }
+
+    fn enum_u8_to_json_value(self) -> fn(u8) -> JsonValue {
+        match self {
+            LinkageImpl::EnumU8ToJsonValue { to_json_value } => to_json_value,
+            _ => unreachable!(),
         }
     }
 }
@@ -207,4 +220,13 @@ fn struct_field_linkage_impl_works() {
     }
 
     let _: LinkageImpl<()> = struct_field_linkage_impl!(A, x);
+}
+
+#[macro_export]
+macro_rules! enum_u8_to_json_value_linkage_impl {
+    ($ty: ty) => {
+        __LinkageImpl::EnumU8ToJsonValue {
+            to_json_value: |_| todo!(),
+        }
+    };
 }

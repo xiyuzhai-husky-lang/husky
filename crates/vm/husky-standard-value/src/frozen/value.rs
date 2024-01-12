@@ -34,7 +34,10 @@ pub enum FrozenValue {
     F32(f32),
     F64(f64),
     StringLiteral(StringLiteralId),
-    EnumU8(u8),
+    EnumU8 {
+        index: u8,
+        to_json_value: fn(u8) -> serde_json::Value,
+    },
     Box(Arc<dyn SnapshotDyn>),
     Leash(&'static dyn StaticDyn),
     SizedRef(Arc<dyn SnapshotDyn>),
@@ -75,7 +78,13 @@ impl Value {
             Value::F32(val) => FrozenValue::F32(*val),
             Value::F64(val) => FrozenValue::F64(*val),
             Value::StringLiteral(id) => FrozenValue::StringLiteral(*id),
-            &Value::EnumU8(index_raw) => FrozenValue::EnumU8(index_raw),
+            &Value::EnumU8 {
+                index,
+                to_json_value,
+            } => FrozenValue::EnumU8 {
+                index,
+                to_json_value,
+            },
             Value::Owned(slf) => todo!(),
             // FrozenValue::Box(slf.snapshot()),
             Value::Leash(_) => todo!(),

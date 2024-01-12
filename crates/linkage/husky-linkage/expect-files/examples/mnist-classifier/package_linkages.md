@@ -338,6 +338,11 @@
         },
     },
     Linkage {
+        data: LinkageData::EnumU8ToJsonValue {
+            ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+        },
+    },
+    Linkage {
         data: LinkageData::FunctionFnItem {
             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
             instantiation: LinkageInstantiation {

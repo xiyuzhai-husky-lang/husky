@@ -31,6 +31,7 @@ husky-term-prelude.workspace = true
 husky-text-protocol.workspace = true
 husky-token.workspace = true
 # linkage
+husky-linkage.workspace = true
 husky-linkage-impl.workspace = true
 # kernel
 husky-opr.workspace = true

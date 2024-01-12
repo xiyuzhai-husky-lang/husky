@@ -59,4 +59,6 @@ pub struct HirDeclJar(
     TraitForTypeImplBlockHirDecl,
     // attr
     DeriveAttrHirDecl,
+    // helpers
+    crate::helpers::enum_ty_has_only_unit_variants,
 );

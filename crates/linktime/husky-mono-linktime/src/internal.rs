@@ -4,7 +4,7 @@ mod linkage_impls;
 use self::linkage_impls::generate_linkage_impls;
 use self::{libraries::MonoLinkageLibraries, linkage_impls::LinkageImplMap};
 use crate::*;
-use husky_linkage::{version_stamp::LinkageVersionStamp};
+use husky_linkage::version_stamp::LinkageVersionStamp;
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use version_stamp::HasVersionStamp;
 
