@@ -53,12 +53,14 @@ where
 
     fn process_response(&mut self, response: TraceResponse<TraceProtocol>) {
         match response {
-            TraceResponse::Init { center: cache } => {
+            TraceResponse::Init {
+                trace_synchrotron: cache,
+            } => {
                 debug_assert!(self.trace_synchrotron.is_none());
                 self.trace_synchrotron = Some(cache)
             }
             TraceResponse::TakeTraceSynchrotronAction {
-                center_actions: synchrotron_actions,
+                trace_synchrotron_actions: synchrotron_actions,
             } => {
                 let Some(ref mut cache) = self.trace_synchrotron else {
                     unreachable!()
@@ -112,7 +114,7 @@ where
         self.cache_mut().take_action(synchrotron_action.clone());
         match self.try_send_request(TraceRequest::NotifyViewAction {
             view_action,
-            center_action: synchrotron_action,
+            trace_synchrotron_action: synchrotron_action,
         }) {
             Ok(_) => (),
             Err(e) => match e {
