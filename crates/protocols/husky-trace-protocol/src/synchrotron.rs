@@ -93,7 +93,6 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     fn trace_listing_aux(&self, trace_id: TraceId, trace_listings: &mut Vec<TraceId>) {
         trace_listings.push(trace_id);
         let entry = &self[trace_id];
-        // todo: only list those shown
         for &associated_trace_id in entry.associated_trace_ids() {
             self.trace_listing_aux(associated_trace_id, trace_listings)
         }

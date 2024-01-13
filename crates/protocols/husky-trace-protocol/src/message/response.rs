@@ -7,10 +7,10 @@ use crate::{
 #[derive(Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub enum TraceResponse<TraceProtocol: IsTraceProtocol> {
     Init {
-        center: TraceSynchrotron<TraceProtocol>,
+        trace_synchrotron: TraceSynchrotron<TraceProtocol>,
     },
     TakeTraceSynchrotronAction {
-        center_actions: smallvec::SmallVec<[TraceSynchrotronAction<TraceProtocol>; 3]>,
+        trace_synchrotron_actions: smallvec::SmallVec<[TraceSynchrotronAction<TraceProtocol>; 3]>,
     },
     Err(String),
 }
@@ -28,10 +28,10 @@ fn trace_response_ser_then_deser_works() {
     }
 
     t(TraceResponse::Init {
-        center: TraceSynchrotron::new([].into_iter()),
+        trace_synchrotron: TraceSynchrotron::new([].into_iter()),
     });
     t(TraceResponse::Init {
-        center: TraceSynchrotron::new(
+        trace_synchrotron: TraceSynchrotron::new(
             [(
                 TraceId::from_index(0),
                 TraceViewData::new(TraceKind::EagerCall, vec![], false),

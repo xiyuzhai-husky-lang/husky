@@ -59,7 +59,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     }
 
     #[track_caller]
-    fn center_mut(&mut self) -> &mut TraceSynchrotron<Tracetime::TraceProtocol> {
+    fn trace_synchrotron_mut(&mut self) -> &mut TraceSynchrotron<Tracetime::TraceProtocol> {
         self.trace_synchrotron.as_mut().unwrap()
     }
 }
@@ -89,10 +89,10 @@ but client's trace protocol is of type `{trace_protocol_type_name}`."#,
                     )));
                 }
                 self.init();
-                let Some(cache) = self.trace_synchrotron.clone() else {
+                let Some(trace_synchrotron) = self.trace_synchrotron.clone() else {
                     unreachable!()
                 };
-                Some(TraceResponse::Init { center: cache })
+                Some(TraceResponse::Init { trace_synchrotron })
             }
             TraceRequest::TakeViewAction {
                 view_action,
@@ -108,11 +108,15 @@ but client's trace protocol is of type `{trace_protocol_type_name}`."#,
                     .trace_synchrotron()
                     .diff_actions(trace_synchrotron_status);
                 Some(TraceResponse::TakeTraceSynchrotronAction {
-                    center_actions: trace_synchrotron_actions,
+                    trace_synchrotron_actions: trace_synchrotron_actions,
                 })
             }
-            TraceRequest::NotifyViewAction { center_action, .. } => {
-                self.center_mut().take_action(center_action);
+            TraceRequest::NotifyViewAction {
+                trace_synchrotron_action,
+                ..
+            } => {
+                self.trace_synchrotron_mut()
+                    .take_action(trace_synchrotron_action);
                 None
             }
         }
@@ -137,9 +141,9 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                         subtrace_id
                     })
                     .collect();
-                self.center_mut()
+                self.trace_synchrotron_mut()
                     .take_action(TraceSynchrotronSetSubtraces::new(trace_id, subtrace_ids));
-                self.center_mut()
+                self.trace_synchrotron_mut()
                     .take_action(TraceSynchrotronToggleExpansion::new(trace_id))
             }
             TraceViewAction::Marker { _marker } => todo!(),
@@ -148,11 +152,12 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                 associated_trace_id,
             } => {
                 self.cache_trace_if_new(associated_trace_id);
-                self.center_mut()
-                    .take_action(TraceSynchrotronAction::ToggleAssociatedTrace {
+                self.trace_synchrotron_mut().take_action(
+                    TraceSynchrotronAction::ToggleAssociatedTrace {
                         trace_id,
                         associated_trace_id,
-                    })
+                    },
+                )
             }
         }
         self.cache_periphery()
@@ -161,7 +166,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     fn cache_trace_if_new(&mut self, trace_id: TraceId) {
         if !self.trace_synchrotron().is_trace_cached(trace_id) {
             let view_data = self.tracetime.get_trace_view_data(trace_id.into());
-            self.center_mut()
+            self.trace_synchrotron_mut()
                 .take_action(TraceSynchrotronNewTrace::new(trace_id, view_data))
         }
     }
@@ -172,9 +177,9 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     }
 
     fn cache_stalks(&mut self) {
-        let center = &self.trace_synchrotron();
-        let trace_listing = center.trace_listing();
-        let pedestal = center.pedestal();
+        let trace_synchrotron = &self.trace_synchrotron();
+        let trace_listing = trace_synchrotron.trace_listing();
+        let pedestal = trace_synchrotron.pedestal();
         for trace_id in trace_listing {
             self.cache_stalk(trace_id, pedestal)
         }
@@ -186,14 +191,14 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         pedestal: <<Tracetime as IsTracetime>::TraceProtocol as IsTraceProtocol>::Pedestal,
     ) {
         if !self.trace_synchrotron()[trace_id].has_stalk(pedestal) {
-            let center = self.trace_synchrotron.as_mut().unwrap();
+            let trace_synchrotron = self.trace_synchrotron.as_mut().unwrap();
             let stalk = self.tracetime.get_trace_stalk(
                 pedestal,
                 trace_id.into(),
                 &mut self.value_presenter_cache,
-                center.value_presentation_synchrotron_mut(),
+                trace_synchrotron.value_presentation_synchrotron_mut(),
             );
-            center.take_action(TraceSynchrotronAction::CacheStalk {
+            trace_synchrotron.take_action(TraceSynchrotronAction::CacheStalk {
                 pedestal,
                 trace_id,
                 stalk,

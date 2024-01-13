@@ -21,7 +21,7 @@ pub enum TraceRequest<TraceProtocol: IsTraceProtocol> {
     /// ask the server to do the same
     NotifyViewAction {
         view_action: TraceViewAction<TraceProtocol>,
-        center_action: TraceSynchrotronAction<TraceProtocol>,
+        trace_synchrotron_action: TraceSynchrotronAction<TraceProtocol>,
     },
 }
 
