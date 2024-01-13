@@ -14,8 +14,8 @@ use vec_like::VecPairMap;
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceSynchrotron<TraceProtocol: IsTraceProtocol> {
     pedestal: TraceProtocol::Pedestal,
-    /// None means not set
     root_trace_ids: Vec<TraceId>,
+    focused_trace_id: Option<TraceId>,
     entries: VecPairMap<TraceId, TraceSynchrotronEntry<TraceProtocol>>,
     visual_components: Vec<<TraceProtocol::VisualProtocol as IsVisualProtocol>::VisualComponent>,
     actions: Vec<TraceSynchrotronAction<TraceProtocol>>,
@@ -41,6 +41,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
                 .unwrap()
         }
         Self {
+            focused_trace_id: None,
             value_presentation_synchrotron: Default::default(),
             pedestal: Default::default(),
             root_trace_ids,
