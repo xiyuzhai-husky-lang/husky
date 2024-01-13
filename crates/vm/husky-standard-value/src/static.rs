@@ -104,8 +104,7 @@ where
     }
 
     fn present_dyn(&self) -> ValuePresentation {
-        // self.serialize_to_value()
-        todo!()
+        self.present()
     }
 }
 

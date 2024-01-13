@@ -1,4 +1,3 @@
-pub mod center;
 #[cfg(feature = "client")]
 pub mod client;
 pub mod id;
@@ -9,11 +8,12 @@ pub mod protocol;
 pub mod server;
 pub mod settings;
 pub mod stalk;
+pub mod synchrotron;
 pub mod view;
 
-use self::center::*;
 use self::id::*;
 use self::protocol::*;
 use self::stalk::*;
+use self::synchrotron::*;
 use husky_visual_protocol::IsVisualProtocol;
 use serde::{Deserialize, Serialize};
