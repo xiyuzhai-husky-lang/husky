@@ -11,7 +11,7 @@ use husky_task::{
     IsTask,
 };
 use husky_trace::{db::TraceDb, trace::Trace};
-use husky_trace_protocol::stalk::TraceStalk;
+use husky_trace_protocol::{protocol::IsTraceProtocol, stalk::TraceStalk};
 use husky_value_protocol::presentation::ValuePresentationSynchrotron;
 use husky_value_protocol::presentation::ValuePresenterCache;
 use husky_vfs::error::VfsResult;
@@ -80,7 +80,7 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
 
     fn get_trace_stalk(
         &self,
-        pedestal: <Self::TraceProtocol as husky_trace_protocol::protocol::IsTraceProtocol>::Pedestal,
+        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         trace: Self::Trace,
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
