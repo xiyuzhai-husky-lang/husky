@@ -16,7 +16,7 @@ pub enum RustMacroName {
     GnLinkageImpl,
     StructFieldLinkageImpl,
     TypeDefault,
-    EnumU8ToJsonValue,
+    EnumU8Presenter,
 }
 
 impl RustMacroName {
@@ -37,7 +37,7 @@ impl RustMacroName {
             RustMacroName::GnLinkageImpl => "gn_linkage_impl!",
             RustMacroName::StructFieldLinkageImpl => "struct_field_linkage_impl!",
             RustMacroName::TypeDefault => "ty_default_linkage_impl!",
-            RustMacroName::EnumU8ToJsonValue => "enum_u8_to_json_value_linkage_impl!",
+            RustMacroName::EnumU8Presenter => "enum_u8_presenter_linkage_impl!",
         }
     }
 }

@@ -3,6 +3,7 @@ use crate::frozen::{mut_frozen::MutFrozen, Frozen, SnapshotDyn};
 use husky_decl_macro_utils::{
     for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
 };
+use husky_value_protocol::presentation::ValuePresentation;
 use serde::Serialize;
 
 /// Stand is the static version of a type
@@ -71,7 +72,7 @@ pub trait StaticDyn:
 
     fn copy_dyn(&self) -> Box<dyn StaticDyn>;
 
-    fn serialize_to_value_dyn(&self) -> serde_json::Value;
+    fn present_dyn(&self) -> ValuePresentation;
 }
 
 impl<T> StaticDyn for T
@@ -102,8 +103,9 @@ where
         self.copy()
     }
 
-    fn serialize_to_value_dyn(&self) -> serde_json::Value {
-        self.serialize_to_value()
+    fn present_dyn(&self) -> ValuePresentation {
+        // self.serialize_to_value()
+        todo!()
     }
 }
 

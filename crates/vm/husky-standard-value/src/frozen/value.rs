@@ -1,4 +1,5 @@
 use super::*;
+use husky_value_protocol::presentation::EnumU8ValuePresenter;
 
 /// we use this layout instead of struct to reduce size to `2 * std::mem::size_of::<usize>()`
 ///
@@ -36,7 +37,7 @@ pub enum FrozenValue {
     StringLiteral(StringLiteralId),
     EnumU8 {
         index: u8,
-        to_json_value: fn(u8) -> serde_json::Value,
+        presenter: EnumU8ValuePresenter,
     },
     Box(Arc<dyn SnapshotDyn>),
     Leash(&'static dyn StaticDyn),
@@ -78,13 +79,7 @@ impl Value {
             Value::F32(val) => FrozenValue::F32(*val),
             Value::F64(val) => FrozenValue::F64(*val),
             Value::StringLiteral(id) => FrozenValue::StringLiteral(*id),
-            &Value::EnumU8 {
-                index,
-                to_json_value,
-            } => FrozenValue::EnumU8 {
-                index,
-                to_json_value,
-            },
+            &Value::EnumU8 { index, presenter } => FrozenValue::EnumU8 { index, presenter },
             Value::Owned(slf) => todo!(),
             // FrozenValue::Box(slf.snapshot()),
             Value::Leash(_) => todo!(),

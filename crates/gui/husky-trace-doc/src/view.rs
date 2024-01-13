@@ -5,19 +5,20 @@ use egui::{
 };
 use husky_task_interface::val_control_flow::ValControlFlow;
 use husky_trace_protocol::{
-    center::{TraceCenter, TraceCenterEntry},
+    center::{TraceSynchrotron, TraceSynchrotronEntry},
     id::{TraceId, TraceKind},
     protocol::IsTraceProtocol,
     stalk::{JsonValue, TraceStalk},
     view::{action::TraceViewActionBuffer, TraceViewLineData, TraceViewTokenData},
 };
+use husky_value_protocol::presentation::ValuePresentation;
 
 pub(crate) struct TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
     Settings: HasTraceViewDocSettings,
 {
-    trace_cache: &'a TraceCenter<TraceProtocol>,
+    trace_cache: &'a TraceSynchrotron<TraceProtocol>,
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
     // cached values
@@ -31,7 +32,7 @@ where
     Settings: HasTraceViewDocSettings,
 {
     pub(crate) fn new(
-        trace_cache: &'a TraceCenter<TraceProtocol>,
+        trace_cache: &'a TraceSynchrotron<TraceProtocol>,
         action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
         ui: &mut egui::Ui,
         settings: &'a mut Settings,
@@ -77,7 +78,7 @@ where
         &mut self,
         pedestal: <TraceProtocol as IsTraceProtocol>::Pedestal,
         trace_id: TraceId,
-        entry: &TraceCenterEntry<TraceProtocol>,
+        entry: &TraceSynchrotronEntry<TraceProtocol>,
         ui: &mut egui::Ui,
     ) where
         TraceProtocol: IsTraceProtocol,
@@ -121,14 +122,12 @@ where
                             match entry.stalk(pedestal) {
                                 TraceStalk::None => (),
                                 TraceStalk::Val(value_control_flow) => match value_control_flow {
-                                    ValControlFlow::Continue(value) => {
-                                        self.render_json_value(value, ui)
-                                    }
+                                    ValControlFlow::Continue(value) => self.render_value(value, ui),
                                     ValControlFlow::LoopContinue => todo!(),
                                     ValControlFlow::LoopExit(_) => todo!(),
                                     ValControlFlow::Return(value) => {
                                         ui.label("return");
-                                        self.render_json_value(value, ui)
+                                        self.render_value(value, ui)
                                     }
                                     ValControlFlow::Undefined => todo!(),
                                     ValControlFlow::Err(_) => todo!(),
@@ -210,7 +209,7 @@ where
         &mut self,
         line_data: &TraceViewLineData,
         trace_id: TraceId,
-        entry: &TraceCenterEntry<TraceProtocol>,
+        entry: &TraceSynchrotronEntry<TraceProtocol>,
         ui: &mut egui::Ui,
     ) {
         for token_data in line_data.tokens_data() {
@@ -222,7 +221,7 @@ where
         &mut self,
         token_data: &TraceViewTokenData,
         trace_id: TraceId,
-        entry: &TraceCenterEntry<TraceProtocol>,
+        entry: &TraceSynchrotronEntry<TraceProtocol>,
         ui: &mut egui::Ui,
     ) {
         let token_foreground_colors = self
@@ -258,12 +257,19 @@ where
         }
     }
 
-    fn render_json_value(&self, value: &JsonValue, ui: &mut egui::Ui)
+    fn render_value(&self, value: &ValuePresentation, ui: &mut egui::Ui)
     where
         TraceProtocol: IsTraceProtocol,
     {
-        // ad hoc
-        ui.label(value.to_string());
+        match value {
+            ValuePresentation::Enum => todo!(),
+            ValuePresentation::Struct => todo!(),
+            ValuePresentation::AdHoc(s) => {
+                // ad hoc
+                ui.label(s);
+            }
+            ValuePresentation::Bool(_) => todo!(),
+        }
     }
 }
 

@@ -1,4 +1,6 @@
-use serde_impl::IsSerdeImpl;
+use husky_value_protocol::presentation::{
+    EnumU8ValuePresenter, ValuePresentation, ValuePresentationSynchrotron, ValuePresenterCache,
+};
 
 pub trait IsValue:
     std::fmt::Debug
@@ -70,10 +72,7 @@ pub trait IsValue:
     // fn into_option_ref<'a, T>(self) -> Option<&'a T>;
     // fn from_option_mut<'a, T>(t: Option<&'a mut T>) -> Self;
     // fn into_option_mut<'a, T>(self) -> Option<&'a mut T>;
-    fn from_enum_u8(
-        index: u8,
-        to_json_value: fn(u8) -> <Self::SerdeImpl as IsSerdeImpl>::Value,
-    ) -> Self;
+    fn from_enum_u8(index: u8, presenter: EnumU8ValuePresenter) -> Self;
     fn share(&'static self) -> Self;
     fn to_bool(self) -> bool;
     fn to_usize(self) -> usize;
@@ -83,13 +82,9 @@ pub trait IsValue:
     /// should unreachable if not an option
     fn is_some(self) -> bool;
     fn index(self, index: usize) -> Self;
-
-    type SerdeImpl: IsSerdeImpl;
-    fn serialize_to_value(&self) -> <Self::SerdeImpl as IsSerdeImpl>::Value;
-
-    fn serialize_to_value_in_general<SerdeImpl: IsSerdeImpl>(
+    fn present(
         &self,
-    ) -> <SerdeImpl as IsSerdeImpl>::Value {
-        SerdeImpl::to_value(self.serialize_to_value()).unwrap()
-    }
+        cache: &mut ValuePresenterCache,
+        Universe: &mut ValuePresentationSynchrotron,
+    ) -> ValuePresentation;
 }

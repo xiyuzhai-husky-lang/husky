@@ -24,6 +24,7 @@ notify-change = { path = "../../abstractions/notify-change" }
 vec-like.workspace = true
 # protocols
 husky-token-protocol = { workspace = true, features = ["serde"] }
+husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
 # tasks
 husky-task-interface.workspace = true

@@ -166,18 +166,14 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
             unsafe { std::mem::transmute(val_runtime_constant) };
         match val_runtime_constant.data(db) {
             ValRuntimeConstantData::TypeVariantPath(path) => {
-                let to_json_value = self
+                let presenter = self
                     .comptime
-                    .linkage_impl(Linkage::new_enum_u8_to_json_value(
-                        path.parent_ty_path(db),
-                        db,
-                    ))
-                    .enum_u8_to_json_value();
+                    .linkage_impl(Linkage::new_enum_u8_presenter(path.parent_ty_path(db), db))
+                    .enum_u8_value_presenter();
                 match path.index(db) {
                     TypeVariantIndex::U8(raw) => {
                         <TaskLinkageImpl<Task> as IsLinkageImpl>::Value::from_enum_u8(
-                            raw,
-                            to_json_value,
+                            raw, presenter,
                         )
                     }
                 }

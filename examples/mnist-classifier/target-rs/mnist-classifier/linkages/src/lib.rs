@@ -30,7 +30,7 @@ linkage_impls![
     fn_linkage_impl!(mnist_classifier::raw_contour::RawContour::__constructor),
     struct_field_linkage_impl!(mnist_classifier::raw_contour::RawContour, cc),
     struct_field_linkage_impl!(mnist_classifier::raw_contour::RawContour, points),
-    enum_u8_to_json_value_linkage_impl!(mnist_classifier::raw_contour::Direction),
+    enum_u8_presenter_linkage_impl!(mnist_classifier::raw_contour::Direction),
     fn_linkage_impl!(mnist_classifier::raw_contour::get_pixel_pair),
     fn_linkage_impl!(mnist_classifier::raw_contour::get_pixel_to_the_left),
     fn_linkage_impl!(mnist_classifier::raw_contour::get_pixel_to_the_right),

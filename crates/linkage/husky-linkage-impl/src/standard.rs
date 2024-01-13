@@ -8,6 +8,7 @@ pub use husky_standard_value::{
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
 use husky_task_interface::{val_repr::ValDomainReprInterface, DevEvalContext};
+use husky_value_protocol::presentation::EnumU8ValuePresenter;
 use smallvec::SmallVec;
 
 pub type ValControlFlow<C = Value, B = Value> =
@@ -49,7 +50,7 @@ where
         gn_specific_wrapper: fn(&[ValArgumentReprInterface], Value) -> ValControlFlow,
     },
     /// used to get the json value of an enum u8-represented given only the index
-    EnumU8ToJsonValue { to_json_value: fn(u8) -> JsonValue },
+    EnumU8ValuePresenter { presenter: EnumU8ValuePresenter },
 }
 
 impl<Pedestal> IsLinkageImpl for LinkageImpl<Pedestal>
@@ -92,15 +93,15 @@ where
                 let owner = ctx.eval_val_repr(owner)?;
                 ValControlFlow::Continue(struct_field_wrapper(owner))
             }
-            LinkageImpl::EnumU8ToJsonValue { to_json_value } => {
+            LinkageImpl::EnumU8ValuePresenter { .. } => {
                 unreachable!("this linkage is not meant to be evaluated like this")
             }
         }
     }
 
-    fn enum_u8_to_json_value(self) -> fn(u8) -> JsonValue {
+    fn enum_u8_value_presenter(self) -> EnumU8ValuePresenter {
         match self {
-            LinkageImpl::EnumU8ToJsonValue { to_json_value } => to_json_value,
+            LinkageImpl::EnumU8ValuePresenter { presenter } => presenter,
             _ => unreachable!(),
         }
     }
@@ -223,10 +224,10 @@ fn struct_field_linkage_impl_works() {
 }
 
 #[macro_export]
-macro_rules! enum_u8_to_json_value_linkage_impl {
+macro_rules! enum_u8_presenter_linkage_impl {
     ($ty: ty) => {
-        __LinkageImpl::EnumU8ToJsonValue {
-            to_json_value: |_| todo!(),
+        __LinkageImpl::EnumU8ValuePresenter {
+            presenter: |_, _, _| todo!(),
         }
     };
 }

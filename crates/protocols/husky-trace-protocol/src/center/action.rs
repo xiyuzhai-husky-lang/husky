@@ -2,11 +2,11 @@ use super::*;
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub enum TraceCenterAction<TraceProtocol: IsTraceProtocol> {
-    NewTrace(TraceCenterNewTrace),
-    ToggleExpansion(TraceCenterToggleExpansion),
-    SetSubtraces(TraceCenterSetSubtraces),
-    Phantom(TraceCenterActionTraceProtocol<TraceProtocol>),
+pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
+    NewTrace(TraceSynchrotronNewTrace),
+    ToggleExpansion(TraceSynchrotronToggleExpansion),
+    SetSubtraces(TraceSynchrotronSetSubtraces),
+    Phantom(TraceSynchrotronActionTraceProtocol<TraceProtocol>),
     ToggleAssociatedTrace {
         trace_id: TraceId,
         associated_trace_id: TraceId,
@@ -18,28 +18,30 @@ pub enum TraceCenterAction<TraceProtocol: IsTraceProtocol> {
     },
 }
 
-pub trait IsTraceCenterAction<TraceProtocol>: Into<TraceCenterAction<TraceProtocol>>
+pub trait IsTraceSynchrotronAction<TraceProtocol>:
+    Into<TraceSynchrotronAction<TraceProtocol>>
 where
     TraceProtocol: IsTraceProtocol,
 {
     type Outcome;
 
-    fn act(&self, center: &mut TraceCenter<TraceProtocol>) -> Self::Outcome;
+    fn act(&self, center: &mut TraceSynchrotron<TraceProtocol>) -> Self::Outcome;
 }
 
-impl<TraceProtocol> IsTraceCenterAction<TraceProtocol> for TraceCenterAction<TraceProtocol>
+impl<TraceProtocol> IsTraceSynchrotronAction<TraceProtocol>
+    for TraceSynchrotronAction<TraceProtocol>
 where
     TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, center: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, center: &mut TraceSynchrotron<TraceProtocol>) -> Self::Outcome {
         match self {
-            TraceCenterAction::NewTrace(action) => action.act(center),
-            TraceCenterAction::ToggleExpansion(action) => action.act(center),
-            TraceCenterAction::SetSubtraces(action) => action.act(center),
-            TraceCenterAction::Phantom(action) => action.act(center),
-            &TraceCenterAction::ToggleAssociatedTrace {
+            TraceSynchrotronAction::NewTrace(action) => action.act(center),
+            TraceSynchrotronAction::ToggleExpansion(action) => action.act(center),
+            TraceSynchrotronAction::SetSubtraces(action) => action.act(center),
+            TraceSynchrotronAction::Phantom(action) => action.act(center),
+            &TraceSynchrotronAction::ToggleAssociatedTrace {
                 trace_id,
                 associated_trace_id,
             } => {
@@ -47,11 +49,11 @@ where
                     .1
                     .toggle_associated_traces(associated_trace_id);
             }
-            TraceCenterAction::ToggleAssociatedTrace {
+            TraceSynchrotronAction::ToggleAssociatedTrace {
                 trace_id,
                 associated_trace_id,
             } => todo!(),
-            &TraceCenterAction::CacheStalk {
+            &TraceSynchrotronAction::CacheStalk {
                 pedestal,
                 trace_id,
                 ref stalk,
@@ -63,11 +65,11 @@ where
     }
 }
 
-impl<TraceProtocol> TraceCenter<TraceProtocol>
+impl<TraceProtocol> TraceSynchrotron<TraceProtocol>
 where
     TraceProtocol: IsTraceProtocol,
 {
-    pub(crate) fn take_action<A: IsTraceCenterAction<TraceProtocol>>(
+    pub(crate) fn take_action<A: IsTraceSynchrotronAction<TraceProtocol>>(
         &mut self,
         action: A,
     ) -> A::Outcome {
@@ -78,7 +80,7 @@ where
 
     pub(crate) fn take_actions(
         &mut self,
-        actions: impl IntoIterator<Item = TraceCenterAction<TraceProtocol>>,
+        actions: impl IntoIterator<Item = TraceSynchrotronAction<TraceProtocol>>,
     ) {
         for action in actions {
             self.take_action(action)
@@ -87,12 +89,12 @@ where
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCenterNewTrace {
+pub struct TraceSynchrotronNewTrace {
     trace_id: TraceId,
     view_data: TraceViewData,
 }
 
-impl TraceCenterNewTrace {
+impl TraceSynchrotronNewTrace {
     pub fn new(trace_id: TraceId, view_data: TraceViewData) -> Self {
         Self {
             trace_id,
@@ -101,66 +103,69 @@ impl TraceCenterNewTrace {
     }
 }
 
-impl<TraceProtocol> IsTraceCenterAction<TraceProtocol> for TraceCenterNewTrace
+impl<TraceProtocol> IsTraceSynchrotronAction<TraceProtocol> for TraceSynchrotronNewTrace
 where
     TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, center: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, center: &mut TraceSynchrotron<TraceProtocol>) -> Self::Outcome {
         center
             .entries
-            .insert_new((self.trace_id, TraceCenterEntry::new(self.view_data.clone())))
+            .insert_new((
+                self.trace_id,
+                TraceSynchrotronEntry::new(self.view_data.clone()),
+            ))
             .unwrap()
     }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCenterActionTraceProtocol<TraceProtocol> {
+pub struct TraceSynchrotronActionTraceProtocol<TraceProtocol> {
     v: TraceProtocol,
 }
 
-impl<TraceProtocol> IsTraceCenterAction<TraceProtocol>
-    for TraceCenterActionTraceProtocol<TraceProtocol>
+impl<TraceProtocol> IsTraceSynchrotronAction<TraceProtocol>
+    for TraceSynchrotronActionTraceProtocol<TraceProtocol>
 where
     TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, _center: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, _center: &mut TraceSynchrotron<TraceProtocol>) -> Self::Outcome {
         todo!()
     }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCenterToggleExpansion {
+pub struct TraceSynchrotronToggleExpansion {
     trace_id: TraceId,
 }
 
-impl TraceCenterToggleExpansion {
+impl TraceSynchrotronToggleExpansion {
     pub fn new(trace_id: TraceId) -> Self {
         Self { trace_id }
     }
 }
 
-impl<TraceProtocol> IsTraceCenterAction<TraceProtocol> for TraceCenterToggleExpansion
+impl<TraceProtocol> IsTraceSynchrotronAction<TraceProtocol> for TraceSynchrotronToggleExpansion
 where
     TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, center: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, center: &mut TraceSynchrotron<TraceProtocol>) -> Self::Outcome {
         center[self.trace_id].toggle_expansion()
     }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCenterSetSubtraces {
+pub struct TraceSynchrotronSetSubtraces {
     trace_id: TraceId,
     subtrace_ids: Vec<TraceId>,
 }
 
-impl TraceCenterSetSubtraces {
+impl TraceSynchrotronSetSubtraces {
     pub fn new(trace_id: TraceId, subtrace_ids: Vec<TraceId>) -> Self {
         Self {
             trace_id,
@@ -169,13 +174,13 @@ impl TraceCenterSetSubtraces {
     }
 }
 
-impl<TraceProtocol> IsTraceCenterAction<TraceProtocol> for TraceCenterSetSubtraces
+impl<TraceProtocol> IsTraceSynchrotronAction<TraceProtocol> for TraceSynchrotronSetSubtraces
 where
     TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, center: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, center: &mut TraceSynchrotron<TraceProtocol>) -> Self::Outcome {
         center[self.trace_id].set_subtraces(self.subtrace_ids.clone())
     }
 }

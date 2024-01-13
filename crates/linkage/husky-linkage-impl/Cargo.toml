@@ -8,6 +8,8 @@ edition = "2021"
 colored.workspace = true
 rustc_version.workspace = true
 smallvec.workspace = true
+# protocols
+husky-value-protocol.workspace = true
 # vm
 husky-standard-value.workspace = true
 # tasks

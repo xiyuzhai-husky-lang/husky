@@ -1,14 +1,16 @@
 use super::*;
-use crate::{center::TraceCenter, protocol::trivial::TrivialTraceProtocol, view::TraceViewData};
+use crate::{
+    center::TraceSynchrotron, protocol::trivial::TrivialTraceProtocol, view::TraceViewData,
+};
 
 /// message sent from trace client to trace server
 #[derive(Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub enum TraceResponse<TraceProtocol: IsTraceProtocol> {
     Init {
-        center: TraceCenter<TraceProtocol>,
+        center: TraceSynchrotron<TraceProtocol>,
     },
-    TakeTraceCenterAction {
-        center_actions: smallvec::SmallVec<[TraceCenterAction<TraceProtocol>; 3]>,
+    TakeTraceSynchrotronAction {
+        center_actions: smallvec::SmallVec<[TraceSynchrotronAction<TraceProtocol>; 3]>,
     },
     Err(String),
 }
@@ -26,10 +28,10 @@ fn trace_response_ser_then_deser_works() {
     }
 
     t(TraceResponse::Init {
-        center: TraceCenter::new([].into_iter()),
+        center: TraceSynchrotron::new([].into_iter()),
     });
     t(TraceResponse::Init {
-        center: TraceCenter::new(
+        center: TraceSynchrotron::new(
             [(
                 TraceId::from_index(0),
                 TraceViewData::new(TraceKind::EagerCall, vec![], false),

@@ -11,6 +11,8 @@ serde.workspace = true
 # abstractions
 shifted-unsigned-int.workspace = true
 serde-impl.workspace = true
+# protocols
+husky-value-protocol.workspace = true
 # tasks
 husky-task-interface-macros.workspace = true
 # utils

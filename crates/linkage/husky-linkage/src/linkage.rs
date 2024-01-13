@@ -312,7 +312,7 @@ impl Linkage {
         )
     }
 
-    pub fn new_enum_u8_to_json_value(ty_path: TypePath, db: &::salsa::Db) -> Self {
+    pub fn new_enum_u8_presenter(ty_path: TypePath, db: &::salsa::Db) -> Self {
         Self::new(db, LinkageData::EnumU8ToJsonValue { ty_path })
     }
 }
@@ -472,7 +472,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
             JavelinPath::TypeConstructor(path) => match path.ty_kind(db) {
                 TypeKind::Enum => {
                     if enum_ty_has_only_unit_variants(db, path) {
-                        smallvec![Linkage::new_enum_u8_to_json_value(path, db)]
+                        smallvec![Linkage::new_enum_u8_presenter(path, db)]
                     } else {
                         smallvec![]
                     }

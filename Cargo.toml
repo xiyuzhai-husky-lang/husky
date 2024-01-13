@@ -150,6 +150,7 @@ husky-graphics2d-visual-protocol = { path = "crates/protocols/husky-graphics2d-v
 husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
 husky-token-protocol = { path = "crates/protocols/husky-token-protocol" }
 husky-trace-protocol = { path = "crates/protocols/husky-trace-protocol" }
+husky-value-protocol = { path = "crates/protocols/husky-value-protocol" }
 husky-visual-protocol = { path = "crates/protocols/husky-visual-protocol" }
 # runtime
 husky-dev-runtime = { path = "crates/runtime/husky-dev-runtime" }
