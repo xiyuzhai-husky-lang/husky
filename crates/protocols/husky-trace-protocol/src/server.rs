@@ -1,10 +1,10 @@
 use std::net::ToSocketAddrs;
 
 use crate::{
-    center::action::{
+    message::{TraceRequest, TraceResponse},
+    synchrotron::action::{
         TraceSynchrotronNewTrace, TraceSynchrotronSetSubtraces, TraceSynchrotronToggleExpansion,
     },
-    message::{TraceRequest, TraceResponse},
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
@@ -54,7 +54,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     }
 
     #[track_caller]
-    fn center(&self) -> &TraceSynchrotron<Tracetime::TraceProtocol> {
+    fn trace_synchrotron(&self) -> &TraceSynchrotron<Tracetime::TraceProtocol> {
         self.trace_synchrotron.as_ref().unwrap()
     }
 
@@ -96,19 +96,21 @@ but client's trace protocol is of type `{trace_protocol_type_name}`."#,
             }
             TraceRequest::TakeViewAction {
                 view_action,
-                synchrotron_actions_len,
+                trace_synchrotron_status,
             } => {
                 use husky_print_utils::p;
                 let Some(ref mut _cache) = self.trace_synchrotron else {
                     unreachable!()
                 };
-                assert_eq!(self.center().actions_len(), synchrotron_actions_len);
+                assert_eq!(self.trace_synchrotron().status(), trace_synchrotron_status);
                 self.take_view_action(view_action);
-                let center_actions = self
-                    .center()
-                    .reproduce_synchrotron_actions(synchrotron_actions_len);
-                p!(center_actions);
-                Some(TraceResponse::TakeTraceSynchrotronAction { center_actions })
+                let trace_synchrotron_actions = self
+                    .trace_synchrotron()
+                    .diff_actions(trace_synchrotron_status);
+                p!(trace_synchrotron_actions);
+                Some(TraceResponse::TakeTraceSynchrotronAction {
+                    center_actions: trace_synchrotron_actions,
+                })
             }
             TraceRequest::NotifyViewAction { center_action, .. } => {
                 self.center_mut().take_action(center_action);
@@ -122,9 +124,9 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     fn take_view_action(&mut self, view_action: TraceViewAction<Tracetime::TraceProtocol>) {
         match view_action {
             TraceViewAction::ToggleExpansion { trace_id } => {
-                assert!(!self.center()[trace_id].expanded());
+                assert!(!self.trace_synchrotron()[trace_id].expanded());
                 // todo: handle more cases like subtraces with channels
-                if self.center()[trace_id].subtrace_ids().is_some() {
+                if self.trace_synchrotron()[trace_id].subtrace_ids().is_some() {
                     return;
                 }
                 let subtraces = self.tracetime.get_subtraces(trace_id.into()).to_vec();
@@ -158,7 +160,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     }
 
     fn cache_trace_if_new(&mut self, trace_id: TraceId) {
-        if !self.center().is_trace_cached(trace_id) {
+        if !self.trace_synchrotron().is_trace_cached(trace_id) {
             let view_data = self.tracetime.get_trace_view_data(trace_id.into());
             self.center_mut()
                 .take_action(TraceSynchrotronNewTrace::new(trace_id, view_data))
@@ -171,7 +173,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     }
 
     fn cache_stalks(&mut self) {
-        let center = &self.center();
+        let center = &self.trace_synchrotron();
         let trace_listing = center.trace_listing();
         let pedestal = center.pedestal();
         for trace_id in trace_listing {
@@ -184,7 +186,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         trace_id: TraceId,
         pedestal: <<Tracetime as IsTracetime>::TraceProtocol as IsTraceProtocol>::Pedestal,
     ) {
-        if !self.center()[trace_id].has_stalk(pedestal) {
+        if !self.trace_synchrotron()[trace_id].has_stalk(pedestal) {
             let center = self.trace_synchrotron.as_mut().unwrap();
             let stalk = self.tracetime.get_trace_stalk(
                 pedestal,

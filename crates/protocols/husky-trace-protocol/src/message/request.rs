@@ -15,7 +15,7 @@ pub enum TraceRequest<TraceProtocol: IsTraceProtocol> {
     /// ask the server to handle it and return cache actions
     TakeViewAction {
         view_action: TraceViewAction<TraceProtocol>,
-        synchrotron_actions_len: usize,
+        trace_synchrotron_status: TraceSynchrotronStatus,
     },
     /// view action already handled on client side,
     /// ask the server to do the same

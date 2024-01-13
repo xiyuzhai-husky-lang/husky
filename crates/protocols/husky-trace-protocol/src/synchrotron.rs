@@ -5,19 +5,27 @@ pub use self::action::TraceSynchrotronAction;
 pub use self::entry::TraceSynchrotronEntry;
 
 use crate::{view::TraceViewData, *};
-use husky_value_protocol::presentation::ValuePresentationSynchrotron;
+use husky_value_protocol::presentation::{
+    ValuePresentationSynchrotron, ValuePresentationSynchrotronStatus,
+};
 use vec_like::VecPairMap;
 
-/// synced across server and client
+/// contains information about traces that are synced across server and client
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceSynchrotron<TraceProtocol: IsTraceProtocol> {
-    value_presentation_synchrotron: ValuePresentationSynchrotron,
     pedestal: TraceProtocol::Pedestal,
     /// None means not set
     root_trace_ids: Vec<TraceId>,
     entries: VecPairMap<TraceId, TraceSynchrotronEntry<TraceProtocol>>,
     visual_components: Vec<<TraceProtocol::VisualProtocol as IsVisualProtocol>::VisualComponent>,
     actions: Vec<TraceSynchrotronAction<TraceProtocol>>,
+    value_presentation_synchrotron: ValuePresentationSynchrotron,
+}
+
+#[derive(Default, Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub struct TraceSynchrotronStatus {
+    actions_len: usize,
+    value_presentation_synchrotron_status: ValuePresentationSynchrotronStatus,
 }
 
 /// methods
@@ -46,18 +54,27 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         self.root_trace_ids.as_ref()
     }
 
-    pub(crate) fn actions_len(&self) -> usize {
-        self.actions.len()
+    pub(crate) fn status(&self) -> TraceSynchrotronStatus {
+        TraceSynchrotronStatus {
+            actions_len: self.actions.len(),
+            value_presentation_synchrotron_status: self.value_presentation_synchrotron.status(),
+        }
     }
 
-    pub(crate) fn reproduce_synchrotron_actions(
+    pub(crate) fn diff_actions(
         &self,
-        previous_synchrotron_actions_len: usize,
+        previous_trace_synchrotron_status: TraceSynchrotronStatus,
     ) -> smallvec::SmallVec<[TraceSynchrotronAction<TraceProtocol>; 3]> {
-        assert!(previous_synchrotron_actions_len < self.actions.len());
-        self.actions[previous_synchrotron_actions_len..]
+        assert!(previous_trace_synchrotron_status.actions_len < self.actions.len());
+        self.actions[previous_trace_synchrotron_status.actions_len..]
             .iter()
             .map(|action| action.clone())
+            .chain(
+                self.value_presentation_synchrotron
+                    .diff_actions()
+                    .iter()
+                    .map(|action| action.clone().into()),
+            )
             .collect()
     }
 
@@ -92,9 +109,9 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     }
 
     pub(crate) fn value_presentation_synchrotron_mut(
-        &self,
+        &mut self,
     ) -> &mut husky_value_protocol::presentation::ValuePresentationSynchrotron {
-        todo!()
+        &mut self.value_presentation_synchrotron
     }
 }
 

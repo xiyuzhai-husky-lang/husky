@@ -1,6 +1,6 @@
 use super::*;
 use crate::{
-    center::TraceSynchrotron, protocol::trivial::TrivialTraceProtocol, view::TraceViewData,
+    protocol::trivial::TrivialTraceProtocol, synchrotron::TraceSynchrotron, view::TraceViewData,
 };
 
 /// message sent from trace client to trace server

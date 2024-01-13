@@ -3,7 +3,8 @@ pub mod error;
 pub mod mock;
 
 use crate::{
-    center::action::TraceSynchrotronToggleExpansion, message::*, view::action::TraceViewAction, *,
+    message::*, synchrotron::action::TraceSynchrotronToggleExpansion,
+    view::action::TraceViewAction, *,
 };
 use husky_websocket_utils::imgui_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
@@ -102,10 +103,10 @@ where
         view_action: TraceViewAction<TraceProtocol>,
     ) -> Result<(), WebsocketClientConnectionError> {
         let Some(synchrotron_action) = self.try_resolve_view_action(&view_action) else {
-            let synchrotron_actions_len = self.trace_synchrotron().actions_len();
+            let trace_synchrotron_status = self.trace_synchrotron().status();
             return self.try_send_request(TraceRequest::TakeViewAction {
                 view_action,
-                synchrotron_actions_len,
+                trace_synchrotron_status,
             });
         };
         self.cache_mut().take_action(synchrotron_action.clone());

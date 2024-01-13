@@ -1,3 +1,5 @@
+use husky_value_protocol::presentation::ValuePresentationSynchrotronAction;
+
 use super::*;
 
 #[enum_class::from_variants]
@@ -16,6 +18,7 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
         trace_id: TraceId,
         stalk: TraceStalk,
     },
+    ValuePresentation(ValuePresentationSynchrotronAction),
 }
 
 pub trait IsTraceSynchrotronAction<TraceProtocol>:
@@ -61,6 +64,12 @@ where
                 let trace_entry = &mut center[trace_id];
                 trace_entry.cache_stalk(pedestal, stalk.clone())
             }
+            TraceSynchrotronAction::CacheStalk {
+                pedestal,
+                trace_id,
+                stalk,
+            } => todo!(),
+            TraceSynchrotronAction::ValuePresentation(_) => todo!(),
         }
     }
 }

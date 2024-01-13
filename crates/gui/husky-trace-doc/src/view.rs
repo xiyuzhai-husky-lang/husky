@@ -5,10 +5,10 @@ use egui::{
 };
 use husky_task_interface::val_control_flow::ValControlFlow;
 use husky_trace_protocol::{
-    center::{TraceSynchrotron, TraceSynchrotronEntry},
     id::{TraceId, TraceKind},
     protocol::IsTraceProtocol,
     stalk::{JsonValue, TraceStalk},
+    synchrotron::{TraceSynchrotron, TraceSynchrotronEntry},
     view::{action::TraceViewActionBuffer, TraceViewLineData, TraceViewTokenData},
 };
 use husky_value_protocol::presentation::ValuePresentation;
