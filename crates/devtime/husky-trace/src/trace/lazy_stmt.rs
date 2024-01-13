@@ -181,8 +181,8 @@ impl LazyStmtTraceData {
         }
     }
 
-    pub(super) fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<ValRepr> {
-        let val_repr_expansion = trace_val_repr_expansion(db, trace_id);
+    pub(super) fn val_repr(&self, trace: Trace, db: &::salsa::Db) -> Option<ValRepr> {
+        let val_repr_expansion = trace_val_repr_expansion(db, trace);
         val_repr_expansion
             .hir_lazy_stmt_val_repr_map(db)
             .get(self.hir_lazy_stmt_idx?)
