@@ -1,3 +1,4 @@
+use husky_value_protocol::presentation::ValuePresentation;
 use serde::{Deserialize, Serialize};
 
 /// machine control flows
@@ -9,3 +10,6 @@ pub enum VmControlFlow<C, B, E> {
     Return(B),
     Err(E),
 }
+
+pub type ValuePresentationVmControlFlow =
+    VmControlFlow<ValuePresentation, ValuePresentation, ValuePresentation>;

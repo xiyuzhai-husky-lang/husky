@@ -1,4 +1,7 @@
 use crate::value::IsValue;
+use husky_value_protocol::presentation::{
+    ValuePresentation, ValuePresentationSynchrotron, ValuePresenterCache,
+};
 use serde::{Deserialize, Serialize};
 use serde_impl::IsSerdeImpl;
 use std::{
@@ -15,6 +18,9 @@ pub enum ValControlFlow<C, B, E> {
     Undefined,
     Err(E),
 }
+
+pub type ValuePresentationValControlFlow =
+    ValControlFlow<ValuePresentation, ValuePresentation, ValuePresentation>;
 
 impl<C, B, E> std::ops::Residual<C> for ValControlFlow<Infallible, B, E> {
     type TryType = ValControlFlow<C, B, E>;
@@ -118,30 +124,30 @@ where
         }
     }
 
-    pub fn serialize_inner<SerdeImpl: IsSerdeImpl>(
+    pub fn present(
         &self,
-    ) -> ValControlFlow<
-        <SerdeImpl as IsSerdeImpl>::Value,
-        <SerdeImpl as IsSerdeImpl>::Value,
-        <SerdeImpl as IsSerdeImpl>::Value,
-    >
+        value_presenter_cache: &mut ValuePresenterCache,
+        value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
+    ) -> ValuePresentationValControlFlow
     where
         Value: IsValue,
         E: std::fmt::Debug + Serialize,
     {
         match self {
-            ValControlFlow::Continue(value) => {
-                ValControlFlow::Continue(value.serialize_to_value_in_general::<SerdeImpl>())
-            }
+            ValControlFlow::Continue(value) => ValControlFlow::Continue(
+                value.present(value_presenter_cache, value_presentation_synchrotron),
+            ),
             ValControlFlow::LoopContinue => ValControlFlow::LoopContinue,
-            ValControlFlow::LoopExit(value) => {
-                ValControlFlow::LoopExit(value.serialize_to_value_in_general::<SerdeImpl>())
-            }
-            ValControlFlow::Return(value) => {
-                ValControlFlow::Return(value.serialize_to_value_in_general::<SerdeImpl>())
-            }
+            ValControlFlow::LoopExit(value) => ValControlFlow::LoopExit(
+                value.present(value_presenter_cache, value_presentation_synchrotron),
+            ),
+            ValControlFlow::Return(value) => ValControlFlow::Return(
+                value.present(value_presenter_cache, value_presentation_synchrotron),
+            ),
             ValControlFlow::Undefined => ValControlFlow::Undefined,
-            ValControlFlow::Err(e) => ValControlFlow::Err(SerdeImpl::to_value(e).unwrap()),
+            ValControlFlow::Err(e) => {
+                ValControlFlow::Err(ValuePresentation::AdHoc(format! {"{e:?}"}))
+            }
         }
     }
 }

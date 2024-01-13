@@ -8,6 +8,9 @@ use crate::{
 };
 use husky_decl_macro_utils::*;
 use husky_task_interface::{val_control_flow::ValControlFlow, value::IsValue};
+use husky_value_protocol::presentation::{
+    EnumU8ValuePresenter, ValuePresentation, ValuePresentationSynchrotron, ValuePresenterCache,
+};
 use serde::Serialize;
 use serde_impl::json::SerdeJson;
 use serde_impl::IsSerdeImpl;
@@ -61,7 +64,7 @@ pub enum Value {
     OptionSizedMut(Option<*mut dyn StaticDyn>),
     EnumU8 {
         index: u8,
-        to_json_value: fn(u8) -> serde_json::Value,
+        presenter: EnumU8ValuePresenter,
     },
 }
 
@@ -247,20 +250,14 @@ impl Value {
         todo!()
     }
 
-    pub fn from_enum_u8(index: u8, to_json_value: fn(u8) -> serde_json::Value) -> Self {
-        Value::EnumU8 {
-            index,
-            to_json_value,
-        }
+    pub fn from_enum_u8(index: u8, presenter: EnumU8ValuePresenter) -> Self {
+        Value::EnumU8 { index, presenter }
     }
 }
 
 impl IsValue for Value {
-    fn from_enum_u8(index: u8, to_json_value: fn(u8) -> serde_json::Value) -> Self {
-        Value::EnumU8 {
-            index,
-            to_json_value,
-        }
+    fn from_enum_u8(index: u8, presenter: EnumU8ValuePresenter) -> Self {
+        Value::EnumU8 { index, presenter }
     }
 
     fn share(&'static self) -> Self {
@@ -299,13 +296,7 @@ impl IsValue for Value {
             Value::OptionLeash(slf) => Value::OptionLeash(slf),
             Value::OptionSizedRef(slf) => unreachable!("not expecting temporary ref for sharing"),
             Value::OptionSizedMut(slf) => unreachable!("not expecting temporary mut for sharing"),
-            Value::EnumU8 {
-                index,
-                to_json_value,
-            } => Value::EnumU8 {
-                index,
-                to_json_value,
-            },
+            Value::EnumU8 { index, presenter } => Value::EnumU8 { index, presenter },
         }
     }
 
@@ -458,12 +449,16 @@ impl IsValue for Value {
         }
     }
 
-    fn serialize_to_value(&self) -> <Self::SerdeImpl as IsSerdeImpl>::Value {
+    fn present(
+        &self,
+        cache: &mut ValuePresenterCache,
+        value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
+    ) -> ValuePresentation {
         match *self {
             Value::Invalid => unreachable!(),
             Value::Moved => unreachable!(),
             Value::Unit(_) => todo!(),
-            Value::Bool(b) => <Self::SerdeImpl as IsSerdeImpl>::to_value(b).unwrap(),
+            Value::Bool(b) => ValuePresentation::Bool(b),
             Value::Char(_) => todo!(),
             Value::I8(_) => todo!(),
             Value::I16(_) => todo!(),
@@ -486,7 +481,7 @@ impl IsValue for Value {
             Value::F32(_) => todo!(),
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
-            Value::Owned(ref value) => value.serialize_to_value_dyn(),
+            Value::Owned(ref value) => value.present_dyn(),
             Value::Leash(_) => todo!(),
             Value::Ref(_) => todo!(),
             Value::Mut(_) => todo!(),
@@ -494,14 +489,11 @@ impl IsValue for Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8 {
-                index,
-                to_json_value,
-            } => to_json_value(index),
+            Value::EnumU8 { index, presenter } => {
+                presenter(index, cache, value_presentation_synchrotron)
+            }
         }
     }
-
-    type SerdeImpl = SerdeJson;
 }
 
 impl PartialEq for Value {

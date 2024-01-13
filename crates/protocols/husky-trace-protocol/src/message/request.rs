@@ -15,13 +15,13 @@ pub enum TraceRequest<TraceProtocol: IsTraceProtocol> {
     /// ask the server to handle it and return cache actions
     TakeViewAction {
         view_action: TraceViewAction<TraceProtocol>,
-        cache_actions_len: usize,
+        synchrotron_actions_len: usize,
     },
     /// view action already handled on client side,
     /// ask the server to do the same
     NotifyViewAction {
         view_action: TraceViewAction<TraceProtocol>,
-        center_action: TraceCenterAction<TraceProtocol>,
+        center_action: TraceSynchrotronAction<TraceProtocol>,
     },
 }
 

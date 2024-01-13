@@ -1,9 +1,10 @@
 #![feature(try_trait_v2)]
 mod state;
 
-use husky_dev_comptime::DevComptimeTarget;
 pub use husky_trace_protocol::server::IsTracetime;
 
+use self::state::*;
+use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_task::{
     helpers::{TaskDevLinkTime, TaskTraceProtocol},
@@ -11,10 +12,10 @@ use husky_task::{
 };
 use husky_trace::{db::TraceDb, trace::Trace};
 use husky_trace_protocol::stalk::TraceStalk;
+use husky_value_protocol::presentation::ValuePresentationSynchrotron;
+use husky_value_protocol::presentation::ValuePresenterCache;
 use husky_vfs::error::VfsResult;
 use std::path::Path;
-
-use self::state::*;
 
 pub struct Devtime<Task: IsTask> {
     runtime: DevRuntime<Task>,
@@ -81,13 +82,15 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
         &self,
         pedestal: <Self::TraceProtocol as husky_trace_protocol::protocol::IsTraceProtocol>::Pedestal,
         trace: Self::Trace,
+        value_presenter_cache: &mut ValuePresenterCache,
+        value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> husky_trace_protocol::stalk::TraceStalk {
         let db = self.runtime.db();
         if let Some(val_repr) = trace.val_repr(db) {
             TraceStalk::Val(
                 self.runtime
                     .eval_val_repr_at_pedestal(val_repr, pedestal)
-                    .serialize_inner::<Self::SerdeImpl>(),
+                    .present(value_presenter_cache, value_presentation_synchrotron),
             )
         } else {
             // ad hoc

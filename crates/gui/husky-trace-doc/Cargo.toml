@@ -17,6 +17,7 @@ husky-task.workspace = true
 # gui
 husky-gui = { path = "../../gui/husky-gui" }
 # protocols
+husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
     "client"

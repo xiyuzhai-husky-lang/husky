@@ -13,6 +13,8 @@ serde-impl = { workspace = true, features = ["json"] }
 smallvec.workspace = true
 husky-term-prelude = { path = "../../kernel/husky-term-prelude", optional = true }
 husky-hir-prelude = { path = "../../hir/husky-hir-prelude", optional = true }
+# protocols
+husky-value-protocol.workspace = true
 # tasks
 husky-task-interface.workspace = true
 # utils

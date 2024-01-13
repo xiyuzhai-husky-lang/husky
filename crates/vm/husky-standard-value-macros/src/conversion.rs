@@ -1,7 +1,7 @@
 mod r#enum;
 mod r#struct;
 
-use husky_macro_utils::{self_ty};
+use husky_macro_utils::self_ty;
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::Ident;

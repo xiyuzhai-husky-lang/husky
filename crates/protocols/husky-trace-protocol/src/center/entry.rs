@@ -5,7 +5,7 @@ use vec_like::SmallVecSet;
 
 #[serde_as]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCenterEntry<TraceProtocol: IsTraceProtocol> {
+pub struct TraceSynchrotronEntry<TraceProtocol: IsTraceProtocol> {
     view_data: TraceViewData,
     /// None means not calculated
     subtrace_ids: Option<Vec<TraceId>>,
@@ -15,7 +15,7 @@ pub struct TraceCenterEntry<TraceProtocol: IsTraceProtocol> {
     stalks: FxHashMap<TraceProtocol::Pedestal, TraceStalk>,
 }
 
-impl<TraceProtocol: IsTraceProtocol> TraceCenterEntry<TraceProtocol> {
+impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
     pub fn new(view_data: TraceViewData) -> Self {
         Self {
             view_data,

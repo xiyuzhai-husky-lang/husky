@@ -29,6 +29,7 @@ husky-text-protocol.workspace = true
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
     "server"
 ] }
+husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
 # runtime
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
