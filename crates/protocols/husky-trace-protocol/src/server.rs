@@ -1,7 +1,7 @@
 use std::net::ToSocketAddrs;
 
 use crate::{
-    center::action::{TraceCacheNewTrace, TraceCacheSetSubtraces, TraceCacheToggleExpansion},
+    center::action::{TraceCenterNewTrace, TraceCenterSetSubtraces, TraceCenterToggleExpansion},
     message::{TraceRequest, TraceResponse},
     view::{action::TraceViewAction, TraceViewData},
     *,
@@ -130,9 +130,9 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                     })
                     .collect();
                 self.center_mut()
-                    .take_action(TraceCacheSetSubtraces::new(trace_id, subtrace_ids));
+                    .take_action(TraceCenterSetSubtraces::new(trace_id, subtrace_ids));
                 self.center_mut()
-                    .take_action(TraceCacheToggleExpansion::new(trace_id))
+                    .take_action(TraceCenterToggleExpansion::new(trace_id))
             }
             TraceViewAction::Marker { _marker } => todo!(),
             TraceViewAction::ToggleAssociatedTrace {
@@ -141,7 +141,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             } => {
                 self.cache_trace_if_new(associated_trace_id);
                 self.center_mut()
-                    .take_action(TraceCacheAction::ToggleAssociatedTrace {
+                    .take_action(TraceCenterAction::ToggleAssociatedTrace {
                         trace_id,
                         associated_trace_id,
                     })
@@ -155,7 +155,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         if !self.center().is_trace_cached(trace_id) {
             let view_data = self.tracetime.get_trace_view_data(trace_id.into());
             self.center_mut()
-                .take_action(TraceCacheNewTrace::new(trace_id, view_data))
+                .take_action(TraceCenterNewTrace::new(trace_id, view_data))
         }
     }
 
@@ -174,10 +174,15 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         pedestal: <<Tracetime as IsTracetime>::TraceProtocol as IsTraceProtocol>::Pedestal,
     ) {
         let tracetime = &self.tracetime;
-        let trace_entry = &mut self.center.as_mut().unwrap()[trace_id];
-        trace_entry.cache_stalk(pedestal, || {
-            tracetime.get_trace_stalk(pedestal, trace_id.into())
-        })
+        if !self.center()[trace_id].has_stalk(pedestal) {
+            let stalk = tracetime.get_trace_stalk(pedestal, trace_id.into());
+            self.center_mut()
+                .take_action(TraceCenterAction::CacheStalk {
+                    pedestal,
+                    trace_id,
+                    stalk,
+                });
+        }
     }
 
     fn cache_figure(&mut self) {

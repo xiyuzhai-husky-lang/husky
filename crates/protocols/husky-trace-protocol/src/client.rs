@@ -3,7 +3,7 @@ pub mod error;
 pub mod mock;
 
 use crate::{
-    center::action::TraceCacheToggleExpansion, message::*, view::action::TraceViewAction, *,
+    center::action::TraceCenterToggleExpansion, message::*, view::action::TraceViewAction, *,
 };
 use husky_websocket_utils::imgui_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
@@ -129,14 +129,14 @@ where
     fn try_resolve_view_action(
         &self,
         view_action: &TraceViewAction<TraceProtocol>,
-    ) -> Option<TraceCacheAction<TraceProtocol>> {
+    ) -> Option<TraceCenterAction<TraceProtocol>> {
         match view_action {
             &TraceViewAction::ToggleExpansion { trace_id } => {
                 let trace_cache_entry = &self.cache()[trace_id];
                 if !trace_cache_entry.expanded() {
                     trace_cache_entry.subtrace_ids()?;
                 }
-                Some(TraceCacheToggleExpansion::new(trace_id).into())
+                Some(TraceCenterToggleExpansion::new(trace_id).into())
             }
             TraceViewAction::Marker { _marker } => todo!(),
             TraceViewAction::ToggleExpansion { trace_id: _ } => todo!(),
@@ -147,7 +147,7 @@ where
                 if !self.cache().is_trace_cached(associated_trace_id) {
                     return None;
                 }
-                Some(TraceCacheAction::ToggleAssociatedTrace {
+                Some(TraceCenterAction::ToggleAssociatedTrace {
                     trace_id,
                     associated_trace_id,
                 })

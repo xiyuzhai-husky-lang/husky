@@ -8,7 +8,7 @@ pub enum TraceResponse<TraceProtocol: IsTraceProtocol> {
         center: TraceCenter<TraceProtocol>,
     },
     TakeCacheAction {
-        cache_actions: smallvec::SmallVec<[TraceCacheAction<TraceProtocol>; 3]>,
+        cache_actions: smallvec::SmallVec<[TraceCenterAction<TraceProtocol>; 3]>,
     },
     Err(String),
 }

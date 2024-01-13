@@ -1,46 +1,63 @@
 use super::*;
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[enum_class::from_variants]
-pub enum TraceCacheAction<TraceProtocol> {
-    NewTrace(TraceCacheNewTrace),
-    ToggleExpansion(TraceCacheToggleExpansion),
-    SetSubtraces(TraceCacheSetSubtraces),
-    Phantom(TraceCacheActionTraceProtocol<TraceProtocol>),
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub enum TraceCenterAction<TraceProtocol: IsTraceProtocol> {
+    NewTrace(TraceCenterNewTrace),
+    ToggleExpansion(TraceCenterToggleExpansion),
+    SetSubtraces(TraceCenterSetSubtraces),
+    Phantom(TraceCenterActionTraceProtocol<TraceProtocol>),
     ToggleAssociatedTrace {
         trace_id: TraceId,
         associated_trace_id: TraceId,
     },
+    CacheStalk {
+        pedestal: <TraceProtocol as IsTraceProtocol>::Pedestal,
+        trace_id: TraceId,
+        stalk: TraceStalk,
+    },
 }
 
-pub trait IsTraceCacheAction<TraceProtocol>: Into<TraceCacheAction<TraceProtocol>>
+pub trait IsTraceCenterAction<TraceProtocol>: Into<TraceCenterAction<TraceProtocol>>
 where
     TraceProtocol: IsTraceProtocol,
 {
     type Outcome;
 
-    fn act(&self, cache: &mut TraceCenter<TraceProtocol>) -> Self::Outcome;
+    fn act(&self, center: &mut TraceCenter<TraceProtocol>) -> Self::Outcome;
 }
 
-impl<TraceProtocol> IsTraceCacheAction<TraceProtocol> for TraceCacheAction<TraceProtocol>
+impl<TraceProtocol> IsTraceCenterAction<TraceProtocol> for TraceCenterAction<TraceProtocol>
 where
     TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, center: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
         match self {
-            TraceCacheAction::NewTrace(action) => action.act(cache),
-            TraceCacheAction::ToggleExpansion(action) => action.act(cache),
-            TraceCacheAction::SetSubtraces(action) => action.act(cache),
-            TraceCacheAction::Phantom(action) => action.act(cache),
-            &TraceCacheAction::ToggleAssociatedTrace {
+            TraceCenterAction::NewTrace(action) => action.act(center),
+            TraceCenterAction::ToggleExpansion(action) => action.act(center),
+            TraceCenterAction::SetSubtraces(action) => action.act(center),
+            TraceCenterAction::Phantom(action) => action.act(center),
+            &TraceCenterAction::ToggleAssociatedTrace {
                 trace_id,
                 associated_trace_id,
             } => {
-                cache.entries[trace_id]
+                center.entries[trace_id]
                     .1
                     .toggle_associated_traces(associated_trace_id);
+            }
+            TraceCenterAction::ToggleAssociatedTrace {
+                trace_id,
+                associated_trace_id,
+            } => todo!(),
+            &TraceCenterAction::CacheStalk {
+                pedestal,
+                trace_id,
+                ref stalk,
+            } => {
+                let trace_entry = &mut center[trace_id];
+                trace_entry.cache_stalk(pedestal, stalk.clone())
             }
         }
     }
@@ -50,18 +67,18 @@ impl<TraceProtocol> TraceCenter<TraceProtocol>
 where
     TraceProtocol: IsTraceProtocol,
 {
-    pub(crate) fn take_action<A: IsTraceCacheAction<TraceProtocol>>(
+    pub(crate) fn take_action<A: IsTraceCenterAction<TraceProtocol>>(
         &mut self,
-        cache_action: A,
+        action: A,
     ) -> A::Outcome {
-        let outcome = cache_action.act(self);
-        self.actions.push(cache_action.into());
+        let outcome = action.act(self);
+        self.actions.push(action.into());
         outcome
     }
 
     pub(crate) fn take_actions(
         &mut self,
-        actions: impl IntoIterator<Item = TraceCacheAction<TraceProtocol>>,
+        actions: impl IntoIterator<Item = TraceCenterAction<TraceProtocol>>,
     ) {
         for action in actions {
             self.take_action(action)
@@ -70,12 +87,12 @@ where
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCacheNewTrace {
+pub struct TraceCenterNewTrace {
     trace_id: TraceId,
     view_data: TraceViewData,
 }
 
-impl TraceCacheNewTrace {
+impl TraceCenterNewTrace {
     pub fn new(trace_id: TraceId, view_data: TraceViewData) -> Self {
         Self {
             trace_id,
@@ -84,14 +101,14 @@ impl TraceCacheNewTrace {
     }
 }
 
-impl<TraceProtocol> IsTraceCacheAction<TraceProtocol> for TraceCacheNewTrace
+impl<TraceProtocol> IsTraceCenterAction<TraceProtocol> for TraceCenterNewTrace
 where
     TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
-        cache
+    fn act(&self, center: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
+        center
             .entries
             .insert_new((self.trace_id, TraceCenterEntry::new(self.view_data.clone())))
             .unwrap()
@@ -99,51 +116,51 @@ where
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCacheActionTraceProtocol<TraceProtocol> {
+pub struct TraceCenterActionTraceProtocol<TraceProtocol> {
     v: TraceProtocol,
 }
 
-impl<TraceProtocol> IsTraceCacheAction<TraceProtocol>
-    for TraceCacheActionTraceProtocol<TraceProtocol>
+impl<TraceProtocol> IsTraceCenterAction<TraceProtocol>
+    for TraceCenterActionTraceProtocol<TraceProtocol>
 where
     TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, _cache: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, _center: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
         todo!()
     }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCacheToggleExpansion {
+pub struct TraceCenterToggleExpansion {
     trace_id: TraceId,
 }
 
-impl TraceCacheToggleExpansion {
+impl TraceCenterToggleExpansion {
     pub fn new(trace_id: TraceId) -> Self {
         Self { trace_id }
     }
 }
 
-impl<TraceProtocol> IsTraceCacheAction<TraceProtocol> for TraceCacheToggleExpansion
+impl<TraceProtocol> IsTraceCenterAction<TraceProtocol> for TraceCenterToggleExpansion
 where
     TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
-        cache[self.trace_id].toggle_expansion()
+    fn act(&self, center: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
+        center[self.trace_id].toggle_expansion()
     }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceCacheSetSubtraces {
+pub struct TraceCenterSetSubtraces {
     trace_id: TraceId,
     subtrace_ids: Vec<TraceId>,
 }
 
-impl TraceCacheSetSubtraces {
+impl TraceCenterSetSubtraces {
     pub fn new(trace_id: TraceId, subtrace_ids: Vec<TraceId>) -> Self {
         Self {
             trace_id,
@@ -152,13 +169,13 @@ impl TraceCacheSetSubtraces {
     }
 }
 
-impl<TraceProtocol> IsTraceCacheAction<TraceProtocol> for TraceCacheSetSubtraces
+impl<TraceProtocol> IsTraceCenterAction<TraceProtocol> for TraceCenterSetSubtraces
 where
     TraceProtocol: IsTraceProtocol,
 {
     type Outcome = ();
 
-    fn act(&self, cache: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
-        cache[self.trace_id].set_subtraces(self.subtrace_ids.clone())
+    fn act(&self, center: &mut TraceCenter<TraceProtocol>) -> Self::Outcome {
+        center[self.trace_id].set_subtraces(self.subtrace_ids.clone())
     }
 }
