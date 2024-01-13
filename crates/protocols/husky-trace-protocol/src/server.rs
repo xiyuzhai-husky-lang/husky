@@ -8,7 +8,9 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
-use husky_value_protocol::presentation::{ValuePresentationSynchrotron, ValuePresenterCache};
+use husky_value_protocol::presentation::{
+    synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
+};
 use husky_websocket_utils::easy_server::IsEasyWebsocketServer;
 
 pub struct TraceServer<Tracetime: IsTracetime> {
@@ -104,11 +106,11 @@ but client's trace protocol is of type `{trace_protocol_type_name}`."#,
                 };
                 assert_eq!(self.trace_synchrotron().status(), trace_synchrotron_status);
                 self.take_view_action(view_action);
-                let trace_synchrotron_actions = self
+                let trace_synchrotron_actions_diff = self
                     .trace_synchrotron()
-                    .diff_actions(trace_synchrotron_status);
-                Some(TraceResponse::TakeTraceSynchrotronAction {
-                    trace_synchrotron_actions: trace_synchrotron_actions,
+                    .actions_diff(trace_synchrotron_status);
+                Some(TraceResponse::TakeTraceSynchrotronActionsDiff {
+                    trace_synchrotron_actions_diff,
                 })
             }
             TraceRequest::NotifyViewAction {

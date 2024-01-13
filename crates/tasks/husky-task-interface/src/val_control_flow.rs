@@ -1,6 +1,6 @@
 use crate::value::IsValue;
 use husky_value_protocol::presentation::{
-    ValuePresentation, ValuePresentationSynchrotron, ValuePresenterCache,
+    synchrotron::ValuePresentationSynchrotron, ValuePresentation, ValuePresenterCache,
 };
 use serde::{Deserialize, Serialize};
 use serde_impl::IsSerdeImpl;

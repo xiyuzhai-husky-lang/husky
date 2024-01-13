@@ -263,13 +263,18 @@ where
     {
         self.render_space_chars(1, ui);
         match value {
+            ValuePresentation::Unit(()) => {
+                ui.label("()");
+            }
+            ValuePresentation::Bool(b) => {
+                ui.label("{b}");
+            }
             ValuePresentation::Enum => todo!(),
             ValuePresentation::Struct => todo!(),
             ValuePresentation::AdHoc(s) => {
                 // ad hoc
                 ui.label(s);
             }
-            ValuePresentation::Bool(_) => todo!(),
         }
     }
 

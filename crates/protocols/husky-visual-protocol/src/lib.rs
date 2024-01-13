@@ -1,3 +1,5 @@
+pub mod synchrotron;
+
 use serde::{Deserialize, Serialize};
 
 #[cfg(feature = "mock")]

@@ -9,7 +9,8 @@ use crate::{
 use husky_decl_macro_utils::*;
 use husky_task_interface::{val_control_flow::ValControlFlow, value::IsValue};
 use husky_value_protocol::presentation::{
-    EnumU8ValuePresenter, ValuePresentation, ValuePresentationSynchrotron, ValuePresenterCache,
+    synchrotron::ValuePresentationSynchrotron, EnumU8ValuePresenter, ValuePresentation,
+    ValuePresenterCache,
 };
 use serde::Serialize;
 use serde_impl::json::SerdeJson;
@@ -457,7 +458,7 @@ impl IsValue for Value {
         match *self {
             Value::Invalid => unreachable!(),
             Value::Moved => unreachable!(),
-            Value::Unit(_) => todo!(),
+            Value::Unit(_) => ValuePresentation::Unit(()),
             Value::Bool(b) => ValuePresentation::Bool(b),
             Value::Char(_) => todo!(),
             Value::I8(_) => todo!(),

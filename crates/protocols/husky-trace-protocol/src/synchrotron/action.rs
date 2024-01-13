@@ -1,4 +1,5 @@
-use husky_value_protocol::presentation::ValuePresentationSynchrotronAction;
+use husky_value_protocol::presentation::synchrotron::action::ValuePresentationSynchrotronActionsDiff;
+use husky_visual_protocol::synchrotron::action::VisualSynchrotronActionsDiff;
 
 use super::*;
 
@@ -18,7 +19,27 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
         trace_id: TraceId,
         stalk: TraceStalk,
     },
-    ValuePresentation(ValuePresentationSynchrotronAction),
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct TraceSynchrotronActionsDiff<TraceProtocol: IsTraceProtocol> {
+    new_actions: smallvec::SmallVec<[TraceSynchrotronAction<TraceProtocol>; 3]>,
+    value_presentation_actions_diff: ValuePresentationSynchrotronActionsDiff,
+    visual_actions_diff: VisualSynchrotronActionsDiff,
+}
+
+impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronActionsDiff<TraceProtocol> {
+    pub fn new(
+        new_actions: smallvec::SmallVec<[TraceSynchrotronAction<TraceProtocol>; 3]>,
+        value_presentation_actions_diff: ValuePresentationSynchrotronActionsDiff,
+        visual_actions_diff: VisualSynchrotronActionsDiff,
+    ) -> Self {
+        Self {
+            new_actions,
+            value_presentation_actions_diff,
+            visual_actions_diff,
+        }
+    }
 }
 
 pub trait IsTraceSynchrotronAction<TraceProtocol>:
@@ -69,7 +90,6 @@ where
                 trace_id,
                 stalk,
             } => todo!(),
-            TraceSynchrotronAction::ValuePresentation(_) => todo!(),
         }
     }
 }
@@ -87,13 +107,17 @@ where
         outcome
     }
 
-    pub(crate) fn take_actions(
+    pub(crate) fn take_actions_diff(
         &mut self,
-        actions: impl IntoIterator<Item = TraceSynchrotronAction<TraceProtocol>>,
+        actions_diff: TraceSynchrotronActionsDiff<TraceProtocol>,
     ) {
-        for action in actions {
+        for action in actions_diff.new_actions {
             self.take_action(action)
         }
+        self.value_presentation_synchrotron
+            .take_actions_diff(actions_diff.value_presentation_actions_diff);
+        self.visual_synchrotron
+            .take_actions_diff(actions_diff.visual_actions_diff)
     }
 }
 
