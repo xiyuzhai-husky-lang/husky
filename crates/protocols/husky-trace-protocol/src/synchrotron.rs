@@ -2,12 +2,14 @@ pub(crate) mod action;
 mod entry;
 
 pub use self::action::TraceSynchrotronAction;
+use self::action::TraceSynchrotronActionsDiff;
 pub use self::entry::TraceSynchrotronEntry;
 
 use crate::{view::TraceViewData, *};
-use husky_value_protocol::presentation::{
+use husky_value_protocol::presentation::synchrotron::{
     ValuePresentationSynchrotron, ValuePresentationSynchrotronStatus,
 };
+use husky_visual_protocol::synchrotron::{VisualSynchrotron, VisualSynchrotronStatus};
 use vec_like::VecPairMap;
 
 /// contains information about traces that are synced across server and client
@@ -20,12 +22,14 @@ pub struct TraceSynchrotron<TraceProtocol: IsTraceProtocol> {
     visual_components: Vec<<TraceProtocol::VisualProtocol as IsVisualProtocol>::VisualComponent>,
     actions: Vec<TraceSynchrotronAction<TraceProtocol>>,
     value_presentation_synchrotron: ValuePresentationSynchrotron,
+    visual_synchrotron: VisualSynchrotron,
 }
 
 #[derive(Default, Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceSynchrotronStatus {
     actions_len: usize,
     value_presentation_synchrotron_status: ValuePresentationSynchrotronStatus,
+    visual_synchrotron_status: VisualSynchrotronStatus,
 }
 
 /// methods
@@ -42,12 +46,13 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         }
         Self {
             focused_trace_id: None,
-            value_presentation_synchrotron: Default::default(),
             pedestal: Default::default(),
             root_trace_ids,
             entries,
             visual_components: vec![],
             actions: vec![],
+            value_presentation_synchrotron: Default::default(),
+            visual_synchrotron: Default::default(),
         }
     }
 
@@ -59,24 +64,30 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         TraceSynchrotronStatus {
             actions_len: self.actions.len(),
             value_presentation_synchrotron_status: self.value_presentation_synchrotron.status(),
+            visual_synchrotron_status: self.visual_synchrotron.status(),
         }
     }
 
-    pub(crate) fn diff_actions(
+    pub(crate) fn actions_diff(
         &self,
         previous_trace_synchrotron_status: TraceSynchrotronStatus,
-    ) -> smallvec::SmallVec<[TraceSynchrotronAction<TraceProtocol>; 3]> {
+    ) -> TraceSynchrotronActionsDiff<TraceProtocol> {
         assert!(previous_trace_synchrotron_status.actions_len < self.actions.len());
-        self.actions[previous_trace_synchrotron_status.actions_len..]
+        let actions = self.actions[previous_trace_synchrotron_status.actions_len..]
             .iter()
             .map(|action| action.clone())
-            .chain(
-                self.value_presentation_synchrotron
-                    .diff_actions()
-                    .iter()
-                    .map(|action| action.clone().into()),
-            )
-            .collect()
+            .collect();
+        let value_presentation_actions_diff = self
+            .value_presentation_synchrotron
+            .actions_diff(previous_trace_synchrotron_status.value_presentation_synchrotron_status);
+        let visual_actions_diff = self
+            .visual_synchrotron
+            .actions_diff(previous_trace_synchrotron_status.visual_synchrotron_status);
+        TraceSynchrotronActionsDiff::new(
+            actions,
+            value_presentation_actions_diff,
+            visual_actions_diff,
+        )
     }
 
     pub(crate) fn is_trace_cached(&self, trace_id: TraceId) -> bool {
@@ -110,7 +121,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
 
     pub(crate) fn value_presentation_synchrotron_mut(
         &mut self,
-    ) -> &mut husky_value_protocol::presentation::ValuePresentationSynchrotron {
+    ) -> &mut ValuePresentationSynchrotron {
         &mut self.value_presentation_synchrotron
     }
 }

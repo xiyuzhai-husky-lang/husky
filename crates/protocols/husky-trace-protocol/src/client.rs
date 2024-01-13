@@ -59,13 +59,13 @@ where
                 debug_assert!(self.trace_synchrotron.is_none());
                 self.trace_synchrotron = Some(cache)
             }
-            TraceResponse::TakeTraceSynchrotronAction {
-                trace_synchrotron_actions: synchrotron_actions,
+            TraceResponse::TakeTraceSynchrotronActionsDiff {
+                trace_synchrotron_actions_diff,
             } => {
-                let Some(ref mut cache) = self.trace_synchrotron else {
+                let Some(ref mut trace_synchrotron) = self.trace_synchrotron else {
                     unreachable!()
                 };
-                cache.take_actions(synchrotron_actions)
+                trace_synchrotron.take_actions_diff(trace_synchrotron_actions_diff)
             }
             TraceResponse::Err(e) => panic!("{e}"),
         }

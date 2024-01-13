@@ -12,8 +12,9 @@ use husky_task::{
 };
 use husky_trace::{db::TraceDb, trace::Trace};
 use husky_trace_protocol::{protocol::IsTraceProtocol, stalk::TraceStalk};
-use husky_value_protocol::presentation::ValuePresentationSynchrotron;
-use husky_value_protocol::presentation::ValuePresenterCache;
+use husky_value_protocol::presentation::{
+    synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
+};
 use husky_vfs::error::VfsResult;
 use std::path::Path;
 

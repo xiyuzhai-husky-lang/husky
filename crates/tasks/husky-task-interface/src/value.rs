@@ -1,5 +1,6 @@
 use husky_value_protocol::presentation::{
-    EnumU8ValuePresenter, ValuePresentation, ValuePresentationSynchrotron, ValuePresenterCache,
+    synchrotron::ValuePresentationSynchrotron, EnumU8ValuePresenter, ValuePresentation,
+    ValuePresenterCache,
 };
 
 pub trait IsValue:

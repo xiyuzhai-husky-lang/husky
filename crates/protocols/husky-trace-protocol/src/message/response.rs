@@ -1,3 +1,4 @@
+use self::action::TraceSynchrotronActionsDiff;
 use super::*;
 use crate::{
     protocol::trivial::TrivialTraceProtocol, synchrotron::TraceSynchrotron, view::TraceViewData,
@@ -9,8 +10,8 @@ pub enum TraceResponse<TraceProtocol: IsTraceProtocol> {
     Init {
         trace_synchrotron: TraceSynchrotron<TraceProtocol>,
     },
-    TakeTraceSynchrotronAction {
-        trace_synchrotron_actions: smallvec::SmallVec<[TraceSynchrotronAction<TraceProtocol>; 3]>,
+    TakeTraceSynchrotronActionsDiff {
+        trace_synchrotron_actions_diff: TraceSynchrotronActionsDiff<TraceProtocol>,
     },
     Err(String),
 }
