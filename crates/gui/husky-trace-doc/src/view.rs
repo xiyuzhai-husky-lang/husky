@@ -93,6 +93,8 @@ where
             .show(ui, |ui| {
                 ui.horizontal(|ui| {
                     ui.spacing_mut().item_spacing.x = 0.;
+                    // render prefix
+                    let prefix_width = self.glyph_width * 2.8;
                     if entry.view_data().have_subtraces() {
                         let button_text = match entry.expanded() {
                             true => "-",
@@ -106,11 +108,11 @@ where
                                 .push(TraceViewAction::ToggleExpansion { trace_id })
                         };
                         ui.allocate_space(Vec2::new(
-                            self.glyph_width * 2.8 - button_response.rect.width(),
+                            prefix_width - button_response.rect.width(),
                             button_response.rect.height(),
                         ));
                     } else {
-                        ui.allocate_space(Vec2::new(self.glyph_width * 2.8, 0.));
+                        ui.allocate_space(Vec2::new(prefix_width, 0.));
                     }
                     ui.vertical(|ui| {
                         let lines_data = entry.view_data().lines_data();
@@ -229,9 +231,7 @@ where
             .code_editor_settings()
             .token_foreground_colors();
         let spaces_before = token_data.spaces_before();
-        if spaces_before > 0 {
-            ui.allocate_space(Vec2::new(self.glyph_width * (spaces_before as f32), 0.));
-        }
+        self.render_space_chars(spaces_before, ui);
         let mut label = Label::new(
             RichText::new(token_data.text())
                 .family(FontFamily::Monospace)
@@ -261,6 +261,7 @@ where
     where
         TraceProtocol: IsTraceProtocol,
     {
+        self.render_space_chars(1, ui);
         match value {
             ValuePresentation::Enum => todo!(),
             ValuePresentation::Struct => todo!(),
@@ -269,6 +270,13 @@ where
                 ui.label(s);
             }
             ValuePresentation::Bool(_) => todo!(),
+        }
+    }
+
+    /// here space means the char ` `
+    fn render_space_chars(&self, n: u32, ui: &mut egui::Ui) {
+        if n > 0 {
+            ui.allocate_space(Vec2::new(self.glyph_width * (n as f32), 0.));
         }
     }
 }
