@@ -107,7 +107,6 @@ but client's trace protocol is of type `{trace_protocol_type_name}`."#,
                 let trace_synchrotron_actions = self
                     .trace_synchrotron()
                     .diff_actions(trace_synchrotron_status);
-                p!(trace_synchrotron_actions);
                 Some(TraceResponse::TakeTraceSynchrotronAction {
                     center_actions: trace_synchrotron_actions,
                 })

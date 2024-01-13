@@ -76,8 +76,7 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
                 fn into_value(self) -> __Value {
                     __Value::from_enum_u8(unsafe { std::mem::transmute(self) }, |index: u8, _, _| {
                         let slf: Self = unsafe { std::mem::transmute(index) };
-                        // __to_json_value(slf).unwrap()
-                        todo!("into_value for simple enum")
+                        __ValuePresentation::AdHoc(format!("{slf:?}"))
                     })
                 }
             }
