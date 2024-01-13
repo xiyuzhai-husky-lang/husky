@@ -1,9 +1,3 @@
-
-
-
-
-
-
 #[derive()]
 pub struct DevtimeState {
     // server: TraceServer<VisualProtocol>,
