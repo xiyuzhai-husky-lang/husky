@@ -125,7 +125,7 @@ where
                 Message::Pong(_) => todo!(),
                 Message::Close(_) => todo!(),
             },
-            Err(e) => todo!("e = {e}"),
+            Err(e) => eprintln!("e = {e}"),
         }
     }
     todo!()

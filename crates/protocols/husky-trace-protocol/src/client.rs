@@ -56,7 +56,9 @@ where
                 debug_assert!(self.center.is_none());
                 self.center = Some(cache)
             }
-            TraceResponse::TakeCacheAction { cache_actions } => {
+            TraceResponse::TakeTraceCenterAction {
+                center_actions: cache_actions,
+            } => {
                 let Some(ref mut cache) = self.center else {
                     unreachable!()
                 };
@@ -109,7 +111,7 @@ where
         self.cache_mut().take_action(cache_action.clone());
         match self.try_send_request(TraceRequest::NotifyViewAction {
             view_action,
-            cache_action,
+            center_action: cache_action,
         }) {
             Ok(_) => (),
             Err(e) => match e {

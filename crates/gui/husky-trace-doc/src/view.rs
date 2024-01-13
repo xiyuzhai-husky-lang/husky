@@ -118,7 +118,9 @@ where
                         match entry.stalk(pedestal) {
                             TraceStalk::None => (),
                             TraceStalk::Val(value_control_flow) => match value_control_flow {
-                                ValControlFlow::Continue(value) => self.render_json_value(value),
+                                ValControlFlow::Continue(value) => {
+                                    self.render_json_value(value, ui)
+                                }
                                 ValControlFlow::LoopContinue => todo!(),
                                 ValControlFlow::LoopExit(_) => todo!(),
                                 ValControlFlow::Return(_) => todo!(),
@@ -251,11 +253,12 @@ where
         }
     }
 
-    fn render_json_value(&self, value: &JsonValue)
+    fn render_json_value(&self, value: &JsonValue, ui: &mut egui::Ui)
     where
         TraceProtocol: IsTraceProtocol,
     {
-        todo!()
+        // ad hoc
+        ui.label(value.to_string());
     }
 }
 

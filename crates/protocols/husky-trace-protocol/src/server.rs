@@ -43,7 +43,8 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                 trace.into(),
                 self.tracetime.get_trace_view_data(trace).clone(),
             )
-        })))
+        })));
+        self.cache_periphery()
     }
 
     #[track_caller]
@@ -91,20 +92,18 @@ but client's trace protocol is of type `{trace_protocol_type_name}`."#,
                 view_action,
                 cache_actions_len,
             } => {
+                use husky_print_utils::p;
                 let Some(ref mut _cache) = self.center else {
                     unreachable!()
                 };
                 assert_eq!(self.center().actions_len(), cache_actions_len);
                 self.take_view_action(view_action);
-                Some(TraceResponse::TakeCacheAction {
-                    cache_actions: self.center().reproduce_cache_actions(cache_actions_len),
-                })
+                let center_actions = self.center().reproduce_cache_actions(cache_actions_len);
+                p!(center_actions);
+                Some(TraceResponse::TakeTraceCenterAction { center_actions })
             }
-            TraceRequest::NotifyViewAction {
-                view_action: _,
-                cache_action,
-            } => {
-                self.center_mut().take_action(cache_action);
+            TraceRequest::NotifyViewAction { center_action, .. } => {
+                self.center_mut().take_action(center_action);
                 None
             }
         }
@@ -147,8 +146,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                     })
             }
         }
-        self.cache_stalks();
-        self.cache_figure()
+        self.cache_periphery()
     }
 
     fn cache_trace_if_new(&mut self, trace_id: TraceId) {
@@ -157,6 +155,11 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             self.center_mut()
                 .take_action(TraceCenterNewTrace::new(trace_id, view_data))
         }
+    }
+
+    fn cache_periphery(&mut self) {
+        self.cache_stalks();
+        self.cache_figure()
     }
 
     fn cache_stalks(&mut self) {

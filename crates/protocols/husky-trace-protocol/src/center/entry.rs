@@ -43,6 +43,8 @@ impl<TraceProtocol: IsTraceProtocol> TraceCenterEntry<TraceProtocol> {
     }
 
     pub fn stalk(&self, pedestal: <TraceProtocol as IsTraceProtocol>::Pedestal) -> &TraceStalk {
+        use husky_print_utils::p;
+        p!(self);
         &self.stalks[&pedestal]
     }
 
