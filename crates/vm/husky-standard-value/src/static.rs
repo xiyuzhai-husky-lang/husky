@@ -104,7 +104,9 @@ where
     }
 
     fn present_dyn(&self) -> ValuePresentation {
-        self.present()
+        // self.present()
+        // ad hoc
+        ValuePresentation::AdHoc(format!("{self:?}"))
     }
 }
 
