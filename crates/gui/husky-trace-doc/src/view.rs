@@ -269,6 +269,69 @@ where
             ValuePresentation::Bool(b) => {
                 ui.label("{b}");
             }
+            ValuePresentation::Char(c) => {
+                ui.label("'{c}'");
+            }
+            ValuePresentation::I8(i) => {
+                ui.label("{i}i8");
+            }
+            ValuePresentation::I16(i) => {
+                ui.label("{i}i16");
+            }
+            ValuePresentation::I32(i) => {
+                ui.label("{i}i32");
+            }
+            ValuePresentation::I64(i) => {
+                ui.label("{i}i64");
+            }
+            ValuePresentation::I128(i) => {
+                ui.label("{i}i128");
+            }
+            ValuePresentation::ISize(i) => {
+                ui.label("{i}isize");
+            }
+            ValuePresentation::U8(u) => {
+                ui.label("{u}u8");
+            }
+            ValuePresentation::U16(u) => {
+                ui.label("{u}u16");
+            }
+            ValuePresentation::U32(u) => {
+                ui.label("{u}u32");
+            }
+            ValuePresentation::U64(u) => {
+                ui.label("{u}u64");
+            }
+            ValuePresentation::U128(u) => {
+                ui.label("{u}u128");
+            }
+            ValuePresentation::USize(u) => {
+                ui.label("{u}usize");
+            }
+            ValuePresentation::R8(r) => {
+                ui.label("{r}r8");
+            }
+            ValuePresentation::R16(r) => {
+                ui.label("{r}r16");
+            }
+            ValuePresentation::R32(r) => {
+                ui.label("{r}r32");
+            }
+            ValuePresentation::R64(r) => {
+                ui.label("{r}r64");
+            }
+            ValuePresentation::R128(r) => {
+                ui.label("{r}r128");
+            }
+            ValuePresentation::RSize(r) => {
+                ui.label("{r}rsize");
+            }
+            ValuePresentation::F32(f) => {
+                ui.label("{f}f32");
+            }
+            ValuePresentation::F64(f) => {
+                ui.label("{f}f64");
+            }
             ValuePresentation::Enum => todo!(),
             ValuePresentation::Struct => todo!(),
             ValuePresentation::AdHoc(s) => {
