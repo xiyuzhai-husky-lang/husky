@@ -112,23 +112,30 @@ where
                         ui.allocate_space(Vec2::new(self.glyph_width * 2.8, 0.));
                     }
                     ui.vertical(|ui| {
-                        for line_data in entry.view_data().lines_data() {
-                            self.render_line(line_data, trace_id, entry, ui)
+                        let lines_data = entry.view_data().lines_data();
+                        for line_data in &lines_data[..(lines_data.len() - 1)] {
+                            ui.horizontal(|ui| self.render_line(line_data, trace_id, entry, ui));
                         }
-                        match entry.stalk(pedestal) {
-                            TraceStalk::None => (),
-                            TraceStalk::Val(value_control_flow) => match value_control_flow {
-                                ValControlFlow::Continue(value) => {
-                                    self.render_json_value(value, ui)
-                                }
-                                ValControlFlow::LoopContinue => todo!(),
-                                ValControlFlow::LoopExit(_) => todo!(),
-                                ValControlFlow::Return(_) => todo!(),
-                                ValControlFlow::Undefined => todo!(),
-                                ValControlFlow::Err(_) => todo!(),
-                            },
-                            TraceStalk::Vm(_) => todo!(),
-                        }
+                        ui.horizontal(|ui| {
+                            self.render_line(lines_data.last().unwrap(), trace_id, entry, ui);
+                            match entry.stalk(pedestal) {
+                                TraceStalk::None => (),
+                                TraceStalk::Val(value_control_flow) => match value_control_flow {
+                                    ValControlFlow::Continue(value) => {
+                                        self.render_json_value(value, ui)
+                                    }
+                                    ValControlFlow::LoopContinue => todo!(),
+                                    ValControlFlow::LoopExit(_) => todo!(),
+                                    ValControlFlow::Return(value) => {
+                                        ui.label("return");
+                                        self.render_json_value(value, ui)
+                                    }
+                                    ValControlFlow::Undefined => todo!(),
+                                    ValControlFlow::Err(_) => todo!(),
+                                },
+                                TraceStalk::Vm(_) => todo!(),
+                            }
+                        });
                     })
                 })
             })
@@ -206,11 +213,9 @@ where
         entry: &TraceCenterEntry<TraceProtocol>,
         ui: &mut egui::Ui,
     ) {
-        ui.horizontal(|ui| {
-            for token_data in line_data.tokens_data() {
-                self.render_token(token_data, trace_id, entry, ui);
-            }
-        });
+        for token_data in line_data.tokens_data() {
+            self.render_token(token_data, trace_id, entry, ui);
+        }
     }
 
     fn render_token(
