@@ -1,5 +1,3 @@
-
-
 use super::*;
 use rustc_hash::FxHashMap;
 use serde_with::serde_as;
@@ -40,6 +38,14 @@ impl<TraceProtocol: IsTraceProtocol> TraceCenterEntry<TraceProtocol> {
         self.expanded
     }
 
+    pub(crate) fn has_stalk(&self, pedestal: <TraceProtocol as IsTraceProtocol>::Pedestal) -> bool {
+        self.stalks.contains_key(&pedestal)
+    }
+
+    pub fn stalk(&self, pedestal: <TraceProtocol as IsTraceProtocol>::Pedestal) -> &TraceStalk {
+        &self.stalks[&pedestal]
+    }
+
     pub(super) fn toggle_expansion(&mut self) {
         self.expanded = !self.expanded
     }
@@ -57,12 +63,12 @@ impl<TraceProtocol: IsTraceProtocol> TraceCenterEntry<TraceProtocol> {
         self.associated_trace_ids.as_ref()
     }
 
-    pub(crate) fn cache_stalk(
+    pub(super) fn cache_stalk(
         &mut self,
         pedestal: <TraceProtocol as IsTraceProtocol>::Pedestal,
-        f: impl FnOnce() -> TraceStalk,
+        stalk: TraceStalk,
     ) {
         // self.stalks.get_value_mut_or_insert_with(pedestal, f);
-        self.stalks.entry(pedestal).or_insert_with(f);
+        debug_assert!(self.stalks.insert(pedestal, stalk).is_none());
     }
 }

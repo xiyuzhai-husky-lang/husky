@@ -1,7 +1,7 @@
 pub(crate) mod action;
 mod entry;
 
-pub use self::action::TraceCacheAction;
+pub use self::action::TraceCenterAction;
 pub use self::entry::TraceCenterEntry;
 
 use crate::{view::TraceViewData, *};
@@ -15,7 +15,7 @@ pub struct TraceCenter<TraceProtocol: IsTraceProtocol> {
     root_trace_ids: Vec<TraceId>,
     entries: VecPairMap<TraceId, TraceCenterEntry<TraceProtocol>>,
     visual_components: Vec<<TraceProtocol::VisualProtocol as IsVisualProtocol>::VisualComponent>,
-    actions: Vec<TraceCacheAction<TraceProtocol>>,
+    actions: Vec<TraceCenterAction<TraceProtocol>>,
 }
 
 /// methods
@@ -49,7 +49,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceCenter<TraceProtocol> {
     pub(crate) fn reproduce_cache_actions(
         &self,
         previous_cache_actions_len: usize,
-    ) -> smallvec::SmallVec<[TraceCacheAction<TraceProtocol>; 3]> {
+    ) -> smallvec::SmallVec<[TraceCenterAction<TraceProtocol>; 3]> {
         assert!(previous_cache_actions_len < self.actions.len());
         self.actions[previous_cache_actions_len..]
             .iter()
@@ -72,6 +72,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceCenter<TraceProtocol> {
     fn trace_listing_aux(&self, trace_id: TraceId, trace_listings: &mut Vec<TraceId>) {
         trace_listings.push(trace_id);
         let entry = &self[trace_id];
+        // todo: only list those shown
         for &associated_trace_id in entry.associated_trace_ids() {
             self.trace_listing_aux(associated_trace_id, trace_listings)
         }

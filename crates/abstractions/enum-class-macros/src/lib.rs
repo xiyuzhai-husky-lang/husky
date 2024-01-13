@@ -11,8 +11,3 @@ use proc_macro::TokenStream;
 pub fn from_variants(args: TokenStream, input: TokenStream) -> TokenStream {
     from_variants::from_variants(args, input)
 }
-
-#[proc_macro_attribute]
-pub fn const_from_variants(args: TokenStream, input: TokenStream) -> TokenStream {
-    from_variants::const_from_variants(args, input)
-}

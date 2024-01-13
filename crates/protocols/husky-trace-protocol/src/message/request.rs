@@ -7,7 +7,7 @@ use super::*;
 
 /// message sent from trace client to trace server
 #[derive(Debug, Serialize, Deserialize)]
-pub enum TraceRequest<TraceProtocol> {
+pub enum TraceRequest<TraceProtocol: IsTraceProtocol> {
     Init {
         trace_protocol_type_name: String,
     },
@@ -21,13 +21,13 @@ pub enum TraceRequest<TraceProtocol> {
     /// ask the server to do the same
     NotifyViewAction {
         view_action: TraceViewAction<TraceProtocol>,
-        cache_action: TraceCacheAction<TraceProtocol>,
+        cache_action: TraceCenterAction<TraceProtocol>,
     },
 }
 
 impl<TraceProtocol> Default for TraceRequest<TraceProtocol>
 where
-    TraceProtocol: Default,
+    TraceProtocol: IsTraceProtocol + Default,
 {
     fn default() -> Self {
         TraceRequest::Init {
@@ -37,7 +37,10 @@ where
 }
 
 #[cfg(feature = "client")]
-impl<VisualComponent> NeedResponse for TraceRequest<VisualComponent> {
+impl<TraceProtocol> NeedResponse for TraceRequest<TraceProtocol>
+where
+    TraceProtocol: IsTraceProtocol + Default,
+{
     fn need_response(&self) -> bool {
         match self {
             TraceRequest::Init { .. } => true,

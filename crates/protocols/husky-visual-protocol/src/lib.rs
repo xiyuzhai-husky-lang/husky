@@ -7,7 +7,7 @@ pub mod trivial;
 
 /// require `Serialize` and `Deserialize` for the convenience of deriving `Serialize` and `Deserialize` for generic types
 ///
-/// for example TraceCache
+/// for example TraceCenter
 pub trait IsVisualProtocol:
     std::fmt::Debug
     + Default

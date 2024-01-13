@@ -3,10 +3,12 @@ use egui::{
     Button, Color32, FontFamily, InnerResponse, Label, Margin, RichText, Sense, TextStyle, Vec2,
     Widget,
 };
+use husky_task_interface::val_control_flow::ValControlFlow;
 use husky_trace_protocol::{
     center::{TraceCenter, TraceCenterEntry},
     id::{TraceId, TraceKind},
     protocol::IsTraceProtocol,
+    stalk::{JsonValue, TraceStalk},
     view::{action::TraceViewActionBuffer, TraceViewLineData, TraceViewTokenData},
 };
 
@@ -58,8 +60,9 @@ where
     where
         TraceProtocol: IsTraceProtocol,
     {
+        let pedestal = self.trace_cache.pedestal();
         let entry = &self.trace_cache[trace_id];
-        self.render_trace_view(trace_id, entry, ui);
+        self.render_trace_view(pedestal, trace_id, entry, ui);
         if entry.expanded()
             && let Some(subtrace_ids) = entry.subtrace_ids()
         {
@@ -72,6 +75,7 @@ where
 
     fn render_trace_view(
         &mut self,
+        pedestal: <TraceProtocol as IsTraceProtocol>::Pedestal,
         trace_id: TraceId,
         entry: &TraceCenterEntry<TraceProtocol>,
         ui: &mut egui::Ui,
@@ -110,6 +114,18 @@ where
                     ui.vertical(|ui| {
                         for line_data in entry.view_data().lines_data() {
                             self.render_line(line_data, trace_id, entry, ui)
+                        }
+                        match entry.stalk(pedestal) {
+                            TraceStalk::None => (),
+                            TraceStalk::Val(value_control_flow) => match value_control_flow {
+                                ValControlFlow::Continue(value) => self.render_json_value(value),
+                                ValControlFlow::LoopContinue => todo!(),
+                                ValControlFlow::LoopExit(_) => todo!(),
+                                ValControlFlow::Return(_) => todo!(),
+                                ValControlFlow::Undefined => todo!(),
+                                ValControlFlow::Err(_) => todo!(),
+                            },
+                            TraceStalk::Vm(_) => todo!(),
                         }
                     })
                 })
@@ -233,6 +249,13 @@ where
                 label_response.highlight();
             }
         }
+    }
+
+    fn render_json_value(&self, value: &JsonValue)
+    where
+        TraceProtocol: IsTraceProtocol,
+    {
+        todo!()
     }
 }
 
