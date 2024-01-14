@@ -128,6 +128,7 @@ where
                                     ValControlFlow::LoopContinue => todo!(),
                                     ValControlFlow::LoopExit(_) => todo!(),
                                     ValControlFlow::Return(value) => {
+                                        self.render_space_chars(1, ui);
                                         ui.label("return");
                                         self.render_value(value, ui)
                                     }

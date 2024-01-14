@@ -9,7 +9,7 @@ pub struct TraceSynchrotronEntry<TraceProtocol: IsTraceProtocol> {
     view_data: TraceViewData,
     /// None means not calculated
     subtrace_ids: Option<Vec<TraceId>>,
-    associated_trace_ids: SmallVecSet<TraceId, 2>,
+    associated_trace_ids_shown: SmallVecSet<TraceId, 2>,
     expanded: bool,
     #[serde_as(as = "Vec<(_, _)>")]
     stalks: FxHashMap<TraceProtocol::Pedestal, TraceStalk>,
@@ -20,7 +20,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
         Self {
             view_data,
             subtrace_ids: None,
-            associated_trace_ids: Default::default(),
+            associated_trace_ids_shown: Default::default(),
             expanded: false,
             stalks: Default::default(),
         }
@@ -51,7 +51,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
     }
 
     pub(super) fn toggle_associated_traces(&mut self, associated_trace_id: TraceId) {
-        self.associated_trace_ids.toggle(associated_trace_id)
+        self.associated_trace_ids_shown.toggle(associated_trace_id)
     }
 
     pub(crate) fn set_subtraces(&mut self, subtrace_ids: Vec<TraceId>) {
@@ -60,7 +60,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
     }
 
     pub fn associated_trace_ids(&self) -> &[TraceId] {
-        self.associated_trace_ids.as_ref()
+        self.associated_trace_ids_shown.as_ref()
     }
 
     pub(super) fn cache_stalk(
