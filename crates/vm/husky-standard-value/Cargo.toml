@@ -6,6 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 # abstractions
+ordered-float.workspace = true
 salsa = { workspace = true, optional = true }
 serde.workspace = true
 serde_json.workspace = true
