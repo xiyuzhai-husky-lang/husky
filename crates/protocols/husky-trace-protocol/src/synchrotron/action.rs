@@ -19,6 +19,9 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
         trace_id: TraceId,
         stalk: TraceStalk,
     },
+    FocusTrace {
+        trace_id: TraceId,
+    },
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -59,17 +62,17 @@ where
 {
     type Outcome = ();
 
-    fn act(&self, center: &mut TraceSynchrotron<TraceProtocol>) -> Self::Outcome {
+    fn act(&self, synchrotron: &mut TraceSynchrotron<TraceProtocol>) -> Self::Outcome {
         match self {
-            TraceSynchrotronAction::NewTrace(action) => action.act(center),
-            TraceSynchrotronAction::ToggleExpansion(action) => action.act(center),
-            TraceSynchrotronAction::SetSubtraces(action) => action.act(center),
-            TraceSynchrotronAction::Phantom(action) => action.act(center),
+            TraceSynchrotronAction::NewTrace(action) => action.act(synchrotron),
+            TraceSynchrotronAction::ToggleExpansion(action) => action.act(synchrotron),
+            TraceSynchrotronAction::SetSubtraces(action) => action.act(synchrotron),
+            TraceSynchrotronAction::Phantom(action) => action.act(synchrotron),
             &TraceSynchrotronAction::ToggleAssociatedTrace {
                 trace_id,
                 associated_trace_id,
             } => {
-                center.entries[trace_id]
+                synchrotron.entries[trace_id]
                     .1
                     .toggle_associated_traces(associated_trace_id);
             }
@@ -82,7 +85,7 @@ where
                 trace_id,
                 ref stalk,
             } => {
-                let trace_entry = &mut center[trace_id];
+                let trace_entry = &mut synchrotron[trace_id];
                 trace_entry.cache_stalk(pedestal, stalk.clone())
             }
             TraceSynchrotronAction::CacheStalk {
@@ -90,6 +93,9 @@ where
                 trace_id,
                 stalk,
             } => todo!(),
+            &TraceSynchrotronAction::FocusTrace { trace_id } => {
+                synchrotron.focused_trace_id = Some(trace_id)
+            }
         }
     }
 }
