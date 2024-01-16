@@ -18,7 +18,7 @@ where
     TraceProtocol: IsTraceProtocol,
     Settings: HasTraceViewDocSettings,
 {
-    trace_cache: &'a TraceSynchrotron<TraceProtocol>,
+    trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
     // cached values
@@ -32,7 +32,7 @@ where
     Settings: HasTraceViewDocSettings,
 {
     pub(crate) fn new(
-        trace_cache: &'a TraceSynchrotron<TraceProtocol>,
+        trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
         action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
         ui: &mut egui::Ui,
         settings: &'a mut Settings,
@@ -40,7 +40,7 @@ where
         let glyph_width =
             ui.fonts(|f| f.glyph_width(&TextStyle::Monospace.resolve(ui.style()), ' '));
         Self {
-            trace_cache,
+            trace_synchrotron,
             action_buffer,
             settings,
             glyph_width,
@@ -61,8 +61,8 @@ where
     where
         TraceProtocol: IsTraceProtocol,
     {
-        let pedestal = self.trace_cache.pedestal();
-        let entry = &self.trace_cache[trace_id];
+        let pedestal = self.trace_synchrotron.pedestal();
+        let entry = &self.trace_synchrotron[trace_id];
         self.render_trace_view(pedestal, trace_id, entry, ui);
         if entry.expanded()
             && let Some(subtrace_ids) = entry.subtrace_ids()
@@ -137,13 +137,20 @@ where
                                 },
                                 TraceStalk::Vm(_) => todo!(),
                             }
+                            // this is important to keep the interaction region large enough
+                            ui.allocate_space(ui.available_size())
                         });
                     })
                 })
             })
             .response;
-        if response.clicked() {
-            todo!()
+        let focused = self.trace_synchrotron.focused_trace_id() == Some(trace_id);
+        // let clicked = response.interact(Sense::click()).clicked();
+        let clicked = ui
+            .interact(response.rect, response.id, Sense::click())
+            .clicked();
+        if !focused && clicked {
+            self.add_action(TraceViewAction::FocusTrace { trace_id })
         }
     }
 
@@ -348,6 +355,13 @@ where
             ui.allocate_space(Vec2::new(self.glyph_width * (n as f32), 0.));
         }
     }
+
+    fn add_action(&mut self, action: TraceViewAction<TraceProtocol>)
+    where
+        TraceProtocol: IsTraceProtocol,
+    {
+        self.action_buffer.push(action)
+    }
 }
 
 impl<'a, TraceProtocol, Settings> egui::Widget for TraceDocView<'a, TraceProtocol, Settings>
@@ -356,7 +370,12 @@ where
     Settings: HasTraceViewDocSettings,
 {
     fn ui(mut self, ui: &mut egui::Ui) -> egui::Response {
-        self.render_traces(self.trace_cache.root_trace_ids(), ui)
+        // for debug
+        ui.label(format!(
+            "[DEBUG] self.trace_synchrotron.focused_trace_id() = {:?}",
+            self.trace_synchrotron.focused_trace_id()
+        ));
+        self.render_traces(self.trace_synchrotron.root_trace_ids(), ui)
             .response
     }
 }

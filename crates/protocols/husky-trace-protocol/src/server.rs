@@ -161,6 +161,9 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                     },
                 )
             }
+            TraceViewAction::FocusTrace { trace_id } => self
+                .trace_synchrotron_mut()
+                .take_action(TraceSynchrotronAction::FocusTrace { trace_id }),
         }
         self.cache_periphery()
     }

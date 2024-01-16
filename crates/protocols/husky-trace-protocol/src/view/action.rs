@@ -17,6 +17,9 @@ pub enum TraceViewAction<TraceProtocol> {
         trace_id: TraceId,
         associated_trace_id: TraceId,
     },
+    FocusTrace {
+        trace_id: TraceId,
+    },
 }
 
 pub struct TraceViewActionBuffer<TraceProtocol> {

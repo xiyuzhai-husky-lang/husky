@@ -160,6 +160,13 @@ where
                     associated_trace_id,
                 })
             }
+            TraceViewAction::ToggleAssociatedTrace {
+                trace_id,
+                associated_trace_id,
+            } => todo!(),
+            &TraceViewAction::FocusTrace { trace_id } => {
+                Some(TraceSynchrotronAction::FocusTrace { trace_id })
+            }
         }
     }
 }

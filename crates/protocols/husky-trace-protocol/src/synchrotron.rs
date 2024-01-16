@@ -124,6 +124,10 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     ) -> &mut ValuePresentationSynchrotron {
         &mut self.value_presentation_synchrotron
     }
+
+    pub fn focused_trace_id(&self) -> Option<TraceId> {
+        self.focused_trace_id
+    }
 }
 
 impl<TraceProtocol: IsTraceProtocol> std::ops::Index<TraceId> for TraceSynchrotron<TraceProtocol> {
