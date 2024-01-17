@@ -1,5 +1,3 @@
-
-
 use super::*;
 
 impl NotebookApp {
@@ -19,9 +17,9 @@ impl NotebookApp {
         egui::SidePanel::left("activity_view")
             .frame(self.explorer_frame())
             .show(ctx, |ui| self.render_activity_view(ctx, ui));
+        egui::SidePanel::right("figure_view").show(ctx, |ui| self.render_assist_view(ctx, ui));
         egui::CentralPanel::default()
             .frame(self.settings.main_panel_frame())
             .show(ctx, |ui| self.render_docs_view(ui));
-        egui::SidePanel::right("figure_view").show(ctx, |ui| self.render_assist_view(ctx, ui));
     }
 }

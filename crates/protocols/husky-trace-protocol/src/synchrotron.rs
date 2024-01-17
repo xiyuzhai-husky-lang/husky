@@ -125,7 +125,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         &mut self.value_presentation_synchrotron
     }
 
-    pub fn focused_trace_id(&self) -> Option<TraceId> {
+    pub fn followed_trace_id(&self) -> Option<TraceId> {
         self.focused_trace_id
     }
 }

@@ -19,7 +19,7 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
         trace_id: TraceId,
         stalk: TraceStalk,
     },
-    FocusTrace {
+    FollowTrace {
         trace_id: TraceId,
     },
 }
@@ -93,7 +93,7 @@ where
                 trace_id,
                 stalk,
             } => todo!(),
-            &TraceSynchrotronAction::FocusTrace { trace_id } => {
+            &TraceSynchrotronAction::FollowTrace { trace_id } => {
                 synchrotron.focused_trace_id = Some(trace_id)
             }
         }

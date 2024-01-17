@@ -1,7 +1,7 @@
 use crate::*;
 use egui::{
-    Button, Color32, FontFamily, InnerResponse, Label, Margin, RichText, Sense, TextStyle, Vec2,
-    Widget,
+    Button, Color32, FontFamily, InnerResponse, Label, LayerId, Margin, RichText, Sense, TextStyle,
+    Vec2, Widget,
 };
 use husky_task_interface::val_control_flow::ValControlFlow;
 use husky_trace_protocol::{
@@ -83,13 +83,44 @@ where
     ) where
         TraceProtocol: IsTraceProtocol,
     {
-        let response = egui::Frame::none()
-            .inner_margin(Margin {
-                left: 1.0,
-                right: 1.,
-                top: 1.,
-                bottom: 1.,
-            })
+        let trace_view_inner_margin = Margin {
+            left: 1.0,
+            right: 1.,
+            top: 1.,
+            bottom: 1.,
+        };
+        // todo: consider multiline value representation
+        let desired_space = Vec2::new(
+            ui.available_width(),
+            // todo: consider multiline
+            trace_view_inner_margin.top
+                + ui.style().spacing.interact_size.y
+                    * (entry.view_data().lines_data().len() as f32)
+                + trace_view_inner_margin.bottom,
+        );
+        let desired_rect = egui::Rect {
+            min: ui.cursor().min,
+            max: ui.cursor().min + desired_space,
+        };
+        let trace_view_response = &ui.interact(desired_rect, ui.next_auto_id(), Sense::click());
+        let followed = self.trace_synchrotron.followed_trace_id() == Some(trace_id);
+        // `hovered_within` tells if the pointer is within the trace view
+        // we don't use hover because we don't want widgets to intercept
+        let hovered_within = ui.rect_contains_pointer(trace_view_response.rect);
+        if !followed {
+            let follow = trace_view_response.clicked();
+            if follow {
+                self.add_action(TraceViewAction::FollowTrace { trace_id })
+            }
+        }
+        let mut frame = egui::Frame::none().inner_margin(trace_view_inner_margin);
+        use husky_print_utils::p;
+        if hovered_within {
+            // p!(frame.stroke);
+            frame.stroke.width = 1.0;
+            frame.stroke.color = Color32::GOLD
+        }
+        let response = frame
             .show(ui, |ui| {
                 ui.horizontal(|ui| {
                     ui.spacing_mut().item_spacing.x = 0.;
@@ -137,20 +168,12 @@ where
                                 TraceStalk::Vm(_) => todo!(),
                             }
                             // this is important to keep the interaction region large enough
-                            ui.allocate_space(ui.available_size())
+                            ui.allocate_space(ui.available_size() - Vec2::new(1.0, 0.0))
                         });
                     })
                 })
             })
             .response;
-        let focused = self.trace_synchrotron.focused_trace_id() == Some(trace_id);
-        // let clicked = response.interact(Sense::click()).clicked();
-        let clicked = ui
-            .interact(response.rect, response.id, Sense::click())
-            .clicked();
-        if !focused && clicked {
-            // self.add_action(TraceViewAction::FocusTrace { trace_id })
-        }
     }
 
     fn render_subtraces(
@@ -368,12 +391,20 @@ where
     Settings: HasTraceViewDocSettings,
 {
     fn ui(mut self, ui: &mut egui::Ui) -> egui::Response {
-        // for debug
-        ui.label(format!(
-            "[DEBUG] self.trace_synchrotron.focused_trace_id() = {:?}",
-            self.trace_synchrotron.focused_trace_id()
-        ));
-        self.render_traces(self.trace_synchrotron.root_trace_ids(), ui)
-            .response
+        ui.vertical(|ui| {
+            // for debug
+            ui.label(format!(
+                r#"[DEBUG] self.trace_synchrotron.focused_trace_id() = {:?}
+[DEBUG] input.pointer.interact_pos() = {:?}
+[DEBUG] ui.available_size() = {:?}"#,
+                self.trace_synchrotron.followed_trace_id(),
+                ui.input(|input| input.pointer.interact_pos()),
+                ui.available_size()
+            ));
+            // egui::Id::new(source);
+            self.render_traces(self.trace_synchrotron.root_trace_ids(), ui)
+                .response
+        })
+        .response
     }
 }

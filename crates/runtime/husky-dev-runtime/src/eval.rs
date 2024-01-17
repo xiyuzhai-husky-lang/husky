@@ -95,26 +95,15 @@ impl<Task: IsTask> DevRuntime<Task> {
             }
             ValOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
-                use husky_print_utils::p;
-                p!(std::env::current_dir());
-                println!("before linkage_impl.eval");
-                let arguments = val_repr.arguments(db) as &[ValArgumentRepr];
-                p!(val_repr.arguments(db) as *const _);
-                p!(arguments as *const _);
-                if arguments.len() > 1 {
-                    p!(std::mem::discriminant(&val_repr.arguments(db)[1]));
-                }
                 let control_flow = linkage_impl.eval(
                     val_repr.into(),
                     dev_eval_context::<Task::DevAscension>(),
                     unsafe {
                         std::mem::transmute::<_, &[ValArgumentReprInterface]>(
-                            arguments as &[ValArgumentRepr],
-                            // val_repr.arguments(db) as &[ValArgumentRepr],
+                            val_repr.arguments(db) as &[ValArgumentRepr],
                         )
                     },
                 );
-                println!("after linkage_impl.eval");
                 control_flow
             }
             ValOpn::FunctionGn(_) => todo!(),
