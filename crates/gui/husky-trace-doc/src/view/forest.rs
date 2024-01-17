@@ -90,10 +90,14 @@ where
         }
         let mut frame = egui::Frame::none().inner_margin(trace_view_inner_margin);
         use husky_print_utils::p;
-        if hovered_within {
-            // p!(frame.stroke);
-            frame.stroke.width = 1.0;
-            frame.stroke.color = Color32::GOLD
+        if hovered_within || followed {
+            frame.stroke.color = if !followed {
+                frame.stroke.width = 0.3;
+                Color32::LIGHT_YELLOW
+            } else {
+                frame.stroke.width = 1.0;
+                Color32::GOLD
+            }
         }
         let response = frame
             .show(ui, |ui| {
