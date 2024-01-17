@@ -164,8 +164,8 @@ where
                 trace_id,
                 associated_trace_id,
             } => todo!(),
-            &TraceViewAction::FocusTrace { trace_id } => {
-                Some(TraceSynchrotronAction::FocusTrace { trace_id })
+            &TraceViewAction::FollowTrace { trace_id } => {
+                Some(TraceSynchrotronAction::FollowTrace { trace_id })
             }
         }
     }

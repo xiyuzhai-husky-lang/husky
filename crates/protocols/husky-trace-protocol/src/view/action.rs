@@ -17,7 +17,7 @@ pub enum TraceViewAction<TraceProtocol> {
         trace_id: TraceId,
         associated_trace_id: TraceId,
     },
-    FocusTrace {
+    FollowTrace {
         trace_id: TraceId,
     },
 }
