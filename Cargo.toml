@@ -44,6 +44,8 @@ axum = { version = "0.6.20" }
 clap = { version = "4.4.6", features = ["derive"] }
 colored = "2.0.0"
 dashmap = "5.5.1"
+# change to 0.25.0 will break the compiler
+# maybe use a separate workspace for frontend?
 ecolor = { version = "0.23.0", features = ["serde", "bytemuck"] }
 eframe = "0.23.0"
 egui = "0.23.0"

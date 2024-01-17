@@ -104,8 +104,7 @@ where
                         let button = Button::new(button_text);
                         let button_response = button.ui(ui);
                         if button_response.clicked() {
-                            self.action_buffer
-                                .push(TraceViewAction::ToggleExpansion { trace_id })
+                            self.add_action(TraceViewAction::ToggleExpansion { trace_id })
                         };
                         ui.allocate_space(Vec2::new(
                             prefix_width - button_response.rect.width(),
@@ -150,7 +149,7 @@ where
             .interact(response.rect, response.id, Sense::click())
             .clicked();
         if !focused && clicked {
-            self.add_action(TraceViewAction::FocusTrace { trace_id })
+            // self.add_action(TraceViewAction::FocusTrace { trace_id })
         }
     }
 
@@ -251,11 +250,10 @@ where
         let label_response = label.ui(ui);
         if let Some(associated_trace_id) = token_data.associated_trace_id() {
             if label_response.clicked() {
-                self.action_buffer
-                    .push(TraceViewAction::ToggleAssociatedTrace {
-                        trace_id,
-                        associated_trace_id,
-                    })
+                self.add_action(TraceViewAction::ToggleAssociatedTrace {
+                    trace_id,
+                    associated_trace_id,
+                })
             }
             if entry.associated_trace_ids().contains(&associated_trace_id) {
                 label_response.highlight();

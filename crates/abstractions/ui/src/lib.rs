@@ -34,21 +34,3 @@ impl<Ui, UiComponentConfig, ParentActionBuffer>
         Self(Box::new(ui_component))
     }
 }
-
-// pub struct UiActionBuffer<UiAction> {
-//     actions: smallvec::SmallVec<[UiAction; 2]>,
-// }
-
-// impl<UiAction> Default for UiActionBuffer<UiAction> {
-//     fn default() -> Self {
-//         Self {
-//             actions: Default::default(),
-//         }
-//     }
-// }
-
-// impl<UiAction> UiActionBuffer<UiAction> {
-//     pub fn push(&mut self, action: UiAction) {
-//         self.actions.push(action)
-//     }
-// }
