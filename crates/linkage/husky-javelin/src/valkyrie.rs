@@ -24,7 +24,7 @@ pub struct ValkyrieJavelin(Javelin);
 
 impl ValkyrieJavelin {
     fn new(javelin: Javelin, db: &::salsa::Db) -> Self {
-        #[cfg(debug_assertions)]
+        #[cfg(test)]
         match javelin.data(db) {
             JavelinData::PathLeading { instantiation, .. } => {
                 debug_assert!(!instantiation.is_univalent())

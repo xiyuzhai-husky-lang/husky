@@ -38,7 +38,13 @@ where
     ) {
         self.trace_client.update();
         self.render(ui, settings);
-        for action in self.action_buffer.take_actions() {
+        let actions = self.action_buffer.take_actions();
+        if actions.len() > 1 {
+            use husky_print_utils::p;
+            p!(actions);
+            todo!()
+        }
+        for action in actions {
             match self.trace_client.take_view_action(action) {
                 Ok(_) => (),
                 Err(e) => println!("e = {e} while take action"),

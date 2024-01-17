@@ -11,7 +11,7 @@ egui.workspace = true
 egui_dock.workspace = true
 tokio.workspace = true
 # abstractions
-ui = { path = "../../abstractions/ui", features = ["egui"] }
+ui = { path = "../../abstractions/ui" }
 enum-index = { path = "../../abstractions/enum-index" }
 # gui
 husky-gui = { path = "../../gui/husky-gui" }

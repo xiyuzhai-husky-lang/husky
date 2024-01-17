@@ -10,6 +10,7 @@ use husky_task_interface::{
     val_repr::{ValArgumentReprInterface, ValReprInterface},
     DevEvalContext, IsLinkageImpl,
 };
+use smallvec::smallvec;
 
 pub trait IsFnLinkageImplSource<LinkageImpl: IsLinkageImpl, FnPointer> {
     type FnOutput;
@@ -240,12 +241,30 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
             ) -> ValControlFlow<Self::FnOutput> {
                 debug_assert_eq!(arguments.len(), 2);
                 let ValArgumentReprInterface::Ordinary(target) = arguments[0] else {
-                    unreachable!()
+                    unreachable!("expect ordinary argument")
                 };
                 let ValArgumentReprInterface::RuntimeConstants(
                     ref runtime_constants
                 ) = arguments[1] else {
-                    unreachable!()
+                    println!("arguments as *const _ = {:#?}", arguments as *const _);
+                    println!("arguments.len() = {:#?}", arguments.len());
+                    println!(
+                        "std::mem::discriminant(&ValArgumentReprInterface::RuntimeConstants(smallvec![])) = {:?}",
+                        std::mem::discriminant(&ValArgumentReprInterface::RuntimeConstants(smallvec![]))
+                    );
+                    println!(
+                        "std::mem::discriminant(&arguments[1]) = {:?}",
+                        std::mem::discriminant(&arguments[1])
+                    );
+                    todo!();
+                    match arguments[1] {
+                        ValArgumentReprInterface::Ordinary(_) => todo!(),
+                        ValArgumentReprInterface::Keyed(_) => todo!(),
+                        ValArgumentReprInterface::Variadic(_) => todo!(),
+                        ValArgumentReprInterface::Branch { .. } => todo!(),
+                        ValArgumentReprInterface::RuntimeConstants(_) => todo!(),
+                    }
+                    unreachable!("expect runtime constants, but got {:?} instead", arguments[1])
                 };
                 let value_stands = &mut ValueStands::default();
                 let mut runtime_constants = runtime_constants.iter();

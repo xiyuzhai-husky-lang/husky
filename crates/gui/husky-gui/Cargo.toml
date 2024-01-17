@@ -8,5 +8,5 @@ edition = "2021"
 egui.workspace = true
 eframe.workspace = true
 # abstractions
-ui = { path = "../../abstractions/ui", features = ["egui"] }
+ui = { path = "../../abstractions/ui" }
 notify-change = { path = "../../abstractions/notify-change" }
