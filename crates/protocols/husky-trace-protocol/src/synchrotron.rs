@@ -1,25 +1,31 @@
 pub(crate) mod action;
+pub mod bundle;
 mod entry;
 
 pub use self::action::TraceSynchrotronAction;
 use self::action::TraceSynchrotronActionsDiff;
 pub use self::entry::TraceSynchrotronEntry;
 
+use self::bundle::TraceIdBundle;
 use crate::{view::TraceViewData, *};
 use husky_value_protocol::presentation::synchrotron::{
     ValuePresentationSynchrotron, ValuePresentationSynchrotronStatus,
 };
 use husky_visual_protocol::synchrotron::{VisualSynchrotron, VisualSynchrotronStatus};
+use rustc_hash::FxHashMap;
+use std::path::{Path, PathBuf};
 use vec_like::VecPairMap;
 
 /// contains information about traces that are synced across server and client
+#[serde_with::serde_as]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceSynchrotron<TraceProtocol: IsTraceProtocol> {
     pedestal: TraceProtocol::Pedestal,
     accompanying_trace_ids: AccompanyingTraceIds,
-    root_trace_ids: Vec<TraceId>,
+    trace_id_bundles: Vec<TraceIdBundle>,
     focused_trace_id: Option<TraceId>,
-    entries: VecPairMap<TraceId, TraceSynchrotronEntry<TraceProtocol>>,
+    #[serde_as(as = "Vec<(_, _)>")]
+    entries: FxHashMap<TraceId, TraceSynchrotronEntry<TraceProtocol>>,
     actions: Vec<TraceSynchrotronAction<TraceProtocol>>,
     // child synchrotrons
     value_presentation_synchrotron: ValuePresentationSynchrotron,
@@ -35,19 +41,33 @@ pub struct TraceSynchrotronStatus {
 
 /// methods
 impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
-    pub fn new(root_traces: impl Iterator<Item = (TraceId, TraceViewData)>) -> Self {
-        let mut root_trace_ids: Vec<TraceId> = vec![];
-        let mut entries: VecPairMap<TraceId, TraceSynchrotronEntry<TraceProtocol>> =
+    pub(crate) fn new<Trace: IsTrace>(
+        trace_bundles: &[TraceBundle<Trace>],
+        trace_view_data: impl Fn(Trace) -> TraceViewData,
+    ) -> Self {
+        let mut entries: FxHashMap<TraceId, TraceSynchrotronEntry<TraceProtocol>> =
             Default::default();
-        for (root_trace_id, view_data) in root_traces {
-            root_trace_ids.push(root_trace_id);
-            entries
-                .insert_new((root_trace_id, TraceSynchrotronEntry::new(view_data)))
-                .unwrap()
+        let mut trace_id_bundles: Vec<TraceIdBundle> = vec![];
+        for trace_bundle in trace_bundles {
+            let mut root_trace_ids: Vec<TraceId> = vec![];
+            for &root_trace in trace_bundle.root_traces() {
+                let root_trace_id = root_trace.into();
+                root_trace_ids.push(root_trace_id);
+                assert!(entries
+                    .insert(
+                        root_trace_id,
+                        TraceSynchrotronEntry::new(trace_view_data(root_trace))
+                    )
+                    .is_none())
+            }
+            trace_id_bundles.push(TraceIdBundle::new(
+                trace_bundle.crate_root_module_file_abs_path().to_owned(),
+                root_trace_ids,
+            ))
         }
         Self {
             pedestal: Default::default(),
-            root_trace_ids,
+            trace_id_bundles,
             entries,
             actions: vec![],
             value_presentation_synchrotron: Default::default(),
@@ -57,8 +77,8 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         }
     }
 
-    pub fn root_trace_ids(&self) -> &[TraceId] {
-        self.root_trace_ids.as_ref()
+    pub fn trace_id_bundles(&self) -> &[TraceIdBundle] {
+        &self.trace_id_bundles
     }
 
     pub(crate) fn status(&self) -> TraceSynchrotronStatus {
@@ -92,13 +112,15 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     }
 
     pub(crate) fn is_trace_cached(&self, trace_id: TraceId) -> bool {
-        self.entries.has(trace_id)
+        self.entries.contains_key(&trace_id)
     }
 
     pub(crate) fn trace_listing(&self) -> Vec<TraceId> {
         let mut trace_listings: Vec<TraceId> = vec![];
-        for &root_trace_id in &self.root_trace_ids {
-            self.trace_listing_aux(root_trace_id, &mut trace_listings)
+        for trace_bundle in self.trace_id_bundles() {
+            for &root_trace_id in trace_bundle.root_trace_ids() {
+                self.trace_listing_aux(root_trace_id, &mut trace_listings)
+            }
         }
         trace_listings
     }
@@ -143,7 +165,7 @@ impl<TraceProtocol: IsTraceProtocol> std::ops::Index<TraceId> for TraceSynchrotr
     type Output = TraceSynchrotronEntry<TraceProtocol>;
 
     fn index(&self, id: TraceId) -> &Self::Output {
-        &self.entries[id].1
+        &self.entries[&id]
     }
 }
 
@@ -152,6 +174,6 @@ impl<TraceProtocol: IsTraceProtocol> std::ops::IndexMut<TraceId>
 {
     #[track_caller]
     fn index_mut(&mut self, id: TraceId) -> &mut Self::Output {
-        &mut self.entries.get_mut(id).unwrap().1
+        self.entries.get_mut(&id).unwrap()
     }
 }

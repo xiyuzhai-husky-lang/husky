@@ -33,10 +33,16 @@ use husky_entity_kind::FugitiveKind;
 use husky_entity_path::MajorItemPath;
 use husky_entity_path::{FugitivePath, ItemPath};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
+use husky_manifest::HasPackageManifest;
 use husky_sema_expr::SemaExprIdx;
-use husky_trace_protocol::{id::TraceKind, protocol::IsTrace, view::TraceViewData};
+use husky_trace_protocol::{
+    id::TraceKind,
+    protocol::{IsTrace, TraceBundle},
+    view::TraceViewData,
+};
 use husky_val_repr::expansion::ValReprExpansion;
 use husky_val_repr::repr::ValRepr;
+use salsa::DebugWithDb;
 use vec_like::VecPairMap;
 
 #[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new_inner)]
@@ -302,11 +308,38 @@ impl TraceData {
 impl IsTrace for Trace {}
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
-pub(crate) fn root_traces(db: &::salsa::Db, crate_path: CratePath) -> Vec<Trace> {
+fn root_traces(db: &::salsa::Db, crate_path: CratePath) -> Vec<Trace> {
     let root_module_path = crate_path.root_module_path(db);
     module_item_paths(db, root_module_path)
         .iter()
         .filter_map(|&item_path| Trace::from_item_path(item_path, db))
+        .collect()
+}
+
+/// the order is to put parent first
+#[salsa::tracked(jar = TraceJar, return_ref)]
+pub fn trace_bundles(db: &::salsa::Db, target_path: CratePath) -> Vec<TraceBundle<Trace>> {
+    use husky_manifest::has_manifest::HasPackageManifest;
+    target_path
+        .package_path(db)
+        .full_dependencies(db)
+        .unwrap()
+        .iter()
+        .rev()
+        .filter_map(|package_path| {
+            let crate_path = package_path
+                .lib_crate_path(db)
+                .or(package_path.main_crate_path(db))
+                .unwrap();
+            let root_traces = root_traces(db, crate_path);
+            if root_traces.is_empty() {
+                return None;
+            }
+            Some(TraceBundle::new(
+                crate_path.root_module_path(db).abs_path(db).unwrap(),
+                root_traces.clone(),
+            ))
+        })
         .collect()
 }
 

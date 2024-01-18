@@ -13,7 +13,9 @@ use husky_task::{
 };
 use husky_trace::{db::TraceDb, trace::Trace};
 use husky_trace_protocol::{
-    id::AccompanyingTraceIds, protocol::IsTraceProtocol, stalk::TraceStalk,
+    id::AccompanyingTraceIds,
+    protocol::{IsTraceProtocol, TraceBundle},
+    stalk::TraceStalk,
 };
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
@@ -67,10 +69,10 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
 
     type SerdeImpl = serde_impl::json::SerdeJson;
 
-    fn get_root_traces(&self) -> &[Self::Trace] {
+    fn get_trace_bundles(&self) -> &[TraceBundle<Self::Trace>] {
         match self.target() {
             DevComptimeTarget::None => &[],
-            DevComptimeTarget::SingleCrate(crate_path) => self.db().root_traces(crate_path),
+            DevComptimeTarget::SingleCrate(crate_path) => self.db().trace_bundles(crate_path),
         }
     }
 

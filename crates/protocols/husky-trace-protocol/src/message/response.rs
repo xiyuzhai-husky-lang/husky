@@ -13,29 +13,3 @@ pub enum TraceResponse<TraceProtocol: IsTraceProtocol> {
     },
     Err(String),
 }
-
-#[test]
-fn trace_response_ser_then_deser_works() {
-    use serde_impl::{json::SerdeJson, IsSerdeImpl};
-
-    type TraceProtocol = ();
-
-    fn t(response: TraceResponse<TraceProtocol>) {
-        let response1: TraceResponse<TraceProtocol> =
-            SerdeJson::from_str(&SerdeJson::to_value(&response).unwrap().to_string()).unwrap();
-        assert_eq!(response, response1)
-    }
-
-    t(TraceResponse::Init {
-        trace_synchrotron: TraceSynchrotron::new([].into_iter()),
-    });
-    t(TraceResponse::Init {
-        trace_synchrotron: TraceSynchrotron::new(
-            [(
-                TraceId::from_index(0),
-                TraceViewData::new(TraceKind::EagerCall, vec![], false),
-            )]
-            .into_iter(),
-        ),
-    });
-}

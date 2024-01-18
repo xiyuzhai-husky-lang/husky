@@ -78,8 +78,10 @@ where
                 trace_id,
                 associated_trace_id,
             } => {
-                synchrotron.entries[trace_id]
-                    .1
+                synchrotron
+                    .entries
+                    .get_mut(&trace_id)
+                    .unwrap()
                     .toggle_associated_traces(associated_trace_id);
             }
             TraceSynchrotronAction::ToggleAssociatedTrace {
@@ -159,13 +161,13 @@ where
     type Outcome = ();
 
     fn act(&self, center: &mut TraceSynchrotron<TraceProtocol>) -> Self::Outcome {
-        center
+        assert!(center
             .entries
-            .insert_new((
+            .insert(
                 self.trace_id,
                 TraceSynchrotronEntry::new(self.view_data.clone()),
-            ))
-            .unwrap()
+            )
+            .is_none())
     }
 }
 
