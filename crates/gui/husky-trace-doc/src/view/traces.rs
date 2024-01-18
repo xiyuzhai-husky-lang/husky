@@ -351,7 +351,11 @@ where
             ValuePresentation::Struct => todo!(),
             ValuePresentation::AdHoc(s) => {
                 // ad hoc
-                ui.label(s);
+                if s.len() > 30 {
+                    ui.label(format!("{}...", &s[..30]));
+                } else {
+                    ui.label(s);
+                }
             }
         }
     }
