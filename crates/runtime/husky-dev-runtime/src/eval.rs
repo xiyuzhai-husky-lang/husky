@@ -259,11 +259,10 @@ fn val_repr_eval_works() {
     use husky_ml_task::MlTask;
     use husky_ml_task_interface::InputId;
     use husky_path_utils::dev_paths::*;
-    use husky_visual_protocol::trivial::TrivialVisualProtocol;
 
     let dev_paths = HuskyLangDevPaths::new();
     let runtime = DevRuntime::new(
-        MlTask::<TrivialVisualProtocol>::new(),
+        MlTask::<()>::new(),
         dev_paths.dev_root().join("examples/mnist-classifier"),
         None,
     )

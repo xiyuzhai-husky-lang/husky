@@ -19,8 +19,8 @@ pub struct TraceSynchrotron<TraceProtocol: IsTraceProtocol> {
     root_trace_ids: Vec<TraceId>,
     focused_trace_id: Option<TraceId>,
     entries: VecPairMap<TraceId, TraceSynchrotronEntry<TraceProtocol>>,
-    visual_components: Vec<<TraceProtocol::VisualProtocol as IsVisualProtocol>::VisualComponent>,
     actions: Vec<TraceSynchrotronAction<TraceProtocol>>,
+    // child synchrotrons
     value_presentation_synchrotron: ValuePresentationSynchrotron,
     visual_synchrotron: VisualSynchrotron,
 }
@@ -49,7 +49,6 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
             pedestal: Default::default(),
             root_trace_ids,
             entries,
-            visual_components: vec![],
             actions: vec![],
             value_presentation_synchrotron: Default::default(),
             visual_synchrotron: Default::default(),

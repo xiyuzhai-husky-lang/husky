@@ -9,20 +9,20 @@ use husky_task::{
     IsTask,
 };
 use husky_trace_protocol::protocol::IsTraceProtocol;
-use husky_visual_protocol::IsVisualProtocol;
+use husky_visual_protocol::IsFigure;
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
 pub struct MlTask<VisualProtocol>
 where
-    VisualProtocol: IsVisualProtocol,
+    VisualProtocol: IsFigure,
 {
     _marker: PhantomData<VisualProtocol>,
 }
 
 impl<VisualProtocol> MlTask<VisualProtocol>
 where
-    VisualProtocol: IsVisualProtocol,
+    VisualProtocol: IsFigure,
 {
     pub fn new() -> Self {
         Self {
@@ -33,20 +33,20 @@ where
 
 impl<VisualProtocol> IsTask for MlTask<VisualProtocol>
 where
-    VisualProtocol: IsVisualProtocol + Send,
+    VisualProtocol: IsFigure + Send,
 {
     type DevAscension = MlDevAscension<VisualProtocol>;
 }
 
 pub struct MlDevAscension<VisualProtocol>(PhantomData<VisualProtocol>)
 where
-    VisualProtocol: IsVisualProtocol;
+    VisualProtocol: IsFigure;
 
 type LinkageImpl = husky_linkage_impl::standard::LinkageImpl<MlPedestal>;
 
 impl<VisualProtocol> IsDevAscension for MlDevAscension<VisualProtocol>
 where
-    VisualProtocol: IsVisualProtocol,
+    VisualProtocol: IsFigure,
 {
     type Pedestal = MlPedestal;
 
@@ -66,12 +66,13 @@ where
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, PartialEq, Eq, Clone)]
-pub struct MlTraceProtocol<VisualProtocol>(VisualProtocol);
+pub struct MlTraceProtocol<Figure>(PhantomData<Figure>);
 
-impl<VisualProtocol> IsTraceProtocol for MlTraceProtocol<VisualProtocol>
+impl<Figure> IsTraceProtocol for MlTraceProtocol<Figure>
 where
-    VisualProtocol: IsVisualProtocol,
+    Figure: IsFigure,
 {
     type Pedestal = MlPedestal;
-    type VisualProtocol = VisualProtocol;
+
+    type Figure = Figure;
 }
