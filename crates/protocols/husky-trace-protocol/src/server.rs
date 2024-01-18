@@ -199,8 +199,8 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         if !self.trace_synchrotron()[trace_id].has_stalk(pedestal) {
             let trace_synchrotron = self.trace_synchrotron.as_mut().unwrap();
             let stalk = self.tracetime.get_trace_stalk(
-                pedestal,
                 trace_id.into(),
+                pedestal,
                 &mut self.value_presenter_cache,
                 trace_synchrotron.value_presentation_synchrotron_mut(),
             );
@@ -222,6 +222,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                 entry.has_figure(pedestal, accompanying_trace_ids);
             if !has_figure {
                 let figure = self.tracetime.get_figure(
+                    followed_trace_id.into(),
                     pedestal,
                     &accompanying_trace_ids,
                     trace_synchrotron.visual_synchrotron_mut(),
@@ -258,14 +259,15 @@ pub trait IsTracetime: Send + 'static + Sized {
 
     fn get_trace_stalk(
         &self,
-        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         trace: Self::Trace,
+        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> TraceStalk;
 
     fn get_figure(
         &self,
+        trace: Self::Trace,
         pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         accompanying_trace_ids: &AccompanyingTraceIds,
         visual_synchrotron: &mut VisualSynchrotron,

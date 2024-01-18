@@ -9,7 +9,8 @@ pub mod mock;
 ///
 /// for example TraceSynchrotron
 pub trait IsFigure:
-    std::fmt::Debug
+    Default
+    + std::fmt::Debug
     + Default
     + PartialEq
     + Eq
