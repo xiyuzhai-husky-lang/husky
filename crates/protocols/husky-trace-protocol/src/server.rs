@@ -11,6 +11,7 @@ use crate::{
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
+use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use husky_websocket_utils::easy_server::IsEasyWebsocketServer;
 
 pub struct TraceServer<Tracetime: IsTracetime> {
@@ -216,12 +217,21 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         if let Some(followed_trace_id) = trace_synchrotron.followed_trace_id() {
             let pedestal = trace_synchrotron.pedestal();
             let accompanying_trace_ids = trace_synchrotron.accompanying_trace_ids().clone();
-            let entry = &mut trace_synchrotron[followed_trace_id];
+            let entry = &trace_synchrotron[followed_trace_id];
             let (has_figure, accompanying_trace_ids) =
                 entry.has_figure(pedestal, accompanying_trace_ids);
             if !has_figure {
-                let figure = self.tracetime.get_figure(pedestal, &accompanying_trace_ids);
-                entry.cache_figure(pedestal, accompanying_trace_ids, figure)
+                let figure = self.tracetime.get_figure(
+                    pedestal,
+                    &accompanying_trace_ids,
+                    trace_synchrotron.visual_synchrotron_mut(),
+                );
+                trace_synchrotron.take_action(TraceSynchrotronAction::CacheFigure {
+                    pedestal,
+                    followed_trace_id,
+                    accompanying_trace_ids,
+                    figure,
+                })
             }
         }
     }
@@ -258,5 +268,6 @@ pub trait IsTracetime: Send + 'static + Sized {
         &self,
         pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         accompanying_trace_ids: &AccompanyingTraceIds,
+        visual_synchrotron: &mut VisualSynchrotron,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
 }
