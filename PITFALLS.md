@@ -42,3 +42,7 @@ https://marketplace.visualstudio.com/manage/publishers/husky-lang
 ## debug_with_db not working
 
 check that the db trait extends the other db trait
+
+## introduce a dependency and things break down
+
+may be the feature flags the dependency introduces into other dependencies. Say smallvec/union for instance.
