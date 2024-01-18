@@ -84,8 +84,8 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
 
     fn get_trace_stalk(
         &self,
-        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         trace: Self::Trace,
+        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> husky_trace_protocol::stalk::TraceStalk {
@@ -104,11 +104,23 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
 
     fn get_figure(
         &self,
+        trace: Self::Trace,
         pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         accompanying_trace_ids: &AccompanyingTraceIds,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
-        todo!()
+        let db = self.runtime.db();
+        if let Some(val_repr) = trace.val_repr(db) {
+            // TraceStalk::Val(
+            //     self.runtime
+            //         .eval_val_repr_at_pedestal(val_repr, pedestal)
+            //         .present(value_presenter_cache, value_presentation_synchrotron),
+            // )
+            todo!()
+        } else {
+            // ad hoc
+            Default::default()
+        }
     }
 }
 
