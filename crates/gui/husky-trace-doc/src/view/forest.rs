@@ -9,22 +9,27 @@ where
 {
     pub(super) fn render_forest(&mut self, ui: &mut egui::Ui) {
         ui.vertical(|ui| {
-            self.render_bundles(self.trace_synchrotron.trace_id_bundles(), ui);
+            self.render_bundles(ui);
             ui.allocate_space(ui.available_size())
         });
     }
 
-    fn render_bundles(&mut self, trace_bundles: &[TraceIdBundle], ui: &mut egui::Ui) {
-        for trace_bundle in trace_bundles.iter() {
+    fn render_bundles(&mut self, ui: &mut egui::Ui) {
+        for trace_bundle in self.trace_synchrotron.trace_id_bundles() {
             self.render_bundle(trace_bundle, ui);
         }
     }
 
     fn render_bundle(&mut self, trace_bundle: &TraceIdBundle, ui: &mut egui::Ui) {
-        ui.label(format!(
-            "{:?}",
-            trace_bundle.crate_root_module_file_abs_path()
-        ));
+        ui.horizontal(|ui| {
+            ui.label(
+                RichText::new(format!(
+                    "{}",
+                    trace_bundle.crate_root_module_file_abs_path().display()
+                ))
+                .color(Color32::GREEN),
+            );
+        });
         ui.separator();
         self.render_traces(trace_bundle.root_trace_ids(), ui);
     }

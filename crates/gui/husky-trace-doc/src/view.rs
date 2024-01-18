@@ -1,7 +1,7 @@
 mod devtools;
 mod figure;
+mod forest;
 mod pedestal;
-mod traces;
 
 use crate::*;
 use egui::{
