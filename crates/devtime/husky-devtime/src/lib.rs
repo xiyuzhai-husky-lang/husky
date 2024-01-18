@@ -2,6 +2,7 @@
 mod state;
 
 pub use husky_trace_protocol::server::IsTracetime;
+use husky_visual_protocol::synchrotron::VisualSynchrotron;
 
 use self::state::*;
 use husky_dev_comptime::DevComptimeTarget;
@@ -105,6 +106,7 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
         &self,
         pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         accompanying_trace_ids: &AccompanyingTraceIds,
+        visual_synchrotron: &mut VisualSynchrotron,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         todo!()
     }

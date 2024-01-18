@@ -14,13 +14,19 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
         trace_id: TraceId,
         associated_trace_id: TraceId,
     },
+    FollowTrace {
+        trace_id: TraceId,
+    },
     CacheStalk {
-        pedestal: <TraceProtocol as IsTraceProtocol>::Pedestal,
+        pedestal: TraceProtocol::Pedestal,
         trace_id: TraceId,
         stalk: TraceStalk,
     },
-    FollowTrace {
-        trace_id: TraceId,
+    CacheFigure {
+        pedestal: TraceProtocol::Pedestal,
+        followed_trace_id: TraceId,
+        accompanying_trace_ids: AccompanyingTraceIds,
+        figure: TraceProtocol::Figure,
     },
 }
 
@@ -80,6 +86,9 @@ where
                 trace_id,
                 associated_trace_id,
             } => todo!(),
+            &TraceSynchrotronAction::FollowTrace { trace_id } => {
+                synchrotron.focused_trace_id = Some(trace_id)
+            }
             &TraceSynchrotronAction::CacheStalk {
                 pedestal,
                 trace_id,
@@ -88,13 +97,14 @@ where
                 let trace_entry = &mut synchrotron[trace_id];
                 trace_entry.cache_stalk(pedestal, stalk.clone())
             }
-            TraceSynchrotronAction::CacheStalk {
+            &TraceSynchrotronAction::CacheFigure {
                 pedestal,
-                trace_id,
-                stalk,
-            } => todo!(),
-            &TraceSynchrotronAction::FollowTrace { trace_id } => {
-                synchrotron.focused_trace_id = Some(trace_id)
+                followed_trace_id,
+                ref accompanying_trace_ids,
+                ref figure,
+            } => {
+                let trace_entry = &mut synchrotron[followed_trace_id];
+                trace_entry.cache_figure(pedestal, accompanying_trace_ids.clone(), figure.clone())
             }
         }
     }

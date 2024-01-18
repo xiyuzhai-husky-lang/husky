@@ -133,6 +133,10 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     pub(crate) fn accompanying_trace_ids(&self) -> &AccompanyingTraceIds {
         &self.accompanying_trace_ids
     }
+
+    pub(crate) fn visual_synchrotron_mut(&mut self) -> &mut VisualSynchrotron {
+        &mut self.visual_synchrotron
+    }
 }
 
 impl<TraceProtocol: IsTraceProtocol> std::ops::Index<TraceId> for TraceSynchrotron<TraceProtocol> {
