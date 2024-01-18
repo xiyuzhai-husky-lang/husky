@@ -16,6 +16,7 @@ use vec_like::VecPairMap;
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceSynchrotron<TraceProtocol: IsTraceProtocol> {
     pedestal: TraceProtocol::Pedestal,
+    accompanying_trace_ids: AccompanyingTraceIds,
     root_trace_ids: Vec<TraceId>,
     focused_trace_id: Option<TraceId>,
     entries: VecPairMap<TraceId, TraceSynchrotronEntry<TraceProtocol>>,
@@ -45,13 +46,14 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
                 .unwrap()
         }
         Self {
-            focused_trace_id: None,
             pedestal: Default::default(),
             root_trace_ids,
             entries,
             actions: vec![],
             value_presentation_synchrotron: Default::default(),
             visual_synchrotron: Default::default(),
+            focused_trace_id: None,
+            accompanying_trace_ids: Default::default(),
         }
     }
 
@@ -114,7 +116,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         }
     }
 
-    pub fn pedestal(&self) -> <TraceProtocol as IsTraceProtocol>::Pedestal {
+    pub fn pedestal(&self) -> TraceProtocol::Pedestal {
         self.pedestal
     }
 
@@ -126,6 +128,10 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
 
     pub fn followed_trace_id(&self) -> Option<TraceId> {
         self.focused_trace_id
+    }
+
+    pub(crate) fn accompanying_trace_ids(&self) -> &AccompanyingTraceIds {
+        &self.accompanying_trace_ids
     }
 }
 

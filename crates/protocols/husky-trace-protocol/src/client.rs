@@ -165,6 +165,14 @@ where
                 associated_trace_id,
             } => todo!(),
             &TraceViewAction::FollowTrace { trace_id } => {
+                let trace_synchrotron = self.trace_synchrotron();
+                let accompanying_trace_ids = trace_synchrotron.accompanying_trace_ids().clone();
+                let pedestal = trace_synchrotron.pedestal();
+                let (has_figure, accompanying_trace_ids) =
+                    trace_synchrotron[trace_id].has_figure(pedestal, accompanying_trace_ids);
+                if !has_figure {
+                    return None;
+                }
                 Some(TraceSynchrotronAction::FollowTrace { trace_id })
             }
         }
