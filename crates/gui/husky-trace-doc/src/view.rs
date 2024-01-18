@@ -1,11 +1,12 @@
+mod devtools;
 mod figure;
 mod forest;
 mod pedestal;
 
 use crate::*;
 use egui::{
-    Align, Button, Color32, FontFamily, InnerResponse, Label, LayerId, Layout, Margin, RichText,
-    Sense, TextStyle, Vec2, Widget,
+    vec2, Align, Button, Color32, FontFamily, InnerResponse, Label, LayerId, Layout, Margin,
+    RichText, Sense, TextStyle, Vec2, Widget,
 };
 use husky_task_interface::val_control_flow::ValControlFlow;
 use husky_trace_protocol::{
@@ -55,6 +56,31 @@ where
     {
         self.action_buffer.push(action)
     }
+
+    fn render_central_region(&mut self, ui: &mut egui::Ui) {
+        ui.with_layout(Layout::top_down(Align::Min), |ui| {
+            let desired_size = Vec2::new(ui.available_width() / 2.0, ui.available_height());
+            ui.horizontal(|ui| {
+                ui.allocate_ui(desired_size, |ui| {
+                    self.render_forest(ui);
+                    // ui.allocate_space(ui.available_size());
+                });
+                ui.separator();
+                self.render_central_right_region(ui);
+            })
+        });
+    }
+
+    fn render_central_right_region(&mut self, ui: &mut egui::Ui) {
+        ui.vertical(|ui| {
+            ui.allocate_ui(
+                Vec2::new(ui.available_width(), ui.available_height() * 0.7),
+                |ui| self.render_figure(ui),
+            );
+            ui.separator();
+            self.render_devtools(ui);
+        });
+    }
 }
 
 impl<'a, TraceProtocol, Settings> egui::Widget for TraceDocView<'a, TraceProtocol, Settings>
@@ -63,18 +89,11 @@ where
     Settings: HasTraceViewDocSettings,
 {
     fn ui(mut self, ui: &mut egui::Ui) -> egui::Response {
+        ui.style_mut().spacing.item_spacing = vec2(0.0, 0.0);
         ui.with_layout(Layout::bottom_up(Align::Min), |ui| {
             self.render_pedestal(ui);
-            ui.with_layout(Layout::top_down(Align::Min), |ui| {
-                let desired_size = Vec2::new(ui.available_width() / 2.0, ui.available_height());
-                ui.horizontal(|ui| {
-                    ui.allocate_ui(desired_size, |ui| {
-                        self.render_forest(ui);
-                        ui.allocate_space(ui.available_size());
-                    });
-                    self.render_figure(ui);
-                })
-            })
+            ui.separator();
+            self.render_central_region(ui)
         })
         .response
     }

@@ -7,18 +7,8 @@ where
 {
     pub(super) fn render_forest(&mut self, ui: &mut egui::Ui) {
         ui.vertical(|ui| {
-            // for debug
-            ui.label(format!(
-                r#"[DEBUG] self.trace_synchrotron.focused_trace_id() = {:?}
-[DEBUG] input.pointer.interact_pos() = {:?}
-[DEBUG] ui.available_size() = {:?}"#,
-                self.trace_synchrotron.followed_trace_id(),
-                ui.input(|input| input.pointer.interact_pos()),
-                ui.available_size()
-            ));
-            // egui::Id::new(source);
-            self.render_traces(self.trace_synchrotron.root_trace_ids(), ui)
-                .response
+            self.render_traces(self.trace_synchrotron.root_trace_ids(), ui);
+            ui.allocate_space(ui.available_size())
         });
     }
 

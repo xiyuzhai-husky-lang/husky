@@ -62,8 +62,6 @@ where
     where
         Settings: HasTraceViewDocSettings,
     {
-        ui.end_row();
-        // ui.label(text)
         let trace_client = &self.trace_client;
         if let Some(e) = trace_client.connection_error() {
             ui.label(RichText::new(e.to_string()).color(Color32::RED));
