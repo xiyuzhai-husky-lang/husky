@@ -67,22 +67,18 @@ where
         )
         .with(tracing_subscriber::fmt::layer())
         .init();
-    // commented for now
-    todo!()
-    // let router = Router::new()
-    //     .route("/ws", get(websocket_handler))
-    //     .with_state(slf)
-    //     .layer(
-    //         TraceLayer::new_for_http()
-    //             .make_span_with(DefaultMakeSpan::default().include_headers(true)),
-    //     );
-    // let addr = addr.into();
-    // tracing::debug!("listening on {}", addr);
-    // println!("listening on {}", addr);
-    // axum::Server::bind(&addr)
-    //     .serve(router.into_make_service_with_connect_info::<SocketAddr>())
-    //     .await
-    //     .unwrap();
+    let router = Router::new()
+        .route("/ws", get(websocket_handler))
+        .with_state(slf)
+        .layer(
+            TraceLayer::new_for_http()
+                .make_span_with(DefaultMakeSpan::default().include_headers(true)),
+        );
+    let addr = addr.into();
+    tracing::debug!("listening on {}", addr);
+    println!("listening on {}", addr);
+    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+    axum::serve(listener, router).await.unwrap();
 }
 
 async fn websocket_handler<S>(
