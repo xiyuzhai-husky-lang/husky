@@ -246,24 +246,6 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
                 let ValArgumentReprInterface::RuntimeConstants(
                     ref runtime_constants
                 ) = arguments[1] else {
-                    println!("arguments as *const _ = {:#?}", arguments as *const _);
-                    println!("arguments.len() = {:#?}", arguments.len());
-                    println!(
-                        "std::mem::discriminant(&ValArgumentReprInterface::RuntimeConstants(smallvec![])) = {:?}",
-                        std::mem::discriminant(&ValArgumentReprInterface::RuntimeConstants(smallvec![]))
-                    );
-                    println!(
-                        "std::mem::discriminant(&arguments[1]) = {:?}",
-                        std::mem::discriminant(&arguments[1])
-                    );
-                    todo!();
-                    match arguments[1] {
-                        ValArgumentReprInterface::Ordinary(_) => todo!(),
-                        ValArgumentReprInterface::Keyed(_) => todo!(),
-                        ValArgumentReprInterface::Variadic(_) => todo!(),
-                        ValArgumentReprInterface::Branch { .. } => todo!(),
-                        ValArgumentReprInterface::RuntimeConstants(_) => todo!(),
-                    }
                     unreachable!("expect runtime constants, but got {:?} instead", arguments[1])
                 };
                 let value_stands = &mut ValueStands::default();

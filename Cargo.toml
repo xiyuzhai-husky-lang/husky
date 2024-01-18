@@ -36,20 +36,20 @@ opt-level = 0
 lto = false
 
 [workspace.dependencies]
-cargo = "0.75.1"
-cargo-manifest = "0.12.1"
+cargo = "0.76.0"
+cargo-manifest = "0.13.0"
 atomic_enum = "0.2.0"
 itertools = "0.12.0"
-axum = { version = "0.6.20" }
+axum = { version = "0.7.4" }
 clap = { version = "4.4.6", features = ["derive"] }
 colored = "2.0.0"
 dashmap = "5.5.1"
 # change to 0.25.0 will break the compiler
 # maybe use a separate workspace for frontend?
-ecolor = { version = "0.23.0", features = ["serde", "bytemuck"] }
-eframe = "0.23.0"
-egui = "0.23.0"
-egui_dock = "0.8.0"
+ecolor = { version = "0.25.0", features = ["serde", "bytemuck"] }
+eframe = "0.25.0"
+egui = "0.25.0"
+egui_dock = "0.10.0"
 either = "1.8.1"
 flurry = "0.4.0"
 futures = "0.3.28"
@@ -72,18 +72,19 @@ quote = "1.0"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 serde_with = "3.4.0"
-smallvec = "1.10.0"
+# turn on "union" to guarantee the size of SmallVec is unaffected by dependencies
+smallvec = { version = "1.12",  features = ["union", "serde"] }
 syn = { version = "2.0.38", features = ["full", "extra-traits", "visit-mut"] }
 thiserror = "1.0.37"
 tokio = { version = "1.32.0", features = ["full"] }
 tokio-stream = { version = "0.1.9" }
-tokio-tungstenite = { version = "0.20" }
+tokio-tungstenite = { version = "0.21" }
 toml = "0.8.8"
 toml_edit = "0.21.0"
 tracing = "0.1"
 xxhash-rust = { version = "0.8.5" }
 tower = { version = "0.4", features = ["util"] }
-tower-http = { version = "0.4.0", features = ["fs", "trace"] }
+tower-http = { version = "0.5.1", features = ["fs", "trace"] }
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 rustc-hash = "1.1.0"
 # abstractions

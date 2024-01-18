@@ -7,7 +7,10 @@ pub use husky_standard_value::{
 
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
-use husky_task_interface::{val_repr::ValDomainReprInterface, DevEvalContext};
+use husky_task_interface::{
+    val_repr::{ValDomainReprInterface, ValRuntimeConstantInterface},
+    DevEvalContext,
+};
 use husky_value_protocol::presentation::EnumU8ValuePresenter;
 use smallvec::SmallVec;
 

@@ -1,5 +1,5 @@
 [package]
-edition = "2018"
+edition = "2021"
 name = "thin-vec"
 version = "0.2.5"
 authors = ["Aria Beingessner <a.beingessner@gmail.com>"]
