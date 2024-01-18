@@ -25,9 +25,7 @@ where
     trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
-    // cached values
     glyph_width: f32,
-    // trace_listing: Vec<TraceId>,
 }
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
