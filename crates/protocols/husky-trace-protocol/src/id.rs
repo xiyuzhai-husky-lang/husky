@@ -1,4 +1,5 @@
 use std::num::NonZeroU32;
+use vec_like::OrderedSmallVecSet;
 
 use crate::*;
 
@@ -6,6 +7,8 @@ use crate::*;
 pub struct TraceId {
     value: NonZeroU32,
 }
+
+pub type AccompanyingTraceIds = OrderedSmallVecSet<TraceId, 4>;
 
 impl TraceId {
     pub fn new(raw: NonZeroU32) -> Self {

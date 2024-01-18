@@ -220,6 +220,6 @@ where
     type Outcome = ();
 
     fn act(&self, center: &mut TraceSynchrotron<TraceProtocol>) -> Self::Outcome {
-        center[self.trace_id].set_subtraces(self.subtrace_ids.clone())
+        center[self.trace_id].cache_subtraces(self.subtrace_ids.clone())
     }
 }

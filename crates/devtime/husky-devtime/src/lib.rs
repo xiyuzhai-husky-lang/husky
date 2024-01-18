@@ -11,7 +11,9 @@ use husky_task::{
     IsTask,
 };
 use husky_trace::{db::TraceDb, trace::Trace};
-use husky_trace_protocol::{protocol::IsTraceProtocol, stalk::TraceStalk};
+use husky_trace_protocol::{
+    id::AccompanyingTraceIds, protocol::IsTraceProtocol, stalk::TraceStalk,
+};
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
@@ -97,6 +99,14 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
             // ad hoc
             TraceStalk::None
         }
+    }
+
+    fn get_figure(
+        &self,
+        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
+        accompanying_trace_ids: &AccompanyingTraceIds,
+    ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
+        todo!()
     }
 }
 

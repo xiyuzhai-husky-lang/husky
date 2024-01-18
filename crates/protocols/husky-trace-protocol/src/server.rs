@@ -212,7 +212,18 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     }
 
     fn cache_figure(&mut self) {
-        // todo!()
+        let trace_synchrotron = self.trace_synchrotron.as_mut().unwrap();
+        if let Some(followed_trace_id) = trace_synchrotron.followed_trace_id() {
+            let pedestal = trace_synchrotron.pedestal();
+            let accompanying_trace_ids = trace_synchrotron.accompanying_trace_ids().clone();
+            let entry = &mut trace_synchrotron[followed_trace_id];
+            let (has_figure, accompanying_trace_ids) =
+                entry.has_figure(pedestal, accompanying_trace_ids);
+            if !has_figure {
+                let figure = self.tracetime.get_figure(pedestal, &accompanying_trace_ids);
+                entry.cache_figure(pedestal, accompanying_trace_ids, figure)
+            }
+        }
     }
 }
 
@@ -242,4 +253,10 @@ pub trait IsTracetime: Send + 'static + Sized {
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> TraceStalk;
+
+    fn get_figure(
+        &self,
+        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
+        accompanying_trace_ids: &AccompanyingTraceIds,
+    ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
 }
