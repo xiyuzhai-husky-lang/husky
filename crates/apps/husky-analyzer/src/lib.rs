@@ -7,7 +7,6 @@ mod event_loop;
 mod handle;
 mod init_connection;
 mod lsp_ext;
-pub mod printer;
 mod server;
 mod server_capabilities;
 pub mod utils;

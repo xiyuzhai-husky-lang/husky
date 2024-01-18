@@ -10,6 +10,6 @@ doctest = false
 
 [dependencies]
 thiserror.workspace = true
-smallvec = { version = "1.10.0", features = ["serde"] }
+smallvec.workspace = true
 serde.workspace = true
 wild-utils = { path = "../../utils/husky-wild-utils" }

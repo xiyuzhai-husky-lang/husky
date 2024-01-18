@@ -8,5 +8,5 @@ version = "0.1.0"
 [dependencies]
 husky-core = { path = "../../library/core" }
 ad-hoc-task-dependency = { path = "../../registry/ad-hoc-task-dependency" }
-smallvec = "1.11.2"
+smallvec = { version = "1.12", features = ["union", "serde"] }
 serde = "1.0.106"
