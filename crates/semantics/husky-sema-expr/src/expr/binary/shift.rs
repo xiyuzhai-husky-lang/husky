@@ -17,10 +17,6 @@ impl<'a> SemaExprEngine<'a> {
         // todo: don't use resolved
         let (lopd_sema_expr_idx, lopd_ty) = self.build_sema_expr_with_ty(lopd, ExpectAnyOriginal);
         let Some(lopd_ty) = lopd_ty else {
-            // p!(self.path());
-            // p!(self.syn_expr_region_data[lopd].debug(self.db));
-            // p!(self.symbol_tys.debug(self.db));
-            todo!();
             match self.syn_expr_region_data()[lopd] {
                 SynExprData::CurrentSynSymbol {
                     ident,

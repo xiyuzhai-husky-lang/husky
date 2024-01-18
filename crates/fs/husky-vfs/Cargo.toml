@@ -19,7 +19,7 @@ indicatif = { version = "0.17.2", optional = true }
 relative-path = { version = "1.7.2", optional = true }
 serde.workspace = true
 serde_json.workspace = true
-lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
+lsp-types = { workspace = true, optional = true }
 # abstractions
 vec-like.workspace = true
 salsa.workspace = true
