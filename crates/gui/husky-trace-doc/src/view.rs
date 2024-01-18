@@ -67,20 +67,18 @@ where
     fn ui(mut self, ui: &mut egui::Ui) -> egui::Response {
         ui.with_layout(Layout::bottom_up(Align::Min), |ui| {
             self.render_pedestal(ui);
-            let desired_size = Vec2::new(ui.available_width() / 2.0, ui.available_height());
-            ui.allocate_ui_with_layout(desired_size, Layout::left_to_right(Align::Center), |ui| {
-                self.render_forest(ui);
-                self.render_figure(ui);
-            });
+            ui.with_layout(Layout::top_down(Align::Min), |ui| {
+                let desired_size = Vec2::new(ui.available_width() / 2.0, ui.available_height());
+                ui.horizontal(|ui| {
+                    ui.allocate_ui(desired_size, |ui| {
+                        self.render_forest(ui);
+                        ui.allocate_space(ui.available_size());
+                    });
+                    self.render_figure(ui);
+                })
+            })
         })
         .response
-        // let desired_size = Vec2::new(ui.available_width() / 2.0, ui.available_height());
-        // ui.allocate_ui_with_layout(desired_size, Layout::left_to_right(Align::Center), |ui| {
-        //     self.render_forest(ui);
-        //     self.render_figure(ui);
-        //     self.render_pedestal(ui);
-        // })
-        // .response
     }
 }
 
