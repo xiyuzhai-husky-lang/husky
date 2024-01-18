@@ -114,6 +114,11 @@ impl ModulePath {
         module_virtual_path(db, self).expect("guaranteed")
     }
 
+    #[inline(always)]
+    pub fn abs_path(self, db: &::salsa::Db) -> VfsResult<PathBuf> {
+        self.virtual_path(db).abs_path(db)
+    }
+
     pub fn ident(self, db: &::salsa::Db) -> Ident {
         match self.data(db) {
             ModulePathData::Root(crate_path) => crate_path.package_ident(db),

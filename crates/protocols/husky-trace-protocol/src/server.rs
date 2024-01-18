@@ -46,13 +46,10 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         if self.trace_synchrotron.is_some() {
             return;
         }
-        let traces = self.tracetime.get_root_traces();
-        self.trace_synchrotron = Some(TraceSynchrotron::new(traces.iter().map(|&trace| {
-            (
-                trace.into(),
-                self.tracetime.get_trace_view_data(trace).clone(),
-            )
-        })));
+        let trace_bundles = self.tracetime.get_trace_bundles();
+        self.trace_synchrotron = Some(TraceSynchrotron::new(trace_bundles, |trace| {
+            self.tracetime.get_trace_view_data(trace).clone()
+        }));
         self.cache_periphery()
     }
 
@@ -251,7 +248,7 @@ pub trait IsTracetime: Send + 'static + Sized {
         TraceServer::new(self).easy_serve(addr)
     }
 
-    fn get_root_traces(&self) -> &[Self::Trace];
+    fn get_trace_bundles(&self) -> &[TraceBundle<Self::Trace>];
 
     fn get_subtraces(&self, trace: Self::Trace) -> &[Self::Trace];
 

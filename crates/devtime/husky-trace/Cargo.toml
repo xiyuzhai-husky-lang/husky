@@ -45,6 +45,7 @@ husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
 husky-entity-syn-tree.workspace = true
 # semantics
+husky-manifest.workspace = true
 husky-sema-expr.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
@@ -71,7 +72,6 @@ husky-toml-token.workspace = true
 husky-javelin.workspace = true
 husky-linkage.workspace = true
 # semantics
-husky-manifest.workspace = true
 husky-corgi-config.workspace = true
 husky-sema-expr.workspace = true
 # syntax

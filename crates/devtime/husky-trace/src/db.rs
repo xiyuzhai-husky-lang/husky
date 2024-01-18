@@ -1,12 +1,14 @@
+use husky_trace_protocol::protocol::TraceBundle;
+
 use crate::*;
 
 pub trait TraceDb {
-    fn root_traces(&self, crate_path: CratePath) -> &[Trace];
+    fn trace_bundles(&self, crate_path: CratePath) -> &[TraceBundle<Trace>];
 }
 
 impl TraceDb for ::salsa::Db {
-    fn root_traces(&self, crate_path: CratePath) -> &[Trace] {
-        crate::trace::root_traces(self, crate_path).as_ref()
+    fn trace_bundles(&self, crate_path: CratePath) -> &[TraceBundle<Trace>] {
+        trace_bundles(self, crate_path)
     }
 }
 
@@ -21,4 +23,5 @@ pub struct TraceJar(
     crate::trace::submodule::submodule_contains_val_item,
     // helpers
     crate::trace::root_traces,
+    crate::trace::trace_bundles,
 );

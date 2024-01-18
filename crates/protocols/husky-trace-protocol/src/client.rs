@@ -78,10 +78,6 @@ where
         self.connection.try_send_request(request)
     }
 
-    pub fn root_trace_ids(&self) -> Option<&[TraceId]> {
-        Some(self.trace_synchrotron.as_ref()?.root_trace_ids())
-    }
-
     pub fn connection_error(&self) -> Option<&WebsocketClientConnectionError> {
         self.connection.error()
     }
