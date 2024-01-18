@@ -1,15 +1,16 @@
-#[cfg(feature = "mock")]
-pub mod mock;
-#[cfg(feature = "trivial")]
-pub mod trivial;
-
 use crate::*;
 
 pub trait IsTraceProtocol:
     Default + std::fmt::Debug + Clone + PartialEq + Eq + Send + 'static
 {
     type Pedestal: IsPedestal;
-    type VisualProtocol: IsVisualProtocol;
+    type Figure: IsFigure;
+}
+
+impl IsTraceProtocol for () {
+    type Pedestal = ();
+
+    type Figure = ();
 }
 
 pub trait IsPedestal:

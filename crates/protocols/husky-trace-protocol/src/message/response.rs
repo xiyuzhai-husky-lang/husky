@@ -1,8 +1,6 @@
 use self::action::TraceSynchrotronActionsDiff;
 use super::*;
-use crate::{
-    protocol::trivial::TrivialTraceProtocol, synchrotron::TraceSynchrotron, view::TraceViewData,
-};
+use crate::{synchrotron::TraceSynchrotron, view::TraceViewData};
 
 /// message sent from trace client to trace server
 #[derive(Debug, PartialEq, Eq, Serialize, Deserialize)]
@@ -20,7 +18,7 @@ pub enum TraceResponse<TraceProtocol: IsTraceProtocol> {
 fn trace_response_ser_then_deser_works() {
     use serde_impl::{json::SerdeJson, IsSerdeImpl};
 
-    type TraceProtocol = TrivialTraceProtocol;
+    type TraceProtocol = ();
 
     fn t(response: TraceResponse<TraceProtocol>) {
         let response1: TraceResponse<TraceProtocol> =

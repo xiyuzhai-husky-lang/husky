@@ -1,7 +1,7 @@
 use super::*;
 use rustc_hash::FxHashMap;
 use serde_with::serde_as;
-use vec_like::SmallVecSet;
+use vec_like::{OrderedSmallVecSet, SmallVecSet};
 
 #[serde_as]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -13,6 +13,7 @@ pub struct TraceSynchrotronEntry<TraceProtocol: IsTraceProtocol> {
     expanded: bool,
     #[serde_as(as = "Vec<(_, _)>")]
     stalks: FxHashMap<TraceProtocol::Pedestal, TraceStalk>,
+    figures: FxHashMap<OrderedSmallVecSet<TraceId, 4>, TraceProtocol::Figure>,
 }
 
 impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
@@ -23,6 +24,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
             associated_trace_ids_shown: Default::default(),
             expanded: false,
             stalks: Default::default(),
+            figures: Default::default(),
         }
     }
 

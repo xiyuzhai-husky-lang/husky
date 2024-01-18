@@ -1,7 +1,9 @@
 use crate::{error::InsertEntryRepeatError, *};
 use smallvec::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+/// always keep the elements in order,
+/// useful for keys
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Hash, Serialize, Deserialize)]
 pub struct OrderedSmallVecSet<K, const N: usize>
 where
     K: PartialEq + Eq + Ord + Copy,
