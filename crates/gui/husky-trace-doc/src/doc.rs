@@ -1,4 +1,4 @@
-use std::sync::Arc;
+use std::{path::PathBuf, sync::Arc};
 
 use crate::{view::TraceDocView, *};
 #[cfg(feature = "egui")]
@@ -19,6 +19,7 @@ where
     TraceProtocol: IsTraceProtocol,
     RepaintSignal: NotifyChange,
 {
+    current_dir: PathBuf,
     trace_client: TraceClient<TraceProtocol, RepaintSignal>,
     action_buffer: TraceViewActionBuffer<TraceProtocol>,
 }
@@ -67,7 +68,14 @@ where
             ui.label(RichText::new(e.to_string()).color(Color32::RED));
         }
         if let Some(trace_cache) = trace_client.opt_cache() {
-            TraceDocView::new(trace_cache, &mut self.action_buffer, ui, settings).render(ui);
+            TraceDocView::new(
+                &self.current_dir,
+                trace_cache,
+                &mut self.action_buffer,
+                ui,
+                settings,
+            )
+            .render(ui);
         } else {
             // todo: render connecting status
         }
@@ -80,6 +88,7 @@ impl<TraceProtocol: IsTraceProtocolFull> TraceDoc<TraceProtocol, EguiRepaintSign
         repaint_signal: EguiRepaintSignal,
     ) -> Self {
         Self {
+            current_dir: std::env::current_dir().unwrap(),
             trace_client: TraceClient::new_mock(tokio_runtime, repaint_signal),
             action_buffer: Default::default(),
         }

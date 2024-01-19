@@ -16,23 +16,43 @@ where
 
     fn render_bundles(&mut self, ui: &mut egui::Ui) {
         for trace_bundle in self.trace_synchrotron.trace_id_bundles() {
-            self.render_bundle(trace_bundle, ui);
-            ui.separator();
+            TopBottomPanel::top(ui.auto_id_with(trace_bundle.crate_root_module_file_abs_path()))
+                .frame(
+                    Frame::none()
+                        .fill(Color32::from_gray(102))
+                        .inner_margin(0.0),
+                )
+                .show_inside(ui, |ui| self.render_bundle(trace_bundle, ui));
         }
     }
 
     fn render_bundle(&mut self, trace_bundle: &TraceIdBundle, ui: &mut egui::Ui) {
-        ui.horizontal(|ui| {
-            ui.label(
-                RichText::new(format!(
-                    "{}",
-                    trace_bundle.crate_root_module_file_abs_path().display()
-                ))
-                .color(Color32::GREEN),
-            );
+        TopBottomPanel::top(ui.next_auto_id())
+            .frame(Frame::none().inner_margin(Margin {
+                left: 5.0,
+                right: 0.0,
+                top: 0.0,
+                bottom: 0.0,
+            }))
+            .show_inside(ui, |ui| {
+                ui.horizontal(|ui| {
+                    ui.label(
+                        RichText::new(format!(
+                            "{}",
+                            pathdiff::diff_paths(
+                                trace_bundle.crate_root_module_file_abs_path(),
+                                self.current_dir
+                            )
+                            .unwrap()
+                            .display()
+                        ))
+                        .color(Color32::GREEN),
+                    )
+                })
+            });
+        Frame::none().fill(Color32::from_gray(42)).show(ui, |ui| {
+            self.render_traces(trace_bundle.root_trace_ids(), ui)
         });
-        ui.separator();
-        self.render_traces(trace_bundle.root_trace_ids(), ui);
     }
 
     #[cfg(feature = "egui")]
