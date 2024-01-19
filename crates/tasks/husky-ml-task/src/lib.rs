@@ -8,6 +8,7 @@ use husky_task::{
     dev_ascension::{IsDevAscension, LocalDevEvalContext},
     IsTask,
 };
+use husky_task_interface::val_repr::ValReprInterface;
 use husky_trace_protocol::protocol::IsTraceProtocol;
 use husky_visual_protocol::IsFigure;
 use serde::{Deserialize, Serialize};
@@ -62,6 +63,14 @@ where
 
     fn dev_eval_context_local_key() -> &'static LocalDevEvalContext<LinkageImpl> {
         &DEV_EVAL_CONTEXT
+    }
+
+    fn get_figure(
+        followed_val_repr: Option<ValReprInterface>,
+        accompanying_trace_ids: Vec<ValReprInterface>,
+        pedestal: Self::Pedestal,
+    ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
+        todo!()
     }
 }
 

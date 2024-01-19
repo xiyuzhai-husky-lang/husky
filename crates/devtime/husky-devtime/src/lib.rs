@@ -8,6 +8,7 @@ use self::state::*;
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_task::{
+    dev_ascension::IsDevAscension,
     helpers::{TaskDevLinkTime, TaskTraceProtocol},
     IsTask,
 };
@@ -107,22 +108,24 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
     fn get_figure(
         &self,
         trace: Self::Trace,
-        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         accompanying_trace_ids: &AccompanyingTraceIds,
+        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         let db = self.runtime.db();
-        if let Some(val_repr) = trace.val_repr(db) {
-            // TraceStalk::Val(
-            //     self.runtime
-            //         .eval_val_repr_at_pedestal(val_repr, pedestal)
-            //         .present(value_presenter_cache, value_presentation_synchrotron),
-            // )
-            todo!()
-        } else {
-            // ad hoc
-            Default::default()
-        }
+        let followed_val_repr = trace.val_repr(db).map(Into::into);
+        let accompanying_val_reprs = accompanying_trace_ids
+            .iter()
+            .filter_map(|&trace_id| {
+                let trace: Trace = trace_id.into();
+                trace.val_repr(db).map(Into::into)
+            })
+            .collect();
+        <Task::DevAscension as IsDevAscension>::get_figure(
+            followed_val_repr,
+            accompanying_val_reprs,
+            pedestal,
+        )
     }
 }
 
