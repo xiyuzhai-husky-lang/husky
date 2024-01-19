@@ -45,7 +45,7 @@ pub(crate) struct NotebookSettingsView;
 impl<ParentActionBuffer> IsUiComponent<egui::Ui, NotebookSettings, ParentActionBuffer>
     for NotebookSettingsView
 {
-    fn update(
+    fn render_dyn(
         &mut self,
         ui: &mut egui::Ui,
         _settings: &mut NotebookSettings,

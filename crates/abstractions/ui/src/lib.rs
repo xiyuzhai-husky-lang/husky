@@ -1,5 +1,5 @@
 pub trait IsUiComponent<Ui, UiComponentSettings, ParentActionBuffer> {
-    fn update(
+    fn render_dyn(
         &mut self,
         ui: &mut Ui,
         settings: &mut UiComponentSettings,
@@ -14,13 +14,13 @@ pub struct UiComponent<Ui, UiComponentConfig, ParentActionBuffer>(
 impl<Ui, UiComponentSettings, ParentActionBuffer>
     UiComponent<Ui, UiComponentSettings, ParentActionBuffer>
 {
-    pub fn render(
+    pub fn ui(
         &mut self,
         ui: &mut Ui,
         settings: &mut UiComponentSettings,
         action_buffer: &mut ParentActionBuffer,
     ) {
-        self.0.update(ui, settings, action_buffer)
+        self.0.render_dyn(ui, settings, action_buffer)
     }
 }
 

@@ -6,7 +6,7 @@ mod pedestal;
 use crate::*;
 use egui::{
     vec2, Align, Button, Color32, FontFamily, InnerResponse, Label, LayerId, Layout, Margin,
-    RichText, Sense, TextStyle, Vec2, Widget,
+    RichText, Sense, SidePanel, TextStyle, TopBottomPanel, Vec2, Widget,
 };
 use husky_task_interface::val_control_flow::ValControlFlow;
 use husky_trace_protocol::{
@@ -83,19 +83,14 @@ where
     }
 }
 
-impl<'a, TraceProtocol, Settings> egui::Widget for TraceDocView<'a, TraceProtocol, Settings>
+impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
     Settings: HasTraceViewDocSettings,
 {
-    fn ui(mut self, ui: &mut egui::Ui) -> egui::Response {
-        ui.style_mut().spacing.item_spacing = vec2(0.0, 0.0);
-        ui.with_layout(Layout::bottom_up(Align::Min), |ui| {
-            self.render_pedestal(ui);
-            ui.separator();
-            self.render_central_region(ui)
-        })
-        .response
+    pub(crate) fn render(mut self, ui: &mut egui::Ui) {
+        self.render_pedestal(ui);
+        self.render_central_region(ui)
     }
 }
 

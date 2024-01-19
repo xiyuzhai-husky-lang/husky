@@ -2,7 +2,8 @@ use super::*;
 
 impl NotebookApp {
     pub(crate) fn render_docs_view(&mut self, ui: &mut egui::Ui) {
-        let style = egui_dock::Style::from_egui(ui.style().as_ref());
+        let mut style = egui_dock::Style::from_egui(ui.style().as_ref());
+        style.tab.tab_body.inner_margin = 0.0.into();
         egui_dock::DockArea::new(&mut self.dock_state)
             .style(style)
             .show_inside(
@@ -26,9 +27,10 @@ impl<'a> egui_dock::TabViewer for DocsView<'a> {
     type Tab = DocTab;
 
     fn ui(&mut self, ui: &mut egui::Ui, tab: &mut Self::Tab) {
+        ui.style_mut().spacing.window_margin = 0.0.into();
         self.docs
             .component_mut(tab.id())
-            .render(ui, self.settings, self.action_buffer);
+            .ui(ui, self.settings, self.action_buffer);
     }
 
     fn title(&mut self, tab: &mut Self::Tab) -> egui::WidgetText {
