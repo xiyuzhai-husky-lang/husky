@@ -30,7 +30,7 @@ where
     TraceProtocol: IsTraceProtocolFull,
     Settings: HasTraceViewDocSettings,
 {
-    fn update(
+    fn render_dyn(
         &mut self,
         ui: &mut egui::Ui,
         settings: &mut Settings,
@@ -67,7 +67,7 @@ where
             ui.label(RichText::new(e.to_string()).color(Color32::RED));
         }
         if let Some(trace_cache) = trace_client.opt_cache() {
-            TraceDocView::new(trace_cache, &mut self.action_buffer, ui, settings).ui(ui);
+            TraceDocView::new(trace_cache, &mut self.action_buffer, ui, settings).render(ui);
         } else {
             // todo: render connecting status
         }

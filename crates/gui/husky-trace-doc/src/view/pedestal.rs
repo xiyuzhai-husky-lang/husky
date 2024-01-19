@@ -1,3 +1,5 @@
+use egui::Frame;
+
 use super::*;
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
@@ -6,14 +8,15 @@ where
     Settings: HasTraceViewDocSettings,
 {
     pub(super) fn render_pedestal(&mut self, ui: &mut egui::Ui) {
-        egui::Frame::none().inner_margin(1.0).show(ui, |ui| {
-            ui.horizontal(|ui| {
-                ui.label(format!(
-                    "pedestal = {:?}",
-                    self.trace_synchrotron.pedestal()
-                ));
-                ui.allocate_space(ui.available_size())
-            })
-        });
+        TopBottomPanel::bottom(ui.auto_id_with("pedestal"))
+            .frame(Frame::none().inner_margin(2.0))
+            .show_inside(ui, |ui| {
+                ui.horizontal(|ui| {
+                    ui.label(format!(
+                        "pedestal = {:?}",
+                        self.trace_synchrotron.pedestal()
+                    ))
+                })
+            });
     }
 }

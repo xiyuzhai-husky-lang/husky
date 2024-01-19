@@ -17,6 +17,7 @@ where
     fn render_bundles(&mut self, ui: &mut egui::Ui) {
         for trace_bundle in self.trace_synchrotron.trace_id_bundles() {
             self.render_bundle(trace_bundle, ui);
+            ui.separator();
         }
     }
 

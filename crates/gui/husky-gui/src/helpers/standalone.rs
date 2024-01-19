@@ -41,7 +41,7 @@ where
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
             self.component
-                .update(ui, &mut self.settings, &mut self.action_buffer)
+                .render_dyn(ui, &mut self.settings, &mut self.action_buffer)
         });
     }
 }

@@ -29,3 +29,4 @@ husky-graphics2d-visual-protocol.workspace = true
 husky-ml-task.workspace = true
 # utils
 husky-unicode-symbols.workspace = true
+husky-print-utils.workspace = true
