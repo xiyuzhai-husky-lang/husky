@@ -1,9 +1,12 @@
 use crate::*;
-use husky_task_interface::{DevEvalContext, IsDevRuntime};
+use husky_task_interface::{val_repr::ValReprInterface, DevEvalContext, IsDevRuntime};
 use husky_task_interface::{
     IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
-use husky_trace_protocol::protocol::{IsTraceProtocol, IsTraceProtocolFull};
+use husky_trace_protocol::{
+    id::AccompanyingTraceIds,
+    protocol::{IsTraceProtocol, IsTraceProtocolFull},
+};
 use husky_val::Val;
 
 use std::{cell::Cell, thread::LocalKey};
@@ -15,6 +18,11 @@ pub trait IsDevAscension {
     type RuntimeStorage: IsRuntimeStorage<Self::LinkageImpl>;
     type RuntimeSpecificConfig: Default + Send;
     type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
+    fn get_figure(
+        followed_val_repr: Option<ValReprInterface>,
+        accompanying_val_reprs: Vec<ValReprInterface>,
+        pedestal: Self::Pedestal,
+    ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
     fn dev_eval_context_local_key() -> &'static LocalDevEvalContext<Self::LinkageImpl>;
 }
 

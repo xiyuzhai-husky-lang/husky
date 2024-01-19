@@ -220,8 +220,8 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             if !has_figure {
                 let figure = self.tracetime.get_figure(
                     followed_trace_id.into(),
-                    pedestal,
                     &accompanying_trace_ids,
+                    pedestal,
                     trace_synchrotron.visual_synchrotron_mut(),
                 );
                 trace_synchrotron.take_action(TraceSynchrotronAction::CacheFigure {
@@ -265,8 +265,8 @@ pub trait IsTracetime: Send + 'static + Sized {
     fn get_figure(
         &self,
         trace: Self::Trace,
-        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         accompanying_trace_ids: &AccompanyingTraceIds,
+        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
 }
