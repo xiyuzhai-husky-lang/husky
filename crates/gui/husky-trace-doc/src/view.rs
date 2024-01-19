@@ -5,8 +5,8 @@ mod pedestal;
 
 use crate::*;
 use egui::{
-    vec2, Align, Button, Color32, FontFamily, InnerResponse, Label, LayerId, Layout, Margin,
-    RichText, Sense, SidePanel, TextStyle, TopBottomPanel, Vec2, Widget,
+    vec2, Align, Button, CentralPanel, Color32, FontFamily, Frame, InnerResponse, Label, LayerId,
+    Layout, Margin, RichText, Sense, SidePanel, TextStyle, TopBottomPanel, Vec2, Widget,
 };
 use husky_task_interface::val_control_flow::ValControlFlow;
 use husky_trace_protocol::{
@@ -58,25 +58,20 @@ where
     }
 
     fn render_central_region(&mut self, ui: &mut egui::Ui) {
-        ui.with_layout(Layout::top_down(Align::Min), |ui| {
-            let desired_size = Vec2::new(ui.available_width() / 2.0, ui.available_height());
-            ui.horizontal(|ui| {
-                ui.allocate_ui(desired_size, |ui| {
-                    self.render_forest(ui);
-                    // ui.allocate_space(ui.available_size());
-                });
-                ui.separator();
-                self.render_central_right_region(ui);
-            })
-        });
+        SidePanel::right(ui.auto_id_with("central_right"))
+            .frame(Frame::none().inner_margin(0.0))
+            .exact_width(ui.available_width() / 2.0)
+            .resizable(false)
+            // .exact_width(ui.available_width() / 2.0)
+            .show_inside(ui, |ui| self.render_central_right_region(ui));
+        CentralPanel::default()
+            .frame(Frame::none().inner_margin(0.0))
+            .show_inside(ui, |ui| self.render_forest(ui));
     }
 
     fn render_central_right_region(&mut self, ui: &mut egui::Ui) {
         ui.vertical(|ui| {
-            ui.allocate_ui(
-                Vec2::new(ui.available_width(), ui.available_height() * 0.7),
-                |ui| self.render_figure(ui),
-            );
+            self.render_figure(ui);
             ui.separator();
             self.render_devtools(ui);
         });
