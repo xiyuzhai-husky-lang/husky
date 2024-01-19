@@ -22,7 +22,7 @@ impl NotebookSettings {
     }
 
     pub(crate) fn main_panel_frame(&self) -> egui::containers::Frame {
-        egui::containers::Frame::default().fill(Color32::LIGHT_BLUE)
+        egui::containers::Frame::default().fill(Color32::BLACK)
     }
 }
 
