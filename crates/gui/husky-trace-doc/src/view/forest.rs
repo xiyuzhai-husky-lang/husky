@@ -17,11 +17,7 @@ where
     fn render_bundles(&mut self, ui: &mut egui::Ui) {
         for trace_bundle in self.trace_synchrotron.trace_id_bundles() {
             TopBottomPanel::top(ui.auto_id_with(trace_bundle.crate_root_module_file_abs_path()))
-                .frame(
-                    Frame::none()
-                        .fill(Color32::from_gray(102))
-                        .inner_margin(0.0),
-                )
+                .frame(Frame::none().inner_margin(0.0))
                 .show_inside(ui, |ui| self.render_bundle(trace_bundle, ui));
         }
     }
@@ -50,7 +46,7 @@ where
                     )
                 })
             });
-        Frame::none().fill(Color32::from_gray(42)).show(ui, |ui| {
+        Frame::none().show(ui, |ui| {
             self.render_traces(trace_bundle.root_trace_ids(), ui)
         });
     }
@@ -206,10 +202,8 @@ where
                         top: 0.5,
                         bottom: 2.0,
                     })
-                    .fill(Color32::from_rgb(14, 14, 14))
                     .show(ui, |ui| {
                         egui::Frame::none()
-                            .fill(Color32::from_rgb(14, 14, 14))
                             .inner_margin(1.)
                             .show(ui, |ui| self.render_traces(subtrace_ids, ui))
                     });
@@ -217,7 +211,6 @@ where
             TraceKind::EagerPatternExpr => todo!(),
             TraceKind::ValItem => {
                 egui::Frame::none()
-                    .fill(Color32::BLACK)
                     .inner_margin(1.)
                     .show(ui, |ui| self.render_traces(subtrace_ids, ui));
             }
@@ -238,18 +231,13 @@ where
     }
 
     fn render_associated_trace(&mut self, associated_trace_id: TraceId, ui: &mut egui::Ui) {
-        egui::Frame::none()
-            .inner_margin(3.0)
-            .fill(Color32::from_rgb(84, 84, 84))
-            .show(ui, |ui| {
-                egui::Frame::none()
-                    .fill(Color32::from_rgb(44, 44, 44))
-                    .show(ui, |ui| {
-                        ui.spacing_mut().item_spacing.y = 0.;
-                        ui.allocate_space(Vec2::new(ui.available_width(), 0.));
-                        self.render_trace_view_tree(associated_trace_id, ui);
-                    })
-            });
+        egui::Frame::none().inner_margin(3.0).show(ui, |ui| {
+            egui::Frame::none().show(ui, |ui| {
+                ui.spacing_mut().item_spacing.y = 0.;
+                ui.allocate_space(Vec2::new(ui.available_width(), 0.));
+                self.render_trace_view_tree(associated_trace_id, ui);
+            })
+        });
     }
 
     fn render_line(
