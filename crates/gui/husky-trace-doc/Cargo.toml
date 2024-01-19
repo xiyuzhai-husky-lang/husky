@@ -8,6 +8,7 @@ resolver = "2"
 [dependencies]
 tokio.workspace = true
 serde.workspace = true
+pathdiff.workspace = true
 egui = { workspace = true, optional = true }
 # abstractions
 ui.workspace = true

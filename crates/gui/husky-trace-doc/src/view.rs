@@ -17,12 +17,14 @@ use husky_trace_protocol::{
     view::{action::TraceViewActionBuffer, TraceViewLineData, TraceViewTokenData},
 };
 use husky_value_protocol::presentation::ValuePresentation;
+use std::path::Path;
 
 pub(crate) struct TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
     Settings: HasTraceViewDocSettings,
 {
+    current_dir: &'a Path,
     trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
@@ -35,6 +37,7 @@ where
     Settings: HasTraceViewDocSettings,
 {
     pub(crate) fn new(
+        current_dir: &'a Path,
         trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
         action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
         ui: &mut egui::Ui,
@@ -43,6 +46,7 @@ where
         let glyph_width =
             ui.fonts(|f| f.glyph_width(&TextStyle::Monospace.resolve(ui.style()), ' '));
         Self {
+            current_dir,
             trace_synchrotron,
             action_buffer,
             settings,
