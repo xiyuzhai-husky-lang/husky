@@ -160,7 +160,10 @@ where
                                 TraceStalk::Vm(_) => todo!(),
                             }
                             // this is important to keep the interaction region large enough
-                            ui.allocate_space(ui.available_size() - Vec2::new(1.0, 0.0))
+                            let desired_size = ui.available_size() - Vec2::new(1.0, 0.0);
+                            if desired_size.x > 0.0 && desired_size.y > 0.0 {
+                                ui.allocate_space(desired_size);
+                            }
                         });
                     })
                 })

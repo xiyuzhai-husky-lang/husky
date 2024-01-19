@@ -1,3 +1,5 @@
+use egui::vec2;
+
 use super::*;
 
 impl NotebookApp {
@@ -27,7 +29,7 @@ impl<'a> egui_dock::TabViewer for DocsView<'a> {
     type Tab = DocTab;
 
     fn ui(&mut self, ui: &mut egui::Ui, tab: &mut Self::Tab) {
-        ui.style_mut().spacing.window_margin = 0.0.into();
+        ui.style_mut().spacing.item_spacing = vec2(0.0, 0.0);
         self.docs
             .component_mut(tab.id())
             .ui(ui, self.settings, self.action_buffer);
@@ -35,5 +37,9 @@ impl<'a> egui_dock::TabViewer for DocsView<'a> {
 
     fn title(&mut self, tab: &mut Self::Tab) -> egui::WidgetText {
         self.docs.doc_arena()[tab.id()].title().into()
+    }
+
+    fn scroll_bars(&self, _tab: &Self::Tab) -> [bool; 2] {
+        [false, false]
     }
 }

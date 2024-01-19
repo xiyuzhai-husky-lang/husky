@@ -27,7 +27,6 @@ ui.available_size() = {:?}"#,
                 let available_size = ui.available_size();
                 ui.label(format!("available size for control = {available_size:?}"))
             });
-            ui.allocate_space(ui.available_size())
         });
     }
 }

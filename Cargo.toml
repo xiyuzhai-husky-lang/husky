@@ -46,7 +46,12 @@ colored = "2.0.0"
 dashmap = "5.5.1"
 ecolor = { version = "0.25.0", features = ["serde", "bytemuck"] }
 eframe = "0.25.0"
-egui = "0.25.0"
+egui = { version = "0.25.0", features = [
+    "callstack",
+    "extra_debug_asserts",
+    "extra_asserts",
+    "document-features"
+] }
 egui_dock = "0.10.0"
 either = "1.8.1"
 flurry = "0.4.0"
