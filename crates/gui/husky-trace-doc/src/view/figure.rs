@@ -1,5 +1,5 @@
 use super::*;
-use egui::{load::Bytes, Frame, Image, ImageSource, Rect};
+use egui::{load::Bytes, pos2, Frame, Image, ImageSource, Rect};
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
@@ -28,7 +28,12 @@ where
                 Color32::BROWN,
                 (3.0, Color32::DARK_GRAY),
             );
+            painter.image(
+                self.ad_hoc_texture_id,
+                rect,
+                Rect::from_min_max(pos2(0.0, 0.0), pos2(1.0, 1.0)),
+                Color32::WHITE,
+            )
         });
-        // ui.allocate_space(ui.available_size())
     }
 }

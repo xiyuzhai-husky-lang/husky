@@ -42,7 +42,7 @@ husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
 
 [dev-dependencies]
-expect-test = "1.4.0"
+expect-test.workspace = true
 # abstractions
 salsa = { path = "../../abstractions/salsa", features = ["test_utils"] }
 # fs

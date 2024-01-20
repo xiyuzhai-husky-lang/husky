@@ -18,7 +18,7 @@ husky-ast.workspace = true
 husky-token.workspace = true
 
 [dev-dependencies]
-expect-test = "1.4.0"
+expect-test.workspace = true
 # fs
 husky-vfs = { workspace = true, features = ["test_utils"] }
 # kernel

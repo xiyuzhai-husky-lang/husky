@@ -8,7 +8,7 @@ edition = "2021"
 thiserror.workspace = true
 ordered-float.workspace = true
 paste.workspace = true
-expect-test = "1.4.0"
+expect-test.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 lsp-types = { version = "=0.94", features = ["proposed"], optional = true }

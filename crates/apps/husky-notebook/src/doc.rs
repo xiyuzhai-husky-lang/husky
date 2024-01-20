@@ -47,6 +47,7 @@ impl NotebookApp {
             component: UiComponent::new(TraceDoc::<MlTraceProtocol<Graphics2dFigure>, _>::new(
                 self.tokio_runtime.clone(),
                 EguiRepaintSignal::new(ctx.clone()),
+                ctx,
             )),
         });
         // self.add_doc(Doc {

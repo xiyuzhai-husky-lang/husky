@@ -5,8 +5,10 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-smallvec.workspace = true
+egui.workspace = true
 serde.workspace = true
+smallvec.workspace = true
+expect-test.workspace = true
 # abstractions
 ui.workspace = true
 enum-class.workspace = true

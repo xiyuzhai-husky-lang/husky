@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct VideoVisual(VisualId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
