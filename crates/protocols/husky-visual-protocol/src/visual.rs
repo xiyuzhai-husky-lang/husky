@@ -36,6 +36,7 @@ impl Into<usize> for VisualId {
 }
 
 #[enum_class::from_variants]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Hash)]
 pub enum Visual {
     Void,
     Primitive(PrimitiveVisual),

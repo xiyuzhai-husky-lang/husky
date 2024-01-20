@@ -13,6 +13,7 @@ shifted-unsigned-int.workspace = true
 serde-impl.workspace = true
 # protocols
 husky-value-protocol.workspace = true
+husky-visual-protocol.workspace = true
 # tasks
 husky-task-interface-macros.workspace = true
 # utils

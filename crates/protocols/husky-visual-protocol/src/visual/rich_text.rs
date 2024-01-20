@@ -1,7 +1,20 @@
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Serialize, Deserialize, Hash)]
+#[serde(from = "VisualId", into = "VisualId")]
 pub struct RichTextVisual(VisualId);
+
+impl From<VisualId> for RichTextVisual {
+    fn from(id: VisualId) -> Self {
+        Self(id)
+    }
+}
+
+impl Into<VisualId> for RichTextVisual {
+    fn into(self) -> VisualId {
+        self.0
+    }
+}
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct RichTextVisualData {}

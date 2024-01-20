@@ -8,16 +8,47 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
+use husky_task_interface::val_repr::ValReprInterface;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
-use husky_visual_protocol::synchrotron::VisualSynchrotron;
+use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use husky_websocket_utils::easy_server::IsEasyWebsocketServer;
+use rustc_hash::FxHashMap;
 
 pub struct TraceServer<Tracetime: IsTracetime> {
     trace_synchrotron: Option<TraceSynchrotron<Tracetime::TraceProtocol>>,
     value_presenter_cache: ValuePresenterCache,
+    visual_cache: ValVisualCache<<Tracetime::TraceProtocol as IsTraceProtocol>::Pedestal>,
     tracetime: Tracetime,
+}
+
+/// this struct storages mapping from trace id and pedestal to visual,
+///
+/// useful for calculating figure,
+///
+/// but the client doesn't need to know about this
+pub struct ValVisualCache<Pedestal: IsPedestal> {
+    visuals: FxHashMap<(ValReprInterface, Pedestal), Visual>,
+}
+
+impl<Pedestal: IsPedestal> ValVisualCache<Pedestal> {
+    pub fn get_visual(
+        &mut self,
+        val_repr: ValReprInterface,
+        pedestal: Pedestal,
+        f: impl FnOnce() -> Visual,
+    ) -> Visual {
+        *self.visuals.entry((val_repr, pedestal)).or_insert_with(f)
+    }
+}
+
+impl<Pedestal: IsPedestal> Default for ValVisualCache<Pedestal> {
+    fn default() -> Self {
+        Self {
+            visuals: Default::default(),
+        }
+    }
 }
 
 impl<Tracetime: IsTracetime> Default for TraceServer<Tracetime>
@@ -29,6 +60,7 @@ where
             trace_synchrotron: Default::default(),
             value_presenter_cache: Default::default(),
             tracetime: Default::default(),
+            visual_cache: Default::default(),
         }
     }
 }
@@ -39,6 +71,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             trace_synchrotron: Default::default(),
             tracetime,
             value_presenter_cache: Default::default(),
+            visual_cache: Default::default(),
         }
     }
 
@@ -223,6 +256,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                     &accompanying_trace_ids,
                     pedestal,
                     trace_synchrotron.visual_synchrotron_mut(),
+                    &mut self.visual_cache,
                 );
                 trace_synchrotron.take_action(TraceSynchrotronAction::CacheFigure {
                     pedestal,
@@ -268,5 +302,6 @@ pub trait IsTracetime: Send + 'static + Sized {
         accompanying_trace_ids: &AccompanyingTraceIds,
         pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         visual_synchrotron: &mut VisualSynchrotron,
+        val_visual_cache: &mut ValVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
 }

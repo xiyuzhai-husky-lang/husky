@@ -1,7 +1,19 @@
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Serialize, Deserialize, Hash)]
 pub struct VideoVisual(VisualId);
+
+impl From<VisualId> for VideoVisual {
+    fn from(id: VisualId) -> Self {
+        Self(id)
+    }
+}
+
+impl Into<VisualId> for VideoVisual {
+    fn into(self) -> VisualId {
+        self.0
+    }
+}
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct VideoVisualData {}

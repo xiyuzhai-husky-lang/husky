@@ -13,7 +13,7 @@ pub struct Graphics2dFigure {
 impl IsFigure for Graphics2dFigure {
     fn new_specific(
         followed_visual: Option<(TraceId, Visual)>,
-        accompanying_visuals: Vec<(TraceId, Visual)>,
+        accompanying_visuals: impl Iterator<Item = (TraceId, Visual)>,
     ) -> Self {
         Self {
             image: todo!(),

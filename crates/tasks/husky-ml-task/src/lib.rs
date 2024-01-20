@@ -5,11 +5,14 @@ use husky_ml_task_interface::{MlPedestal, DEV_EVAL_CONTEXT};
 use husky_mono_linktime::MonoLinktime;
 
 use husky_task::{
-    dev_ascension::{IsDevAscension, LocalDevEvalContext},
+    dev_ascension::{DevEvalContextLocalKey, IsDevAscension},
     IsTask,
 };
-use husky_task_interface::val_repr::ValReprInterface;
-use husky_trace_protocol::{figure::IsFigure, protocol::IsTraceProtocol};
+use husky_task_interface::{val_repr::ValReprInterface, IsDevRuntime};
+use husky_trace_protocol::{
+    figure::IsFigure, id::TraceId, protocol::IsTraceProtocol, server::ValVisualCache,
+};
+use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
@@ -60,20 +63,47 @@ where
 
     type TraceProtocol = MlTraceProtocol<VisualProtocol>;
 
-    fn dev_eval_context_local_key() -> &'static LocalDevEvalContext<LinkageImpl> {
+    fn dev_eval_context_local_key() -> &'static DevEvalContextLocalKey<LinkageImpl> {
         &DEV_EVAL_CONTEXT
     }
 
-    fn get_figure(
-        followed_val_repr: Option<ValReprInterface>,
-        accompanying_trace_ids: Vec<ValReprInterface>,
+    fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
+        followed_trace_id_val_repr_pair: Option<(TraceId, ValReprInterface)>,
+        accompanying_trace_id_val_repr_pairs: Vec<(TraceId, ValReprInterface)>,
         pedestal: Self::Pedestal,
+        runtime: &DevRuntime,
+        visual_synchrotron: &mut VisualSynchrotron,
+        val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         match pedestal {
             MlPedestal::Specific(_) => {
                 <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure>::new_specific(
-                    todo!(),
-                    todo!(),
+                    followed_trace_id_val_repr_pair.map(|(trace_id, val_repr)| {
+                        (
+                            trace_id,
+                            Self::get_val_visual(
+                                val_repr,
+                                pedestal,
+                                runtime,
+                                visual_synchrotron,
+                                val_visual_cache,
+                            ),
+                        )
+                    }),
+                    accompanying_trace_id_val_repr_pairs
+                        .into_iter()
+                        .map(|(trace_id, val_repr)| {
+                            (
+                                trace_id,
+                                Self::get_val_visual(
+                                    val_repr,
+                                    pedestal,
+                                    runtime,
+                                    visual_synchrotron,
+                                    val_visual_cache,
+                                ),
+                            )
+                        }),
                 )
             }
             MlPedestal::Generic => todo!(),

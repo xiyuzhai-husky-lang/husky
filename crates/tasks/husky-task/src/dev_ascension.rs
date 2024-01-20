@@ -1,29 +1,63 @@
 use crate::*;
-use husky_task_interface::{val_repr::ValReprInterface, DevEvalContext, IsDevRuntime};
+use husky_task_interface::{
+    val_control_flow::ValControlFlow, val_repr::ValReprInterface, DevEvalContext, IsDevRuntime,
+};
 use husky_task_interface::{
     IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
 use husky_trace_protocol::{
-    id::AccompanyingTraceIds,
-    protocol::{IsTraceProtocol, IsTraceProtocolFull},
+    id::{AccompanyingTraceIds, TraceId},
+    protocol::{IsPedestal, IsTraceProtocol, IsTraceProtocolFull},
+    server::ValVisualCache,
 };
 use husky_val::Val;
+use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 
 use std::{cell::Cell, thread::LocalKey};
 
 pub trait IsDevAscension {
-    type Pedestal: std::fmt::Debug + Copy + 'static;
+    type Pedestal: IsPedestal;
     type LinkageImpl: IsLinkageImpl<Pedestal = Self::Pedestal>;
     type Linktime: IsLinktime<LinkageImpl = Self::LinkageImpl>;
     type RuntimeStorage: IsRuntimeStorage<Self::LinkageImpl>;
     type RuntimeSpecificConfig: Default + Send;
     type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
-    fn get_figure(
-        followed_val_repr: Option<ValReprInterface>,
-        accompanying_val_reprs: Vec<ValReprInterface>,
+    fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
+        followed_trace_id_val_repr_pair: Option<(TraceId, ValReprInterface)>,
+        accompanying_trace_id_val_repr_pairs: Vec<(TraceId, ValReprInterface)>,
         pedestal: Self::Pedestal,
+        runtime: &DevRuntime,
+        visual_synchrotron: &mut VisualSynchrotron,
+        val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
-    fn dev_eval_context_local_key() -> &'static LocalDevEvalContext<Self::LinkageImpl>;
+    fn dev_eval_context_local_key() -> &'static DevEvalContextLocalKey<Self::LinkageImpl>;
+
+    /// final
+    #[track_caller]
+    fn dev_eval_context() -> DevEvalContext<Self::LinkageImpl> {
+        Self::dev_eval_context_local_key().get().unwrap()
+    }
+
+    /// final
+    fn get_val_visual<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
+        val_repr: ValReprInterface,
+        pedestal: Self::Pedestal,
+        runtime: &DevRuntime,
+        visual_synchrotron: &mut VisualSynchrotron,
+        val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
+    ) -> Visual {
+        val_visual_cache.get_visual(val_repr, pedestal, || {
+            use husky_task_interface::value::IsValue;
+            match runtime.eval_val_repr_at_pedestal(val_repr, pedestal) {
+                ValControlFlow::Continue(value) => value.visualize(visual_synchrotron),
+                ValControlFlow::LoopContinue => todo!(),
+                ValControlFlow::LoopExit(_) => todo!(),
+                ValControlFlow::Return(_) => todo!(),
+                ValControlFlow::Undefined => todo!(),
+                ValControlFlow::Err(_) => todo!(),
+            }
+        })
+    }
 }
 
 pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
@@ -48,7 +82,7 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
     fn debug_drop(self);
 }
 
-pub type LocalDevEvalContext<LinkageImpl> =
+pub type DevEvalContextLocalKey<LinkageImpl> =
     LocalKey<Cell<std::option::Option<DevEvalContext<LinkageImpl>>>>;
 
 pub fn dev_eval_context<DevAscension: IsDevAscension>(

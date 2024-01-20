@@ -1,7 +1,7 @@
 use shifted_unsigned_int::ShiftedU32;
 use smallvec::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct ValReprInterface(ShiftedU32);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

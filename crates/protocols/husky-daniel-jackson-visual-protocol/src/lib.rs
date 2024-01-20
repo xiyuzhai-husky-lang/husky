@@ -15,7 +15,7 @@ pub struct DanielJacksonFigure;
 impl IsFigure for DanielJacksonFigure {
     fn new_specific(
         followed_visual: Option<(TraceId, Visual)>,
-        accompanying_visuals: Vec<(TraceId, Visual)>,
+        accompanying_visuals: impl Iterator<Item = (TraceId, Visual)>,
     ) -> Self {
         todo!()
     }
