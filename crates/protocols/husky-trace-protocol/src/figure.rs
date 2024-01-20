@@ -23,9 +23,15 @@ pub trait IsFigure:
         accompanying_visuals: impl Iterator<Item = (TraceId, Visual)>,
     ) -> Self;
 
+    type ViewCache;
+
     type View<'a>;
 
-    fn view<'a>(&'a self, sct: &'a VisualSynchrotron) -> Self::View<'a>;
+    fn view<'a>(
+        &'a self,
+        sct: &'a VisualSynchrotron,
+        view_cache: &mut Self::ViewCache,
+    ) -> Self::View<'a>;
 }
 
 impl IsFigure for () {
