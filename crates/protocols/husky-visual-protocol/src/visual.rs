@@ -62,6 +62,8 @@ pub enum VisualData {
 
 impl VisualId {
     pub fn data<'a>(self, visual_synchrotron: &'a VisualSynchrotron) -> &'a VisualData {
+        use husky_print_utils::p;
+        p!(visual_synchrotron.visual_arena());
         &visual_synchrotron.visual_arena()[self]
     }
 

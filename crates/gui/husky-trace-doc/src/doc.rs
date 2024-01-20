@@ -13,7 +13,7 @@ use husky_trace_protocol::{
 };
 
 use notify_change::NotifyChange;
-use ui::{component::IsUiComponent, ui::egui::UiCache};
+use ui::{component::IsUiComponent, ui::egui::UiCache, visual_widget::VisualWidget};
 
 pub struct TraceDoc<TraceProtocol, RepaintSignal>
 where
@@ -24,7 +24,6 @@ where
     trace_client: TraceClient<TraceProtocol, RepaintSignal>,
     action_buffer: TraceViewActionBuffer<TraceProtocol>,
     ui_cache: UiCache,
-    ad_hoc_texture_handle: TextureHandle,
 }
 
 #[cfg(feature = "egui")]
@@ -32,7 +31,7 @@ impl<TraceProtocol, Settings, UiActionBuffer> IsUiComponent<egui::Ui, Settings, 
     for TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
     TraceProtocol: IsTraceProtocolFull,
-    TraceProtocol::Figure: egui::Widget,
+    TraceProtocol::Figure: VisualWidget<egui::Ui>,
     Settings: HasTraceViewDocSettings,
 {
     fn render_dyn(
@@ -62,7 +61,7 @@ where
 impl<TraceProtocol> TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
     TraceProtocol: IsTraceProtocolFull,
-    TraceProtocol::Figure: egui::Widget,
+    TraceProtocol::Figure: VisualWidget<egui::Ui>,
 {
     fn render<Settings>(&mut self, ui: &mut Ui, settings: &mut Settings)
     where
@@ -77,9 +76,9 @@ where
                 &self.current_dir,
                 trace_cache,
                 &mut self.action_buffer,
-                ui,
                 settings,
-                self.ad_hoc_texture_handle.id(),
+                &mut self.ui_cache,
+                ui,
             )
             .render(ui);
         } else {
@@ -105,13 +104,11 @@ impl<TraceProtocol: IsTraceProtocolFull> TraceDoc<TraceProtocol, EguiRepaintSign
             magnification: TextureFilter::Nearest,
             minification: TextureFilter::Linear,
         };
-        let ad_hoc_texture_handle = ctx.load_texture("ad hoc", color_image, options);
         Self {
             current_dir: std::env::current_dir().unwrap(),
             trace_client: TraceClient::new_mock(tokio_runtime, repaint_signal),
             action_buffer: Default::default(),
             ui_cache: Default::default(),
-            ad_hoc_texture_handle,
         }
     }
 }

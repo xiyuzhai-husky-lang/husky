@@ -20,7 +20,7 @@ impl VisualSynchrotron {
 
     /// stores the data in the arena and returns a visual id
     pub(crate) fn alloc_visual(&mut self, data: impl Into<VisualData>) -> VisualId {
-        match self.exec(VisualSynchrotronAction::AllocVisual { data: data.into() }) {
+        match self.take_action(VisualSynchrotronAction::AllocVisual { data: data.into() }) {
             VisualSynchrotronActionOutcome::AllocVisual { visual_id } => visual_id,
             _ => unreachable!(),
         }
