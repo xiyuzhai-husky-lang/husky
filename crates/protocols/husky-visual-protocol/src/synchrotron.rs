@@ -1,7 +1,10 @@
 pub mod action;
 
-use self::action::{VisualSynchrotronAction, VisualSynchrotronActionsDiff};
-use crate::visual::VisualArena;
+use self::action::{
+    VisualSynchrotronAction, VisualSynchrotronActionOutcome, VisualSynchrotronActionsDiff,
+    VisualSynchrotronStatus,
+};
+use crate::visual::{VisualArena, VisualData, VisualId};
 use serde::{Deserialize, Serialize};
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -10,28 +13,16 @@ pub struct VisualSynchrotron {
     actions: Vec<VisualSynchrotronAction>,
 }
 
-#[derive(Default, Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
-pub struct VisualSynchrotronStatus {}
-
 impl VisualSynchrotron {
-    pub fn status(&self) -> VisualSynchrotronStatus {
-        // ad hoc
-        VisualSynchrotronStatus {}
-    }
-
-    pub fn actions_diff(
-        &self,
-        previous_status: VisualSynchrotronStatus,
-    ) -> VisualSynchrotronActionsDiff {
-        // ad hoc
-        VisualSynchrotronActionsDiff {}
-    }
-
-    pub fn take_actions_diff(&mut self, actions_diff: VisualSynchrotronActionsDiff) {
-        // todo!()
-    }
-
     pub fn visual_arena(&self) -> &VisualArena {
         &self.visual_arena
+    }
+
+    /// stores the data in the arena and returns a visual id
+    pub(crate) fn alloc_visual(&mut self, data: impl Into<VisualData>) -> VisualId {
+        match self.exec(VisualSynchrotronAction::AllocVisual { data: data.into() }) {
+            VisualSynchrotronActionOutcome::AllocVisual { visual_id } => visual_id,
+            _ => unreachable!(),
+        }
     }
 }
