@@ -1,6 +1,7 @@
 mod dataset;
 
 use dataset::MNIST_DATASET;
+use husky_core::*;
 use husky_linkage_impl::standard::ugly::*;
 use husky_ml_task_interface::{input_id, label::IsLabel, ugly::*, InputId};
 use husky_standard_value::ugly::*;
@@ -46,6 +47,22 @@ pub struct BinaryImage28([u32; 30]);
 impl BinaryImage28 {
     pub fn new_zeros() -> Self {
         Self::default()
+    }
+}
+
+impl husky_core::visual::Visualize for BinaryImage28 {
+    fn visualize(&self, sct: &mut __VisualSynchrotron) -> __Visual {
+        __Visual::new_binary_image(
+            4,
+            28,
+            28,
+            self.0
+                .iter()
+                .map(|u| unsafe { std::mem::transmute_copy::<_, [u8; 4]>(u) }.into_iter())
+                .flatten()
+                .collect(),
+            sct,
+        )
     }
 }
 

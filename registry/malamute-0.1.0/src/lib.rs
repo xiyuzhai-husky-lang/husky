@@ -39,6 +39,10 @@ where
     fn serialize_to_value(&self) -> __JsonValue {
         __to_json_value(self).unwrap()
     }
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
+        todo!()
+    }
 }
 
 impl<Label> __Frozen for Class<Label>

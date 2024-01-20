@@ -28,6 +28,21 @@ pub enum ImageVisualData {
 }
 
 impl ImageVisual {
+    pub fn new_binary_image(
+        bits_per_row: u8,
+        width: u32,
+        height: u32,
+        bitmap: Vec<u8>,
+        sct: &mut VisualSynchrotron,
+    ) -> Self {
+        ImageVisual(sct.alloc_visual(ImageVisualData::Binary {
+            bits_per_row,
+            width,
+            height,
+            bitmap,
+        }))
+    }
+
     pub fn data<'a>(self, visual_synchrotron: &'a VisualSynchrotron) -> &'a ImageVisualData {
         let VisualData::Image(data) = self.0.data(visual_synchrotron) else {
             unreachable!()
@@ -37,6 +52,18 @@ impl ImageVisual {
 
     pub fn color_image(self, visual_synchrotron: &VisualSynchrotron) -> ColorImage {
         self.data(visual_synchrotron).into()
+    }
+}
+
+impl Visual {
+    pub fn new_binary_image(
+        bits_per_row: u8,
+        width: u32,
+        height: u32,
+        bitmap: Vec<u8>,
+        sct: &mut VisualSynchrotron,
+    ) -> Self {
+        ImageVisual::new_binary_image(bits_per_row, width, height, bitmap, sct).into()
     }
 }
 

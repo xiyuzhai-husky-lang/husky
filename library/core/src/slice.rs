@@ -24,6 +24,10 @@ where
     fn serialize_to_value(&self) -> __JsonValue {
         todo!("CyclicSlice serialize_to_value")
     }
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
+        todo!()
+    }
 }
 impl<T> __Frozen for CyclicSliceLeashed<T>
 where

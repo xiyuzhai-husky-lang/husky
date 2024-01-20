@@ -2,11 +2,13 @@ pub mod num;
 pub mod ops;
 pub mod slice;
 pub mod vec;
+pub mod visual;
 
 pub use self::num::*;
 pub use self::ops::*;
 pub use self::slice::*;
 pub use self::vec::*;
+pub use self::visual::*;
 pub use ordered_float::NotNan;
 
 use husky_standard_value::ugly::*;

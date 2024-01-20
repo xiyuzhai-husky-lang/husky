@@ -4,6 +4,7 @@ use husky_decl_macro_utils::{
     for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
 };
 use husky_value_protocol::presentation::ValuePresentation;
+use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use serde::Serialize;
 
 /// Stand is the static version of a type
@@ -40,6 +41,8 @@ pub trait Static: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
     }
 
     fn serialize_to_value(&self) -> serde_json::Value;
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }
 
 impl<T> Static for *mut T
@@ -53,6 +56,10 @@ where
     }
 
     fn serialize_to_value(&self) -> serde_json::Value {
+        todo!()
+    }
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         todo!()
     }
 }
@@ -73,6 +80,8 @@ pub trait StaticDyn:
     fn copy_dyn(&self) -> Box<dyn StaticDyn>;
 
     fn present_dyn(&self) -> ValuePresentation;
+
+    fn visualize_or_void_dyn(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }
 
 impl<T> StaticDyn for T
@@ -108,6 +117,10 @@ where
         // ad hoc
         ValuePresentation::AdHoc(format!("{self:?}"))
     }
+
+    fn visualize_or_void_dyn(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+        self.visualize_or_void(visual_synchrotron)
+    }
 }
 
 impl<T> Static for Vec<T>
@@ -127,6 +140,10 @@ where
     fn serialize_to_value(&self) -> serde_json::Value {
         todo!()
     }
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+        todo!()
+    }
 }
 
 impl<T> Static for &'static T
@@ -140,6 +157,10 @@ where
     }
 
     fn serialize_to_value(&self) -> serde_json::Value {
+        todo!()
+    }
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         todo!()
     }
 }
@@ -166,6 +187,10 @@ where
             .map(|slf| slf.serialize_to_value())
             .unwrap_or_default()
     }
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+        todo!()
+    }
 }
 
 macro_rules! impl_static_for_primitive_ty {
@@ -179,6 +204,10 @@ macro_rules! impl_static_for_primitive_ty {
 
             fn serialize_to_value(&self) -> serde_json::Value {
                 serde_json::to_value(self).unwrap()
+            }
+
+            fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+                todo!("")
             }
         }
     };
@@ -195,6 +224,10 @@ impl Static for &'static str {
 
     fn serialize_to_value(&self) -> serde_json::Value {
         todo!("&'static str serialize_to_value")
+    }
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+        todo!()
     }
 }
 
@@ -214,6 +247,10 @@ macro_rules! impl_static_for_ritchie_ty {
 
             fn serialize_to_value(&self) -> serde_json::Value {
                 todo!("impl_static_for_ritchie_ty serialize_to_value")
+            }
+
+            fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+                Visual::Void
             }
         }
     };
@@ -237,6 +274,10 @@ macro_rules! impl_static_for_non_unit_tuple_ty {
 
             fn serialize_to_value(&self) -> serde_json::Value {
                 todo!("impl_static_for_non_unit_tuple_ty serialize_to_value")
+            }
+
+            fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+                todo!()
             }
         }
     };
