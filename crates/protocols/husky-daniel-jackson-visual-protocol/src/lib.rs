@@ -6,7 +6,7 @@
 pub mod action;
 
 use husky_trace_protocol::{figure::IsFigure, id::TraceId};
-use husky_visual_protocol::visual::Visual;
+use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use serde::{Deserialize, Serialize};
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -19,4 +19,16 @@ impl IsFigure for DanielJacksonFigure {
     ) -> Self {
         todo!()
     }
+
+    type View<'a> = DanielJacksonFigureView<'a>;
+
+    fn view<'a>(&'a self, sct: &'a VisualSynchrotron) -> Self::View<'a> {
+        todo!()
+    }
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct DanielJacksonFigureView<'a> {
+    figure: &'a DanielJacksonFigure,
+    visual_synchrotron: &'a VisualSynchrotron,
 }

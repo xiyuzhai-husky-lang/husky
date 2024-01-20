@@ -10,6 +10,7 @@ use std::{path::PathBuf, sync::Arc};
 
 use husky_trace_protocol::{
     client::TraceClient,
+    figure::IsFigure,
     protocol::{IsTraceProtocol, IsTraceProtocolFull},
     view::action::TraceViewActionBuffer,
 };
@@ -34,6 +35,7 @@ impl<TraceProtocol, Settings, UiActionBuffer> IsUiComponent<egui::Ui, Settings, 
     for TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
     TraceProtocol: IsTraceProtocolFull,
+    for<'a> <TraceProtocol::Figure as IsFigure>::View<'a>: egui::Widget,
     Settings: HasTraceViewDocSettings,
 {
     fn render_dyn(
@@ -63,6 +65,7 @@ where
 impl<TraceProtocol> TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
     TraceProtocol: IsTraceProtocolFull,
+    for<'a> <TraceProtocol::Figure as IsFigure>::View<'a>: egui::Widget,
 {
     fn render<Settings>(&mut self, ui: &mut Ui, settings: &mut Settings)
     where

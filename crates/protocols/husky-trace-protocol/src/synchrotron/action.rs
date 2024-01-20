@@ -89,7 +89,7 @@ where
                 associated_trace_id,
             } => todo!(),
             &TraceSynchrotronAction::FollowTrace { trace_id } => {
-                synchrotron.focused_trace_id = Some(trace_id)
+                synchrotron.followed_trace_id = Some(trace_id)
             }
             &TraceSynchrotronAction::CacheStalk {
                 pedestal,

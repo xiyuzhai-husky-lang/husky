@@ -23,7 +23,7 @@ pub struct TraceSynchrotron<TraceProtocol: IsTraceProtocol> {
     pedestal: TraceProtocol::Pedestal,
     accompanying_trace_ids: AccompanyingTraceIds,
     trace_id_bundles: Vec<TraceIdBundle>,
-    focused_trace_id: Option<TraceId>,
+    followed_trace_id: Option<TraceId>,
     #[serde_as(as = "Vec<(_, _)>")]
     entries: FxHashMap<TraceId, TraceSynchrotronEntry<TraceProtocol>>,
     actions: Vec<TraceSynchrotronAction<TraceProtocol>>,
@@ -39,7 +39,7 @@ pub struct TraceSynchrotronStatus {
     visual_synchrotron_status: VisualSynchrotronStatus,
 }
 
-/// methods
+/// # methods
 impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     pub(crate) fn new<Trace: IsTrace>(
         trace_bundles: &[TraceBundle<Trace>],
@@ -72,13 +72,24 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
             actions: vec![],
             value_presentation_synchrotron: Default::default(),
             visual_synchrotron: Default::default(),
-            focused_trace_id: None,
+            followed_trace_id: None,
             accompanying_trace_ids: Default::default(),
         }
     }
 
     pub fn trace_id_bundles(&self) -> &[TraceIdBundle] {
         &self.trace_id_bundles
+    }
+
+    pub fn visual_synchrotron(&self) -> &VisualSynchrotron {
+        &self.visual_synchrotron
+    }
+
+    pub fn figure(&self) -> Option<&TraceProtocol::Figure> {
+        Some(
+            self[self.followed_trace_id?]
+                .figure(self.pedestal, self.accompanying_trace_ids.clone()),
+        )
     }
 
     pub(crate) fn status(&self) -> TraceSynchrotronStatus {
@@ -149,7 +160,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     }
 
     pub fn followed_trace_id(&self) -> Option<TraceId> {
-        self.focused_trace_id
+        self.followed_trace_id
     }
 
     pub(crate) fn accompanying_trace_ids(&self) -> &AccompanyingTraceIds {
