@@ -1,6 +1,3 @@
-mod texture;
-
-use self::texture::*;
 use crate::{view::TraceDocView, *};
 #[cfg(feature = "egui")]
 use egui::*;
@@ -16,7 +13,7 @@ use husky_trace_protocol::{
 };
 
 use notify_change::NotifyChange;
-use ui::IsUiComponent;
+use ui::{component::IsUiComponent, ui::egui::UiCache};
 
 pub struct TraceDoc<TraceProtocol, RepaintSignal>
 where
@@ -26,7 +23,7 @@ where
     current_dir: PathBuf,
     trace_client: TraceClient<TraceProtocol, RepaintSignal>,
     action_buffer: TraceViewActionBuffer<TraceProtocol>,
-    texture_cache: TextureCache,
+    ui_cache: UiCache,
     ad_hoc_texture_handle: TextureHandle,
 }
 
@@ -35,7 +32,7 @@ impl<TraceProtocol, Settings, UiActionBuffer> IsUiComponent<egui::Ui, Settings, 
     for TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
     TraceProtocol: IsTraceProtocolFull,
-    for<'a> <TraceProtocol::Figure as IsFigure>::View<'a>: egui::Widget,
+    TraceProtocol::Figure: egui::Widget,
     Settings: HasTraceViewDocSettings,
 {
     fn render_dyn(
@@ -65,7 +62,7 @@ where
 impl<TraceProtocol> TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
     TraceProtocol: IsTraceProtocolFull,
-    for<'a> <TraceProtocol::Figure as IsFigure>::View<'a>: egui::Widget,
+    TraceProtocol::Figure: egui::Widget,
 {
     fn render<Settings>(&mut self, ui: &mut Ui, settings: &mut Settings)
     where
@@ -113,7 +110,7 @@ impl<TraceProtocol: IsTraceProtocolFull> TraceDoc<TraceProtocol, EguiRepaintSign
             current_dir: std::env::current_dir().unwrap(),
             trace_client: TraceClient::new_mock(tokio_runtime, repaint_signal),
             action_buffer: Default::default(),
-            texture_cache: Default::default(),
+            ui_cache: Default::default(),
             ad_hoc_texture_handle,
         }
     }

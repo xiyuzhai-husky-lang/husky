@@ -9,7 +9,7 @@ use husky_graphics2d_visual_protocol::Graphics2dFigure;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
 use husky_ml_task::MlTraceProtocol;
 use husky_trace_doc::doc::TraceDoc;
-use ui::UiComponent;
+use ui::component::UiComponent;
 
 pub struct Doc {
     title: String,

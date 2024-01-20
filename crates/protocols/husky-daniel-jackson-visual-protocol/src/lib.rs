@@ -19,16 +19,4 @@ impl IsFigure for DanielJacksonFigure {
     ) -> Self {
         todo!()
     }
-
-    type View<'a> = DanielJacksonFigureView<'a>;
-
-    fn view<'a>(&'a self, sct: &'a VisualSynchrotron) -> Self::View<'a> {
-        todo!()
-    }
-}
-
-#[derive(Debug, Clone, Copy)]
-pub struct DanielJacksonFigureView<'a> {
-    figure: &'a DanielJacksonFigure,
-    visual_synchrotron: &'a VisualSynchrotron,
 }

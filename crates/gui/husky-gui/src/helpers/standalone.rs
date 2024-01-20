@@ -1,4 +1,4 @@
-use ui::IsUiComponent;
+use ui::component::IsUiComponent;
 
 pub fn run_standalone_ui_component<UiComponent, UiComponentConfig, UiActionBuffer>(
     component: UiComponent,

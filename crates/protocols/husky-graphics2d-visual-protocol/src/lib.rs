@@ -35,25 +35,4 @@ impl IsFigure for Graphics2dFigure {
             });
         Self { images, shapes }
     }
-
-    type View<'a> = Graphics2dFigureView<'a>;
-
-    fn view<'a>(&'a self, visual_synchrotron: &'a VisualSynchrotron) -> Graphics2dFigureView<'a> {
-        Graphics2dFigureView {
-            figure: self,
-            visual_synchrotron,
-        }
-    }
-}
-
-#[derive(Debug, Clone, Copy)]
-pub struct Graphics2dFigureView<'a> {
-    figure: &'a Graphics2dFigure,
-    visual_synchrotron: &'a VisualSynchrotron,
-}
-
-impl<'a> egui::Widget for Graphics2dFigureView<'a> {
-    fn ui(self, ui: &mut egui::Ui) -> egui::Response {
-        ui.label("todo: Graphics2dFigureView<'a> ui")
-    }
 }
