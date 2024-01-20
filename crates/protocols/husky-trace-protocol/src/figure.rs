@@ -1,3 +1,5 @@
+use crate::TraceId;
+use husky_visual_protocol::visual::Visual;
 use serde::{Deserialize, Serialize};
 
 /// `IsFigure` extends `Serialize` and `Deserialize` for the convenience of deriving `Serialize` and `Deserialize` for generic types
@@ -16,11 +18,17 @@ pub trait IsFigure:
     + 'static
 {
     /// construct a figure for a specific datapoint
-    fn new_specific() -> Self;
+    fn new_specific(
+        followed_visual: Option<(TraceId, Visual)>,
+        accompanying_visuals: Vec<(TraceId, Visual)>,
+    ) -> Self;
 }
 
 impl IsFigure for () {
-    fn new_specific() -> Self {
+    fn new_specific(
+        followed_visual: Option<(TraceId, Visual)>,
+        accompanying_visuals: Vec<(TraceId, Visual)>,
+    ) -> Self {
         ()
     }
 }

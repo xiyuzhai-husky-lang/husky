@@ -19,8 +19,21 @@ use crate::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Serialize, Deserialize, Hash)]
+#[serde(from = "usize", into = "usize")]
 pub struct VisualId(ShiftedU32);
+
+impl From<usize> for VisualId {
+    fn from(value: usize) -> Self {
+        Self(value.into())
+    }
+}
+
+impl Into<usize> for VisualId {
+    fn into(self) -> usize {
+        self.0.into()
+    }
+}
 
 #[enum_class::from_variants]
 pub enum Visual {
