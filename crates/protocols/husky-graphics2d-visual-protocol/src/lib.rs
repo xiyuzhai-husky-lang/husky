@@ -38,13 +38,7 @@ impl IsFigure for Graphics2dFigure {
 
     type View<'a> = Graphics2dFigureView<'a>;
 
-    type ViewCache;
-
-    fn view<'a>(
-        &'a self,
-        visual_synchrotron: &'a VisualSynchrotron,
-        view_cache: &'a mut Self::ViewCache,
-    ) -> Graphics2dFigureView<'a> {
+    fn view<'a>(&'a self, visual_synchrotron: &'a VisualSynchrotron) -> Graphics2dFigureView<'a> {
         Graphics2dFigureView {
             figure: self,
             visual_synchrotron,
