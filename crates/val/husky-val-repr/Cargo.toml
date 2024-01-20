@@ -65,7 +65,7 @@ husky-toml-token.workspace = true
 # linkage
 husky-javelin.workspace = true
 # protocols
-husky-visual-protocol = { workspace = true, features = ["trivial"] }
+husky-visual-protocol.workspace = true
 # semantics
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true

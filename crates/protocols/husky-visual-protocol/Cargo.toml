@@ -9,7 +9,7 @@ smallvec.workspace = true
 serde.workspace = true
 # abstractions
 ui.workspace = true
+enum-class.workspace = true
+shifted-unsigned-int.workspace = true
 
 [features]
-mock = []
-trivial = []

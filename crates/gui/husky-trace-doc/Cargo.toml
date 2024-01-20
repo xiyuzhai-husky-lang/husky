@@ -36,9 +36,7 @@ tokio.workspace = true
 husky-gui = { path = "../../gui/husky-gui" }
 husky-trace-doc = { path = ".", features = ["mock", "egui"] }
 # protocols
-husky-visual-protocol = { path = "../../protocols/husky-visual-protocol", features = [
-    "mock"
-] }
+husky-visual-protocol.workspace = true
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
     "mock"
 ] }

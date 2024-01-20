@@ -15,9 +15,7 @@ husky-linkage-impl.workspace = true
 # linktime
 husky-boot-linktime = { path = "../../linktime/husky-boot-linktime" }
 # protocols
-husky-visual-protocol = { path = "../../protocols/husky-visual-protocol", features = [
-    "trivial"
-] }
+husky-visual-protocol.workspace = true
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
     "trivial"
 ] }
