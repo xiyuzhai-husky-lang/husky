@@ -12,3 +12,4 @@ ui.workspace = true
 husky-task.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
+husky-trace-protocol.workspace = true
