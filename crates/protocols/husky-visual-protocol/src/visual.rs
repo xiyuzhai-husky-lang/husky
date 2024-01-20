@@ -23,6 +23,7 @@ pub struct VisualId(ShiftedU32);
 
 #[enum_class::from_variants]
 pub enum Visual {
+    Void,
     Primitive(PrimitiveVisual),
     Text(TextVisual),
     RichText(RichTextVisual),

@@ -1,3 +1,1 @@
-pub enum PrimitiveVisual {
-    Unit(()),
-}
+pub enum PrimitiveVisual {}
