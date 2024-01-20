@@ -15,5 +15,5 @@ use self::id::*;
 use self::protocol::*;
 use self::stalk::*;
 use self::synchrotron::*;
-use husky_visual_protocol::IsFigure;
+use husky_visual_protocol::figure::IsFigure;
 use serde::{Deserialize, Serialize};

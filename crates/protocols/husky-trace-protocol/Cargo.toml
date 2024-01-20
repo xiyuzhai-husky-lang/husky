@@ -38,8 +38,8 @@ husky-websocket-utils = { path = "../../utils/husky-websocket-utils", features =
 husky-trace-protocol = { path = ".", features = ["trivial"] }
 
 [features]
-mock = ["husky-visual-protocol/mock"]
-trivial = ["husky-visual-protocol/trivial"]
+mock = []
+trivial = []
 egui = []
 message = []
 client = [

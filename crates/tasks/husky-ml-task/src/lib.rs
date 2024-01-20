@@ -10,7 +10,7 @@ use husky_task::{
 };
 use husky_task_interface::val_repr::ValReprInterface;
 use husky_trace_protocol::protocol::IsTraceProtocol;
-use husky_visual_protocol::IsFigure;
+use husky_visual_protocol::figure::IsFigure;
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
@@ -70,7 +70,12 @@ where
         accompanying_trace_ids: Vec<ValReprInterface>,
         pedestal: Self::Pedestal,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
-        todo!()
+        match pedestal {
+            MlPedestal::Specific(_) => {
+                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure>::new_specific()
+            }
+            MlPedestal::Generic => todo!(),
+        }
     }
 }
 
