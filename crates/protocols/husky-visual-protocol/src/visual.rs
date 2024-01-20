@@ -57,6 +57,7 @@ impl VisualId {
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct VisualArena(Vec<VisualData>);
+
 impl VisualArena {
     pub(crate) fn alloc(&mut self, data: VisualData) -> VisualId {
         let id = VisualId(self.0.len().into());
