@@ -11,7 +11,7 @@ use crate::{view::TraceViewData, *};
 use husky_value_protocol::presentation::synchrotron::{
     ValuePresentationSynchrotron, ValuePresentationSynchrotronStatus,
 };
-use husky_visual_protocol::synchrotron::{VisualSynchrotron, VisualSynchrotronStatus};
+use husky_visual_protocol::synchrotron::{action::VisualSynchrotronStatus, VisualSynchrotron};
 use rustc_hash::FxHashMap;
 use std::path::{Path, PathBuf};
 use vec_like::VecPairMap;
