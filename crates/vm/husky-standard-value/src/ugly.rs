@@ -6,5 +6,6 @@ pub use crate::{
     WeakStatic as __WeakStatic,
 };
 pub use husky_value_protocol::ugly::*;
+pub use husky_visual_protocol::ugly::*;
 pub use serde::{self, Serialize as __Serialize};
 pub use serde_json::{to_value as __to_json_value, Value as __JsonValue};
