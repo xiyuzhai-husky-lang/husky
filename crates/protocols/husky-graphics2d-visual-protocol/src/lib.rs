@@ -1,11 +1,13 @@
 pub mod action;
 
+use egui::{pos2, Rect};
 use husky_trace_protocol::{figure::IsFigure, id::TraceId};
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{image::ImageVisual, shape::ShapeVisual, Visual},
 };
 use serde::{Deserialize, Serialize};
+use ui::ui::egui::UiCache;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct Graphics2dFigure {
@@ -34,5 +36,22 @@ impl IsFigure for Graphics2dFigure {
                 Visual::Video(_) => todo!(),
             });
         Self { images, shapes }
+    }
+}
+
+impl ui::visual_widget::VisualWidget<egui::Ui> for Graphics2dFigure {
+    fn ui(&self, visual_synchrotron: &VisualSynchrotron, cache: &mut UiCache, ui: &mut egui::Ui) {
+        for &image in &self.images {
+            let (_, rect) = ui.allocate_space(ui.available_size());
+            ui.painter().image(
+                cache.texture_id(image, visual_synchrotron, ui),
+                rect,
+                Rect::from_min_max(pos2(0.0, 0.0), pos2(1.0, 1.0)),
+                egui::Color32::LIGHT_BLUE,
+            )
+        }
+        for shape in &self.shapes {
+            todo!()
+        }
     }
 }

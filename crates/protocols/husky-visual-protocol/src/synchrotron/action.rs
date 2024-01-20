@@ -20,10 +20,11 @@ pub struct VisualSynchrotronActionsDiff {
 }
 
 impl VisualSynchrotron {
-    pub(super) fn exec(
+    pub(super) fn take_action(
         &mut self,
         action: VisualSynchrotronAction,
     ) -> VisualSynchrotronActionOutcome {
+        self.actions.push(action.clone());
         match action {
             VisualSynchrotronAction::AllocVisual { data } => {
                 VisualSynchrotronActionOutcome::AllocVisual {
@@ -50,7 +51,7 @@ impl VisualSynchrotron {
 
     pub fn take_actions_diff(&mut self, actions_diff: VisualSynchrotronActionsDiff) {
         for action in actions_diff.new_actions {
-            self.exec(action);
+            self.take_action(action);
         }
     }
 }

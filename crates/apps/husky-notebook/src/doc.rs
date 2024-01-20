@@ -50,10 +50,6 @@ impl NotebookApp {
                 ctx,
             )),
         });
-        // self.add_doc(Doc {
-        //     title: "Settings".to_string(),
-        //     component: UiComponent::new(NotebookSettingsView),
-        // })
     }
 
     pub(crate) fn add_doc(&mut self, doc: Doc) {

@@ -11,12 +11,7 @@ rustc-hash = { workspace = true, optional = true }
 # abstractions
 enum-class = { workspace = true, optional = true }
 # protocols
-husky-visual-protocol = { workspace = true, optional = true }
+husky-visual-protocol = { workspace = true }
 
 [features]
-egui = [
-    "dep:egui",
-    "dep:husky-visual-protocol",
-    "dep:rustc-hash",
-    "dep:enum-class"
-]
+egui = ["dep:egui", "dep:rustc-hash", "dep:enum-class"]

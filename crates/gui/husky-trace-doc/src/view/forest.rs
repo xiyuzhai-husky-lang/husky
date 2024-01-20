@@ -6,7 +6,7 @@ impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
 
-    TraceProtocol::Figure: egui::Widget,
+    TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
     Settings: HasTraceViewDocSettings,
 {
     pub(super) fn render_forest(&mut self, ui: &mut egui::Ui) {

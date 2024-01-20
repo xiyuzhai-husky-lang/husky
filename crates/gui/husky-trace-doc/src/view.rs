@@ -19,12 +19,13 @@ use husky_trace_protocol::{
 };
 use husky_value_protocol::presentation::ValuePresentation;
 use std::path::Path;
+use ui::ui::egui::UiCache;
 
 pub(crate) struct TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
 
-    TraceProtocol::Figure: egui::Widget,
+    TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
     Settings: HasTraceViewDocSettings,
 {
     current_dir: &'a Path,
@@ -32,6 +33,7 @@ where
     figure: Option<&'a TraceProtocol::Figure>,
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
+    ui_cache: &'a mut UiCache,
     glyph_width: f32,
 }
 
@@ -39,16 +41,16 @@ impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
 
-    TraceProtocol::Figure: egui::Widget,
+    TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
     Settings: HasTraceViewDocSettings,
 {
     pub(crate) fn new(
         current_dir: &'a Path,
         trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
         action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
-        ui: &mut egui::Ui,
         settings: &'a mut Settings,
-        ad_hoc_texture_id: TextureId,
+        ui_cache: &'a mut UiCache,
+        ui: &mut egui::Ui,
     ) -> Self {
         let glyph_width =
             ui.fonts(|f| f.glyph_width(&TextStyle::Monospace.resolve(ui.style()), ' '));
@@ -59,6 +61,7 @@ where
             action_buffer,
             settings,
             glyph_width,
+            ui_cache,
         }
     }
 
@@ -94,7 +97,7 @@ impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
 
-    TraceProtocol::Figure: egui::Widget,
+    TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
     Settings: HasTraceViewDocSettings,
 {
     pub(crate) fn render(mut self, ui: &mut egui::Ui) {
