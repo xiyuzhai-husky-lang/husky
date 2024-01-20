@@ -2,6 +2,7 @@ use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, EnumU8ValuePresenter, ValuePresentation,
     ValuePresenterCache,
 };
+use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 
 pub trait IsValue:
     std::fmt::Debug
@@ -85,7 +86,11 @@ pub trait IsValue:
     fn index(self, index: usize) -> Self;
     fn present(
         &self,
-        cache: &mut ValuePresenterCache,
-        Universe: &mut ValuePresentationSynchrotron,
+        value_presenter_cache: &mut ValuePresenterCache,
+        value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> ValuePresentation;
+
+    fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+        unimplemented!()
+    }
 }

@@ -16,6 +16,7 @@ use husky_trace::{db::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     id::AccompanyingTraceIds,
     protocol::{IsTraceProtocol, TraceBundle},
+    server::ValVisualCache,
     stalk::TraceStalk,
 };
 use husky_value_protocol::presentation::{
@@ -26,7 +27,6 @@ use std::path::Path;
 
 pub struct Devtime<Task: IsTask> {
     runtime: DevRuntime<Task>,
-    state: DevtimeState,
 }
 
 impl<Task: IsTask> Devtime<Task> {
@@ -37,7 +37,6 @@ impl<Task: IsTask> Devtime<Task> {
     ) -> VfsResult<Self> {
         Ok(Self {
             runtime: DevRuntime::new(task, target_crate, runtime_config)?,
-            state: Default::default(),
         })
     }
 
@@ -58,7 +57,6 @@ where
     fn default() -> Self {
         Self {
             runtime: Default::default(),
-            state: Default::default(),
         }
     }
 }
@@ -107,24 +105,30 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
 
     fn get_figure(
         &self,
-        trace: Self::Trace,
+        followed_trace: Self::Trace,
         accompanying_trace_ids: &AccompanyingTraceIds,
         pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         visual_synchrotron: &mut VisualSynchrotron,
+        val_visual_cache: &mut ValVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         let db = self.runtime.db();
-        let followed_val_repr = trace.val_repr(db).map(Into::into);
-        let accompanying_val_reprs = accompanying_trace_ids
+        let followed_trace_id_val_repr_pair = followed_trace
+            .val_repr(db)
+            .map(|val_repr| (followed_trace.into(), val_repr.into()));
+        let accompanying_trace_id_val_repr_pairs = accompanying_trace_ids
             .iter()
-            .filter_map(|&trace_id| {
-                let trace: Trace = trace_id.into();
-                trace.val_repr(db).map(Into::into)
+            .filter_map(|&accompanying_trace_id| {
+                let trace: Trace = accompanying_trace_id.into();
+                Some((trace.into(), trace.val_repr(db)?.into()))
             })
             .collect();
-        <Task::DevAscension as IsDevAscension>::get_figure(
-            followed_val_repr,
-            accompanying_val_reprs,
+        <Task::DevAscension as IsDevAscension>::calc_figure(
+            followed_trace_id_val_repr_pair,
+            accompanying_trace_id_val_repr_pairs,
             pedestal,
+            &self.runtime,
+            visual_synchrotron,
+            val_visual_cache,
         )
     }
 }
