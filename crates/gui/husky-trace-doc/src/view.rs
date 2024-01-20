@@ -23,7 +23,8 @@ use std::path::Path;
 pub(crate) struct TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
-    <TraceProtocol::Figure as IsFigure>::View<'a>: egui::Widget,
+
+    TraceProtocol::Figure: egui::Widget,
     Settings: HasTraceViewDocSettings,
 {
     current_dir: &'a Path,
@@ -37,7 +38,8 @@ where
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
-    <TraceProtocol::Figure as IsFigure>::View<'a>: egui::Widget,
+
+    TraceProtocol::Figure: egui::Widget,
     Settings: HasTraceViewDocSettings,
 {
     pub(crate) fn new(
@@ -91,7 +93,8 @@ where
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
-    <TraceProtocol::Figure as IsFigure>::View<'a>: egui::Widget,
+
+    TraceProtocol::Figure: egui::Widget,
     Settings: HasTraceViewDocSettings,
 {
     pub(crate) fn render(mut self, ui: &mut egui::Ui) {

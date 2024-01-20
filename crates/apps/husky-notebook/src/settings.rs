@@ -8,7 +8,7 @@ use egui::Color32;
 use husky_code_editor::settings::HasCodeEditorSettings;
 use husky_trace_doc::settings::HasTraceViewDocSettings;
 use husky_trace_protocol::settings::HasTraceSettings;
-use ui::IsUiComponent;
+use ui::component::IsUiComponent;
 
 #[derive(Default, PartialEq, Eq)]
 pub(crate) struct NotebookSettings {

@@ -22,10 +22,6 @@ pub trait IsFigure:
         followed_visual: Option<(TraceId, Visual)>,
         accompanying_visuals: impl Iterator<Item = (TraceId, Visual)>,
     ) -> Self;
-
-    type View<'a>;
-
-    fn view<'a>(&'a self, sct: &'a VisualSynchrotron) -> Self::View<'a>;
 }
 
 impl IsFigure for () {
@@ -33,12 +29,6 @@ impl IsFigure for () {
         followed_visual: Option<(TraceId, Visual)>,
         accompanying_visuals: impl Iterator<Item = (TraceId, Visual)>,
     ) -> Self {
-        ()
-    }
-
-    type View<'a> = ();
-
-    fn view<'a>(&'a self, sct: &'a VisualSynchrotron) -> Self::View<'a> {
         ()
     }
 }
