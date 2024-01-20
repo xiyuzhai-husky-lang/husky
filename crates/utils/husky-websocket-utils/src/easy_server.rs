@@ -113,7 +113,7 @@ where
                                     todo!()
                                 }
                             }
-                            Err(e) => todo!("e = {e}"),
+                            Err(e) => eprintln!("e = {e}"),
                         }
                     }
                     Err(_) => todo!(),
