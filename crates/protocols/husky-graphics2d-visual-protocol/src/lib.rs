@@ -1,7 +1,10 @@
 pub mod action;
 
 use husky_trace_protocol::{figure::IsFigure, id::TraceId};
-use husky_visual_protocol::visual::{image::ImageVisual, shape::ShapeVisual, Visual};
+use husky_visual_protocol::{
+    synchrotron::VisualSynchrotron,
+    visual::{image::ImageVisual, shape::ShapeVisual, Visual},
+};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Default, PartialEq, Eq, Clone, Serialize, Deserialize)]
@@ -31,5 +34,26 @@ impl IsFigure for Graphics2dFigure {
                 Visual::Video(_) => todo!(),
             });
         Self { images, shapes }
+    }
+
+    type View<'a> = Graphics2dFigureView<'a>;
+
+    fn view<'a>(&'a self, visual_synchrotron: &'a VisualSynchrotron) -> Graphics2dFigureView<'a> {
+        Graphics2dFigureView {
+            figure: self,
+            visual_synchrotron,
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct Graphics2dFigureView<'a> {
+    figure: &'a Graphics2dFigure,
+    visual_synchrotron: &'a VisualSynchrotron,
+}
+
+impl<'a> egui::Widget for Graphics2dFigureView<'a> {
+    fn ui(self, ui: &mut egui::Ui) -> egui::Response {
+        ui.label("todo: Graphics2dFigureView<'a> ui")
     }
 }

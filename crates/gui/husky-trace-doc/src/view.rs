@@ -10,6 +10,7 @@ use egui::{
 };
 use husky_task_interface::val_control_flow::ValControlFlow;
 use husky_trace_protocol::{
+    figure::IsFigure,
     id::{TraceId, TraceKind},
     protocol::IsTraceProtocol,
     stalk::{JsonValue, TraceStalk},
@@ -22,19 +23,21 @@ use std::path::Path;
 pub(crate) struct TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
+    <TraceProtocol::Figure as IsFigure>::View<'a>: egui::Widget,
     Settings: HasTraceViewDocSettings,
 {
     current_dir: &'a Path,
     trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
+    figure: Option<&'a TraceProtocol::Figure>,
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
     glyph_width: f32,
-    ad_hoc_texture_id: TextureId,
 }
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
+    <TraceProtocol::Figure as IsFigure>::View<'a>: egui::Widget,
     Settings: HasTraceViewDocSettings,
 {
     pub(crate) fn new(
@@ -50,10 +53,10 @@ where
         Self {
             current_dir,
             trace_synchrotron,
+            figure: trace_synchrotron.figure(),
             action_buffer,
             settings,
             glyph_width,
-            ad_hoc_texture_id,
         }
     }
 
@@ -88,6 +91,7 @@ where
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
+    <TraceProtocol::Figure as IsFigure>::View<'a>: egui::Widget,
     Settings: HasTraceViewDocSettings,
 {
     pub(crate) fn render(mut self, ui: &mut egui::Ui) {

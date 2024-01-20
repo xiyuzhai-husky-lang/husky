@@ -1,5 +1,5 @@
 use crate::TraceId;
-use husky_visual_protocol::visual::Visual;
+use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use serde::{Deserialize, Serialize};
 
 /// `IsFigure` extends `Serialize` and `Deserialize` for the convenience of deriving `Serialize` and `Deserialize` for generic types
@@ -22,6 +22,10 @@ pub trait IsFigure:
         followed_visual: Option<(TraceId, Visual)>,
         accompanying_visuals: impl Iterator<Item = (TraceId, Visual)>,
     ) -> Self;
+
+    type View<'a>;
+
+    fn view<'a>(&'a self, sct: &'a VisualSynchrotron) -> Self::View<'a>;
 }
 
 impl IsFigure for () {
@@ -29,6 +33,12 @@ impl IsFigure for () {
         followed_visual: Option<(TraceId, Visual)>,
         accompanying_visuals: impl Iterator<Item = (TraceId, Visual)>,
     ) -> Self {
+        ()
+    }
+
+    type View<'a> = ();
+
+    fn view<'a>(&'a self, sct: &'a VisualSynchrotron) -> Self::View<'a> {
         ()
     }
 }

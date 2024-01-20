@@ -91,4 +91,13 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
             .insert((pedestal, accompanying_trace_ids), figure)
             .is_none())
     }
+
+    pub(crate) fn figure(
+        &self,
+        pedestal: TraceProtocol::Pedestal,
+        accompanying_trace_ids: AccompanyingTraceIds,
+    ) -> &TraceProtocol::Figure {
+        // todo: optimize out the cloning of AccompanyingTraceIds
+        &self.figures[&(pedestal, accompanying_trace_ids)]
+    }
 }
