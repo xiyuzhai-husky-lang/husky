@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct GroupVisual(VisualId);
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]

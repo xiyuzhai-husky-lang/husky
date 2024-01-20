@@ -27,7 +27,7 @@ maybe-result = { path = "../../abstractions/maybe-result" }
 husky-salsa-log-utils = { path = "../../utils/husky-salsa-log-utils" }
 
 [dev-dependencies]
-expect-test = "1.4.0"
+expect-test.workspace = true
 test-log = "0.2.11"
 husky-salsa-log-utils = { path = "../../utils/husky-salsa-log-utils" }
 env_logger = "*"

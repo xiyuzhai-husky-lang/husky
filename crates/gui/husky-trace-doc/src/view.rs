@@ -6,7 +6,7 @@ mod pedestal;
 use crate::*;
 use egui::{
     vec2, Align, Button, CentralPanel, Color32, FontFamily, Frame, InnerResponse, Label, LayerId,
-    Layout, Margin, RichText, Sense, SidePanel, TextStyle, TopBottomPanel, Vec2, Widget,
+    Layout, Margin, RichText, Sense, SidePanel, TextStyle, TextureId, TopBottomPanel, Vec2, Widget,
 };
 use husky_task_interface::val_control_flow::ValControlFlow;
 use husky_trace_protocol::{
@@ -29,6 +29,7 @@ where
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
     glyph_width: f32,
+    ad_hoc_texture_id: TextureId,
 }
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
@@ -42,6 +43,7 @@ where
         action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
         ui: &mut egui::Ui,
         settings: &'a mut Settings,
+        ad_hoc_texture_id: TextureId,
     ) -> Self {
         let glyph_width =
             ui.fonts(|f| f.glyph_width(&TextStyle::Monospace.resolve(ui.style()), ' '));
@@ -51,6 +53,7 @@ where
             action_buffer,
             settings,
             glyph_width,
+            ad_hoc_texture_id,
         }
     }
 

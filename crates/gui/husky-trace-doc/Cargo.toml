@@ -6,13 +6,15 @@ resolver = "2"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-tokio.workspace = true
-serde.workspace = true
-pathdiff.workspace = true
 egui = { workspace = true, optional = true }
+pathdiff.workspace = true
+rustc-hash.workspace = true
+serde.workspace = true
+tokio.workspace = true
 # abstractions
-ui.workspace = true
+enum-class.workspace = true
 notify-change = { path = "../../abstractions/notify-change" }
+ui.workspace = true
 # kernel
 husky-task.workspace = true
 # gui

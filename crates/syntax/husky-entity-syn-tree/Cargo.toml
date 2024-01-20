@@ -48,7 +48,7 @@ husky-print-utils.workspace = true
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 
 [dev-dependencies]
-expect-test = "1.4.0"
+expect-test.workspace = true
 # fs
 husky-corgi-config.workspace = true
 husky-vfs = { workspace = true, features = ["test_utils"] }

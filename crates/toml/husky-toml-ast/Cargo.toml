@@ -23,7 +23,7 @@ husky-toml-token.workspace = true
 husky-print-utils.workspace = true
 
 [dev-dependencies]
-expect-test = "1.4.0"
+expect-test.workspace = true
 # kernel
 husky-entity-path.workspace = true
 # fs

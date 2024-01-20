@@ -1,9 +1,12 @@
-use std::{path::PathBuf, sync::Arc};
+mod texture;
 
+use self::texture::*;
 use crate::{view::TraceDocView, *};
 #[cfg(feature = "egui")]
 use egui::*;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
+use husky_visual_protocol::visual::image::ImageVisualData;
+use std::{path::PathBuf, sync::Arc};
 
 use husky_trace_protocol::{
     client::TraceClient,
@@ -22,6 +25,8 @@ where
     current_dir: PathBuf,
     trace_client: TraceClient<TraceProtocol, RepaintSignal>,
     action_buffer: TraceViewActionBuffer<TraceProtocol>,
+    texture_cache: TextureCache,
+    ad_hoc_texture_handle: TextureHandle,
 }
 
 #[cfg(feature = "egui")]
@@ -74,6 +79,7 @@ where
                 &mut self.action_buffer,
                 ui,
                 settings,
+                self.ad_hoc_texture_handle.id(),
             )
             .render(ui);
         } else {
@@ -86,11 +92,26 @@ impl<TraceProtocol: IsTraceProtocolFull> TraceDoc<TraceProtocol, EguiRepaintSign
     pub fn new(
         tokio_runtime: Arc<tokio::runtime::Runtime>,
         repaint_signal: EguiRepaintSignal,
+        ctx: &egui::Context,
     ) -> Self {
+        let color_image: ColorImage = (&ImageVisualData::Binary {
+            bits_per_row: 2,
+            width: 15,
+            height: 4,
+            bitmap: vec![1, 0, 11, 0, 31, 0, 51, 0],
+        })
+            .into();
+        let options = TextureOptions {
+            magnification: TextureFilter::Nearest,
+            minification: TextureFilter::Linear,
+        };
+        let ad_hoc_texture_handle = ctx.load_texture("ad hoc", color_image, options);
         Self {
             current_dir: std::env::current_dir().unwrap(),
             trace_client: TraceClient::new_mock(tokio_runtime, repaint_signal),
             action_buffer: Default::default(),
+            texture_cache: Default::default(),
+            ad_hoc_texture_handle,
         }
     }
 }

@@ -19,6 +19,7 @@ use crate::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct VisualId(ShiftedU32);
 
 #[enum_class::from_variants]

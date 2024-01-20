@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct RichTextVisual(VisualId);
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
