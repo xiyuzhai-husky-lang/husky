@@ -114,8 +114,8 @@ where
                                 }
                             }
                             Err(e) => {
-                                eprintln!("e = {e}");
-                                break;
+                                eprintln!("e = {e} in serialization");
+                                return;
                             }
                         }
                     }
@@ -127,8 +127,8 @@ where
                 Message::Close(_) => todo!(),
             },
             Err(e) => {
-                eprintln!("e = {e}");
-                break;
+                eprintln!("e = {e} in receiving request");
+                return;
             }
         }
     }

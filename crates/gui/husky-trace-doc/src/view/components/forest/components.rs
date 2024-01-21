@@ -1,4 +1,6 @@
-pub(super) mod toggle_accompany;
-pub(super) mod toggle_expansion;
+pub(super) mod accompany_toggler;
+pub(super) mod expansion_toggler;
 pub(super) mod token;
 pub(super) mod value_presentation;
+
+use super::*;
