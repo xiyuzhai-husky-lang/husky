@@ -1,3 +1,5 @@
+use egui::Separator;
+
 use super::*;
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
@@ -32,7 +34,7 @@ where
 
     fn render_bundle_inner(&mut self, trace_bundle: &TraceIdBundle, ui: &mut egui::Ui) {
         ui.style_mut().spacing.item_spacing = vec2(0.0, 0.0);
-        Frame::none().inner_margin(3.0).show(ui, |ui| {
+        Frame::none().inner_margin(1.0).show(ui, |ui| {
             ui.horizontal(|ui| {
                 ui.label(
                     RichText::new(format!(
@@ -48,8 +50,8 @@ where
                 )
             })
         });
-        ui.separator();
-        Frame::none().inner_margin(CONSTANT1).show(ui, |ui| {
+        Separator::default().spacing(1.0).ui(ui);
+        Frame::none().inner_margin(4.0).show(ui, |ui| {
             self.render_traces(trace_bundle.root_trace_ids(), ui)
         });
     }
@@ -90,11 +92,11 @@ where
     ) where
         TraceProtocol: IsTraceProtocol,
     {
-        let trace_view_inner_margin = Margin {
-            left: 1.0,
-            right: 1.,
-            top: 1.,
-            bottom: 1.,
+        let trace_view_inner_margin: Margin = Margin {
+            left: 5.0,
+            right: 5.0,
+            top: 0.0,
+            bottom: 0.0,
         };
         // todo: consider multiline value representation
         let desired_space = Vec2::new(
@@ -120,7 +122,9 @@ where
                 self.add_action(TraceViewAction::FollowTrace { trace_id })
             }
         }
-        let mut frame = egui::Frame::none().inner_margin(trace_view_inner_margin);
+        let mut frame = egui::Frame::none()
+            .inner_margin(trace_view_inner_margin)
+            .rounding(3.0);
         if hovered_within || followed {
             frame.stroke.color = if !followed {
                 frame.stroke.width = 0.3;
@@ -135,7 +139,7 @@ where
                 ui.horizontal(|ui| {
                     ui.spacing_mut().item_spacing.x = 0.;
                     // render prefix
-                    let prefix_width = self.glyph_width * 2.8;
+                    let prefix_width = self.glyph_width * 2.5;
                     if entry.view_data().have_subtraces() {
                         let button_response =
                             self.render_expansion_toggler(trace_id, entry.expanded(), ui);
