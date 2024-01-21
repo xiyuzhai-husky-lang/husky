@@ -13,19 +13,17 @@ include = ["src/**/*.rs", "Cargo.toml", "LICENSE"]
 
 [features]
 default = []
-
 # Enable serialization of `Tree`.
 serde = ["dep:serde", "egui/serde"]
 
 [dependencies]
-egui = { version = "0.25", default-features = false }
-serde = { version = "1", optional = true, features = ["derive"] }
-
+egui = { workspace = true, default-features = false }
+serde = { workspace = true, optional = true, features = ["derive"] }
 duplicate = "1.0"
 paste = "1.0"
 
 [dev-dependencies]
-eframe = { version = "0.25", default-features = false, features = [
+eframe = { workspace = true, default-features = false, features = [
     "default_fonts",
     "glow",
 ] }

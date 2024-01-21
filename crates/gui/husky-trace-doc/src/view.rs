@@ -70,45 +70,6 @@ where
     {
         self.action_buffer.push(action)
     }
-
-    fn render_central_region(&mut self, ui: &mut egui::Ui) {
-        // SidePanel::right(ui.auto_id_with("central_right"))
-        //     .frame(Frame::none().inner_margin(0.0))
-        //     .exact_width(ui.available_width() / 2.0)
-        //     .resizable(false)
-        //     // .exact_width(ui.available_width() / 2.0)
-        //     .show_inside(ui, |ui| );
-        let forest_desired_size = vec2(ui.available_width() * 0.5, ui.available_height() - 40.0);
-        ui.horizontal(|ui| {
-            ui.allocate_ui(forest_desired_size, |ui| self.render_forest(ui));
-            ui.separator();
-            self.render_central_right_region(ui);
-        });
-    }
-
-    fn render_central_right_region(&mut self, ui: &mut egui::Ui) {
-        ui.vertical(|ui| {
-            self.render_figure(ui);
-            ui.separator();
-            self.render_devtools(ui);
-        });
-    }
-}
-
-impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
-where
-    TraceProtocol: IsTraceProtocol,
-
-    TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
-    Settings: HasTraceDocSettings,
-{
-    pub(crate) fn render(mut self, ui: &mut egui::Ui) {
-        ui.vertical(|ui| {
-            self.render_central_region(ui);
-            ui.separator();
-            self.render_pedestal(ui);
-        });
-    }
 }
 
 fn horizontal_split(
