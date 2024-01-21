@@ -20,7 +20,7 @@ where
         ui: &mut Ui,
     ) -> Response {
         // todo: different styles
-        let symbol_style = ExpansionTogglerSymbolStyle::ConcreteArrowHead;
+        let symbol_style = ExpansionTogglerSymbolStyle::PlusMinus;
         let toggler =
             Label::new(RichText::new(symbol_style.text(expanded)).family(FontFamily::Monospace))
                 .sense(Sense::click());
