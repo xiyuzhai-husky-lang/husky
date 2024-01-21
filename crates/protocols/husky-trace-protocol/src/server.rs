@@ -195,6 +195,9 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             TraceViewAction::FollowTrace { trace_id } => self
                 .trace_synchrotron_mut()
                 .take_action(TraceSynchrotronAction::FollowTrace { trace_id }),
+            TraceViewAction::ToggleAccompany { trace_id } => self
+                .trace_synchrotron_mut()
+                .take_action(TraceSynchrotronAction::ToggleAccompany { trace_id }),
         }
         self.cache_periphery()
     }

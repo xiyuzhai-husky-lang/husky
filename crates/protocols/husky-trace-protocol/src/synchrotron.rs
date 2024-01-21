@@ -100,6 +100,10 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         }
     }
 
+    pub fn accompanied(&self, trace_id: TraceId) -> bool {
+        self.accompanying_trace_ids.contains(&trace_id)
+    }
+
     pub(crate) fn actions_diff(
         &self,
         previous_trace_synchrotron_status: TraceSynchrotronStatus,
@@ -163,7 +167,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         self.followed_trace_id
     }
 
-    pub(crate) fn accompanying_trace_ids(&self) -> &AccompanyingTraceIds {
+    pub fn accompanying_trace_ids(&self) -> &AccompanyingTraceIds {
         &self.accompanying_trace_ids
     }
 

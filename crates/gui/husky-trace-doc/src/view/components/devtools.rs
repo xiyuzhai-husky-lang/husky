@@ -15,19 +15,15 @@ where
             // for debug
             ui.label(
                 RichText::new(format!(
-                    r#"self.trace_synchrotron.focused_trace_id() = {:?}
-input.pointer.interact_pos() = {:?}
-ui.available_size() = {:?}"#,
+                    r#"followed trace id = {:?}
+pointer interact position = {:?}
+accompanying trace ids = {:?}"#,
                     self.trace_synchrotron.followed_trace_id(),
                     ui.input(|input| input.pointer.interact_pos()),
-                    ui.available_size()
+                    &**self.trace_synchrotron.accompanying_trace_ids(),
                 ))
                 .color(Color32::GRAY),
             );
-            ui.horizontal(|ui| {
-                let available_size = ui.available_size();
-                ui.label(format!("available size for control = {available_size:?}"))
-            });
         });
     }
 }

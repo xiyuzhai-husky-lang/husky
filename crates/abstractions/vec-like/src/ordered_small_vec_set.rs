@@ -128,10 +128,11 @@ where
     where
         K: PartialEq + Eq,
     {
-        if let Some(position) = self.data.iter().position(|entry| *entry == value) {
-            self.data.remove(position);
-        } else {
-            self.data.push(value)
+        match self.data.binary_search(&value) {
+            Ok(old) => {
+                self.data.remove(old);
+            }
+            Err(pos) => self.data.insert(pos, value),
         }
     }
 
@@ -146,11 +147,9 @@ where
     where
         K: Copy + PartialEq + Eq,
     {
-        if self.has(value) {
-            ()
-        } else {
-            todo!("maintain order")
-            // self.data.push(value)
+        match self.data.binary_search(&value) {
+            Ok(old) => (),
+            Err(pos) => self.data.insert(pos, value),
         }
     }
 
@@ -167,4 +166,18 @@ where
     pub fn data(&self) -> &[K] {
         self.data.as_ref()
     }
+}
+
+#[test]
+fn ordered_small_vec_set_toggle_works() {
+    let mut set: OrderedSmallVecSet<i32, 2> = OrderedSmallVecSet::new_one_elem_set(1);
+    assert_eq!(&set.data as &[_], &[1]);
+    set.toggle(2);
+    assert_eq!(&set.data as &[_], &[1, 2]);
+    set.toggle(0);
+    assert_eq!(&set.data as &[_], &[0, 1, 2]);
+    set.toggle(1);
+    assert_eq!(&set.data as &[_], &[0, 2]);
+    set.toggle(2);
+    assert_eq!(&set.data as &[_], &[0]);
 }
