@@ -3,17 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Serialize, Deserialize, Hash)]
 pub struct ShapeVisual(VisualId);
 
-impl From<VisualId> for ShapeVisual {
-    fn from(id: VisualId) -> Self {
-        Self(id)
-    }
-}
-
-impl Into<VisualId> for ShapeVisual {
-    fn into(self) -> VisualId {
-        self.0
-    }
-}
+impl_visual_serde_id_from_to_for_sub_visual_id! { ShapeVisual }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum ShapeVisualData {}

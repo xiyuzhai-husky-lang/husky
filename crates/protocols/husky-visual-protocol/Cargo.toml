@@ -9,6 +9,7 @@ egui.workspace = true
 serde.workspace = true
 smallvec.workspace = true
 expect-test.workspace = true
+ordered-float.workspace = true
 # abstractions
 enum-class.workspace = true
 shifted-unsigned-int.workspace = true

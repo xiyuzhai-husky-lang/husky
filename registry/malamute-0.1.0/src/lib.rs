@@ -41,7 +41,7 @@ where
     }
 
     fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
-        todo!()
+        __Visual::Void
     }
 }
 

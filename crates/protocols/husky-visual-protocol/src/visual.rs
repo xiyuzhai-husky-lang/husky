@@ -20,16 +20,53 @@ use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Serialize, Deserialize, Hash)]
-#[serde(from = "usize", into = "usize")]
+#[serde(from = "VisualSerdeId", into = "VisualSerdeId")]
 pub struct VisualId(ShiftedU32);
 
-impl From<usize> for VisualId {
+impl From<VisualSerdeId> for VisualId {
+    fn from(value: VisualSerdeId) -> Self {
+        Self(value.0.into())
+    }
+}
+
+impl Into<VisualSerdeId> for VisualId {
+    fn into(self) -> VisualSerdeId {
+        VisualSerdeId(self.0.into())
+    }
+}
+
+#[macro_use]
+macro_rules! impl_visual_serde_id_from_to_for_sub_visual_id {
+    ($ty: ty) => {
+        impl From<VisualSerdeId> for $ty {
+            fn from(value: VisualSerdeId) -> Self {
+                Self(value.into())
+            }
+        }
+
+        impl Into<VisualSerdeId> for $ty {
+            fn into(self) -> VisualSerdeId {
+                self.0.into()
+            }
+        }
+    };
+}
+use impl_visual_serde_id_from_to_for_sub_visual_id;
+
+/// a vehicle for compactly serialize and deserialize VisualIds
+///
+/// shouldn't be accessible from outer crates
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Serialize, Deserialize, Hash)]
+#[serde(from = "usize", into = "usize")]
+struct VisualSerdeId(usize);
+
+impl From<usize> for VisualSerdeId {
     fn from(value: usize) -> Self {
         Self(value.into())
     }
 }
 
-impl Into<usize> for VisualId {
+impl Into<usize> for VisualSerdeId {
     fn into(self) -> usize {
         self.0.into()
     }
@@ -46,6 +83,7 @@ pub enum Visual {
     Shape(ShapeVisual),
     Mesh(MeshVisual),
     Video(VideoVisual),
+    Group(GroupVisual),
 }
 
 #[enum_class::from_variants]

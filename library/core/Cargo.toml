@@ -6,8 +6,10 @@ edition = "2021"
 [workspace]
 
 [workspace.dependencies]
+husky-visual-protocol = { path = "../../crates/protocols/husky-visual-protocol" }
 husky-standard-value = { path = "../../crates/vm/husky-standard-value" }
 
 [dependencies]
 ordered-float = { version = "4.2.0", features = ["serde"] }
+husky-visual-protocol.workspace = true
 husky-standard-value.workspace = true
