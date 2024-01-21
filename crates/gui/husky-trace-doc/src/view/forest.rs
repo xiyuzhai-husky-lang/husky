@@ -2,6 +2,8 @@ use husky_trace_protocol::synchrotron::bundle::TraceIdBundle;
 
 use super::*;
 
+const CONSTANT1: f32 = 5.0;
+
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
@@ -10,45 +12,49 @@ where
     Settings: HasTraceViewDocSettings,
 {
     pub(super) fn render_forest(&mut self, ui: &mut egui::Ui) {
-        ui.vertical(|ui| {
-            self.render_bundles(ui);
-            ui.allocate_space(ui.available_size())
+        Frame::none().inner_margin(CONSTANT1).show(ui, |ui| {
+            ui.vertical(|ui| {
+                ui.style_mut().spacing.item_spacing = vec2(CONSTANT1, CONSTANT1);
+                self.render_bundles(ui);
+                ui.allocate_space(ui.available_size())
+            })
         });
     }
 
     fn render_bundles(&mut self, ui: &mut egui::Ui) {
         for trace_bundle in self.trace_synchrotron.trace_id_bundles() {
-            TopBottomPanel::top(ui.auto_id_with(trace_bundle.crate_root_module_file_abs_path()))
-                .frame(Frame::none().inner_margin(0.0))
-                .show_inside(ui, |ui| self.render_bundle(trace_bundle, ui));
+            self.render_bundle(ui, trace_bundle);
         }
     }
 
-    fn render_bundle(&mut self, trace_bundle: &TraceIdBundle, ui: &mut egui::Ui) {
-        TopBottomPanel::top(ui.next_auto_id())
-            .frame(Frame::none().inner_margin(Margin {
-                left: 5.0,
-                right: 0.0,
-                top: 0.0,
-                bottom: 0.0,
-            }))
-            .show_inside(ui, |ui| {
-                ui.horizontal(|ui| {
-                    ui.label(
-                        RichText::new(format!(
-                            "{}",
-                            pathdiff::diff_paths(
-                                trace_bundle.crate_root_module_file_abs_path(),
-                                self.current_dir
-                            )
-                            .unwrap()
-                            .display()
-                        ))
-                        .color(Color32::GREEN),
-                    )
-                })
-            });
-        Frame::none().show(ui, |ui| {
+    fn render_bundle(&mut self, ui: &mut egui::Ui, trace_bundle: &TraceIdBundle) {
+        Frame::none()
+            .inner_margin(0.0)
+            .stroke((0.5, Color32::WHITE))
+            .rounding(4.0)
+            .show(ui, |ui| self.render_bundle_inner(trace_bundle, ui));
+    }
+
+    fn render_bundle_inner(&mut self, trace_bundle: &TraceIdBundle, ui: &mut egui::Ui) {
+        ui.style_mut().spacing.item_spacing = vec2(0.0, 0.0);
+        Frame::none().inner_margin(3.0).show(ui, |ui| {
+            ui.horizontal(|ui| {
+                ui.label(
+                    RichText::new(format!(
+                        "{}",
+                        pathdiff::diff_paths(
+                            trace_bundle.crate_root_module_file_abs_path(),
+                            self.current_dir
+                        )
+                        .unwrap()
+                        .display()
+                    ))
+                    .color(Color32::GREEN),
+                )
+            })
+        });
+        ui.separator();
+        Frame::none().inner_margin(CONSTANT1).show(ui, |ui| {
             self.render_traces(trace_bundle.root_trace_ids(), ui)
         });
     }
