@@ -2,19 +2,10 @@ use super::*;
 use egui::{Color32, ColorImage};
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Serialize, Deserialize, Hash)]
+#[serde(from = "VisualSerdeId", into = "VisualSerdeId")]
 pub struct ImageVisual(VisualId);
 
-impl From<usize> for ImageVisual {
-    fn from(value: usize) -> Self {
-        Self(value.into())
-    }
-}
-
-impl Into<usize> for ImageVisual {
-    fn into(self) -> usize {
-        self.0.into()
-    }
-}
+impl_visual_serde_id_from_to_for_sub_visual_id! { ImageVisual }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum ImageVisualData {

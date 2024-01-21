@@ -1,20 +1,10 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Serialize, Deserialize, Hash)]
-#[serde(from = "VisualId", into = "VisualId")]
+#[serde(from = "VisualSerdeId", into = "VisualSerdeId")]
 pub struct RichTextVisual(VisualId);
 
-impl From<VisualId> for RichTextVisual {
-    fn from(id: VisualId) -> Self {
-        Self(id)
-    }
-}
-
-impl Into<VisualId> for RichTextVisual {
-    fn into(self) -> VisualId {
-        self.0
-    }
-}
+impl_visual_serde_id_from_to_for_sub_visual_id! { RichTextVisual }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct RichTextVisualData {}

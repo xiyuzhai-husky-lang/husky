@@ -77,7 +77,7 @@ where
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         match pedestal {
             MlPedestal::Specific(_) => {
-                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure>::new_specific(
+                let followed_visual =
                     followed_trace_id_val_repr_pair.map(|(trace_id, val_repr)| {
                         (
                             trace_id,
@@ -89,21 +89,26 @@ where
                                 val_visual_cache,
                             ),
                         )
-                    }),
-                    accompanying_trace_id_val_repr_pairs
-                        .into_iter()
-                        .map(|(trace_id, val_repr)| {
-                            (
-                                trace_id,
-                                Self::get_val_visual(
-                                    val_repr,
-                                    pedestal,
-                                    runtime,
-                                    visual_synchrotron,
-                                    val_visual_cache,
-                                ),
-                            )
-                        }),
+                    });
+                let accompanying_visuals = accompanying_trace_id_val_repr_pairs
+                    .into_iter()
+                    .map(|(trace_id, val_repr)| {
+                        (
+                            trace_id,
+                            Self::get_val_visual(
+                                val_repr,
+                                pedestal,
+                                runtime,
+                                visual_synchrotron,
+                                val_visual_cache,
+                            ),
+                        )
+                    })
+                    .collect::<Vec<_>>();
+                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure>::new_specific(
+                    followed_visual,
+                    accompanying_visuals,
+                    visual_synchrotron,
                 )
             }
             MlPedestal::Generic => todo!(),

@@ -142,7 +142,11 @@ where
     }
 
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        todo!()
+        let elements = self
+            .iter()
+            .map(|t| t.visualize_or_void(visual_synchrotron))
+            .collect();
+        Visual::new_group_visual(elements, visual_synchrotron)
     }
 }
 

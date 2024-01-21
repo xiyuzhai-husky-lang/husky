@@ -499,6 +499,7 @@ impl IsValue for Value {
     }
 
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+        use husky_visual_protocol::visualize::Visualize;
         match self {
             Value::Invalid => todo!(),
             Value::Moved => todo!(),
@@ -523,10 +524,10 @@ impl IsValue for Value {
             Value::R64(_) => todo!(),
             Value::R128(_) => todo!(),
             Value::RSize(_) => todo!(),
-            Value::F32(_) => todo!(),
+            Value::F32(f) => f.visualize(visual_synchrotron),
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
-            Value::Owned(_) => todo!(),
+            Value::Owned(value) => value.visualize_or_void_dyn(visual_synchrotron),
             Value::Leash(value) => value.visualize_or_void_dyn(visual_synchrotron),
             Value::Ref(_) => todo!(),
             Value::Mut(_) => todo!(),
