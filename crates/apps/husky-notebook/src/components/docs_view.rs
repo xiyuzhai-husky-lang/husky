@@ -1,4 +1,4 @@
-use egui::vec2;
+use egui::{vec2, Color32};
 
 use super::*;
 
@@ -6,7 +6,11 @@ impl NotebookApp {
     pub(crate) fn render_docs_view(&mut self, ui: &mut egui::Ui) {
         let mut style = egui_dock::Style::from_egui(ui.style().as_ref());
         style.main_surface_border_stroke.width = 0.0;
+        style.main_surface_border_stroke.color = Color32::KHAKI;
         style.tab.tab_body.inner_margin = 0.0.into();
+        style.main_surface_border_rounding = 0.0.into();
+        style.tab.tab_body.stroke.width = 0.0;
+        // style.tab_bar.bg_fill = Color32::RED;
         egui_dock::DockArea::new(&mut self.dock_state)
             .style(style)
             .show_inside(

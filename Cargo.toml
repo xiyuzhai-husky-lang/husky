@@ -52,7 +52,6 @@ egui = { version = "0.25.0", features = [
     "extra_asserts",
     "document-features"
 ] }
-egui_dock = "0.10.0"
 either = "1.8.1"
 expect-test = "1.4.1"
 flurry = "0.4.0"
@@ -114,6 +113,8 @@ husky-corgi-config ={path = "crates/fs/husky-corgi-config"}
 husky-manifest ={path = "crates/fs/husky-manifest"}
 husky-toolchain-config ={path = "crates/fs/husky-toolchain-config"}
 husky-vfs = { path = "crates/fs/husky-vfs" }
+# gui
+egui_dock = { path = "crates/gui/egui-dock" }
 # hir
 husky-hir-opr = { path = "crates/hir/husky-hir-opr" }
 husky-hir-ty = { path = "crates/hir/husky-hir-ty" }
