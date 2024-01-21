@@ -81,7 +81,7 @@ where
                 &mut self.ui_cache,
                 ui,
             )
-            .render(ui);
+            .render_standard_layout(ui);
         } else {
             // todo: render connecting status
         }
