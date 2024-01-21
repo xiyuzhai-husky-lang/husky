@@ -56,10 +56,10 @@ impl husky_core::visual::Visualize for BinaryImage28 {
             4,
             28,
             28,
-            self.0
+            self.0[2..]
                 .iter()
                 .map(|u| {
-                    unsafe { std::mem::transmute_copy::<_, [u8; 4]>(u) }
+                    unsafe { std::mem::transmute::<_, [u8; 4]>(u << 2) }
                         .into_iter()
                         .rev()
                 })
