@@ -113,7 +113,10 @@ where
                                     todo!()
                                 }
                             }
-                            Err(e) => eprintln!("e = {e}"),
+                            Err(e) => {
+                                eprintln!("e = {e}");
+                                break;
+                            }
                         }
                     }
                     Err(_) => todo!(),
@@ -123,7 +126,10 @@ where
                 Message::Pong(_) => todo!(),
                 Message::Close(_) => todo!(),
             },
-            Err(e) => eprintln!("e = {e}"),
+            Err(e) => {
+                eprintln!("e = {e}");
+                break;
+            }
         }
     }
 }
