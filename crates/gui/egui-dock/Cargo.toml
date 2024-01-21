@@ -17,13 +17,10 @@ default = []
 serde = ["dep:serde", "egui/serde"]
 
 [dependencies]
-egui = { workspace = true, default-features = false }
+egui = { workspace = true }
 serde = { workspace = true, optional = true, features = ["derive"] }
 duplicate = "1.0"
 paste = "1.0"
 
 [dev-dependencies]
-eframe = { workspace = true, default-features = false, features = [
-    "default_fonts",
-    "glow",
-] }
+eframe = { workspace = true, features = ["default_fonts", "glow"] }
