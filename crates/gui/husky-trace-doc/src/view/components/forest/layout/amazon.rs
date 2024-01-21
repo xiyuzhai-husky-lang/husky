@@ -137,19 +137,15 @@ where
         let response = frame
             .show(ui, |ui| {
                 ui.horizontal(|ui| {
-                    ui.spacing_mut().item_spacing.x = 0.;
-                    // render prefix
-                    let prefix_width = self.glyph_width * 2.5;
-                    if entry.view_data().have_subtraces() {
-                        let button_response =
-                            self.render_expansion_toggler(trace_id, entry.expanded(), ui);
-                        ui.allocate_space(Vec2::new(
-                            prefix_width - button_response.rect.width(),
-                            button_response.rect.height(),
-                        ));
-                    } else {
-                        ui.allocate_space(Vec2::new(prefix_width, 0.));
-                    }
+                    ui.spacing_mut().item_spacing.x = 2.;
+                    let accompanied = self.trace_synchrotron.accompanied(trace_id);
+                    self.render_accompany_toggler(trace_id, accompanied, ui);
+                    self.render_expansion_toggler(
+                        trace_id,
+                        entry.view_data().have_subtraces(),
+                        entry.expanded(),
+                        ui,
+                    );
                     ui.vertical(|ui| {
                         let lines_data = entry.view_data().lines_data();
                         for line_data in &lines_data[..(lines_data.len() - 1)] {

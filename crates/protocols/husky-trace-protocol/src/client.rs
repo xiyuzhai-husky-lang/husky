@@ -171,6 +171,20 @@ where
                 }
                 Some(TraceSynchrotronAction::FollowTrace { trace_id })
             }
+            TraceViewAction::FollowTrace { trace_id } => todo!(),
+            &TraceViewAction::ToggleAccompany { trace_id } => {
+                // toggling accompany will only affect figure
+                let trace_synchrotron = self.trace_synchrotron();
+                let pedestal = trace_synchrotron.pedestal();
+                let mut accompanying_trace_ids = trace_synchrotron.accompanying_trace_ids().clone();
+                accompanying_trace_ids.toggle(trace_id);
+                let (has_figure, accompanying_trace_ids) =
+                    trace_synchrotron[trace_id].has_figure(pedestal, accompanying_trace_ids);
+                if !has_figure {
+                    return None;
+                }
+                Some(TraceSynchrotronAction::ToggleAccompany { trace_id })
+            }
         }
     }
 }

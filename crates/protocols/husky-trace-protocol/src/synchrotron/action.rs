@@ -28,6 +28,9 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
         accompanying_trace_ids: AccompanyingTraceIds,
         figure: TraceProtocol::Figure,
     },
+    ToggleAccompany {
+        trace_id: TraceId,
+    },
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -107,6 +110,20 @@ where
             } => {
                 let trace_entry = &mut synchrotron[followed_trace_id];
                 trace_entry.cache_figure(pedestal, accompanying_trace_ids.clone(), figure.clone())
+            }
+            TraceSynchrotronAction::CacheStalk {
+                pedestal,
+                trace_id,
+                stalk,
+            } => todo!(),
+            TraceSynchrotronAction::CacheFigure {
+                pedestal,
+                followed_trace_id,
+                accompanying_trace_ids,
+                figure,
+            } => todo!(),
+            &TraceSynchrotronAction::ToggleAccompany { trace_id } => {
+                synchrotron.accompanying_trace_ids.toggle(trace_id)
             }
         }
     }

@@ -20,6 +20,9 @@ pub enum TraceViewAction<TraceProtocol> {
     FollowTrace {
         trace_id: TraceId,
     },
+    ToggleAccompany {
+        trace_id: TraceId,
+    },
 }
 
 pub struct TraceViewActionBuffer<TraceProtocol> {
