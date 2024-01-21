@@ -534,7 +534,7 @@ impl IsValue for Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8 { index, presenter } => todo!(),
+            Value::EnumU8 { index, presenter } => Visual::Void,
         }
     }
 }
