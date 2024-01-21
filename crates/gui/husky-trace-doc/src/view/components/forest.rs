@@ -1,6 +1,9 @@
-use husky_trace_protocol::synchrotron::bundle::TraceIdBundle;
+mod components;
+mod layout;
+mod settings;
 
 use super::*;
+use husky_trace_protocol::synchrotron::bundle::TraceIdBundle;
 
 const CONSTANT1: f32 = 5.0;
 
@@ -9,9 +12,9 @@ where
     TraceProtocol: IsTraceProtocol,
 
     TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
-    Settings: HasTraceViewDocSettings,
+    Settings: HasTraceDocSettings,
 {
-    pub(super) fn render_forest(&mut self, ui: &mut egui::Ui) {
+    pub(in crate::view) fn render_forest(&mut self, ui: &mut egui::Ui) {
         Frame::none().inner_margin(CONSTANT1).show(ui, |ui| {
             ui.vertical(|ui| {
                 ui.style_mut().spacing.item_spacing = vec2(CONSTANT1, CONSTANT1);

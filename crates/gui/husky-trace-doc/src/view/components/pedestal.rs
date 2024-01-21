@@ -7,9 +7,9 @@ where
     TraceProtocol: IsTraceProtocol,
 
     TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
-    Settings: HasTraceViewDocSettings,
+    Settings: HasTraceDocSettings,
 {
-    pub(super) fn render_pedestal(&mut self, ui: &mut egui::Ui) {
+    pub(in crate::view) fn render_pedestal(&mut self, ui: &mut egui::Ui) {
         // TopBottomPanel::bottom(ui.auto_id_with("pedestal"))
         //     .frame(Frame::none().inner_margin(2.0))
         //     .show_inside(ui, |ui| {

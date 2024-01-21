@@ -1,7 +1,6 @@
-mod devtools;
-mod figure;
-mod forest;
-mod pedestal;
+mod components;
+mod layout;
+pub(crate) mod settings;
 
 use crate::*;
 use egui::{
@@ -26,7 +25,7 @@ where
     TraceProtocol: IsTraceProtocol,
 
     TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
-    Settings: HasTraceViewDocSettings,
+    Settings: HasTraceDocSettings,
 {
     current_dir: &'a Path,
     trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
@@ -42,7 +41,7 @@ where
     TraceProtocol: IsTraceProtocol,
 
     TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
-    Settings: HasTraceViewDocSettings,
+    Settings: HasTraceDocSettings,
 {
     pub(crate) fn new(
         current_dir: &'a Path,
@@ -101,7 +100,7 @@ where
     TraceProtocol: IsTraceProtocol,
 
     TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
-    Settings: HasTraceViewDocSettings,
+    Settings: HasTraceDocSettings,
 {
     pub(crate) fn render(mut self, ui: &mut egui::Ui) {
         ui.vertical(|ui| {

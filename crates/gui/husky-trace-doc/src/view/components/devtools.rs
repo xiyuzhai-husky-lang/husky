@@ -6,9 +6,9 @@ impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
     TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
-    Settings: HasTraceViewDocSettings,
+    Settings: HasTraceDocSettings,
 {
-    pub(super) fn render_devtools(&mut self, ui: &mut egui::Ui) {
+    pub(in crate::view) fn render_devtools(&mut self, ui: &mut egui::Ui) {
         ui.vertical(|ui| {
             ui.label(RichText::new("Devtools").color(Color32::WHITE));
             ui.separator();

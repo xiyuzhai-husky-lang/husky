@@ -1,5 +1,5 @@
 use husky_code_editor::settings::{CodeEditorSettings, HasCodeEditorSettings};
-use husky_trace_doc::settings::HasTraceViewDocSettings;
+use husky_trace_doc::settings::HasTraceDocSettings;
 use husky_trace_protocol::settings::{HasTraceSettings, TraceSettings};
 
 #[derive(Default, PartialEq, Eq)]
@@ -14,7 +14,15 @@ impl HasTraceSettings for HuskyNotebookDocSettings {
     }
 }
 
-impl HasTraceViewDocSettings for HuskyNotebookDocSettings {}
+impl HasTraceDocSettings for HuskyNotebookDocSettings {
+    fn trace_doc_settings(&self) -> &husky_trace_doc::settings::TraceDocSettings {
+        todo!()
+    }
+
+    fn trace_doc_settings_mut(&mut self) -> &mut husky_trace_doc::settings::TraceDocSettings {
+        todo!()
+    }
+}
 
 impl HasCodeEditorSettings for HuskyNotebookDocSettings {
     fn code_editor_settings(&self) -> &husky_code_editor::settings::CodeEditorSettings {
