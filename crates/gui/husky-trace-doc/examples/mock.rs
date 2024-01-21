@@ -1,12 +1,7 @@
-
-
 use husky_code_editor::settings::HasCodeEditorSettings;
 
-use husky_trace_doc::{settings::HasTraceViewDocSettings};
-use husky_trace_protocol::{
-    settings::{HasTraceSettings, TraceSettings},
-};
-
+use husky_trace_doc::settings::HasTraceDocSettings;
+use husky_trace_protocol::settings::{HasTraceSettings, TraceSettings};
 
 fn main() {
     todo!()
@@ -30,4 +25,12 @@ impl HasTraceSettings for MockConfig {
     }
 }
 
-impl HasTraceViewDocSettings for MockConfig {}
+impl HasTraceDocSettings for MockConfig {
+    fn trace_doc_settings(&self) -> &husky_trace_doc::settings::TraceDocSettings {
+        todo!()
+    }
+
+    fn trace_doc_settings_mut(&mut self) -> &mut husky_trace_doc::settings::TraceDocSettings {
+        todo!()
+    }
+}

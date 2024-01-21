@@ -15,6 +15,7 @@ use husky_trace_protocol::{
 use notify_change::NotifyChange;
 use ui::{component::IsUiComponent, ui::egui::UiCache, visual_widget::VisualWidget};
 
+/// storage, state
 pub struct TraceDoc<TraceProtocol, RepaintSignal>
 where
     TraceProtocol: IsTraceProtocol,
@@ -32,7 +33,7 @@ impl<TraceProtocol, Settings, UiActionBuffer> IsUiComponent<egui::Ui, Settings, 
 where
     TraceProtocol: IsTraceProtocolFull,
     TraceProtocol::Figure: VisualWidget<egui::Ui>,
-    Settings: HasTraceViewDocSettings,
+    Settings: HasTraceDocSettings,
 {
     fn render_dyn(
         &mut self,
@@ -65,7 +66,7 @@ where
 {
     fn render<Settings>(&mut self, ui: &mut Ui, settings: &mut Settings)
     where
-        Settings: HasTraceViewDocSettings,
+        Settings: HasTraceDocSettings,
     {
         let trace_client = &self.trace_client;
         if let Some(e) = trace_client.connection_error() {

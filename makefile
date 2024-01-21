@@ -97,3 +97,6 @@ doc:
 fix:
 	cargo fix
 	make update-expect-local
+
+clean-mnist:
+	cd examples/mnist-classifier/target-rs && cargo clean

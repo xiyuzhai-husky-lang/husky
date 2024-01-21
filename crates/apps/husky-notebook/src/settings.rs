@@ -6,7 +6,7 @@ pub(crate) use self::layout::*;
 
 use egui::Color32;
 use husky_code_editor::settings::HasCodeEditorSettings;
-use husky_trace_doc::settings::HasTraceViewDocSettings;
+use husky_trace_doc::settings::HasTraceDocSettings;
 use husky_trace_protocol::settings::HasTraceSettings;
 use ui::component::IsUiComponent;
 
@@ -40,7 +40,15 @@ impl HasTraceSettings for NotebookSettings {
     }
 }
 
-impl HasTraceViewDocSettings for NotebookSettings {}
+impl HasTraceDocSettings for NotebookSettings {
+    fn trace_doc_settings(&self) -> &husky_trace_doc::settings::TraceDocSettings {
+        todo!()
+    }
+
+    fn trace_doc_settings_mut(&mut self) -> &mut husky_trace_doc::settings::TraceDocSettings {
+        todo!()
+    }
+}
 
 pub(crate) struct NotebookSettingsView;
 

@@ -8,9 +8,9 @@ where
     TraceProtocol: IsTraceProtocol,
 
     TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
-    Settings: HasTraceViewDocSettings,
+    Settings: HasTraceDocSettings,
 {
-    pub(super) fn render_figure(&mut self, ui: &mut egui::Ui) {
+    pub(in crate::view) fn render_figure(&mut self, ui: &mut egui::Ui) {
         if let Some(figure) = self.figure {
             let visual_synchrotron = self.trace_synchrotron.visual_synchrotron();
             figure.ui(visual_synchrotron, self.ui_cache, ui)
