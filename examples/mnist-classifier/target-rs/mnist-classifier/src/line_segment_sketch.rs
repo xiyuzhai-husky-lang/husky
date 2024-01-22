@@ -209,7 +209,7 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
 #[rustfmt::skip]
 impl Visualize for crate::line_segment_sketch::LineSegmentStroke {
     fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> husky_core::visual::Visual {
-        todo!()
+        LineSegment!(("start", &self.start), ("end", &self.end), __visual_synchrotron)
     }
 }
 

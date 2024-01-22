@@ -201,7 +201,11 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.write_str(bracket.ket_code());
     }
 
-    pub(crate) fn bracketed_list_with(&mut self, bracket: RustBracket, f: impl FnOnce(&mut Self)) {
+    pub(crate) fn bracketed_heterogeneous_list_with(
+        &mut self,
+        bracket: RustBracket,
+        f: impl FnOnce(&mut Self),
+    ) {
         let is_list_start = std::mem::replace(&mut self.is_list_start, Some(true));
         self.write_str(bracket.bra_code());
         f(self);

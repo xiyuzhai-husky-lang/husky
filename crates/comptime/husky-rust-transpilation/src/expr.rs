@@ -1,3 +1,4 @@
+mod html;
 pub(crate) mod pattern;
 pub(crate) mod precedence;
 pub(crate) mod site;
@@ -78,7 +79,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
             }
         }
         if !site.rust_precedence_range.include(precedence) {
-            builder.bracketed_list_with(RustBracket::Par, |builder| {
+            builder.bracketed_heterogeneous_list_with(RustBracket::Par, |builder| {
                 site.transpile_hir_eager_expr_to_rust(data, precedence, builder)
             })
         } else {
@@ -174,7 +175,7 @@ impl HirEagerExprSite {
                         .transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::Dot);
                     builder.rem_eulid();
-                    builder.bracketed_list_with(RustBracket::Par, |builder| {
+                    builder.bracketed_heterogeneous_list_with(RustBracket::Par, |builder| {
                         (ropd, self.any_precedence()).transpile_to_rust(builder)
                     })
                 }
@@ -186,7 +187,7 @@ impl HirEagerExprSite {
                         .transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::Dot);
                     builder.pow();
-                    builder.bracketed_list_with(RustBracket::Par, |builder| {
+                    builder.bracketed_heterogeneous_list_with(RustBracket::Par, |builder| {
                         (ropd, self.any_precedence()).transpile_to_rust(builder)
                     })
                 }
@@ -384,7 +385,9 @@ impl HirEagerExprSite {
                 }
                 match path.ident(db).unwrap().data(db) {
                     // ad hoc, should use path menu instead
-                    "visualize" => builder.visualize_bracketed_arguments(),
+                    "visualize" => builder.bracketed(RustBracket::Par, |builder| {
+                        builder.visual_synchrotron_argument()
+                    }),
                     _ => builder.bracketed_comma_list(
                         RustBracket::Par,
                         item_groups.iter().map(|item_group| (item_group, self)),
@@ -430,12 +433,17 @@ impl HirEagerExprSite {
             }
             HirEagerExprData::Block { stmts } => stmts.transpile_to_rust(builder),
             HirEagerExprData::EmptyHtmlTag {
-                function_ident: _,
-                arguments: _,
-            } =>
-            /* ad hoc */
-            {
-                builder.todo()
+                function_ident,
+                ref arguments,
+            } => {
+                let macro_name = RustMacroName::HtmlTag(function_ident);
+                builder.macro_name(macro_name);
+                builder.bracketed_heterogeneous_list_with(RustBracket::Par, |builder| {
+                    builder.heterogeneous_comma_list_items(arguments.iter());
+                    builder.heterogeneous_comma_list_item_with(|builder| {
+                        builder.visual_synchrotron_argument()
+                    })
+                })
             }
             HirEagerExprData::Todo => {
                 builder.macro_name(RustMacroName::Todo);

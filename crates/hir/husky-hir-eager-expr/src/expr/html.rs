@@ -1,12 +1,21 @@
 use husky_sema_expr::SemaHtmlArgumentExpr;
 
-
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerHtmlArgumentExpr {
     property_ident: Ident,
     expr: HirEagerExprIdx,
+}
+
+impl HirEagerHtmlArgumentExpr {
+    pub fn property_ident(&self) -> Ident {
+        self.property_ident
+    }
+
+    pub fn expr(&self) -> HirEagerExprIdx {
+        self.expr
+    }
 }
 
 impl vec_like::AsVecMapEntry for HirEagerHtmlArgumentExpr {

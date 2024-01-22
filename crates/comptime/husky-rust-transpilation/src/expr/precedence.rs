@@ -42,6 +42,12 @@ pub(crate) enum RustPrecedenceRange {
     Any,
 }
 
+impl Default for RustPrecedenceRange {
+    fn default() -> Self {
+        RustPrecedenceRange::Any
+    }
+}
+
 impl RustPrecedenceRange {
     pub(crate) const ANY: Self = RustPrecedenceRange::Any;
 

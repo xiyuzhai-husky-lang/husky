@@ -323,7 +323,7 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
 #[rustfmt::skip]
 impl Visualize for crate::raw_contour::RawContour {
     fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> husky_core::visual::Visual {
-        todo!()
+        Contour!(("points", &self.points), __visual_synchrotron)
     }
 }
 
