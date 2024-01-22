@@ -27,29 +27,36 @@ where
     fn render_bundle(&mut self, ui: &mut egui::Ui, trace_bundle: &TraceIdBundle) {
         Frame::none()
             .inner_margin(0.0)
-            .stroke((0.5, Color32::WHITE))
+            .stroke((0.5, Color32::GRAY))
             .rounding(4.0)
             .show(ui, |ui| self.render_bundle_inner(trace_bundle, ui));
     }
 
     fn render_bundle_inner(&mut self, trace_bundle: &TraceIdBundle, ui: &mut egui::Ui) {
         ui.style_mut().spacing.item_spacing = vec2(0.0, 0.0);
-        Frame::none().inner_margin(1.0).show(ui, |ui| {
-            ui.horizontal(|ui| {
-                ui.label(
-                    RichText::new(format!(
-                        "{}",
-                        pathdiff::diff_paths(
-                            trace_bundle.crate_root_module_file_abs_path(),
-                            self.current_dir
-                        )
-                        .unwrap()
-                        .display()
-                    ))
-                    .color(Color32::GREEN),
-                )
+        Frame::none()
+            .inner_margin(Margin {
+                left: 6.0,
+                right: 6.0,
+                top: 2.0,
+                bottom: 2.0,
             })
-        });
+            .show(ui, |ui| {
+                ui.horizontal(|ui| {
+                    ui.label(
+                        RichText::new(format!(
+                            "{}",
+                            pathdiff::diff_paths(
+                                trace_bundle.crate_root_module_file_abs_path(),
+                                self.current_dir
+                            )
+                            .unwrap()
+                            .display()
+                        ))
+                        .color(Color32::GREEN),
+                    )
+                })
+            });
         Separator::default().spacing(1.0).ui(ui);
         Frame::none()
             .inner_margin(Margin {
