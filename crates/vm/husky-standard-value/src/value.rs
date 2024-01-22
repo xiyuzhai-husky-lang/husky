@@ -71,51 +71,6 @@ pub enum Value {
     },
 }
 
-// impl Drop for Value {
-//     fn drop(&mut self) {
-//         match self {
-//             Value::Invalid => (),
-//             Value::Moved => (),
-//             Value::Unit(_) => (),
-//             Value::Bool(_) => (),
-//             Value::Char(_) => (),
-//             Value::I8(_) => (),
-//             Value::I16(_) => (),
-//             Value::I32(_) => (),
-//             Value::I64(_) => (),
-//             Value::I128(_) => (),
-//             Value::ISize(_) => (),
-//             Value::U8(_) => (),
-//             Value::U16(_) => (),
-//             Value::U32(_) => (),
-//             Value::U64(_) => (),
-//             Value::U128(_) => (),
-//             Value::USize(_) => (),
-//             Value::R8(_) => (),
-//             Value::R16(_) => (),
-//             Value::R32(_) => (),
-//             Value::R64(_) => (),
-//             Value::R128(_) => (),
-//             Value::RSize(_) => (),
-//             Value::F32(_) => (),
-//             Value::F64(_) => (),
-//             Value::StringLiteral(_) => (),
-//             Value::Box(boxed_value) => println!(
-//                 "boxed value of type `{}` is being dropped",
-//                 boxed_value.type_name_dyn()
-//             ),
-//             Value::Leash(_) => (),
-//             Value::Ref(_) => (),
-//             Value::Mut(_) => (),
-//             Value::OptionBox(_) => (),
-//             Value::OptionLeash(_) => (),
-//             Value::OptionSizedRef(_) => (),
-//             Value::OptionSizedMut(_) => (),
-//             Value::EnumU8 { .. } => (),
-//         }
-//     }
-// }
-
 unsafe impl Send for Value {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -652,6 +607,29 @@ impl std::ops::AddAssign<Value> for Value {
         todo!()
     }
 }
+
+impl std::ops::BitAnd for Value {
+    type Output = Self;
+
+    fn bitand(self, rhs: Self) -> Self::Output {
+        match (self, rhs) {
+            (Value::R8(a), Value::R8(b)) => Value::R8(a & b),
+            (Value::R16(a), Value::R16(b)) => Value::R16(a & b),
+            (Value::R32(a), Value::R32(b)) => Value::R32(a & b),
+            (Value::R64(a), Value::R64(b)) => Value::R64(a & b),
+            (Value::R128(a), Value::R128(b)) => Value::R128(a & b),
+            (Value::RSize(a), Value::RSize(b)) => Value::RSize(a & b),
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl std::ops::BitAndAssign for Value {
+    fn bitand_assign(&mut self, rhs: Self) {
+        todo!()
+    }
+}
+
 impl std::ops::BitOr for Value {
     type Output = Self;
 

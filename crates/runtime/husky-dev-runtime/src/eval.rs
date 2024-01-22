@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::TypeVariantIndex;
 use husky_hir_opr::binary::HirBinaryOpr;
-use husky_opr::BinaryComparisonOpr;
+use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
 use husky_task::{
     dev_ascension::{dev_eval_context, with_runtime_and_base_point, IsDevAscension},
     helpers::{TaskError, TaskValue},
@@ -119,7 +119,24 @@ impl<Task: IsTask> DevRuntime<Task> {
                     unreachable!()
                 };
                 match opr {
-                    HirBinaryOpr::Closed(_) => todo!(),
+                    HirBinaryOpr::Closed(opr) => {
+                        let lopd = self.eval_val_repr(lopd)?;
+                        let ropd = self.eval_val_repr(ropd)?;
+                        ValControlFlow::Continue(
+                            match opr {
+                                BinaryClosedOpr::Add => lopd + ropd,
+                                BinaryClosedOpr::BitAnd => lopd & ropd,
+                                BinaryClosedOpr::BitOr => lopd | ropd,
+                                BinaryClosedOpr::BitXor => lopd ^ ropd,
+                                BinaryClosedOpr::Div => lopd / ropd,
+                                BinaryClosedOpr::Mul => lopd * ropd,
+                                BinaryClosedOpr::RemEuclid => todo!(),
+                                BinaryClosedOpr::Power => todo!(),
+                                BinaryClosedOpr::Sub => lopd - ropd,
+                            }
+                            .into(),
+                        )
+                    }
                     HirBinaryOpr::Shift(_) => todo!(),
                     HirBinaryOpr::Assign => todo!(),
                     HirBinaryOpr::AssignClosed(_) => todo!(),
