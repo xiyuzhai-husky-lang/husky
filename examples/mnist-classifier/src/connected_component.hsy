@@ -23,7 +23,7 @@ pub struct ConnectedComponent {
 }
 
 impl Visualize for ConnectedComponent:
-    fn visualize() -> Html:
+    fn visualize() -> Visual:
         self.mask.visualize()
 
 impl ConnectedComponent:

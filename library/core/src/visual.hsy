@@ -1,9 +1,9 @@
 use crate::*
 
 pub trait Visualize:
-    fn visualize() -> Html;
+    fn visualize() -> Visual;
 
-pub extern Html;
+pub extern Visual;
 
 impl Visualize for #derive _:
-    fn visualize() -> Html:
+    fn visualize() -> Visual:

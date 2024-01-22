@@ -382,10 +382,14 @@ impl HirEagerExprSite {
                     },
                     _ => todo!(),
                 }
-                builder.bracketed_comma_list(
-                    RustBracket::Par,
-                    item_groups.iter().map(|item_group| (item_group, self)),
-                )
+                match path.ident(db).unwrap().data(db) {
+                    // ad hoc, should use path menu instead
+                    "visualize" => builder.visualize_bracketed_arguments(),
+                    _ => builder.bracketed_comma_list(
+                        RustBracket::Par,
+                        item_groups.iter().map(|item_group| (item_group, self)),
+                    ),
+                }
             }
             HirEagerExprData::NewTuple { items: _ } => {
                 todo!()
@@ -431,7 +435,7 @@ impl HirEagerExprSite {
             } =>
             /* ad hoc */
             {
-                ()
+                builder.todo()
             }
             HirEagerExprData::Todo => {
                 builder.macro_name(RustMacroName::Todo);

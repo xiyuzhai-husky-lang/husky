@@ -154,7 +154,7 @@ impl TermMenu0 {
             r64_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.r64_ty_path()).into(),
             r128_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.r128_ty_path()).into(),
             rsize_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.rsize_ty_path()).into(),
-            html_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.html_ty_path()).into(),
+            html_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.visual_ty_path()).into(),
             clone_trai: TermEntityPath::Trait(item_path_menu.clone_trai_path()).into(),
             copy_trai: TermEntityPath::Trait(item_path_menu.copy_trai_path()).into(),
             default_trai: TermEntityPath::Trait(item_path_menu.default_trai_path()).into(),

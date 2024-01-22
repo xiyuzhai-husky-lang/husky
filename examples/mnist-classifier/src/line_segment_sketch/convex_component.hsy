@@ -6,5 +6,5 @@ struct ConvexComponent {
 }
 
 impl Visualize for ConvexComponent:
-    fn visualize() -> Html:
+    fn visualize() -> Visual:
         self.line_segments.visualize()

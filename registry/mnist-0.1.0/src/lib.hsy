@@ -14,7 +14,7 @@ pub enum MnistLabel
 pub extern BinaryImage28;
 
 impl Visualize for BinaryImage28:
-    fn visualize() -> Html;
+    fn visualize() -> Visual;
 
 impl BinaryImage28:
     pub static fn new_zeros() -> Self;
@@ -25,7 +25,7 @@ impl core::ops::IntIndex for BinaryImage28:
 pub extern BinaryGrid28;
 
 impl Visualize for BinaryGrid28:
-    fn visualize() -> Html;
+    fn visualize() -> Visual;
 
 impl BinaryGrid28:
     pub static fn new_zeros() -> Self;
