@@ -11,6 +11,8 @@ pub trait IsValue:
     + PartialOrd
     + std::ops::Add<Self, Output = Self>
     + std::ops::AddAssign<Self>
+    + std::ops::BitAnd<Self, Output = Self>
+    + std::ops::BitAndAssign<Self>
     + std::ops::BitOr<Self, Output = Self>
     + std::ops::BitOrAssign<Self>
     + std::ops::BitXor<Self, Output = Self>
