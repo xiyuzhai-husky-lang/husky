@@ -33,7 +33,7 @@ where
     }
 
     fn render_bundle_inner(&mut self, trace_bundle: &TraceIdBundle, ui: &mut egui::Ui) {
-        ui.style_mut().spacing.item_spacing = vec2(0.0, 0.0);
+        ui.style_mut().spacing.item_spacing = vec2(0.0, 1.0);
         Frame::none()
             .inner_margin(Margin {
                 left: 6.0,
@@ -141,8 +141,8 @@ where
             .rounding(3.0);
         if hovered_within || followed {
             frame.stroke.color = if !followed {
-                frame.stroke.width = 0.3;
-                Color32::LIGHT_YELLOW
+                frame.stroke.width = 1.0;
+                Color32::from_rgb(55, 55, 0)
             } else {
                 frame.stroke.width = 1.0;
                 Color32::GOLD
