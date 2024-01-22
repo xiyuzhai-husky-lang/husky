@@ -5,7 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-egui.workspace = true
+egui = { workspace = true, optional = true }
 serde.workspace = true
 smallvec.workspace = true
 expect-test.workspace = true
@@ -17,3 +17,4 @@ shifted-unsigned-int.workspace = true
 husky-print-utils.workspace = true
 
 [features]
+egui = ["dep:egui"]

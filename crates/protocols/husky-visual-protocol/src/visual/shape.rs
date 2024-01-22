@@ -13,10 +13,51 @@ pub enum ShapeVisualData {
     Contour { points: Vec<Point> },
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Point {
     pub x: OrderedFloat<f32>,
     pub y: OrderedFloat<f32>,
+}
+
+impl Point {
+    pub fn splat(v: f32) -> Point {
+        Point {
+            x: v.into(),
+            y: v.into(),
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct VisualRect {
+    /// One of the corners of the rectangle, usually the left top one.
+    pub min: Point,
+
+    /// The other corner, opposing [`Self::min`]. Usually the right bottom one.
+    pub max: Point,
+}
+
+impl VisualRect {
+    pub fn mnist() -> Self {
+        Self {
+            min: Point::default(),
+            max: Point::splat(28.0),
+        }
+    }
+}
+
+/// # egui support
+#[cfg(feature = "egui")]
+impl Point {
+    pub fn to_screen(self, visual_rect: VisualRect, rect: egui::Rect) -> egui::Pos2 {
+        let a = (self.x - visual_rect.min.x) / (visual_rect.max.x - visual_rect.min.x);
+        let a = a.into_inner();
+        let x = rect.min.x + (rect.max.x - rect.min.x) * a;
+        let b = (self.y - visual_rect.min.y) / (visual_rect.max.y - visual_rect.min.y);
+        let b = b.into_inner();
+        let y = rect.max.y + (rect.min.y - rect.max.y) * b;
+        egui::Pos2 { x, y }
+    }
 }
 
 impl From<(f32, f32)> for Point {

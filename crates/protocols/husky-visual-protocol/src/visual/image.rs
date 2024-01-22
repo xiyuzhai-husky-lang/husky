@@ -1,4 +1,5 @@
 use super::*;
+#[cfg(feature = "egui")]
 use egui::{Color32, ColorImage};
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Serialize, Deserialize, Hash)]
@@ -41,6 +42,7 @@ impl ImageVisual {
         data
     }
 
+    #[cfg(feature = "egui")]
     pub fn color_image(self, visual_synchrotron: &VisualSynchrotron) -> ColorImage {
         self.data(visual_synchrotron).into()
     }
@@ -58,6 +60,7 @@ impl Visual {
     }
 }
 
+#[cfg(feature = "egui")]
 impl Into<ColorImage> for &ImageVisualData {
     fn into(self) -> ColorImage {
         match *self {
