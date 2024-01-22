@@ -75,6 +75,9 @@ impl CompilerInstance {
     }
 
     pub fn compile_all(&self) -> CompileHuskyM {
+        if let Ok(_) = std::env::var("SKIP_COMPILATION") {
+            return CompileHuskyM::Ok;
+        }
         use husky_print_utils::*;
         let package_dirs = collect_package_dirs(&self.dir.to_path(""));
         println!(

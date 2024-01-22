@@ -20,6 +20,7 @@ mnist-release:
 mnist-compiled:
 	cargo check
 	cargo run --bin husky-compiler -- $(examples_dir)/mnist-classifier
+	# SKIP_COMPILATION=1 cargo run --bin husky-developer -- run $(examples_dir)/mnist-classifier
 	cargo run --bin husky-developer -- run $(examples_dir)/mnist-classifier
 
 mnist-compiled-backtraced:
