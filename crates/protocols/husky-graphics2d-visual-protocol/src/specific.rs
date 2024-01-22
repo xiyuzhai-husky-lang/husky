@@ -40,7 +40,7 @@ impl<'a> Graphics2dFigureBuilder<'a> {
             Visual::Text(_) => todo!(),
             Visual::RichText(_) => todo!(),
             Visual::Image(image) => self.images.push(image),
-            Visual::Shape(_) => todo!(),
+            Visual::Shape(shape) => self.shapes.push(shape),
             Visual::Mesh(_) => todo!(),
             Visual::Video(_) => todo!(),
             Visual::Group(group) => {
