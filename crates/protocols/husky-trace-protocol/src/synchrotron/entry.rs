@@ -13,7 +13,6 @@ pub struct TraceSynchrotronEntry<TraceProtocol: IsTraceProtocol> {
     expanded: bool,
     #[serde_as(as = "Vec<(_, _)>")]
     stalks: FxHashMap<TraceProtocol::Pedestal, TraceStalk>,
-    figures: FxHashMap<(TraceProtocol::Pedestal, AccompanyingTraceIds), TraceProtocol::Figure>,
 }
 
 impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
@@ -24,7 +23,6 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
             associated_trace_ids_shown: Default::default(),
             expanded: false,
             stalks: Default::default(),
-            figures: Default::default(),
         }
     }
 
@@ -42,16 +40,6 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
 
     pub(crate) fn has_stalk(&self, pedestal: TraceProtocol::Pedestal) -> bool {
         self.stalks.contains_key(&pedestal)
-    }
-
-    /// written in this way to avoid cloning of AccompanyingTraceIds
-    pub(crate) fn has_figure(
-        &self,
-        pedestal: TraceProtocol::Pedestal,
-        accompanying_trace_ids: AccompanyingTraceIds,
-    ) -> (bool, AccompanyingTraceIds) {
-        let key = (pedestal, accompanying_trace_ids);
-        (self.figures.contains_key(&key), key.1)
     }
 
     pub fn stalk(&self, pedestal: TraceProtocol::Pedestal) -> &TraceStalk {
@@ -78,26 +66,5 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
     pub(super) fn cache_stalk(&mut self, pedestal: TraceProtocol::Pedestal, stalk: TraceStalk) {
         // self.stalks.get_value_mut_or_insert_with(pedestal, f);
         debug_assert!(self.stalks.insert(pedestal, stalk).is_none());
-    }
-
-    pub(crate) fn cache_figure(
-        &mut self,
-        pedestal: TraceProtocol::Pedestal,
-        accompanying_trace_ids: AccompanyingTraceIds,
-        figure: TraceProtocol::Figure,
-    ) {
-        assert!(self
-            .figures
-            .insert((pedestal, accompanying_trace_ids), figure)
-            .is_none())
-    }
-
-    pub(crate) fn figure(
-        &self,
-        pedestal: TraceProtocol::Pedestal,
-        accompanying_trace_ids: AccompanyingTraceIds,
-    ) -> &TraceProtocol::Figure {
-        // todo: optimize out the cloning of AccompanyingTraceIds
-        &self.figures[&(pedestal, accompanying_trace_ids)]
     }
 }

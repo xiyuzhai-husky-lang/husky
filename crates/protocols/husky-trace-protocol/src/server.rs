@@ -247,27 +247,30 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
 
     fn cache_figure(&mut self) {
         let trace_synchrotron = self.trace_synchrotron.as_mut().unwrap();
-        if let Some(followed_trace_id) = trace_synchrotron.followed_trace_id() {
-            let pedestal = trace_synchrotron.pedestal();
-            let accompanying_trace_ids = trace_synchrotron.accompanying_trace_ids().clone();
-            let entry = &trace_synchrotron[followed_trace_id];
-            let (has_figure, accompanying_trace_ids) =
-                entry.has_figure(pedestal, accompanying_trace_ids);
-            if !has_figure {
-                let figure = self.tracetime.get_figure(
-                    followed_trace_id.into(),
-                    &accompanying_trace_ids,
-                    pedestal,
-                    trace_synchrotron.visual_synchrotron_mut(),
-                    &mut self.visual_cache,
-                );
-                trace_synchrotron.take_action(TraceSynchrotronAction::CacheFigure {
-                    pedestal,
-                    followed_trace_id,
-                    accompanying_trace_ids,
-                    figure,
-                })
-            }
+        let pedestal = trace_synchrotron.pedestal();
+        let accompanying_trace_ids_except_followed = trace_synchrotron
+            .accompanying_trace_ids_except_followed()
+            .clone();
+        let followed_trace_id = trace_synchrotron.followed_trace_id();
+        let (has_figure, accompanying_trace_ids_except_followed) = trace_synchrotron.has_figure(
+            followed_trace_id,
+            pedestal,
+            accompanying_trace_ids_except_followed,
+        );
+        if !has_figure {
+            let figure = self.tracetime.get_figure(
+                followed_trace_id.map(Into::into),
+                &accompanying_trace_ids_except_followed,
+                pedestal,
+                trace_synchrotron.visual_synchrotron_mut(),
+                &mut self.visual_cache,
+            );
+            trace_synchrotron.take_action(TraceSynchrotronAction::CacheFigure {
+                pedestal,
+                followed_trace_id,
+                accompanying_trace_ids_except_followed,
+                figure,
+            })
         }
     }
 }
@@ -301,8 +304,8 @@ pub trait IsTracetime: Send + 'static + Sized {
 
     fn get_figure(
         &self,
-        trace: Self::Trace,
-        accompanying_trace_ids: &AccompanyingTraceIds,
+        followed_trace: Option<Self::Trace>,
+        accompanying_trace_ids: &AccompanyingTraceIdsExceptFollowed,
         pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,

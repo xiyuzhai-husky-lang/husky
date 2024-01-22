@@ -18,6 +18,7 @@ use husky_trace_protocol::{
     protocol::{IsTraceProtocol, TraceBundle},
     server::ValVisualCache,
     stalk::TraceStalk,
+    synchrotron::AccompanyingTraceIdsExceptFollowed,
 };
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
@@ -105,22 +106,24 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
 
     fn get_figure(
         &self,
-        followed_trace: Self::Trace,
-        accompanying_trace_ids: &AccompanyingTraceIds,
+        followed_trace: Option<Self::Trace>,
+        accompanying_trace_ids_expect_followed: &AccompanyingTraceIdsExceptFollowed,
         pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         let db = self.runtime.db();
-        let followed_trace_id_val_repr_pair = followed_trace
-            .val_repr(db)
-            .map(|val_repr| (followed_trace.into(), val_repr.into()));
-        let accompanying_trace_id_val_repr_pairs = accompanying_trace_ids
+        let followed_trace_id_val_repr_pair = match followed_trace {
+            Some(followed_trace) => followed_trace
+                .val_repr(db)
+                .map(|val_repr| (followed_trace.into(), val_repr.into())),
+            None => None,
+        };
+        let accompanying_trace_id_val_repr_pairs = accompanying_trace_ids_expect_followed
             .iter()
             .filter_map(|&accompanying_trace_id| {
                 let trace: Trace = accompanying_trace_id.into();
-                // skip accompanying trace if equal to following trace
-                (trace != followed_trace).then_some((trace.into(), trace.val_repr(db)?.into()))
+                Some((trace.into(), trace.val_repr(db)?.into()))
             })
             .collect();
         <Task::DevAscension as IsDevAscension>::calc_figure(

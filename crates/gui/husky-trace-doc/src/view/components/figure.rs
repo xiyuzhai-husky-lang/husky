@@ -11,9 +11,7 @@ where
     Settings: HasTraceDocSettings,
 {
     pub(in crate::view) fn render_figure(&mut self, ui: &mut egui::Ui) {
-        if let Some(figure) = self.figure {
-            let visual_synchrotron = self.trace_synchrotron.visual_synchrotron();
-            figure.ui(visual_synchrotron, self.ui_cache, ui)
-        }
+        let visual_synchrotron = self.trace_synchrotron.visual_synchrotron();
+        self.figure.ui(visual_synchrotron, self.ui_cache, ui)
     }
 }
