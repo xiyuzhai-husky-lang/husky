@@ -233,14 +233,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`core::visual::Html`, `Extern`),
+                                TypePath(`core::visual::Visual`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`core::visual::Html`, `Extern`),
+                                TypePath(`core::visual::Visual`, `Extern`),
                             ),
                         ),
                     ),
@@ -596,14 +596,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`core::visual::Html`, `Extern`),
+                                TypePath(`core::visual::Visual`, `Extern`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`core::visual::Html`, `Extern`),
+                                TypePath(`core::visual::Visual`, `Extern`),
                             ),
                         ),
                     ),

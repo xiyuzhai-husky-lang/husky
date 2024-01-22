@@ -30,7 +30,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`core::visual::Html`, `Extern`),
+                TypePath(`core::visual::Visual`, `Extern`),
             ),
         ),
         Ok(
@@ -149,7 +149,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::visual::Html`),
+                            return_ty: DeclarativeTerm(`core::visual::Visual`),
                         },
                     ),
                 ),

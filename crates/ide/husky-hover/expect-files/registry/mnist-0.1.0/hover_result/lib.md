@@ -286,11 +286,11 @@
                         Range {
                             start: Position {
                                 line: 16,
-                                character: 26,
+                                character: 28,
                             },
                             end: Position {
                                 line: 16,
-                                character: 27,
+                                character: 29,
                             },
                         },
                     ),
@@ -519,7 +519,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 85;\n\ntoken_line_group_idx = 21\n\ntoken = TokenData::Ident(\n    `Html`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::visual::Html`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::visual::Html`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 85;\n\ntoken_line_group_idx = 21\n\ntoken = TokenData::Ident(\n    `Visual`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::visual::Visual`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::visual::Visual`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -530,7 +530,7 @@
                             },
                             end: Position {
                                 line: 27,
-                                character: 26,
+                                character: 28,
                             },
                         },
                     ),

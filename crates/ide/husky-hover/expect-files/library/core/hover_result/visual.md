@@ -399,7 +399,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 13;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `Html`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 13;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `Visual`,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
@@ -410,7 +410,7 @@
                             },
                             end: Position {
                                 line: 3,
-                                character: 26,
+                                character: 28,
                             },
                         },
                     ),
@@ -436,11 +436,11 @@
                         Range {
                             start: Position {
                                 line: 3,
-                                character: 26,
+                                character: 28,
                             },
                             end: Position {
                                 line: 3,
-                                character: 27,
+                                character: 29,
                             },
                         },
                     ),
@@ -519,7 +519,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 17;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `Html`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::MajorItem(\n                MajorItemSynNodePath::Type(\n                    TypeSynNodePath(\n                        ItemSynNodePathId {\n                            data: ItemSynNodePathData::MajorItem(\n                                MajorItemSynNodePathData::Type(\n                                    TypeSynNodePathData {\n                                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                                            path: TypePath(`core::visual::Html`, `Extern`),\n                                            disambiguator: 0,\n                                        },\n                                    },\n                                ),\n                            ),\n                        },\n                    ),\n                ),\n            ),\n            MajorItem {\n                module_item_kind: Type(\n                    Extern,\n                ),\n                connection: Connected,\n            },\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 17;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Ident(\n    `Visual`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::MajorItem(\n                MajorItemSynNodePath::Type(\n                    TypeSynNodePath(\n                        ItemSynNodePathId {\n                            data: ItemSynNodePathData::MajorItem(\n                                MajorItemSynNodePathData::Type(\n                                    TypeSynNodePathData {\n                                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                                            path: TypePath(`core::visual::Visual`, `Extern`),\n                                            disambiguator: 0,\n                                        },\n                                    },\n                                ),\n                            ),\n                        },\n                    ),\n                ),\n            ),\n            MajorItem {\n                module_item_kind: Type(\n                    Extern,\n                ),\n                connection: Connected,\n            },\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -530,7 +530,7 @@
                             },
                             end: Position {
                                 line: 5,
-                                character: 15,
+                                character: 17,
                             },
                         },
                     ),
@@ -556,11 +556,11 @@
                         Range {
                             start: Position {
                                 line: 5,
-                                character: 15,
+                                character: 17,
                             },
                             end: Position {
                                 line: 5,
-                                character: 16,
+                                character: 18,
                             },
                         },
                     ),
@@ -939,7 +939,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 31;\n\ntoken_line_group_idx = 5\n\ntoken = TokenData::Ident(\n    `Html`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::visual::Html`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::visual::Html`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 31;\n\ntoken_line_group_idx = 5\n\ntoken = TokenData::Ident(\n    `Visual`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::visual::Visual`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::visual::Visual`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -950,7 +950,7 @@
                             },
                             end: Position {
                                 line: 8,
-                                character: 26,
+                                character: 28,
                             },
                         },
                     ),
@@ -976,11 +976,11 @@
                         Range {
                             start: Position {
                                 line: 8,
-                                character: 26,
+                                character: 28,
                             },
                             end: Position {
                                 line: 8,
-                                character: 27,
+                                character: 29,
                             },
                         },
                     ),

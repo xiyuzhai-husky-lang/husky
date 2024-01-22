@@ -72,7 +72,7 @@ EntitySynTreePresheet {
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::visual::Html`, `Extern`),
+                                                    path: TypePath(`core::visual::Visual`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -84,13 +84,13 @@ EntitySynTreePresheet {
                         visibility: Scope::Pub,
                         ast_idx: 5,
                         ident_token: IdentToken {
-                            ident: `Html`,
+                            ident: `Visual`,
                             token_idx: TokenIdx(
                                 18,
                             ),
                         },
                         block: DefnBlock::Type {
-                            path: TypePath(`core::visual::Html`, `Extern`),
+                            path: TypePath(`core::visual::Visual`, `Extern`),
                             variants: None,
                         },
                     },
@@ -103,7 +103,7 @@ EntitySynTreePresheet {
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::visual::Html`, `Extern`),
+                                                path: TypePath(`core::visual::Visual`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -113,7 +113,7 @@ EntitySynTreePresheet {
                         ),
                     ),
                 ),
-                ident: `Html`,
+                ident: `Visual`,
                 visibility: Scope::Pub,
             },
         ],

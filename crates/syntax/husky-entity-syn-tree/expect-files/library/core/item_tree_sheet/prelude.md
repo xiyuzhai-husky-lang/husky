@@ -531,18 +531,18 @@ EntitySynTreeSheet {
                 ),
             },
             EntitySymbolEntry {
-                ident: `Html`,
+                ident: `Visual`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
                             module_item_path: MajorItemPath::Type(
-                                TypePath(`core::visual::Html`, `Extern`),
+                                TypePath(`core::visual::Visual`, `Extern`),
                             ),
                         },
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`core::visual::Html`, `Extern`),
+                                TypePath(`core::visual::Visual`, `Extern`),
                             ),
                         ),
                         visibility: Scope::Pub,

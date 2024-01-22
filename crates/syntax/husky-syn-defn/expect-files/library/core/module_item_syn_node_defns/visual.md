@@ -29,7 +29,7 @@
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::visual::Html`, `Extern`),
+                                        path: TypePath(`core::visual::Visual`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },

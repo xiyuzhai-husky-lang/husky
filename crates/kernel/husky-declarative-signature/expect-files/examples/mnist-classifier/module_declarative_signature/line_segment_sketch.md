@@ -457,7 +457,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::visual::Html`),
+                            return_ty: DeclarativeTerm(`core::visual::Visual`),
                         },
                     ),
                 ),
@@ -650,7 +650,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::visual::Html`),
+                            return_ty: DeclarativeTerm(`core::visual::Visual`),
                         },
                     ),
                 ),

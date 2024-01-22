@@ -207,6 +207,13 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
 }
 
 #[rustfmt::skip]
+impl Visualize for crate::line_segment_sketch::LineSegmentStroke {
+    fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> husky_core::visual::Visual {
+        LineSegment!(("start", &self.start), ("end", &self.end), __visual_synchrotron)
+    }
+}
+
+#[rustfmt::skip]
 impl crate::line_segment_sketch::LineSegmentStroke {
     pub fn new(ct: Leash<crate::raw_contour::RawContour>, from: i32, to: i32) -> crate::line_segment_sketch::LineSegmentStroke {
         assert!(from <= to);
@@ -215,6 +222,13 @@ impl crate::line_segment_sketch::LineSegmentStroke {
 
     pub fn displacement(&self) -> crate::geom2d::Vector2d {
         self.start.to(&self.end)
+    }
+}
+
+#[rustfmt::skip]
+impl Visualize for crate::line_segment_sketch::LineSegmentSketch {
+    fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> husky_core::visual::Visual {
+        self.strokes.visualize(__visual_synchrotron)
     }
 }
 

@@ -152,7 +152,7 @@ AstSheet {
                     connection: Connected,
                 },
                 ident_token: IdentToken {
-                    ident: `Html`,
+                    ident: `Visual`,
                     token_idx: TokenIdx(
                         18,
                     ),
@@ -165,7 +165,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Type {
-                    path: TypePath(`core::visual::Html`, `Extern`),
+                    path: TypePath(`core::visual::Visual`, `Extern`),
                     variants: None,
                 },
             },

@@ -50,17 +50,18 @@ impl ui::visual_widget::VisualWidget<egui::Ui> for Graphics2dFigure {
             )
         }
         let mnist_visual_rect = VisualRect::mnist();
+        let t = |point: Point| point.to_screen(mnist_visual_rect, rect);
         for shape in &self.shapes {
             use husky_print_utils::p;
             match shape.data(visual_synchrotron) {
-                &ShapeVisualData::LineSegment { start, end } => {
-                    let t = |point: Point| point.to_screen(mnist_visual_rect, rect);
-                    ui.painter()
-                        .line_segment([t(start), t(end)], (2.0, Color32::YELLOW))
-                }
+                &ShapeVisualData::LineSegment { start, end } => ui
+                    .painter()
+                    .line_segment([t(start), t(end)], (2.0, Color32::YELLOW)),
                 ShapeVisualData::Contour { points } => {
-                    p!(points);
-                    todo!()
+                    for i in 0..(points.len() - 1) {
+                        ui.painter()
+                            .line_segment([t(points[i]), t(points[i + 1])], (2.0, Color32::YELLOW))
+                    }
                 }
             }
         }

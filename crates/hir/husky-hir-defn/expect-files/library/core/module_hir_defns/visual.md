@@ -45,9 +45,9 @@
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
                 ExternHirDefn {
-                    path: TypePath(`core::visual::Html`, `Extern`),
+                    path: TypePath(`core::visual::Visual`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
-                        path: TypePath(`core::visual::Html`, `Extern`),
+                        path: TypePath(`core::visual::Visual`, `Extern`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -55,7 +55,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -206,7 +206,7 @@
                         ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
-                                ty_path: TypePath(`core::visual::Html`, `Extern`),
+                                ty_path: TypePath(`core::visual::Visual`, `Extern`),
                                 template_arguments: [],
                                 always_copyable: false,
                             },

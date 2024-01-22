@@ -83,14 +83,14 @@ SynDeclSheet {
         (
             ItemPath::MajorItem(
                 MajorItemPath::Type(
-                    TypePath(`core::visual::Html`, `Extern`),
+                    TypePath(`core::visual::Visual`, `Extern`),
                 ),
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
                         ExternTypeSynDecl {
-                            path: TypePath(`core::visual::Html`, `Extern`),
+                            path: TypePath(`core::visual::Visual`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -104,7 +104,7 @@ SynDeclSheet {
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypePath(`core::visual::Html`, `Extern`),
+                                                                        path: TypePath(`core::visual::Visual`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -520,7 +520,7 @@ SynDeclSheet {
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
-                                                            TypePath(`core::visual::Html`, `Extern`),
+                                                            TypePath(`core::visual::Visual`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -532,7 +532,7 @@ SynDeclSheet {
                                             SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
-                                                        ident: `Html`,
+                                                        ident: `Visual`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             6,
                                                         ),
@@ -540,7 +540,7 @@ SynDeclSheet {
                                                 ),
                                                 principal_entity_path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                             },

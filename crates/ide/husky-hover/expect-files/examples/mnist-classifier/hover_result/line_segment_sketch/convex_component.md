@@ -496,11 +496,11 @@
                         Range {
                             start: Position {
                                 line: 8,
-                                character: 26,
+                                character: 28,
                             },
                             end: Position {
                                 line: 8,
-                                character: 27,
+                                character: 29,
                             },
                         },
                     ),
