@@ -1,7 +1,7 @@
 pub mod action;
 mod specific;
 
-use egui::{pos2, vec2, Rect};
+use egui::{pos2, vec2, Rect, Vec2};
 use husky_trace_protocol::{figure::IsFigure, id::TraceId};
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
@@ -32,9 +32,11 @@ impl IsFigure for Graphics2dFigure {
 
 impl ui::visual_widget::VisualWidget<egui::Ui> for Graphics2dFigure {
     fn ui(&self, visual_synchrotron: &VisualSynchrotron, cache: &mut UiCache, ui: &mut egui::Ui) {
+        let x = ui.available_width() * 0.8;
+        let y = ui.available_height() / 2.;
+        let d = x.min(y);
+        let (_, rect) = ui.allocate_space(Vec2::splat(d));
         for &image in &self.images {
-            let (_, rect) =
-                ui.allocate_space(vec2(ui.available_width() * 0.8, ui.available_height() / 2.));
             ui.painter().image(
                 cache.texture_id(image, visual_synchrotron, ui),
                 rect,
