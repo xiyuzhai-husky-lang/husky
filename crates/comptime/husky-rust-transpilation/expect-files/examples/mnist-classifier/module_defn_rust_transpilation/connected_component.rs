@@ -119,6 +119,13 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
 }
 
 #[rustfmt::skip]
+impl Visualize for crate::connected_component::ConnectedComponent {
+    fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> husky_core::visual::Visual {
+        self.mask.visualize(__visual_synchrotron)
+    }
+}
+
+#[rustfmt::skip]
 impl crate::connected_component::ConnectedComponent {
     #[ad_hoc_task_dependency::memoized_field(ingredient_index = 1, return_ref)]
     pub fn raw_contours(&'static self) -> Vec<crate::raw_contour::RawContour> {

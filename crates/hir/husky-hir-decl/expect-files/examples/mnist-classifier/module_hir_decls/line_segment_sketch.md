@@ -854,7 +854,7 @@
                     ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
-                            ty_path: TypePath(`core::visual::Html`, `Extern`),
+                            ty_path: TypePath(`core::visual::Visual`, `Extern`),
                             template_arguments: [],
                             always_copyable: false,
                         },
@@ -1321,7 +1321,7 @@
                     ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
-                            ty_path: TypePath(`core::visual::Html`, `Extern`),
+                            ty_path: TypePath(`core::visual::Visual`, `Extern`),
                             template_arguments: [],
                             always_copyable: false,
                         },

@@ -12,7 +12,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`core::visual::Html`, `Extern`),
+                TypePath(`core::visual::Visual`, `Extern`),
             ),
         ),
         Ok(

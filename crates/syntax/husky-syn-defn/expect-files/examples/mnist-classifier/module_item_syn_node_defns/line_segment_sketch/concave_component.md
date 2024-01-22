@@ -1974,7 +1974,7 @@
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
-                                                            TypePath(`core::visual::Html`, `Extern`),
+                                                            TypePath(`core::visual::Visual`, `Extern`),
                                                         ),
                                                     ),
                                                 ),
@@ -1986,7 +1986,7 @@
                                             SynPrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameRegionalToken::Ident(
                                                     IdentRegionalToken {
-                                                        ident: `Html`,
+                                                        ident: `Visual`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             6,
                                                         ),
@@ -1994,7 +1994,7 @@
                                                 ),
                                                 principal_entity_path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                             },

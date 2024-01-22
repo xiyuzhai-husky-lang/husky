@@ -2454,7 +2454,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
@@ -2464,12 +2464,12 @@ EntitySynTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -2479,7 +2479,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -5105,7 +5105,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::array`,
                         ),
@@ -5117,12 +5117,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -5132,7 +5132,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -5144,7 +5144,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -8308,7 +8308,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::basic`,
                         ),
@@ -8320,12 +8320,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -8335,7 +8335,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -8347,7 +8347,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -11139,7 +11139,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::clone`,
                         ),
@@ -11151,12 +11151,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -11166,7 +11166,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -11178,7 +11178,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -14234,7 +14234,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::cmp`,
                         ),
@@ -14246,12 +14246,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -14261,7 +14261,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -14273,7 +14273,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -17065,7 +17065,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::default`,
                         ),
@@ -17077,12 +17077,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -17092,7 +17092,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -17104,7 +17104,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -19890,7 +19890,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::fmt`,
                         ),
@@ -19902,12 +19902,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -19917,7 +19917,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -19929,7 +19929,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -22795,7 +22795,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::marker`,
                         ),
@@ -22807,12 +22807,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -22822,7 +22822,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -22834,7 +22834,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -25882,7 +25882,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::mem`,
                         ),
@@ -25894,12 +25894,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -25909,7 +25909,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -25921,7 +25921,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -29614,7 +29614,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
@@ -29626,12 +29626,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -29641,7 +29641,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -29653,7 +29653,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -35453,7 +35453,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::ops`,
                         ),
@@ -35465,12 +35465,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -35480,7 +35480,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -35492,7 +35492,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -38366,7 +38366,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
@@ -38378,12 +38378,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -38393,7 +38393,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -38405,7 +38405,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -39834,18 +39834,18 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -43060,7 +43060,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
@@ -43072,12 +43072,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -43087,7 +43087,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -43099,7 +43099,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -46028,7 +46028,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::result`,
                         ),
@@ -46040,12 +46040,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -46055,7 +46055,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -46067,7 +46067,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -48970,7 +48970,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::vec`,
                         ),
@@ -48982,12 +48982,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -48997,7 +48997,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -49009,7 +49009,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -51913,7 +51913,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::slice`,
                         ),
@@ -51925,12 +51925,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -51940,7 +51940,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -51952,7 +51952,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -54980,7 +54980,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::str`,
                         ),
@@ -54992,12 +54992,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -55007,7 +55007,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -55019,7 +55019,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -55943,7 +55943,7 @@ EntitySynTreeCrateBundle {
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`core::visual::Html`, `Extern`),
+                                                            path: TypePath(`core::visual::Visual`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -55955,13 +55955,13 @@ EntitySynTreeCrateBundle {
                                 visibility: Scope::Pub,
                                 ast_idx: 5,
                                 ident_token: IdentToken {
-                                    ident: `Html`,
+                                    ident: `Visual`,
                                     token_idx: TokenIdx(
                                         18,
                                     ),
                                 },
                                 block: DefnBlock::Type {
-                                    path: TypePath(`core::visual::Html`, `Extern`),
+                                    path: TypePath(`core::visual::Visual`, `Extern`),
                                     variants: None,
                                 },
                             },
@@ -55974,7 +55974,7 @@ EntitySynTreeCrateBundle {
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::visual::Html`, `Extern`),
+                                                        path: TypePath(`core::visual::Visual`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -55984,7 +55984,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             ),
                         ),
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::Pub,
                     },
                 ],
@@ -56001,11 +56001,11 @@ EntitySynTreeCrateBundle {
                         },
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             module_item_path: MajorItemPath::Type(
-                                TypePath(`core::visual::Html`, `Extern`),
+                                TypePath(`core::visual::Visual`, `Extern`),
                             ),
                         },
                     },
@@ -57874,7 +57874,7 @@ EntitySynTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `Html`,
+                        ident: `Visual`,
                         visibility: Scope::PubUnder(
                             `core::visual`,
                         ),
@@ -57886,12 +57886,12 @@ EntitySynTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     module_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
-                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                        TypePath(`core::visual::Visual`, `Extern`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -57901,7 +57901,7 @@ EntitySynTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -57913,7 +57913,7 @@ EntitySynTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(

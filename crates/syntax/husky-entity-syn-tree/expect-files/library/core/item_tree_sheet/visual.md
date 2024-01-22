@@ -72,7 +72,7 @@ EntitySynTreeSheet {
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::visual::Html`, `Extern`),
+                                                    path: TypePath(`core::visual::Visual`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -84,13 +84,13 @@ EntitySynTreeSheet {
                         visibility: Scope::Pub,
                         ast_idx: 5,
                         ident_token: IdentToken {
-                            ident: `Html`,
+                            ident: `Visual`,
                             token_idx: TokenIdx(
                                 18,
                             ),
                         },
                         block: DefnBlock::Type {
-                            path: TypePath(`core::visual::Html`, `Extern`),
+                            path: TypePath(`core::visual::Visual`, `Extern`),
                             variants: None,
                         },
                     },
@@ -103,7 +103,7 @@ EntitySynTreeSheet {
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::visual::Html`, `Extern`),
+                                                path: TypePath(`core::visual::Visual`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -113,7 +113,7 @@ EntitySynTreeSheet {
                         ),
                     ),
                 ),
-                ident: `Html`,
+                ident: `Visual`,
                 visibility: Scope::Pub,
             },
         ],
@@ -130,11 +130,11 @@ EntitySynTreeSheet {
                 },
             },
             EntitySymbolEntry {
-                ident: `Html`,
+                ident: `Visual`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     module_item_path: MajorItemPath::Type(
-                        TypePath(`core::visual::Html`, `Extern`),
+                        TypePath(`core::visual::Visual`, `Extern`),
                     ),
                 },
             },
@@ -2003,7 +2003,7 @@ EntitySynTreeSheet {
                 ),
             },
             EntitySymbolEntry {
-                ident: `Html`,
+                ident: `Visual`,
                 visibility: Scope::PubUnder(
                     `core::visual`,
                 ),
@@ -2015,12 +2015,12 @@ EntitySynTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -2030,7 +2030,7 @@ EntitySynTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2042,7 +2042,7 @@ EntitySynTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`core::visual::Html`, `Extern`),
+                                TypePath(`core::visual::Visual`, `Extern`),
                             ),
                         ),
                         visibility: Scope::PubUnder(

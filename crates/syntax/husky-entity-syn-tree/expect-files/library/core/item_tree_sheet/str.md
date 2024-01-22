@@ -1997,7 +1997,7 @@ EntitySynTreeSheet {
                 ),
             },
             EntitySymbolEntry {
-                ident: `Html`,
+                ident: `Visual`,
                 visibility: Scope::PubUnder(
                     `core::str`,
                 ),
@@ -2009,12 +2009,12 @@ EntitySynTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             module_item_path: MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Type(
-                                                TypePath(`core::visual::Html`, `Extern`),
+                                                TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -2024,7 +2024,7 @@ EntitySynTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::visual::Html`, `Extern`),
+                                        TypePath(`core::visual::Visual`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2036,7 +2036,7 @@ EntitySynTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`core::visual::Html`, `Extern`),
+                                TypePath(`core::visual::Visual`, `Extern`),
                             ),
                         ),
                         visibility: Scope::PubUnder(

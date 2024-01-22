@@ -407,7 +407,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `Html`,
+            `Visual`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -903,7 +903,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `Html`,
+            `Visual`,
         ),
         TokenData::Punctuation(
             Punctuation(

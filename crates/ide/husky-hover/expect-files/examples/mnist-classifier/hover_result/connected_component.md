@@ -76,11 +76,11 @@
                         Range {
                             start: Position {
                                 line: 25,
-                                character: 26,
+                                character: 28,
                             },
                             end: Position {
                                 line: 25,
-                                character: 27,
+                                character: 29,
                             },
                         },
                     ),
