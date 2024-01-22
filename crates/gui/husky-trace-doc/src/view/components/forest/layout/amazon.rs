@@ -1,4 +1,4 @@
-use egui::Separator;
+use egui::{Frame, Separator};
 
 use super::*;
 
@@ -51,9 +51,16 @@ where
             })
         });
         Separator::default().spacing(1.0).ui(ui);
-        Frame::none().inner_margin(4.0).show(ui, |ui| {
-            self.render_traces(trace_bundle.root_trace_ids(), ui)
-        });
+        Frame::none()
+            .inner_margin(Margin {
+                left: 4.0,
+                right: 4.0,
+                top: 0.0,
+                bottom: 6.0,
+            })
+            .show(ui, |ui| {
+                self.render_traces(trace_bundle.root_trace_ids(), ui)
+            });
     }
 
     #[cfg(feature = "egui")]
@@ -122,7 +129,7 @@ where
                 self.add_action(TraceViewAction::FollowTrace { trace_id })
             }
         }
-        let mut frame = egui::Frame::none()
+        let mut frame = Frame::none()
             .inner_margin(trace_view_inner_margin)
             .rounding(3.0);
         if hovered_within || followed {
@@ -146,6 +153,7 @@ where
                         entry.expanded(),
                         ui,
                     );
+                    ui.spacing_mut().item_spacing.x = 0.;
                     ui.vertical(|ui| {
                         let lines_data = entry.view_data().lines_data();
                         for line_data in &lines_data[..(lines_data.len() - 1)] {
@@ -189,23 +197,25 @@ where
     ) {
         match trace_kind {
             TraceKind::Submodule => {
-                egui::Frame::none()
+                Frame::none()
                     .inner_margin(Margin {
                         left: 2.0,
-                        right: 0.5,
-                        top: 0.5,
-                        bottom: 2.0,
+                        right: 2.0,
+                        top: 0.0,
+                        bottom: 0.0,
                     })
+                    .stroke((0.5, Color32::LIGHT_GRAY))
+                    .rounding(4.0)
                     .show(ui, |ui| {
-                        egui::Frame::none()
+                        Frame::none()
                             .inner_margin(1.)
                             .show(ui, |ui| self.render_traces(subtrace_ids, ui))
                     });
             }
             TraceKind::EagerPatternExpr => todo!(),
             TraceKind::ValItem => {
-                egui::Frame::none()
-                    .inner_margin(1.)
+                Frame::none()
+                    .inner_margin(0.)
                     .show(ui, |ui| self.render_traces(subtrace_ids, ui));
             }
             TraceKind::LazyCall => todo!(),
@@ -225,8 +235,8 @@ where
     }
 
     fn render_associated_trace(&mut self, associated_trace_id: TraceId, ui: &mut egui::Ui) {
-        egui::Frame::none().inner_margin(3.0).show(ui, |ui| {
-            egui::Frame::none().show(ui, |ui| {
+        Frame::none().inner_margin(3.0).show(ui, |ui| {
+            Frame::none().show(ui, |ui| {
                 ui.spacing_mut().item_spacing.y = 0.;
                 ui.allocate_space(Vec2::new(ui.available_width(), 0.));
                 self.render_trace_view_tree(associated_trace_id, ui);

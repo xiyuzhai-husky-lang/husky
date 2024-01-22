@@ -7,6 +7,7 @@ resolver = "2"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 egui = { workspace = true, optional = true }
+epaint = { workspace = true, optional = true }
 pathdiff.workspace = true
 rustc-hash.workspace = true
 serde.workspace = true
@@ -45,4 +46,4 @@ husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features
 
 [features]
 mock = ["husky-trace-protocol/mock"]
-egui = ["dep:egui"]
+egui = ["dep:egui", "dep:epaint"]
