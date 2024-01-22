@@ -119,7 +119,7 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
             .iter()
             .filter_map(|&accompanying_trace_id| {
                 let trace: Trace = accompanying_trace_id.into();
-                Some((trace.into(), trace.val_repr(db)?.into()))
+                (trace != followed_trace).then_some((trace.into(), trace.val_repr(db)?.into()))
             })
             .collect();
         <Task::DevAscension as IsDevAscension>::calc_figure(
