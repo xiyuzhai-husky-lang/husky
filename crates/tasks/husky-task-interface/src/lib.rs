@@ -1,6 +1,7 @@
 #![feature(try_trait_v2)]
 #![feature(try_trait_v2_residual)]
 pub mod linkage_impl;
+pub mod pedestal;
 pub mod ugly;
 pub mod val_control_flow;
 pub mod val_repr;

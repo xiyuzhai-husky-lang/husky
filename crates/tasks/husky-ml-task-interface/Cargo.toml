@@ -15,6 +15,5 @@ husky-linkage-impl.workspace = true
 husky-task-interface.workspace = true
 husky-ml-task-interface-macros.workspace = true
 # protocols
-husky-trace-protocol.workspace = true
 # vm
 husky-standard-value.workspace = true

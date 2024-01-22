@@ -17,7 +17,11 @@ where
     T: Visualize,
 {
     fn visualize(&self, visual_synchrotron: &mut __VisualSynchrotron) -> Visual {
-        todo!()
+        let elements = self
+            .iter()
+            .map(|t| t.visualize(visual_synchrotron))
+            .collect();
+        Visual::new_group_visual(elements, visual_synchrotron)
     }
 }
 
@@ -97,7 +101,7 @@ impl<T> CyclicSliceLeashed<T> {
         } else if self.start >= self.end {
             None
         } else {
-            Some(self.index(self.start))
+            Some(self.index_i32(self.start))
         }
     }
 
@@ -107,7 +111,7 @@ impl<T> CyclicSliceLeashed<T> {
         } else if self.start >= self.end {
             None
         } else {
-            Some(self.index((self.end - 1)))
+            Some(self.index_i32((self.end - 1)))
         }
     }
 
@@ -119,10 +123,16 @@ impl<T> CyclicSliceLeashed<T> {
         self.end
     }
 
-    pub fn index(&self, index: i32) -> &'static T {
+    pub fn index_i32(self, index: i32) -> &'static T {
         let rem_euclid = index.rem_euclid(self.slice.len() as i32);
         debug_assert!(rem_euclid >= 0);
         &self.slice[rem_euclid as usize]
+    }
+
+    fn iter(self) -> impl Iterator<Item = &'static T> {
+        (self.start..self.end)
+            .into_iter()
+            .map(move |i| self.index_i32(i as i32))
     }
 }
 
@@ -130,6 +140,6 @@ impl<T> std::ops::Index<usize> for CyclicSliceLeashed<T> {
     type Output = T;
 
     fn index(&self, index: usize) -> &Self::Output {
-        self.index(index as i32)
+        self.index_i32(index as i32)
     }
 }

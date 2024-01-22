@@ -8,7 +8,7 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
-use husky_task_interface::val_repr::ValReprInterface;
+use husky_task_interface::{pedestal::IsPedestal, val_repr::ValReprInterface};
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
