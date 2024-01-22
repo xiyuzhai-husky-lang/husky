@@ -321,6 +321,13 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
 }
 
 #[rustfmt::skip]
+impl Visualize for crate::raw_contour::RawContour {
+    fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> husky_core::visual::Visual {
+        todo!()
+    }
+}
+
+#[rustfmt::skip]
 impl crate::raw_contour::RawContour {
     #[ad_hoc_task_dependency::memoized_field(ingredient_index = 9, return_ref)]
     pub fn line_segment_sketch(&'static self) -> crate::line_segment_sketch::LineSegmentSketch {

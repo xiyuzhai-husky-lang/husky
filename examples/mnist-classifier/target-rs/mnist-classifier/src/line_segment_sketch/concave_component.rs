@@ -41,6 +41,13 @@ pub fn find_concave_components(line_segment_sketch: Leash<crate::line_segment_sk
 }
 
 #[rustfmt::skip]
+impl Visualize for crate::line_segment_sketch::concave_component::ConcaveComponent {
+    fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> husky_core::visual::Visual {
+        self.strokes.visualize(__visual_synchrotron)
+    }
+}
+
+#[rustfmt::skip]
 impl crate::line_segment_sketch::concave_component::ConcaveComponent {
     #[ad_hoc_task_dependency::memoized_field(ingredient_index = 15)]
     pub fn norm(&'static self) -> f32 {

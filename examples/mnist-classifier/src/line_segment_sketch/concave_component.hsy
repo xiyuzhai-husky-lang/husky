@@ -10,7 +10,7 @@ pub struct ConcaveComponent {
 }
 
 impl Visualize for ConcaveComponent:
-    fn visualize() -> Html:
+    fn visualize() -> Visual:
         self.strokes.visualize()
 
 impl ConcaveComponent:

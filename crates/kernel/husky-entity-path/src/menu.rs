@@ -1,6 +1,5 @@
 use husky_coword::coword_menu;
 
-
 use crate::*;
 
 #[salsa::tracked(jar = EntityPathJar, return_ref)]
@@ -87,7 +86,7 @@ pub struct ItemPathMenu {
     u64_ty_path: TypePath,
     u128_ty_path: TypePath,
     usize_ty_path: TypePath,
-    html_ty_path: TypePath,
+    visual_ty_path: TypePath,
     trai_ty_path: TypePath,
     lifetime_ty_path: TypePath,
     place_ty_path: TypePath,
@@ -311,9 +310,9 @@ impl ItemPathMenu {
             TypeKind::Extern,
             db,
         );
-        let html_ty_path = TypePath::new(
+        let visual_ty_path = TypePath::new(
             core_visual,
-            Ident::from_ref(db, "Html").unwrap(),
+            Ident::from_ref(db, "Visual").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
             db,
@@ -582,7 +581,7 @@ impl ItemPathMenu {
             ref_mut_ty_path,
             leash_ty_path,
             at_ty_path,
-            html_ty_path,
+            visual_ty_path,
             vec_ty_path,
             array_ty_path,
             core_ops_add_trai_path,
@@ -854,8 +853,8 @@ impl ItemPathMenu {
         self.visualize_trai_path
     }
 
-    pub fn html_ty_path(&self) -> TypePath {
-        self.html_ty_path
+    pub fn visual_ty_path(&self) -> TypePath {
+        self.visual_ty_path
     }
 }
 

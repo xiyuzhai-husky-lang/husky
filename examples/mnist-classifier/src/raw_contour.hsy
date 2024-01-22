@@ -9,7 +9,7 @@ pub struct RawContour {
 }
 
 impl Visualize for RawContour:
-    fn visualize() -> Html:
+    fn visualize() -> Visual:
         <Contour points={self.points} />
 
 impl RawContour:

@@ -12,6 +12,15 @@ where
     end: i32,
 }
 
+impl<T> Visualize for CyclicSliceLeashed<T>
+where
+    T: Visualize,
+{
+    fn visualize(&self, visual_synchrotron: &mut __VisualSynchrotron) -> Visual {
+        todo!()
+    }
+}
+
 impl<T> __Static for CyclicSliceLeashed<T>
 where
     T: __Static,

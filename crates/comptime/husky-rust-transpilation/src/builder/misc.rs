@@ -201,4 +201,12 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn static_lifetime(&mut self) {
         self.result += "'static"
     }
+
+    pub(crate) fn visual_synchrotron_parameter_decl(&mut self) {
+        self.result += ", __visual_synchrotron: &mut __VisualSynchrotron"
+    }
+
+    pub(crate) fn visualize_bracketed_arguments(&mut self) {
+        self.result += "(__visual_synchrotron)"
+    }
 }

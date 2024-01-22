@@ -93,13 +93,17 @@ impl TranspileToRustWith for TraitForTypeMethodFnHirDefn {
             return;
         };
         builder.keyword(RustKeyword::Fn);
-        self.path(db).ident(db).transpile_to_rust(builder);
+        let path_ident = self.path(db).ident(db).unwrap();
+        path_ident.transpile_to_rust(builder);
         let hir_decl = self.hir_decl(db);
         builder.with_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db), |builder| {
             hir_decl.template_parameters(db).transpile_to_rust(builder);
             builder.bracketed_list_with(RustBracket::Par, |builder| {
                 builder.heterogeneous_comma_list_item(hir_decl.self_value_parameter(db));
-                builder.heterogeneous_comma_list_items(hir_decl.parenate_parameters(db).iter())
+                builder.heterogeneous_comma_list_items(hir_decl.parenate_parameters(db).iter());
+                if path_ident.data(db) == "visualize" {
+                    builder.visual_synchrotron_parameter_decl()
+                }
             });
             builder.return_ty(hir_decl.return_ty(db))
         });
