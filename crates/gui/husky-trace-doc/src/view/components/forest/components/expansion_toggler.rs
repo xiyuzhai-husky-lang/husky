@@ -15,11 +15,11 @@ where
         ui: &mut Ui,
     ) {
         // render prefix
-        let toggler_width = self.glyph_width * 2.5;
+        let toggler_width = self.glyph_width * 1.5;
         if have_subtraces {
             let button_response = self.render_expansion_toggler_inner(trace_id, expanded, ui);
             ui.allocate_space(Vec2::new(
-                toggler_width - button_response.rect.width(),
+                toggler_width - button_response.rect.width() - 2.0, // 2.0 is equal to item spacing
                 button_response.rect.height(),
             ));
         } else {
@@ -35,6 +35,8 @@ where
     ) -> Response {
         // todo: different styles
         let symbol_style = ExpansionTogglerSymbolStyle::PlusMinus;
+        ui.style_mut().visuals.widgets.inactive.fg_stroke.color = Color32::from_gray(55);
+        ui.style_mut().visuals.widgets.hovered.fg_stroke.color = Color32::from_gray(155);
         let toggler =
             Label::new(RichText::new(symbol_style.text(expanded)).family(FontFamily::Monospace))
                 .sense(Sense::click())
