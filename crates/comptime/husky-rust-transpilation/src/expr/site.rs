@@ -7,7 +7,7 @@ use husky_stack_location::StackLocationIdx;
 use husky_term_prelude::TermContract;
 use vec_like::SmallVecPairMap;
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub(crate) struct HirEagerExprSite {
     pub(crate) rust_precedence_range: RustPrecedenceRange,
     pub(crate) rust_bindings: RustBindings,

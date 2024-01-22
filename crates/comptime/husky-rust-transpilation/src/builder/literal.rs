@@ -55,3 +55,17 @@ impl<E> TranspileToRustWith<E> for TermLiteral {
         }
     }
 }
+
+impl<E> TranspileToRustWith<E> for &str {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        todo!()
+    }
+}
+
+impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
+    pub(crate) fn str_literal(&mut self, s: &str) {
+        // ad hoc
+        use std::fmt::Write;
+        write!(self.result, "{:?}", s).unwrap()
+    }
+}

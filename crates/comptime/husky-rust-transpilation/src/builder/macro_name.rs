@@ -17,11 +17,18 @@ pub enum RustMacroName {
     StructFieldLinkageImpl,
     TypeDefault,
     EnumU8Presenter,
+    HtmlTag(husky_coword::Ident),
 }
 
-impl RustMacroName {
-    fn code(self) -> &'static str {
-        match self {
+impl RustMacroName {}
+
+impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
+    pub(crate) fn macro_name(&mut self, macro_name: RustMacroName) {
+        let db = self.db;
+        if self.result.ends_with(|c: char| c.is_alphabetic()) {
+            self.write_str(" ")
+        }
+        self.write_str(match macro_name {
             RustMacroName::Vec => "vec!",
             RustMacroName::Println => "println!",
             RustMacroName::Todo => "todo!",
@@ -38,16 +45,12 @@ impl RustMacroName {
             RustMacroName::StructFieldLinkageImpl => "struct_field_linkage_impl!",
             RustMacroName::TypeDefault => "ty_default_linkage_impl!",
             RustMacroName::EnumU8Presenter => "enum_u8_presenter_linkage_impl!",
-        }
-    }
-}
-
-impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
-    pub(crate) fn macro_name(&mut self, macro_name: RustMacroName) {
-        if self.result.ends_with(|c: char| c.is_alphabetic()) {
-            self.write_str(" ")
-        }
-        self.write_str(macro_name.code())
+            RustMacroName::HtmlTag(ident) => {
+                self.result += ident.data(db);
+                self.result += "!";
+                return;
+            }
+        })
     }
 
     pub(crate) fn macro_call(&mut self, macro_name: RustMacroName, f: impl FnOnce(&mut Self)) {

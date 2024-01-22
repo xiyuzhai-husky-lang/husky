@@ -45,3 +45,26 @@ impl<T> Visualize for VisualizeTest<T> {
         Visual::Void
     }
 }
+
+#[macro_export]
+macro_rules! LineSegment {
+    ($start: expr, $end: expr, $visual_synchrotron: ident) => {{
+        debug_assert_eq!($start.0, "start");
+        let start = $start.1;
+        debug_assert_eq!($end.0, "end");
+        let end = $end.1;
+        Visual::new_line_segment((start.x, start.y), (end.x, end.y), $visual_synchrotron)
+    }};
+}
+
+#[macro_export]
+macro_rules! Contour {
+    ($points: expr, $visual_synchrotron: ident) => {{
+        debug_assert_eq!($points.0, "points");
+        let points = $points.1;
+        Visual::new_contour(
+            points.iter().map(|point| (point.x, point.y)),
+            $visual_synchrotron,
+        )
+    }};
+}

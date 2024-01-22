@@ -36,7 +36,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             HirEagerStmtData::Require { ref condition } => {
                 builder.on_fresh_semicolon_line(|builder| {
                     builder.macro_name(RustMacroName::Require);
-                    builder.bracketed_list_with(RustBracket::Par, |builder| {
+                    builder.bracketed_heterogeneous_list_with(RustBracket::Par, |builder| {
                         condition.transpile_to_rust(builder)
                     })
                 })
@@ -49,7 +49,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                         conversion,
                     } => {
                         builder.macro_name(RustMacroName::Assert);
-                        builder.bracketed_list_with(RustBracket::Par, |builder| {
+                        builder.bracketed_heterogeneous_list_with(RustBracket::Par, |builder| {
                             (hir_eager_expr_idx, HirEagerExprSite::new_root(None))
                                 .transpile_to_rust(builder);
                             match conversion {

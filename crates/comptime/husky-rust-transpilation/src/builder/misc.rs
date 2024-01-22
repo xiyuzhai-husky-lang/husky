@@ -206,7 +206,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.result += ", __visual_synchrotron: &mut __VisualSynchrotron"
     }
 
-    pub(crate) fn visualize_bracketed_arguments(&mut self) {
-        self.result += "(__visual_synchrotron)"
+    pub(crate) fn visual_synchrotron_argument(&mut self) {
+        self.result += "__visual_synchrotron"
     }
 }
