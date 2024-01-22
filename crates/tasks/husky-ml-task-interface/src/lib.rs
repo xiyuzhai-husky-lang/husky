@@ -3,12 +3,11 @@ pub mod ugly;
 
 use husky_linkage_impl::standard::ValControlFlow;
 
-
 use husky_standard_value::{ugly::__ValueStands, FromValue};
-use husky_task_interface::val_repr::{
-    ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface,
+use husky_task_interface::{
+    pedestal::IsPedestal,
+    val_repr::{ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface},
 };
-use husky_trace_protocol::protocol::IsPedestal;
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, convert::Infallible};

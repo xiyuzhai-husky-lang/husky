@@ -1,13 +1,14 @@
 use crate::*;
 use husky_task_interface::{
-    val_control_flow::ValControlFlow, val_repr::ValReprInterface, DevEvalContext, IsDevRuntime,
+    pedestal::IsPedestal, val_control_flow::ValControlFlow, val_repr::ValReprInterface,
+    DevEvalContext, IsDevRuntime,
 };
 use husky_task_interface::{
     IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
 use husky_trace_protocol::{
     id::{AccompanyingTraceIds, TraceId},
-    protocol::{IsPedestal, IsTraceProtocol, IsTraceProtocolFull},
+    protocol::{IsTraceProtocol, IsTraceProtocolFull},
     server::ValVisualCache,
 };
 use husky_val::Val;

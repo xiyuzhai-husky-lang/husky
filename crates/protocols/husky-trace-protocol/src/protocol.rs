@@ -1,5 +1,7 @@
 use std::path::{Path, PathBuf};
 
+use husky_task_interface::pedestal::IsPedestal;
+
 use crate::*;
 
 pub trait IsTraceProtocol:
@@ -14,24 +16,6 @@ impl IsTraceProtocol for () {
 
     type Figure = ();
 }
-
-pub trait IsPedestal:
-    std::fmt::Debug
-    + Default
-    + PartialEq
-    + Eq
-    + Clone
-    + Copy
-    + Send
-    + Sync
-    + Serialize
-    + std::hash::Hash
-    + for<'a> Deserialize<'a>
-    + 'static
-{
-}
-
-impl IsPedestal for () {}
 
 pub trait IsTraceProtocolFull: IsTraceProtocol + Serialize + for<'a> Deserialize<'a> {}
 
