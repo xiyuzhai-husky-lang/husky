@@ -1,8 +1,9 @@
 pub mod action;
 mod specific;
 
-use egui::{pos2, vec2, Rect, Vec2};
+use egui::{pos2, vec2, Color32, Rect, Vec2};
 use husky_trace_protocol::{figure::IsFigure, id::TraceId};
+use husky_visual_protocol::visual::shape::{Point, VisualRect};
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{
@@ -48,10 +49,17 @@ impl ui::visual_widget::VisualWidget<egui::Ui> for Graphics2dFigure {
                 egui::Color32::WHITE,
             )
         }
+        let mnist_visual_rect = VisualRect::mnist();
         for shape in &self.shapes {
+            use husky_print_utils::p;
             match shape.data(visual_synchrotron) {
-                ShapeVisualData::LineSegment { start, end } => todo!(),
+                &ShapeVisualData::LineSegment { start, end } => {
+                    let t = |point: Point| point.to_screen(mnist_visual_rect, rect);
+                    ui.painter()
+                        .line_segment([t(start), t(end)], (2.0, Color32::YELLOW))
+                }
                 ShapeVisualData::Contour { points } => {
+                    p!(points);
                     todo!()
                 }
             }
