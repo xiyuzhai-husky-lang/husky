@@ -5,7 +5,11 @@ use egui::{pos2, vec2, Rect, Vec2};
 use husky_trace_protocol::{figure::IsFigure, id::TraceId};
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
-    visual::{image::ImageVisual, shape::ShapeVisual, Visual},
+    visual::{
+        image::ImageVisual,
+        shape::{ShapeVisual, ShapeVisualData},
+        Visual,
+    },
 };
 use serde::{Deserialize, Serialize};
 use ui::ui::egui::UiCache;
@@ -45,7 +49,12 @@ impl ui::visual_widget::VisualWidget<egui::Ui> for Graphics2dFigure {
             )
         }
         for shape in &self.shapes {
-            todo!()
+            match shape.data(visual_synchrotron) {
+                ShapeVisualData::LineSegment { start, end } => todo!(),
+                ShapeVisualData::Contour { points } => {
+                    todo!()
+                }
+            }
         }
     }
 }
