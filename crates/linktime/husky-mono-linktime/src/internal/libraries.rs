@@ -2,11 +2,11 @@ use super::*;
 use husky_cargo_utils::compile_workspace;
 use husky_corgi_config::transpilation_setup::HasTranspilationSetup;
 use husky_linkage_impl::AnyLinkageImpls;
-use husky_manifest::{HasAllPackages};
-use husky_rust_transpilation::{transpile_to_fs::TranspileToFsFull};
+use husky_manifest::HasAllPackages;
+use husky_rust_transpilation::transpile_to_fs::TranspileToFsFull;
 
 use husky_task_interface::TaskJarIndex;
-use husky_vfs::{PackagePath};
+use husky_vfs::PackagePath;
 use libloading::Library;
 use std::path::PathBuf;
 use vec_like::{VecMap, VecPairMap};
@@ -28,10 +28,18 @@ impl Cdylib {
 
 impl MonoLinkageLibraries {
     pub(super) fn generate(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Result<Self, ()> {
-        match target_path.transpile_to_fs_full(target_path.transpilation_setup(db), db) {
-            Ok(()) => (),
-            Err(_) => todo!(),
-        };
+        // useful for debugging
+        match std::env::var("SKIP_COMPILATION") {
+            Ok(s) => {
+                assert_eq!(s, "1");
+            }
+            Err(_) => {
+                match target_path.transpile_to_fs_full(target_path.transpilation_setup(db), db) {
+                    Ok(()) => (),
+                    Err(_) => todo!(),
+                };
+            }
+        }
         let rust_workspace_dir = target_path.rust_workspace_abs_dir(db);
         let all_packages: HashMap<PathBuf, (TaskJarIndex, PackagePath)> = HashMap::from_iter(
             target_path
@@ -77,8 +85,7 @@ impl MonoLinkageLibraries {
 #[test]
 fn generate_linkage_storage_works() {
     use husky_dev_comptime::db::DevComptimeDb;
-    
-    
+
     let mut db = DevComptimeDb::default();
     db.vfs_plain_test(
         |db, package_path: PackagePath| {

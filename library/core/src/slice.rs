@@ -97,7 +97,7 @@ impl<T> CyclicSliceLeashed<T> {
         } else if self.start >= self.end {
             None
         } else {
-            Some(self.index(self.start as usize))
+            Some(self.index(self.start))
         }
     }
 
@@ -107,7 +107,7 @@ impl<T> CyclicSliceLeashed<T> {
         } else if self.start >= self.end {
             None
         } else {
-            Some(self.index((self.end - 1) as usize))
+            Some(self.index((self.end - 1)))
         }
     }
 
@@ -119,8 +119,10 @@ impl<T> CyclicSliceLeashed<T> {
         self.end
     }
 
-    pub fn index(&self, index: usize) -> &'static T {
-        &self.slice[index.rem_euclid(self.slice.len())]
+    pub fn index(&self, index: i32) -> &'static T {
+        let rem_euclid = index.rem_euclid(self.slice.len() as i32);
+        debug_assert!(rem_euclid >= 0);
+        &self.slice[rem_euclid as usize]
     }
 }
 
@@ -128,6 +130,6 @@ impl<T> std::ops::Index<usize> for CyclicSliceLeashed<T> {
     type Output = T;
 
     fn index(&self, index: usize) -> &Self::Output {
-        self.index(index)
+        self.index(index as i32)
     }
 }

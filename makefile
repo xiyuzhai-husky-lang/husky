@@ -69,6 +69,7 @@ run-notebook:
 	cargo run --bin husky-notebook
 
 mnist-developer:
+	# SKIP_COMPILATION=1 cargo run --bin husky-mnist-classifier-developer
 	cargo run --bin husky-mnist-classifier-developer
 
 save:

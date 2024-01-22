@@ -13,10 +13,20 @@ pub enum ShapeVisualData {
     Contour { points: Vec<Point> },
 }
 
-#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Default, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Point {
     pub x: OrderedFloat<f32>,
     pub y: OrderedFloat<f32>,
+}
+
+impl std::fmt::Debug for Point {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!(
+            "Point {{ x: {}, y: {} }}",
+            self.x.into_inner(),
+            self.y.into_inner(),
+        ))
+    }
 }
 
 impl Point {
