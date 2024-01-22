@@ -29,7 +29,7 @@ where
 {
     current_dir: &'a Path,
     trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
-    figure: Option<&'a TraceProtocol::Figure>,
+    figure: &'a TraceProtocol::Figure,
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
     ui_cache: &'a mut UiCache,

@@ -136,6 +136,18 @@ where
         }
     }
 
+    pub fn remove(&mut self, value: K)
+    where
+        K: PartialEq + Eq,
+    {
+        match self.data.binary_search(&value) {
+            Ok(old) => {
+                self.data.remove(old);
+            }
+            Err(pos) => (),
+        }
+    }
+
     pub fn to_vec(&self) -> SmallVec<[K; N]>
     where
         K: Copy,
@@ -180,4 +192,14 @@ fn ordered_small_vec_set_toggle_works() {
     assert_eq!(&set.data as &[_], &[0, 2]);
     set.toggle(2);
     assert_eq!(&set.data as &[_], &[0]);
+}
+
+#[test]
+fn ordered_small_vec_set_remove_works() {
+    let mut set: OrderedSmallVecSet<i32, 2> = OrderedSmallVecSet::new_one_elem_set(1);
+    assert_eq!(&set.data as &[_], &[1]);
+    set.remove(2);
+    assert_eq!(&set.data as &[_], &[1,]);
+    set.remove(1);
+    assert_eq!(&set.data as &[_], &[]);
 }

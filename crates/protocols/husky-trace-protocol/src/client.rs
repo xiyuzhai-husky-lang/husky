@@ -162,10 +162,12 @@ where
             } => todo!(),
             &TraceViewAction::FollowTrace { trace_id } => {
                 let trace_synchrotron = self.trace_synchrotron();
-                let accompanying_trace_ids = trace_synchrotron.accompanying_trace_ids().clone();
+                let accompanying_trace_ids = trace_synchrotron
+                    .accompanying_trace_ids_except_followed()
+                    .clone();
                 let pedestal = trace_synchrotron.pedestal();
-                let (has_figure, accompanying_trace_ids) =
-                    trace_synchrotron[trace_id].has_figure(pedestal, accompanying_trace_ids);
+                let (has_figure, _) =
+                    trace_synchrotron.has_figure(Some(trace_id), pedestal, accompanying_trace_ids);
                 if !has_figure {
                     return None;
                 }
@@ -178,8 +180,14 @@ where
                 let pedestal = trace_synchrotron.pedestal();
                 let mut accompanying_trace_ids = trace_synchrotron.accompanying_trace_ids().clone();
                 accompanying_trace_ids.toggle(trace_id);
-                let (has_figure, accompanying_trace_ids) =
-                    trace_synchrotron[trace_id].has_figure(pedestal, accompanying_trace_ids);
+                let (has_figure, _) = trace_synchrotron.has_figure(
+                    trace_synchrotron.followed_trace_id(),
+                    pedestal,
+                    AccompanyingTraceIdsExceptFollowed::new(
+                        trace_synchrotron.followed_trace_id(),
+                        accompanying_trace_ids,
+                    ),
+                );
                 if !has_figure {
                     return None;
                 }

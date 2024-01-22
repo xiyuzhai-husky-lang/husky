@@ -27,6 +27,15 @@ pub struct TraceSynchrotron<TraceProtocol: IsTraceProtocol> {
     #[serde_as(as = "Vec<(_, _)>")]
     entries: FxHashMap<TraceId, TraceSynchrotronEntry<TraceProtocol>>,
     actions: Vec<TraceSynchrotronAction<TraceProtocol>>,
+    #[serde_as(as = "Vec<(_, _)>")]
+    figures: FxHashMap<
+        (
+            Option<TraceId>,
+            TraceProtocol::Pedestal,
+            AccompanyingTraceIdsExceptFollowed,
+        ),
+        TraceProtocol::Figure,
+    >,
     // child synchrotrons
     value_presentation_synchrotron: ValuePresentationSynchrotron,
     visual_synchrotron: VisualSynchrotron,
@@ -74,6 +83,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
             visual_synchrotron: Default::default(),
             followed_trace_id: None,
             accompanying_trace_ids: Default::default(),
+            figures: Default::default(),
         }
     }
 
@@ -85,11 +95,12 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         &self.visual_synchrotron
     }
 
-    pub fn figure(&self) -> Option<&TraceProtocol::Figure> {
-        Some(
-            self[self.followed_trace_id?]
-                .figure(self.pedestal, self.accompanying_trace_ids.clone()),
-        )
+    pub fn figure(&self) -> &TraceProtocol::Figure {
+        &self.figures[&(
+            self.followed_trace_id,
+            self.pedestal,
+            self.accompanying_trace_ids_except_followed(),
+        )]
     }
 
     pub(crate) fn status(&self) -> TraceSynchrotronStatus {
@@ -171,8 +182,69 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         &self.accompanying_trace_ids
     }
 
+    pub fn accompanying_trace_ids_except_followed(&self) -> AccompanyingTraceIdsExceptFollowed {
+        let mut accompanying_trace_ids = self.accompanying_trace_ids.clone();
+        if let Some(followed_trace_id) = self.followed_trace_id {
+            accompanying_trace_ids.remove(followed_trace_id)
+        }
+        AccompanyingTraceIdsExceptFollowed(accompanying_trace_ids)
+    }
+
+    pub fn has_figure(
+        &self,
+        followed_trace_id: Option<TraceId>,
+        pedestal: TraceProtocol::Pedestal,
+        accompanying_trace_ids: AccompanyingTraceIdsExceptFollowed,
+    ) -> (bool, AccompanyingTraceIdsExceptFollowed) {
+        let key = (followed_trace_id, pedestal, accompanying_trace_ids);
+        (self.figures.contains_key(&key), key.2)
+    }
+
+    pub(crate) fn cache_figure(
+        &mut self,
+        followed_trace_id: Option<TraceId>,
+        accompanying_trace_ids_except_followed: AccompanyingTraceIdsExceptFollowed,
+        pedestal: TraceProtocol::Pedestal,
+        figure: TraceProtocol::Figure,
+    ) {
+        assert!(self
+            .figures
+            .insert(
+                (
+                    followed_trace_id,
+                    pedestal,
+                    accompanying_trace_ids_except_followed
+                ),
+                figure
+            )
+            .is_none())
+    }
+
     pub(crate) fn visual_synchrotron_mut(&mut self) -> &mut VisualSynchrotron {
         &mut self.visual_synchrotron
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize, Hash)]
+pub struct AccompanyingTraceIdsExceptFollowed(AccompanyingTraceIds);
+
+impl std::ops::Deref for AccompanyingTraceIdsExceptFollowed {
+    type Target = [TraceId];
+
+    fn deref(&self) -> &Self::Target {
+        &*self.0
+    }
+}
+
+impl AccompanyingTraceIdsExceptFollowed {
+    pub(crate) fn new(
+        followed_trace_id: Option<TraceId>,
+        mut accompanying_trace_ids: AccompanyingTraceIds,
+    ) -> Self {
+        if let Some(followed_trace_id) = followed_trace_id {
+            accompanying_trace_ids.remove(followed_trace_id)
+        }
+        Self(accompanying_trace_ids)
     }
 }
 
