@@ -7,6 +7,4 @@ pub mod suffix;
 pub use self::binary::*;
 pub use self::bracket::*;
 
-
-
 use self::precedence::*;

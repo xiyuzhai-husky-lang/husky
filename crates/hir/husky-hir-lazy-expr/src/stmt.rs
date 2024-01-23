@@ -57,11 +57,7 @@ impl ToHirLazy for SemaStmtIdx {
                 pattern: builder.new_let_variables_pattern(let_variables_pattern),
                 initial_value: initial_value.to_hir_lazy(builder),
             },
-            SemaStmtData::Return {
-                result,
-                
-                ..
-            } => HirLazyStmtData::Return {
+            SemaStmtData::Return { result, .. } => HirLazyStmtData::Return {
                 result: result.to_hir_lazy(builder),
             },
             SemaStmtData::Require {

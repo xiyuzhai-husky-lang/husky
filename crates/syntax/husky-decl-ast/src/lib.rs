@@ -1,7 +1,5 @@
 // base 1
 
-
-
 use idx_arena::*;
 
 /// syntax tree down to TokenGroup level

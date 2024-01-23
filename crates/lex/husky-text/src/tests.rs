@@ -1,7 +1,3 @@
-
-
-
-
 // #[test]
 // fn test_text() {
 //     let text = Text::new(

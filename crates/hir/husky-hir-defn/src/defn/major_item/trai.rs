@@ -1,6 +1,5 @@
 use super::*;
 
-
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
 pub struct TraitHirDefn {
     pub path: TraitPath,

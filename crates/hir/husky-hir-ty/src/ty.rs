@@ -15,7 +15,6 @@ use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 
 use husky_term_prelude::TermEntityPath;
 
-
 /// this is much simpler than that in Term, right?
 #[salsa::debug_with_db]
 #[enum_class::from_variants]

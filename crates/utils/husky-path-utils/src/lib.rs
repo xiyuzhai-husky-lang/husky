@@ -11,7 +11,6 @@ pub use self::rel::*;
 use husky_minimal_toml_utils::read_package_name_from_manifest;
 pub use module_tree::*;
 
-
 pub use std::path::{Path, PathBuf};
 
 #[cfg(test)]

@@ -1,8 +1,6 @@
 //! Test that a setting a field on a `#[salsa::input]`
 //! overwrites and returns the old value.
 
-
-
 use test_log::test;
 
 #[salsa::jar(db = Db)]

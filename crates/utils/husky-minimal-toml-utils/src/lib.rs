@@ -1,6 +1,6 @@
 use std::path::Path;
 
-use husky_coword::{Kebab};
+use husky_coword::Kebab;
 
 use thiserror::Error;
 

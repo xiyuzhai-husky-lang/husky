@@ -3,8 +3,6 @@ use crate::{
     template_argument::ty::JavelinType, valkyrie::package_valkyrie_javelins, *,
 };
 
-
-
 use husky_vfs::PackagePath;
 
 #[salsa::interned(db = JavelinDb, jar = JavelinJar, constructor = pub(crate) new)]

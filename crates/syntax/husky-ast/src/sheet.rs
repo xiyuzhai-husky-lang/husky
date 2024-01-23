@@ -1,6 +1,5 @@
 use crate::*;
 
-
 pub trait HasAstSheet: Copy {
     fn ast_sheet(self, db: &::salsa::Db) -> &AstSheet;
     fn ast_token_idx_range_sheet(self, db: &::salsa::Db) -> &AstTokenIdxRangeSheet;

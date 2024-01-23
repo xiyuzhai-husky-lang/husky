@@ -1,4 +1,8 @@
 use crate::TraceId;
+use husky_task_interface::{
+    pedestal::IsPedestalFull,
+    val_repr::{ValDomainReprInterface, ValReprInterface},
+};
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{image::ImageVisual, Visual},
@@ -10,29 +14,43 @@ use ui::ui::{IsUi, UiTextureId};
 /// `IsFigure` extends `Serialize` and `Deserialize` for the convenience of deriving `Serialize` and `Deserialize` for generic types
 ///
 /// for example TraceSynchrotron
-pub trait IsFigure:
+pub trait IsFigure<Pedestal: IsPedestalFull>:
     std::fmt::Debug + PartialEq + Eq + Clone + Serialize + for<'a> Deserialize<'a> + Send + 'static
 {
     /// construct a figure for a specific datapoint
     fn new_specific(
-        followed_visual: Option<(TraceId, Visual)>,
-        accompanying_visuals: impl IntoIterator<Item = (TraceId, Visual)>,
-        visual_synchrotron: &VisualSynchrotron,
+        followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        accompanyings: &[(TraceId, ValReprInterface)],
+        f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
+        visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self;
 
-    fn new_generic() -> Self;
+    fn new_generic(
+        followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        accompanyings: &[(TraceId, ValReprInterface)],
+        pedestals: impl Iterator<Item = Pedestal>,
+        f: impl FnMut(ValReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
+        visual_synchrotron: &mut VisualSynchrotron,
+    ) -> Self;
 }
 
-impl IsFigure for () {
+impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for () {
     fn new_specific(
-        followed_visual: Option<(TraceId, Visual)>,
-        accompanying_visuals: impl IntoIterator<Item = (TraceId, Visual)>,
-        visual_synchrotron: &VisualSynchrotron,
+        followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        accompanyings: &[(TraceId, ValReprInterface)],
+        f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
+        visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         ()
     }
 
-    fn new_generic() -> Self {
+    fn new_generic(
+        followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        accompanyings: &[(TraceId, ValReprInterface)],
+        pedestals: impl Iterator<Item = Pedestal>,
+        f: impl FnMut(ValReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
+        visual_synchrotron: &mut VisualSynchrotron,
+    ) -> Self {
         ()
     }
 }

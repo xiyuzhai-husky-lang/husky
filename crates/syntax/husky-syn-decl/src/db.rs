@@ -1,7 +1,5 @@
 use crate::*;
 
-
-
 use husky_vfs::ModulePath;
 
 pub trait SynDeclDb {

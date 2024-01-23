@@ -2,8 +2,8 @@
 //! compiles and executes successfully.
 
 use expect_test::expect;
-use husky_salsa_log_utils::{HasLogger};
-use salsa::{Db};
+use husky_salsa_log_utils::HasLogger;
+use salsa::Db;
 use test_log::test;
 
 #[salsa::jar(db = Db)]

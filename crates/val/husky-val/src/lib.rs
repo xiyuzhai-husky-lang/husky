@@ -4,5 +4,3 @@ pub mod version_stamp;
 
 pub use self::jar::*;
 pub use self::val::*;
-
-

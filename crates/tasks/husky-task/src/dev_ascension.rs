@@ -1,6 +1,6 @@
 use crate::*;
 use husky_task_interface::{
-    pedestal::IsPedestal,
+    pedestal::IsPedestalFull,
     val_control_flow::ValControlFlow,
     val_repr::{ValDomainReprInterface, ValReprInterface},
     DevEvalContext, IsDevRuntime,
@@ -19,7 +19,7 @@ use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use std::{cell::Cell, thread::LocalKey};
 
 pub trait IsDevAscension {
-    type Pedestal: IsPedestal;
+    type Pedestal: IsPedestalFull;
     type LinkageImpl: IsLinkageImpl<Pedestal = Self::Pedestal>;
     type Linktime: IsLinktime<LinkageImpl = Self::LinkageImpl>;
     type RuntimeStorage: IsRuntimeStorage<Self::LinkageImpl>;
@@ -27,7 +27,7 @@ pub trait IsDevAscension {
     type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
     fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
         followed: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
-        accompanyings: Vec<(TraceId, ValReprInterface)>,
+        accompanyings: &[(TraceId, ValReprInterface)],
         pedestal: Self::Pedestal,
         runtime: &DevRuntime,
         visual_synchrotron: &mut VisualSynchrotron,

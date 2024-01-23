@@ -1,7 +1,5 @@
 use std::ops::Deref;
 
-
-
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 #[salsa::debug_with_db(db = TokenDataDb, jar = TokenDataJar)]
 pub enum WordOpr {

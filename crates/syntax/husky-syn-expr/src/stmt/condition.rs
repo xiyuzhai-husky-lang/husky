@@ -1,6 +1,5 @@
 use super::*;
 
-
 impl<'a, C> SynExprParser<'a, C>
 where
     C: IsSynExprContext<'a>,

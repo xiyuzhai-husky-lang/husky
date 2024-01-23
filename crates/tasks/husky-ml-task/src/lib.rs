@@ -1,7 +1,9 @@
 mod runtime_storage;
 
+use husky_ml_task_interface::InputId;
+pub use husky_ml_task_interface::{pedestal::MlPedestal, DEV_EVAL_CONTEXT};
+
 use self::runtime_storage::*;
-use husky_ml_task_interface::{pedestal::MlPedestal, DEV_EVAL_CONTEXT};
 use husky_mono_linktime::MonoLinktime;
 
 use husky_task::{
@@ -20,16 +22,16 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
-pub struct MlTask<VisualProtocol>
+pub struct MlTask<Figure>
 where
-    VisualProtocol: IsFigure,
+    Figure: IsFigure<MlPedestal>,
 {
-    _marker: PhantomData<VisualProtocol>,
+    _marker: PhantomData<Figure>,
 }
 
-impl<VisualProtocol> MlTask<VisualProtocol>
+impl<Figure> MlTask<Figure>
 where
-    VisualProtocol: IsFigure,
+    Figure: IsFigure<MlPedestal>,
 {
     pub fn new() -> Self {
         Self {
@@ -38,22 +40,22 @@ where
     }
 }
 
-impl<VisualProtocol> IsTask for MlTask<VisualProtocol>
+impl<Figure> IsTask for MlTask<Figure>
 where
-    VisualProtocol: IsFigure + Send,
+    Figure: IsFigure<MlPedestal> + Send,
 {
-    type DevAscension = MlDevAscension<VisualProtocol>;
+    type DevAscension = MlDevAscension<Figure>;
 }
 
-pub struct MlDevAscension<VisualProtocol>(PhantomData<VisualProtocol>)
+pub struct MlDevAscension<Figure>(PhantomData<Figure>)
 where
-    VisualProtocol: IsFigure;
+    Figure: IsFigure<MlPedestal>;
 
 type LinkageImpl = husky_linkage_impl::standard::LinkageImpl<MlPedestal>;
 
 impl<Figure> IsDevAscension for MlDevAscension<Figure>
 where
-    Figure: IsFigure,
+    Figure: IsFigure<MlPedestal>,
 {
     type Pedestal = MlPedestal;
 
@@ -73,7 +75,7 @@ where
 
     fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
         followed: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
-        accompanyings: Vec<(TraceId, ValReprInterface)>,
+        accompanyings: &[(TraceId, ValReprInterface)],
         pedestal: Self::Pedestal,
         runtime: &DevRuntime,
         visual_synchrotron: &mut VisualSynchrotron,
@@ -81,50 +83,63 @@ where
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         match pedestal {
             MlPedestal::Specific(_) => {
-                let followed_visual = followed.map(|(trace_id, val_repr, val_domain_repr)| {
-                    (
-                        trace_id,
+                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<MlPedestal>>::new_specific(
+                    followed,
+                    accompanyings,
+                    |val_repr, visual_synchrotron| {
                         Self::get_val_visual(
                             val_repr,
                             pedestal,
                             runtime,
                             visual_synchrotron,
                             val_visual_cache,
-                        ),
-                    )
-                });
-                let accompanying_visuals = accompanyings
-                    .into_iter()
-                    .map(|(trace_id, val_repr)| {
-                        (
-                            trace_id,
-                            Self::get_val_visual(
-                                val_repr,
-                                pedestal,
-                                runtime,
-                                visual_synchrotron,
-                                val_visual_cache,
-                            ),
                         )
-                    })
-                    .collect::<Vec<_>>();
-                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure>::new_specific(
-                    followed_visual,
-                    accompanying_visuals,
+                    },
                     visual_synchrotron,
                 )
             }
             MlPedestal::Generic => {
-                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure>::new_generic()
+                let pedestals = (0..49).into_iter().filter_map(|index| {
+                        let pedestal = MlPedestal::Specific(InputId::from_index(index));
+                        let Some((_,_,val_domain_repr_interface)) = followed else {
+                            return Some(pedestal)
+                        };
+                        match runtime.eval_val_domain_repr_interface_at_pedestal(
+                            val_domain_repr_interface,
+                            pedestal
+                        ) {
+                            ValControlFlow::Continue(_) => Some(pedestal),
+                            ValControlFlow::LoopContinue => todo!(),
+                            ValControlFlow::LoopExit(_) => todo!(),
+                            ValControlFlow::Return(_) => todo!(),
+                            ValControlFlow::Undefined => todo!(),
+                            ValControlFlow::Err(_) => todo!(),
+                        }
+                    });
+                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<MlPedestal>>::new_generic(
+                    followed,
+                    accompanyings,
+                    pedestals,
+                    |val_repr, pedestal, visual_synchrotron| {
+                        Self::get_val_visual(
+                            val_repr,
+                            pedestal,
+                            runtime,
+                            visual_synchrotron,
+                            val_visual_cache,
+                        )
+                    },
+                    visual_synchrotron,
+                )
             }
         }
     }
 }
 
 #[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Clone)]
-pub struct MlTraceProtocol<Figure: IsFigure>(PhantomData<Figure>);
+pub struct MlTraceProtocol<Figure: IsFigure<MlPedestal>>(PhantomData<Figure>);
 
-impl<Figure: IsFigure> Default for MlTraceProtocol<Figure> {
+impl<Figure: IsFigure<MlPedestal>> Default for MlTraceProtocol<Figure> {
     fn default() -> Self {
         Self(Default::default())
     }
@@ -132,7 +147,7 @@ impl<Figure: IsFigure> Default for MlTraceProtocol<Figure> {
 
 impl<Figure> IsTraceProtocol for MlTraceProtocol<Figure>
 where
-    Figure: IsFigure,
+    Figure: IsFigure<MlPedestal>,
 {
     type Pedestal = MlPedestal;
 

@@ -1,4 +1,4 @@
-use husky_hir_lazy_expr::{HirLazyExprIdx};
+use husky_hir_lazy_expr::HirLazyExprIdx;
 
 use super::*;
 

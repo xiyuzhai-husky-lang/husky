@@ -3,8 +3,6 @@
 /// todo: refactor husky-vfs into two crates, let this crate depends on one and be dependent of the other
 mod db;
 
-
-
 use husky_toml_utils::read_toml;
 use husky_vfs::{Toolchain, ToolchainData, VirtualPath};
 use serde::*;

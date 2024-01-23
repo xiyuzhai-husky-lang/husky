@@ -2,7 +2,6 @@ use either::*;
 use husky_fluffy_term::{FluffyLifetime, FluffyPlace};
 use husky_stack_location::StackLocationIdx;
 
-
 use crate::lifetime::HirLifetime;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

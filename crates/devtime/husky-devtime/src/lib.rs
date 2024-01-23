@@ -127,13 +127,13 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
             }),
             None => None,
         };
-        let accompanying_trace_id_val_repr_pairs = accompanying_trace_ids_expect_followed
+        let accompanying_trace_id_val_repr_pairs = &accompanying_trace_ids_expect_followed
             .iter()
             .filter_map(|&accompanying_trace_id| {
                 let trace: Trace = accompanying_trace_id.into();
                 Some((trace.into(), trace.val_repr(db)?.into()))
             })
-            .collect();
+            .collect::<Vec<_>>();
         <Task::DevAscension as IsDevAscension>::calc_figure(
             followed,
             accompanying_trace_id_val_repr_pairs,

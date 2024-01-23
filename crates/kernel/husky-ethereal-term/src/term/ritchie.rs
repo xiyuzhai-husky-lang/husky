@@ -2,8 +2,6 @@ mod keyed;
 mod regular;
 mod variadic;
 
-
-
 pub use self::keyed::*;
 pub use self::regular::*;
 pub use self::variadic::*;
@@ -160,7 +158,11 @@ impl EtherealRitchieParameter {
 impl EtherealInstantiate for EtherealRitchieParameter {
     type Output = Self;
 
-    fn instantiate(self, _db: &::salsa::Db, _instantiation: &EtherealInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        _db: &::salsa::Db,
+        _instantiation: &EtherealInstantiation,
+    ) -> Self::Output {
         todo!()
     }
 }

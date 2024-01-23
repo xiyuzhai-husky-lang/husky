@@ -1,7 +1,5 @@
 use crate::*;
 
-
-
 pub trait TokenInfoDb {
     #[deprecated]
     fn token_info_sheet(&self, module_path: ModulePath) -> EntitySynTreeResult<&TokenInfoSheet>;

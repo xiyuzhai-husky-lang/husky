@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_vfs::{*};
+use husky_vfs::*;
 
 pub trait AstDb {
     #[deprecated(note = "use HasAstSheet trait instead")]

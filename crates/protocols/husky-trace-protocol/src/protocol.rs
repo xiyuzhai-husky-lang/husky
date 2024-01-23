@@ -1,14 +1,12 @@
-use std::path::{Path, PathBuf};
-
-use husky_task_interface::pedestal::IsPedestal;
-
 use crate::*;
+use husky_task_interface::pedestal::{IsPedestal, IsPedestalFull};
+use std::path::{Path, PathBuf};
 
 pub trait IsTraceProtocol:
     Default + std::fmt::Debug + Clone + PartialEq + Eq + Send + 'static
 {
-    type Pedestal: IsPedestal;
-    type Figure: IsFigure;
+    type Pedestal: IsPedestalFull;
+    type Figure: IsFigure<Self::Pedestal>;
 }
 
 impl IsTraceProtocol for () {

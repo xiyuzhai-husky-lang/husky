@@ -1,7 +1,7 @@
 use husky_entity_path::PrincipalEntityPath;
 use husky_hir_eager_expr::{
-    builder::hir_eager_expr_region_with_source_map,
-    HirEagerExprRegion, HirEagerExprSourceMap, HirEagerExprSourceMapData, HirEagerStmtIdx,
+    builder::hir_eager_expr_region_with_source_map, HirEagerExprRegion, HirEagerExprSourceMap,
+    HirEagerExprSourceMapData, HirEagerStmtIdx,
 };
 use husky_regional_token::{
     ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, EolRegionalToken, IfRegionalToken,

@@ -1,7 +1,5 @@
 mod utils;
 
-
-
 pub(crate) use self::utils::*;
 
 use super::*;
@@ -78,9 +76,7 @@ pub(crate) fn term_curry_from_declarative(
         declarative_term_curry.curry_kind(db),
         declarative_term_curry.variance(db),
         match declarative_term_curry.parameter_rune(db) {
-            Some(parameter_rune) => {
-                Some(EtherealTermRune::from_declarative(db, parameter_rune)?)
-            }
+            Some(parameter_rune) => Some(EtherealTermRune::from_declarative(db, parameter_rune)?),
             None => None,
         },
         t(declarative_term_curry.parameter_ty(db))?,

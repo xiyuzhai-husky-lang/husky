@@ -1,3 +1,1 @@
-pub(crate) use lsp_types::{
-    SemanticToken, SemanticTokenModifier, SemanticTokenType,
-};
+pub(crate) use lsp_types::{SemanticToken, SemanticTokenModifier, SemanticTokenType};

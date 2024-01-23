@@ -9,8 +9,7 @@ use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature, StaticDispatch};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirInstantiation, place::HirPlace, ritchie::HirEagerContract,
-    HirType,
+    instantiation::HirInstantiation, place::HirPlace, ritchie::HirEagerContract, HirType,
 };
 
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
@@ -365,7 +364,7 @@ impl ToHirEager for SemaExprIdx {
                 self_contract,
                 ident_token,
                 ref dispatch,
-                
+
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {

@@ -1,4 +1,4 @@
-use egui::{RichText};
+use egui::RichText;
 
 use super::*;
 

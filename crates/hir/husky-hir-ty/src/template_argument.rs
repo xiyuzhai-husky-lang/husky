@@ -1,6 +1,6 @@
 use crate::{path_leading::HirTypePathLeading, ritchie::HirRitchieType, *};
 use husky_ethereal_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
-use husky_ethereal_term::{EtherealTerm};
+use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 use husky_term_prelude::TermEntityPath;
 
