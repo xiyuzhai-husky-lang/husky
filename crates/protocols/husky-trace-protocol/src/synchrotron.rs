@@ -99,6 +99,23 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
 
     #[track_caller]
     pub fn figure(&self) -> &TraceProtocol::Figure {
+        #[cfg(test)]
+        {
+            use husky_print_utils::p;
+            p!(self.actions);
+            if !self.figures.contains_key(&(
+                self.followed_trace_id,
+                self.pedestal,
+                self.accompanying_trace_ids_except_followed(),
+            )) {
+                husky_io_utils::diff_write(
+                    "trace_synchrotron_failure_actions.log",
+                    format!("{:#?}", self.actions),
+                    true,
+                );
+                panic!("trace synchrotron failed to maintain valid state")
+            }
+        }
         &self.figures[&(
             self.followed_trace_id,
             self.pedestal,
