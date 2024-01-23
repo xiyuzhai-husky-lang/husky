@@ -1,3 +1,4 @@
+pub mod accompany;
 pub(crate) mod action;
 pub mod bundle;
 mod entry;
@@ -7,6 +8,7 @@ use self::action::TraceSynchrotronActionsDiff;
 pub use self::entry::TraceSynchrotronEntry;
 
 use self::bundle::TraceIdBundle;
+use crate::synchrotron::accompany::AccompanyingTraceIdsExceptFollowed;
 use crate::{view::TraceViewData, *};
 use husky_value_protocol::presentation::synchrotron::{
     ValuePresentationSynchrotron, ValuePresentationSynchrotronStatus,
@@ -95,6 +97,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         &self.visual_synchrotron
     }
 
+    #[track_caller]
     pub fn figure(&self) -> &TraceProtocol::Figure {
         &self.figures[&(
             self.followed_trace_id,
@@ -183,11 +186,10 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     }
 
     pub fn accompanying_trace_ids_except_followed(&self) -> AccompanyingTraceIdsExceptFollowed {
-        let mut accompanying_trace_ids = self.accompanying_trace_ids.clone();
-        if let Some(followed_trace_id) = self.followed_trace_id {
-            accompanying_trace_ids.remove(followed_trace_id)
-        }
-        AccompanyingTraceIdsExceptFollowed(accompanying_trace_ids)
+        AccompanyingTraceIdsExceptFollowed::new(
+            self.followed_trace_id(),
+            self.accompanying_trace_ids.clone(),
+        )
     }
 
     pub fn has_figure(
@@ -222,29 +224,6 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
 
     pub(crate) fn visual_synchrotron_mut(&mut self) -> &mut VisualSynchrotron {
         &mut self.visual_synchrotron
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize, Hash)]
-pub struct AccompanyingTraceIdsExceptFollowed(AccompanyingTraceIds);
-
-impl std::ops::Deref for AccompanyingTraceIdsExceptFollowed {
-    type Target = [TraceId];
-
-    fn deref(&self) -> &Self::Target {
-        &*self.0
-    }
-}
-
-impl AccompanyingTraceIdsExceptFollowed {
-    pub(crate) fn new(
-        followed_trace_id: Option<TraceId>,
-        mut accompanying_trace_ids: AccompanyingTraceIds,
-    ) -> Self {
-        if let Some(followed_trace_id) = followed_trace_id {
-            accompanying_trace_ids.remove(followed_trace_id)
-        }
-        Self(accompanying_trace_ids)
     }
 }
 

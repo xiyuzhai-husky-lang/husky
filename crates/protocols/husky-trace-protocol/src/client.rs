@@ -12,6 +12,8 @@ use husky_websocket_utils::imgui_client::{
 use notify_change::NotifyChange;
 use std::sync::Arc;
 
+use self::accompany::AccompanyingTraceIdsExceptFollowed;
+
 pub struct TraceClient<TraceProtocol: IsTraceProtocol, Notifier>
 where
     Notifier: NotifyChange,
@@ -190,6 +192,13 @@ where
                 );
                 if !has_figure {
                     return None;
+                }
+                #[cfg(test)]
+                {
+                    let mut trace_synchrotron = self.trace_synchrotron().clone();
+                    trace_synchrotron
+                        .take_action(TraceSynchrotronAction::ToggleAccompany { trace_id });
+                    trace_synchrotron.figure();
                 }
                 Some(TraceSynchrotronAction::ToggleAccompany { trace_id })
             }

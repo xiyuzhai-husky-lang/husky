@@ -18,7 +18,7 @@ use husky_trace_protocol::{
     protocol::{IsTraceProtocol, TraceBundle},
     server::ValVisualCache,
     stalk::TraceStalk,
-    synchrotron::AccompanyingTraceIdsExceptFollowed,
+    synchrotron::accompany::AccompanyingTraceIdsExceptFollowed,
 };
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,

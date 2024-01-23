@@ -16,6 +16,8 @@ use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use husky_websocket_utils::easy_server::IsEasyWebsocketServer;
 use rustc_hash::FxHashMap;
 
+use self::accompany::AccompanyingTraceIdsExceptFollowed;
+
 pub struct TraceServer<Tracetime: IsTracetime> {
     trace_synchrotron: Option<TraceSynchrotron<Tracetime::TraceProtocol>>,
     value_presenter_cache: ValuePresenterCache,
