@@ -51,9 +51,9 @@ where
 
 type LinkageImpl = husky_linkage_impl::standard::LinkageImpl<MlPedestal>;
 
-impl<VisualProtocol> IsDevAscension for MlDevAscension<VisualProtocol>
+impl<Figure> IsDevAscension for MlDevAscension<Figure>
 where
-    VisualProtocol: IsFigure,
+    Figure: IsFigure,
 {
     type Pedestal = MlPedestal;
 
@@ -65,7 +65,7 @@ where
 
     type RuntimeSpecificConfig = ();
 
-    type TraceProtocol = MlTraceProtocol<VisualProtocol>;
+    type TraceProtocol = MlTraceProtocol<Figure>;
 
     fn dev_eval_context_local_key() -> &'static DevEvalContextLocalKey<LinkageImpl> {
         &DEV_EVAL_CONTEXT
@@ -114,13 +114,21 @@ where
                     visual_synchrotron,
                 )
             }
-            MlPedestal::Generic => todo!(),
+            MlPedestal::Generic => {
+                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure>::new_generic()
+            }
         }
     }
 }
 
-#[derive(Debug, Default, Serialize, Deserialize, PartialEq, Eq, Clone)]
-pub struct MlTraceProtocol<Figure>(PhantomData<Figure>);
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Clone)]
+pub struct MlTraceProtocol<Figure: IsFigure>(PhantomData<Figure>);
+
+impl<Figure: IsFigure> Default for MlTraceProtocol<Figure> {
+    fn default() -> Self {
+        Self(Default::default())
+    }
+}
 
 impl<Figure> IsTraceProtocol for MlTraceProtocol<Figure>
 where

@@ -20,4 +20,8 @@ impl IsFigure for DanielJacksonFigure {
     ) -> Self {
         todo!()
     }
+
+    fn new_generic() -> Self {
+        todo!()
+    }
 }

@@ -11,16 +11,7 @@ use ui::ui::{IsUi, UiTextureId};
 ///
 /// for example TraceSynchrotron
 pub trait IsFigure:
-    Default
-    + std::fmt::Debug
-    + Default
-    + PartialEq
-    + Eq
-    + Clone
-    + Serialize
-    + for<'a> Deserialize<'a>
-    + Send
-    + 'static
+    std::fmt::Debug + PartialEq + Eq + Clone + Serialize + for<'a> Deserialize<'a> + Send + 'static
 {
     /// construct a figure for a specific datapoint
     fn new_specific(
@@ -28,6 +19,8 @@ pub trait IsFigure:
         accompanying_visuals: impl IntoIterator<Item = (TraceId, Visual)>,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self;
+
+    fn new_generic() -> Self;
 }
 
 impl IsFigure for () {
@@ -36,6 +29,10 @@ impl IsFigure for () {
         accompanying_visuals: impl IntoIterator<Item = (TraceId, Visual)>,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self {
+        ()
+    }
+
+    fn new_generic() -> Self {
         ()
     }
 }

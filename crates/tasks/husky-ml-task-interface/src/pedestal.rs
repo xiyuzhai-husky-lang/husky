@@ -22,13 +22,13 @@ impl IsPedestal for MlPedestal {
     type UiBuffer = MlPedestalUiBuffer;
 
     fn init_ui_buffer(self) -> Self::UiBuffer {
-        let last_input_id = match self {
+        let base_input_id = match self {
             MlPedestal::Specific(input_id) => input_id,
             MlPedestal::Generic => InputId::from_index(0),
         };
-        let input_id_to_be = last_input_id.index().to_string();
+        let input_id_to_be = base_input_id.index().to_string();
         MlPedestalUiBuffer {
-            last_input_id,
+            base_input_id: base_input_id,
             input_id_to_be,
             error: None,
         }
@@ -52,7 +52,7 @@ impl MlPedestal {
 }
 
 pub struct MlPedestalUiBuffer {
-    last_input_id: InputId,
+    base_input_id: InputId,
     input_id_to_be: String,
     error: Option<String>,
 }
@@ -63,7 +63,7 @@ impl IsPedestalUiBuffer for MlPedestalUiBuffer {
     fn update(&mut self, pedestal: Self::Pedestal) {
         self.error = None;
         match pedestal {
-            MlPedestal::Specific(input_id) => self.last_input_id = input_id,
+            MlPedestal::Specific(input_id) => self.base_input_id = input_id,
             MlPedestal::Generic => (),
         }
         *self = pedestal.init_ui_buffer()
