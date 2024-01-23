@@ -233,7 +233,10 @@ fn struct_field_linkage_impl_works() {
 macro_rules! enum_u8_presenter_linkage_impl {
     ($ty: ty) => {
         __LinkageImpl::EnumU8ValuePresenter {
-            presenter: |_, _, _| todo!(),
+            presenter: |index: u8, _, _| {
+                let slf: $ty = unsafe { std::mem::transmute(index) };
+                __ValuePresentation::AdHoc(format!("{slf:?}"))
+            },
         }
     };
 }
