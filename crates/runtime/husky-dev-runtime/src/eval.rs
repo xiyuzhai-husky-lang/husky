@@ -230,7 +230,11 @@ impl<Task: IsTask> DevRuntime<Task> {
             }
             ValOpn::TypeVariant(path) => match path.index(db) {
                 TypeVariantIndex::U8(index_raw) => {
-                    ValControlFlow::Continue(TaskValue::<Task>::from_enum_u8(index_raw, todo!()))
+                    let presenter = self
+                        .comptime
+                        .linkage_impl(Linkage::new_enum_u8_presenter(path.parent_ty_path(db), db))
+                        .enum_u8_value_presenter();
+                    ValControlFlow::Continue(TaskValue::<Task>::from_enum_u8(index_raw, presenter))
                 }
             },
             ValOpn::Be { pattern_data } => {
