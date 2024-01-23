@@ -8,14 +8,17 @@ pub mod val_repr;
 pub mod value;
 pub mod vm_control_flow;
 
+use std::convert::Infallible;
+
 pub use self::linkage_impl::*;
+pub use self::val_control_flow::ValControlFlow;
 pub use husky_task_interface_macros::*;
 
-use once_cell::sync::OnceCell;
-use shifted_unsigned_int::ShiftedU32;
-use val_repr::{
+use self::val_repr::{
     ValArgumentReprInterface, ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface,
 };
+use once_cell::sync::OnceCell;
+use shifted_unsigned_int::ShiftedU32;
 
 #[macro_export]
 macro_rules! init_crate {
@@ -204,6 +207,14 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         self.runtime.eval_val_repr_dyn(val_repr, self.pedestal)
     }
 
+    pub fn eval_val_domain_repr(
+        self,
+        val_domain_repr: ValDomainReprInterface,
+    ) -> ValControlFlow<(), Infallible, LinkageImpl::Error> {
+        self.runtime
+            .eval_val_domain_repr_dyn(val_domain_repr, self.pedestal)
+    }
+
     pub fn eval_memoized_field_with<Slf>(
         self,
         jar_index: TaskJarIndex,
@@ -254,11 +265,17 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
 
     /// the computation is done by the runtime
     /// returns `LinkageImplValControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
-    fn eval_val_repr_at_pedestal(
+    fn eval_val_repr_interface_at_pedestal(
         &self,
         val_repr: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
+
+    fn eval_val_domain_repr_interface_at_pedestal(
+        &self,
+        val_domain_repr: ValDomainReprInterface,
+        pedestal: LinkageImpl::Pedestal,
+    ) -> ValControlFlow<(), Infallible, LinkageImpl::Error>;
 
     /// the computation is done by `f`
     /// returns `LinkageImplValControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
@@ -305,6 +322,12 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         val_repr: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
+
+    fn eval_val_domain_repr_dyn(
+        &self,
+        val_domain_repr: ValDomainReprInterface,
+        pedestal: LinkageImpl::Pedestal,
+    ) -> ValControlFlow<(), Infallible, LinkageImpl::Error>;
 
     fn eval_value_at_generic_pedestal_dyn(
         &self,
@@ -361,7 +384,15 @@ where
         val_repr: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.eval_val_repr_at_pedestal(val_repr, pedestal)
+        self.eval_val_repr_interface_at_pedestal(val_repr, pedestal)
+    }
+
+    fn eval_val_domain_repr_dyn(
+        &self,
+        val_domain_repr: ValDomainReprInterface,
+        pedestal: LinkageImpl::Pedestal,
+    ) -> ValControlFlow<(), Infallible, LinkageImpl::Error> {
+        self.eval_val_domain_repr_interface_at_pedestal(val_domain_repr, pedestal)
     }
 
     fn eval_value_at_generic_pedestal_dyn(

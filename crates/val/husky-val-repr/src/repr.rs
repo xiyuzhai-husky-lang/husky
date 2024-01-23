@@ -33,6 +33,12 @@ impl Into<ValReprInterface> for ValRepr {
     }
 }
 
+impl From<ValReprInterface> for ValRepr {
+    fn from(val_repr: ValReprInterface) -> Self {
+        unsafe { std::mem::transmute(val_repr) }
+    }
+}
+
 #[test]
 fn val_repr_size_works() {
     assert_eq!(

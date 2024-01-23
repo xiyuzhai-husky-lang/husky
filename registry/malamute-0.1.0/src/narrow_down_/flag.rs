@@ -42,7 +42,7 @@ where
         arguments: &[__ValReprInterface],
         label0: Label,
     ) -> Result<Option<Stalk>, ()> {
-        match __eval_val_domain_repr_at_input(val_domain_repr, input_id, None) {
+        match __eval_val_domain_repr_at_input(val_domain_repr, input_id) {
             ValControlFlow::Continue(_) => (),
             ValControlFlow::LoopContinue => todo!(),
             ValControlFlow::LoopExit(_) => todo!(),

@@ -12,7 +12,7 @@ use husky_task_interface::{val_control_flow::ValControlFlow, IsLinkageImpl};
 use husky_task_interface::{val_repr::ValArgumentReprInterface, value::IsValue};
 use husky_term_prelude::TermLiteral;
 use husky_val::{ValOpn, ValPatternData};
-use husky_val_repr::repr::{ValArgumentRepr, ValRepr};
+use husky_val_repr::repr::{ValArgumentRepr, ValDomainRepr, ValRepr};
 
 impl<Task: IsTask> DevRuntime<Task> {
     pub fn eval_val_repr_at_pedestal(
@@ -23,6 +23,55 @@ impl<Task: IsTask> DevRuntime<Task> {
         with_runtime_and_base_point::<TaskDevAscension<Task>, _, _>(self, pedestal, || {
             self.eval_val_repr(val_repr)
         })
+    }
+
+    pub fn eval_val_domain_repr_at_pedestal(
+        &self,
+        val_domain_repr: ValDomainRepr,
+        pedestal: TaskDevPedestal<Task>,
+    ) -> ValControlFlow<(), Infallible, TaskError<Task>> {
+        use husky_task_interface::value::IsValue;
+        match val_domain_repr {
+            ValDomainRepr::Omni => ValControlFlow::Continue(()),
+            ValDomainRepr::ConditionSatisfied(condition_val_repr) => {
+                match self.eval_val_repr_at_pedestal(condition_val_repr, pedestal) {
+                    ValControlFlow::Continue(value) => match value.to_bool() {
+                        true => ValControlFlow::Continue(()),
+                        false => ValControlFlow::Undefined,
+                    },
+                    ValControlFlow::LoopContinue => todo!(),
+                    ValControlFlow::LoopExit(_) => todo!(),
+                    ValControlFlow::Return(_) => todo!(),
+                    ValControlFlow::Undefined => ValControlFlow::Undefined,
+                    ValControlFlow::Err(_) => todo!(),
+                }
+            }
+            ValDomainRepr::ConditionNotSatisfied(condition_val_repr) => {
+                match self.eval_val_repr_at_pedestal(condition_val_repr, pedestal) {
+                    ValControlFlow::Continue(value) => match value.to_bool() {
+                        true => ValControlFlow::Undefined,
+                        false => ValControlFlow::Continue(()),
+                    },
+                    ValControlFlow::LoopContinue => todo!(),
+                    ValControlFlow::LoopExit(_) => todo!(),
+                    ValControlFlow::Return(_) => todo!(),
+                    ValControlFlow::Undefined => ValControlFlow::Undefined,
+                    ValControlFlow::Err(_) => todo!(),
+                }
+            }
+            ValDomainRepr::StmtNotReturned(stmt_val_repr) => {
+                match self.eval_val_repr_at_pedestal(stmt_val_repr, pedestal) {
+                    ValControlFlow::Continue(_) => ValControlFlow::Continue(()),
+                    ValControlFlow::LoopContinue => todo!(),
+                    ValControlFlow::LoopExit(_) => todo!(),
+                    ValControlFlow::Return(_) | ValControlFlow::Undefined => {
+                        ValControlFlow::Undefined
+                    }
+                    ValControlFlow::Err(_) => todo!(),
+                }
+            }
+            ValDomainRepr::ExprNotReturned(_) => todo!(),
+        }
     }
 
     fn eval_val_repr(

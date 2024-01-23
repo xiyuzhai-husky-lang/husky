@@ -1,23 +1,27 @@
 use crate::*;
 use dashmap::DashMap;
-use husky_linkage_impl::standard::ValControlFlow;
+use husky_linkage_impl::standard::StandardLinkageImplValControlFlow;
 
 use husky_task::dev_ascension::IsRuntimeStorage;
 use husky_task_interface::TaskJarIndex;
-use husky_task_interface::{LinkageImplValControlFlow, TaskIngredientIndex};
+use husky_task_interface::{TaskIngredientIndex, ValControlFlow};
 use husky_val::{version_stamp::ValVersionStamp, Val};
 use std::sync::{Arc, Mutex};
 
 #[derive(Debug, Default)]
 pub struct MlDevRuntimeStorage {
-    gn_values:
-        DashMap<MlDevRuntimeGnStorageKey, Arc<Mutex<Option<(ValVersionStamp, ValControlFlow)>>>>,
+    gn_values: DashMap<
+        MlDevRuntimeGnStorageKey,
+        Arc<Mutex<Option<(ValVersionStamp, StandardLinkageImplValControlFlow)>>>,
+    >,
     val_item_values: DashMap<
         MlDevRuntimeValItemStorageKey,
-        Arc<Mutex<Option<(ValVersionStamp, ValControlFlow)>>>,
+        Arc<Mutex<Option<(ValVersionStamp, StandardLinkageImplValControlFlow)>>>,
     >,
-    memoized_field_values:
-        DashMap<MlDevRuntimeMemoizedFieldStorageKey, Arc<Mutex<Option<ValControlFlow>>>>,
+    memoized_field_values: DashMap<
+        MlDevRuntimeMemoizedFieldStorageKey,
+        Arc<Mutex<Option<StandardLinkageImplValControlFlow>>>,
+    >,
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
@@ -49,9 +53,9 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
         &self,
         val: Val,
         pedestal: MlPedestal,
-        f: impl FnOnce() -> ValControlFlow,
+        f: impl FnOnce() -> StandardLinkageImplValControlFlow,
         db: &::salsa::Db,
-    ) -> ValControlFlow {
+    ) -> StandardLinkageImplValControlFlow {
         let key = MlDevRuntimeValItemStorageKey { val, pedestal };
         let mu = self.val_item_values.entry(key).or_default().clone();
         let mut opt_stored_val_control_flow_store_guard = mu.lock().expect("todo");
@@ -79,8 +83,8 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
         ingredient_index: TaskIngredientIndex,
         pedestal: MlPedestal,
         slf: &'static std::ffi::c_void,
-        f: impl FnOnce(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
-    ) -> ValControlFlow {
+        f: impl FnOnce(&'static std::ffi::c_void) -> StandardLinkageImplValControlFlow,
+    ) -> StandardLinkageImplValControlFlow {
         // todo: maybe add version stamp?
         let key = MlDevRuntimeMemoizedFieldStorageKey {
             jar_index,
@@ -105,7 +109,6 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
     }
 
     fn debug_drop(self) {
-        
         println!("{}", self.val_item_values.len());
         self.val_item_values.iter().for_each(|_| ());
         // forget(self.val_item_values);

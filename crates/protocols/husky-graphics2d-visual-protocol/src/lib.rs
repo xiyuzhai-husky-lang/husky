@@ -1,6 +1,7 @@
 pub mod action;
 mod specific;
 
+use self::specific::new_specific_figure;
 use egui::{pos2, vec2, Color32, Rect, Ui, Vec2};
 use husky_trace_protocol::{
     figure::{FigureUi, FigureUiCache, IsFigure},
@@ -29,7 +30,7 @@ impl IsFigure for Graphics2dFigure {
         accompanying_visuals: impl IntoIterator<Item = (TraceId, Visual)>,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self {
-        specific::new_specific_figure(
+        new_specific_figure(
             followed_visual,
             accompanying_visuals.into_iter(),
             visual_synchrotron,
