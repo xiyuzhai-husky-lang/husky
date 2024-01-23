@@ -80,12 +80,13 @@ where
                 gn_generic_wrapper,
                 gn_specific_wrapper,
             } => {
-                let value_at_generic_pedestal = ctx.eval_val_repr_at_generic_pedestal_with(
-                    val_repr,
-                    generic_pedestal,
-                    gn_generic_wrapper,
-                    val_argument_reprs,
-                )?;
+                let value_at_generic_pedestal = ctx
+                    .eval_val_repr_interface_at_generic_pedestal_with(
+                        val_repr,
+                        generic_pedestal,
+                        gn_generic_wrapper,
+                        val_argument_reprs,
+                    )?;
                 gn_specific_wrapper(val_argument_reprs, value_at_generic_pedestal)
             }
             LinkageImpl::StructField {
@@ -95,7 +96,7 @@ where
                 let ValArgumentReprInterface::Ordinary(owner) = val_argument_reprs[0] else {
                     unreachable!()
                 };
-                let owner = ctx.eval_val_repr(owner)?;
+                let owner = ctx.eval_val_repr_interface(owner)?;
                 StandardLinkageImplValControlFlow::Continue(struct_field_wrapper(owner))
             }
             LinkageImpl::EnumU8ValuePresenter { .. } => {

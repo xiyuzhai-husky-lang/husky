@@ -64,28 +64,28 @@ pub fn with_dev_eval_context<R>(ctx: DevEvalContext, f: impl FnOnce() -> R) -> R
     r
 }
 
-pub fn eval_val_repr<T>(
+pub fn eval_val_repr_interface<T>(
     val_repr: ValReprInterface,
     value_stands: Option<&mut __ValueStands>,
 ) -> StandardLinkageImplValControlFlow<T>
 where
     T: FromValue + 'static,
 {
-    let value = dev_eval_context().eval_val_repr(val_repr)?;
+    let value = dev_eval_context().eval_val_repr_interface(val_repr)?;
     StandardLinkageImplValControlFlow::Continue(<T as FromValue>::from_value_aux(
         value,
         value_stands,
     ))
 }
 
-pub fn eval_val_domain_repr(
-    val_domain_repr: ValDomainReprInterface,
+pub fn eval_val_domain_repr_interface(
+    val_domain_repr_interface: ValDomainReprInterface,
 ) -> StandardLinkageImplValControlFlow<(), Infallible> {
-    dev_eval_context().eval_val_domain_repr(val_domain_repr)
+    dev_eval_context().eval_val_domain_repr_interface(val_domain_repr_interface)
 }
 
-pub fn eval_val_repr_at_input<T>(
-    val_repr: ValReprInterface,
+pub fn eval_val_repr_interface_at_input<T>(
+    val_repr_interface: ValReprInterface,
     input_id: InputId,
     value_stands: Option<&mut __ValueStands>,
 ) -> StandardLinkageImplValControlFlow<T>
@@ -93,16 +93,16 @@ where
     T: FromValue + 'static,
 {
     with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
-        eval_val_repr(val_repr, value_stands)
+        eval_val_repr_interface(val_repr_interface, value_stands)
     })
 }
 
-pub fn eval_val_domain_repr_at_input(
-    val_domain_repr: ValDomainReprInterface,
+pub fn eval_val_domain_repr_interface_at_input(
+    val_domain_repr_interface: ValDomainReprInterface,
     input_id: InputId,
 ) -> StandardLinkageImplValControlFlow<(), Infallible> {
     with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
-        eval_val_domain_repr(val_domain_repr)
+        eval_val_domain_repr_interface(val_domain_repr_interface)
     })
 }
 

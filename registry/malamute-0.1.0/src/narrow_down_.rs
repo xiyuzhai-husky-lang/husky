@@ -97,7 +97,7 @@ where
             unreachable!()
         };
         let skip: i32 = match skip {
-            Some(skip) => __eval_val_repr(skip, None)?,
+            Some(skip) => __eval_val_repr_interface(skip, None)?,
             None => 5,
         };
         let __ValArgumentReprInterface::RuntimeConstants(ref runtime_constants) =
@@ -132,7 +132,7 @@ where
             let Some(flag_range) = flag_range else {
                 continue;
             };
-            let v: f32 = match __eval_val_repr(feature, None) {
+            let v: f32 = match __eval_val_repr_interface(feature, None) {
                 ValControlFlow::Continue(v) => v,
                 ValControlFlow::LoopContinue => todo!(),
                 ValControlFlow::LoopExit(_) => todo!(),
