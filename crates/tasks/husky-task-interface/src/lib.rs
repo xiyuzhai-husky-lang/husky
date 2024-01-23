@@ -181,9 +181,9 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
             .unwrap()
     }
 
-    pub fn eval_val_repr_at_generic_pedestal_with(
+    pub fn eval_val_repr_interface_at_generic_pedestal_with(
         &self,
-        val_repr: ValReprInterface,
+        val_repr_interface: ValReprInterface,
         generic_pedestal: fn(LinkageImpl::Pedestal) -> LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
@@ -192,27 +192,29 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         ) -> LinkageImplValControlFlow<LinkageImpl>,
         val_argument_reprs: &[ValArgumentReprInterface],
     ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.runtime.eval_value_at_generic_pedestal_dyn(
-            val_repr,
-            generic_pedestal(self.pedestal),
-            gn_generic_wrapper,
-            val_argument_reprs,
-        )
+        self.runtime
+            .eval_val_repr_interface_at_generic_pedestal_dyn(
+                val_repr_interface,
+                generic_pedestal(self.pedestal),
+                gn_generic_wrapper,
+                val_argument_reprs,
+            )
     }
 
-    pub fn eval_val_repr(
+    pub fn eval_val_repr_interface(
         self,
-        val_repr: ValReprInterface,
+        val_repr_interface: ValReprInterface,
     ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.runtime.eval_val_repr_dyn(val_repr, self.pedestal)
+        self.runtime
+            .eval_val_repr_interface_dyn(val_repr_interface, self.pedestal)
     }
 
-    pub fn eval_val_domain_repr(
+    pub fn eval_val_domain_repr_interface(
         self,
-        val_domain_repr: ValDomainReprInterface,
+        val_domain_repr_interface: ValDomainReprInterface,
     ) -> ValControlFlow<(), Infallible, LinkageImpl::Error> {
         self.runtime
-            .eval_val_domain_repr_dyn(val_domain_repr, self.pedestal)
+            .eval_val_domain_repr_interface_dyn(val_domain_repr_interface, self.pedestal)
     }
 
     pub fn eval_memoized_field_with<Slf>(
@@ -317,19 +319,19 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
 
-    fn eval_val_repr_dyn(
+    fn eval_val_repr_interface_dyn(
         &self,
         val_repr: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplValControlFlow<LinkageImpl>;
 
-    fn eval_val_domain_repr_dyn(
+    fn eval_val_domain_repr_interface_dyn(
         &self,
         val_domain_repr: ValDomainReprInterface,
         pedestal: LinkageImpl::Pedestal,
     ) -> ValControlFlow<(), Infallible, LinkageImpl::Error>;
 
-    fn eval_value_at_generic_pedestal_dyn(
+    fn eval_val_repr_interface_at_generic_pedestal_dyn(
         &self,
         val_repr: ValReprInterface,
         generic_pedestal: LinkageImpl::Pedestal,
@@ -379,25 +381,25 @@ where
         self.eval_ingredient_at_pedestal(jar_index, ingredient_index, pedestal)
     }
 
-    fn eval_val_repr_dyn(
+    fn eval_val_repr_interface_dyn(
         &self,
-        val_repr: ValReprInterface,
+        val_repr_interface: ValReprInterface,
         pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.eval_val_repr_interface_at_pedestal(val_repr, pedestal)
+        self.eval_val_repr_interface_at_pedestal(val_repr_interface, pedestal)
     }
 
-    fn eval_val_domain_repr_dyn(
+    fn eval_val_domain_repr_interface_dyn(
         &self,
-        val_domain_repr: ValDomainReprInterface,
+        val_domain_repr_interface: ValDomainReprInterface,
         pedestal: LinkageImpl::Pedestal,
     ) -> ValControlFlow<(), Infallible, LinkageImpl::Error> {
-        self.eval_val_domain_repr_interface_at_pedestal(val_domain_repr, pedestal)
+        self.eval_val_domain_repr_interface_at_pedestal(val_domain_repr_interface, pedestal)
     }
 
-    fn eval_value_at_generic_pedestal_dyn(
+    fn eval_val_repr_interface_at_generic_pedestal_dyn(
         &self,
-        val_repr: ValReprInterface,
+        val_repr_interface: ValReprInterface,
         generic_pedestal: LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
@@ -407,7 +409,7 @@ where
         val_argument_reprs: &[ValArgumentReprInterface],
     ) -> LinkageImplValControlFlow<LinkageImpl> {
         self.eval_val_repr_with(
-            val_repr,
+            val_repr_interface,
             generic_pedestal,
             |val_domain_repr: ValDomainReprInterface| {
                 gn_generic_wrapper(

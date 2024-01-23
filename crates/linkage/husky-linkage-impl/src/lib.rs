@@ -115,17 +115,17 @@ macro_rules! impl_is_fn_linkage_impl_source {
                     $({
                         let argument = arguments.next().unwrap();
                         match *argument {
-                            ValArgumentReprInterface::Ordinary(val_repr) => {
+                            ValArgumentReprInterface::Ordinary(val_repr_interface) => {
                                 <$input as FromValue>::from_value_temp(
-                                    ctx.eval_val_repr(val_repr)?,
+                                    ctx.eval_val_repr_interface(val_repr_interface)?,
                                     (value_stands)
                                 )
                             },
                             ValArgumentReprInterface::Keyed(argument) => todo!("ValArgumentReprInterface::Keyed(argument)"),
-                            ValArgumentReprInterface::Variadic(ref val_reprs) => {
+                            ValArgumentReprInterface::Variadic(ref val_repr_interfaces) => {
                                 <$input as FromValue>::from_variadic_values(
-                                    val_reprs.iter().map(
-                                        |&val_repr| ctx.eval_val_repr(val_repr)
+                                    val_repr_interfaces.iter().map(
+                                        |&val_repr_interface| ctx.eval_val_repr_interface(val_repr_interface)
                                     ),
                                     Some(value_stands)
                                 )?
@@ -252,7 +252,7 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
                 let mut runtime_constants = runtime_constants.iter();
                 match self.1(
                     <Target as FromValue>::from_value_temp(
-                        ctx.eval_val_repr(target)?,
+                        ctx.eval_val_repr_interface(target)?,
                         value_stands
                     ),
                     ($(<$runtime_constant as FromValue>::from_value_temp(
