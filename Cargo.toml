@@ -25,14 +25,14 @@ members = [
 resolver = "2"
 
 [profile.dev]
-opt-level = 0
+opt-level = 1
 panic = "unwind"
 
 [profile.test]
-opt-level = 0
+opt-level = 1
 
 [profile.release]
-opt-level = 0
+opt-level = 3
 lto = false
 
 [workspace.dependencies]
