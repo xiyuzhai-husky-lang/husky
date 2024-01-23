@@ -17,6 +17,9 @@ pub trait IsPedestal:
     type UiBuffer: IsPedestalUiBuffer<Pedestal = Self>;
 
     fn init_ui_buffer(self) -> Self::UiBuffer;
+
+    /// a closed point in algebraic geometry is a minimal prime point locally
+    fn is_closed(self) -> bool;
 }
 
 pub trait IsPedestalUiBuffer {
@@ -30,6 +33,10 @@ impl IsPedestal for () {
 
     fn init_ui_buffer(self) -> () {
         ()
+    }
+
+    fn is_closed(self) -> bool {
+        true
     }
 }
 

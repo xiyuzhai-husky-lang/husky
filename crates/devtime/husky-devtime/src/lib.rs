@@ -91,7 +91,11 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> husky_trace_protocol::stalk::TraceStalk {
+        use husky_task_interface::pedestal::IsPedestal;
         let db = self.runtime.db();
+        if !pedestal.is_closed() {
+            return TraceStalk::None;
+        }
         if let Some(val_repr) = trace.val_repr(db) {
             TraceStalk::Val(
                 self.runtime

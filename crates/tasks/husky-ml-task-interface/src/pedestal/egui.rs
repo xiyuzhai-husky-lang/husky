@@ -22,10 +22,21 @@ impl PedestalUi<Ui> for MlPedestal {
             ui.allocate_space(vec2(0.0, 2.0));
             ui.horizontal(|ui| {
                 ui.style_mut().spacing.item_spacing.x = 5.0;
-                Button::new(text)
+                if Button::new(text)
                     .fill(Color32::from_rgb(128, 0, 128))
                     .stroke((0.0, Color32::WHITE))
-                    .ui(ui);
+                    .ui(ui)
+                    .clicked()
+                {
+                    action_buffer.push(TraceViewAction::SetPedestal {
+                        pedestal: match self {
+                            MlPedestal::Specific(_) => MlPedestal::Generic,
+                            MlPedestal::Generic => {
+                                MlPedestal::Specific(pedestal_ui_buffer.last_input_id)
+                            }
+                        },
+                    })
+                };
                 ui.label("input id = ");
                 if ui
                     .text_edit_singleline(&mut pedestal_ui_buffer.input_id_to_be)

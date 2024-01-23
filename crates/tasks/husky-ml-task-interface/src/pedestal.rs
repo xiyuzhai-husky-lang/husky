@@ -33,6 +33,13 @@ impl IsPedestal for MlPedestal {
             error: None,
         }
     }
+
+    fn is_closed(self) -> bool {
+        match self {
+            MlPedestal::Specific(_) => true,
+            MlPedestal::Generic => false,
+        }
+    }
 }
 
 impl MlPedestal {
