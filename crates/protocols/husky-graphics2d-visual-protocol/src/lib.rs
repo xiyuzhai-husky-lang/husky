@@ -60,7 +60,7 @@ impl ui::visual_widget::VisualWidget<egui::Ui> for Graphics2dFigure {
                 ShapeVisualData::Contour { points } => {
                     for i in 0..(points.len() - 1) {
                         ui.painter()
-                            .line_segment([t(points[i]), t(points[i + 1])], (2.0, Color32::YELLOW))
+                            .line_segment([t(points[i]), t(points[i + 1])], (2.0, Color32::WHITE))
                     }
                 }
             }

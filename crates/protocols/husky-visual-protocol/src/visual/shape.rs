@@ -60,11 +60,9 @@ impl VisualRect {
 #[cfg(feature = "egui")]
 impl Point {
     pub fn to_screen(self, visual_rect: VisualRect, rect: egui::Rect) -> egui::Pos2 {
-        let a = (self.x - visual_rect.min.x) / (visual_rect.max.x - visual_rect.min.x);
-        let a = a.into_inner();
+        let a = *(((self.x + 1.0) - visual_rect.min.x) / (visual_rect.max.x - visual_rect.min.x));
         let x = rect.min.x + (rect.max.x - rect.min.x) * a;
-        let b = (self.y - visual_rect.min.y) / (visual_rect.max.y - visual_rect.min.y);
-        let b = b.into_inner();
+        let b = *(((self.y + 1.0) - visual_rect.min.y) / (visual_rect.max.y - visual_rect.min.y));
         let y = rect.max.y + (rect.min.y - rect.max.y) * b;
         egui::Pos2 { x, y }
     }

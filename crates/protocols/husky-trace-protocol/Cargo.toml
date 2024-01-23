@@ -29,6 +29,7 @@ husky-visual-protocol.workspace = true
 # tasks
 husky-task-interface.workspace = true
 # utils
+husky-io-utils.workspace = true
 husky-print-utils.workspace = true
 husky-websocket-utils = { path = "../../utils/husky-websocket-utils", features = [
     "serde_json"
