@@ -19,7 +19,7 @@ use serde_impl::json::SerdeJson;
 use serde_impl::IsSerdeImpl;
 use std::cmp::Ordering;
 
-pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
+pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 4;
 
 /// we use this layout instead of struct to reduce size to `2 * std::mem::size_of::<usize>()`
 #[husky_task_interface::value]
