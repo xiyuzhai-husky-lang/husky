@@ -4,7 +4,7 @@ pub mod ugly;
 
 use self::pedestal::MlPedestal;
 use husky_linkage_impl::standard::ValControlFlow;
-use husky_standard_value::{ugly::__ValueStands, FromValue};
+use husky_standard_value::{ugly::__ValueStands, FromValue, Value};
 use husky_task_interface::{
     pedestal::IsPedestal,
     val_repr::{ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface},
@@ -93,10 +93,35 @@ pub fn eval_val_domain_repr_at_input(
     input_id: InputId,
     value_stands: Option<&mut __ValueStands>,
 ) -> ValControlFlow<(), Infallible> {
+    use husky_task_interface::value::IsValue;
     match val_domain_repr {
         ValDomainReprInterface::Omni => ValControlFlow::Continue(()),
-        ValDomainReprInterface::ConditionSatisfied(_) => todo!(),
-        ValDomainReprInterface::ConditionNotSatisfied(_) => todo!(),
+        ValDomainReprInterface::ConditionSatisfied(condition_val_repr) => {
+            match eval_val_repr_at_input::<Value>(condition_val_repr, input_id, value_stands) {
+                ValControlFlow::Continue(value) => match value.to_bool() {
+                    true => ValControlFlow::Continue(()),
+                    false => ValControlFlow::Undefined,
+                },
+                ValControlFlow::LoopContinue => todo!(),
+                ValControlFlow::LoopExit(_) => todo!(),
+                ValControlFlow::Return(_) => todo!(),
+                ValControlFlow::Undefined => ValControlFlow::Undefined,
+                ValControlFlow::Err(_) => todo!(),
+            }
+        }
+        ValDomainReprInterface::ConditionNotSatisfied(condition_val_repr) => {
+            match eval_val_repr_at_input::<Value>(condition_val_repr, input_id, value_stands) {
+                ValControlFlow::Continue(value) => match value.to_bool() {
+                    true => ValControlFlow::Undefined,
+                    false => ValControlFlow::Continue(()),
+                },
+                ValControlFlow::LoopContinue => todo!(),
+                ValControlFlow::LoopExit(_) => todo!(),
+                ValControlFlow::Return(_) => todo!(),
+                ValControlFlow::Undefined => ValControlFlow::Undefined,
+                ValControlFlow::Err(_) => todo!(),
+            }
+        }
         ValDomainReprInterface::StmtNotReturned(stmt_val_repr) => {
             match eval_val_repr_at_input::<()>(stmt_val_repr, input_id, value_stands) {
                 ValControlFlow::Continue(_) => ValControlFlow::Continue(()),
