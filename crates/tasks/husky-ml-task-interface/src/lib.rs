@@ -3,7 +3,7 @@ pub mod pedestal;
 pub mod ugly;
 
 use self::pedestal::MlPedestal;
-use husky_linkage_impl::standard::ValControlFlow;
+use husky_linkage_impl::standard::StandardLinkageImplValControlFlow;
 use husky_standard_value::{ugly::__ValueStands, FromValue, Value};
 use husky_task_interface::{
     pedestal::IsPedestal,
@@ -67,19 +67,28 @@ pub fn with_dev_eval_context<R>(ctx: DevEvalContext, f: impl FnOnce() -> R) -> R
 pub fn eval_val_repr<T>(
     val_repr: ValReprInterface,
     value_stands: Option<&mut __ValueStands>,
-) -> ValControlFlow<T>
+) -> StandardLinkageImplValControlFlow<T>
 where
     T: FromValue + 'static,
 {
     let value = dev_eval_context().eval_val_repr(val_repr)?;
-    ValControlFlow::Continue(<T as FromValue>::from_value_aux(value, value_stands))
+    StandardLinkageImplValControlFlow::Continue(<T as FromValue>::from_value_aux(
+        value,
+        value_stands,
+    ))
+}
+
+pub fn eval_val_domain_repr(
+    val_domain_repr: ValDomainReprInterface,
+) -> StandardLinkageImplValControlFlow<(), Infallible> {
+    dev_eval_context().eval_val_domain_repr(val_domain_repr)
 }
 
 pub fn eval_val_repr_at_input<T>(
     val_repr: ValReprInterface,
     input_id: InputId,
     value_stands: Option<&mut __ValueStands>,
-) -> ValControlFlow<T>
+) -> StandardLinkageImplValControlFlow<T>
 where
     T: FromValue + 'static,
 {
@@ -91,47 +100,10 @@ where
 pub fn eval_val_domain_repr_at_input(
     val_domain_repr: ValDomainReprInterface,
     input_id: InputId,
-    value_stands: Option<&mut __ValueStands>,
-) -> ValControlFlow<(), Infallible> {
-    use husky_task_interface::value::IsValue;
-    match val_domain_repr {
-        ValDomainReprInterface::Omni => ValControlFlow::Continue(()),
-        ValDomainReprInterface::ConditionSatisfied(condition_val_repr) => {
-            match eval_val_repr_at_input::<Value>(condition_val_repr, input_id, value_stands) {
-                ValControlFlow::Continue(value) => match value.to_bool() {
-                    true => ValControlFlow::Continue(()),
-                    false => ValControlFlow::Undefined,
-                },
-                ValControlFlow::LoopContinue => todo!(),
-                ValControlFlow::LoopExit(_) => todo!(),
-                ValControlFlow::Return(_) => todo!(),
-                ValControlFlow::Undefined => ValControlFlow::Undefined,
-                ValControlFlow::Err(_) => todo!(),
-            }
-        }
-        ValDomainReprInterface::ConditionNotSatisfied(condition_val_repr) => {
-            match eval_val_repr_at_input::<Value>(condition_val_repr, input_id, value_stands) {
-                ValControlFlow::Continue(value) => match value.to_bool() {
-                    true => ValControlFlow::Undefined,
-                    false => ValControlFlow::Continue(()),
-                },
-                ValControlFlow::LoopContinue => todo!(),
-                ValControlFlow::LoopExit(_) => todo!(),
-                ValControlFlow::Return(_) => todo!(),
-                ValControlFlow::Undefined => ValControlFlow::Undefined,
-                ValControlFlow::Err(_) => todo!(),
-            }
-        }
-        ValDomainReprInterface::StmtNotReturned(stmt_val_repr) => {
-            match eval_val_repr_at_input::<()>(stmt_val_repr, input_id, value_stands) {
-                ValControlFlow::Continue(_) => ValControlFlow::Continue(()),
-                ValControlFlow::LoopContinue => todo!(),
-                ValControlFlow::LoopExit(_) => todo!(),
-                ValControlFlow::Return(_) | ValControlFlow::Undefined => ValControlFlow::Undefined,
-                ValControlFlow::Err(_) => todo!(),
-            }
-        }
-    }
+) -> StandardLinkageImplValControlFlow<(), Infallible> {
+    with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
+        eval_val_domain_repr(val_domain_repr)
+    })
 }
 
 pub fn eval_val_runtime_constant<T>(val_runtime_constant: ValRuntimeConstantInterface) -> T

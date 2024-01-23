@@ -93,7 +93,7 @@ macro_rules! impl_is_fn_linkage_impl_source {
                 fn_wrapper: fn(
                     DevEvalContext<LinkageImpl<Pedestal>>,
                     &[ValArgumentReprInterface],
-                ) -> ValControlFlow,
+                ) -> StandardLinkageImplValControlFlow,
                 fn_pointer: fn($($input,)*) -> $output
             ) -> LinkageImpl<Pedestal> {
                 LinkageImpl::RitchieFn {
@@ -108,7 +108,7 @@ macro_rules! impl_is_fn_linkage_impl_source {
                 self,
                 ctx: DevEvalContext<LinkageImpl<Pedestal>>,
                 arguments: &[ValArgumentReprInterface],
-            ) -> ValControlFlow<Self::FnOutput> {
+            ) -> StandardLinkageImplValControlFlow<Self::FnOutput> {
                 let mut arguments = arguments.iter();
                 let value_stands = &mut ValueStands::default();
                 ValControlFlow::Continue(self.1(
@@ -223,7 +223,7 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
                 fn_wrapper: fn(
                     DevEvalContext<LinkageImpl<Pedestal>>,
                     &[ValArgumentReprInterface],
-                ) -> ValControlFlow,
+                ) -> StandardLinkageImplValControlFlow,
                 fn_pointer: fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>,
             ) -> LinkageImpl<Pedestal> {
                 LinkageImpl::RitchieUnveilFn {
@@ -238,7 +238,7 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
                 self,
                 ctx: DevEvalContext<LinkageImpl<Pedestal>>,
                 arguments: &[ValArgumentReprInterface],
-            ) -> ValControlFlow<Self::FnOutput> {
+            ) -> StandardLinkageImplValControlFlow<Self::FnOutput> {
                 debug_assert_eq!(arguments.len(), 2);
                 let ValArgumentReprInterface::Ordinary(target) = arguments[0] else {
                     unreachable!("expect ordinary argument")

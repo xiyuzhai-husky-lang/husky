@@ -14,6 +14,7 @@ pub enum ValDomainReprInterface {
     ConditionNotSatisfied(ValReprInterface),
     /// those where the val repr of type ControlFlow<(), _> is defined and equals Continue(())
     StmtNotReturned(ValReprInterface),
+    ExprNotReturned(ValReprInterface),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

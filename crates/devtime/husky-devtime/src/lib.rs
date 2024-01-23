@@ -113,10 +113,14 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
         val_visual_cache: &mut ValVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         let db = self.runtime.db();
-        let followed_trace_id_val_repr_pair = match followed_trace {
-            Some(followed_trace) => followed_trace
-                .val_repr(db)
-                .map(|val_repr| (followed_trace.into(), val_repr.into())),
+        let followed = match followed_trace {
+            Some(followed_trace) => followed_trace.val_repr(db).map(|val_repr| {
+                (
+                    followed_trace.into(),
+                    val_repr.into(),
+                    val_repr.val_domain_repr(db).into(),
+                )
+            }),
             None => None,
         };
         let accompanying_trace_id_val_repr_pairs = accompanying_trace_ids_expect_followed
@@ -127,7 +131,7 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
             })
             .collect();
         <Task::DevAscension as IsDevAscension>::calc_figure(
-            followed_trace_id_val_repr_pair,
+            followed,
             accompanying_trace_id_val_repr_pairs,
             pedestal,
             &self.runtime,

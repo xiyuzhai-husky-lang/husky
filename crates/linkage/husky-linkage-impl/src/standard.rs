@@ -14,7 +14,8 @@ use husky_task_interface::{
 use husky_value_protocol::presentation::EnumU8ValuePresenter;
 use smallvec::SmallVec;
 
-pub type ValControlFlow<C = Value, B = Value> =
+#[deprecated(note = "E should be LinkageImpl::Error")]
+pub type StandardLinkageImplValControlFlow<C = Value, B = Value> =
     husky_task_interface::val_control_flow::ValControlFlow<C, B, ()>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -27,7 +28,7 @@ where
         fn_wrapper: fn(
             DevEvalContext<LinkageImpl<Pedestal>>,
             &[ValArgumentReprInterface],
-        ) -> ValControlFlow,
+        ) -> StandardLinkageImplValControlFlow,
         fn_pointer: fn(),
     },
     StructField {
@@ -38,7 +39,7 @@ where
         fn_wrapper: fn(
             DevEvalContext<LinkageImpl<Pedestal>>,
             &[ValArgumentReprInterface],
-        ) -> ValControlFlow,
+        ) -> StandardLinkageImplValControlFlow,
         fn_pointer: fn(),
     },
     RitchieGn {
@@ -48,9 +49,10 @@ where
             DevEvalContext<LinkageImpl<Pedestal>>,
             ValDomainReprInterface,
             &[ValArgumentReprInterface],
-        ) -> ValControlFlow,
+        ) -> StandardLinkageImplValControlFlow,
         /// no need to set ctx
-        gn_specific_wrapper: fn(&[ValArgumentReprInterface], Value) -> ValControlFlow,
+        gn_specific_wrapper:
+            fn(&[ValArgumentReprInterface], Value) -> StandardLinkageImplValControlFlow,
     },
     /// used to get the json value of an enum u8-represented given only the index
     EnumU8ValuePresenter { presenter: EnumU8ValuePresenter },
@@ -69,7 +71,7 @@ where
         val_repr: ValReprInterface,
         ctx: DevEvalContext<Self>,
         val_argument_reprs: &[ValArgumentReprInterface],
-    ) -> ValControlFlow {
+    ) -> StandardLinkageImplValControlFlow {
         match self {
             LinkageImpl::RitchieFn { fn_wrapper, .. } => fn_wrapper(ctx, val_argument_reprs),
             LinkageImpl::RitchieUnveilFn { fn_wrapper, .. } => fn_wrapper(ctx, val_argument_reprs),
@@ -94,7 +96,7 @@ where
                     unreachable!()
                 };
                 let owner = ctx.eval_val_repr(owner)?;
-                ValControlFlow::Continue(struct_field_wrapper(owner))
+                StandardLinkageImplValControlFlow::Continue(struct_field_wrapper(owner))
             }
             LinkageImpl::EnumU8ValuePresenter { .. } => {
                 unreachable!("this linkage is not meant to be evaluated like this")

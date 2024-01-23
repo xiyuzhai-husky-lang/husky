@@ -8,7 +8,11 @@ use husky_task::{
     dev_ascension::{DevEvalContextLocalKey, IsDevAscension},
     IsTask,
 };
-use husky_task_interface::{val_repr::ValReprInterface, IsDevRuntime};
+use husky_task_interface::{
+    val_control_flow::ValControlFlow,
+    val_repr::{ValDomainReprInterface, ValReprInterface},
+    IsDevRuntime,
+};
 use husky_trace_protocol::{
     figure::IsFigure, id::TraceId, protocol::IsTraceProtocol, server::ValVisualCache,
 };
@@ -68,8 +72,8 @@ where
     }
 
     fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
-        followed_trace_id_val_repr_pair: Option<(TraceId, ValReprInterface)>,
-        accompanying_trace_id_val_repr_pairs: Vec<(TraceId, ValReprInterface)>,
+        followed: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        accompanyings: Vec<(TraceId, ValReprInterface)>,
         pedestal: Self::Pedestal,
         runtime: &DevRuntime,
         visual_synchrotron: &mut VisualSynchrotron,
@@ -77,20 +81,19 @@ where
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         match pedestal {
             MlPedestal::Specific(_) => {
-                let followed_visual =
-                    followed_trace_id_val_repr_pair.map(|(trace_id, val_repr)| {
-                        (
-                            trace_id,
-                            Self::get_val_visual(
-                                val_repr,
-                                pedestal,
-                                runtime,
-                                visual_synchrotron,
-                                val_visual_cache,
-                            ),
-                        )
-                    });
-                let accompanying_visuals = accompanying_trace_id_val_repr_pairs
+                let followed_visual = followed.map(|(trace_id, val_repr, val_domain_repr)| {
+                    (
+                        trace_id,
+                        Self::get_val_visual(
+                            val_repr,
+                            pedestal,
+                            runtime,
+                            visual_synchrotron,
+                            val_visual_cache,
+                        ),
+                    )
+                });
+                let accompanying_visuals = accompanyings
                     .into_iter()
                     .map(|(trace_id, val_repr)| {
                         (

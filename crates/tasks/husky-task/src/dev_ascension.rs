@@ -1,6 +1,8 @@
 use crate::*;
 use husky_task_interface::{
-    pedestal::IsPedestal, val_control_flow::ValControlFlow, val_repr::ValReprInterface,
+    pedestal::IsPedestal,
+    val_control_flow::ValControlFlow,
+    val_repr::{ValDomainReprInterface, ValReprInterface},
     DevEvalContext, IsDevRuntime,
 };
 use husky_task_interface::{
@@ -24,8 +26,8 @@ pub trait IsDevAscension {
     type RuntimeSpecificConfig: Default + Send;
     type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
     fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
-        followed_trace_id_val_repr_pair: Option<(TraceId, ValReprInterface)>,
-        accompanying_trace_id_val_repr_pairs: Vec<(TraceId, ValReprInterface)>,
+        followed: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        accompanyings: Vec<(TraceId, ValReprInterface)>,
         pedestal: Self::Pedestal,
         runtime: &DevRuntime,
         visual_synchrotron: &mut VisualSynchrotron,
@@ -49,7 +51,7 @@ pub trait IsDevAscension {
     ) -> Visual {
         val_visual_cache.get_visual(val_repr, pedestal, || {
             use husky_task_interface::value::IsValue;
-            match runtime.eval_val_repr_at_pedestal(val_repr, pedestal) {
+            match runtime.eval_val_repr_interface_at_pedestal(val_repr, pedestal) {
                 ValControlFlow::Continue(value) => value.visualize(visual_synchrotron),
                 ValControlFlow::LoopContinue => todo!(),
                 ValControlFlow::LoopExit(_) => todo!(),

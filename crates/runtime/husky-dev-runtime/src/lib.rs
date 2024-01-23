@@ -24,7 +24,7 @@ use husky_val::{ValRuntimeConstant, ValRuntimeConstantData};
 use husky_val_repr::repr::ValRepr;
 use husky_vfs::{error::VfsResult, linktime_target_path::LinktimeTargetPath};
 
-use std::path::Path;
+use std::{convert::Infallible, path::Path};
 
 /// Dropping libraries or linkage_impls before runtime storage will lead to segmentation fault
 ///
@@ -113,12 +113,24 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         )
     }
 
-    fn eval_val_repr_at_pedestal(
+    fn eval_val_repr_interface_at_pedestal(
         &self,
         val_repr_interface: ValReprInterface,
         pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
     ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
-        self.eval_val_repr_at_pedestal(unsafe { std::mem::transmute(val_repr_interface) }, pedestal)
+        self.eval_val_repr_at_pedestal(val_repr_interface.into(), pedestal)
+    }
+
+    fn eval_val_domain_repr_interface_at_pedestal(
+        &self,
+        val_domain_repr: ValDomainReprInterface,
+        pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
+    ) -> husky_task_interface::val_control_flow::ValControlFlow<
+        (),
+        Infallible,
+        <TaskLinkageImpl<Task> as IsLinkageImpl>::Error,
+    > {
+        self.eval_val_domain_repr_at_pedestal(val_domain_repr.into(), pedestal)
     }
 
     fn eval_val_repr_with(
