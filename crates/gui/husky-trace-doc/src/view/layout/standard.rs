@@ -1,14 +1,19 @@
+use husky_trace_protocol::pedestal::PedestalUi;
+
 use super::*;
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
 
-    TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
+    TraceProtocol::Figure: FigureUi<egui::Ui>,
+    TraceProtocol::Pedestal: PedestalUi<Ui>,
     Settings: HasTraceDocSettings,
 {
     pub(crate) fn render_standard_layout(mut self, ui: &mut egui::Ui) {
-        TopBottomPanel::bottom(ui.next_auto_id()).show_inside(ui, |ui| self.render_pedestal(ui));
+        TopBottomPanel::bottom(ui.next_auto_id())
+            .frame(Frame::none().inner_margin(5.0))
+            .show_inside(ui, |ui| self.render_pedestal(ui));
         self.render_central_region(ui);
     }
 

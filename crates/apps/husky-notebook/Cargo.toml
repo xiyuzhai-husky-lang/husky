@@ -27,6 +27,7 @@ husky-trace-protocol.workspace = true
 husky-graphics2d-visual-protocol.workspace = true
 # tasks
 husky-ml-task.workspace = true
+husky-ml-task-interface = { workspace = true, features = ["egui"] }
 # utils
 husky-unicode-symbols.workspace = true
 husky-print-utils.workspace = true

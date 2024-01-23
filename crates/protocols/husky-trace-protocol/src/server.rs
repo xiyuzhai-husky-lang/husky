@@ -200,6 +200,9 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             TraceViewAction::ToggleAccompany { trace_id } => self
                 .trace_synchrotron_mut()
                 .take_action(TraceSynchrotronAction::ToggleAccompany { trace_id }),
+            TraceViewAction::SetPedestal { pedestal } => self
+                .trace_synchrotron_mut()
+                .take_action(TraceSynchrotronAction::SetPedestal { pedestal }),
         }
         self.cache_periphery()
     }

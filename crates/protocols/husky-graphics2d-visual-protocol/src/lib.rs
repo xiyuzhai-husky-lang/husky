@@ -1,8 +1,11 @@
 pub mod action;
 mod specific;
 
-use egui::{pos2, vec2, Color32, Rect, Vec2};
-use husky_trace_protocol::{figure::IsFigure, id::TraceId};
+use egui::{pos2, vec2, Color32, Rect, Ui, Vec2};
+use husky_trace_protocol::{
+    figure::{FigureUi, FigureUiCache, IsFigure},
+    id::TraceId,
+};
 use husky_visual_protocol::visual::shape::{Point, VisualRect};
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
@@ -13,7 +16,6 @@ use husky_visual_protocol::{
     },
 };
 use serde::{Deserialize, Serialize};
-use ui::ui::egui::UiCache;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct Graphics2dFigure {
@@ -35,8 +37,13 @@ impl IsFigure for Graphics2dFigure {
     }
 }
 
-impl ui::visual_widget::VisualWidget<egui::Ui> for Graphics2dFigure {
-    fn ui(&self, visual_synchrotron: &VisualSynchrotron, cache: &mut UiCache, ui: &mut egui::Ui) {
+impl FigureUi<Ui> for Graphics2dFigure {
+    fn figure_ui(
+        &self,
+        visual_synchrotron: &VisualSynchrotron,
+        cache: &mut FigureUiCache<Ui>,
+        ui: &mut Ui,
+    ) {
         let x = ui.available_width() * 0.8;
         let y = ui.available_height() / 2.;
         let d = x.min(y);
