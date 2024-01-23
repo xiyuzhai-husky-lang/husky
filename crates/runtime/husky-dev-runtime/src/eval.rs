@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_kind::{EntityKind, FugitiveKind, MajorItemKind};
 use husky_entity_path::TypeVariantIndex;
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
@@ -292,6 +293,9 @@ fn val_repr_eval_works() {
         let ItemPath::MajorItem(MajorItemPath::Fugitive(fugitive_path)) = item_path else {
             continue;
         };
+        if fugitive_path.fugitive_kind(db) != FugitiveKind::Val {
+            continue;
+        }
         let val_repr = ValRepr::new_val_item(fugitive_path, db);
         runtime.eval_val_repr_at_pedestal(val_repr, InputId::from_index(0).into());
     }
