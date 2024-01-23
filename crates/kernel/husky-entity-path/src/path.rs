@@ -7,7 +7,6 @@ pub mod ty_variant;
 
 use enum_class::Room32;
 
-
 pub use self::associated_item::*;
 pub use self::attr::*;
 pub use self::impl_block::*;

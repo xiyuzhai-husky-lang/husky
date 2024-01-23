@@ -1,6 +1,5 @@
 use super::*;
 
-
 #[salsa::interned(jar = HirTypeJar)]
 pub struct HirTypePathLeading {
     pub ty_path: TypePath,

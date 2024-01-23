@@ -3,7 +3,6 @@ use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 use husky_hir_eager_expr::HirEagerExprIdx;
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
 
-
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EagerCallInputTracePathData {
     biological_parent_path: TracePath,

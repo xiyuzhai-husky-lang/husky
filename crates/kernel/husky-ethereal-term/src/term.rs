@@ -8,7 +8,7 @@ mod ritchie;
 mod rune;
 mod symbol;
 
-use std::fmt::{Debug};
+use std::fmt::Debug;
 
 pub use self::abstraction::*;
 pub use self::application::*;

@@ -1,6 +1,3 @@
-
-
-
 use super::*;
 
 #[deprecated(note = "use template instead")]

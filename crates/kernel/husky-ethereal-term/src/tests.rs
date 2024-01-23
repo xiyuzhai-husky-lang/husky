@@ -6,8 +6,8 @@ use husky_coword::CowordJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 
-use husky_entity_path::{EntityPathJar};
-use husky_entity_syn_tree::{EntitySynTreeJar};
+use husky_entity_path::EntityPathJar;
+use husky_entity_syn_tree::EntitySynTreeJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_syn_decl::SynDeclJar;

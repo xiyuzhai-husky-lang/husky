@@ -25,10 +25,15 @@ where
                     principal_entity_path: principal_item_path,
                 });
         if let Some(major_path) = principal_item_path.major()
-           && let Some(colon_colon_token)= self.try_parse_err_as_none::<ColonColonRegionalToken>() {
-            self.parse_subitem_identifiable_path_expr(parent_expr_idx, major_path, colon_colon_token)
-        } else{
-            IdentifiableEntityPathExpr::Principal  {
+            && let Some(colon_colon_token) = self.try_parse_err_as_none::<ColonColonRegionalToken>()
+        {
+            self.parse_subitem_identifiable_path_expr(
+                parent_expr_idx,
+                major_path,
+                colon_colon_token,
+            )
+        } else {
+            IdentifiableEntityPathExpr::Principal {
                 path_expr_idx: parent_expr_idx,
                 opt_path: Some(principal_item_path),
             }
@@ -78,11 +83,13 @@ where
             path,
         };
         let path_expr_idx = self.context_mut().alloc_item_path_expr(expr);
-        if let Some(path) = opt_path && let Some(major_path) = path.major()
-            && let Some(colon_colon_token) = self.try_parse_err_as_none::<ColonColonRegionalToken>() {
+        if let Some(path) = opt_path
+            && let Some(major_path) = path.major()
+            && let Some(colon_colon_token) = self.try_parse_err_as_none::<ColonColonRegionalToken>()
+        {
             self.parse_subitem_identifiable_path_expr(path_expr_idx, major_path, colon_colon_token)
         } else {
-            IdentifiableEntityPathExpr::Principal  {
+            IdentifiableEntityPathExpr::Principal {
                 path_expr_idx,
                 opt_path,
             }

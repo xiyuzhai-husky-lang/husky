@@ -1,5 +1,3 @@
-
-
 #[salsa::db(
     husky_coword::CowordJar,
     husky_vfs::VfsJar,

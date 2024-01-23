@@ -15,5 +15,7 @@ husky-task.workspace = true
 # protocols
 husky-visual-protocol = { workspace = true, features = ["egui"] }
 husky-trace-protocol.workspace = true
+# tasks
+husky-task-interface.workspace = true
 # utils
 husky-print-utils.workspace = true

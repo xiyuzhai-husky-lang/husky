@@ -1,11 +1,11 @@
 use crate::*;
-use husky_task_interface::pedestal::IsPedestal;
+use husky_task_interface::pedestal::{IsPedestal, IsPedestalFull};
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use ui::ui::IsUi;
 
 use self::view::action::TraceViewActionBuffer;
 
-pub trait PedestalUi<Ui: IsUi>: IsPedestal {
+pub trait PedestalUi<Ui: IsUi>: IsPedestalFull {
     fn pedestal_ui<TraceProtocol>(
         self,
         ui: &mut Ui,

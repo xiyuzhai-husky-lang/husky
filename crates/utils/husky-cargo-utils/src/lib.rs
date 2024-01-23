@@ -3,7 +3,6 @@ use cargo::{
     util::command_prelude::CompileMode,
 };
 
-
 pub fn compile_workspace<R>(
     manifest_path: &std::path::Path,
     f: impl FnOnce(Compilation) -> R,

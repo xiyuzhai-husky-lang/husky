@@ -1,8 +1,6 @@
 pub use husky_vfs::{VfsTestConfig, VfsTestDomainsConfig, VfsTestUnit, VfsTestUtils};
 use salsa::Db;
 
-
-
 /// will have more robustness tests based on token level information than `VfsTestUtils`
 pub trait TokenTestUtils: VfsTestUtils {
     /// only run to see whether the program will panic

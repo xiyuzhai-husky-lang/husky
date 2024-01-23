@@ -6,7 +6,7 @@ use self::pedestal::MlPedestal;
 use husky_linkage_impl::standard::StandardLinkageImplValControlFlow;
 use husky_standard_value::{ugly::__ValueStands, FromValue, Value};
 use husky_task_interface::{
-    pedestal::IsPedestal,
+    pedestal::IsPedestalFull,
     val_repr::{ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface},
 };
 use serde::{Deserialize, Serialize};

@@ -1,18 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 pub trait IsPedestal:
-    std::fmt::Debug
-    + Default
-    + PartialEq
-    + Eq
-    + Clone
-    + Copy
-    + Send
-    + Sync
-    + Serialize
-    + std::hash::Hash
-    + for<'a> Deserialize<'a>
-    + 'static
+    std::fmt::Debug + Default + PartialEq + Eq + Clone + Copy + Send + Sync + std::hash::Hash + 'static
 {
     type UiBuffer: IsPedestalUiBuffer<Pedestal = Self>;
 
@@ -21,6 +10,10 @@ pub trait IsPedestal:
     /// a closed point in algebraic geometry is a minimal prime point locally
     fn is_closed(self) -> bool;
 }
+
+pub trait IsPedestalFull: IsPedestal + Serialize + for<'a> Deserialize<'a> {}
+
+impl<T> IsPedestalFull for T where T: IsPedestal + Serialize + for<'a> Deserialize<'a> {}
 
 pub trait IsPedestalUiBuffer {
     type Pedestal;

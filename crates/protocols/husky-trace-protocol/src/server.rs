@@ -8,7 +8,10 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
-use husky_task_interface::{pedestal::IsPedestal, val_repr::ValReprInterface};
+use husky_task_interface::{
+    pedestal::{IsPedestal, IsPedestalFull},
+    val_repr::ValReprInterface,
+};
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
@@ -30,11 +33,11 @@ pub struct TraceServer<Tracetime: IsTracetime> {
 /// useful for calculating figure,
 ///
 /// but the client doesn't need to know about this
-pub struct ValVisualCache<Pedestal: IsPedestal> {
+pub struct ValVisualCache<Pedestal: IsPedestalFull> {
     visuals: FxHashMap<(ValReprInterface, Pedestal), Visual>,
 }
 
-impl<Pedestal: IsPedestal> ValVisualCache<Pedestal> {
+impl<Pedestal: IsPedestalFull> ValVisualCache<Pedestal> {
     pub fn get_visual(
         &mut self,
         val_repr: ValReprInterface,
@@ -45,7 +48,7 @@ impl<Pedestal: IsPedestal> ValVisualCache<Pedestal> {
     }
 }
 
-impl<Pedestal: IsPedestal> Default for ValVisualCache<Pedestal> {
+impl<Pedestal: IsPedestalFull> Default for ValVisualCache<Pedestal> {
     fn default() -> Self {
         Self {
             visuals: Default::default(),

@@ -2,8 +2,6 @@ use crate::SynKeyedCallListItem;
 
 use super::*;
 
-
-
 /// stack based expression parsing.
 ///
 /// finished expression if exists, sits on top of unfinished ones.
@@ -89,12 +87,7 @@ impl SynExprData {
             // but unit doesn't contains any subitem, so effectively none
             // ad hoc
             SynExprData::Unit { .. } => BaseEntityPath::None,
-            SynExprData::NewTuple {
-                
-                
-                
-                ..
-            } => todo!(),
+            SynExprData::NewTuple { .. } => todo!(),
             SynExprData::List { .. } => BaseEntityPath::None,
             SynExprData::Bracketed { item, .. } => arena[item].base_item_path(db, arena),
             SynExprData::Err(e) => BaseEntityPath::Uncertain {
@@ -117,11 +110,7 @@ impl SynExprData {
                 target: _,
             } => todo!(),
             SynExprData::BoxColonList { .. } => todo!(),
-            SynExprData::FrameVarDecl {
-                
-                
-                ..
-            } => todo!(),
+            SynExprData::FrameVarDecl { .. } => todo!(),
             SynExprData::IndexOrCompositionWithList {
                 owner,
                 lbox_regional_token_idx: _,
@@ -131,9 +120,15 @@ impl SynExprData {
             SynExprData::EmptyHtmlTag { .. } => BaseEntityPath::Err,
             SynExprData::FunctionCall { .. } => todo!(),
             SynExprData::Ritchie { .. } => todo!(),
-            SynExprData::Sorry { regional_token_idx: _ } => todo!(),
-            SynExprData::Todo { regional_token_idx: _ } => todo!(),
-            SynExprData::Unreachable { regional_token_idx: _ } => todo!(),
+            SynExprData::Sorry {
+                regional_token_idx: _,
+            } => todo!(),
+            SynExprData::Todo {
+                regional_token_idx: _,
+            } => todo!(),
+            SynExprData::Unreachable {
+                regional_token_idx: _,
+            } => todo!(),
         }
     }
 }

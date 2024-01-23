@@ -12,7 +12,6 @@ use husky_syn_expr::{
 #[cfg(feature = "protocol_support")]
 use husky_token_protocol::*;
 
-
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenInfoDb, jar = TokenInfoJar)]
 pub struct TokenInfo {

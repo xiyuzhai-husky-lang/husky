@@ -1,5 +1,3 @@
-
-
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

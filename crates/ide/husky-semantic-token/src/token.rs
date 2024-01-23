@@ -1,8 +1,7 @@
 use crate::*;
 
-
 use husky_text_protocol::range::TextRange;
-use husky_token_protocol::{TokenClass};
+use husky_token_protocol::TokenClass;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SemanticToken {

@@ -1,5 +1,3 @@
-
-
 pub trait HasVersionStamp: Copy {
     type VersionStamp;
 

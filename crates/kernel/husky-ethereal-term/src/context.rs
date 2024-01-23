@@ -3,7 +3,7 @@ mod entry;
 use crate::*;
 use entry::*;
 
-use vec_like::{VecMap};
+use vec_like::VecMap;
 
 #[derive(Default)]
 pub(crate) struct TermShowContext {

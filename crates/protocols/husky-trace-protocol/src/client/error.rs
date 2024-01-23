@@ -1,5 +1,3 @@
-
-
 #[derive(Debug, thiserror::Error)]
 pub enum TraceClientError {
     #[error("Tungstenite {0}")]

@@ -1,6 +1,5 @@
 // base 1
 
-
 use husky_regional_token::RegionalTokenGroupIdx;
 
 use idx_arena::*;

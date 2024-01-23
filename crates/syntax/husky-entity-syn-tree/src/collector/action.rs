@@ -40,4 +40,3 @@ macro_rules! context {
         )
     }};
 }
-

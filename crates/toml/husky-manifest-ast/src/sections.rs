@@ -8,6 +8,4 @@ pub(crate) use self::package::*;
 
 use husky_coword::Coword;
 
-
-
 use crate::*;

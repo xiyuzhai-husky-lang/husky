@@ -1,6 +1,5 @@
 use super::*;
 
-
 pub struct TermSubstitution {
     src: EtherealTermSymbol,
     dst: EtherealTerm,

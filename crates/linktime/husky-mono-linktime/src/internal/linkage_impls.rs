@@ -3,7 +3,6 @@ use std::iter::zip;
 use super::*;
 use husky_linkage::linkage::package_linkages;
 
-
 pub(crate) type LinkageImplMap<LinkageImpl> =
     fxhash::FxHashMap<Linkage, (LinkageVersionStamp, LinkageImpl)>;
 

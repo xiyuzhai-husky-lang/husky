@@ -1,5 +1,3 @@
-
-
 #[salsa::jar(db = JavelinDb)]
 pub struct JavelinJar(
     crate::javelin::Javelin,

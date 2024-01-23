@@ -117,7 +117,9 @@ impl HirEagerComptimeSymbolRegionData {
                                 CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
                                     HirEagerComptimeSymbolName::Label(label_token.label())
                                 }
-                                CurrentTemplateParameterSynSymbolVariant::Type { ident_token: _ } => {
+                                CurrentTemplateParameterSynSymbolVariant::Type {
+                                    ident_token: _,
+                                } => {
                                     todo!()
                                 }
                                 CurrentTemplateParameterSynSymbolVariant::Constant {
@@ -153,7 +155,10 @@ impl HirEagerComptimeSymbolRegionData {
                             CurrentSynSymbolData::FieldVariable { ident_token: _ } => {
                                 todo!()
                             }
-                            CurrentSynSymbolData::LoopVariable { ident: _, expr_idx: _ } => todo!(),
+                            CurrentSynSymbolData::LoopVariable {
+                                ident: _,
+                                expr_idx: _,
+                            } => todo!(),
                         },
                     };
                     arena.alloc_one(HirEagerComptimeSymbolEntry {

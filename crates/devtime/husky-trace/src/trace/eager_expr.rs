@@ -12,7 +12,6 @@ use husky_sema_expr::{
 };
 use husky_syn_decl::HasSynDecl;
 
-
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[cfg_attr(debug_assertions, salsa::debug_with_db(db = TraceDb))]
 pub struct EagerExprTracePathData {
@@ -122,11 +121,7 @@ impl EagerExprTraceData {
         let caller_sema_expr_region_data = caller_sema_expr_region.data(db);
         let hir_eager_expr_source_map_data = self.hir_eager_expr_source_map.data(db);
         match self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data {
-            HirEagerExprData::FunctionFnCall {
-                path,
-                
-                ..
-            } => {
+            HirEagerExprData::FunctionFnCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
@@ -155,11 +150,7 @@ impl EagerExprTraceData {
                 );
                 subtraces
             }
-            HirEagerExprData::AssociatedFunctionFnCall {
-                path,
-                
-                ..
-            } => {
+            HirEagerExprData::AssociatedFunctionFnCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
@@ -188,11 +179,7 @@ impl EagerExprTraceData {
                 );
                 subtraces
             }
-            HirEagerExprData::MethodFnCall {
-                path,
-                
-                ..
-            } => {
+            HirEagerExprData::MethodFnCall { path, .. } => {
                 let SemaExprData::MethodFnCall {
                     ref ritchie_parameter_argument_matches,
                     ..

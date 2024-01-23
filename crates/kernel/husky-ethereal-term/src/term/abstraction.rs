@@ -1,5 +1,3 @@
-
-
 use super::*;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar)]

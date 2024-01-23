@@ -1,6 +1,5 @@
 use crate::*;
 
-
 pub trait EtherealTermDb {
     fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EtherealTermMenu;
 }
