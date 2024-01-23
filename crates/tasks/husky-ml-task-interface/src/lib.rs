@@ -1,8 +1,9 @@
 pub mod label;
+pub mod pedestal;
 pub mod ugly;
 
+use self::pedestal::MlPedestal;
 use husky_linkage_impl::standard::ValControlFlow;
-
 use husky_standard_value::{ugly::__ValueStands, FromValue};
 use husky_task_interface::{
     pedestal::IsPedestal,
@@ -43,30 +44,6 @@ fn sample_id_size_works() {
         std::mem::size_of::<Option<InputId>>(),
         std::mem::size_of::<u32>()
     )
-}
-
-#[enum_class::from_variants]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-pub enum MlPedestal {
-    Specific(InputId),
-    Generic,
-}
-
-impl Default for MlPedestal {
-    fn default() -> Self {
-        MlPedestal::Specific(InputId::from_index(0))
-    }
-}
-
-impl IsPedestal for MlPedestal {}
-
-impl MlPedestal {
-    pub fn input_id(self) -> Option<InputId> {
-        match self {
-            MlPedestal::Specific(input_id) => Some(input_id),
-            MlPedestal::Generic => None,
-        }
-    }
 }
 
 pub type DevEvalContext =

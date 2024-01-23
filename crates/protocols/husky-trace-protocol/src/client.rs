@@ -6,13 +6,14 @@ use crate::{
     message::*, synchrotron::action::TraceSynchrotronToggleExpansion,
     view::action::TraceViewAction, *,
 };
+use husky_task_interface::pedestal::IsPedestal;
 use husky_websocket_utils::imgui_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
 };
 use notify_change::NotifyChange;
 use std::sync::Arc;
 
-use self::accompany::AccompanyingTraceIdsExceptFollowed;
+use self::{accompany::AccompanyingTraceIdsExceptFollowed, pedestal::TracePedestalUiBuffer};
 
 pub struct TraceClient<TraceProtocol: IsTraceProtocol, Notifier>
 where
@@ -46,20 +47,26 @@ where
         }
     }
 
-    pub fn update(&mut self) {
+    pub fn update(
+        &mut self,
+        pedestal_ui_buffer: &mut Option<TracePedestalUiBuffer<TraceProtocol>>,
+    ) {
         let Some(response) = self.connection.try_recv() else {
             return;
         };
-        self.process_response(response);
+        self.process_response(response, pedestal_ui_buffer);
     }
 
-    fn process_response(&mut self, response: TraceResponse<TraceProtocol>) {
+    fn process_response(
+        &mut self,
+        response: TraceResponse<TraceProtocol>,
+        pedestal_ui_buffer: &mut Option<TracePedestalUiBuffer<TraceProtocol>>,
+    ) {
         match response {
-            TraceResponse::Init {
-                trace_synchrotron: cache,
-            } => {
+            TraceResponse::Init { trace_synchrotron } => {
                 debug_assert!(self.trace_synchrotron.is_none());
-                self.trace_synchrotron = Some(cache)
+                *pedestal_ui_buffer = Some(trace_synchrotron.pedestal().init_ui_buffer());
+                self.trace_synchrotron = Some(trace_synchrotron)
             }
             TraceResponse::TakeTraceSynchrotronActionsDiff {
                 trace_synchrotron_actions_diff,
@@ -67,7 +74,12 @@ where
                 let Some(ref mut trace_synchrotron) = self.trace_synchrotron else {
                     unreachable!()
                 };
-                trace_synchrotron.take_actions_diff(trace_synchrotron_actions_diff)
+                trace_synchrotron.take_actions_diff(trace_synchrotron_actions_diff);
+                use husky_task_interface::pedestal::IsPedestalUiBuffer;
+                pedestal_ui_buffer
+                    .as_mut()
+                    .unwrap()
+                    .update(trace_synchrotron.pedestal());
             }
             TraceResponse::Err(e) => panic!("{e}"),
         }
@@ -84,7 +96,7 @@ where
         self.connection.error()
     }
 
-    pub fn opt_cache(&self) -> Option<&TraceSynchrotron<TraceProtocol>> {
+    pub fn opt_trace_synchrotron(&self) -> Option<&TraceSynchrotron<TraceProtocol>> {
         self.trace_synchrotron.as_ref()
     }
 
@@ -177,30 +189,54 @@ where
             }
             TraceViewAction::FollowTrace { trace_id } => todo!(),
             &TraceViewAction::ToggleAccompany { trace_id } => {
-                // toggling accompany will only affect figure
-                let trace_synchrotron = self.trace_synchrotron();
-                let pedestal = trace_synchrotron.pedestal();
-                let mut accompanying_trace_ids = trace_synchrotron.accompanying_trace_ids().clone();
-                accompanying_trace_ids.toggle(trace_id);
-                let (has_figure, _) = trace_synchrotron.has_figure(
-                    trace_synchrotron.followed_trace_id(),
-                    pedestal,
-                    AccompanyingTraceIdsExceptFollowed::new(
-                        trace_synchrotron.followed_trace_id(),
-                        accompanying_trace_ids,
-                    ),
-                );
-                if !has_figure {
-                    return None;
-                }
-                #[cfg(test)]
                 {
-                    let mut trace_synchrotron = self.trace_synchrotron().clone();
-                    trace_synchrotron
-                        .take_action(TraceSynchrotronAction::ToggleAccompany { trace_id });
-                    trace_synchrotron.figure();
+                    // see if toggling accompany will affect figure
+                    let trace_synchrotron = self.trace_synchrotron();
+                    let pedestal = trace_synchrotron.pedestal();
+                    let mut accompanying_trace_ids =
+                        trace_synchrotron.accompanying_trace_ids().clone();
+                    accompanying_trace_ids.toggle(trace_id);
+                    let (has_figure, _) = trace_synchrotron.has_figure(
+                        trace_synchrotron.followed_trace_id(),
+                        pedestal,
+                        AccompanyingTraceIdsExceptFollowed::new(
+                            trace_synchrotron.followed_trace_id(),
+                            accompanying_trace_ids,
+                        ),
+                    );
+                    if !has_figure {
+                        return None;
+                    }
                 }
                 Some(TraceSynchrotronAction::ToggleAccompany { trace_id })
+            }
+            TraceViewAction::ToggleAccompany { trace_id } => todo!(),
+            &TraceViewAction::SetPedestal { pedestal } => {
+                let trace_synchrotron = self.trace_synchrotron();
+                {
+                    // see if setting pedestal will affect stalk
+                    for trace_id in trace_synchrotron.trace_listing() {
+                        let entry = &trace_synchrotron[trace_id];
+                        if !entry.has_stalk(pedestal) {
+                            return None;
+                        }
+                    }
+                }
+                {
+                    // see if setting pedestal will affect figure
+                    let trace_synchrotron = self.trace_synchrotron();
+                    let accompanying_trace_ids_expect_followed =
+                        trace_synchrotron.accompanying_trace_ids_except_followed();
+                    let (has_figure, _) = trace_synchrotron.has_figure(
+                        trace_synchrotron.followed_trace_id(),
+                        pedestal,
+                        accompanying_trace_ids_expect_followed,
+                    );
+                    if !has_figure {
+                        return None;
+                    }
+                }
+                Some(TraceSynchrotronAction::SetPedestal { pedestal })
             }
         }
     }

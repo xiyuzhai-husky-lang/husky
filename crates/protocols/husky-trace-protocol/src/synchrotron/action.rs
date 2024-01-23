@@ -31,6 +31,9 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
     ToggleAccompany {
         trace_id: TraceId,
     },
+    SetPedestal {
+        pedestal: <TraceProtocol as IsTraceProtocol>::Pedestal,
+    },
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -127,6 +130,7 @@ where
             &TraceSynchrotronAction::ToggleAccompany { trace_id } => {
                 synchrotron.accompanying_trace_ids.toggle(trace_id)
             }
+            &TraceSynchrotronAction::SetPedestal { pedestal } => synchrotron.pedestal = pedestal,
         }
     }
 }

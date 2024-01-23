@@ -5,12 +5,14 @@ pub(crate) mod settings;
 use crate::*;
 use egui::{
     vec2, Align, Button, CentralPanel, Color32, FontFamily, Frame, InnerResponse, Label, LayerId,
-    Layout, Margin, RichText, Sense, SidePanel, TextStyle, TextureId, TopBottomPanel, Vec2, Widget,
+    Layout, Margin, RichText, Sense, SidePanel, TextStyle, TextureId, TopBottomPanel, Ui, Vec2,
+    Widget,
 };
-use husky_task_interface::val_control_flow::ValControlFlow;
+use husky_task_interface::{pedestal::IsPedestal, val_control_flow::ValControlFlow};
 use husky_trace_protocol::{
-    figure::IsFigure,
+    figure::{FigureUi, FigureUiCache, IsFigure},
     id::{TraceId, TraceKind},
+    pedestal::PedestalUi,
     protocol::IsTraceProtocol,
     stalk::{JsonValue, TraceStalk},
     synchrotron::{TraceSynchrotron, TraceSynchrotronEntry},
@@ -18,13 +20,10 @@ use husky_trace_protocol::{
 };
 use husky_value_protocol::presentation::ValuePresentation;
 use std::path::Path;
-use ui::ui::egui::UiCache;
 
 pub(crate) struct TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
-
-    TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
     Settings: HasTraceDocSettings,
 {
     current_dir: &'a Path,
@@ -32,15 +31,14 @@ where
     figure: &'a TraceProtocol::Figure,
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
-    ui_cache: &'a mut UiCache,
+    figure_ui_cache: &'a mut FigureUiCache<Ui>,
+    pedestal_ui_buffer: &'a mut <TraceProtocol::Pedestal as IsPedestal>::UiBuffer,
     glyph_width: f32,
 }
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,
-
-    TraceProtocol::Figure: ui::visual_widget::VisualWidget<egui::Ui>,
     Settings: HasTraceDocSettings,
 {
     pub(crate) fn new(
@@ -48,7 +46,8 @@ where
         trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
         action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
         settings: &'a mut Settings,
-        ui_cache: &'a mut UiCache,
+        figure_ui_cache: &'a mut FigureUiCache<Ui>,
+        pedestal_ui_buffer: &'a mut <TraceProtocol::Pedestal as IsPedestal>::UiBuffer,
         ui: &mut egui::Ui,
     ) -> Self {
         let glyph_width =
@@ -60,7 +59,8 @@ where
             action_buffer,
             settings,
             glyph_width,
-            ui_cache,
+            pedestal_ui_buffer,
+            figure_ui_cache,
         }
     }
 

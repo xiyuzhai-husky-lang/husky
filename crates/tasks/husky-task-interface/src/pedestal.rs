@@ -14,6 +14,27 @@ pub trait IsPedestal:
     + for<'a> Deserialize<'a>
     + 'static
 {
+    type UiBuffer: IsPedestalUiBuffer<Pedestal = Self>;
+
+    fn init_ui_buffer(self) -> Self::UiBuffer;
 }
 
-impl IsPedestal for () {}
+pub trait IsPedestalUiBuffer {
+    type Pedestal;
+
+    fn update(&mut self, pedestal: Self::Pedestal);
+}
+
+impl IsPedestal for () {
+    type UiBuffer = ();
+
+    fn init_ui_buffer(self) -> () {
+        ()
+    }
+}
+
+impl IsPedestalUiBuffer for () {
+    type Pedestal = ();
+
+    fn update(&mut self, pedestal: Self::Pedestal) {}
+}

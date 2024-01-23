@@ -21,6 +21,7 @@ shifted-unsigned-int = { path = "../../abstractions/shifted-unsigned-int" }
 serde-impl = { path = "../../abstractions/serde-impl" }
 enum-class.workspace = true
 notify-change = { path = "../../abstractions/notify-change" }
+ui.workspace = true
 vec-like.workspace = true
 # protocols
 husky-token-protocol = { workspace = true, features = ["serde"] }
