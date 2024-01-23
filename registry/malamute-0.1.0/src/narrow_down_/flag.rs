@@ -72,14 +72,14 @@ where
         }))
     }
 
-    fn raw_flag_ranges(&self) -> SmallVec<[FlagRange; 4]> {
+    fn raw_flag_ranges(&self) -> SmallVec<[Option<FlagRange>; 4]> {
         if self.stalks.is_empty() {
             return smallvec![];
         }
         let num_of_features = self.stalks[0].features.len();
         (0..num_of_features)
             .into_iter()
-            .filter_map(|i| {
+            .map(|i| {
                 FlagRange::from_value_flag_pairs(
                     self.stalks
                         .iter()
@@ -99,7 +99,7 @@ where
             .iter()
             .enumerate()
             .map(|(idx, raw_flag_range)| {
-                self.flag_range(ntrim, border_expand_rate, idx, raw_flag_range)
+                self.flag_range(ntrim, border_expand_rate, idx, raw_flag_range.as_ref()?)
             })
             .collect()
     }
@@ -189,8 +189,7 @@ impl FlagRange {
                 } else {
                     None
                 }
-            }))
-            .unwrap(),
+            }))?,
         })
     }
 

@@ -88,6 +88,12 @@ pub(crate) fn value(
             }
         }
 
+        impl FromValue for #value_ty {
+            fn from_value_aux(value: #value_ty, _value_stands: Option<&mut ValueStands>) -> Self {
+                value
+            }
+        }
+
         pub trait IntoValue: Sized {
             fn into_value(self) -> #value_ty;
         }
