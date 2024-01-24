@@ -293,8 +293,18 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     Ok(i) => IntegerLikeLiteralData::UnspecifiedRegular(i).into(),
                     Err(_) => todo!(),
                 },
-                "i8" => todo!(),
-                "i16" => todo!(),
+                "i8" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    IntegerLikeLiteralData::I8(i).into()
+                }
+                "i16" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    IntegerLikeLiteralData::I16(i).into()
+                }
                 "i32" => {
                     let Ok(i) = self.buffer.parse() else {
                         return Pretoken::Err(TokenDataError::ParseIntError);
@@ -307,10 +317,24 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     };
                     IntegerLikeLiteralData::I64(i).into()
                 }
-                "i128" => todo!(),
-                "i256" => todo!(),
-                "r8" => todo!(),
-                "r16" => todo!(),
+                "i128" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    IntegerLikeLiteralData::I128(i).into()
+                }
+                "r8" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    IntegerLikeLiteralData::R8(i).into()
+                }
+                "r16" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    IntegerLikeLiteralData::R16(i).into()
+                }
                 "r32" => {
                     let Ok(i) = self.buffer.parse() else {
                         return Pretoken::Err(TokenDataError::ParseIntError);
@@ -323,14 +347,42 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     };
                     IntegerLikeLiteralData::R64(i).into()
                 }
-                "r128" => todo!(),
-                "r256" => todo!(),
-                "u8" => todo!(),
-                "u16" => todo!(),
-                "u32" => todo!(),
-                "u64" => todo!(),
-                "u128" => todo!(),
-                "u256" => todo!(),
+                "r128" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    IntegerLikeLiteralData::R128(i).into()
+                }
+                "u8" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    IntegerLikeLiteralData::U8(i).into()
+                }
+                "u16" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    IntegerLikeLiteralData::U16(i).into()
+                }
+                "u32" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    IntegerLikeLiteralData::U32(i).into()
+                }
+                "u64" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    IntegerLikeLiteralData::U64(i).into()
+                }
+                "u128" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    IntegerLikeLiteralData::U128(i).into()
+                }
                 _invalid_integer_suffix => {
                     return Pretoken::Err(TokenDataError::InvalidIntegerSuffix)
                 }

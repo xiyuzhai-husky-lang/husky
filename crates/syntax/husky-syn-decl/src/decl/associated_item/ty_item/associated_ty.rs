@@ -17,5 +17,7 @@ impl TypeAssociatedTypeSynNodeDecl {
 pub struct TypeAssociatedTypeSynDecl {
     #[id]
     pub path: TypeItemPath,
+    #[return_ref]
+    pub template_parameters: TemplateSynParametersData,
     pub syn_expr_region: SynExprRegion,
 }

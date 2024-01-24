@@ -31,15 +31,6 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
-        match self {
-            TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
-            TraitItemSynNodeDecl::MethodFn(_) => todo!(),
-            TraitItemSynNodeDecl::AssociatedType(_) => todo!(),
-            TraitItemSynNodeDecl::AssociatedVal(_) => todo!(),
-        }
-    }
-
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
@@ -105,21 +96,21 @@ pub enum TraitItemSynDecl {
 }
 
 impl TraitItemSynDecl {
-    pub fn path(self, _db: &::salsa::Db) -> TraitItemPath {
+    pub fn path(self, db: &::salsa::Db) -> TraitItemPath {
         match self {
-            TraitItemSynDecl::AssociatedFn(_) => todo!(),
-            TraitItemSynDecl::MethodFn(_) => todo!(),
-            TraitItemSynDecl::AssociatedType(_) => todo!(),
-            TraitItemSynDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynDecl::AssociatedFn(slf) => slf.path(db),
+            TraitItemSynDecl::MethodFn(slf) => slf.path(db),
+            TraitItemSynDecl::AssociatedType(slf) => slf.path(db),
+            TraitItemSynDecl::AssociatedVal(slf) => slf.path(db),
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
-            TraitItemSynDecl::AssociatedFn(_) => todo!(),
-            TraitItemSynDecl::MethodFn(_) => todo!(),
-            TraitItemSynDecl::AssociatedType(_) => todo!(),
-            TraitItemSynDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynDecl::AssociatedFn(slf) => slf.template_parameters(db),
+            TraitItemSynDecl::MethodFn(slf) => slf.template_parameters(db),
+            TraitItemSynDecl::AssociatedType(slf) => slf.template_parameters(db),
+            TraitItemSynDecl::AssociatedVal(slf) => &[],
         }
     }
 
@@ -135,12 +126,12 @@ impl TraitItemSynDecl {
         }
     }
 
-    pub fn syn_expr_region(self, _db: &::salsa::Db) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
-            TraitItemSynDecl::AssociatedFn(_) => todo!(),
-            TraitItemSynDecl::MethodFn(_) => todo!(),
-            TraitItemSynDecl::AssociatedType(_) => todo!(),
-            TraitItemSynDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynDecl::AssociatedFn(slf) => slf.syn_expr_region(db),
+            TraitItemSynDecl::MethodFn(slf) => slf.syn_expr_region(db),
+            TraitItemSynDecl::AssociatedType(slf) => slf.syn_expr_region(db),
+            TraitItemSynDecl::AssociatedVal(slf) => slf.syn_expr_region(db),
         }
     }
 }

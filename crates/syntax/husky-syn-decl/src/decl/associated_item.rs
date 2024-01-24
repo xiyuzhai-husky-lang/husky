@@ -40,19 +40,6 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
-        match self {
-            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
-                syn_node_decl.template_parameters(db)
-            }
-            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => {
-                syn_node_decl.template_parameters(db)
-            }
-            AssociatedItemSynNodeDecl::TraitForTypeItem(_) => todo!(),
-            AssociatedItemSynNodeDecl::IllFormedItem(_) => todo!(),
-        }
-    }
-
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.syn_expr_region(db),
@@ -111,7 +98,7 @@ impl AssociatedItemSynDecl {
         match self {
             AssociatedItemSynDecl::TypeItem(decl) => decl.template_parameters(db),
             AssociatedItemSynDecl::TraitItem(decl) => decl.template_parameters(db),
-            AssociatedItemSynDecl::TraitForTypeItem(_) => todo!(),
+            AssociatedItemSynDecl::TraitForTypeItem(decl) => decl.template_parameters(db),
         }
     }
 

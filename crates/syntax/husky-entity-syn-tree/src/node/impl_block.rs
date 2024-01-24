@@ -125,14 +125,6 @@ impl ImplBlockSynNode {
             ImplBlockSynNode::IllFormedImplBlock(impl_block) => impl_block.syn_node_path.into(),
         }
     }
-
-    pub fn for_each_item(
-        self,
-        _db: &::salsa::Db,
-        _f: impl FnMut(),
-    ) -> &[AssociatedItemSynNodePath] {
-        todo!()
-    }
 }
 
 impl ImplBlockSynNode {

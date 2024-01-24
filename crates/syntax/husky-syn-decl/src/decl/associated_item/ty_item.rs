@@ -42,16 +42,6 @@ impl TypeItemSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
-        match self {
-            TypeItemSynNodeDecl::AssociatedFn(_) => todo!(),
-            TypeItemSynNodeDecl::MethodFn(_) => todo!(),
-            TypeItemSynNodeDecl::AssociatedType(_) => todo!(),
-            TypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
-            TypeItemSynNodeDecl::MemoizedField(_) => todo!(),
-        }
-    }
-
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
@@ -129,23 +119,22 @@ impl From<TypeItemSynDecl> for SynDecl {
 impl TypeItemSynDecl {
     pub fn path(self, db: &::salsa::Db) -> TypeItemPath {
         match self {
-            TypeItemSynDecl::AssociatedFn(decl) => decl.path(db),
-            TypeItemSynDecl::MethodFn(decl) => decl.path(db),
-            // TypeItemSynDecl::MethodFunction(decl) => decl.path(db),
-            TypeItemSynDecl::AssociatedType(_) => todo!(),
-            TypeItemSynDecl::AssociatedVal(_) => todo!(),
-            TypeItemSynDecl::MemoizedField(decl) => decl.path(db),
+            TypeItemSynDecl::AssociatedFn(slf) => slf.path(db),
+            TypeItemSynDecl::MethodFn(slf) => slf.path(db),
+            TypeItemSynDecl::AssociatedType(slf) => slf.path(db),
+            TypeItemSynDecl::AssociatedVal(slf) => slf.path(db),
+            TypeItemSynDecl::MemoizedField(slf) => slf.path(db),
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
-            TypeItemSynDecl::AssociatedFn(_) => todo!(),
-            TypeItemSynDecl::MethodFn(_) => todo!(),
+            TypeItemSynDecl::AssociatedFn(slf) => slf.template_parameters(db),
+            TypeItemSynDecl::MethodFn(slf) => slf.template_parameters(db),
             // TypeItemSynDecl::MethodFunction(decl) => todo!(),
-            TypeItemSynDecl::AssociatedType(_) => todo!(),
-            TypeItemSynDecl::AssociatedVal(_) => todo!(),
-            TypeItemSynDecl::MemoizedField(_) => todo!(),
+            TypeItemSynDecl::AssociatedType(slf) => slf.template_parameters(db),
+            TypeItemSynDecl::AssociatedVal(slf) => &[],
+            TypeItemSynDecl::MemoizedField(slf) => &[],
         }
     }
 

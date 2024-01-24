@@ -292,17 +292,6 @@ impl ItemSynNode {
             ItemSynNode::Attr(_) => todo!(),
         }
     }
-
-    pub fn ast_idx(&self, _db: &::salsa::Db) -> AstIdx {
-        match self {
-            ItemSynNode::Submodule(node) => node.ast_idx,
-            ItemSynNode::MajorItem(node) => node.ast_idx,
-            ItemSynNode::AssociatedItem(_) => todo!(),
-            ItemSynNode::TypeVariant(_) => todo!(),
-            ItemSynNode::ImplBlock(_) => todo!(),
-            ItemSynNode::Attr(_) => todo!(),
-        }
-    }
 }
 
 pub trait HasAssociatedItemPaths: Copy {
