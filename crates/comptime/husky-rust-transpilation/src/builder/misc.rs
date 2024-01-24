@@ -3,7 +3,7 @@ use husky_entity_path::{SubmoduleItemPath, TraitPath};
 use husky_hir_defn::{HasHirDefn, TypeHirDefn};
 use husky_linkage::template_argument::ty::LinkageType;
 use husky_manifest::PackageDependency;
-use husky_vfs::SubmodulePath;
+
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
     pub(crate) fn pub_use_all_in_submodule(&mut self, submodule_path: SubmoduleItemPath) {

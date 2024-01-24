@@ -52,7 +52,7 @@ impl TranspileToRustWith for ValHirDefn {
         let hir_decl = self.hir_decl(db);
         let body_with_hir_expr_region = self.body_with_hir_expr_region(db).unwrap();
         let is_lazy = match body_with_hir_expr_region {
-            (HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region)) => false,
+            (HirExprIdx::Eager(_body), HirExprRegion::Eager(_hir_eager_expr_region)) => false,
             _ => true,
         };
         builder.val_item_attr(

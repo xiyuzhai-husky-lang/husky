@@ -148,7 +148,7 @@ where
                 Color32::GOLD
             }
         }
-        let response = frame
+        let _response = frame
             .show(ui, |ui| {
                 ui.horizontal(|ui| {
                     ui.spacing_mut().item_spacing.x = 2.;

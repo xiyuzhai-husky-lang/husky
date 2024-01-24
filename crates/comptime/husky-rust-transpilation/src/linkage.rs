@@ -72,7 +72,7 @@ impl TranspileToRustWith<()> for Linkage {
             }),
             LinkageData::ValItem {
                 path,
-                ref instantiation,
+                instantiation: _,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 path.transpile_to_rust(builder)
             }),
@@ -84,7 +84,7 @@ impl TranspileToRustWith<()> for Linkage {
             }),
             LinkageData::TypeConstructor {
                 path,
-                ref instantiation,
+                instantiation: _,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 builder.ty_constructor_linkage(path)
             }),
@@ -106,7 +106,7 @@ impl TranspileToRustWith<()> for Linkage {
             }),
             LinkageData::MemoizedField {
                 path,
-                ref instantiation,
+                instantiation: _,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 path.transpile_to_rust(builder)
             }),
@@ -232,7 +232,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
         match places.len() {
             0 => ident.transpile_to_rust(builder),
             1 => {
-                let (symbol, place) = places[0];
+                let (_symbol, place) = places[0];
                 match place {
                     LinkageTermSymbolResolution::Explicit(LinkageTemplateArgument::Place(_)) => {
                         todo!()
@@ -252,7 +252,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinkageInstantiation) {
 
 impl<E> TranspileToRustWith<E> for LinkageType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
-        let db = builder.db;
+        let _db = builder.db;
         match self {
             LinkageType::PathLeading(slf) => slf.transpile_to_rust(builder),
             LinkageType::Ritchie(slf) => slf.transpile_to_rust(builder),
@@ -365,7 +365,7 @@ impl<E> TranspileToRustWith<E> for LinkageRitchieParameter {
 
 impl<E> TranspileToRustWith<E> for (TraitItemPath, &LinkageInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
-        let (path, instantiation) = self;
+        let (path, _instantiation) = self;
         let db = builder.db;
         path.trai_path(db).transpile_to_rust(builder);
         builder.punctuation(RustPunctuation::ColonColon);

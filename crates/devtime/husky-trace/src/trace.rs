@@ -42,7 +42,7 @@ use husky_trace_protocol::{
 };
 use husky_val_repr::expansion::ValReprExpansion;
 use husky_val_repr::repr::ValRepr;
-use salsa::DebugWithDb;
+
 use vec_like::VecPairMap;
 
 #[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new_inner)]

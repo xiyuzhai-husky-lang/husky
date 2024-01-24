@@ -57,7 +57,7 @@ impl<E> TranspileToRustWith<E> for TermLiteral {
 }
 
 impl<E> TranspileToRustWith<E> for &str {
-    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+    fn transpile_to_rust(self, _builder: &mut RustTranspilationBuilder<E>) {
         todo!()
     }
 }

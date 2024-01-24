@@ -129,7 +129,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for &HirTemplateParameter {
                     builder.punctuated_list(traits, RustPunctuation::Add)
                 }
             }
-            HirTemplateParameterData::Constant { ident, ty: _ } => {
+            HirTemplateParameterData::Constant { ident: _, ty: _ } => {
                 // ad hoc
                 // we should skip #runtime constants
                 // use salsa::DebugWithDb;

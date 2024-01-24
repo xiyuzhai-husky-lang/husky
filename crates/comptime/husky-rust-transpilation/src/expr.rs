@@ -27,7 +27,7 @@ use smallvec::SmallVec;
 impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprSite) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let (slf, mut site) = self;
-        let db = builder.db();
+        let _db = builder.db();
         let entry = slf.entry(builder.hir_eager_expr_arena());
         let data = &entry.data;
         let precedence = hir_eager_expr_precedence(data);
@@ -247,7 +247,7 @@ impl HirEagerExprSite {
             HirEagerExprData::Unveil {
                 opd_hir_expr_idx,
                 return_ty,
-                unveil_associated_fn_path,
+                unveil_associated_fn_path: _,
                 ref instantiation,
             } => {
                 builder.macro_name(RustMacroName::Unveil);
@@ -276,7 +276,7 @@ impl HirEagerExprSite {
             }
             HirEagerExprData::TypeConstructorFnCall {
                 path,
-                ref instantiation,
+                instantiation: _,
                 ref item_groups,
             } => {
                 builder.ty_constructor_linkage(path);
@@ -287,7 +287,7 @@ impl HirEagerExprSite {
             }
             HirEagerExprData::TypeVariantConstructorCall {
                 path,
-                ref instantiation,
+                instantiation: _,
                 ref item_groups,
             } => {
                 path.transpile_to_rust(builder);
@@ -298,7 +298,7 @@ impl HirEagerExprSite {
             }
             HirEagerExprData::FunctionFnCall {
                 path,
-                ref instantiation,
+                instantiation: _,
                 ref item_groups,
             } => {
                 path.transpile_to_rust(builder);
@@ -309,7 +309,7 @@ impl HirEagerExprSite {
             }
             HirEagerExprData::AssociatedFunctionFnCall {
                 path,
-                ref instantiation,
+                instantiation: _,
                 ref item_groups,
             } => {
                 path.transpile_to_rust(builder);
@@ -321,7 +321,7 @@ impl HirEagerExprSite {
             HirEagerExprData::PropsStructField {
                 owner_hir_expr_idx,
                 ident,
-                field_ty,
+                field_ty: _,
             } => {
                 (
                     owner_hir_expr_idx,

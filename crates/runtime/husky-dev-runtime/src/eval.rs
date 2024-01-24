@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_kind::{EntityKind, FugitiveKind, MajorItemKind};
+
 use husky_entity_path::TypeVariantIndex;
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
@@ -325,6 +325,7 @@ impl<Task: IsTask> DevRuntime<Task> {
 
 #[test]
 fn val_repr_eval_works() {
+    use husky_entity_kind::FugitiveKind;
     use husky_entity_path::*;
     use husky_entity_syn_tree::helpers::paths::module_item_paths;
     use husky_ml_task::MlTask;
