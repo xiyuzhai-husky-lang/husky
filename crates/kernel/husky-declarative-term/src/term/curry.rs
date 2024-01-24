@@ -1,5 +1,3 @@
-pub use context::*;
-
 use crate::*;
 
 /// representing declarative_term `X -> Y` or dependent form `(a: X) -> Y(a)`

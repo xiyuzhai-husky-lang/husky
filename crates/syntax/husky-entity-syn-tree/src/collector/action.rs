@@ -1,7 +1,5 @@
 use super::*;
 
-pub(super) enum CollectorAction {}
-
 impl<'a> EntityTreeCollector<'a> {
     pub(super) fn collect_possible_actions(&self) -> Vec<PresheetAction> {
         let mut actions = vec![];
@@ -27,7 +25,6 @@ impl<'a> EntityTreeCollector<'a> {
     }
 }
 
-#[macro_use]
 macro_rules! context {
     ($self: ident, $presheet: expr) => {{
         EntityTreeSymbolContext::new(

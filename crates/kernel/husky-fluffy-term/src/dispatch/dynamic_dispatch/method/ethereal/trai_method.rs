@@ -1,8 +1,5 @@
-use husky_ethereal_signature::helpers::trai_for_ty::{
-    trai_path_for_ty_path_impl_block_ethereal_signature_templates,
-    trai_path_for_ty_term_impl_block_ethereal_signature_builders,
-};
-use salsa::DisplayWithDb;
+use husky_ethereal_signature::helpers::trai_for_ty::trai_path_for_ty_term_impl_block_ethereal_signature_builders;
+
 use vec_like::SmallVecPairMap;
 
 use crate::method_fn::MethodFnFluffySignature;
@@ -19,10 +16,8 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
         mut indirections: FluffyIndirections,
     ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
         let db = engine.db();
-        let mut matches: SmallVec<[(); 2]> = Default::default();
         let application_expansion = self.application_expansion(db);
         let arguments = application_expansion.arguments(db);
-        let mut trai_path_selected: Option<TraitPath> = None;
         let mut matches_map: SmallVecPairMap<
             TraitPath,
             SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]>,
@@ -34,7 +29,7 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
         for record in trai_item_records.records() {
             // todo: check scope
             let trai_path = record.trai_path();
-            let mut builders =
+            let builders =
                 trai_path_for_ty_term_impl_block_ethereal_signature_builders(db, trai_path, self)?;
             if !builders.is_empty() {
                 unsafe { matches_map.insert_new_unchecked((trai_path, builders)) }

@@ -99,6 +99,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         }
     }
 
+    #[allow(dead_code)]
     pub(crate) fn comment(&mut self, s: &str) {
         for line in s.lines() {
             self.fresh_line();

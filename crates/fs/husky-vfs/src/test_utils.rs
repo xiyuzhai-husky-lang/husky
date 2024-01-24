@@ -1,4 +1,3 @@
-mod ad_hoc_package;
 mod adversarial_test;
 mod domain;
 mod expect_test;

@@ -65,7 +65,7 @@ impl salsa::DisplayWithDb for DeclarativeRitchieKeyedParameter {
         f.write_str(self.key.data(db))?;
         f.write_str(": ")?;
         self.ty.show_with_db_fmt(f, db, &mut ctx)?;
-        f.write_str(" = ");
+        f.write_str(" = ")?;
         match self.has_default {
             true => f.write_str("..."),
             false => f.write_str("_"),

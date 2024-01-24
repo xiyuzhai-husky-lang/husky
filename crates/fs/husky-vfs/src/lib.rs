@@ -31,7 +31,6 @@ use self::error::*;
 use self::file::*;
 use dashmap::{mapref::entry::Entry, DashMap};
 use husky_coword::*;
-use notify_debouncer_mini::notify::RecursiveMode;
 use std::path::{Path, PathBuf};
 #[cfg(test)]
 use tests::*;

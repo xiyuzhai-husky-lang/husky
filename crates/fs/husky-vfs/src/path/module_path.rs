@@ -194,19 +194,6 @@ pub enum ModulePathData {
     Child { parent: ModulePath, ident: Ident },
 }
 
-impl ModulePathData {
-    fn display(self, db: &::salsa::Db, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            ModulePathData::Root(_crate_path) => f.write_str("crate"),
-            ModulePathData::Child { parent, ident } => {
-                parent.data(db).display(db, f)?;
-                f.write_str("::");
-                f.write_str(ident.data(db))
-            }
-        }
-    }
-}
-
 impl ModulePath {
     pub fn to_string_with_db(&self, db: &::salsa::Db) -> String {
         self.display(db).to_string()
