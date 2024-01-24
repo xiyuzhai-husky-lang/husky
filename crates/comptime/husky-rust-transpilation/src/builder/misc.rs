@@ -4,7 +4,6 @@ use husky_hir_defn::{HasHirDefn, TypeHirDefn};
 use husky_linkage::template_argument::ty::LinkageType;
 use husky_manifest::PackageDependency;
 
-
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
     pub(crate) fn pub_use_all_in_submodule(&mut self, submodule_path: SubmoduleItemPath) {
         let db = self.db;
@@ -135,13 +134,6 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             builder.bracketed_comma_list(RustBracket::Par, trais);
             builder.write_str("]\n")
         })
-    }
-
-    #[deprecated(note = "remove this; no need to conver to not nan")]
-    pub(crate) fn new_not_nan(&mut self, ident: Ident) {
-        self.write_str("NotNan::new(");
-        ident.transpile_to_rust(self);
-        self.write_str(").unwrap()")
     }
 
     pub(crate) fn omitted_curly_block(&mut self) {
