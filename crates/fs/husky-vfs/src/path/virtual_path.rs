@@ -48,13 +48,13 @@ impl VirtualPath {
             Err(e) => match e {
                 VfsError::FileNotExists(_) => todo!(),
                 VfsError::IO {
-                    path,
-                    error_message,
+                    path: _,
+                    error_message: _,
                 } => todo!(),
                 VfsError::NotSourceFile(_) => todo!(),
                 VfsError::FailToAbsolutize {
-                    path,
-                    error_message,
+                    path: _,
+                    error_message: _,
                 } => todo!(),
                 VfsError::FailToDiff => todo!(),
                 VfsError::ModulePathResolveFailure => todo!(),

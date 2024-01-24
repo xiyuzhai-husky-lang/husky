@@ -81,7 +81,7 @@ impl VfsTestUtils for Db {
     {
         let toolchain = self.dev_toolchain().unwrap();
         for test_suite in config.test_domains() {
-            for (path, name) in
+            for (path, _name) in
                 collect_package_relative_dirs(self, &test_suite.src_base()).into_iter()
             {
                 let package_path = PackagePath::new_local_or_toolchain_package(

@@ -9,7 +9,7 @@ pub(super) fn vfs_expect_test<U>(
 {
     let toolchain = db.dev_toolchain().unwrap();
     for test_domain in config.test_domains() {
-        for (path, package_name) in
+        for (path, _package_name) in
             collect_package_relative_dirs(db, &test_domain.src_base()).into_iter()
         {
             let package_path = PackagePath::new_local_or_toolchain_package(
