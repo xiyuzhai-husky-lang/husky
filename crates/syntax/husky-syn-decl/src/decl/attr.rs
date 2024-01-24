@@ -61,6 +61,15 @@ impl AttrSynDecl {
     }
 }
 
+/// # getters
+impl AttrSynDecl {
+    pub fn path(self, db: &::salsa::Db) -> AttrItemPath {
+        match self {
+            AttrSynDecl::Derive(slf) => slf.path(db),
+        }
+    }
+}
+
 impl HasSynDecl for AttrItemPath {
     type Decl = AttrSynDecl;
 

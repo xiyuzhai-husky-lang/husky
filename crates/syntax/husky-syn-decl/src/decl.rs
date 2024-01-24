@@ -86,12 +86,10 @@ pub enum SynDecl {
 impl SynDecl {
     pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
-            SynDecl::Submodule(_) => todo!(),
             SynDecl::MajorItem(decl) => decl.template_parameters(db),
             SynDecl::ImplBlock(decl) => decl.template_parameters(db),
             SynDecl::AssociatedItem(decl) => decl.template_parameters(db),
-            SynDecl::TypeVariant(_decl) => &[],
-            SynDecl::Attr(_) => todo!(),
+            SynDecl::Submodule(_) | SynDecl::TypeVariant(_) | SynDecl::Attr(_) => &[],
         }
     }
 
@@ -101,19 +99,19 @@ impl SynDecl {
             SynDecl::MajorItem(decl) => decl.syn_expr_region(db).into(),
             SynDecl::ImplBlock(decl) => decl.syn_expr_region(db).into(),
             SynDecl::AssociatedItem(decl) => decl.syn_expr_region(db).into(),
-            SynDecl::TypeVariant(_decl) => todo!(),
+            SynDecl::TypeVariant(decl) => todo!(),
             SynDecl::Attr(_) => todo!(),
         }
     }
 
     pub fn path(self, db: &::salsa::Db) -> ItemPath {
         match self {
-            SynDecl::Submodule(_) => todo!(),
+            SynDecl::Submodule(decl) => decl.path(db).into(),
             SynDecl::MajorItem(decl) => decl.path(db).into(),
             SynDecl::ImplBlock(decl) => decl.path(db).into(),
             SynDecl::AssociatedItem(decl) => decl.path(db).into(),
             SynDecl::TypeVariant(decl) => decl.path(db).into(),
-            SynDecl::Attr(_) => todo!(),
+            SynDecl::Attr(decl) => decl.path(db).into(),
         }
     }
 }
@@ -159,7 +157,7 @@ impl HasSynDecl for ItemPath {
             ItemPath::AssociatedItem(path) => path.syn_decl(db).map(Into::into),
             ItemPath::TypeVariant(_, path) => path.syn_decl(db).map(Into::into),
             ItemPath::ImplBlock(path) => path.syn_decl(db).map(Into::into),
-            ItemPath::Attr(_, _) => todo!(),
+            ItemPath::Attr(_, path) => path.syn_decl(db).map(Into::into),
         }
     }
 }

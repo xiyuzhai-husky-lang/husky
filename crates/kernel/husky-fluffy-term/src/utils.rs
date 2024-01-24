@@ -3,15 +3,14 @@ use super::*;
 impl FluffyTerm {
     pub(crate) fn curry_destination(self, db: &::salsa::Db, terms: &FluffyTerms) -> FluffyTerm {
         match self.data_inner(db, terms) {
-            FluffyTermData::Literal(_)
-            | FluffyTermData::TypeOntology { .. }
+            FluffyTermData::TypeOntology { .. }
             | FluffyTermData::Hole(_, _)
-            | FluffyTermData::Category(_) => self,
-            FluffyTermData::Curry { .. } => todo!(),
-            FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            | FluffyTermData::Category(_)
+            | FluffyTermData::Ritchie { .. }
+            | FluffyTermData::Symbol { .. }
+            | FluffyTermData::Rune { .. } => self,
+            FluffyTermData::Curry { return_ty, .. } => return_ty.curry_destination(db, terms),
+            FluffyTermData::Literal(_) | FluffyTermData::TypeVariant { .. } => unreachable!(),
         }
     }
 
@@ -27,9 +26,10 @@ impl FluffyTerm {
         fluffy_terms: &FluffyTerms,
     ) -> FinalDestination {
         match self.data_inner(db, fluffy_terms) {
-            FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology { .. } => FinalDestination::TypeOntology,
-            FluffyTermData::Curry { .. } => todo!(),
+            FluffyTermData::Curry { return_ty, .. } => {
+                return_ty.final_destination_inner(db, fluffy_terms)
+            }
             FluffyTermData::Hole(kind, idx) => match kind {
                 HoleKind::UnspecifiedIntegerType
                 | HoleKind::UnspecifiedFloatType
@@ -38,9 +38,10 @@ impl FluffyTerm {
             },
             FluffyTermData::Category(_) => FinalDestination::Sort,
             FluffyTermData::Ritchie { ritchie_kind, .. } => FinalDestination::Ritchie(ritchie_kind),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            FluffyTermData::Symbol { .. } | FluffyTermData::Rune { .. } => {
+                FinalDestination::AnyOriginal
+            }
+            FluffyTermData::Literal(_) | FluffyTermData::TypeVariant { .. } => unreachable!(),
         }
     }
 
@@ -97,14 +98,6 @@ fn curry_destination(db: &::salsa::Db, term: EtherealTerm) -> EtherealTerm {
             | TermEntityPath::TypeInstance(_) => term,
             TermEntityPath::TypeVariant(_) => todo!(),
         },
-        // EntityPath::Module(_) => todo!(),
-        // EntityPath::MajorItem(path) => match path {
-        //     MajorItemPath::Type(path) => resolved_term,
-        //     MajorItemPath::Trait(_) => todo!(),
-        //     MajorItemPath::Form(_) => todo!(),
-        // },
-        // EntityPath::AssociatedItem(_) => todo!(),
-        // EntityPath::Variant(_) => todo!(),
         EtherealTerm::Category(_) => term,
         EtherealTerm::Universe(_) => todo!(),
         EtherealTerm::Curry(_) => todo!(),

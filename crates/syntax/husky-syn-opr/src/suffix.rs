@@ -13,12 +13,12 @@ pub enum SynSuffixOpr {
 }
 
 impl SynSuffixOpr {
-    pub fn code(&self) -> Cow<'static, str> {
+    pub fn code(self) -> &'static str {
         match self {
-            SynSuffixOpr::Incr => "++".into(),
-            SynSuffixOpr::Decr => "--".into(),
-            SynSuffixOpr::UnveilOrComposeWithOption => "?".into(),
-            SynSuffixOpr::UnwrapOrComposeWithNot => "!".into(),
+            SynSuffixOpr::Incr => "++",
+            SynSuffixOpr::Decr => "--",
+            SynSuffixOpr::UnveilOrComposeWithOption => "?",
+            SynSuffixOpr::UnwrapOrComposeWithNot => "!",
         }
     }
 }
