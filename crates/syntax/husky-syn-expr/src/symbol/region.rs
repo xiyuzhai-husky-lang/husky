@@ -186,10 +186,10 @@ impl SynSymbolRegionData {
                 CurrentSynSymbolData::ParenateRegularParameter { ident, .. } => {
                     InheritedSynSymbolKind::ParenateParameter { ident }
                 }
-                CurrentSynSymbolData::LetVariable { .. } => todo!(),
+                CurrentSynSymbolData::LetVariable { .. } => unreachable!(),
                 CurrentSynSymbolData::BeVariable { .. } => todo!(),
-                CurrentSynSymbolData::CaseVariable { .. } => todo!(),
-                CurrentSynSymbolData::LoopVariable { .. } => todo!(),
+                CurrentSynSymbolData::CaseVariable { .. } => unreachable!(),
+                CurrentSynSymbolData::LoopVariable { .. } => unreachable!(),
                 CurrentSynSymbolData::TemplateParameter {
                     ref template_parameter_variant,
                     ..
@@ -201,7 +201,7 @@ impl SynSymbolRegionData {
                         ident: ident_token.ident(),
                     }
                 }
-                CurrentSynSymbolData::SelfType => todo!(),
+                CurrentSynSymbolData::SelfType => unreachable!(),
                 CurrentSynSymbolData::SelfValue { .. } => todo!(),
                 CurrentSynSymbolData::FieldVariable { ident_token } => {
                     InheritedSynSymbolKind::FieldVariable {
@@ -233,21 +233,6 @@ impl SynSymbolRegionData {
     pub fn current_syn_symbol_arena(&self) -> &CurrentSynSymbolArena {
         &self.current_syn_symbol_arena
     }
-
-    // pub fn regular_parameter_pattern_ty_constraint(
-    //     &self,
-    //     target: SynPatternExprIdx,
-    // ) -> Option<SynExprIdx> {
-    //     self.pattern_ty_constraints
-    //         .iter()
-    //         .find_map(|(pattern_ty_constraint, _)| match pattern_ty_constraint {
-    //             SyndicateTypeConstraint::ExplicitRegularParameter {
-    //                 pattern_expr_idx: pattern,
-    //                 ty_expr_idx: ty,
-    //             } if *pattern == target => Some(*ty),
-    //             _ => None,
-    //         })
-    // }
 
     pub fn pattern_ty_constraints(&self) -> &[(SyndicateTypeConstraint, CurrentSynSymbolIdxRange)] {
         &self.pattern_ty_constraints

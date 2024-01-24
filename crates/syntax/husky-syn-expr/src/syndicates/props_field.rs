@@ -118,15 +118,15 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
         };
         match ctx.next() {
             Some(&token_data) => match token_data {
-                TokenData::Keyword(_) => todo!(),
                 TokenData::Ident(ident) => Ok(Some(PropsFieldAttr { pound_token, ident })),
-                TokenData::Label(_) => todo!(),
-                TokenData::Punctuation(_) => todo!(),
-                TokenData::WordOpr(_) => todo!(),
-                TokenData::Literal(_) => todo!(),
-                TokenData::Error(_) => todo!(),
+                TokenData::Keyword(_)
+                | TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_) => Ok(None),
+                TokenData::Error(e) => return Err(e.into()),
             },
-            None => todo!(),
+            None => Ok(None),
         }
     }
 }

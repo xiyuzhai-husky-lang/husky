@@ -1,15 +1,5 @@
-// mod comparison;
-// mod logic;
-// mod pure_closed;
-// mod shift;
-
-use husky_opr::precedence::{HasPrecedence, Precedence};
-
-// pub use self::comparison::*;
-// pub use self::logic::*;
-// pub use self::pure_closed::*;
-// pub use self::shift::*;
 use crate::*;
+use husky_opr::precedence::{HasPrecedence, Precedence};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum SynBinaryOpr {
@@ -57,9 +47,9 @@ impl SynBinaryOpr {
             SynBinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
             SynBinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.husky_code(),
             SynBinaryOpr::CurryType => "->",
-            SynBinaryOpr::As => todo!(),
-            SynBinaryOpr::Ins => todo!(),
-            SynBinaryOpr::ScopeResolution => todo!(),
+            SynBinaryOpr::As => "as",
+            SynBinaryOpr::Ins => ":",
+            SynBinaryOpr::ScopeResolution => "::",
             SynBinaryOpr::In => "in",
         }
     }

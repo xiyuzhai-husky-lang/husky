@@ -26,6 +26,13 @@ impl TypeVariantSynNodeDecl {
             TypeVariantSynNodeDecl::Tuple(syn_node_decl) => syn_node_decl.syn_node_path(db),
         }
     }
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
+        match self {
+            TypeVariantSynNodeDecl::Props(slf) => slf.syn_expr_region(db),
+            TypeVariantSynNodeDecl::Unit(slf) => slf.syn_expr_region(db),
+            TypeVariantSynNodeDecl::Tuple(slf) => slf.syn_expr_region(db),
+        }
+    }
 
     pub fn errors(self, _db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {

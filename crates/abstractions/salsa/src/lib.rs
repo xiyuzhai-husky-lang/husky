@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 pub mod accumulator;
 pub mod cancelled;
 pub mod cycle;

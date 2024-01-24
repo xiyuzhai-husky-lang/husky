@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 #![feature(downcast_unchecked)]
 pub mod any;
 #[cfg(feature = "standard")]
@@ -19,7 +20,7 @@ pub trait IsFnLinkageImplSource<LinkageImpl: IsLinkageImpl, FnPointer> {
         self,
         fn_wrapper: fn(
             DevEvalContext<LinkageImpl>,
-            arguments: &[ValArgumentReprInterface],
+            &[ValArgumentReprInterface],
         ) -> LinkageImplValControlFlow<LinkageImpl>,
         fn_pointer: FnPointer,
     ) -> LinkageImpl;
