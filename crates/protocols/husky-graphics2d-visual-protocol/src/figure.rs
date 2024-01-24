@@ -1,7 +1,7 @@
 mod generic;
 mod specific;
 use self::{generic::GenericGraphics2dFigure, specific::SpecificGraphics2dFigure};
-use egui::{pos2, vec2, Color32, Rect, Ui, Vec2};
+use egui::{pos2, Color32, Rect, Ui, Vec2};
 use husky_task_interface::{
     pedestal::{IsPedestal, IsPedestalFull},
     val_repr::{ValDomainReprInterface, ValReprInterface},
@@ -33,7 +33,7 @@ impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for Graphics2dFigure<Pedestal>
     fn new_specific(
         followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
         accompanyings: &[(TraceId, ValReprInterface)],
-        mut f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
+        f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         SpecificGraphics2dFigure::new(followed_visual, accompanyings, f, visual_synchrotron).into()

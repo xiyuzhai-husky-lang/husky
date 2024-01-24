@@ -93,7 +93,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     }
 }
 
-use super::*;
+
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr, BinaryShiftOpr, BinaryShortcuitLogicOpr};
 
 impl<E> TranspileToRustWith<E> for HirBinaryOpr {

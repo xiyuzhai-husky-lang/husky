@@ -8,7 +8,7 @@ use std::{path::PathBuf, sync::Arc};
 
 use husky_trace_protocol::{
     client::TraceClient,
-    figure::{FigureUi, FigureUiCache, IsFigure},
+    figure::{FigureUi, FigureUiCache},
     pedestal::PedestalUi,
     protocol::{IsTraceProtocol, IsTraceProtocolFull},
     view::action::TraceViewActionBuffer,
@@ -98,16 +98,16 @@ impl<TraceProtocol: IsTraceProtocolFull> TraceDoc<TraceProtocol, EguiRepaintSign
     pub fn new(
         tokio_runtime: Arc<tokio::runtime::Runtime>,
         repaint_signal: EguiRepaintSignal,
-        ctx: &egui::Context,
+        _ctx: &egui::Context,
     ) -> Self {
-        let color_image: ColorImage = (&ImageVisualData::Binary {
+        let _color_image: ColorImage = (&ImageVisualData::Binary {
             bits_per_row: 2,
             width: 15,
             height: 4,
             bitmap: vec![1, 0, 11, 0, 31, 0, 51, 0],
         })
             .into();
-        let options = TextureOptions {
+        let _options = TextureOptions {
             magnification: TextureFilter::Nearest,
             minification: TextureFilter::Linear,
         };

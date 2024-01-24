@@ -130,7 +130,7 @@ impl HirEagerExprSite {
         {
             location_contract_map.insert((location, contract))
         };
-        let mut rust_bindings: RustBindings = match initial_value_entry.ty_place {
+        let rust_bindings: RustBindings = match initial_value_entry.ty_place {
             HirPlace::Transient => Default::default(),
             _ => match contract {
                 HirEagerContract::Pure | HirEagerContract::Const | HirEagerContract::Leash
@@ -144,7 +144,7 @@ impl HirEagerExprSite {
             },
         };
         match coersion {
-            Some(coersion) => (),
+            Some(_coersion) => (),
             None => (),
         };
         Self {

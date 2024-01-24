@@ -119,7 +119,7 @@ impl SpecificGraphics2dFigure {
         let mnist_visual_rect = VisualRect::mnist();
         let t = |point: Point| point.to_screen(mnist_visual_rect, rect);
         for shape in &self.shapes {
-            use husky_print_utils::p;
+            
             match shape.data(visual_synchrotron) {
                 &ShapeVisualData::LineSegment { start, end } => ui
                     .painter()

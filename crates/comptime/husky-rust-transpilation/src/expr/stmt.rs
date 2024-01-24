@@ -43,7 +43,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             }
             HirEagerStmtData::Assert { ref condition } => {
                 builder.on_fresh_semicolon_line(|builder| match *condition {
-                    HirEagerCondition::Be { src, ref target } => todo!(),
+                    HirEagerCondition::Be { src: _, target: _ } => todo!(),
                     HirEagerCondition::Other {
                         hir_eager_expr_idx,
                         conversion,

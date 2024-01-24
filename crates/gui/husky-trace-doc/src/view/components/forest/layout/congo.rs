@@ -7,7 +7,7 @@ where
     TraceProtocol::Figure: FigureUi<egui::Ui>,
     Settings: HasTraceDocSettings,
 {
-    pub(super) fn render_congo_forest(&mut self, ui: &mut egui::Ui) {
+    pub(super) fn render_congo_forest(&mut self, _ui: &mut egui::Ui) {
         todo!()
     }
 }

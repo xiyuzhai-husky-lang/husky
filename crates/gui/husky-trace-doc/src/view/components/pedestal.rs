@@ -1,5 +1,5 @@
 use super::*;
-use egui::Frame;
+
 use husky_trace_protocol::pedestal::PedestalUi;
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
