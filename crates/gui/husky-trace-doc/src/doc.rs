@@ -3,7 +3,7 @@ use crate::{view::TraceDocView, *};
 use egui::*;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
 use husky_task_interface::pedestal::IsPedestal;
-use husky_visual_protocol::visual::image::ImageVisualData;
+use husky_visual_protocol::visual::image::{BinaryImageVisualData, ImageVisualData};
 use std::{path::PathBuf, sync::Arc};
 
 use husky_trace_protocol::{
@@ -100,17 +100,6 @@ impl<TraceProtocol: IsTraceProtocolFull> TraceDoc<TraceProtocol, EguiRepaintSign
         repaint_signal: EguiRepaintSignal,
         _ctx: &egui::Context,
     ) -> Self {
-        let _color_image: ColorImage = (&ImageVisualData::Binary {
-            bits_per_row: 2,
-            width: 15,
-            height: 4,
-            bitmap: vec![1, 0, 11, 0, 31, 0, 51, 0],
-        })
-            .into();
-        let _options = TextureOptions {
-            magnification: TextureFilter::Nearest,
-            minification: TextureFilter::Linear,
-        };
         Self {
             current_dir: std::env::current_dir().unwrap(),
             trace_client: TraceClient::new_mock(tokio_runtime, repaint_signal),
