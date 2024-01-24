@@ -4,17 +4,15 @@ pub(crate) mod settings;
 
 use crate::*;
 use egui::{
-    vec2, Align, Button, CentralPanel, Color32, FontFamily, Frame, InnerResponse, Label, LayerId,
-    Layout, Margin, RichText, Sense, SidePanel, TextStyle, TextureId, TopBottomPanel, Ui, Vec2,
-    Widget,
+    vec2, Align, Color32, FontFamily, Frame, Label, Layout, Margin, RichText, Sense, SidePanel,
+    TextStyle, TopBottomPanel, Ui, Vec2, Widget,
 };
 use husky_task_interface::{pedestal::IsPedestal, val_control_flow::ValControlFlow};
 use husky_trace_protocol::{
-    figure::{FigureUi, FigureUiCache, IsFigure},
+    figure::{FigureUi, FigureUiCache},
     id::{TraceId, TraceKind},
-    pedestal::PedestalUi,
     protocol::IsTraceProtocol,
-    stalk::{JsonValue, TraceStalk},
+    stalk::TraceStalk,
     synchrotron::{TraceSynchrotron, TraceSynchrotronEntry},
     view::{action::TraceViewActionBuffer, TraceViewLineData, TraceViewTokenData},
 };

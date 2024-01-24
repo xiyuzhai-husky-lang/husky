@@ -25,5 +25,3 @@ impl DeclarativeTermMenu3 {
         Ok(DeclarativeTermMenu3 { parent: menu2 })
     }
 }
-
-type A = core::primitive::i32;

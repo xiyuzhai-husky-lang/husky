@@ -1,8 +1,5 @@
 use super::*;
-
 use husky_coword::Ident;
-use husky_print_utils::p;
-
 use std::path::Path;
 use url::Url;
 

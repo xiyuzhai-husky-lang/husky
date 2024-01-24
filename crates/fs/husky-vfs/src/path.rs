@@ -15,19 +15,6 @@ pub use self::virtual_path::*;
 use crate::*;
 use husky_minimal_toml_utils::read_package_name_from_manifest;
 
-pub(crate) fn package_manifest_path(
-    db: &::salsa::Db,
-    package: PackagePath,
-) -> VfsResult<VirtualPath> {
-    VirtualPath::try_new(
-        db,
-        &package_dir(db, package)
-            .as_ref()?
-            .data(db)
-            .join("Corgi.toml"),
-    )
-}
-
 #[salsa::tracked(jar = VfsJar)]
 pub(crate) fn module_virtual_path(
     db: &::salsa::Db,

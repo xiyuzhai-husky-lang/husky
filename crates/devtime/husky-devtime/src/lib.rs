@@ -4,7 +4,6 @@ mod state;
 pub use husky_trace_protocol::server::IsTracetime;
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
 
-use self::state::*;
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_task::{
@@ -14,7 +13,6 @@ use husky_task::{
 };
 use husky_trace::{db::TraceDb, trace::Trace};
 use husky_trace_protocol::{
-    id::AccompanyingTraceIds,
     protocol::{IsTraceProtocol, TraceBundle},
     server::ValVisualCache,
     stalk::TraceStalk,

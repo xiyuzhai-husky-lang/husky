@@ -1,10 +1,8 @@
 use super::*;
 use crate::binding::{RustBinding, RustBindings};
-use husky_hir_eager_expr::{coersion::HirEagerCoersion, HirEagerExprIdx};
+use husky_hir_eager_expr::coersion::HirEagerCoersion;
 use husky_hir_ty::ritchie::HirRitchieRegularParameter;
-use husky_opr::precedence::Precedence;
 use husky_stack_location::StackLocationIdx;
-use husky_term_prelude::TermContract;
 use vec_like::SmallVecPairMap;
 
 #[derive(Debug, Default)]

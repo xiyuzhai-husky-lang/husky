@@ -29,12 +29,12 @@ impl DeclarativeTermExplicitApplicationOrRitchieCall {
         db: &::salsa::Db,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
-        self.function(db).show_with_db_fmt(f, db, ctx);
+        self.function(db).show_with_db_fmt(f, db, ctx)?;
         let generic_arguments = self.generic_arguments(db);
         if generic_arguments.len() > 0 {
             todo!()
         }
-        f.write_str("(");
+        f.write_str("(")?;
         let items = self.items(db);
         let extra_comma = self.extra_comma(db);
         for (i, parameter_ty) in items.iter().enumerate() {
