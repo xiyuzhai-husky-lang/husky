@@ -127,7 +127,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
             .iter()
     {
         match template.instantiate_ty(db, arguments, ty_term) {
-            JustOk(builder) => return Ok(true),
+            JustOk(_builder) => return Ok(true),
             JustErr(e) => return Err(e),
             Nothing => continue,
         }

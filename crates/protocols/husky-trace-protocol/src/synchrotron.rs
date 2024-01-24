@@ -16,7 +16,7 @@ use husky_value_protocol::presentation::synchrotron::{
 use husky_visual_protocol::synchrotron::{action::VisualSynchrotronStatus, VisualSynchrotron};
 use rustc_hash::FxHashMap;
 use std::path::{Path, PathBuf};
-use vec_like::VecPairMap;
+
 
 /// contains information about traces that are synced across server and client
 #[serde_with::serde_as]

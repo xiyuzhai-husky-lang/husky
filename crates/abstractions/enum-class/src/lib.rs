@@ -2,6 +2,7 @@ pub use enum_class_macros::*;
 
 /// always be zero
 /// but occupied a nonempy space
+#[allow(dead_code)]
 #[derive(Default, Clone, Copy)]
 pub struct Room32(u32);
 

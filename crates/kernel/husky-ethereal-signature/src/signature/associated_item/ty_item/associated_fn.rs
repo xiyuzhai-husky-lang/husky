@@ -1,5 +1,5 @@
 use super::*;
-use husky_term_prelude::{RitchieKind, RitchieTypeKind};
+use husky_term_prelude::{RitchieTypeKind};
 
 #[salsa::tracked(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TypeAssociatedFnEtherealSignatureTemplate {

@@ -1,7 +1,7 @@
 use super::*;
-use ::egui::{ColorImage, ImageData, TextureFilter, TextureHandle, TextureId, TextureOptions, Ui};
+use ::egui::{ColorImage, TextureFilter, TextureHandle, TextureId, TextureOptions};
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::image::ImageVisual};
-use rustc_hash::FxHashMap;
+
 
 impl IsUi for ::egui::Ui {
     type TextureHandle = TextureHandle;

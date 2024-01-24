@@ -1,6 +1,6 @@
 use husky_macro_utils::self_ty;
 use proc_macro2::Ident;
-use syn::{Field, FieldsUnnamed, Generics, Item, ItemEnum, Type};
+use syn::{FieldsUnnamed, Generics, Item, ItemEnum, Type};
 
 pub(crate) fn from_variants(
     _args: proc_macro::TokenStream,

@@ -41,7 +41,7 @@ where
 }
 
 impl<T> Visualize for VisualizeTest<T> {
-    fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+    fn visualize(&self, _visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         Visual::Void
     }
 }

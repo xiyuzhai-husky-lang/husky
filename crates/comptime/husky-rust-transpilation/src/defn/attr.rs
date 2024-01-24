@@ -1,6 +1,5 @@
 use super::*;
 use either::*;
-use husky_coword::{coword_menu, Ident};
 use husky_entity_path::{item_path_menu, AttrItemPath, PreludeTraitPath, TraitPath};
 use husky_hir_decl::{AttrHirDecl, HasHirDecl};
 use husky_hir_ty::trai::HirTrait;

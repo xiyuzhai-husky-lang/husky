@@ -171,8 +171,8 @@ where
                 })
             }
             TraceViewAction::ToggleAssociatedTrace {
-                trace_id,
-                associated_trace_id,
+                trace_id: _,
+                associated_trace_id: _,
             } => todo!(),
             &TraceViewAction::FollowTrace { trace_id } => {
                 let trace_synchrotron = self.trace_synchrotron();
@@ -187,7 +187,7 @@ where
                 }
                 Some(TraceSynchrotronAction::FollowTrace { trace_id })
             }
-            TraceViewAction::FollowTrace { trace_id } => todo!(),
+            TraceViewAction::FollowTrace { trace_id: _ } => todo!(),
             &TraceViewAction::ToggleAccompany { trace_id } => {
                 {
                     // see if toggling accompany will affect figure
@@ -210,7 +210,7 @@ where
                 }
                 Some(TraceSynchrotronAction::ToggleAccompany { trace_id })
             }
-            TraceViewAction::ToggleAccompany { trace_id } => todo!(),
+            TraceViewAction::ToggleAccompany { trace_id: _ } => todo!(),
             &TraceViewAction::SetPedestal { pedestal } => {
                 let trace_synchrotron = self.trace_synchrotron();
                 {

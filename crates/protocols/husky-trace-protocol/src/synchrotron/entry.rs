@@ -1,7 +1,7 @@
 use super::*;
 use rustc_hash::FxHashMap;
 use serde_with::serde_as;
-use vec_like::{OrderedSmallVecSet, SmallVecSet};
+use vec_like::{SmallVecSet};
 
 #[serde_as]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]

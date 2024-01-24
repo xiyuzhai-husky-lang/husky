@@ -137,7 +137,9 @@ fn resolve_module_path_works() {
     DB::default().vfs_plain_test(
         |db, module_path| {
             let abs_path = module_virtual_path(db, module_path).unwrap();
-            let item_path_resolved = db.resolve_module_path(abs_path.data(db)).unwrap();
+            let item_path_resolved = db
+                .resolve_module_path_and_update_live_packages(abs_path.data(db))
+                .unwrap();
             assert_eq!(module_path, item_path_resolved)
         },
         &VfsTestConfig::new("resolve-module-path"),

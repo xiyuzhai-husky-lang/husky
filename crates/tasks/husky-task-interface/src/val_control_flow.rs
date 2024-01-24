@@ -3,7 +3,7 @@ use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresentation, ValuePresenterCache,
 };
 use serde::{Deserialize, Serialize};
-use serde_impl::IsSerdeImpl;
+
 use std::{
     convert::Infallible,
     ops::{FromResidual, Try},

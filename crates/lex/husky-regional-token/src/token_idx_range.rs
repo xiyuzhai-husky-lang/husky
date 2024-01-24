@@ -37,13 +37,6 @@ impl RegionalTokenIdxRange {
         }
     }
 
-    pub(crate) fn from_indices(start: usize, end: usize) -> Self {
-        Self {
-            start: RegionalTokenIdxRangeStart(RegionalTokenIdx::from_index(start)),
-            end: RegionalTokenIdxRangeEnd(RegionalTokenIdx::from_index(end)),
-        }
-    }
-
     pub fn start(&self) -> RegionalTokenIdxRangeStart {
         self.start
     }

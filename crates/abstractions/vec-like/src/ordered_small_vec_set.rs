@@ -144,7 +144,7 @@ where
             Ok(old) => {
                 self.data.remove(old);
             }
-            Err(pos) => (),
+            Err(_pos) => (),
         }
     }
 
@@ -160,7 +160,7 @@ where
         K: Copy + PartialEq + Eq,
     {
         match self.data.binary_search(&value) {
-            Ok(old) => (),
+            Ok(_old) => (),
             Err(pos) => self.data.insert(pos, value),
         }
     }

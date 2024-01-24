@@ -1,10 +1,7 @@
 use either::Either;
 use husky_entity_path::PreludeTraitPath;
 use husky_hir_decl::HasHirDecl;
-use husky_hir_ty::{
-    HirConstSymbol, HirConstSymbolIndex, HirTemplateSymbol, HirTemplateSymbolClass,
-};
-use salsa::DebugWithDb;
+use husky_hir_ty::{HirConstSymbol, HirTemplateSymbol, HirTemplateSymbolClass};
 use smallvec::SmallVec;
 
 use super::*;
@@ -25,7 +22,6 @@ impl TranspileToRustWith for TraitForTypeItemHirDefn {
 
 impl TranspileToRustWith for TraitForTypeAssociatedFnHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
-        todo!();
         let db = builder.db();
         let Some((body, hir_eager_expr_region)) = self.eager_body_with_hir_eager_expr_region(db)
         else {
