@@ -32,36 +32,27 @@ impl TraitForTypeItemSynNodeDecl {
     pub fn syn_node_path(self, db: &::salsa::Db) -> TraitForTypeItemSynNodePath {
         match self {
             TraitForTypeItemSynNodeDecl::AssociatedFn(_) => todo!(),
-            TraitForTypeItemSynNodeDecl::MethodFn(decl) => decl.syn_node_path(db),
-            TraitForTypeItemSynNodeDecl::AssociatedType(decl) => decl.syn_node_path(db),
-            TraitForTypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
-        }
-    }
-
-    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
-        match self {
-            TraitForTypeItemSynNodeDecl::AssociatedFn(_) => todo!(),
-            TraitForTypeItemSynNodeDecl::MethodFn(_) => todo!(),
-            TraitForTypeItemSynNodeDecl::AssociatedType(_) => todo!(),
+            TraitForTypeItemSynNodeDecl::MethodFn(slf) => slf.syn_node_path(db),
+            TraitForTypeItemSynNodeDecl::AssociatedType(slf) => slf.syn_node_path(db),
             TraitForTypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
         }
     }
 
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
-            TraitForTypeItemSynNodeDecl::AssociatedFn(decl) => decl.syn_expr_region(db),
-            TraitForTypeItemSynNodeDecl::MethodFn(decl) => decl.syn_expr_region(db),
-            TraitForTypeItemSynNodeDecl::AssociatedType(decl) => decl.syn_expr_region(db),
-            TraitForTypeItemSynNodeDecl::AssociatedVal(decl) => decl.syn_expr_region(db),
+            TraitForTypeItemSynNodeDecl::AssociatedFn(slf) => slf.syn_expr_region(db),
+            TraitForTypeItemSynNodeDecl::MethodFn(slf) => slf.syn_expr_region(db),
+            TraitForTypeItemSynNodeDecl::AssociatedType(slf) => slf.syn_expr_region(db),
+            TraitForTypeItemSynNodeDecl::AssociatedVal(slf) => slf.syn_expr_region(db),
         }
     }
 
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
-            TraitForTypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.errors(db),
-            TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.errors(db),
-            TraitForTypeItemSynNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.errors(db),
-            TraitForTypeItemSynNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.errors(db),
+            TraitForTypeItemSynNodeDecl::AssociatedFn(slf) => slf.errors(db),
+            TraitForTypeItemSynNodeDecl::MethodFn(slf) => slf.errors(db),
+            TraitForTypeItemSynNodeDecl::AssociatedType(slf) => slf.errors(db),
+            TraitForTypeItemSynNodeDecl::AssociatedVal(slf) => slf.errors(db),
         }
     }
 }

@@ -35,36 +35,32 @@ impl ItemSynNodeDecl {
     pub fn syn_expr_region(self, db: &::salsa::Db) -> Option<SynExprRegion> {
         match self {
             ItemSynNodeDecl::Submodule(_) => None,
-            ItemSynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
-            ItemSynNodeDecl::ImplBlock(syn_node_decl) => Some(syn_node_decl.syn_expr_region(db)),
-            ItemSynNodeDecl::AssociatedItem(syn_node_decl) => {
-                syn_node_decl.syn_expr_region(db).into()
-            }
-            ItemSynNodeDecl::TypeVariant(_node_decl) => todo!(),
-            ItemSynNodeDecl::Attr(syn_node_decl) => Some(syn_node_decl.syn_expr_region(db)),
+            ItemSynNodeDecl::MajorItem(slf) => slf.syn_expr_region(db).into(),
+            ItemSynNodeDecl::ImplBlock(slf) => Some(slf.syn_expr_region(db)),
+            ItemSynNodeDecl::AssociatedItem(slf) => Some(slf.syn_expr_region(db)),
+            ItemSynNodeDecl::TypeVariant(slf) => Some(slf.syn_expr_region(db)),
+            ItemSynNodeDecl::Attr(slf) => Some(slf.syn_expr_region(db)),
         }
     }
 
     pub fn syn_node_path(self, db: &::salsa::Db) -> ItemSynNodePath {
         match self {
-            ItemSynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
-            ItemSynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
-            ItemSynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
-            ItemSynNodeDecl::AssociatedItem(syn_node_decl) => {
-                syn_node_decl.syn_node_path(db).into()
-            }
-            ItemSynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
+            ItemSynNodeDecl::Submodule(slf) => slf.syn_node_path(db).into(),
+            ItemSynNodeDecl::MajorItem(slf) => slf.syn_node_path(db).into(),
+            ItemSynNodeDecl::ImplBlock(slf) => slf.syn_node_path(db).into(),
+            ItemSynNodeDecl::AssociatedItem(slf) => slf.syn_node_path(db).into(),
+            ItemSynNodeDecl::TypeVariant(slf) => slf.syn_node_path(db).into(),
             ItemSynNodeDecl::Attr(_) => todo!(),
         }
     }
 
     pub fn node_decl_errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
-            ItemSynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.errors(db),
-            ItemSynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.errors(db),
-            ItemSynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.errors(db),
-            ItemSynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.errors(db),
-            ItemSynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.errors(db),
+            ItemSynNodeDecl::Submodule(slf) => slf.errors(db),
+            ItemSynNodeDecl::MajorItem(slf) => slf.errors(db),
+            ItemSynNodeDecl::ImplBlock(slf) => slf.errors(db),
+            ItemSynNodeDecl::AssociatedItem(slf) => slf.errors(db),
+            ItemSynNodeDecl::TypeVariant(slf) => slf.errors(db),
             ItemSynNodeDecl::Attr(_) => todo!(),
         }
     }
@@ -86,9 +82,9 @@ pub enum SynDecl {
 impl SynDecl {
     pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
-            SynDecl::MajorItem(decl) => decl.template_parameters(db),
-            SynDecl::ImplBlock(decl) => decl.template_parameters(db),
-            SynDecl::AssociatedItem(decl) => decl.template_parameters(db),
+            SynDecl::MajorItem(slf) => slf.template_parameters(db),
+            SynDecl::ImplBlock(slf) => slf.template_parameters(db),
+            SynDecl::AssociatedItem(slf) => slf.template_parameters(db),
             SynDecl::Submodule(_) | SynDecl::TypeVariant(_) | SynDecl::Attr(_) => &[],
         }
     }
@@ -96,22 +92,22 @@ impl SynDecl {
     pub fn syn_expr_region(self, db: &::salsa::Db) -> Option<SynExprRegion> {
         match self {
             SynDecl::Submodule(_) => None,
-            SynDecl::MajorItem(decl) => decl.syn_expr_region(db).into(),
-            SynDecl::ImplBlock(decl) => decl.syn_expr_region(db).into(),
-            SynDecl::AssociatedItem(decl) => decl.syn_expr_region(db).into(),
-            SynDecl::TypeVariant(decl) => todo!(),
+            SynDecl::MajorItem(slf) => slf.syn_expr_region(db).into(),
+            SynDecl::ImplBlock(slf) => slf.syn_expr_region(db).into(),
+            SynDecl::AssociatedItem(slf) => slf.syn_expr_region(db).into(),
+            SynDecl::TypeVariant(slf) => todo!(),
             SynDecl::Attr(_) => todo!(),
         }
     }
 
     pub fn path(self, db: &::salsa::Db) -> ItemPath {
         match self {
-            SynDecl::Submodule(decl) => decl.path(db).into(),
-            SynDecl::MajorItem(decl) => decl.path(db).into(),
-            SynDecl::ImplBlock(decl) => decl.path(db).into(),
-            SynDecl::AssociatedItem(decl) => decl.path(db).into(),
-            SynDecl::TypeVariant(decl) => decl.path(db).into(),
-            SynDecl::Attr(decl) => decl.path(db).into(),
+            SynDecl::Submodule(slf) => slf.path(db).into(),
+            SynDecl::MajorItem(slf) => slf.path(db).into(),
+            SynDecl::ImplBlock(slf) => slf.path(db).into(),
+            SynDecl::AssociatedItem(slf) => slf.path(db).into(),
+            SynDecl::TypeVariant(slf) => slf.path(db).into(),
+            SynDecl::Attr(slf) => slf.path(db).into(),
         }
     }
 }
