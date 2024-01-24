@@ -12,7 +12,7 @@ pub trait VfsDb {
     ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>>;
     fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
     fn collect_probable_modules(&self, package_path: PackagePath) -> Vec<ModulePath>;
-    fn resolve_module_path(&self, path: &Path) -> VfsResult<ModulePath>;
+    fn resolve_module_path_and_update_live_packages(&self, path: &Path) -> VfsResult<ModulePath>;
     fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path;
 }
 
@@ -267,7 +267,9 @@ impl VfsDb for Db {
     /// toolchain is
     /// - equal to the first live package's toolchain if live packages are not empty
     /// - equal to the toolchain found by iterating through config files under path's ancestry
-    fn resolve_module_path(&self, path: &Path) -> VfsResult<ModulePath> {
+    ///
+    /// this will also update live packages
+    fn resolve_module_path_and_update_live_packages(&self, path: &Path) -> VfsResult<ModulePath> {
         let toolchain = match self.live_packages().unwrap().first() {
             Some(package_path) => package_path.toolchain(self),
             None => crate::toolchain_config::toolchain_config(path, self).toolchain(),

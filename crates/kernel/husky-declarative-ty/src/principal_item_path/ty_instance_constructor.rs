@@ -97,8 +97,8 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
 #[test]
 fn ty_instance_constructor_path_declarative_ty_works() {
     DB::default().ast_expect_test_debug_with_db(
-        |db, module_path: ModulePath| {
-            module_item_paths(db, module_path)
+        |db, module_path: husky_vfs::ModulePath| {
+            husky_entity_syn_tree::helpers::paths::module_item_paths(db, module_path)
                 .iter()
                 .filter_map(|&module_item_path| match module_item_path {
                     ItemPath::MajorItem(MajorItemPath::Type(ty_path)) => Some((

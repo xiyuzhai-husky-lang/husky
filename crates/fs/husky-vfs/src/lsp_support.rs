@@ -2,7 +2,7 @@ use crate::*;
 use salsa::Db;
 
 pub fn set_live_file(db: &mut Db, path: &Path, text: String) -> VfsResult<()> {
-    update_live_packages(db, path);
+    db.resolve_module_path_and_update_live_packages(path)?;
     db.set_content(path, FileContent::LiveDoc(text))
 }
 
@@ -13,24 +13,11 @@ pub fn apply_live_file_changes(
     path: &Path,
     changes: Vec<lsp_types::TextDocumentContentChangeEvent>,
 ) -> VfsResult<()> {
-    update_live_packages(db, path);
+    db.resolve_module_path_and_update_live_packages(path)?;
     update_content(db, path, |text| {
         husky_text_protocol::change::apply_document_changes(text, changes)
     })?;
     Ok(())
-}
-
-fn update_live_packages(db: &::salsa::Db, path: &Path) {
-    // ad hoc
-    // I forgot what to do here
-    // if let Ok(toolchain) = db.current_toolchain() {
-    //     match db.resolve_module_path(toolchain, path) {
-    //         Ok(_) => {
-    //             db.live_packages()
-    //             todo!()},
-    //         Err(_) => todo!(),
-    //     };
-    // }
 }
 
 fn update_content(db: &mut Db, path: &Path, f: impl FnOnce(&mut String)) -> VfsResult<()> {

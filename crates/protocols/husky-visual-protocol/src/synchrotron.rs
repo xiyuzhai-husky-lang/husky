@@ -1,8 +1,7 @@
 pub mod action;
 
 use self::action::{
-    VisualSynchrotronAction, VisualSynchrotronActionOutcome, VisualSynchrotronActionsDiff,
-    VisualSynchrotronStatus,
+    VisualSynchrotronAction, VisualSynchrotronActionOutcome,
 };
 use crate::visual::{VisualArena, VisualData, VisualId};
 use serde::{Deserialize, Serialize};

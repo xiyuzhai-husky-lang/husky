@@ -91,8 +91,8 @@ where
                     .toggle_associated_traces(associated_trace_id);
             }
             TraceSynchrotronAction::ToggleAssociatedTrace {
-                trace_id,
-                associated_trace_id,
+                trace_id: _,
+                associated_trace_id: _,
             } => todo!(),
             &TraceSynchrotronAction::FollowTrace { trace_id } => {
                 synchrotron.followed_trace_id = Some(trace_id)
@@ -117,15 +117,15 @@ where
                 figure.clone(),
             ),
             TraceSynchrotronAction::CacheStalk {
-                pedestal,
-                trace_id,
-                stalk,
+                pedestal: _,
+                trace_id: _,
+                stalk: _,
             } => todo!(),
             TraceSynchrotronAction::CacheFigure {
-                pedestal,
-                followed_trace_id,
-                accompanying_trace_ids_except_followed: accompanying_trace_ids,
-                figure,
+                pedestal: _,
+                followed_trace_id: _,
+                accompanying_trace_ids_except_followed: _accompanying_trace_ids,
+                figure: _,
             } => todo!(),
             &TraceSynchrotronAction::ToggleAccompany { trace_id } => {
                 synchrotron.accompanying_trace_ids.toggle(trace_id)

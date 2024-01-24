@@ -1,5 +1,5 @@
 use super::*;
-use ::egui::{vec2, Button, Color32, Frame, Label, RichText, TextStyle, Ui, Widget};
+use ::egui::{vec2, Button, Color32, RichText, TextStyle, Ui, Widget};
 use husky_trace_protocol::{pedestal::PedestalUi, view::action::TraceViewAction};
 
 impl PedestalUi<Ui> for MlPedestal {

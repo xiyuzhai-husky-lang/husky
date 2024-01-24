@@ -95,7 +95,7 @@ impl SynDecl {
             SynDecl::MajorItem(slf) => slf.syn_expr_region(db).into(),
             SynDecl::ImplBlock(slf) => slf.syn_expr_region(db).into(),
             SynDecl::AssociatedItem(slf) => slf.syn_expr_region(db).into(),
-            SynDecl::TypeVariant(slf) => todo!(),
+            SynDecl::TypeVariant(_slf) => todo!(),
             SynDecl::Attr(_) => todo!(),
         }
     }

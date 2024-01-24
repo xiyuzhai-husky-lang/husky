@@ -1,6 +1,6 @@
 use crate::*;
 use husky_task_interface::pedestal::{IsPedestal, IsPedestalFull};
-use husky_visual_protocol::synchrotron::VisualSynchrotron;
+
 use ui::ui::IsUi;
 
 use self::view::action::TraceViewActionBuffer;

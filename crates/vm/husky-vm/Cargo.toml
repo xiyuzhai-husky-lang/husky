@@ -28,7 +28,6 @@ husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-any = { path = "../../vm/husky-any" }
 husky-text-protocol.workspace = true
 husky-vm-register-method = { path = "../husky-vm-register-method" }
-thin-vec = { path = "../../abstractions/thin-vec" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
     "binding",
     "extra",

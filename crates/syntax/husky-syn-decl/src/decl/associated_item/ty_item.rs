@@ -133,8 +133,8 @@ impl TypeItemSynDecl {
             TypeItemSynDecl::MethodFn(slf) => slf.template_parameters(db),
             // TypeItemSynDecl::MethodFunction(decl) => todo!(),
             TypeItemSynDecl::AssociatedType(slf) => slf.template_parameters(db),
-            TypeItemSynDecl::AssociatedVal(slf) => &[],
-            TypeItemSynDecl::MemoizedField(slf) => &[],
+            TypeItemSynDecl::AssociatedVal(_slf) => &[],
+            TypeItemSynDecl::MemoizedField(_slf) => &[],
         }
     }
 

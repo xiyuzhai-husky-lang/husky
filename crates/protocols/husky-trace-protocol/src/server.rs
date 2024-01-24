@@ -8,10 +8,7 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
-use husky_task_interface::{
-    pedestal::{IsPedestal, IsPedestalFull},
-    val_repr::ValReprInterface,
-};
+use husky_task_interface::{pedestal::IsPedestalFull, val_repr::ValReprInterface};
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
@@ -136,7 +133,6 @@ but client's trace protocol is of type `{trace_protocol_type_name}`."#,
                 view_action,
                 trace_synchrotron_status,
             } => {
-                use husky_print_utils::p;
                 let Some(ref mut _cache) = self.trace_synchrotron else {
                     unreachable!()
                 };

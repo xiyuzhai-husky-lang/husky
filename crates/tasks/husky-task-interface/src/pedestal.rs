@@ -36,5 +36,5 @@ impl IsPedestal for () {
 impl IsPedestalUiBuffer for () {
     type Pedestal = ();
 
-    fn update(&mut self, pedestal: Self::Pedestal) {}
+    fn update(&mut self, _pedestal: Self::Pedestal) {}
 }

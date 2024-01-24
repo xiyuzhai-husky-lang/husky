@@ -110,7 +110,7 @@ impl TraitItemSynDecl {
             TraitItemSynDecl::AssociatedFn(slf) => slf.template_parameters(db),
             TraitItemSynDecl::MethodFn(slf) => slf.template_parameters(db),
             TraitItemSynDecl::AssociatedType(slf) => slf.template_parameters(db),
-            TraitItemSynDecl::AssociatedVal(slf) => &[],
+            TraitItemSynDecl::AssociatedVal(_slf) => &[],
         }
     }
 
