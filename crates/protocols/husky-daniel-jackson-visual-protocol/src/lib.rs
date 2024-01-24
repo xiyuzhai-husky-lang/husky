@@ -18,20 +18,20 @@ pub struct DanielJacksonFigure;
 
 impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for DanielJacksonFigure {
     fn new_specific(
-        followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
-        accompanyings: &[(TraceId, ValReprInterface)],
-        f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
-        visual_synchrotron: &mut VisualSynchrotron,
+        _followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        _accompanyings: &[(TraceId, ValReprInterface)],
+        _f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
+        _visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         todo!()
     }
 
     fn new_generic(
-        followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
-        accompanyings: &[(TraceId, ValReprInterface)],
-        pedestals: impl Iterator<Item = Pedestal>,
-        f: impl FnMut(ValReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
-        visual_synchrotron: &mut VisualSynchrotron,
+        _followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        _accompanyings: &[(TraceId, ValReprInterface)],
+        _pedestals: impl Iterator<Item = Pedestal>,
+        _f: impl FnMut(ValReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
+        _visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         todo!()
     }
