@@ -6,7 +6,7 @@ use rust_optimal_transport as ot; // max()
 #[test]
 fn try_ot() {
     // Generate data by sampling a 2D gaussian distribution
-    let n = 100;
+    let n = 1000;
 
     let mu_source = array![0., 0.];
     let cov_source = array![[1., 0.], [0., 1.]];
