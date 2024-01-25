@@ -101,3 +101,6 @@ fix:
 
 clean-mnist:
 	cd examples/mnist-classifier/target-rs && cargo clean
+
+mnist-game:
+	cargo run -p husky-mnist-game

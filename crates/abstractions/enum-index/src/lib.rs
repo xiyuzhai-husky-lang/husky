@@ -10,4 +10,10 @@ pub trait IsEnumIndex: Copy + Eq {
     fn from_index(index: usize) -> Self;
 
     fn index(self) -> usize;
+
+    fn all() -> impl Iterator<Item = Self> {
+        (0..Self::N)
+            .into_iter()
+            .map(|index| Self::from_index(index))
+    }
 }

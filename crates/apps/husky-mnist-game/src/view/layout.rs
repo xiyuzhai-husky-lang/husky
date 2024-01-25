@@ -1,10 +1,15 @@
+use self::components::trace_view::TraceView;
 use super::*;
-use egui::{Color32, Frame, Sense, TopBottomPanel, Vec2, Widget};
+use egui::{Color32, Frame, Sense, SidePanel, TopBottomPanel, Vec2, Widget};
 
 impl MnistApp {
     pub(super) fn layout(&mut self, ctx: &egui::Context) {
+        SidePanel::left("trace view").show(ctx, |ui| {
+            let channel = self.current_channel_mut();
+            TraceView::new(channel.trace_selection_mut()).ui(ui);
+        });
         TopBottomPanel::bottom("control bar")
-            .frame(Frame::none().inner_margin(5.0).stroke((1.0, Color32::BLUE)))
+            .frame(Frame::none().inner_margin(5.0))
             .show(ctx, |ui| ui.vertical(|ui| self.control_mut().ui(ui)));
         self.layout_channels(ctx);
     }
