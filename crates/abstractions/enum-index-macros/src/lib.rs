@@ -20,7 +20,7 @@ pub fn derive_is_enum_index(input: proc_macro::TokenStream) -> proc_macro::Token
         }
     }
     quote::quote! {
-        impl #generics enum_index::IsEnumIndex for #ty_ident #generics {
+        impl #generics ::enum_index::IsEnumIndex for #ty_ident #generics {
             const N: usize = #n;
 
             fn from_index(index: usize) -> Self {
