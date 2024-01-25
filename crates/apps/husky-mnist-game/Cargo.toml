@@ -12,3 +12,5 @@ imageproc.workspace = true
 # abstractions
 shifted-unsigned-int.workspace = true
 enum-index.workspace = true
+# protocols
+husky-visual-protocol.workspace = true

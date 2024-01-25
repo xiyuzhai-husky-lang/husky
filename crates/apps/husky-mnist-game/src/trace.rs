@@ -1,5 +1,6 @@
-use crate::{op::snap::MnistOpSnap, values::input::Input};
+use crate::{op::snap::MnistOpSnap, values::input::Input, MnistDb};
 use enum_index::{bitset::EnumBitSet, IsEnumIndex};
+use husky_visual_protocol::visual::Visual;
 
 #[derive(IsEnumIndex, Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Trace {
@@ -12,17 +13,14 @@ pub enum Trace {
 pub const ALL_TRACES: &[Trace] = &[Trace::Input];
 
 impl Trace {
-    pub(crate) fn value<'a>(
-        self,
-        input: &'a Input,
-        op_snap: &'a MnistOpSnap,
-    ) -> &'a dyn std::any::Any {
-        match self {
-            Trace::Input => input,
-            Trace::Skeleton => todo!(),
-            Trace::ImageFromSkeleton => todo!(),
-            Trace::OptimalTransport => todo!(),
-        }
+    pub(crate) fn visual<'a>(self, db: &'a MnistDb, op_snap: &'a MnistOpSnap) -> Visual {
+        // match self {
+        //     Trace::Input => db.input(),
+        //     Trace::Skeleton => todo!(),
+        //     Trace::ImageFromSkeleton => todo!(),
+        //     Trace::OptimalTransport => todo!(),
+        // }
+        todo!()
     }
 
     pub(crate) fn code(self) -> &'static str {
@@ -50,5 +48,9 @@ impl Default for TraceSelection {
 impl TraceSelection {
     pub fn set_mut(&mut self) -> &mut EnumBitSet<Trace> {
         &mut self.set
+    }
+
+    pub(crate) fn set(&self) -> EnumBitSet<Trace> {
+        self.set
     }
 }

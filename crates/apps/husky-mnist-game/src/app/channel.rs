@@ -38,15 +38,12 @@ impl MnistChannel {
         }
     }
 
+    pub fn trace_selection(&self) -> &TraceSelection {
+        &self.trace_selection
+    }
+
     pub fn trace_selection_mut(&mut self) -> &mut TraceSelection {
         &mut self.trace_selection
-    }
-}
-
-/// # ui
-impl MnistChannel {
-    pub(crate) fn ui(&self, ui: &mut egui::Ui) {
-        ui.label("channel");
     }
 }
 

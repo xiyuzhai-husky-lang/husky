@@ -1,4 +1,4 @@
-use self::components::trace_view::TraceView;
+use self::components::traces::TracesView;
 use super::*;
 use egui::{Color32, Frame, Sense, SidePanel, TopBottomPanel, Vec2, Widget};
 
@@ -6,7 +6,7 @@ impl MnistApp {
     pub(super) fn layout(&mut self, ctx: &egui::Context) {
         SidePanel::left("trace view").show(ctx, |ui| {
             let channel = self.current_channel_mut();
-            TraceView::new(channel.trace_selection_mut()).ui(ui);
+            TracesView::new(channel.trace_selection_mut()).ui(ui);
         });
         TopBottomPanel::bottom("control bar")
             .frame(Frame::none().inner_margin(5.0))
@@ -25,7 +25,9 @@ impl MnistApp {
                         let (_, response) =
                             ui.allocate_exact_size(Vec2::splat(grid_size), Sense::hover());
                         ui.allocate_ui_at_rect(response.rect, |ui| {
-                            self.channels()[i * number_of_columns + j].ui(ui)
+                            self.channels[i * number_of_columns + j]
+                                .figure(&self.db, &mut self.ui_cache)
+                                .ui(ui)
                         });
                     }
                     ui.end_row()

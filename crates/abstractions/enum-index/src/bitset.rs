@@ -59,13 +59,10 @@ where
         ((self.data[i] >> j) & 1) != 0
     }
 
-    pub fn to_vec(self) -> Vec<I> {
-        (0..I::N)
-            .into_iter()
-            .filter_map(|index| {
-                let elem = I::from_index(index);
-                self.contains(elem).then_some(elem)
-            })
-            .collect()
+    pub fn iter(self) -> impl Iterator<Item = I> {
+        (0..I::N).into_iter().filter_map(move |index| {
+            let elem = I::from_index(index);
+            self.contains(elem).then_some(elem)
+        })
     }
 }

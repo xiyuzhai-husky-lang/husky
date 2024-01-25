@@ -12,11 +12,11 @@ use egui::{SidePanel, TopBottomPanel, Widget};
 
 pub(crate) struct MnistApp {
     // backend
-    db: MnistDb,
+    pub(crate) db: MnistDb,
     // frontend
-    control: MnistControl,
-    channels: MnistChannels,
-    ui_cache: MnistUiCache,
+    pub(crate) control: MnistControl,
+    pub(crate) channels: MnistChannels,
+    pub(crate) ui_cache: MnistUiCache,
 }
 
 /// # getters
