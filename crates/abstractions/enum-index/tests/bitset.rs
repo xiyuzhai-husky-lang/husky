@@ -2,7 +2,7 @@ use enum_index::bitset::EnumBitSet;
 use enum_index_macros::IsEnumIndex;
 
 #[test]
-fn enum_bit_set_insert_remove_works() {
+fn enum_bit_set_insert_remove_toggle_works() {
     use Animal::*;
 
     #[derive(Debug, Clone, Copy, PartialEq, Eq, IsEnumIndex)]
@@ -33,4 +33,14 @@ fn enum_bit_set_insert_remove_works() {
     t(set, &[Dog]);
     set.remove(Dog);
     t(set, &[]);
+    set.remove(Dog);
+    t(set, &[]);
+    set.toggle(Dog);
+    t(set, &[Dog]);
+    set.toggle(Dog);
+    t(set, &[]);
+    set.insert(Cat);
+    set.insert(Dog);
+    set.toggle(Cat);
+    t(set, &[Dog]);
 }

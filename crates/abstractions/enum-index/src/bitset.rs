@@ -42,6 +42,14 @@ where
         let index = elem.index();
         let i = index / 8;
         let j = index % 8;
+        self.data[i] &= !(1u8 << j);
+    }
+    
+
+    pub fn toggle(&mut self, elem: I) {
+        let index = elem.index();
+        let i = index / 8;
+        let j = index % 8;
         self.data[i] ^= 1u8 << j;
     }
 
