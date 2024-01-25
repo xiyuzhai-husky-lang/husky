@@ -1,4 +1,5 @@
 #![feature(generic_const_exprs)]
+mod alg;
 mod app;
 mod db;
 mod op;
