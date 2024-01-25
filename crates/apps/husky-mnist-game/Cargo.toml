@@ -9,6 +9,9 @@ eframe.workspace = true
 egui.workspace = true
 image.workspace = true
 imageproc.workspace = true
+ndarray.workspace = true
+ndarray-stats.workspace = true
+rust-optimal-transport.workspace = true
 # abstractions
 shifted-unsigned-int.workspace = true
 enum-index.workspace = true
