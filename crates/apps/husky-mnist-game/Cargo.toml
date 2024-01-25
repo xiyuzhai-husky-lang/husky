@@ -5,5 +5,10 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+eframe.workspace = true
+egui.workspace = true
 image.workspace = true
 imageproc.workspace = true
+# abstractions
+shifted-unsigned-int.workspace = true
+enum-index.workspace = true
