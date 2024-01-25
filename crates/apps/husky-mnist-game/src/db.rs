@@ -42,6 +42,10 @@ impl MnistDb {
     pub fn frames(&self, input_id: InputId) -> &[MnistOpSnap] {
         self[input_id].op_snaps.as_ref()
     }
+
+    pub(crate) fn input(&self) -> &Input {
+        todo!()
+    }
 }
 
 impl std::ops::Index<InputId> for MnistDb {

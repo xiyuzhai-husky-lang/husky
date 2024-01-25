@@ -13,7 +13,7 @@ fn enum_bit_set_insert_remove_toggle_works() {
     }
 
     fn t(set: EnumBitSet<Animal>, animals: &[Animal]) {
-        assert_eq!(&set.to_vec(), animals)
+        assert_eq!(&set.iter().collect::<Vec<_>>(), animals)
     }
 
     let mut set: EnumBitSet<Animal> = Default::default();

@@ -2,17 +2,17 @@ use super::*;
 use crate::trace::{Trace, TraceSelection};
 use enum_index::bitset::EnumBitSet;
 
-pub struct TraceView<'a> {
+pub struct TracesView<'a> {
     trace_selection: &'a mut TraceSelection,
 }
 
-impl<'a> TraceView<'a> {
+impl<'a> TracesView<'a> {
     pub fn new(trace_selection: &'a mut TraceSelection) -> Self {
         Self { trace_selection }
     }
 }
 
-impl<'a> egui::Widget for TraceView<'a> {
+impl<'a> egui::Widget for TracesView<'a> {
     fn ui(self, ui: &mut egui::Ui) -> egui::Response {
         use enum_index::IsEnumIndex;
 
