@@ -1,5 +1,5 @@
 use crate::{InputId, MnistDb};
-use egui::Slider;
+use egui::{vec2, Slider};
 
 pub struct MnistControl {
     input_id: InputId,
@@ -21,8 +21,12 @@ impl MnistControl {
 
 impl egui::Widget for &mut MnistControl {
     fn ui(self, ui: &mut egui::Ui) -> egui::Response {
-        ui.label("time");
-        ui.style_mut().spacing.slider_width = ui.available_width() - 155.0;
-        Slider::new(&mut self.frame_idx, 0..=(self.number_of_frames - 1)).ui(ui)
+        ui.allocate_space(vec2(0.0, 1.0));
+        ui.horizontal(|ui| {
+            ui.label("time");
+            ui.style_mut().spacing.slider_width = ui.available_width() - 55.0;
+            Slider::new(&mut self.frame_idx, 0..=(self.number_of_frames - 1)).ui(ui)
+        })
+        .response
     }
 }

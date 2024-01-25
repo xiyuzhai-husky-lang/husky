@@ -1,10 +1,12 @@
 use crate::{op::snap::MnistOpSnap, values::input::Input};
-use enum_index::IsEnumIndex;
+use enum_index::{bitset::EnumBitSet, IsEnumIndex};
 
 #[derive(IsEnumIndex, Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Trace {
     Input,
-    Other,
+    Skeleton,
+    ImageFromSkeleton,
+    OptimalTransport,
 }
 
 pub const ALL_TRACES: &[Trace] = &[Trace::Input];
@@ -17,21 +19,36 @@ impl Trace {
     ) -> &'a dyn std::any::Any {
         match self {
             Trace::Input => input,
-            Trace::Other => todo!(),
+            Trace::Skeleton => todo!(),
+            Trace::ImageFromSkeleton => todo!(),
+            Trace::OptimalTransport => todo!(),
+        }
+    }
+
+    pub(crate) fn code(self) -> &'static str {
+        match self {
+            Trace::Input => "input",
+            Trace::Skeleton => "skeleton",
+            Trace::ImageFromSkeleton => "image from skeleton",
+            Trace::OptimalTransport => "optimal transport",
         }
     }
 }
 
 pub struct TraceSelection {
-    flags: Vec<bool>,
+    set: EnumBitSet<Trace>,
 }
 
 impl Default for TraceSelection {
     fn default() -> Self {
-        let flags = (0..(<Trace as IsEnumIndex>::N))
-            .into_iter()
-            .map(|_| false)
-            .collect();
-        Self { flags }
+        Self {
+            set: Default::default(),
+        }
+    }
+}
+
+impl TraceSelection {
+    pub fn set_mut(&mut self) -> &mut EnumBitSet<Trace> {
+        &mut self.set
     }
 }

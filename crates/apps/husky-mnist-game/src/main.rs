@@ -1,10 +1,10 @@
+#![feature(generic_const_exprs)]
 mod app;
-mod components;
 mod db;
-mod layout;
 mod op;
 mod trace;
 mod values;
+mod view;
 
 use self::app::*;
 use self::db::*;
