@@ -3,10 +3,10 @@ name = "malamute"
 edition = "2021"
 version = "0.1.0"
 
-[workspace]
-
 [dependencies]
-husky-core = { path = "../../library/core" }
-ad-hoc-task-dependency = { path = "../../registry/ad-hoc-task-dependency" }
-smallvec = { version = "1.12", features = ["union", "serde"] }
-serde = "1.0.106"
+smallvec.workspace = true
+serde.workspace = true
+# library
+husky-core.workspace = true
+# registry
+ad-hoc-task-dependency.workspace = true

@@ -9,8 +9,8 @@ use super::*;
 #[salsa::deref_id]
 pub struct TraitForTypeImplBlockSynNodePath(ItemSynNodePathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[salsa::as_id(jar = EntitySynTreeJar)]
 pub struct TraitForTypeImplBlockSynNodePathData {
     pub(crate) path: TraitForTypeImplBlockPath,

@@ -14,7 +14,7 @@ pub struct MnistDataset {
 impl MnistDataset {
     fn new(seed: u64) -> Self {
         let (images, labels) = load_mnist_images_and_labels();
-        let permutation = husky_xrng_utils::generate_random_permutation(60000, seed);
+        let permutation = husky_rng_utils::generate_random_permutation(60000, seed);
         // debug ci
         #[cfg(test)]
         println!("permutation[0] = {}", permutation[0]);

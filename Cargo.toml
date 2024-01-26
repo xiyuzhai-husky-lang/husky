@@ -20,7 +20,9 @@ members = [
     "crates/tasks/*",
     "crates/utils/*",
     "crates/vm/*",
-    "crates/benchmarks/*"
+    "crates/benchmarks/*",
+    "library/core",
+    "registry/*"
 ]
 resolver = "2"
 
@@ -64,6 +66,7 @@ futures-util = { version = "0.3", default-features = false, features = [
 fxhash = "0.2.1"
 image = "0.24.8"
 imageproc = "0.23.0"
+lazy_static = "1.4.0"
 libloading = "0.8.1"
 lsp-types = { version = "=0.95.0", features = ["proposed"] }
 ndarray = "0.15.6"
@@ -199,6 +202,7 @@ husky-macro-utils = { path = "crates/utils/husky-macro-utils" }
 husky-path-utils = { path = "crates/utils/husky-path-utils" }
 husky-print-utils = { path = "crates/utils/husky-print-utils" }
 husky-toml-utils = { path = "crates/utils/husky-toml-utils" }
+husky-rng-utils = { path = "crates/utils/husky-rng-utils" }
 husky-unicode-symbols = { path = "crates/utils/husky-unicode-symbols" }
 # val
 husky-val = { path = "crates/val/husky-val" }
@@ -207,3 +211,8 @@ husky-val-repr = { path = "crates/val/husky-val-repr" }
 husky-standard-value = { path = "crates/vm/husky-standard-value" }
 husky-standard-value-macros = { path = "crates/vm/husky-standard-value-macros" }
 husky-vm = { path = "crates/vm/husky-vm" }
+# library
+husky-core = { path = "library/core" }
+# registry
+ad-hoc-task-dependency = { path = "registry/ad-hoc-task-dependency" }
+malamute = { path = "registry/malamute-0.1.0" }

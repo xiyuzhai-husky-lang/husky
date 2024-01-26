@@ -1,4 +1,4 @@
-use husky_xrng_utils::XRng;
+use husky_rng_utils::XRng;
 
 use super::*;
 
