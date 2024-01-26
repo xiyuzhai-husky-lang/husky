@@ -20,6 +20,10 @@ impl TraceId {
     pub fn from_index(index: usize) -> Self {
         Self(index.into())
     }
+
+    pub fn index(self) -> usize {
+        self.0.into()
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]

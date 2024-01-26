@@ -1,12 +1,22 @@
 use crate::IsEnumIndex;
 
 /// (I::N + 7) / 8 is always equal to ((I::N as f32)/8.0).ceil()
-#[derive(Debug, Clone, Copy)]
+#[derive(Clone, Copy)]
 pub struct EnumBitSet<I: IsEnumIndex>
 where
     [(); (I::N + 7) / 8]:,
 {
     data: [u8; (I::N + 7) / 8],
+}
+
+impl<I: IsEnumIndex> std::fmt::Debug for EnumBitSet<I>
+where
+    [(); (I::N + 7) / 8]:,
+    I: std::fmt::Debug,
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.to_vec().fmt(f)
+    }
 }
 
 impl<I: IsEnumIndex> Default for EnumBitSet<I>
@@ -64,5 +74,9 @@ where
             let elem = I::from_index(index);
             self.contains(elem).then_some(elem)
         })
+    }
+
+    pub fn to_vec(&self) -> Vec<I> {
+        self.iter().collect::<Vec<_>>()
     }
 }

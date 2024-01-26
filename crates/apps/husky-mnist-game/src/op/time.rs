@@ -5,6 +5,10 @@ use shifted_unsigned_int::ShiftedU32;
 pub struct OpTime(ShiftedU32);
 
 impl OpTime {
+    pub fn from_index(index: usize) -> Self {
+        Self(index.into())
+    }
+
     pub fn index(self) -> usize {
         self.0.into()
     }

@@ -20,18 +20,6 @@ pub struct FigureView<'a> {
 pub type Figure = Graphics2dFigure<MlPedestal>;
 
 impl MnistChannel {
-    pub(in super::super) fn figure_view<'a>(
-        &'a self,
-        db: &'a MnistDb,
-        ui_cache: &'a mut MnistUiCache,
-    ) -> FigureView<'a> {
-        FigureView {
-            trace_selection: self.trace_selection(),
-            db,
-            ui_cache,
-        }
-    }
-
     pub(in super::super) fn figure<'a>(
         &'a self,
         pedestal: MlPedestal,
@@ -39,40 +27,31 @@ impl MnistChannel {
         db: &'a MnistDb,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Figure {
-        let accompanyings_expect_followed = self
-            .trace_selection()
-            .set()
-            .iter()
-            .map(|trace| (trace.into(), trace.into()))
-            .collect::<Vec<_>>();
+        let accompanyings_except_followed = self.accompanyings_except_followed();
         match pedestal {
-            MlPedestal::Specific(input_id) => {
-                let op_snap = db.op_snap(input_id, op_time);
-                Figure::new_specific(
-                    None,
-                    &accompanyings_expect_followed,
-                    |val_repr_interface, visual_synchrotron| {
-                        let trace: Trace = val_repr_interface.into();
-                        trace.visual(db, op_snap)
-                    },
-                    visual_synchrotron,
-                )
-            }
+            MlPedestal::Specific(input_id) => Figure::new_specific(
+                None,
+                &accompanyings_except_followed,
+                |val_repr_interface, visual_synchrotron| {
+                    let trace: Trace = val_repr_interface.into();
+                    trace.visual(db, input_id, op_time)
+                },
+                visual_synchrotron,
+            ),
             MlPedestal::Generic => todo!(),
         }
     }
-}
 
-impl<'a> FigureView<'a> {}
-
-impl<'a> egui::Widget for FigureView<'a> {
-    fn ui(self, ui: &mut egui::Ui) -> egui::Response {
-        Frame::none()
-            .show(ui, |ui| {
-                for trace in self.trace_selection.set().iter() {
-                    trace.visual(self.db, todo!());
-                }
-            })
-            .response
+    pub(in super::super) fn accompanyings_except_followed(
+        &self,
+    ) -> Vec<(
+        husky_trace_protocol::id::TraceId,
+        husky_task_interface::val_repr::ValReprInterface,
+    )> {
+        self.trace_selection()
+            .set()
+            .iter()
+            .map(|trace| (trace.into(), trace.into()))
+            .collect::<Vec<_>>()
     }
 }

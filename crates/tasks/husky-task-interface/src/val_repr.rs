@@ -4,6 +4,16 @@ use smallvec::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct ValReprInterface(ShiftedU32);
 
+impl ValReprInterface {
+    pub fn from_index(index: usize) -> Self {
+        Self(index.into())
+    }
+
+    pub fn index(self) -> usize {
+        self.0.into()
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ValDomainReprInterface {
     /// everything

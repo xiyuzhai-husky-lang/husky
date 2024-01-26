@@ -6,7 +6,7 @@ lazy_static::lazy_static! {
 }
 
 pub struct MnistDataset {
-    images: Vec<BinaryImage28>,
+    inputs: Vec<BinaryImage28>,
     labels: Vec<MnistLabel>,
     permutation: Vec<u32>,
 }
@@ -19,33 +19,37 @@ impl Default for MnistDataset {
 
 impl MnistDataset {
     fn new(seed: u64) -> Self {
-        let (images, labels) = load_mnist_images_and_labels();
+        let (inputs, labels) = load_mnist_inputs_and_labels();
         let permutation = husky_rng_utils::generate_random_permutation(60000, seed);
         // debug ci
         #[cfg(test)]
         println!("permutation[0] = {}", permutation[0]);
         debug_assert_eq!(permutation[0], 17306);
         Self {
-            images,
+            inputs,
             labels,
             permutation,
         }
     }
 
-    pub(crate) fn input(&'static self, sample_id: InputId) -> &'static BinaryImage28 {
-        &self.images[self.index(sample_id)]
+    pub fn input(&self, input_id: InputId) -> &BinaryImage28 {
+        &self.inputs[self.index(input_id)]
     }
 
-    pub(crate) fn label(&'static self, sample_id: InputId) -> MnistLabel {
-        self.labels[self.index(sample_id)]
+    pub fn label(&self, input_id: InputId) -> MnistLabel {
+        self.labels[self.index(input_id)]
     }
 
-    fn index(&'static self, sample_id: InputId) -> usize {
-        self.permutation[sample_id.index()] as usize
+    fn index(&self, input_id: InputId) -> usize {
+        self.permutation[input_id.index()] as usize
+    }
+
+    pub fn inputs(&self) -> &[BinaryImage28] {
+        self.inputs.as_ref()
     }
 }
 
-fn load_mnist_images_and_labels() -> (Vec<BinaryImage28>, Vec<MnistLabel>) {
+fn load_mnist_inputs_and_labels() -> (Vec<BinaryImage28>, Vec<MnistLabel>) {
     let mut images: Vec<BinaryImage28> = vec![];
     let mut labels: Vec<MnistLabel> = vec![];
     let mut dir: &std::path::Path = &std::env::current_dir().unwrap();
@@ -63,8 +67,8 @@ fn load_mnist_images_and_labels() -> (Vec<BinaryImage28>, Vec<MnistLabel>) {
         }
     };
     assert_eq!(file_content.len(), 60000 * (1 + 28 * 4));
-    for sample_idx in 0..60000 {
-        let base = sample_idx * (1 + 28 * 4);
+    for input_idx in 0..60000 {
+        let base = input_idx * (1 + 28 * 4);
         labels.push(file_content[base].into());
         images.push(BinaryImage28::read(
             &file_content[(base + 1)..(base + 1 + 28 * 4)],

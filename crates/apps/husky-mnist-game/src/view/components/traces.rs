@@ -18,12 +18,13 @@ impl<'a> egui::Widget for TracesView<'a> {
 
         ui.vertical(|ui| {
             let set = self.trace_selection.set_mut();
+            use husky_print_utils::p;
             for trace in Trace::all() {
                 let mut selected = set.contains(trace);
                 let old_selected = selected;
-                ui.radio_value(&mut selected, true, trace.code());
+                ui.checkbox(&mut selected, trace.code());
                 if selected != old_selected {
-                    set.toggle(trace)
+                    set.toggle(trace);
                 }
                 ui.separator();
             }

@@ -17,6 +17,8 @@ pub(crate) struct MnistApp {
     pub(crate) control: MnistControl,
     pub(crate) channels: MnistChannels,
     pub(crate) ui_cache: MnistUiCache,
+    // synchrotron
+    pub(crate) visual_synchrotron: VisualSynchrotron,
 }
 
 /// # getters
@@ -32,7 +34,8 @@ impl MnistApp {
 
 impl Default for MnistApp {
     fn default() -> Self {
-        let db = MnistDb::default();
+        let mut visual_synchrotron = Default::default();
+        let db = MnistDb::new(&mut visual_synchrotron);
         let control = MnistControl::new(&db);
         let channels = MnistChannels::new();
         let ui_cache = Default::default();
@@ -41,6 +44,7 @@ impl Default for MnistApp {
             channels,
             control,
             ui_cache,
+            visual_synchrotron,
         }
     }
 }

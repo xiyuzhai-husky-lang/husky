@@ -1,6 +1,6 @@
-use crate::MnistDb;
+use crate::{op::time::OpTime, MnistDb};
 use egui::{vec2, Slider};
-use husky_ml_task_interface::InputId;
+use husky_ml_task_interface::{pedestal::MlPedestal, InputId};
 
 pub struct MnistControl {
     input_id: InputId,
@@ -8,6 +8,7 @@ pub struct MnistControl {
     number_of_frames: usize,
 }
 
+/// # constructors
 impl MnistControl {
     pub(crate) fn new(engine: &MnistDb) -> MnistControl {
         let input_id = InputId::from_index(0);
@@ -20,12 +21,22 @@ impl MnistControl {
     }
 }
 
+/// # getters
+impl MnistControl {
+    pub(crate) fn op_time(&self) -> OpTime {
+        OpTime::from_index(self.frame_idx.into())
+    }
+
+    pub(crate) fn pedestal(&self) -> MlPedestal {
+        MlPedestal::Specific(self.input_id)
+    }
+}
+
 impl egui::Widget for &mut MnistControl {
     fn ui(self, ui: &mut egui::Ui) -> egui::Response {
-        ui.allocate_space(vec2(0.0, 1.0));
         ui.horizontal(|ui| {
             ui.label("time");
-            ui.style_mut().spacing.slider_width = ui.available_width() - 55.0;
+            // ui.style_mut().spacing.slider_width = ui.available_width() - 255.0;
             Slider::new(&mut self.frame_idx, 0..=(self.number_of_frames - 1)).ui(ui)
         })
         .response
