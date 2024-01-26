@@ -27,7 +27,7 @@ pub trait IsDevAscension {
     type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
     fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
         followed: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
-        accompanyings: &[(TraceId, ValReprInterface)],
+        accompanyings_expect_followed: &[(TraceId, ValReprInterface)],
         pedestal: Self::Pedestal,
         runtime: &DevRuntime,
         visual_synchrotron: &mut VisualSynchrotron,

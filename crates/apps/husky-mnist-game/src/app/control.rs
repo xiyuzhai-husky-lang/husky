@@ -1,5 +1,6 @@
-use crate::{InputId, MnistDb};
+use crate::MnistDb;
 use egui::{vec2, Slider};
+use husky_ml_task_interface::InputId;
 
 pub struct MnistControl {
     input_id: InputId,

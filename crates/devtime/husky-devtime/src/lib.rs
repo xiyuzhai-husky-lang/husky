@@ -125,7 +125,7 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
             }),
             None => None,
         };
-        let accompanying_trace_id_val_repr_pairs = &accompanying_trace_ids_expect_followed
+        let accompanyings_expect_followed = &accompanying_trace_ids_expect_followed
             .iter()
             .filter_map(|&accompanying_trace_id| {
                 let trace: Trace = accompanying_trace_id.into();
@@ -134,7 +134,7 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
             .collect::<Vec<_>>();
         <Task::DevAscension as IsDevAscension>::calc_figure(
             followed,
-            accompanying_trace_id_val_repr_pairs,
+            accompanyings_expect_followed,
             pedestal,
             &self.runtime,
             visual_synchrotron,

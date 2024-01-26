@@ -1,5 +1,7 @@
 use crate::{op::snap::MnistOpSnap, values::input::Input, MnistDb};
 use enum_index::{bitset::EnumBitSet, IsEnumIndex};
+use husky_task_interface::val_repr::ValReprInterface;
+use husky_trace_protocol::id::TraceId;
 use husky_visual_protocol::visual::Visual;
 
 #[derive(IsEnumIndex, Debug, Clone, Copy, PartialEq, Eq)]
@@ -8,6 +10,39 @@ pub enum Trace {
     Skeleton,
     ImageFromSkeleton,
     OptimalTransport,
+}
+
+impl Into<TraceId> for Trace {
+    fn into(self) -> TraceId {
+        todo!()
+    }
+}
+
+impl From<ValReprInterface> for Trace {
+    fn from(value: ValReprInterface) -> Self {
+        unsafe { std::mem::transmute(std::mem::transmute::<_, u32>(value) as u8) }
+    }
+}
+
+impl Into<ValReprInterface> for Trace {
+    fn into(self) -> ValReprInterface {
+        unsafe { std::mem::transmute(self as u32) }
+    }
+}
+
+#[test]
+fn trace_from_into_val_repr_interface_works() {
+    fn t(trace: Trace) {
+        let val_repr_interface: ValReprInterface = trace.into();
+        let trace1: Trace = val_repr_interface.into();
+        assert_eq!(trace, trace1)
+    }
+
+    use Trace::*;
+    t(Input);
+    t(Skeleton);
+    t(ImageFromSkeleton);
+    t(OptimalTransport);
 }
 
 pub const ALL_TRACES: &[Trace] = &[Trace::Input];
