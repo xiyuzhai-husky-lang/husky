@@ -17,4 +17,11 @@ impl MnistFrame {
     }
 }
 
+/// # getters
+impl MnistFrame {
+    pub(crate) fn skeleton_visual(&self) -> Visual {
+        self.skeleton_visual
+    }
+}
+
 pub struct MnistFramesToBe {}

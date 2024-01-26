@@ -5,8 +5,8 @@ pub mod ugly;
 use self::pedestal::MlPedestal;
 use husky_linkage_impl::standard::StandardLinkageImplValControlFlow;
 use husky_standard_value::{ugly::__ValueStands, FromValue};
-use husky_task_interface::{
-    val_repr::{ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface},
+use husky_task_interface::val_repr::{
+    ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface,
 };
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;

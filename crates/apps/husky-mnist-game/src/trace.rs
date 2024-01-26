@@ -1,5 +1,10 @@
-use crate::{op::snap::MnistOpSnap, values::input::Input, MnistDb};
+use crate::{
+    op::{snap::MnistOpSnap, time::OpTime},
+    values::input::Input,
+    MnistDb,
+};
 use enum_index::{bitset::EnumBitSet, IsEnumIndex};
+use husky_ml_task_interface::InputId;
 use husky_task_interface::val_repr::ValReprInterface;
 use husky_trace_protocol::id::TraceId;
 use husky_visual_protocol::visual::Visual;
@@ -12,21 +17,42 @@ pub enum Trace {
     OptimalTransport,
 }
 
-impl Into<TraceId> for Trace {
-    fn into(self) -> TraceId {
-        todo!()
+impl From<TraceId> for Trace {
+    fn from(id: TraceId) -> Self {
+        Self::from_index(id.index())
     }
 }
 
+impl Into<TraceId> for Trace {
+    fn into(self) -> TraceId {
+        TraceId::from_index(self.index())
+    }
+}
+
+#[test]
+fn trace_from_into_trace_id_works() {
+    fn t(trace: Trace) {
+        let trace_id: TraceId = trace.into();
+        let trace1: Trace = trace_id.into();
+        assert_eq!(trace, trace1)
+    }
+
+    use Trace::*;
+    t(Input);
+    t(Skeleton);
+    t(ImageFromSkeleton);
+    t(OptimalTransport);
+}
+
 impl From<ValReprInterface> for Trace {
-    fn from(value: ValReprInterface) -> Self {
-        unsafe { std::mem::transmute(std::mem::transmute::<_, u32>(value) as u8) }
+    fn from(id: ValReprInterface) -> Self {
+        Self::from_index(id.index())
     }
 }
 
 impl Into<ValReprInterface> for Trace {
     fn into(self) -> ValReprInterface {
-        unsafe { std::mem::transmute(self as u32) }
+        ValReprInterface::from_index(self.index())
     }
 }
 
@@ -48,14 +74,13 @@ fn trace_from_into_val_repr_interface_works() {
 pub const ALL_TRACES: &[Trace] = &[Trace::Input];
 
 impl Trace {
-    pub(crate) fn visual<'a>(self, db: &'a MnistDb, op_snap: &'a MnistOpSnap) -> Visual {
-        // match self {
-        //     Trace::Input => db.input(),
-        //     Trace::Skeleton => todo!(),
-        //     Trace::ImageFromSkeleton => todo!(),
-        //     Trace::OptimalTransport => todo!(),
-        // }
-        todo!()
+    pub(crate) fn visual<'a>(self, db: &'a MnistDb, input_id: InputId, op_time: OpTime) -> Visual {
+        match self {
+            Trace::Input => db.input_visual(input_id),
+            Trace::Skeleton => db.op_history(input_id)[op_time].frame().skeleton_visual(),
+            Trace::ImageFromSkeleton => todo!(),
+            Trace::OptimalTransport => todo!(),
+        }
     }
 
     pub(crate) fn code(self) -> &'static str {
@@ -68,6 +93,7 @@ impl Trace {
     }
 }
 
+#[derive(Debug)]
 pub struct TraceSelection {
     set: EnumBitSet<Trace>,
 }

@@ -1,5 +1,6 @@
 use crate::{trace::TraceSelection, MnistApp};
 
+#[derive(Debug)]
 pub struct MnistChannels {
     channels: Vec<MnistChannel>,
     current: usize,
@@ -27,6 +28,7 @@ impl std::ops::Deref for MnistChannels {
     }
 }
 
+#[derive(Debug)]
 pub struct MnistChannel {
     trace_selection: TraceSelection,
 }

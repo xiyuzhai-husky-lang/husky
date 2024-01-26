@@ -22,5 +22,7 @@ husky-graphics2d-visual-protocol.workspace = true
 # tasks
 husky-task-interface.workspace = true
 husky-ml-task-interface.workspace = true
+# utils
+husky-print-utils.workspace = true
 # registry
 mnist = { path = "../../../registry/mnist-0.1.0" }

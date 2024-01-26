@@ -1,2 +1,5 @@
-pub(crate) mod figure;
-pub(crate) mod traces;
+pub mod devtools;
+pub mod figure;
+pub mod traces;
+
+use super::*;

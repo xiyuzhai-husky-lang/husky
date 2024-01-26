@@ -8,23 +8,30 @@ use shifted_unsigned_int::ShiftedU32;
 
 pub struct MnistDb {
     dataset: MnistDataset,
-    entries: Vec<MnistDbEntry>,
+    input_visuals: Vec<Visual>,
+    op_histories: Vec<MnistOpHistory>,
 }
 
-pub struct MnistDbEntry {
+pub struct MnistOpHistory {
     op_snaps: Vec<MnistOpSnap>,
 }
 
-impl Default for MnistDb {
-    fn default() -> Self {
-        let mut visual_synchrotron = VisualSynchrotron::default();
+impl MnistDb {
+    pub fn new(visual_synchrotron: &mut VisualSynchrotron) -> Self {
+        let dataset = MnistDataset::default();
+        let input_visuals = dataset
+            .inputs()
+            .iter()
+            .map(|input| input.visualize(visual_synchrotron))
+            .collect();
         let op_snaps = (0..10)
             .into_iter()
-            .map(|t| MnistOpSnap::new_ad_hoc(t, &mut visual_synchrotron))
+            .map(|t| MnistOpSnap::new_ad_hoc(t, visual_synchrotron))
             .collect();
         MnistDb {
-            dataset: MnistDataset::default(),
-            entries: vec![MnistDbEntry { op_snaps }],
+            dataset,
+            input_visuals,
+            op_histories: vec![MnistOpHistory { op_snaps }],
         }
     }
 }
@@ -32,22 +39,26 @@ impl Default for MnistDb {
 /// # getters
 impl MnistDb {
     pub fn frames(&self, input_id: InputId) -> &[MnistOpSnap] {
-        self[input_id].op_snaps.as_ref()
+        self.op_history(input_id).op_snaps.as_ref()
     }
 
-    pub(crate) fn input(&self) -> &Input {
-        todo!()
+    pub(crate) fn input(&self, input_id: InputId) -> &Input {
+        self.dataset.input(input_id)
     }
 
-    pub(crate) fn op_snap(&self, input_id: InputId, op_time: OpTime) -> &MnistOpSnap {
-        todo!()
+    pub(crate) fn input_visual(&self, input_id: InputId) -> Visual {
+        self.input_visuals[input_id.index()]
+    }
+
+    pub fn op_history(&self, input_id: InputId) -> &MnistOpHistory {
+        &self.op_histories[input_id.index()]
     }
 }
 
-impl std::ops::Index<InputId> for MnistDb {
-    type Output = MnistDbEntry;
+impl std::ops::Index<OpTime> for MnistOpHistory {
+    type Output = MnistOpSnap;
 
-    fn index(&self, id: InputId) -> &Self::Output {
-        &self.entries[id.index()]
+    fn index(&self, op_time: OpTime) -> &Self::Output {
+        &self.op_snaps[op_time.index()]
     }
 }

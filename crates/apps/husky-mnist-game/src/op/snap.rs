@@ -14,4 +14,8 @@ impl MnistOpSnap {
             frames_to_be: MnistFramesToBe {},
         }
     }
+
+    pub(crate) fn frame(&self) -> &MnistFrame {
+        &self.frame
+    }
 }
