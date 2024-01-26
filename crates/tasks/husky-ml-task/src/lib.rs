@@ -81,10 +81,17 @@ where
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
+        let (followed, domain) = match followed {
+            Some((trace_id, var_repr_intreface, val_domain_repr_interface)) => (
+                Some((trace_id, var_repr_intreface)),
+                Some(val_domain_repr_interface),
+            ),
+            None => (None, None),
+        };
         match pedestal {
             MlPedestal::Specific(_) => {
                 <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<MlPedestal>>::new_specific(
-                    followed.map(|(v0,v1,_)| (v0,v1)),
+                    followed ,
                     accompanyings,
                     |val_repr, visual_synchrotron| {
                         Self::get_val_visual(
@@ -101,7 +108,7 @@ where
             MlPedestal::Generic => {
                 let pedestals = (0..49).into_iter().filter_map(|index| {
                         let pedestal = MlPedestal::Specific(InputId::from_index(index));
-                        let Some((_,_,val_domain_repr_interface)) = followed else {
+                        let Some(val_domain_repr_interface) = domain else {
                             return Some(pedestal)
                         };
                         match runtime.eval_val_domain_repr_interface_at_pedestal(

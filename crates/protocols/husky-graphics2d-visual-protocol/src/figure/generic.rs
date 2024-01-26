@@ -8,7 +8,7 @@ pub struct GenericGraphics2dFigure<Pedestal: IsPedestal> {
 /// # constructor
 impl<Pedestal: IsPedestalFull> GenericGraphics2dFigure<Pedestal> {
     pub(crate) fn new(
-        followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        followed_visual: Option<(TraceId, ValReprInterface)>,
         accompanyings: &[(TraceId, ValReprInterface)],
         pedestals: impl Iterator<Item = Pedestal>,
         mut f: impl FnMut(ValReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
@@ -20,7 +20,7 @@ impl<Pedestal: IsPedestalFull> GenericGraphics2dFigure<Pedestal> {
                     (
                         pedestal,
                         SpecificGraphics2dFigure::new(
-                            followed_visual.map(|(trace_id, val_repr_interface, _)| {
+                            followed_visual.map(|(trace_id, val_repr_interface)| {
                                 (trace_id, val_repr_interface)
                             }),
                             accompanyings,
