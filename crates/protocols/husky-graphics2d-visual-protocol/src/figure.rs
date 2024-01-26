@@ -31,7 +31,7 @@ pub enum Graphics2dFigure<Pedestal: IsPedestal> {
 /// # impl IsFigure
 impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for Graphics2dFigure<Pedestal> {
     fn new_specific(
-        followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        followed_visual: Option<(TraceId, ValReprInterface)>,
         accompanyings: &[(TraceId, ValReprInterface)],
         f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,

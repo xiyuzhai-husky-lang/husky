@@ -18,7 +18,7 @@ pub struct DanielJacksonFigure;
 
 impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for DanielJacksonFigure {
     fn new_specific(
-        _followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        _followed_visual: Option<(TraceId, ValReprInterface)>,
         _accompanyings: &[(TraceId, ValReprInterface)],
         _f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
         _visual_synchrotron: &mut VisualSynchrotron,
