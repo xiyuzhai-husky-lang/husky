@@ -26,7 +26,7 @@ pub trait IsFigure<Pedestal: IsPedestalFull>:
     ) -> Self;
 
     fn new_generic(
-        followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        followed_visual: Option<(TraceId, ValReprInterface)>,
         accompanyings: &[(TraceId, ValReprInterface)],
         pedestals: impl Iterator<Item = Pedestal>,
         f: impl FnMut(ValReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
@@ -45,7 +45,7 @@ impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for () {
     }
 
     fn new_generic(
-        _followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        _followed_visual: Option<(TraceId, ValReprInterface)>,
         _accompanyings: &[(TraceId, ValReprInterface)],
         _pedestals: impl Iterator<Item = Pedestal>,
         _f: impl FnMut(ValReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,

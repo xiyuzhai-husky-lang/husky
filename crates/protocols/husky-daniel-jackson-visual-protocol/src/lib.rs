@@ -27,7 +27,7 @@ impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for DanielJacksonFigure {
     }
 
     fn new_generic(
-        _followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        _followed_visual: Option<(TraceId, ValReprInterface)>,
         _accompanyings: &[(TraceId, ValReprInterface)],
         _pedestals: impl Iterator<Item = Pedestal>,
         _f: impl FnMut(ValReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
