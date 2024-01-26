@@ -84,7 +84,7 @@ where
         match pedestal {
             MlPedestal::Specific(_) => {
                 <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<MlPedestal>>::new_specific(
-                    followed,
+                    followed.map(|(v0,v1,_)| (v0,v1)),
                     accompanyings,
                     |val_repr, visual_synchrotron| {
                         Self::get_val_visual(

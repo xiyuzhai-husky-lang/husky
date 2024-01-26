@@ -19,7 +19,7 @@ pub trait IsFigure<Pedestal: IsPedestalFull>:
 {
     /// construct a figure for a specific datapoint
     fn new_specific(
-        followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        followed_visual: Option<(TraceId, ValReprInterface)>,
         accompanyings: &[(TraceId, ValReprInterface)],
         f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
@@ -36,7 +36,7 @@ pub trait IsFigure<Pedestal: IsPedestalFull>:
 
 impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for () {
     fn new_specific(
-        _followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        _followed_visual: Option<(TraceId, ValReprInterface)>,
         _accompanyings: &[(TraceId, ValReprInterface)],
         _f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
         _visual_synchrotron: &mut VisualSynchrotron,

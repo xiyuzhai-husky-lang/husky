@@ -1,5 +1,3 @@
-
-
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
@@ -22,7 +20,9 @@ impl<Pedestal: IsPedestalFull> GenericGraphics2dFigure<Pedestal> {
                     (
                         pedestal,
                         SpecificGraphics2dFigure::new(
-                            followed_visual,
+                            followed_visual.map(|(trace_id, val_repr_interface, _)| {
+                                (trace_id, val_repr_interface)
+                            }),
                             accompanyings,
                             |val_repr_interface, visual_synchrotron| {
                                 f(val_repr_interface, pedestal, visual_synchrotron)

@@ -12,13 +12,13 @@ pub struct SpecificGraphics2dFigure {
 /// # constructor
 impl SpecificGraphics2dFigure {
     pub(super) fn new(
-        followed_visual: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
+        followed_visual: Option<(TraceId, ValReprInterface)>,
         accompanyings: &[(TraceId, ValReprInterface)],
         mut f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         Self::new_aux(
-            followed_visual.map(|(trace_id, val_repr_interface, _)| {
+            followed_visual.map(|(trace_id, val_repr_interface)| {
                 (trace_id, f(val_repr_interface, visual_synchrotron))
             }),
             accompanyings
@@ -119,7 +119,6 @@ impl SpecificGraphics2dFigure {
         let mnist_visual_rect = VisualRect::mnist();
         let t = |point: Point| point.to_screen(mnist_visual_rect, rect);
         for shape in &self.shapes {
-            
             match shape.data(visual_synchrotron) {
                 &ShapeVisualData::LineSegment { start, end } => ui
                     .painter()
