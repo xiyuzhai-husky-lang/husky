@@ -26,7 +26,7 @@ impl MnistApp {
                             ui.allocate_exact_size(Vec2::splat(grid_size), Sense::hover());
                         ui.allocate_ui_at_rect(response.rect, |ui| {
                             self.channels[i * number_of_columns + j]
-                                .figure(&self.db, &mut self.ui_cache)
+                                .figure_view(&self.db, &mut self.ui_cache)
                                 .ui(ui)
                         });
                     }
