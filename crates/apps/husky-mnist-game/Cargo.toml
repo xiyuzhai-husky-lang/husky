@@ -17,5 +17,9 @@ shifted-unsigned-int.workspace = true
 enum-index.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
+husky-trace-protocol.workspace = true
+husky-graphics2d-visual-protocol.workspace = true
+# tasks
+husky-ml-task-interface.workspace = true
 # registry
 mnist = { path = "../../../registry/mnist-0.1.0" }

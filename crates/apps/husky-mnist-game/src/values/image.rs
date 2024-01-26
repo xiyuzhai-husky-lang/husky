@@ -1,1 +1,1 @@
-// pub use mnist::
+pub use mnist::{dataset::MnistDataset, BinaryImage28};

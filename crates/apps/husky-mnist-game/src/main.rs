@@ -9,6 +9,7 @@ mod view;
 
 use self::app::*;
 use self::db::*;
+use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual, visualize::Visualize};
 use image::{ImageBuffer, Rgba};
 use imageproc::drawing::draw_line_segment_mut;
 

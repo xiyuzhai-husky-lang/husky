@@ -10,6 +10,7 @@ smallvec.workspace = true
 small-cell-stack = { path = "../../abstractions/small-cell-stack" }
 enum-class.workspace = true
 salsa.workspace = true
+ui = { workspace = true, features = ["egui"] }
 # fs
 husky-vfs.workspace = true
 # linkage
@@ -17,7 +18,7 @@ husky-linkage.workspace = true
 husky-linkage-impl.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
-husky-trace-protocol.workspace = true
+husky-trace-protocol = { workspace = true, features = ["server"] }
 # tasks
 husky-task-interface.workspace = true
 # val

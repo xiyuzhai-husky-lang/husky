@@ -2,14 +2,15 @@ use self::op::snap::MnistOpSnap;
 use super::*;
 use crate::op::frame::{MnistFrame, MnistFramesToBe};
 use crate::values::input::Input;
+use mnist::dataset::MnistDataset;
 use shifted_unsigned_int::ShiftedU32;
 
 pub struct MnistDb {
+    dataset: MnistDataset,
     entries: Vec<MnistDbEntry>,
 }
 
 pub struct MnistDbEntry {
-    input: Input,
     op_snaps: Vec<MnistOpSnap>,
 }
 
@@ -24,15 +25,14 @@ impl InputId {
 
 impl Default for MnistDb {
     fn default() -> Self {
+        let mut visual_synchrotron = VisualSynchrotron::default();
         let op_snaps = (0..10)
             .into_iter()
-            .map(|t| MnistOpSnap::new_ad_hoc(t))
+            .map(|t| MnistOpSnap::new_ad_hoc(t, &mut visual_synchrotron))
             .collect();
         MnistDb {
-            entries: vec![MnistDbEntry {
-                input: Input::default(),
-                op_snaps,
-            }],
+            dataset: MnistDataset::default(),
+            entries: vec![MnistDbEntry { op_snaps }],
         }
     }
 }
