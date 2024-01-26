@@ -9,7 +9,7 @@ use husky_task_interface::{
     IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
 use husky_trace_protocol::{
-    id::{TraceId},
+    id::TraceId,
     protocol::{IsTraceProtocol, IsTraceProtocolFull},
     server::ValVisualCache,
 };

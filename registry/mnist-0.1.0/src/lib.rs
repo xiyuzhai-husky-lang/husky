@@ -1,4 +1,4 @@
-mod dataset;
+pub mod dataset;
 
 use dataset::MNIST_DATASET;
 use husky_core::*;

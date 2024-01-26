@@ -2,13 +2,19 @@ use crate::*;
 use husky_ml_task_interface::InputId;
 
 lazy_static::lazy_static! {
-    pub(crate) static ref MNIST_DATASET: MnistDataset = MnistDataset::new(35016232u64);
+    pub(crate) static ref MNIST_DATASET: MnistDataset = MnistDataset::default();
 }
 
 pub struct MnistDataset {
     images: Vec<BinaryImage28>,
     labels: Vec<MnistLabel>,
     permutation: Vec<u32>,
+}
+
+impl Default for MnistDataset {
+    fn default() -> Self {
+        Self::new(35016232u64)
+    }
 }
 
 impl MnistDataset {

@@ -1,5 +1,7 @@
 use crate::{channel::MnistChannel, trace::TraceSelection, ui_cache::MnistUiCache, MnistDb};
 use egui::Frame;
+use husky_graphics2d_visual_protocol::figure::Graphics2dFigure;
+use husky_ml_task_interface::pedestal::MlPedestal;
 
 pub struct FigureView<'a> {
     trace_selection: &'a TraceSelection,
@@ -34,3 +36,5 @@ impl<'a> egui::Widget for FigureView<'a> {
             .response
     }
 }
+
+pub type Figure = Graphics2dFigure<MlPedestal>;

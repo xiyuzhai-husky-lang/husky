@@ -8,9 +8,9 @@ pub struct MnistOpSnap {
 }
 
 impl MnistOpSnap {
-    pub(crate) fn new_ad_hoc(t: i32) -> MnistOpSnap {
+    pub(crate) fn new_ad_hoc(t: i32, visual_synchrotron: &mut VisualSynchrotron) -> MnistOpSnap {
         MnistOpSnap {
-            frame: MnistFrame {},
+            frame: MnistFrame::new(visual_synchrotron),
             frames_to_be: MnistFramesToBe {},
         }
     }
