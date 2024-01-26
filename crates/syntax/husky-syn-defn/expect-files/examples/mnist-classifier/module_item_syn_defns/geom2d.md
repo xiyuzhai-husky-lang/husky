@@ -94,11 +94,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 359,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -772,11 +778,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 359,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -1154,11 +1166,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 359,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -1698,11 +1716,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 359,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2123,11 +2147,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 359,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2599,11 +2629,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 360,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2981,11 +3017,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 360,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -3525,11 +3567,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 360,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -3950,11 +3998,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 360,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -4454,11 +4508,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 360,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -4958,11 +5018,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 360,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -5915,11 +5981,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 360,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -6371,11 +6443,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 360,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -7867,11 +7945,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 361,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -8835,11 +8919,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 361,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -9447,11 +9537,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 362,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -10025,11 +10121,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 362,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -10603,11 +10705,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 362,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -10930,11 +11038,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 362,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -11257,11 +11371,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 362,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -11584,11 +11704,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 362,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -11931,11 +12057,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 363,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -12258,11 +12390,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 363,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -12585,11 +12723,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 363,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -12912,11 +13056,17 @@
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 363,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::geom2d`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),

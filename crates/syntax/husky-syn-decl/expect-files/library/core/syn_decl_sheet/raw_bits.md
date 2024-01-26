@@ -132,11 +132,17 @@ SynDeclSheet {
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
                                                                 path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 120,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `core::raw_bits`,
+                                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                             },
                                                         ),
@@ -273,11 +279,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 120,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `core::raw_bits`,
+                                                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -583,11 +595,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 120,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `core::raw_bits`,
+                                                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -805,11 +823,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 120,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `core::raw_bits`,
+                                                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -1027,11 +1051,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 120,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `core::raw_bits`,
+                                                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -1249,11 +1279,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 120,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `core::raw_bits`,
+                                                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),

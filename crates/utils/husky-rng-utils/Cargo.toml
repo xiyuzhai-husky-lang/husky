@@ -1,5 +1,5 @@
 [package]
-name = "husky-xrng-utils"
+name = "husky-rng-utils"
 version = "0.0.0"
 edition = "2021"
 

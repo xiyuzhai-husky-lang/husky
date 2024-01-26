@@ -5797,11 +5797,17 @@
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
                                         path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 389,
-                                                },
-                                            ),
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::connected_component`,
+                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
                                         ),
                                     },
                                 ),
@@ -5823,11 +5829,17 @@
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 389,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -6155,11 +6167,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 389,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::connected_component`,
+                                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -6837,11 +6855,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 389,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::connected_component`,
+                                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -7264,11 +7288,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 389,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::connected_component`,
+                                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -7691,11 +7721,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 389,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::connected_component`,
+                                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -8118,11 +8154,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 389,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::connected_component`,
+                                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -8545,11 +8587,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 389,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::connected_component`,
+                                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -8972,11 +9020,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 389,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::connected_component`,
+                                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -9399,11 +9453,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 389,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::connected_component`,
+                                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -9826,11 +9886,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 389,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::connected_component`,
+                                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -10497,11 +10563,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 389,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::connected_component`,
+                                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),

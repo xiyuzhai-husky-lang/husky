@@ -230,11 +230,17 @@ EntitySynTreeSheet {
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
                                     path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 306,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -250,11 +256,17 @@ EntitySynTreeSheet {
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
                                         path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 306,
-                                                },
-                                            ),
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
                                         ),
                                     },
                                 ),

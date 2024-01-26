@@ -70,7 +70,7 @@
                                 path: AttrItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 513,
+                                            value: 508,
                                         },
                                     ),
                                 ),
@@ -203,11 +203,17 @@
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
                                     path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 508,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `mnist`,
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -386,11 +392,17 @@
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
                                     path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 511,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `mnist`,
+                                                        ty_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 },
                             ),

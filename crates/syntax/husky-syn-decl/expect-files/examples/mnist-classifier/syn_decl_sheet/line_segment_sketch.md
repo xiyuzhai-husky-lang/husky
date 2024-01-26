@@ -3390,11 +3390,17 @@ SynDeclSheet {
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
                                                                 path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 365,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                             },
                                                         ),
@@ -3558,11 +3564,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 365,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -4033,11 +4045,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 365,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -4761,11 +4779,17 @@ SynDeclSheet {
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
                                                                 path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 367,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                             },
                                                         ),
@@ -4885,11 +4909,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 367,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -5118,11 +5148,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 367,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -5368,11 +5404,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 367,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),

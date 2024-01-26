@@ -4,18 +4,11 @@ version = "0.1.0"
 authors = ["my_name"]
 edition = "2021"
 
-[workspace]
-
-[workspace.dependencies]
-syn = { version = "2.0.38", features = ["full", "extra-traits"] }
-
 [dependencies]
 # vm
-husky-standard-value = { path = "../../crates/vm/husky-standard-value" }
+husky-standard-value.workspace = true
 # linkage
-husky-linkage-impl = { path = "../../crates/linkage/husky-linkage-impl", features = [
-    "standard"
-] }
+husky-linkage-impl = { workspace = true, features = ["standard"] }
 # tasks
-husky-task-interface = { path = "../../crates/tasks/husky-task-interface" }
-husky-ml-task-interface = { path = "../../crates/tasks/husky-ml-task-interface" }
+husky-task-interface.workspace = true
+husky-ml-task-interface.workspace = true

@@ -2157,11 +2157,17 @@ SynDeclSheet {
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
                                                                 path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 356,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                             },
                                                         ),
@@ -2281,11 +2287,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 356,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2514,11 +2526,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 356,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2734,11 +2752,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 356,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2954,11 +2978,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 356,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -3174,11 +3204,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 356,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -3394,11 +3430,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 356,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -3614,11 +3656,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 356,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -3834,11 +3882,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 356,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -4071,11 +4125,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 356,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -4396,11 +4456,17 @@ SynDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 356,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),

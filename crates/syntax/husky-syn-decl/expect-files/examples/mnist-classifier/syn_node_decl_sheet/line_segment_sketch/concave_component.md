@@ -1310,11 +1310,17 @@ SynNodeDeclSheet {
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
                                         path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 369,
-                                                },
-                                            ),
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
                                         ),
                                     },
                                 ),
@@ -1332,11 +1338,17 @@ SynNodeDeclSheet {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 369,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
@@ -1375,11 +1387,17 @@ SynNodeDeclSheet {
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
                                                                 path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 369,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                             },
                                                         ),
@@ -1543,11 +1561,17 @@ SynNodeDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 369,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -1807,11 +1831,17 @@ SynNodeDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 369,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2071,11 +2101,17 @@ SynNodeDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 369,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2335,11 +2371,17 @@ SynNodeDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 369,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2599,11 +2641,17 @@ SynNodeDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 369,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -2863,11 +2911,17 @@ SynNodeDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 369,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -3149,11 +3203,17 @@ SynNodeDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 369,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -3435,11 +3495,17 @@ SynNodeDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 369,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -3721,11 +3787,17 @@ SynNodeDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 369,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -4007,11 +4079,17 @@ SynNodeDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 369,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -4293,11 +4371,17 @@ SynNodeDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 369,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),
@@ -4579,11 +4663,17 @@ SynNodeDeclSheet {
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
                                                                                 path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 369,
-                                                                                        },
-                                                                                    ),
+                                                                                    ItemPathId {
+                                                                                        data: ItemPathData::ImplBlock(
+                                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                                TypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
                                                                                 ),
                                                                             },
                                                                         ),

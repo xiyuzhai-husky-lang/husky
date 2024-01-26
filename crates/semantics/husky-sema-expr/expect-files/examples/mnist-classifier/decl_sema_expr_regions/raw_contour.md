@@ -9973,11 +9973,17 @@
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
                                         path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 391,
-                                                },
-                                            ),
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::raw_contour`,
+                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
                                         ),
                                     },
                                 ),
@@ -9999,11 +10005,17 @@
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 391,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::raw_contour`,
+                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -10331,11 +10343,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 391,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::raw_contour`,
+                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -10758,11 +10776,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 391,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::raw_contour`,
+                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -11185,11 +11209,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 391,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::raw_contour`,
+                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -11612,11 +11642,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 391,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::raw_contour`,
+                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -12039,11 +12075,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 391,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::raw_contour`,
+                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),

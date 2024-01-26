@@ -9,6 +9,7 @@ use vec_like::SmallVecPairMap;
 pub struct TypeImplBlockSynNodePath(ItemSynNodePathId);
 
 // basically a wrapper type
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TypeImplBlockSynNodePathData {
     pub(crate) path: TypeImplBlockPath,

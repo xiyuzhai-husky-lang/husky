@@ -347,11 +347,17 @@ EntitySynTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 342,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `mnist`,
+                                                                ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
@@ -367,11 +373,17 @@ EntitySynTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 342,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist`,
+                                                                    ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -541,11 +553,17 @@ EntitySynTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 345,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `mnist`,
+                                                                ty_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
@@ -561,11 +579,17 @@ EntitySynTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 345,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist`,
+                                                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),

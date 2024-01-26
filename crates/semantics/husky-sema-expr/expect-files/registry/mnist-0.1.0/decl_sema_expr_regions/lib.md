@@ -92,7 +92,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 474,
+                                    value: 469,
                                 },
                             ),
                         ),
@@ -159,7 +159,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 499,
+                                    value: 494,
                                 },
                             ),
                         ),
@@ -261,7 +261,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 475,
+                                    value: 470,
                                 },
                             ),
                         ),
@@ -328,7 +328,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 510,
+                                    value: 505,
                                 },
                             ),
                         ),
@@ -430,7 +430,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 476,
+                                    value: 471,
                                 },
                             ),
                         ),
@@ -497,7 +497,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 511,
+                                    value: 506,
                                 },
                             ),
                         ),
@@ -631,7 +631,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 477,
+                                    value: 472,
                                 },
                             ),
                         ),
@@ -650,7 +650,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 510,
+                                                        value: 505,
                                                     },
                                                 ),
                                             ),
@@ -731,7 +731,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 510,
+                                                    value: 505,
                                                 },
                                             ),
                                         ),
@@ -986,7 +986,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 478,
+                                    value: 473,
                                 },
                             ),
                         ),
@@ -1064,7 +1064,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 510,
+                                                        value: 505,
                                                     },
                                                 ),
                                             ),
@@ -1177,7 +1177,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 510,
+                                                    value: 505,
                                                 },
                                             ),
                                         ),
@@ -1299,7 +1299,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 510,
+                                    value: 505,
                                 },
                             ),
                         ),
@@ -1608,7 +1608,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 484,
+                                    value: 479,
                                 },
                             ),
                         ),
@@ -1800,7 +1800,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 510,
+                                    value: 505,
                                 },
                             ),
                         ),
@@ -1819,11 +1819,17 @@
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
                                         path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 514,
-                                                },
-                                            ),
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist`,
+                                                            ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
                                         ),
                                     },
                                 ),
@@ -1845,11 +1851,17 @@
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 514,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist`,
+                                                                    ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -1940,7 +1952,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 479,
+                                    value: 474,
                                 },
                             ),
                         ),
@@ -1959,7 +1971,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 510,
+                                                        value: 505,
                                                     },
                                                 ),
                                             ),
@@ -2040,7 +2052,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 510,
+                                                    value: 505,
                                                 },
                                             ),
                                         ),
@@ -2132,7 +2144,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 510,
+                                    value: 505,
                                 },
                             ),
                         ),
@@ -2177,11 +2189,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 514,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist`,
+                                                                                ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -2346,7 +2364,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 485,
+                                    value: 480,
                                 },
                             ),
                         ),
@@ -2435,7 +2453,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 510,
+                                                    value: 505,
                                                 },
                                             ),
                                         ),
@@ -2527,7 +2545,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 510,
+                                    value: 505,
                                 },
                             ),
                         ),
@@ -2744,7 +2762,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 480,
+                                    value: 475,
                                 },
                             ),
                         ),
@@ -2822,7 +2840,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 510,
+                                                        value: 505,
                                                     },
                                                 ),
                                             ),
@@ -2935,7 +2953,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 510,
+                                                    value: 505,
                                                 },
                                             ),
                                         ),
@@ -3057,7 +3075,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 510,
+                                    value: 505,
                                 },
                             ),
                         ),
@@ -3408,7 +3426,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 486,
+                                    value: 481,
                                 },
                             ),
                         ),
@@ -3600,7 +3618,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 510,
+                                    value: 505,
                                 },
                             ),
                         ),
@@ -3775,7 +3793,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 481,
+                                    value: 476,
                                 },
                             ),
                         ),
@@ -3853,7 +3871,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 511,
+                                                        value: 506,
                                                     },
                                                 ),
                                             ),
@@ -3966,7 +3984,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 511,
+                                                    value: 506,
                                                 },
                                             ),
                                         ),
@@ -4088,7 +4106,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 511,
+                                    value: 506,
                                 },
                             ),
                         ),
@@ -4397,7 +4415,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 487,
+                                    value: 482,
                                 },
                             ),
                         ),
@@ -4589,7 +4607,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 511,
+                                    value: 506,
                                 },
                             ),
                         ),
@@ -4608,11 +4626,17 @@
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
                                         path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 517,
-                                                },
-                                            ),
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist`,
+                                                            ty_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
                                         ),
                                     },
                                 ),
@@ -4634,11 +4658,17 @@
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 517,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist`,
+                                                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -4729,7 +4759,7 @@
                         TypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 482,
+                                    value: 477,
                                 },
                             ),
                         ),
@@ -4748,7 +4778,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 511,
+                                                        value: 506,
                                                     },
                                                 ),
                                             ),
@@ -4829,7 +4859,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 511,
+                                                    value: 506,
                                                 },
                                             ),
                                         ),
@@ -4921,7 +4951,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 511,
+                                    value: 506,
                                 },
                             ),
                         ),
@@ -4966,11 +4996,17 @@
                                                     ImplBlockSynNodePathData::TypeImplBlock(
                                                         TypeImplBlockSynNodePathData {
                                                             path: TypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 517,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::ImplBlock(
+                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                            TypeImplBlockPathData {
+                                                                                module_path: `mnist`,
+                                                                                ty_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         },
                                                     ),
@@ -5135,7 +5171,7 @@
                         TypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 488,
+                                    value: 483,
                                 },
                             ),
                         ),
@@ -5224,7 +5260,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 511,
+                                                    value: 506,
                                                 },
                                             ),
                                         ),
@@ -5316,7 +5352,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 511,
+                                    value: 506,
                                 },
                             ),
                         ),
@@ -5533,7 +5569,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 483,
+                                    value: 478,
                                 },
                             ),
                         ),
@@ -5611,7 +5647,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 511,
+                                                        value: 506,
                                                     },
                                                 ),
                                             ),
@@ -5724,7 +5760,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 511,
+                                                    value: 506,
                                                 },
                                             ),
                                         ),
@@ -5846,7 +5882,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 511,
+                                    value: 506,
                                 },
                             ),
                         ),
@@ -6197,7 +6233,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 489,
+                                    value: 484,
                                 },
                             ),
                         ),
@@ -6389,7 +6425,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 511,
+                                    value: 506,
                                 },
                             ),
                         ),
