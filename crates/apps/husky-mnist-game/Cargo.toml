@@ -12,6 +12,7 @@ imageproc.workspace = true
 ndarray.workspace = true
 ndarray-stats.workspace = true
 rust-optimal-transport.workspace = true
+smallvec.workspace = true
 # abstractions
 shifted-unsigned-int.workspace = true
 enum-index.workspace = true
@@ -26,3 +27,6 @@ husky-ml-task-interface.workspace = true
 husky-print-utils.workspace = true
 # registry
 mnist = { path = "../../../registry/mnist-0.1.0" }
+
+[dev-dependencies]
+expect-test.workspace = true

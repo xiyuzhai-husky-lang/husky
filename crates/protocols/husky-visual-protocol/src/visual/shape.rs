@@ -19,6 +19,12 @@ pub struct Point {
     pub y: OrderedFloat<f32>,
 }
 
+impl Into<(f32, f32)> for Point {
+    fn into(self) -> (f32, f32) {
+        (self.x.into(), self.y.into())
+    }
+}
+
 impl std::fmt::Debug for Point {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!(
@@ -30,6 +36,13 @@ impl std::fmt::Debug for Point {
 }
 
 impl Point {
+    pub fn new(x: f32, y: f32) -> Self {
+        Self {
+            x: x.into(),
+            y: y.into(),
+        }
+    }
+
     pub fn splat(v: f32) -> Point {
         Point {
             x: v.into(),

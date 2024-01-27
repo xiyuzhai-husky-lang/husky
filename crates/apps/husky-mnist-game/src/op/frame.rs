@@ -1,14 +1,14 @@
 use super::*;
-use crate::values::skeleton::Skeleton;
+use crate::values::skeleton::MnistSkeleton;
 
 pub struct MnistFrame {
-    skeleton: Skeleton,
+    skeleton: MnistSkeleton,
     skeleton_visual: Visual,
 }
 
 impl MnistFrame {
     pub fn new(visual_synchrotron: &mut VisualSynchrotron) -> Self {
-        let skeleton = Skeleton {};
+        let skeleton = MnistSkeleton::one();
         let skeleton_visual = skeleton.visualize(visual_synchrotron);
         Self {
             skeleton,
