@@ -13,7 +13,6 @@ use husky_visual_protocol::visual::Visual;
 pub enum Trace {
     Input,
     Skeleton,
-    ImageFromSkeleton,
     OptimalTransport,
 }
 
@@ -40,7 +39,6 @@ fn trace_from_into_trace_id_works() {
     use Trace::*;
     t(Input);
     t(Skeleton);
-    t(ImageFromSkeleton);
     t(OptimalTransport);
 }
 
@@ -67,7 +65,6 @@ fn trace_from_into_val_repr_interface_works() {
     use Trace::*;
     t(Input);
     t(Skeleton);
-    t(ImageFromSkeleton);
     t(OptimalTransport);
 }
 
@@ -78,7 +75,6 @@ impl Trace {
         match self {
             Trace::Input => db.input_visual(input_id),
             Trace::Skeleton => db.op_history(input_id)[op_time].skeleton_visual(),
-            Trace::ImageFromSkeleton => todo!(),
             Trace::OptimalTransport => db.op_history(input_id)[op_time].optimal_transport_visual(),
         }
     }
@@ -87,7 +83,6 @@ impl Trace {
         match self {
             Trace::Input => "input",
             Trace::Skeleton => "skeleton",
-            Trace::ImageFromSkeleton => "image from skeleton",
             Trace::OptimalTransport => "optimal transport",
         }
     }
