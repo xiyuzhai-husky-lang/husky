@@ -1,5 +1,5 @@
 use crate::{
-    op::{snap::MnistOpSnap, time::OpTime},
+    op::{frame::MnistOpFrame, history::OpTime},
     values::input::Input,
     MnistDb,
 };
@@ -77,9 +77,9 @@ impl Trace {
     pub(crate) fn visual<'a>(self, db: &'a MnistDb, input_id: InputId, op_time: OpTime) -> Visual {
         match self {
             Trace::Input => db.input_visual(input_id),
-            Trace::Skeleton => db.op_history(input_id)[op_time].frame().skeleton_visual(),
+            Trace::Skeleton => db.op_history(input_id)[op_time].skeleton_visual(),
             Trace::ImageFromSkeleton => todo!(),
-            Trace::OptimalTransport => todo!(),
+            Trace::OptimalTransport => db.op_history(input_id)[op_time].optimal_transport_visual(),
         }
     }
 

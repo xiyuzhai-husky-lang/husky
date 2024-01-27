@@ -1,4 +1,4 @@
-use crate::{op::time::OpTime, MnistDb};
+use crate::{op::history::OpTime, MnistDb};
 use egui::{vec2, Slider};
 use husky_ml_task_interface::{pedestal::MlPedestal, InputId};
 
@@ -12,7 +12,7 @@ pub struct MnistControl {
 impl MnistControl {
     pub(crate) fn new(engine: &MnistDb) -> MnistControl {
         let input_id = InputId::from_index(0);
-        let number_of_frames = engine.frames(input_id).len();
+        let number_of_frames = engine.op_frames(input_id).len();
         Self {
             input_id,
             frame_idx: 0,
