@@ -1,6 +1,6 @@
 use crate::{
     channel::MnistChannel,
-    op::time::OpTime,
+    op::history::OpTime,
     trace::{Trace, TraceSelection},
     ui_cache::MnistUiCache,
     MnistDb,

@@ -1,6 +1,6 @@
-use self::op::{snap::MnistOpSnap, time::OpTime};
+use self::op::history::{MnistOpHistory, OpTime};
 use super::*;
-use crate::op::frame::{MnistFrame, MnistFramesToBe};
+use crate::op::frame::{MnistFramesToBe, MnistOpFrame};
 use crate::values::input::Input;
 use husky_ml_task_interface::InputId;
 use mnist::dataset::MnistDataset;
@@ -12,10 +12,6 @@ pub struct MnistDb {
     op_histories: Vec<MnistOpHistory>,
 }
 
-pub struct MnistOpHistory {
-    op_snaps: Vec<MnistOpSnap>,
-}
-
 impl MnistDb {
     pub fn new(visual_synchrotron: &mut VisualSynchrotron) -> Self {
         let dataset = MnistDataset::default();
@@ -24,22 +20,20 @@ impl MnistDb {
             .iter()
             .map(|input| input.visualize(visual_synchrotron))
             .collect();
-        let op_snaps = (0..10)
-            .into_iter()
-            .map(|t| MnistOpSnap::new_ad_hoc(t, visual_synchrotron))
-            .collect();
+        let input = dataset.input(InputId::from_index(0));
+        let op_histories = vec![MnistOpHistory::new(input, visual_synchrotron)];
         MnistDb {
             dataset,
             input_visuals,
-            op_histories: vec![MnistOpHistory { op_snaps }],
+            op_histories,
         }
     }
 }
 
 /// # getters
 impl MnistDb {
-    pub fn frames(&self, input_id: InputId) -> &[MnistOpSnap] {
-        self.op_history(input_id).op_snaps.as_ref()
+    pub fn op_frames(&self, input_id: InputId) -> &[MnistOpFrame] {
+        self.op_history(input_id).op_frames()
     }
 
     pub(crate) fn input(&self, input_id: InputId) -> &Input {
@@ -56,9 +50,9 @@ impl MnistDb {
 }
 
 impl std::ops::Index<OpTime> for MnistOpHistory {
-    type Output = MnistOpSnap;
+    type Output = MnistOpFrame;
 
     fn index(&self, op_time: OpTime) -> &Self::Output {
-        &self.op_snaps[op_time.index()]
+        &self.op_frames()[op_time.index()]
     }
 }

@@ -21,30 +21,37 @@ impl MnistApp {
 
     fn layout_channels(&mut self, ctx: &egui::Context) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            let grid_size = ui.available_height().min((ui.available_width() * 0.7)) / 2.0;
+            let grid_size = ui.available_height().min((ui.available_width() * 1.0)) / 2.0;
             egui::Grid::new("channels").num_columns(2).show(ui, |ui| {
                 let number_of_rows = 2;
                 let number_of_columns = 2;
                 for i in 0..number_of_rows {
                     for j in 0..number_of_columns {
-                        let (_, response) =
-                            ui.allocate_exact_size(Vec2::splat(grid_size), Sense::hover());
-                        ui.allocate_ui_at_rect(response.rect, |ui| {
-                            let pedestal = self.control.pedestal();
-                            let op_time = self.control.op_time();
-                            let channel = &self.channels[i * number_of_columns + j];
-                            let set = channel.trace_selection().set();
-                            // debug:
-                            use crate::trace::Trace;
-                            use husky_task_interface::val_repr::ValReprInterface;
-                            use husky_trace_protocol::id::TraceId;
-                            channel
-                                .figure(pedestal, op_time, &self.db, &mut self.visual_synchrotron)
-                                .figure_ui(
-                                    &self.visual_synchrotron,
-                                    self.ui_cache.figure_ui_cache_mut(),
-                                    ui,
-                                )
+                        Frame::none().stroke((1.0, Color32::WHITE)).show(ui, |ui| {
+                            let (_, response) =
+                                ui.allocate_exact_size(Vec2::splat(grid_size), Sense::hover());
+                            ui.allocate_ui_at_rect(response.rect, |ui| {
+                                let pedestal = self.control.pedestal();
+                                let op_time = self.control.op_time();
+                                let channel = &self.channels[i * number_of_columns + j];
+                                let set = channel.trace_selection().set();
+                                // debug:
+                                use crate::trace::Trace;
+                                use husky_task_interface::val_repr::ValReprInterface;
+                                use husky_trace_protocol::id::TraceId;
+                                channel
+                                    .figure(
+                                        pedestal,
+                                        op_time,
+                                        &self.db,
+                                        &mut self.visual_synchrotron,
+                                    )
+                                    .figure_ui(
+                                        &self.visual_synchrotron,
+                                        self.ui_cache.figure_ui_cache_mut(),
+                                        ui,
+                                    )
+                            });
                         });
                     }
                     ui.end_row()
