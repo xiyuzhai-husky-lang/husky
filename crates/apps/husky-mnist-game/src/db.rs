@@ -17,7 +17,6 @@ impl MnistDb {
         let dataset = MnistDataset::default();
         let input_visuals = dataset
             .inputs()
-            .iter()
             .map(|input| input.visualize(visual_synchrotron))
             .collect();
         let input = dataset.input(InputId::from_index(0));
