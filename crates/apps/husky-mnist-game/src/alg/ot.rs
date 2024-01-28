@@ -5,10 +5,11 @@ use ot::prelude::*;
 use rust_optimal_transport as ot; // max()
 
 pub fn optimal_transport_for_2d_points(
-    source: impl IntoIterator<Item = Point>,
-    target: impl IntoIterator<Item = Point>,
+    source: impl AsRef<[Point]>,
+    target: impl AsRef<[Point]>,
 ) -> Array2<f64> {
-    use husky_print_utils::p;
+    let source = source.as_ref();
+    let target = target.as_ref();
     let source = points_to_array2(source);
     let mut source_weights = weights(&source);
     let target = points_to_array2(target);
@@ -45,8 +46,7 @@ fn optimal_transport_for_2d_points_works() {
     ))
 }
 
-fn points_to_array2(points: impl IntoIterator<Item = Point>) -> Array2<f64> {
-    let points: Vec<Point> = points.into_iter().collect();
+fn points_to_array2(points: &[Point]) -> Array2<f64> {
     let n = points.len();
     Array2::<f64>::from_shape_fn((n, 2), |(i, j)| match j {
         0 => points[i].x.into_inner() as f64,

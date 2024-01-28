@@ -25,6 +25,24 @@ pub struct Point {
     pub y: OrderedFloat<f32>,
 }
 
+impl From<(f32, f32)> for Point {
+    fn from(point: (f32, f32)) -> Self {
+        Point {
+            x: point.0.into(),
+            y: point.1.into(),
+        }
+    }
+}
+
+impl From<(OrderedFloat<f32>, OrderedFloat<f32>)> for Point {
+    fn from(point: (OrderedFloat<f32>, OrderedFloat<f32>)) -> Self {
+        Point {
+            x: point.0,
+            y: point.1,
+        }
+    }
+}
+
 impl Into<(f32, f32)> for Point {
     fn into(self) -> (f32, f32) {
         (self.x.into(), self.y.into())
@@ -84,15 +102,6 @@ impl Point {
         let b = *(((self.y + 1.0) - visual_rect.min.y) / (visual_rect.max.y - visual_rect.min.y));
         let y = rect.max.y + (rect.min.y - rect.max.y) * b;
         egui::Pos2 { x, y }
-    }
-}
-
-impl From<(f32, f32)> for Point {
-    fn from(point: (f32, f32)) -> Self {
-        Point {
-            x: point.0.into(),
-            y: point.1.into(),
-        }
     }
 }
 
