@@ -4,15 +4,6 @@ use ndarray_stats::QuantileExt;
 use ot::prelude::*;
 use rust_optimal_transport as ot; // max()
 
-#[test]
-fn f() {
-    use husky_print_utils::p;
-
-    let n = 10;
-    let a = Array2::<f64>::from_shape_fn((n, 2), |(i, j)| (i + j) as f64);
-    p!(a);
-}
-
 pub fn optimal_transport_for_2d_points(
     source: impl IntoIterator<Item = Point>,
     target: impl IntoIterator<Item = Point>,

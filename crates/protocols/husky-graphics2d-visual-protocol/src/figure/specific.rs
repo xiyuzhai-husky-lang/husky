@@ -120,9 +120,9 @@ impl SpecificGraphics2dFigure {
         let t = |point: Point| point.to_screen(mnist_visual_rect, rect);
         for shape in &self.shapes {
             match shape.data(visual_synchrotron) {
-                &ShapeVisualData::LineSegment { start, end } => ui
-                    .painter()
-                    .line_segment([t(start), t(end)], (2.0, Color32::YELLOW)),
+                &ShapeVisualData::LineSegment { start, end, stroke } => {
+                    ui.painter().line_segment([t(start), t(end)], stroke)
+                }
                 ShapeVisualData::Contour { points } => {
                     for i in 0..(points.len() - 1) {
                         ui.painter()
