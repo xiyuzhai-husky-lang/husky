@@ -1,3 +1,4 @@
+use super::*;
 use crate::{op::history::OpTime, MnistDb};
 use egui::{vec2, Slider};
 use husky_ml_task_interface::{pedestal::MlPedestal, InputId};
@@ -40,5 +41,11 @@ impl egui::Widget for &mut MnistControl {
             Slider::new(&mut self.frame_idx, 0..=(self.number_of_frames - 1)).ui(ui)
         })
         .response
+    }
+}
+
+impl MnistApp {
+    pub fn input_id(&self) -> InputId {
+        self.control.input_id
     }
 }

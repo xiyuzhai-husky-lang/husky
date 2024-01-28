@@ -49,7 +49,7 @@ impl Visualize for MnistBone {
             MnistBone::LineSegment { start, end } => Visual::new_line_segment(
                 start.into(),
                 end.into(),
-                (2.0, Color::Yellow),
+                (20.0, Color::Yellow),
                 visual_synchrotron,
             ),
         }

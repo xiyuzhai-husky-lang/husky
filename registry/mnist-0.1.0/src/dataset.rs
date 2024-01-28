@@ -44,8 +44,11 @@ impl MnistDataset {
         self.permutation[input_id.index()] as usize
     }
 
-    pub fn inputs(&self) -> &[BinaryImage28] {
-        self.inputs.as_ref()
+    pub fn inputs(&self) -> impl Iterator<Item = &BinaryImage28> {
+        (0..self.inputs.len())
+            .into_iter()
+            .map(|index| InputId::from_index(index))
+            .map(|input_id| self.input(input_id))
     }
 }
 
