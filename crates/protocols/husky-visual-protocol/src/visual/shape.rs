@@ -9,8 +9,14 @@ impl_visual_serde_id_from_to_for_sub_visual_id! { ShapeVisual }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum ShapeVisualData {
-    LineSegment { start: Point, end: Point },
-    Contour { points: Vec<Point> },
+    LineSegment {
+        start: Point,
+        end: Point,
+        stroke: Stroke,
+    },
+    Contour {
+        points: Vec<Point>,
+    },
 }
 
 #[derive(Default, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -94,12 +100,14 @@ impl ShapeVisual {
     pub fn new_line_segment(
         start: (f32, f32),
         end: (f32, f32),
+        stroke: impl Into<Stroke>,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         Self(
             visual_synchrotron.alloc_visual(ShapeVisualData::LineSegment {
                 start: start.into(),
                 end: end.into(),
+                stroke: stroke.into(),
             }),
         )
     }
@@ -128,13 +136,61 @@ impl ShapeVisual {
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub struct Stroke {
+    pub width: OrderedFloat<f32>,
+    pub color_class: Color,
+}
+
+impl Stroke {
+    pub fn width(&self) -> f32 {
+        self.width.into_inner()
+    }
+}
+
+impl From<(f32, Color)> for Stroke {
+    fn from(value: (f32, Color)) -> Self {
+        let (width, color_class) = value;
+        Self {
+            width: width.into(),
+            color_class,
+        }
+    }
+}
+
+#[cfg(feature = "egui")]
+impl Into<egui::Stroke> for Stroke {
+    fn into(self) -> egui::Stroke {
+        use egui::Color32;
+
+        egui::Stroke {
+            width: self.width(),
+            color: match self.color_class {
+                Color::Red => Color32::RED,
+                Color::LightYellow => todo!(),
+                Color::Yellow => Color32::YELLOW,
+                Color::Purple => todo!(),
+            },
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum Color {
+    Red,
+    LightYellow,
+    Yellow,
+    Purple,
+}
+
 impl Visual {
     pub fn new_line_segment(
         start: (f32, f32),
         end: (f32, f32),
+        stroke: impl Into<Stroke>,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
-        ShapeVisual::new_line_segment(start, end, visual_synchrotron).into()
+        ShapeVisual::new_line_segment(start, end, stroke, visual_synchrotron).into()
     }
 
     pub fn new_contour(

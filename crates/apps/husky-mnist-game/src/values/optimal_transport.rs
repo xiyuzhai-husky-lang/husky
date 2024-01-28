@@ -1,6 +1,6 @@
 use self::{input::Input, skeleton::MnistSkeleton};
 use super::*;
-use husky_visual_protocol::visual::shape::Point;
+use husky_visual_protocol::visual::shape::{Color, Point};
 use ndarray::Array2;
 
 pub struct OptimalTransport {
@@ -43,7 +43,7 @@ impl Visualize for OptimalTransport {
                 (weight > threshold).then(|| -> Visual {
                     let start = self.source_points[i].into();
                     let end = self.target_points[j].into();
-                    Visual::new_line_segment(start, end, visual_synchrotron)
+                    Visual::new_line_segment(start, end, (2.0, Color::Red), visual_synchrotron)
                 })
             }))
         }

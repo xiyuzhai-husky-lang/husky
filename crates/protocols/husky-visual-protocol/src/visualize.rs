@@ -53,7 +53,12 @@ macro_rules! LineSegment {
         let start = $start.1;
         debug_assert_eq!($end.0, "end");
         let end = $end.1;
-        Visual::new_line_segment((start.x, start.y), (end.x, end.y), $visual_synchrotron)
+        Visual::new_line_segment(
+            (start.x, start.y),
+            (end.x, end.y),
+            (1.0, __Color::Yellow),
+            $visual_synchrotron,
+        )
     }};
 }
 
