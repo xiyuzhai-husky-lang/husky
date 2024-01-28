@@ -17,8 +17,6 @@ impl OptimalTransport {
         let target_points = input_points(input);
         let optimal_transport_matrix =
             optimal_transport_for_2d_points(&source_points, &target_points);
-        use husky_print_utils::p;
-        p!(optimal_transport_matrix);
         Self {
             source_points,
             target_points,
