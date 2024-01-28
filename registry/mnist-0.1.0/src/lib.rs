@@ -48,6 +48,11 @@ impl BinaryImage28 {
     pub fn new_zeros() -> Self {
         Self::default()
     }
+
+    pub fn pixel(&self, i: usize, j: usize) -> bool {
+        let row = self.0[i + 1];
+        (row & (1 << (29 - j))) != 0
+    }
 }
 
 impl husky_core::visual::Visualize for BinaryImage28 {

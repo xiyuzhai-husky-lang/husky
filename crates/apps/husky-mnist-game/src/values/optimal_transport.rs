@@ -1,4 +1,6 @@
-use self::{input::Input, skeleton::MnistSkeleton};
+use crate::values::skeleton::MnistBone;
+
+use self::{alg::ot::optimal_transport_for_2d_points, input::Input, skeleton::MnistSkeleton};
 use super::*;
 use husky_visual_protocol::visual::shape::{Color, Point};
 use ndarray::Array2;
@@ -10,15 +12,49 @@ pub struct OptimalTransport {
 }
 
 impl OptimalTransport {
-    pub(crate) fn new_ad_hoc(input: &Input, skeleton: &MnistSkeleton) -> Self {
+    pub(crate) fn new(input: &Input, skeleton: &MnistSkeleton) -> Self {
+        let source_points = skeleton_points(skeleton);
+        let target_points = input_points(input);
+        let optimal_transport_matrix =
+            optimal_transport_for_2d_points(&source_points, &target_points);
+        use husky_print_utils::p;
+        p!(optimal_transport_matrix);
         Self {
-            source_points: vec![(2.0, 14.0).into(), (14.0, 14.0).into(), (25.0, 14.0).into()],
-            target_points: vec![(14.0, 2.0).into(), (14.0, 14.0).into(), (14.0, 25.0).into()],
-            optimal_transport_matrix: Array2::from_shape_fn((3, 3), |(i, j)| {
-                1.0f64 / ((1 + i + j) as f64)
-            }),
+            source_points,
+            target_points,
+            optimal_transport_matrix,
         }
     }
+}
+
+fn skeleton_points(skeleton: &MnistSkeleton) -> Vec<Point> {
+    let mut points: Vec<Point> = vec![];
+    for bone in skeleton.bones() {
+        match bone {
+            MnistBone::LineSegment { start, end } => {
+                let n = 10;
+                for i in 0..(n + 1) {
+                    let a: f32 = (i as f32) / (n as f32);
+                    let b = 1.0 - a;
+                    let point = ((start.x * a + end.x * b), (start.x * a + end.y * b)).into();
+                    points.push(point)
+                }
+            }
+        }
+    }
+    points
+}
+
+fn input_points(input: &Input) -> Vec<Point> {
+    let mut points: Vec<Point> = vec![];
+    for i in 0..28 {
+        for j in 0..28 {
+            if input.pixel(i, j) {
+                points.push((j as f32, (28 - i) as f32).into())
+            }
+        }
+    }
+    points
 }
 
 impl Visualize for OptimalTransport {
@@ -29,7 +65,7 @@ impl Visualize for OptimalTransport {
         let mut elements: Vec<Visual> = vec![];
         for i in 0..n {
             let mut eff_weights = 0.0;
-            let threshold = 0.05;
+            let threshold = 0.001;
             let eff_weights: f64 = (0..m)
                 .into_iter()
                 .filter_map(|j| {

@@ -3,33 +3,37 @@ use husky_visual_protocol::visual::shape::{Color, Point};
 use smallvec::{smallvec, SmallVec};
 
 pub struct MnistSkeleton {
-    strokes: MnistStrokes,
+    bones: MnistBones,
 }
 
 impl MnistSkeleton {
     pub(crate) fn one() -> Self {
         Self {
-            strokes: smallvec![MnistStroke::LineSegment {
+            bones: smallvec![MnistBone::LineSegment {
                 start: Point::new(14.0, 1.0),
                 end: Point::new(14.0, 27.0),
             }],
         }
     }
+
+    pub fn bones(&self) -> &[MnistBone] {
+        &self.bones
+    }
 }
 
-pub enum MnistStroke {
+pub enum MnistBone {
     LineSegment { start: Point, end: Point },
 }
 
-pub type MnistStrokes = SmallVec<[MnistStroke; 2]>;
+pub type MnistBones = SmallVec<[MnistBone; 2]>;
 
 impl Visualize for MnistSkeleton {
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        match self.strokes.len() {
+        match self.bones.len() {
             0 => todo!(),
-            1 => self.strokes[0].visualize(visual_synchrotron),
+            1 => self.bones[0].visualize(visual_synchrotron),
             _ => Visual::new_group_visual(
-                self.strokes
+                self.bones
                     .iter()
                     .map(|stroke| stroke.visualize(visual_synchrotron))
                     .collect(),
@@ -39,10 +43,10 @@ impl Visualize for MnistSkeleton {
     }
 }
 
-impl Visualize for MnistStroke {
+impl Visualize for MnistBone {
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         match *self {
-            MnistStroke::LineSegment { start, end } => Visual::new_line_segment(
+            MnistBone::LineSegment { start, end } => Visual::new_line_segment(
                 start.into(),
                 end.into(),
                 (2.0, Color::Yellow),
