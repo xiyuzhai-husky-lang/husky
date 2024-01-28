@@ -48,7 +48,7 @@ fn input_points(input: &Input) -> Vec<Point> {
     for i in 0..28 {
         for j in 0..28 {
             if input.pixel(i, j) {
-                points.push((j as f32, (28 - i) as f32).into())
+                points.push((j as f32 - 0.5, (28 - i) as f32 - 0.5).into())
             }
         }
     }
