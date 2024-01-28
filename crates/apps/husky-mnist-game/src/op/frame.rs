@@ -13,7 +13,7 @@ impl MnistOpFrame {
     pub fn new(input: &Input, visual_synchrotron: &mut VisualSynchrotron) -> Self {
         let skeleton = MnistSkeleton::one();
         let skeleton_visual = skeleton.visualize(visual_synchrotron);
-        let optimal_transport = OptimalTransport::new(input, &skeleton);
+        let optimal_transport = OptimalTransport::new_ad_hoc(input, &skeleton);
         let optimal_transport_visual = optimal_transport.visualize(visual_synchrotron);
         Self {
             skeleton,
