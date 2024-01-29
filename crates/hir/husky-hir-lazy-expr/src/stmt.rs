@@ -5,7 +5,9 @@ pub use self::branch_stmt::*;
 use crate::*;
 use husky_expr::stmt::ConditionConversion;
 use husky_hir_ty::HirType;
-use husky_sema_expr::{SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
+use husky_sema_expr::{
+    stmt::condition::SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange,
+};
 use idx_arena::ArenaRef;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]

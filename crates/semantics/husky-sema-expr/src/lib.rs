@@ -11,7 +11,7 @@ mod expr;
 pub mod helpers;
 mod obelisks;
 mod region;
-mod stmt;
+pub mod stmt;
 #[cfg(test)]
 mod tests;
 
@@ -20,9 +20,8 @@ pub use self::engine::*;
 pub use self::error::*;
 pub use self::expr::*;
 pub use self::obelisks::*;
-pub use self::stmt::*;
-// pub use self::info::*;
 pub use self::region::*;
+pub use self::stmt::*;
 
 use either::*;
 use husky_declarative_signature::*;

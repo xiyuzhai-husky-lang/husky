@@ -1,4 +1,7 @@
-use husky_sema_expr::{SemaCaseBranch, SemaElifBranch, SemaElseBranch, SemaIfBranch};
+use husky_sema_expr::{
+    match_stmt::SemaCaseBranch,
+    stmt::if_else_stmt::{SemaElifBranch, SemaElseBranch, SemaIfBranch},
+};
 
 use super::*;
 

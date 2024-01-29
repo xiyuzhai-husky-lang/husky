@@ -8,7 +8,9 @@ use crate::{coersion::HirEagerCoersion, *};
 use husky_expr::stmt::ConditionConversion;
 use husky_fluffy_term::ExpectationOutcome;
 use husky_hir_ty::ritchie::HirEagerContract;
-use husky_sema_expr::{SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
+use husky_sema_expr::{
+    stmt::condition::SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange,
+};
 
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 

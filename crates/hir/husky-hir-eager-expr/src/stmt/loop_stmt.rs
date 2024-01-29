@@ -1,6 +1,6 @@
 use super::*;
 use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
-use husky_sema_expr::{
+use husky_sema_expr::stmt::loop_stmt::{
     SemaForBetweenLoopBoundary, SemaForBetweenParticulars, SemaForBetweenRange,
     SemaForextParticulars,
 };
