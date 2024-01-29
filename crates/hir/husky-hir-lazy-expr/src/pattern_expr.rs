@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::PatternPath;
 use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
-use husky_term_prelude::TermLiteral;
+use husky_term_prelude::literal::TermLiteral;
 use idx_arena::ArenaRef;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]

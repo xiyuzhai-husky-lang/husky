@@ -24,6 +24,7 @@ use crate::instantiation::*;
 use crate::*;
 use husky_coword::Ident;
 use husky_declarative_term::DeclarativeTerm;
+use husky_term_prelude::literal::{int::TermUSizeLiteral, TermLiteral};
 use salsa::{DebugWithDb, DisplayWithDb};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

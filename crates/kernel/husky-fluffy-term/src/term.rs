@@ -12,6 +12,7 @@ pub use self::rune::*;
 pub use self::symbol_ty::*;
 
 use crate::*;
+use husky_term_prelude::literal::TermLiteral;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

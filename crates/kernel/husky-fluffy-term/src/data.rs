@@ -2,14 +2,14 @@ mod ethereal;
 mod hollow;
 mod solid;
 
-use husky_declarative_term::RuneIndex;
-use husky_ethereal_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
-
 pub(crate) use self::ethereal::*;
 pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
 use crate::*;
+use husky_declarative_term::RuneIndex;
+use husky_ethereal_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
+use husky_term_prelude::literal::TermLiteral;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]

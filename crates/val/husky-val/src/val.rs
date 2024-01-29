@@ -3,7 +3,7 @@ use crate::*;
 use husky_entity_path::{FugitivePath, TypeVariantPath};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_linkage::linkage::Linkage;
-use husky_term_prelude::TermLiteral;
+use husky_term_prelude::literal::TermLiteral;
 use smallvec::SmallVec;
 
 #[salsa::interned(db = ValDb, jar = ValJar)]

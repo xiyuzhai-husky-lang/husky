@@ -9,10 +9,10 @@ pub use self::bool::*;
 pub use self::char::*;
 pub use self::float::*;
 pub use self::integer::*;
-
 pub use self::tuple_index::*;
 
 use crate::*;
+use husky_term_prelude::literal::StringLiteralData;
 
 /// follows mainly from <https://doc.rust-lang.org/reference/tokens.html#literals/>
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

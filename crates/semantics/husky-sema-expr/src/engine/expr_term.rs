@@ -5,7 +5,11 @@ mod prefix;
 use husky_fluffy_term::{
     instantiation::FluffyInstantiation, signature::binary_opr::SemaBinaryOprFluffySignature,
 };
-use husky_term_prelude::float::TermF32Literal;
+use husky_term_prelude::literal::{
+    float::TermF32Literal,
+    int::{TermI128Literal, TermI64Literal, TermISizeLiteral, TermUSizeLiteral},
+    TermLiteral,
+};
 use husky_token_data::{BoolLiteralData, FloatLiteralData};
 
 use super::*;
@@ -79,49 +83,8 @@ impl<'a> SemaExprEngine<'a> {
                                             ))),
                                         ty_arguments,
                                         ty_ethereal_term,
-                                    } => match int_ty_path {
-                                        PreludeIntTypePath::I8 => todo!(),
-                                        PreludeIntTypePath::I16 => todo!(),
-                                        PreludeIntTypePath::I32 => {
-                                            TermLiteral::I32(val.try_into().expect("todo"))
-                                        }
-                                        PreludeIntTypePath::I64 => todo!(),
-                                        PreludeIntTypePath::I128 => todo!(),
-                                        PreludeIntTypePath::ISize => {
-                                            TermLiteral::ISize(TermISizeLiteral::new(
-                                                self.db,
-                                                val.try_into().expect("ok"),
-                                            ))
-                                        }
-                                        PreludeIntTypePath::U8 => todo!(),
-                                        PreludeIntTypePath::U16 => todo!(),
-                                        PreludeIntTypePath::U32 => todo!(),
-                                        PreludeIntTypePath::U64 => todo!(),
-                                        PreludeIntTypePath::U128 => todo!(),
-                                        PreludeIntTypePath::USize => {
-                                            TermLiteral::USize(TermUSizeLiteral::new(
-                                                self.db,
-                                                val.try_into().expect("ok"),
-                                            ))
-                                        }
-                                        PreludeIntTypePath::R8 => todo!(),
-                                        PreludeIntTypePath::R16 => todo!(),
-                                        PreludeIntTypePath::R32 => todo!(),
-                                        PreludeIntTypePath::R64 => todo!(),
-                                        PreludeIntTypePath::R128 => todo!(),
-                                        PreludeIntTypePath::RSize => todo!(),
-                                    },
+                                    } => TermLiteral::from_unspecified_int(int_ty_path, val, self.db),
                                     _ => {
-                                        #[cfg(test)]
-                                        {
-                                            p!(
-                                                ty.debug(self.db),
-                                                ty.show(self.db, self.fluffy_term_region.terms()),
-                                                regional_token_idx,
-                                                self.path()
-                                            );
-                                            todo!();
-                                        }
                                         Err(DerivedExprTermError::LiteralTypeNotResolved)?
                                     }
                                 }

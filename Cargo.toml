@@ -127,13 +127,14 @@ husky-vfs = { path = "crates/fs/husky-vfs" }
 # gui
 egui_dock = { path = "crates/gui/egui-dock" }
 # hir
-husky-hir-opr = { path = "crates/hir/husky-hir-opr" }
-husky-hir-ty = { path = "crates/hir/husky-hir-ty" }
-husky-hir-eager-expr = { path = "crates/hir/husky-hir-eager-expr" }
-husky-hir-lazy-expr = { path = "crates/hir/husky-hir-lazy-expr" }
-husky-hir-expr = { path = "crates/hir/husky-hir-expr" }
 husky-hir-decl = { path = "crates/hir/husky-hir-decl" }
 husky-hir-defn = { path = "crates/hir/husky-hir-defn" }
+husky-hir-eager-expr = { path = "crates/hir/husky-hir-eager-expr" }
+husky-hir-expr = { path = "crates/hir/husky-hir-expr" }
+husky-hir-lazy-expr = { path = "crates/hir/husky-hir-lazy-expr" }
+husky-hir-opr = { path = "crates/hir/husky-hir-opr" }
+husky-hir-prelude = { path = "crates/hir/husky-hir-prelude" }
+husky-hir-ty = { path = "crates/hir/husky-hir-ty" }
 # ide
 husky-token-info = { path = "crates/ide/husky-token-info" }
 # kernel

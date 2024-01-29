@@ -28,7 +28,7 @@ use husky_hir_ty::{
     trai::HirTrait, HirConstant, HirTemplateArgument, HirTemplateSymbol, HirType, HirTypeSymbol,
 };
 use husky_print_utils::p;
-use husky_term_prelude::TermLiteral;
+use husky_term_prelude::literal::TermLiteral;
 use husky_vfs::Toolchain;
 
 const INDENT_UNIT: u32 = 4;

@@ -12,8 +12,8 @@ serde.workspace = true
 serde_json.workspace = true
 serde-impl = { workspace = true, features = ["json"] }
 smallvec.workspace = true
-husky-term-prelude = { path = "../../kernel/husky-term-prelude", optional = true }
-husky-hir-prelude = { path = "../../hir/husky-hir-prelude", optional = true }
+husky-term-prelude = { workspace = true, optional = true }
+husky-hir-prelude = { workspace = true, optional = true }
 # protocols
 husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
