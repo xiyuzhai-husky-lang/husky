@@ -1,6 +1,9 @@
 use super::*;
 
-use husky_term_prelude::literal::StringLiteralData;
+use husky_term_prelude::literal::{
+    float::{TermF32Literal, TermF64Literal},
+    StringLiteralData,
+};
 use husky_text_protocol::{char_iter::TextCharIter, range::TextRange};
 
 use husky_coword::{is_char_valid_ident_first_char, Label};
@@ -63,7 +66,7 @@ pub enum AmbiguousPretoken {
 impl AmbiguousPretoken {
     pub fn code(self) -> &'static str {
         match self {
-            AmbiguousPretoken::SubOrMinus => todo!(),
+            AmbiguousPretoken::SubOrMinus => "-",
             AmbiguousPretoken::For => "for",
         }
     }
@@ -265,6 +268,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
     }
 
     fn next_number(&mut self) -> Pretoken {
+        let db = self.db;
         let radix = 10;
         self.eat_chars_with(|c| char::is_digit(c, radix));
         if self.try_eat_char(|c| c == '.').is_some() {
@@ -273,16 +277,32 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             let float_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
             let token: Pretoken = match float_suffix {
                 "" => FloatLiteralData::Unspecified(UnspecifiedFloatLiteral::new(
-                    self.db,
+                    db,
                     std::mem::take(&mut self.buffer),
                 ))
                 .into(),
-                "f8" => todo!(),
-                "f16" => todo!(),
-                "f32" => todo!(),
-                "f64" => todo!(),
-                "f128" => todo!(),
-                "f256" => todo!(),
+                "f32" => {
+                    let Ok(f): Result<f32, _> = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    FloatLiteralData::F32(TermF32Literal::new(
+                        db,
+                        f.into(),
+                        std::mem::take(&mut self.buffer),
+                    ))
+                    .into()
+                }
+                "f64" => {
+                    let Ok(f): Result<f64, _> = self.buffer.parse() else {
+                        return Pretoken::Err(TokenDataError::ParseIntError);
+                    };
+                    FloatLiteralData::F64(TermF64Literal::new(
+                        db,
+                        f.into(),
+                        std::mem::take(&mut self.buffer),
+                    ))
+                    .into()
+                }
                 _ => Pretoken::Err(TokenDataError::InvalidFloatSuffix),
             };
             self.buffer.clear();

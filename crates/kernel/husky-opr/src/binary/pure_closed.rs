@@ -14,20 +14,6 @@ pub enum BinaryClosedOpr {
 }
 
 impl BinaryClosedOpr {
-    pub fn rust_trait_method_name(self) -> &'static str {
-        match self {
-            BinaryClosedOpr::Add => "add",
-            BinaryClosedOpr::BitAnd => todo!(),
-            BinaryClosedOpr::BitOr => todo!(),
-            BinaryClosedOpr::BitXor => todo!(),
-            BinaryClosedOpr::Div => todo!(),
-            BinaryClosedOpr::Mul => todo!(),
-            BinaryClosedOpr::RemEuclid => todo!(),
-            BinaryClosedOpr::Power => todo!(),
-            BinaryClosedOpr::Sub => "sub",
-        }
-    }
-
     pub fn husky_code(&self) -> &'static str {
         match self {
             BinaryClosedOpr::Add => "+",
