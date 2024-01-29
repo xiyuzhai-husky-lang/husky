@@ -4,7 +4,7 @@
     husky_token_data::db::TokenDataJar,
     husky_token::TokenJar,
     husky_term_prelude::TermPreludeJar,
-    husky_entity_path::EntityPathJar
+    husky_entity_path::jar::EntityPathJar
 )]
 #[derive(Default)]
 pub(crate) struct DB;

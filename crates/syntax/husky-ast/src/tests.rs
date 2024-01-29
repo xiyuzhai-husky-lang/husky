@@ -2,7 +2,6 @@ pub(crate) use husky_token::test_utils::*;
 
 use crate::*;
 use husky_coword::CowordJar;
-use husky_entity_path::EntityPathJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_vfs::*;
@@ -10,7 +9,7 @@ use husky_vfs::*;
 #[salsa::db(
     CowordJar,
     VfsJar,
-    EntityPathJar,
+    husky_entity_path::jar::EntityPathJar,
     husky_token_data::db::TokenDataJar,
     TokenJar,
     AstJar,

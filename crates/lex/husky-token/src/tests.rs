@@ -2,7 +2,6 @@ mod adv;
 
 use crate::*;
 use husky_coword::CowordJar;
-use husky_entity_path::EntityPathJar;
 use husky_expect_test_snippets_utils::*;
 use husky_vfs::{snippet::Snippet, *};
 use salsa::DebugWithDb;
@@ -13,7 +12,7 @@ use salsa::DebugWithDb;
     husky_token_data::db::TokenDataJar,
     TokenJar,
     TermPreludeJar,
-    EntityPathJar
+    husky_entity_path::jar::EntityPathJar
 )]
 #[derive(Default)]
 pub(crate) struct DB;
