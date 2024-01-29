@@ -67,6 +67,7 @@ impl EntityKind {
                     TypeItemKind::AssociatedVal => EntityClass::AssociatedVal,
                     TypeItemKind::AssociatedType => EntityClass::AssociatedType,
                     TypeItemKind::MemoizedField => EntityClass::MemoizedField,
+                    TypeItemKind::AssociatedFunctionGn => todo!(),
                 },
                 AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => {
                     match trai_for_ty_item_kind {
@@ -106,6 +107,7 @@ pub enum TypeItemKind {
     AssociatedVal,
     AssociatedType,
     MemoizedField,
+    AssociatedFunctionGn,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

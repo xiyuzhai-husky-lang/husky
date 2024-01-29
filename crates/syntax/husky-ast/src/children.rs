@@ -1,12 +1,12 @@
-mod form_body;
-mod module_items;
+mod fugitive_body;
+mod major_items;
 mod trai_for_ty_items;
 mod trai_items;
 mod ty_items;
 mod ty_variants;
 
-pub use self::form_body::*;
-pub use self::module_items::*;
+pub use self::fugitive_body::*;
+pub use self::major_items::*;
 pub use self::trai_for_ty_items::*;
 pub use self::trai_items::*;
 pub use self::ty_items::*;
@@ -18,6 +18,16 @@ use husky_entity_path::*;
 use husky_token::*;
 use parsec::*;
 
+/// a possible type of ast children with specifications for parsing
+pub(crate) trait IsAstChildren {
+    /// specifies whether statements are allowed
+    const ALLOW_STMT: AstResult<()>;
+
+    /// specifies how to determine item kinds
+    fn determine_item_kind(keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind>;
+}
+
+/// ast children and entity path for a definition block
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = AstDb, jar = AstJar)]
 #[enum_class::from_variants]
@@ -46,27 +56,24 @@ pub enum DefnBlock {
 impl DefnBlock {
     pub fn children(self) -> Option<AstIdxRange> {
         match self {
-            DefnBlock::Fugitive { path: _, body } => body.map(|v| v.ast_idx_range()),
-            DefnBlock::Submodule { path: _ } => None,
-            DefnBlock::Type { path: _, variants } => variants.map(|v| v.ast_idx_range()),
-            DefnBlock::Trait { path: _, items } => items.map(|items| items.ast_idx_range()),
+            DefnBlock::Fugitive { body, .. } => body.map(|v| v.ast_idx_range()),
+            // in husky, there are no inline modules
+            DefnBlock::Submodule { .. } => None,
+            DefnBlock::Type { variants, .. } => variants.map(|v| v.ast_idx_range()),
+            DefnBlock::Trait { items, .. } => items.map(|items| items.ast_idx_range()),
             DefnBlock::AssociatedItem { body } => body.map(|v| v.ast_idx_range()),
         }
-    }
-
-    pub fn form_body(self) -> Option<FugitiveBody> {
-        todo!()
     }
 
     /// only for non-associated entities
     #[inline(always)]
     pub fn item_path(self) -> Option<ItemPath> {
         match self {
-            DefnBlock::Fugitive { path, body: _ } => Some(path.into()),
+            DefnBlock::Fugitive { path, .. } => Some(path.into()),
             DefnBlock::Submodule { path } => Some(path.into()),
-            DefnBlock::Type { path, variants: _ } => Some(path.into()),
-            DefnBlock::Trait { path, items: _ } => Some(path.into()),
-            DefnBlock::AssociatedItem { body: _ } => None,
+            DefnBlock::Type { path, .. } => Some(path.into()),
+            DefnBlock::Trait { path, .. } => Some(path.into()),
+            DefnBlock::AssociatedItem { .. } => None,
         }
     }
 }

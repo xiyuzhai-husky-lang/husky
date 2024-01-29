@@ -10,7 +10,8 @@ impl TraitForTypeItems {
         self.ast_idx_range
     }
 }
-impl NormalAstChildren for TraitForTypeItems {
+
+impl IsAstChildren for TraitForTypeItems {
     const ALLOW_STMT: AstResult<()> = Err(AstError::Original(
         OriginalAstError::UnexpectedStmtInsideImplBlock,
     ));
@@ -18,15 +19,15 @@ impl NormalAstChildren for TraitForTypeItems {
     #[inline(always)]
     fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
         let trait_item_kind = match item_keyword_group {
-            EntityKindKeywordGroup::Mod(_) => todo!(),
-            EntityKindKeywordGroup::Fn(_) => TraitItemKind::MethodFn,
-            EntityKindKeywordGroup::ConstFn(_, _) => todo!(),
+            EntityKindKeywordGroup::Submodule(_) => {
+                Err(OriginalAstError::UnexpectedModInsideModuleItem)?
+            }
+            EntityKindKeywordGroup::FugitiveFn(_) => TraitItemKind::MethodFn,
             EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::AssociatedFunctionFn,
-            EntityKindKeywordGroup::StaticConstFn(_, _, _) => todo!(),
             EntityKindKeywordGroup::Gn(_) => todo!(),
-            EntityKindKeywordGroup::GeneralDef(_) => todo!(),
-            EntityKindKeywordGroup::TypeEntity(_) => todo!(),
-            EntityKindKeywordGroup::Type(_) => TraitItemKind::AssociatedType,
+            EntityKindKeywordGroup::FormalEntity(_) => todo!(),
+            EntityKindKeywordGroup::MajorType(_) => todo!(),
+            EntityKindKeywordGroup::AliasOrAssociateType(_) => TraitItemKind::AssociatedType,
             EntityKindKeywordGroup::Trait(_) => todo!(),
             EntityKindKeywordGroup::Val(_) => todo!(),
         };

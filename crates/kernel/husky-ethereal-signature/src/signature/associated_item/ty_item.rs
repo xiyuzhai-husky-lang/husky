@@ -159,6 +159,7 @@ pub(crate) fn ty_item_ethereal_signature_templates_map(
                             })
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
                             .map(TypeItemEtherealSignatureTemplates::AssociatedFn),
+                        TypeItemKind::AssociatedFunctionGn => todo!(),
                         TypeItemKind::AssociatedVal => todo!(),
                         TypeItemKind::AssociatedType => todo!(),
                         TypeItemKind::MemoizedField => paths
@@ -174,17 +175,6 @@ pub(crate) fn ty_item_ethereal_signature_templates_map(
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
                             .map(TypeItemEtherealSignatureTemplates::MemoizedField),
                     },
-                    // match templates {
-                    //     TypeMethodDeclarativeSignatureTemplates::MethodFn(templates) => templates
-                    //         .iter()
-                    //         .copied()
-                    //         .map(|template| template.ethereal_signature_template(db))
-                    //         .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
-                    //         .map(TypeItemEtherealSignatureTemplates::MethodFn),
-                    //     TypeMethodDeclarativeSignatureTemplates::MethodFunction(templates) => {
-                    //         todo!()
-                    //     }
-                    // },
                     Err(_e) => Err(EtherealSignatureError::EntityTreeError),
                 };
                 (*ident, result)

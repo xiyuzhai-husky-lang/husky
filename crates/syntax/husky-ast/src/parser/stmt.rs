@@ -2,7 +2,7 @@ use super::*;
 
 impl<'a> AstParser<'a> {
     #[inline(always)]
-    pub(super) fn try_parse_stmt<C: NormalAstChildren>(
+    pub(super) fn try_parse_stmt<C: IsAstChildren>(
         &mut self,
         token_group_idx: TokenGroupIdx,
     ) -> AstResult<Ast> {
@@ -11,7 +11,7 @@ impl<'a> AstParser<'a> {
     }
 
     #[inline(always)]
-    pub(super) fn try_parse_stmt_after_keyword<C: NormalAstChildren>(
+    pub(super) fn try_parse_stmt_after_keyword<C: IsAstChildren>(
         &mut self,
         token_group_idx: TokenGroupIdx,
         keyword: StmtKeyword,

@@ -1,3 +1,12 @@
+//! Parse source file into abstract syntax tree.
+//!
+//! Here ast stops at the line group level, i.e. the leafs are line groups. The reasons are
+//! - make it faster to extract the entity tree because it doesn't require parsing each line group completely.
+//! - compartmentalize errors. It's guaranteed that a simple syntax error in one line group will not affect another line group.
+//! - modularization. Parsing each line group has its own complexity because the syntax of husky is very complicated. To make development easier, we try to minimize the complexity of each crate as much as possible. The style of parsing in this crate is more tree-like, and the parsing of each line group will be more stack-like.
+//!
+//!
+/// defines the `Ast` type
 mod ast;
 mod children;
 mod db;

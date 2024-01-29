@@ -10,7 +10,7 @@ impl TypeItems {
         self.ast_idx_range
     }
 }
-impl NormalAstChildren for TypeItems {
+impl IsAstChildren for TypeItems {
     const ALLOW_STMT: AstResult<()> = Err(AstError::Original(
         OriginalAstError::UnexpectedStmtInsideImplBlock,
     ));
@@ -18,17 +18,17 @@ impl NormalAstChildren for TypeItems {
     #[inline(always)]
     fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
         let ty_item_kind = match item_keyword_group {
-            EntityKindKeywordGroup::Mod(_) => todo!(),
-            EntityKindKeywordGroup::Fn(_) => TypeItemKind::MethodFn,
-            EntityKindKeywordGroup::ConstFn(_, _) => todo!(),
-            EntityKindKeywordGroup::StaticFn(_, _) => TypeItemKind::AssociatedFunctionFn,
-            EntityKindKeywordGroup::StaticConstFn(_, _, _) => todo!(),
-            EntityKindKeywordGroup::Gn(_) => todo!(),
-            EntityKindKeywordGroup::GeneralDef(_) => todo!(),
-            EntityKindKeywordGroup::TypeEntity(_) => {
-                Err(OriginalAstError::UnexpectedTypeDefnInsideTypeImplBlock)?
+            EntityKindKeywordGroup::Submodule(_) => {
+                Err(OriginalAstError::UnexpectedModInsideModuleItem)?
             }
-            EntityKindKeywordGroup::Type(_) => todo!(),
+            EntityKindKeywordGroup::FugitiveFn(_) => TypeItemKind::MethodFn,
+            EntityKindKeywordGroup::StaticFn(_, _) => TypeItemKind::AssociatedFunctionFn,
+            EntityKindKeywordGroup::Gn(_) => TypeItemKind::AssociatedFunctionGn,
+            EntityKindKeywordGroup::FormalEntity(_) => todo!(),
+            EntityKindKeywordGroup::MajorType(_) => {
+                Err(OriginalAstError::UnexpectedMajorItemInsideImplBlock)?
+            }
+            EntityKindKeywordGroup::AliasOrAssociateType(_) => TypeItemKind::AssociatedType,
             EntityKindKeywordGroup::Trait(_) => todo!(),
             EntityKindKeywordGroup::Val(_) => TypeItemKind::MemoizedField,
         };

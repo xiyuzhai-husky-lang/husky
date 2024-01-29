@@ -94,6 +94,7 @@ impl<'a> DeclParser<'a> {
             TypeItemKind::MemoizedField => self.parse_ty_memo_decl(syn_node_path).into(),
             TypeItemKind::AssociatedVal => todo!(),
             TypeItemKind::AssociatedType => todo!(),
+            TypeItemKind::AssociatedFunctionGn => todo!(),
         }
     }
 }
