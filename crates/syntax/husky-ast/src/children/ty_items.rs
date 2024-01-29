@@ -24,12 +24,14 @@ impl IsAstChildren for TypeItems {
             EntityKindKeywordGroup::FugitiveFn(_) => TypeItemKind::MethodFn,
             EntityKindKeywordGroup::StaticFn(_, _) => TypeItemKind::AssociatedFunctionFn,
             EntityKindKeywordGroup::Gn(_) => TypeItemKind::AssociatedFunctionGn,
-            EntityKindKeywordGroup::FormalEntity(_) => todo!(),
+            EntityKindKeywordGroup::FormalEntity(_) => TypeItemKind::AssociatedFormal,
             EntityKindKeywordGroup::MajorType(_) => {
                 Err(OriginalAstError::UnexpectedMajorTypeInsideImplBlock)?
             }
             EntityKindKeywordGroup::AliasOrAssociateType(_) => TypeItemKind::AssociatedType,
-            EntityKindKeywordGroup::Trait(_) => todo!(),
+            EntityKindKeywordGroup::Trait(_) => {
+                Err(OriginalAstError::UnexpectedTraitInsideImplBlock)?
+            }
             EntityKindKeywordGroup::Val(_) => TypeItemKind::MemoizedField,
         };
         Ok(EntityKind::AssociatedItem {

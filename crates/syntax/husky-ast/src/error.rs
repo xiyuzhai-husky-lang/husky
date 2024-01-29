@@ -91,8 +91,12 @@ pub enum OriginalAstError {
     UnexpectedTraitInsideForm,
     #[error("UnexpectedEndKeywordAsFirstNonCommentToken")]
     UnexpectedEndKeywordAsFirstNonCommentToken,
+    #[error("unexpected connection keyword as first non-comment token")]
+    UnexpectedConnectionKeywordAsFirstNonCommentToken,
     #[error("unexpected major type inside implementation block")]
     UnexpectedMajorTypeInsideImplBlock,
+    #[error("unexpected trait inside implementation block")]
+    UnexpectedTraitInsideImplBlock,
     #[error("unexpected memomoized field outside implementation block")]
     UnexpectedMemoFieldOutsideImplBlock,
     #[error("ExpectedTypeItems")]
@@ -105,8 +109,12 @@ pub enum OriginalAstError {
     ExpectedFormBodyForConfig(TokenGroupIdx),
     #[error("ExpectedFormBodyForMain")]
     ExpectedFormBodyForMain(TokenGroupIdx),
+    #[error("SubmoduleFileNotFound")]
+    SubmoduleFileNotFound(VfsError),
     #[error("VisibilityExprError")]
     VisibilityExprError(#[from] OriginalVisibilityExprError),
+    #[error("ExpectedLboxOrIdentAfterPoundForAttrOrSorce")]
+    ExpectedLboxOrIdentAfterPoundForAttrOrSorce,
 }
 
 impl From<std::convert::Infallible> for AstError {
@@ -132,18 +140,6 @@ pub enum DerivedAstError {
     TokenData(#[from] TokenDataError),
     #[error("VisibilityExprError")]
     VisibilityExprError(#[from] DerivedVisibilityExprError),
-}
-
-impl From<&AstError> for AstError {
-    fn from(_value: &AstError) -> Self {
-        todo!()
-    }
-}
-
-impl From<VfsError> for AstError {
-    fn from(_e: VfsError) -> Self {
-        todo!()
-    }
 }
 
 pub type AstResult<T> = Result<T, AstError>;

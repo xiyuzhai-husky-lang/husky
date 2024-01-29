@@ -57,30 +57,9 @@ impl EntityKind {
             EntityKind::AssociatedItem {
                 associated_item_kind,
             } => match associated_item_kind {
-                AssociatedItemKind::TraitItem(trai_item_kind) => match trai_item_kind {
-                    TraitItemKind::MethodFn => EntityClass::MethodFn,
-                    TraitItemKind::AssociatedType => EntityClass::AssociatedType,
-                    TraitItemKind::AssociatedVal => EntityClass::AssociatedVal,
-                    TraitItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
-                    TraitItemKind::AssociatedFunctionGn => EntityClass::AssociatedFunctionGn,
-                },
-                AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
-                    TypeItemKind::MethodFn => EntityClass::MethodFn,
-                    TypeItemKind::AssociatedVal => EntityClass::AssociatedVal,
-                    TypeItemKind::AssociatedType => EntityClass::AssociatedType,
-                    TypeItemKind::MemoizedField => EntityClass::MemoizedField,
-                    TypeItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
-                    TypeItemKind::AssociatedFunctionGn => EntityClass::AssociatedFunctionGn,
-                },
-                AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => {
-                    match trai_for_ty_item_kind {
-                        TraitItemKind::MethodFn => EntityClass::MethodFn,
-                        TraitItemKind::AssociatedType => EntityClass::AssociatedType,
-                        TraitItemKind::AssociatedVal => EntityClass::AssociatedVal,
-                        TraitItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
-                        TraitItemKind::AssociatedFunctionGn => EntityClass::AssociatedFunctionGn,
-                    }
-                }
+                AssociatedItemKind::TypeItem(ty_item_kind) => ty_item_kind.into(),
+                AssociatedItemKind::TraitItem(trai_item_kind)
+                | AssociatedItemKind::TraitForTypeItem(trai_item_kind) => trai_item_kind.into(),
             },
             EntityKind::TypeVariant => EntityClass::TypeVariant,
             EntityKind::ImplBlock => EntityClass::ImplBlock,
@@ -99,8 +78,8 @@ pub enum MajorItemKind {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum AssociatedItemKind {
-    TraitItem(TraitItemKind),
     TypeItem(TypeItemKind),
+    TraitItem(TraitItemKind),
     TraitForTypeItem(TraitItemKind),
 }
 
@@ -112,15 +91,46 @@ pub enum TypeItemKind {
     AssociatedType,
     MemoizedField,
     AssociatedFunctionGn,
+    AssociatedFormal,
+}
+
+impl Into<EntityClass> for TypeItemKind {
+    fn into(self) -> EntityClass {
+        match self {
+            TypeItemKind::MemoizedField => EntityClass::MemoizedField,
+            TypeItemKind::MethodFn => EntityClass::MethodFn,
+            TypeItemKind::AssociatedVal => EntityClass::AssociatedVal,
+            TypeItemKind::AssociatedType => EntityClass::AssociatedType,
+            TypeItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
+            TypeItemKind::AssociatedFunctionGn => EntityClass::AssociatedFunctionGn,
+            TypeItemKind::AssociatedFormal => EntityClass::AssociatedFormal,
+        }
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum TraitItemKind {
+    MemoizedField,
     MethodFn,
     AssociatedType,
     AssociatedVal,
     AssociatedFunctionFn,
     AssociatedFunctionGn,
+    AssociatedFormal,
+}
+
+impl Into<EntityClass> for TraitItemKind {
+    fn into(self) -> EntityClass {
+        match self {
+            TraitItemKind::MemoizedField => EntityClass::MemoizedField,
+            TraitItemKind::MethodFn => EntityClass::MethodFn,
+            TraitItemKind::AssociatedType => EntityClass::AssociatedType,
+            TraitItemKind::AssociatedVal => EntityClass::AssociatedVal,
+            TraitItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
+            TraitItemKind::AssociatedFunctionGn => EntityClass::AssociatedFunctionGn,
+            TraitItemKind::AssociatedFormal => EntityClass::AssociatedFormal,
+        }
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

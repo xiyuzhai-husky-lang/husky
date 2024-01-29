@@ -35,7 +35,8 @@ impl<'a> AstParser<'a> {
         let block = match item_kind {
             EntityKind::Module => DefnBlock::Submodule {
                 path: SubmoduleItemPath::new(
-                    ModulePath::new_child(self.db, self.module_path, ident)?,
+                    ModulePath::new_child(self.db, self.module_path, ident)
+                        .map_err(OriginalAstError::SubmoduleFileNotFound)?,
                     self.db,
                 ),
             },
@@ -82,9 +83,9 @@ impl<'a> AstParser<'a> {
             EntityKind::AssociatedItem { .. } => DefnBlock::AssociatedItem {
                 body: self.try_parse_option()?,
             },
-            EntityKind::TypeVariant => todo!(),
-            EntityKind::ImplBlock => todo!(),
-            EntityKind::Attr => todo!(),
+            EntityKind::TypeVariant | EntityKind::ImplBlock | EntityKind::Attr => {
+                unreachable!("it should be guaranteed by callers")
+            }
         };
         Ok(Ast::Identifiable {
             visibility_expr,

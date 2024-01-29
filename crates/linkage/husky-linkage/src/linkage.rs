@@ -412,9 +412,11 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         })
                         .collect()
                 }
+                TypeItemKind::AssociatedFormal => todo!(),
             },
             JavelinPath::TraitItem(_) => todo!(),
             JavelinPath::TraitForTypeItem(path) => match path.item_kind(db) {
+                TraitItemKind::MemoizedField => todo!(),
                 TraitItemKind::MethodFn => LinkageInstantiation::from_javelin(instantiation, db)
                     .into_iter()
                     .map(|instantiation| {
@@ -470,6 +472,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     }
                 }
                 TraitItemKind::AssociatedFunctionGn => todo!(),
+                TraitItemKind::AssociatedFormal => todo!(),
             },
             JavelinPath::TypeConstructor(path) => match path.ty_kind(db) {
                 TypeKind::Enum => {
