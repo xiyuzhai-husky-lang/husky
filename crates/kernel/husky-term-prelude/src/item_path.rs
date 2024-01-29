@@ -5,7 +5,7 @@ use husky_vfs::Toolchain;
 use salsa::DisplayWithDb;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::debug_with_db]
 pub enum TermEntityPath {
     Fugitive(FugitivePath),
     Trait(TraitPath),

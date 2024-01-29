@@ -16,7 +16,7 @@ impl HirTypeDb for ::salsa::Db {
     }
 }
 
-#[salsa::jar(db = HirTypeDb)]
+#[salsa::jar]
 pub struct HirTypeJar(
     HirTypePathLeading,
     HirTypeTypeAssociatedType,

@@ -8,7 +8,7 @@ use husky_salsa_log_utils::HasLogger;
 use expect_test::expect;
 use salsa::Db;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInput, result_depends_on_x, result_depends_on_y);
 
 #[salsa::input(db = Db, jar = Jar)]

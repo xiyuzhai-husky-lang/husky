@@ -12,7 +12,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::debug_with_db]
 pub enum FugitiveEtherealSignatureTemplate {
     FunctionFn(FunctionFnEtherealSignatureTemplate),
     FunctionGn(GnFugitiveEtherealSignatureTemplate),

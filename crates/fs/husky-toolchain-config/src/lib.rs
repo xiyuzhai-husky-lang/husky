@@ -9,7 +9,7 @@ use serde::*;
 use std::path::Path;
 use std::path::PathBuf;
 
-#[salsa::jar(db = ToolchainConfigDb)]
+#[salsa::jar]
 pub struct ToolchainConfigJar();
 
 pub struct ToolchainConfig {

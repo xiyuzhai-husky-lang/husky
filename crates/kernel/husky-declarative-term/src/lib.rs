@@ -19,7 +19,7 @@ use husky_coword::*;
 use husky_term_prelude::*;
 use husky_vfs::Toolchain;
 
-#[salsa::jar(db =  DeclarativeTermDb)]
+#[salsa::jar]
 pub struct DeclarativeTermJar(
     DeclarativeTermSymbol,
     DeclarativeTermSymbols,

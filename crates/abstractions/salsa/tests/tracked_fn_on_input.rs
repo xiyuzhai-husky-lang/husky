@@ -3,7 +3,7 @@
 #![allow(warnings)]
 use salsa::Db;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInput, tracked_fn);
 
 #[salsa::input(db = Db, jar = Jar)]

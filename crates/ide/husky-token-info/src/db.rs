@@ -24,5 +24,5 @@ impl TokenInfoDb for ::salsa::Db {
     }
 }
 
-#[salsa::jar(db =  TokenInfoDb)]
+#[salsa::jar]
 pub struct TokenInfoJar(token_info_sheet);

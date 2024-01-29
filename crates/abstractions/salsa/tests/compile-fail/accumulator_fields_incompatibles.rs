@@ -1,4 +1,4 @@
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(AccTwoUnnamedFields, AccNamedField);
 
 // accumulator with more than one unnamed fields

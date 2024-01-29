@@ -20,7 +20,7 @@ pub use stream::*;
 
 use tokenize::*;
 
-#[salsa::jar(db = TomlTokenDb)]
+#[salsa::jar]
 pub struct TomlTokenJar(toml_token_sheet);
 
 use husky_coword::Coword;

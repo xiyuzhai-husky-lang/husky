@@ -20,7 +20,7 @@ use husky_token::*;
 use husky_token_info::*;
 use husky_vfs::*;
 
-#[salsa::jar(db = SemanticTokenDb)]
+#[salsa::jar]
 pub struct SemanticTokenJar(semantic_tokens, semantic_tokens_ext_without_range);
 
 #[salsa::tracked(jar = SemanticTokenJar, return_ref)]

@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
+#[salsa::debug_with_db]
 pub struct DeclarativeRitchieVariadicParameter {
     contract: TermContract,
     ty: DeclarativeTerm,

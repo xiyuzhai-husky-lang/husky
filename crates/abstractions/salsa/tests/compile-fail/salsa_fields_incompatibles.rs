@@ -1,4 +1,4 @@
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(InputWithBannedName1, InputWithBannedName2);
 
 // Banned field name: `from`

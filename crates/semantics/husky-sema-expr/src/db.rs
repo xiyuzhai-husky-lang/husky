@@ -11,7 +11,7 @@ impl SemaExprDb for ::salsa::Db {
     }
 }
 
-#[salsa::jar(db = SemaExprDb)]
+#[salsa::jar]
 pub struct SemaExprJar(
     ty_ontology_path_unveil_impl_block_signature_templates,
     ty_ontology_application_unveil_impl_block_signature_templates,

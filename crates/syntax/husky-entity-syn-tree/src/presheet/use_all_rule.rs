@@ -3,7 +3,7 @@ use vec_like::VecMapGetEntry;
 
 /// it's separated because it has to be updated indefinitely
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 pub struct UseAllRule {
     /// parent is of type `RelativeModulePath`
     ///
@@ -96,7 +96,7 @@ impl UseAllRule {
 }
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 pub(crate) struct UseAllRules(Vec<UseAllRule>);
 
 #[derive(Debug, Default, PartialEq, Eq, Clone, Copy)]

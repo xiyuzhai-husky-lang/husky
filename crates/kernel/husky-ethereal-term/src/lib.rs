@@ -40,7 +40,7 @@ use husky_vfs::*;
 use salsa::DebugWithDb;
 use smallvec::*;
 
-#[salsa::jar(db = EtherealTermDb)]
+#[salsa::jar]
 pub struct EtherealTermJar(
     // symbol
     EtherealTermSymbol,

@@ -8,7 +8,7 @@ use crate::*;
 ///
 /// final destination of a type path `A` is `FinalDestination::TypePath(A)`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::debug_with_db]
 pub enum FinalDestination {
     Sort,
     TypeOntology,

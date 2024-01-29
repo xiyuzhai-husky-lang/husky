@@ -6,7 +6,7 @@ use crate::options::Options;
 
 // Source:
 //
-// #[salsa::jar(db = Jar0Db)]
+// #[salsa::jar]
 // pub struct Jar0(Entity0, Ty0, EntityComponent0, my_func);
 
 pub(crate) fn jar(
@@ -14,12 +14,8 @@ pub(crate) fn jar(
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let options = syn::parse_macro_input!(args as Args);
-    let db_path = match options.db_trai {
-        Some(v) => v,
-        None => panic!("no `db` specified"),
-    };
     let input = syn::parse_macro_input!(input as ItemStruct);
-    jar_struct_and_friends(&db_path, &input).into()
+    jar_struct_and_friends(&input).into()
 }
 
 type Args = Options<Jar>;
@@ -39,7 +35,7 @@ impl crate::options::AllowedOptions for Jar {
 
     const DATA: bool = false;
 
-    const DB: bool = true;
+    const DB: bool = false;
 
     const RECOVERY_FN: bool = false;
 
@@ -47,13 +43,10 @@ impl crate::options::AllowedOptions for Jar {
 
     const CONSTRUCTOR: bool = false;
 
-    const OVERRIDE_DEBUG: bool = true;
+    const OVERRIDE_DEBUG: bool = false;
 }
 
-pub(crate) fn jar_struct_and_friends(
-    jar_trait: &Path,
-    input: &ItemStruct,
-) -> proc_macro2::TokenStream {
+pub(crate) fn jar_struct_and_friends(input: &ItemStruct) -> proc_macro2::TokenStream {
     let output_struct = jar_struct(input);
 
     let jar_struct = &input.ident;
@@ -66,7 +59,7 @@ pub(crate) fn jar_struct_and_friends(
         .map(|(field, index)| has_ingredients_for_impl(jar_struct, field, index))
         .collect();
 
-    let jar_impl = jar_impl(jar_struct, jar_trait, input);
+    let jar_impl = jar_impl(jar_struct, input);
 
     quote! {
         #output_struct
@@ -97,11 +90,7 @@ pub(crate) fn has_ingredients_for_impl(
     }
 }
 
-pub(crate) fn jar_impl(
-    jar_struct: &Ident,
-    _jar_trait: &Path,
-    input: &ItemStruct,
-) -> proc_macro2::TokenStream {
+pub(crate) fn jar_impl(jar_struct: &Ident, input: &ItemStruct) -> proc_macro2::TokenStream {
     let field_initializations: Vec<_> = input
         .fields
         .iter()

@@ -1,4 +1,4 @@
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 pub struct Jar(a::MyInput);
 
 mod a {

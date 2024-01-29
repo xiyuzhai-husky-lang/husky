@@ -7,7 +7,7 @@ use crate::setup::Knobs;
 use expect_test::expect;
 use salsa::{Db, ParallelDatabase};
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 pub(crate) struct Jar(MyInput, a, b);
 
 #[salsa::input(db = Db, jar = Jar)]

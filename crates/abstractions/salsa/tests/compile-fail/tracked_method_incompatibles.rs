@@ -1,4 +1,4 @@
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(Tracked);
 
 #[salsa::tracked(jar = Jar)]

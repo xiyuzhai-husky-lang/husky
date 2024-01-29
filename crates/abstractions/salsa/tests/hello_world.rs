@@ -6,7 +6,7 @@ use husky_salsa_log_utils::HasLogger;
 use salsa::*;
 use test_log::test;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInput, MyTracked, final_result, intermediate_result);
 
 #[salsa::input(db = Db, jar = Jar)]

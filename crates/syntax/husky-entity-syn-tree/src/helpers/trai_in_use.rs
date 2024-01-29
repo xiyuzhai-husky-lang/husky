@@ -2,7 +2,7 @@ use super::*;
 use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 pub struct TraitInUseItemsTable<'a> {
     prelude_trait_items_table: &'a [(Ident, SmallVec<[TraitInUseItemRecord; 2]>)],
     module_specific_trait_items_table: &'a [(Ident, SmallVec<[TraitInUseItemRecord; 2]>)],
@@ -91,7 +91,7 @@ fn trait_items_table_impl(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 pub struct TraitInUseItemRecord {
     trai_symbol: EntitySymbol,
     trai_path: TraitPath,
@@ -114,7 +114,7 @@ impl TraitInUseItemRecord {
 /// available trait items with given identifier
 /// designed for
 #[derive(Debug, Clone, Copy)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 pub struct TraitInUseItemsWithGivenIdent<'a> {
     prelude_trait_items: Option<&'a [TraitInUseItemRecord]>,
     module_specific_trait_items: Option<&'a [TraitInUseItemRecord]>,

@@ -4,7 +4,7 @@ use crate::{float::*, *};
 use ordered_float::OrderedFloat;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::debug_with_db]
 pub enum TermLiteral {
     /// unit literal
     Unit(()),

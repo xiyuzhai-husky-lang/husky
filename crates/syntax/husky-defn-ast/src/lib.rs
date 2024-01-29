@@ -8,7 +8,7 @@ use idx_arena::*;
 ///
 /// everything is regional, in the sense that the token indices are counted relative to the starting token
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = AstDb, jar = AstJar)]
+#[salsa::debug_with_db]
 pub enum DefnAst {
     Err,
     /// let or return or require or a single `if` or `elif` or `else` or case branch

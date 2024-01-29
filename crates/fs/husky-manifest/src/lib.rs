@@ -14,7 +14,7 @@ use husky_manifest_ast::{HasPackageManifestAstSheet, PackageManifestAstSheet};
 
 use husky_vfs::*;
 
-#[salsa::jar(db = ManifestDb)]
+#[salsa::jar]
 pub struct ManifestJar(
     package_manifest_aux,
     PackageManifest,

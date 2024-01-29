@@ -301,7 +301,7 @@ fn read_file_content(path: &Path) -> FileContent {
     }
 }
 
-#[salsa::jar(db = VfsDb)]
+#[salsa::jar]
 pub struct VfsJar(
     VfsCache,
     crate::path::workspace_path::WorkspacePath,

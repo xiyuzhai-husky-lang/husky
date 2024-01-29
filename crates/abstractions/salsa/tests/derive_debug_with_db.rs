@@ -1,7 +1,7 @@
-#[salsa::debug_with_db(db = Db, jar = Jar)]
+#[salsa::debug_with_db]
 struct A(usize, usize);
 
-#[salsa::debug_with_db(db = Db, jar = Jar)]
+#[salsa::debug_with_db]
 #[allow(dead_code)]
 enum Enum {
     PropsStructVariant { a: i32 },
@@ -9,5 +9,5 @@ enum Enum {
     Dog,
 }
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar();

@@ -5,7 +5,7 @@
 use salsa::*;
 use std::fmt::Display;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInput, MyInterned, MyTracked);
 
 #[salsa::input(db = Db, jar = Jar, constructor = from_string)]

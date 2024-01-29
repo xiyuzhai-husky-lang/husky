@@ -1,6 +1,6 @@
 use crate::{source_map::HirLazyExprSourceMap, *};
 
-#[salsa::jar(db = HirLazyExprDb)]
+#[salsa::jar]
 pub struct HirLazyExprJar(
     HirLazyExprRegion,
     HirLazyExprSourceMap,

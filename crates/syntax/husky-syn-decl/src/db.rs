@@ -18,7 +18,7 @@ impl SynDeclDb for ::salsa::Db {
     }
 }
 
-#[salsa::jar(db = SynDeclDb)]
+#[salsa::jar]
 pub struct SynDeclJar(
     // decl
     // - submodule

@@ -1,4 +1,4 @@
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(TokenTree);
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]

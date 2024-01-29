@@ -56,7 +56,7 @@ struct Error {
     cycle: Vec<String>,
 }
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(
     MyInput,
     memoized_a,

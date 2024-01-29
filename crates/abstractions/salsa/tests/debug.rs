@@ -3,7 +3,7 @@
 use expect_test::expect;
 use salsa::*;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInput, ComplexStruct);
 
 #[salsa::input(db = Db)]

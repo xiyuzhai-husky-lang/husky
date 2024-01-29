@@ -6,7 +6,7 @@ use crate::syndicates::trais::TraitsSyndicate;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 pub struct TemplateSynParameterData {
     annotated_variance_token: Option<VarianceRegionalToken>,
     symbol: CurrentSynSymbolIdx,
@@ -28,7 +28,7 @@ impl TemplateSynParameterData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 pub enum TemplateParameterSyndicateVariant {
     Type {
         ident_token: IdentRegionalToken,

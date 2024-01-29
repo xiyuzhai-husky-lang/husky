@@ -17,7 +17,7 @@ use self::transformer::*;
 use husky_toml_ast::*;
 use husky_vfs::{error::VfsResult, VirtualPath};
 
-#[salsa::jar(db = CorgiConfigAstDb)]
+#[salsa::jar]
 pub struct CorgiConfigAstJar(corgi_config_ast_sheet, corgi_config_ast_menu);
 
 #[derive(Debug, PartialEq, Eq)]

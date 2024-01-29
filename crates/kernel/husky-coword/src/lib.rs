@@ -15,7 +15,7 @@ pub use self::label::*;
 pub use self::menu::*;
 pub use self::style::*;
 
-#[salsa::jar(db = CowordDb)]
+#[salsa::jar]
 pub struct CowordJar(
     Coword,
     coword_menu,

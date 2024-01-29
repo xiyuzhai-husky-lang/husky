@@ -41,11 +41,11 @@ impl crate::options::AllowedOptions for DeriveDebugWithDb {
 
     const SINGLETON: bool = false;
 
-    const JAR: bool = true;
+    const JAR: bool = false;
 
     const DATA: bool = false;
 
-    const DB: bool = true;
+    const DB: bool = false;
 
     const RECOVERY_FN: bool = false;
 

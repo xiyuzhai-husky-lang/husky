@@ -1,4 +1,4 @@
-#[salsa::jar(db = JavelinDb)]
+#[salsa::jar]
 pub struct JavelinJar(
     crate::javelin::Javelin,
     crate::template_argument::ty::JavelinTypePathLeading,

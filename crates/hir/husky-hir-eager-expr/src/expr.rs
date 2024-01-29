@@ -31,7 +31,7 @@ pub struct HirEagerExprEntry {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = HirEagerExprDb, jar = HirEagerExprJar)]
+#[salsa::debug_with_db]
 pub enum HirEagerExprData {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),

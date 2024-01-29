@@ -10,5 +10,5 @@ use husky_syn_decl::*;
 use husky_syn_expr::*;
 use husky_vfs::ModulePath;
 
-#[salsa::jar(db = SynDefnDb)]
+#[salsa::jar]
 pub struct SynDefnJar(crate::defn::item_syn_node_defn);

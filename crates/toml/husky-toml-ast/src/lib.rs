@@ -25,11 +25,11 @@ use husky_vfs::{error::VfsResult, *};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use parser::TomlAstParser;
 
-#[salsa::jar(db = TomlAstDb)]
+#[salsa::jar]
 pub struct TomlAstJar(toml_ast_sheet_aux);
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TomlAstDb, jar = TomlAstJar)]
+#[salsa::debug_with_db]
 pub struct TomlAstSheet {
     expr_arena: TomlExprArena,
     section_sheet: TomlSectionSheet,

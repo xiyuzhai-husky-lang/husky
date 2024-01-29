@@ -1,7 +1,7 @@
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = TomlAstDb, jar = TomlAstJar)]
+#[salsa::debug_with_db]
 pub enum TomlAstError {
     #[error("todo")]
     MisplacedKeyValue(usize),

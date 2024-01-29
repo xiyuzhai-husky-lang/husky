@@ -8,7 +8,7 @@ use salsa::Db;
 use expect_test::expect;
 use test_log::test;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(
     MyInput,
     MyTracked,

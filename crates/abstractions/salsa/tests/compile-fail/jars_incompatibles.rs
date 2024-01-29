@@ -1,25 +1,25 @@
-#[salsa::jar(db = Db, return_ref)]
+#[salsa::jar]
 struct JarWithRetRef(MyInput);
 
-#[salsa::jar(db = Db, specify)]
+#[salsa::jar]
 struct JarWithDb(MyInput);
 
-#[salsa::jar(db = Db, no_eq)]
+#[salsa::jar]
 struct JarWithNoEq(MyInput);
 
-#[salsa::jar(db = Db, jar = Jar)]
+#[salsa::jar]
 struct JarWithJar(MyInput);
 
-#[salsa::jar(db = Db, data = Data)]
+#[salsa::jar]
 struct JarWithData(MyInput);
 
-#[salsa::jar(db = Db, recovery_fn = recover)]
+#[salsa::jar]
 struct JarWithRecover(MyInput);
 
-#[salsa::jar(db = Db, lru = 32)]
+#[salsa::jar]
 struct JarWithLru(MyInput);
 
-#[salsa::jar(db = Db, constructor = JarConstructor)]
+#[salsa::jar]
 struct JarWithConstructor(MyInput);
 
 #[salsa::input(jar = Jar1)]

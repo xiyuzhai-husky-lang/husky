@@ -7,7 +7,7 @@ use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr, BinaryShiftOpr, BinaryShor
 use husky_syn_opr::{SynBinaryOpr, SynBracket, SynSuffixOpr};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDataDb, jar = TokenDataJar)]
+#[salsa::debug_with_db]
 pub struct Punctuation(PunctuationMapped);
 
 impl Punctuation {
@@ -205,7 +205,7 @@ impl std::fmt::Display for Punctuation {
 /// for punctuation that unambiguously maps to an opr,
 /// we use that opr to represent it
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDataDb, jar = TokenDataJar)]
+#[salsa::debug_with_db]
 pub enum PunctuationMapped {
     // predetermined
     Binary(SynBinaryOpr),

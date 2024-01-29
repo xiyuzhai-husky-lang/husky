@@ -2,7 +2,7 @@
 use crate::{instantiation::*, *};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = EtherealTermDb, jar = EtherealTermJar)]
+#[salsa::debug_with_db]
 pub struct EtherealTemplateParameters {
     data: SmallVec<[EtherealTemplateParameter; 2]>,
 }
@@ -52,7 +52,7 @@ impl std::ops::Deref for EtherealTemplateParameters {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = EtherealTermDb, jar = EtherealTermJar)]
+#[salsa::debug_with_db]
 pub struct EtherealTemplateParameter {
     annotated_variance: Option<Variance>,
     symbol: EtherealTermSymbol,

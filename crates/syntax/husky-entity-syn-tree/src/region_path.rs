@@ -4,7 +4,7 @@ use husky_token::{TokenDb, TokenSheetData};
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 pub enum SynNodeRegionPath {
     Snippet(ModulePath),
     Decl(ItemSynNodePath),

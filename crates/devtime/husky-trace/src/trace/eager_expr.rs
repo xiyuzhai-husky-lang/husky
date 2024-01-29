@@ -12,8 +12,8 @@ use husky_sema_expr::{
 };
 use husky_syn_decl::HasSynDecl;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[cfg_attr(debug_assertions, salsa::debug_with_db(db = TraceDb))]
 pub struct EagerExprTracePathData {
     biological_parent_path: TracePath,
     essence: EagerExprEssence,
@@ -21,13 +21,13 @@ pub struct EagerExprTracePathData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[cfg_attr(debug_assertions, salsa::debug_with_db(db = TraceDb))]
+#[salsa::debug_with_db]
 pub enum EagerExprEssence {
     Haha,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[cfg_attr(debug_assertions, salsa::debug_with_db(db = TraceDb))]
+#[salsa::debug_with_db]
 pub struct EagerExprTraceData {
     path: TracePath,
     biological_parent: Trace,

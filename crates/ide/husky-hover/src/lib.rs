@@ -15,7 +15,7 @@ use husky_vfs::*;
 use salsa::DebugWithDb;
 use serde::{Deserialize, Serialize};
 
-#[salsa::jar(db = HoverDb)]
+#[salsa::jar]
 pub struct HoverJar(HoverConfig, hover_config);
 
 #[salsa::tracked(jar = HoverJar)]

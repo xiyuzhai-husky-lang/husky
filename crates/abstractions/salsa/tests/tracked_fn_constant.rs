@@ -4,7 +4,7 @@
 
 use salsa::Db;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(tracked_fn);
 
 #[salsa::tracked]

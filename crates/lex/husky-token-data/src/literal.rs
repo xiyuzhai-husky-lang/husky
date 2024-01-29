@@ -16,7 +16,7 @@ use crate::*;
 
 /// follows mainly from <https://doc.rust-lang.org/reference/tokens.html#literals/>
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = TokenDataDb, jar = TokenDataJar)]
+#[salsa::debug_with_db]
 pub enum LiteralData {
     Unit,
     Char(CharLiteralData),

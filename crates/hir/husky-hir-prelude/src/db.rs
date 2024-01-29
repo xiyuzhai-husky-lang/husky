@@ -1,2 +1,2 @@
-#[salsa::jar(db = HirPreludeDb)]
+#[salsa::jar]
 pub struct HirPreludeJar();

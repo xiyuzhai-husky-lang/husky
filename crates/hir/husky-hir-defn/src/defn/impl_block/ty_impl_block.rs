@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirDefnDb, jar = HirDefnJar)]
+#[salsa::debug_with_db]
 #[salsa::as_id(jar = HirDefnJar)]
 pub struct TypeImplBlockHirDefn {
     hir_decl: TypeImplBlockHirDecl,

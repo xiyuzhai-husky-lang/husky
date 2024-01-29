@@ -55,7 +55,7 @@ impl EntitySynTreeDb for ::salsa::Db {
     }
 }
 
-#[salsa::jar(db = EntitySynTreeDb)]
+#[salsa::jar]
 pub struct EntitySynTreeJar(
     ItemSynNodePathId,
     UseSymbol,

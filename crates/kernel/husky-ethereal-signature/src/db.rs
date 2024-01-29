@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::jar(db = EtherealSignatureDb)]
+#[salsa::jar]
 pub struct EtherealSignatureJar(
     // associated_items
     // - type items
