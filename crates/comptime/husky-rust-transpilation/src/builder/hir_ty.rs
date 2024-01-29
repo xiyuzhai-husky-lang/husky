@@ -1,9 +1,7 @@
 use either::*;
-use husky_entity_path::{PreludeIndirectionTypePath};
+use husky_entity_path::PreludeIndirectionTypePath;
 use husky_hir_ty::{
-    instantiation::HirTermSymbolResolution,
-    ritchie::{HirRitchieType},
-    HirConstSymbol,
+    instantiation::HirTermSymbolResolution, ritchie::HirRitchieType, HirConstSymbol,
 };
 use husky_term_prelude::RitchieTypeKind;
 

@@ -81,7 +81,6 @@ impl Value {
             Value::StringLiteral(id) => FrozenValue::StringLiteral(*id),
             &Value::EnumU8 { index, presenter } => FrozenValue::EnumU8 { index, presenter },
             Value::Owned(slf) => todo!(),
-            // FrozenValue::Box(slf.snapshot()),
             Value::Leash(_) => todo!(),
             Value::Ref(_) => todo!(),
             Value::Mut(_) => todo!(),
