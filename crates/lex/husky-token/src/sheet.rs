@@ -28,8 +28,8 @@ pub struct TokenSheet {
     pub(crate) data: TokenSheetData,
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct TokenSheetData {
     tokens: Vec<TokenData>,
     token_group_starts: Vec<TokenGroupStart>,

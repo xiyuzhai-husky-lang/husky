@@ -7,8 +7,8 @@ use idx_arena::*;
 /// asts that forms the body of a definition
 ///
 /// everything is regional, in the sense that the token indices are counted relative to the starting token
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub enum DefnAst {
     Err,
     /// let or return or require or a single `if` or `elif` or `else` or case branch

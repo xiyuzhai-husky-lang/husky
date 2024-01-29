@@ -51,8 +51,8 @@ impl UseOneRules {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct UseOneRule {
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
@@ -62,8 +62,8 @@ pub struct UseOneRule {
     state: UseOneRuleState,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum OnceUseRuleVariant {
     Parent {
         parent_name_token: PathNameToken,
@@ -77,8 +77,8 @@ pub enum OnceUseRuleVariant {
     },
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum UseOneRuleState {
     Unresolved,
     Resolved {

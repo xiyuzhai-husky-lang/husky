@@ -114,8 +114,8 @@ impl PropsFieldEtherealSignatureTemplate {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct PropsStructFieldEtherealSignature {
     ident: Ident,
     ty: EtherealTerm,

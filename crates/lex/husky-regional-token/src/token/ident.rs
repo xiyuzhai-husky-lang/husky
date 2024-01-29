@@ -1,7 +1,7 @@
 use super::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct IdentRegionalToken {
     pub(crate) ident: Ident,
     pub(crate) regional_token_idx: RegionalTokenIdx,

@@ -202,14 +202,14 @@ AstSheet {
                     0,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 1,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -246,14 +246,10 @@ AstSheet {
                     3,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 25,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `quick_sort`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -290,14 +286,10 @@ AstSheet {
                     8,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 25,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `quick_sort`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -340,14 +332,10 @@ AstSheet {
                     26,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 25,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `quick_sort`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -390,14 +378,10 @@ AstSheet {
                     29,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 25,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `quick_sort`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(

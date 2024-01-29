@@ -4,8 +4,8 @@ use smallvec::SmallVec;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub enum TomlLineGroup {
     SectionTitle {
         title: SmallVec<[Coword; 2]>,

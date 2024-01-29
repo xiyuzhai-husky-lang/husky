@@ -152,14 +152,10 @@ AstSheet {
                     9,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 51,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `malamute`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TraitForTypeItem(
@@ -221,14 +217,10 @@ AstSheet {
                     12,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 51,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `malamute`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TraitForTypeItem(
@@ -257,14 +249,10 @@ AstSheet {
                     13,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 51,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `malamute`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TraitForTypeItem(
@@ -437,14 +425,10 @@ AstSheet {
                     23,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 51,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `malamute`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TraitForTypeItem(
@@ -473,14 +457,10 @@ AstSheet {
                     24,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 51,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `malamute`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TraitForTypeItem(
@@ -521,14 +501,14 @@ AstSheet {
                     1,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 10,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
@@ -571,14 +551,14 @@ AstSheet {
                     5,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 32,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
@@ -649,14 +629,14 @@ AstSheet {
                     18,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 177,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
@@ -707,14 +687,14 @@ AstSheet {
                     29,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 302,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(

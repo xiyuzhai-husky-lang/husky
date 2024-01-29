@@ -1,7 +1,7 @@
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct PatternExprDeclarativeTypeInfo {
     ty: DeclarativeTerm,
 }

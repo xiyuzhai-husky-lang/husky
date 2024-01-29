@@ -63,8 +63,8 @@ mod matcher {
     use super::*;
     use thiserror::Error;
 
-    #[derive(Debug, Error, PartialEq, Eq)]
     #[salsa::debug_with_db]
+    #[derive(Debug, Error, PartialEq, Eq)]
     pub enum RitchieParameterArgumentMatchError {
         #[error("unexpected argument")]
         UnexpectedArgument,
@@ -73,6 +73,7 @@ mod matcher {
     }
     pub type RitchieParameterArgumentMatchResult<T> = Result<T, RitchieParameterArgumentMatchError>;
 
+    #[salsa::debug_with_db]
     #[derive(Debug, PartialEq, Eq)]
     pub enum SemaRitchieParameterArgumentMatch {
         Regular(FluffyRitchieRegularParameter, SemaRegularCallListItem),

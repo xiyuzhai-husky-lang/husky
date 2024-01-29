@@ -4,8 +4,8 @@ use original_error::OriginalError;
 use parsec::{IsStreamParser, StreamWrapper, TryParseOptionFromStream};
 use thiserror::Error;
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct ParentUseExpr {
     pub parent_name_token: PathNameToken,
     pub colon_colon_token: UseExprResult<ColonColonToken>,
@@ -14,8 +14,8 @@ pub struct ParentUseExpr {
 
 /// use tree expr is top-down
 /// because path is resolved top-down
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub enum UseExpr {
     All { star_token: StarToken },
     Leaf { ident_token: IdentToken },
@@ -33,8 +33,8 @@ impl From<UseExprResult<UseExpr>> for UseExpr {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub enum UseExprChildren {
     Single {
         child: UseExprIdx,
@@ -64,15 +64,15 @@ pub type UseExprArena = Arena<UseExpr>;
 pub type UseExprIdx = ArenaIdx<UseExpr>;
 pub type UseExprIdxRange = ArenaIdxRange<UseExpr>;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct UseExprRoot {
     use_token: UseToken,
     parent_use_expr_idx: ParentUseExprIdx,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ParentUseExprIdx(UseExprIdx);
 
 impl ParentUseExprIdx {

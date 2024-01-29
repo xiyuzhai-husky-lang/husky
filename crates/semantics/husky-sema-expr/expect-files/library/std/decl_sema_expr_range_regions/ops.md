@@ -5,9 +5,7 @@
             pattern_expr_ranges: [],
             expr_ranges: [],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [],
-                },
+                [],
             ),
         },
     },

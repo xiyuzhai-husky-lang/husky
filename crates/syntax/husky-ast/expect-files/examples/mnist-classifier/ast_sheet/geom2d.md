@@ -36,14 +36,10 @@ AstSheet {
                     3,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -78,14 +74,10 @@ AstSheet {
                     5,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -120,14 +112,10 @@ AstSheet {
                     7,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -162,14 +150,10 @@ AstSheet {
                     9,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -204,14 +188,10 @@ AstSheet {
                     11,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -492,14 +472,14 @@ AstSheet {
                     16,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 181,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -534,14 +514,14 @@ AstSheet {
                     18,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 199,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -576,14 +556,10 @@ AstSheet {
                     20,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -618,14 +594,10 @@ AstSheet {
                     22,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -660,14 +632,10 @@ AstSheet {
                     24,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -702,14 +670,10 @@ AstSheet {
                     26,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -744,14 +708,10 @@ AstSheet {
                     35,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -786,14 +746,10 @@ AstSheet {
                     37,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -870,14 +826,10 @@ AstSheet {
                     53,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -912,14 +864,10 @@ AstSheet {
                     59,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -990,14 +938,10 @@ AstSheet {
                     64,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -1032,14 +976,10 @@ AstSheet {
                     66,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -1074,14 +1014,10 @@ AstSheet {
                     68,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -1116,14 +1052,10 @@ AstSheet {
                     70,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -1158,14 +1090,10 @@ AstSheet {
                     72,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -1200,14 +1128,10 @@ AstSheet {
                     74,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -1266,14 +1190,10 @@ AstSheet {
                     78,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -1308,14 +1228,10 @@ AstSheet {
                     80,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -1350,14 +1266,10 @@ AstSheet {
                     82,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -1392,14 +1304,10 @@ AstSheet {
                     84,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::geom2d`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -1440,14 +1348,14 @@ AstSheet {
                     1,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 10,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
@@ -1492,14 +1400,14 @@ AstSheet {
                     13,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 152,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
@@ -1530,14 +1438,14 @@ AstSheet {
                     14,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 165,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
@@ -1582,14 +1490,14 @@ AstSheet {
                     51,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 494,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
@@ -1634,14 +1542,14 @@ AstSheet {
                     62,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 602,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
@@ -1686,14 +1594,14 @@ AstSheet {
                     76,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 738,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(

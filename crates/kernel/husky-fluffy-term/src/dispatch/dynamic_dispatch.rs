@@ -10,6 +10,7 @@ pub use self::method::*;
 
 use super::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct FluffyDynamicDispatch<S: MemberSignature> {
     indirections: FluffyIndirections,

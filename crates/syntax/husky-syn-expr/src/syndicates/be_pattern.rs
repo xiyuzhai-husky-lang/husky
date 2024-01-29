@@ -2,8 +2,8 @@ use parsec::HasStreamState;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct BePatternSynSyndicate {
     pattern_expr_root: BeSynPatternExprRoot,
     variables: CurrentSynSymbolIdxRange,

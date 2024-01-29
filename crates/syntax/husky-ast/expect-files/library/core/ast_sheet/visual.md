@@ -6,14 +6,10 @@ AstSheet {
                     2,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `core::visual`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TraitItem(
@@ -42,14 +38,10 @@ AstSheet {
                     5,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `core::visual`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TraitForTypeItem(
@@ -78,14 +70,10 @@ AstSheet {
                     0,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `core::visual`,
                     ),
-                    variant: Protected,
                 },
                 state_after_visibility_expr: None,
             },
@@ -94,14 +82,14 @@ AstSheet {
                     1,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 5,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Trait,
@@ -136,14 +124,14 @@ AstSheet {
                     3,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 16,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(

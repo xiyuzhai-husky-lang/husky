@@ -35,6 +35,7 @@ where
     Ok(elements)
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct PunctuatedSmallList<
     Element,
@@ -48,6 +49,7 @@ pub struct PunctuatedSmallList<
 {
     elements: SmallVec<[Element; N]>,
     separators: SmallVec<[Separator; N]>,
+    #[skip_fmt]
     phantom: std::marker::PhantomData<Error>,
 }
 

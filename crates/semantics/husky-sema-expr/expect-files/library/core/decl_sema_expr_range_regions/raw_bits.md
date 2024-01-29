@@ -5,109 +5,260 @@
             pattern_expr_ranges: [],
             expr_ranges: [],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [],
-                },
+                [],
             ),
         },
     },
     SemaExprRangeRegion {
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                1..2,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                },
             ],
             pattern_expr_ranges: [],
             expr_ranges: [
-                1..2,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                },
             ],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [],
-                },
+                [],
             ),
         },
     },
     SemaExprRangeRegion {
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                6..7,
-                9..10,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                },
             ],
             pattern_expr_ranges: [
-                4..5,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                },
             ],
             expr_ranges: [
-                6..7,
-                9..10,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                },
             ],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [],
-                },
+                [],
             ),
         },
     },
     SemaExprRangeRegion {
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                6..7,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                },
             ],
             pattern_expr_ranges: [],
             expr_ranges: [
-                6..7,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                },
             ],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [],
-                },
+                [],
             ),
         },
     },
     SemaExprRangeRegion {
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                6..7,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                },
             ],
             pattern_expr_ranges: [],
             expr_ranges: [
-                6..7,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                },
             ],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [],
-                },
+                [],
             ),
         },
     },
     SemaExprRangeRegion {
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                6..7,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                },
             ],
             pattern_expr_ranges: [],
             expr_ranges: [
-                6..7,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                },
             ],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [],
-                },
+                [],
             ),
         },
     },
     SemaExprRangeRegion {
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                6..7,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                },
             ],
             pattern_expr_ranges: [],
             expr_ranges: [
-                6..7,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                },
             ],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [],
-                },
+                [],
             ),
         },
     },

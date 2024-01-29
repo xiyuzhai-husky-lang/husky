@@ -199,8 +199,8 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct MatchToken {
     token_idx: TokenIdx,
 }
@@ -233,8 +233,8 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct IfToken {
     token_idx: TokenIdx,
 }
@@ -273,8 +273,8 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct ElifToken {
     token_idx: TokenIdx,
 }
@@ -313,8 +313,8 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct ElseToken {
     token_idx: TokenIdx,
 }
@@ -355,8 +355,8 @@ where
 
 // impl
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ImplToken {
     token_idx: TokenIdx,
 }
@@ -395,8 +395,8 @@ where
 
 // pub
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct PubToken {
     token_idx: TokenIdx,
 }
@@ -435,8 +435,8 @@ where
 
 // use
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct UseToken {
     token_idx: TokenIdx,
 }
@@ -490,8 +490,8 @@ fn use_token_works() {
 
 // self value
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SelfValueToken {
     token_idx: TokenIdx,
 }
@@ -546,8 +546,8 @@ fn self_value_token_works() {
 }
 
 /// `Self` self type token
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SelfTypeToken {
     token_idx: TokenIdx,
 }

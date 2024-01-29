@@ -2,259 +2,1996 @@
     SemaExprRangeRegion {
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                0..1,
-                2..3,
-                5..6,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                },
             ],
             pattern_expr_ranges: [],
             expr_ranges: [
-                0..1,
-                2..3,
-                5..6,
-                4..7,
-                0..8,
-                0..8,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
+                },
             ],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [
-                        Some(
-                            0..8,
+                [
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                1,
+                            ),
                         ),
-                    ],
-                },
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                9,
+                            ),
+                        ),
+                    },
+                ],
             ),
         },
     },
     SemaExprRangeRegion {
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                0..1,
-                2..3,
-                5..6,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                },
             ],
             pattern_expr_ranges: [],
             expr_ranges: [
-                0..1,
-                2..3,
-                5..6,
-                4..7,
-                0..8,
-                0..8,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
+                },
             ],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [
-                        Some(
-                            0..8,
+                [
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                1,
+                            ),
                         ),
-                    ],
-                },
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                9,
+                            ),
+                        ),
+                    },
+                ],
             ),
         },
     },
     SemaExprRangeRegion {
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
-                3..4,
-                14..15,
-                18..19,
-                27..28,
-                45..46,
-                49..50,
-                64..65,
-                67..68,
-                77..78,
-                86..87,
-                91..92,
-                99..100,
-                103..104,
-                109..110,
-                118..119,
-                142..143,
-                150..151,
-                165..166,
-                165..168,
-                168..169,
-                168..171,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            20,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            29,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            46,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            47,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            50,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            51,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            65,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            66,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            68,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            69,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            78,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            79,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            87,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            88,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            92,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            93,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            100,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            101,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            104,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            105,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            110,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            111,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            119,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            120,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            143,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            144,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            151,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            152,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            166,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            167,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            166,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            169,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            169,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            170,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            169,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            172,
+                        ),
+                    ),
+                },
             ],
             pattern_expr_ranges: [
-                1..2,
-                14..15,
-                16..17,
-                29..30,
-                27..31,
-                32..33,
-                43..44,
-                64..65,
-                75..76,
-                88..89,
-                86..90,
-                97..98,
-                107..108,
-                120..121,
-                118..122,
-                148..149,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            18,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            30,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            31,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            32,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            33,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            34,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            44,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            45,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            65,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            66,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            76,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            77,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            89,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            90,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            87,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            91,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            98,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            99,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            108,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            109,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            121,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            122,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            119,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            123,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            149,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            150,
+                        ),
+                    ),
+                },
             ],
             expr_ranges: [
-                3..4,
-                3..6,
-                7..8,
-                7..10,
-                11..12,
-                7..13,
-                7..15,
-                18..19,
-                18..21,
-                22..23,
-                18..24,
-                25..26,
-                25..31,
-                34..35,
-                34..36,
-                34..40,
-                34..42,
-                45..46,
-                45..48,
-                49..50,
-                49..52,
-                45..52,
-                53..54,
-                55..56,
-                53..56,
-                57..58,
-                57..60,
-                61..62,
-                57..63,
-                57..65,
-                67..68,
-                67..72,
-                73..74,
-                67..74,
-                77..78,
-                77..80,
-                81..82,
-                77..83,
-                84..85,
-                84..90,
-                91..92,
-                91..94,
-                95..96,
-                91..96,
-                99..100,
-                99..102,
-                103..104,
-                103..106,
-                99..106,
-                109..110,
-                109..112,
-                113..114,
-                109..115,
-                116..117,
-                116..122,
-                123..124,
-                123..125,
-                123..129,
-                123..131,
-                132..133,
-                123..133,
-                134..135,
-                134..136,
-                134..138,
-                140..141,
-                139..141,
-                134..141,
-                142..143,
-                142..145,
-                146..147,
-                142..147,
-                150..151,
-                154..155,
-                150..156,
-                157..158,
-                159..160,
-                157..160,
-                161..162,
-                163..164,
-                161..164,
-                165..168,
-                168..171,
-                0..171,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            20,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            22,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            23,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            24,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            25,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            27,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            32,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            35,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            36,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            35,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            37,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            35,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            41,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            35,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            43,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            46,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            47,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            46,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            49,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            50,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            51,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            50,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            53,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            46,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            53,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            54,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            55,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            56,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            57,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            54,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            57,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            58,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            59,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            58,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            61,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            62,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            63,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            58,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            64,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            58,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            66,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            68,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            69,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            68,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            73,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            74,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            75,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            68,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            75,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            78,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            79,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            78,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            81,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            82,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            83,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            78,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            84,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            85,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            86,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            85,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            91,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            92,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            93,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            92,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            95,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            96,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            97,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            92,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            97,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            100,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            101,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            100,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            103,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            104,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            105,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            104,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            107,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            100,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            107,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            110,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            111,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            110,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            113,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            114,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            115,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            110,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            116,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            117,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            118,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            117,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            123,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            124,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            125,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            124,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            126,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            124,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            130,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            124,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            132,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            133,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            134,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            124,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            134,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            135,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            136,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            135,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            137,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            135,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            139,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            141,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            142,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            140,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            142,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            135,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            142,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            143,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            144,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            143,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            146,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            147,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            148,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            143,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            148,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            151,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            152,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            155,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            156,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            151,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            157,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            158,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            159,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            160,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            161,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            158,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            161,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            162,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            163,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            164,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            165,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            162,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            165,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            166,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            169,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            169,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            172,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            172,
+                        ),
+                    ),
+                },
             ],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [
-                        Some(
-                            66..74,
+                [
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                67,
+                            ),
                         ),
-                        Some(
-                            74..83,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                75,
+                            ),
                         ),
-                        Some(
-                            83..90,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                75,
+                            ),
                         ),
-                        Some(
-                            90..96,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                84,
+                            ),
                         ),
-                        Some(
-                            96..106,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                84,
+                            ),
                         ),
-                        Some(
-                            106..115,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                91,
+                            ),
                         ),
-                        Some(
-                            115..122,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                91,
+                            ),
                         ),
-                        Some(
-                            122..133,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                97,
+                            ),
                         ),
-                        Some(
-                            133..141,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                97,
+                            ),
                         ),
-                        Some(
-                            141..147,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                107,
+                            ),
                         ),
-                        Some(
-                            147..156,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                107,
+                            ),
                         ),
-                        Some(
-                            156..160,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                116,
+                            ),
                         ),
-                        Some(
-                            160..164,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                116,
+                            ),
                         ),
-                        Some(
-                            164..168,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                123,
+                            ),
                         ),
-                        Some(
-                            0..6,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                123,
+                            ),
                         ),
-                        Some(
-                            6..15,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                134,
+                            ),
                         ),
-                        Some(
-                            15..24,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                134,
+                            ),
                         ),
-                        Some(
-                            24..31,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                142,
+                            ),
                         ),
-                        Some(
-                            31..42,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                142,
+                            ),
                         ),
-                        Some(
-                            42..52,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                148,
+                            ),
                         ),
-                        Some(
-                            52..56,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                148,
+                            ),
                         ),
-                        Some(
-                            56..168,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                157,
+                            ),
                         ),
-                        Some(
-                            168..171,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                157,
+                            ),
                         ),
-                    ],
-                },
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                161,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                161,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                165,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                165,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                169,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                1,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                7,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                7,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                16,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                16,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                25,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                25,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                32,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                32,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                43,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                43,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                53,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                53,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                57,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                57,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                169,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                169,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                172,
+                            ),
+                        ),
+                    },
+                ],
             ),
         },
     },
@@ -262,33 +1999,168 @@
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [
-                1..2,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                },
             ],
             expr_ranges: [
-                3..4,
-                3..8,
-                9..10,
-                9..12,
-                13..14,
-                9..14,
-                14..15,
-                14..17,
-                0..17,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            18,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            18,
+                        ),
+                    ),
+                },
             ],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [
-                        Some(
-                            0..8,
+                [
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                1,
+                            ),
                         ),
-                        Some(
-                            8..14,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                9,
+                            ),
                         ),
-                        Some(
-                            14..17,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                9,
+                            ),
                         ),
-                    ],
-                },
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                15,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                15,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                18,
+                            ),
+                        ),
+                    },
+                ],
             ),
         },
     },
@@ -296,42 +2168,252 @@
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [
-                1..2,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                },
             ],
             expr_ranges: [
-                3..4,
-                3..8,
-                9..10,
-                9..12,
-                13..14,
-                9..14,
-                15..16,
-                15..18,
-                15..22,
-                23..24,
-                15..24,
-                24..25,
-                24..27,
-                24..31,
-                0..31,
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            23,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            24,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            25,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            25,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            25,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            25,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            25,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            32,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            32,
+                        ),
+                    ),
+                },
             ],
             stmt_ranges: SemaStmtMap(
-                ArenaMap {
-                    data: [
-                        Some(
-                            0..8,
+                [
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                1,
+                            ),
                         ),
-                        Some(
-                            8..14,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                9,
+                            ),
                         ),
-                        Some(
-                            14..24,
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                9,
+                            ),
                         ),
-                        Some(
-                            24..31,
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                15,
+                            ),
                         ),
-                    ],
-                },
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                15,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                25,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                25,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                32,
+                            ),
+                        ),
+                    },
+                ],
             ),
         },
     },

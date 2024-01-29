@@ -1,5 +1,6 @@
 use crate::*;
 
+#[salsa::debug_with_db]
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub struct RegionalTokenIdxRange {
     start: RegionalTokenIdxRangeStart,
@@ -86,6 +87,7 @@ impl std::fmt::Debug for RegionalTokenIdxRange {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct RegionalTokenIdxRangeStart(RegionalTokenIdx);
 
@@ -99,6 +101,7 @@ impl RegionalTokenIdxRangeStart {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct RegionalTokenIdxRangeEnd(RegionalTokenIdx);
 

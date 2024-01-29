@@ -146,8 +146,8 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
 
 pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationEntry>;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
 pub enum ExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
@@ -164,8 +164,8 @@ pub enum ExpectationOutcome {
     AnyDerived(ExpectAnyDerivedOutcome),
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub enum ExpectationProgress {
     Intact,
     Holed,

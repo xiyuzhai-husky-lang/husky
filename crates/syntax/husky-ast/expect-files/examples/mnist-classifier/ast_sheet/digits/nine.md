@@ -211,14 +211,10 @@ AstSheet {
                     0,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::nine`,
                     ),
-                    variant: Protected,
                 },
                 state_after_visibility_expr: None,
             },
@@ -227,14 +223,10 @@ AstSheet {
                     1,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::nine`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -271,14 +263,10 @@ AstSheet {
                     3,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::nine`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -315,14 +303,7 @@ AstSheet {
                     5,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
-                    variant: PubUnder {
+                    data: VisibilityExprData::PubUnder {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 31,
@@ -346,6 +327,9 @@ AstSheet {
                             ),
                         ),
                     },
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
+                    ),
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -382,14 +366,10 @@ AstSheet {
                     29,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::nine`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -426,14 +406,10 @@ AstSheet {
                     33,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::nine`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(

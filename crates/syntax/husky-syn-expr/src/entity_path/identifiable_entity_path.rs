@@ -1,8 +1,8 @@
 use super::*;
 use husky_entity_path::MajorItemPath;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum IdentifiableEntityPathExpr {
     Principal {
         path_expr_idx: SynPrincipalEntityPathExprIdx,

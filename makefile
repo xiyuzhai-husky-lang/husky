@@ -82,6 +82,11 @@ save-clean:
 	git commit -m "clean"
 	git push
 
+save-improve-debug:
+	git add -A
+	git commit -m "improve-debug"
+	git push
+
 syn-tree-build-timings:
 	cargo clean
 	cargo build -p husky-entity-syn-tree --timings

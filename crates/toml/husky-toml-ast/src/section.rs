@@ -12,8 +12,8 @@ use idx_arena::{Arena, ArenaIdx};
 use smallvec::SmallVec;
 use vec_like::{AsVecMapEntry, VecMap};
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct TomlSectionSheet {
     arena: TomlSectionArena,
     errors: Vec<TomlAstError>,
@@ -30,8 +30,8 @@ impl std::ops::Deref for TomlSectionSheet {
 pub type TomlSectionArena = Arena<TomlSection>;
 pub type TomlSectionIdx = ArenaIdx<TomlSection>;
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct TomlSection {
     title: TomlSectionTitle,
     kind: TomlSectionKind,
@@ -78,8 +78,8 @@ impl TomlAst for TomlSectionEntry {
     type Visitor<'a> = TomlSectionEntryVisitor<'a>;
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TomlSectionKind {
     Normal,
     Scattered,

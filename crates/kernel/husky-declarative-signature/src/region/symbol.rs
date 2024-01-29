@@ -4,8 +4,8 @@ use husky_vfs::Toolchain;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct SymbolDeclarativeTermRegion {
     symbol_registry: TermSymbolRegistry,
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,

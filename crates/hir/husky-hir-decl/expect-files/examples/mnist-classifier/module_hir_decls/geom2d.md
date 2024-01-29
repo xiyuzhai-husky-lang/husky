@@ -652,7 +652,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 55,
+                                    value: 30,
                                 },
                             ),
                         ),
@@ -720,7 +720,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 55,
+                                    value: 30,
                                 },
                             ),
                         ),
@@ -811,7 +811,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 55,
+                                    value: 30,
                                 },
                             ),
                         ),
@@ -879,7 +879,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 55,
+                                    value: 30,
                                 },
                             ),
                         ),
@@ -1040,7 +1040,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 56,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -1108,7 +1108,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 56,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -1199,7 +1199,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 56,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -1267,7 +1267,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 56,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -1358,7 +1358,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 56,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -1449,7 +1449,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 56,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -1540,7 +1540,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 56,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -1631,7 +1631,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 56,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -1813,7 +1813,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 54,
+                                    value: 29,
                                 },
                             ),
                         ),
@@ -1904,7 +1904,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 54,
+                                    value: 29,
                                 },
                             ),
                         ),
@@ -2065,7 +2065,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 58,
+                                    value: 33,
                                 },
                             ),
                         ),
@@ -2156,7 +2156,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 58,
+                                    value: 33,
                                 },
                             ),
                         ),
@@ -2247,7 +2247,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 58,
+                                    value: 33,
                                 },
                             ),
                         ),
@@ -2315,7 +2315,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 58,
+                                    value: 33,
                                 },
                             ),
                         ),
@@ -2383,7 +2383,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 58,
+                                    value: 33,
                                 },
                             ),
                         ),
@@ -2451,7 +2451,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 58,
+                                    value: 33,
                                 },
                             ),
                         ),
@@ -2589,7 +2589,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 59,
+                                    value: 34,
                                 },
                             ),
                         ),
@@ -2657,7 +2657,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 59,
+                                    value: 34,
                                 },
                             ),
                         ),
@@ -2725,7 +2725,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 59,
+                                    value: 34,
                                 },
                             ),
                         ),
@@ -2793,7 +2793,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 59,
+                                    value: 34,
                                 },
                             ),
                         ),

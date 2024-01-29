@@ -68,11 +68,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 461,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -17104,15 +17112,9 @@
                                         ),
                                     },
                                     arguments: [
-                                        Expanded {
+                                        SynHtmlArgumentExpr::Expanded {
                                             property_ident: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 256,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `points`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),

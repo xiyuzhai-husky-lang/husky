@@ -6,14 +6,14 @@ AstSheet {
                     4,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 29,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -42,14 +42,14 @@ AstSheet {
                     5,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 37,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -78,14 +78,14 @@ AstSheet {
                     6,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 51,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -114,14 +114,14 @@ AstSheet {
                     7,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 63,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -150,14 +150,14 @@ AstSheet {
                     8,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 75,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -186,14 +186,14 @@ AstSheet {
                     9,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 87,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -222,14 +222,14 @@ AstSheet {
                     10,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 100,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -258,14 +258,14 @@ AstSheet {
                     11,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 120,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -294,14 +294,10 @@ AstSheet {
                     0,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 19,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `core::vec`,
                     ),
-                    variant: Protected,
                 },
                 state_after_visibility_expr: None,
             },
@@ -316,14 +312,14 @@ AstSheet {
                     2,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 14,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(

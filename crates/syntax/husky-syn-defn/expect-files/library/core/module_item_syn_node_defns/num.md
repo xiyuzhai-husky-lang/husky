@@ -47,11 +47,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 131,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i8`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -110,11 +118,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 132,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i16`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -173,11 +189,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 133,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -236,11 +260,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 134,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i64`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -299,11 +331,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 135,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i128`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -362,11 +402,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 136,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::isize`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -425,11 +473,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 137,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::u8`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -488,11 +544,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 138,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::u16`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -551,11 +615,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 139,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::u32`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -614,11 +686,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 140,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::u64`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -677,11 +757,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 141,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::u128`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -740,11 +828,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 142,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::usize`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -803,11 +899,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 143,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },
@@ -866,11 +970,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 144,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::f64`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },

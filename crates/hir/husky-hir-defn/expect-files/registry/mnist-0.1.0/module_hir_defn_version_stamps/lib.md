@@ -5,7 +5,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 534,
+                            value: 1,
                         },
                     ),
                 ),
@@ -15,7 +15,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 363,
+                        value: 1,
                     },
                 ),
             ),
@@ -27,7 +27,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 545,
+                            value: 12,
                         },
                     ),
                 ),
@@ -37,7 +37,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 364,
+                        value: 2,
                     },
                 ),
             ),
@@ -49,7 +49,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 546,
+                            value: 13,
                         },
                     ),
                 ),
@@ -59,7 +59,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 365,
+                        value: 3,
                     },
                 ),
             ),
@@ -71,7 +71,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 547,
+                            value: 14,
                         },
                     ),
                 ),
@@ -81,7 +81,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 366,
+                        value: 4,
                     },
                 ),
             ),
@@ -93,7 +93,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 548,
+                            value: 146,
                         },
                     ),
                 ),
@@ -103,7 +103,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 367,
+                        value: 5,
                     },
                 ),
             ),
@@ -115,7 +115,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 554,
+                            value: 152,
                         },
                     ),
                 ),
@@ -125,7 +125,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 368,
+                        value: 6,
                     },
                 ),
             ),
@@ -137,7 +137,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 549,
+                            value: 147,
                         },
                     ),
                 ),
@@ -147,7 +147,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 369,
+                        value: 7,
                     },
                 ),
             ),
@@ -159,7 +159,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 555,
+                            value: 153,
                         },
                     ),
                 ),
@@ -169,7 +169,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 370,
+                        value: 8,
                     },
                 ),
             ),
@@ -181,7 +181,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 550,
+                            value: 148,
                         },
                     ),
                 ),
@@ -191,7 +191,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 371,
+                        value: 9,
                     },
                 ),
             ),
@@ -203,7 +203,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 556,
+                            value: 154,
                         },
                     ),
                 ),
@@ -213,7 +213,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 372,
+                        value: 10,
                     },
                 ),
             ),
@@ -225,7 +225,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 551,
+                            value: 149,
                         },
                     ),
                 ),
@@ -235,7 +235,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 373,
+                        value: 11,
                     },
                 ),
             ),
@@ -247,7 +247,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 557,
+                            value: 155,
                         },
                     ),
                 ),
@@ -257,7 +257,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 374,
+                        value: 12,
                     },
                 ),
             ),
@@ -269,7 +269,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 552,
+                            value: 150,
                         },
                     ),
                 ),
@@ -279,7 +279,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 375,
+                        value: 13,
                     },
                 ),
             ),
@@ -291,7 +291,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 558,
+                            value: 156,
                         },
                     ),
                 ),
@@ -301,7 +301,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 376,
+                        value: 14,
                     },
                 ),
             ),
@@ -313,7 +313,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 553,
+                            value: 151,
                         },
                     ),
                 ),
@@ -323,7 +323,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 377,
+                        value: 15,
                     },
                 ),
             ),
@@ -335,7 +335,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 559,
+                            value: 157,
                         },
                     ),
                 ),
@@ -345,7 +345,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 378,
+                        value: 16,
                     },
                 ),
             ),

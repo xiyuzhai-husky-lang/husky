@@ -7,10 +7,11 @@ use husky_token::*;
 use husky_vfs::ModulePath;
 use parsec::IsStreamParser;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct VisibilityExpr {
+    data: VisibilityExprData,
     visibility: Scope,
-    variant: VisibilityExprVariant,
 }
 
 impl VisibilityExpr {
@@ -18,7 +19,7 @@ impl VisibilityExpr {
     pub fn new_protected(module_path: ModulePath) -> Self {
         VisibilityExpr {
             visibility: Scope::PubUnder(module_path),
-            variant: VisibilityExprVariant::Protected,
+            data: VisibilityExprData::Protected,
         }
     }
 
@@ -46,7 +47,7 @@ impl VisibilityExpr {
                                     super_token.token_idx(),
                                 ),
                             )?),
-                            variant: VisibilityExprVariant::PubUnder {
+                            data: VisibilityExprData::PubUnder {
                                 pub_token,
                                 lpar,
                                 visibility: VisibilityScopeExpr::Super(super_token),
@@ -60,7 +61,7 @@ impl VisibilityExpr {
                 } else {
                     VisibilityExpr {
                         visibility: Scope::Pub,
-                        variant: VisibilityExprVariant::Pub { pub_token },
+                        data: VisibilityExprData::Pub { pub_token },
                     }
                 }
             } else {
@@ -70,8 +71,9 @@ impl VisibilityExpr {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub enum VisibilityExprVariant {
+pub enum VisibilityExprData {
     Protected,
     Pub {
         pub_token: PubToken,

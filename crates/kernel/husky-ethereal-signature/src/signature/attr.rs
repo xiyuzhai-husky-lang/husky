@@ -4,8 +4,8 @@ pub use self::derive::*;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 #[non_exhaustive]
 pub enum AttrEtherealSignatureTemplate {

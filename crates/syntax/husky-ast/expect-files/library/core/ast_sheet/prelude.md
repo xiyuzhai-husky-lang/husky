@@ -6,14 +6,14 @@ AstSheet {
                     0,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 1,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -29,14 +29,14 @@ AstSheet {
                     1,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 8,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -52,14 +52,14 @@ AstSheet {
                     2,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 15,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -75,14 +75,14 @@ AstSheet {
                     3,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 22,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -98,14 +98,14 @@ AstSheet {
                     4,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 29,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -121,14 +121,14 @@ AstSheet {
                     5,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 36,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -144,14 +144,14 @@ AstSheet {
                     6,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 43,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -167,14 +167,14 @@ AstSheet {
                     7,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 50,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -190,14 +190,14 @@ AstSheet {
                     8,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 57,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -213,14 +213,14 @@ AstSheet {
                     9,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 64,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -236,14 +236,14 @@ AstSheet {
                     10,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 71,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -259,14 +259,14 @@ AstSheet {
                     11,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 78,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {

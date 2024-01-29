@@ -21,8 +21,8 @@ fn item_tree_crate_bundle_works() {
     )
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct EntitySynTreeCrateBundle {
     sheets: VecMap<EntitySynTreeSheet>,
     principal_item_path_expr_arena: MajorPathExprArena,

@@ -25,7 +25,6 @@ pub trait VfsTestUtils: Default + std::ops::Deref<Target = Db> + std::ops::Deref
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug_with_db<'a, U, R>(
-        &mut self,
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &VfsTestConfig,
     ) where
@@ -34,19 +33,13 @@ pub trait VfsTestUtils: Default + std::ops::Deref<Target = Db> + std::ops::Deref
 
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_expect_test_debug<'a, U, R>(
-        &'a mut self,
-        f: impl Fn(&'a ::salsa::Db, U) -> R,
-        config: &VfsTestConfig,
-    ) where
+    fn vfs_expect_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &VfsTestConfig)
+    where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Debug;
 
-    fn vfs_expect_test_display<U, R>(
-        &mut self,
-        f: impl Fn(&::salsa::Db, U) -> R,
-        config: &VfsTestConfig,
-    ) where
+    fn vfs_expect_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &VfsTestConfig)
+    where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display;
 }
@@ -92,15 +85,13 @@ where
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug_with_db<'a, U, R>(
-        &mut self,
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &VfsTestConfig,
     ) where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: salsa::DebugWithDb,
     {
-        vfs_expect_test(
-            self,
+        vfs_expect_test::<DB, _>(
             |db, u| format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u).debug(db)),
             config,
         )
@@ -108,30 +99,23 @@ where
 
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_expect_test_debug<'a, U, R>(
-        &'a mut self,
-        f: impl Fn(&'a ::salsa::Db, U) -> R,
-        config: &VfsTestConfig,
-    ) where
+    fn vfs_expect_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &VfsTestConfig)
+    where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Debug,
     {
-        vfs_expect_test(
-            self,
+        vfs_expect_test::<DB, _>(
             |db, u| format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u)),
             config,
         )
     }
 
-    fn vfs_expect_test_display<U, R>(
-        &mut self,
-        f: impl Fn(&::salsa::Db, U) -> R,
-        config: &VfsTestConfig,
-    ) where
+    fn vfs_expect_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &VfsTestConfig)
+    where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display,
     {
-        self::expect_test::vfs_expect_test(self, |db, u| format!("{}", &f(db, u)), config)
+        vfs_expect_test::<DB, _>(|db, u| format!("{}", &f(db, u)), config)
     }
 }
 pub struct VfsTestConfig<'a> {

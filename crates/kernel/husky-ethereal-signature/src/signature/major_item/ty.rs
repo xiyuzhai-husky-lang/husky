@@ -172,8 +172,8 @@ fn ty_ethereal_signature_template(
     })
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum PropsFieldEtherealSignature {
     PropsStruct(PropsStructFieldEtherealSignature),

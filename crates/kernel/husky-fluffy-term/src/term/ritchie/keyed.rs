@@ -1,7 +1,7 @@
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FluffyRitchieKeyedParameter {
     key: Ident,
     contract: TermContract,

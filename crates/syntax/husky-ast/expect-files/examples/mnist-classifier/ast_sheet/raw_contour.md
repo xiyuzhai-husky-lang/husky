@@ -12,14 +12,10 @@ AstSheet {
                     6,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TraitForTypeItem(
@@ -228,14 +224,10 @@ AstSheet {
                     9,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -270,14 +262,10 @@ AstSheet {
                     11,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -312,14 +300,10 @@ AstSheet {
                     24,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -354,14 +338,10 @@ AstSheet {
                     26,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -396,14 +376,14 @@ AstSheet {
                     36,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 348,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: AssociatedItem {
                     associated_item_kind: TypeItem(
@@ -1667,14 +1647,10 @@ AstSheet {
                     0,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 state_after_visibility_expr: None,
             },
@@ -1683,14 +1659,10 @@ AstSheet {
                     1,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 state_after_visibility_expr: None,
             },
@@ -1699,14 +1671,10 @@ AstSheet {
                     2,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 state_after_visibility_expr: None,
             },
@@ -1715,14 +1683,10 @@ AstSheet {
                     3,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 state_after_visibility_expr: None,
             },
@@ -1731,14 +1695,14 @@ AstSheet {
                     4,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 23,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
@@ -1803,14 +1767,10 @@ AstSheet {
                     42,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
@@ -1847,14 +1807,10 @@ AstSheet {
                     47,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -1891,14 +1847,10 @@ AstSheet {
                     49,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -1935,14 +1887,10 @@ AstSheet {
                     51,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -1979,14 +1927,10 @@ AstSheet {
                     53,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -2023,14 +1967,10 @@ AstSheet {
                     75,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -2067,14 +2007,10 @@ AstSheet {
                     81,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -2111,14 +2047,10 @@ AstSheet {
                     116,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Type(
@@ -2149,14 +2081,10 @@ AstSheet {
                     117,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(
@@ -2193,14 +2121,14 @@ AstSheet {
                     122,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 955,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(

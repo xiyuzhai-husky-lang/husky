@@ -268,13 +268,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 256,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `points`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -292,13 +286,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 141,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `start`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     11,
                                                 ),
@@ -325,13 +313,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 142,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `end`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     26,
                                                 ),
@@ -372,7 +354,6 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ],
-                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(
@@ -730,7 +711,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 256,
+                                                                    value: 68,
                                                                 },
                                                             ),
                                                         ),
@@ -750,7 +731,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 141,
+                                                                    value: 122,
                                                                 },
                                                             ),
                                                         ),
@@ -770,7 +751,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 142,
+                                                                    value: 123,
                                                                 },
                                                             ),
                                                         ),
@@ -900,13 +881,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 334,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `contour`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -924,13 +899,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 370,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `strokes`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),
@@ -957,7 +926,6 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ],
-                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(
@@ -1135,7 +1103,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 334,
+                                                                    value: 168,
                                                                 },
                                                             ),
                                                         ),
@@ -1155,7 +1123,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 370,
+                                                                    value: 216,
                                                                 },
                                                             ),
                                                         ),

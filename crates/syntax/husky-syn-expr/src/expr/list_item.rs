@@ -1,5 +1,6 @@
 use crate::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynCommaListItem {
     syn_expr_idx: SynExprIdx,
@@ -26,8 +27,9 @@ impl SynCommaListItem {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SynCallListItem {
     RegularOrVariadic(SynRegularOrVariadicCallListItem),
     Keyed(SynKeyedCallListItem),
@@ -96,19 +98,7 @@ impl SynCallListItem {
     }
 }
 
-#[test]
-fn call_list_item_field_alignment() {
-    // todo
-    //     let a =
-    // CallListItem::RegularOrVariadic(RegularOrVariadicCallListItem {
-    //     separator, ..
-    // })
-    // | CallListItem::Keyed(KeyedCallListItem { separator, .. }) => {
-    //     debug_assert_eq!(*separator, CallListSeparator::None);
-    //     *separator = new_separator
-    // }
-}
-
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynRegularOrVariadicCallListItem {
     argument_expr_idx: SynExprIdx,
@@ -132,6 +122,7 @@ impl SynRegularOrVariadicCallListItem {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynKeyedCallListItem {
     key_regional_token_idx: RegionalTokenIdx,
@@ -172,6 +163,7 @@ impl SynKeyedCallListItem {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum CallListSeparator {
     None,

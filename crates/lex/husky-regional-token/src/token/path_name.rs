@@ -1,7 +1,7 @@
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum PathNameRegionalToken {
     Ident(IdentRegionalToken),
@@ -12,8 +12,8 @@ pub enum PathNameRegionalToken {
 
 // crate
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct CrateRegionalToken {
     pub(crate) token_idx: RegionalTokenIdx,
 }
@@ -30,8 +30,8 @@ impl CrateRegionalToken {
 
 // self mod
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SelfModRegionalToken {
     token_idx: RegionalTokenIdx,
 }
@@ -43,8 +43,8 @@ impl SelfModRegionalToken {
 }
 
 /// `super` super token
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SuperRegionalToken {
     token_idx: RegionalTokenIdx,
 }

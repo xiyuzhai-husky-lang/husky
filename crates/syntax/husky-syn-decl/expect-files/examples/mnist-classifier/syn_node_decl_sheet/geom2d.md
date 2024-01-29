@@ -56,13 +56,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 269,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `x`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -80,13 +74,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 270,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `y`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     9,
                                                 ),
@@ -113,7 +101,6 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ],
-                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(
@@ -271,7 +258,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 269,
+                                                                    value: 88,
                                                                 },
                                                             ),
                                                         ),
@@ -291,7 +278,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 270,
+                                                                    value: 89,
                                                                 },
                                                             ),
                                                         ),
@@ -398,13 +385,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 269,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `x`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -422,13 +403,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 270,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `y`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     9,
                                                 ),
@@ -455,7 +430,6 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ],
-                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(
@@ -613,7 +587,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 269,
+                                                                    value: 88,
                                                                 },
                                                             ),
                                                         ),
@@ -633,7 +607,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 270,
+                                                                    value: 89,
                                                                 },
                                                             ),
                                                         ),
@@ -740,13 +714,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 269,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `x`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -764,13 +732,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 270,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `y`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     9,
                                                 ),
@@ -797,7 +759,6 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ],
-                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(
@@ -955,7 +916,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 269,
+                                                                    value: 88,
                                                                 },
                                                             ),
                                                         ),
@@ -975,7 +936,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 270,
+                                                                    value: 89,
                                                                 },
                                                             ),
                                                         ),
@@ -1082,13 +1043,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 58,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `min`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -1106,13 +1061,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `max`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     9,
                                                 ),
@@ -1139,7 +1088,6 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ],
-                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(
@@ -1297,7 +1245,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 58,
+                                                                    value: 115,
                                                                 },
                                                             ),
                                                         ),
@@ -1317,7 +1265,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 53,
+                                                                    value: 71,
                                                                 },
                                                             ),
                                                         ),
@@ -1423,7 +1371,7 @@ SynNodeDeclSheet {
                                         PropsFieldSyndicate {
                                             decorators: [],
                                             visibility: Some(
-                                                Pub {
+                                                FieldVisibilityExpr::Pub {
                                                     pub_token: PubRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
@@ -1432,13 +1380,7 @@ SynNodeDeclSheet {
                                                 },
                                             ),
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 365,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `xrange`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     6,
                                                 ),
@@ -1455,7 +1397,7 @@ SynNodeDeclSheet {
                                         PropsFieldSyndicate {
                                             decorators: [],
                                             visibility: Some(
-                                                Pub {
+                                                FieldVisibilityExpr::Pub {
                                                     pub_token: PubRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             10,
@@ -1464,13 +1406,7 @@ SynNodeDeclSheet {
                                                 },
                                             ),
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 366,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `yrange`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     11,
                                                 ),
@@ -1497,7 +1433,6 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ],
-                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(
@@ -1655,7 +1590,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 365,
+                                                                    value: 208,
                                                                 },
                                                             ),
                                                         ),
@@ -1675,7 +1610,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 366,
+                                                                    value: 209,
                                                                 },
                                                             ),
                                                         ),
@@ -1782,13 +1717,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 365,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `xrange`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -1806,13 +1735,7 @@ SynNodeDeclSheet {
                                             decorators: [],
                                             visibility: None,
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 366,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `yrange`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     9,
                                                 ),
@@ -1839,7 +1762,6 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ],
-                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(
@@ -1997,7 +1919,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 365,
+                                                                    value: 208,
                                                                 },
                                                             ),
                                                         ),
@@ -2017,7 +1939,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 366,
+                                                                    value: 209,
                                                                 },
                                                             ),
                                                         ),

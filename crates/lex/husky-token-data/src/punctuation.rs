@@ -6,8 +6,8 @@ use crate::*;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr, BinaryShiftOpr, BinaryShortcuitLogicOpr};
 use husky_syn_opr::{SynBinaryOpr, SynBracket, SynSuffixOpr};
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct Punctuation(PunctuationMapped);
 
 impl Punctuation {
@@ -204,8 +204,8 @@ impl std::fmt::Display for Punctuation {
 /// serve as cached
 /// for punctuation that unambiguously maps to an opr,
 /// we use that opr to represent it
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum PunctuationMapped {
     // predetermined
     Binary(SynBinaryOpr),

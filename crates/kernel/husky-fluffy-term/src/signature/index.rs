@@ -4,8 +4,8 @@ pub(crate) use self::ethereal::*;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FluffyIndexSignature {
     Int { element_ty: FluffyTerm },
     Regular { element_ty: FluffyTerm },

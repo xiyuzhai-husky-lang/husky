@@ -66,8 +66,8 @@ impl<'a> EntitySymbolTableRef<'a> {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct EntitySymbolEntry {
     ident: Ident,
     visibility: Scope,
@@ -239,8 +239,8 @@ impl MajorEntityNodeTable {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ItemNodeEntry {
     node: ItemSynNode,
     /// cached for performance, always equal to node.syn_node_path(db)

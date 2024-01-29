@@ -24,8 +24,20 @@ ValkyrieJavelinPantheon {
                 data: JavelinData::VecConstructor {
                     element_ty: JavelinType::PathLeading(
                         JavelinTypePathLeading {
-                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                            template_arguments: [],
+                            ty_path: TypePath(`core::mem::Ref`, `Extern`),
+                            template_arguments: [
+                                JavelinTemplateArgument::Constant(
+                                    JavelinConstant::StaticLifetime,
+                                ),
+                                JavelinTemplateArgument::Type(
+                                    JavelinType::PathLeading(
+                                        JavelinTypePathLeading {
+                                            ty_path: TypePath(`core::str::str`, `Extern`),
+                                            template_arguments: [],
+                                        },
+                                    ),
+                                ),
+                            ],
                         },
                     ),
                 },
@@ -54,20 +66,8 @@ ValkyrieJavelinPantheon {
                 data: JavelinData::VecConstructor {
                     element_ty: JavelinType::PathLeading(
                         JavelinTypePathLeading {
-                            ty_path: TypePath(`core::mem::Ref`, `Extern`),
-                            template_arguments: [
-                                JavelinTemplateArgument::Constant(
-                                    JavelinConstant::StaticLifetime,
-                                ),
-                                JavelinTemplateArgument::Type(
-                                    JavelinType::PathLeading(
-                                        JavelinTypePathLeading {
-                                            ty_path: TypePath(`core::str::str`, `Extern`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ],
+                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                            template_arguments: [],
                         },
                     ),
                 },

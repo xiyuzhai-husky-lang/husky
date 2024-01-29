@@ -38,8 +38,8 @@ impl HasHirDecl for ItemPath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum HirDecl {
     Submodule(SubmoduleHirDecl),

@@ -1,8 +1,8 @@
 use super::*;
 use vec_like::VecMapGetEntry;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TraitInUseItemsTable<'a> {
     prelude_trait_items_table: &'a [(Ident, SmallVec<[TraitInUseItemRecord; 2]>)],
     module_specific_trait_items_table: &'a [(Ident, SmallVec<[TraitInUseItemRecord; 2]>)],
@@ -90,8 +90,8 @@ fn trait_items_table_impl(
     table
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TraitInUseItemRecord {
     trai_symbol: EntitySymbol,
     trai_path: TraitPath,

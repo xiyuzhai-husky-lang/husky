@@ -1,8 +1,8 @@
 use super::*;
 use husky_regional_token::IdentRegionalToken;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MethodFnFluffySignature {
     pub path: AssociatedItemPath,
     pub self_value_parameter: FluffyRitchieRegularParameter,

@@ -319,19 +319,13 @@
                                         2,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Regular(
+                                        SemaRitchieParameterArgumentMatch::Regular(
                                             FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        Application(
-                                                            EtherealTermApplication(
-                                                                Id {
-                                                                    value: 48,
-                                                                },
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Leash Vec ConcaveComponent`),
                                                     ),
                                                 },
                                             },
@@ -355,19 +349,13 @@
                                                 ),
                                             },
                                         ),
-                                        Regular(
+                                        SemaRitchieParameterArgumentMatch::Regular(
                                             FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        Application(
-                                                            EtherealTermApplication(
-                                                                Id {
-                                                                    value: 50,
-                                                                },
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                                     ),
                                                 },
                                             },
@@ -559,14 +547,8 @@
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
-                                                                        base: Ethereal(
-                                                                            Application(
-                                                                                EtherealTermApplication(
-                                                                                    Id {
-                                                                                        value: 48,
-                                                                                    },
-                                                                                ),
-                                                                            ),
+                                                                        base: FluffyTermBase::Ethereal(
+                                                                            EtherealTerm(`Leash Vec ConcaveComponent`),
                                                                         ),
                                                                     },
                                                                 },
@@ -576,14 +558,8 @@
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
-                                                                        base: Ethereal(
-                                                                            Application(
-                                                                                EtherealTermApplication(
-                                                                                    Id {
-                                                                                        value: 50,
-                                                                                    },
-                                                                                ),
-                                                                            ),
+                                                                        base: FluffyTermBase::Ethereal(
+                                                                            EtherealTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                                                         ),
                                                                     },
                                                                 },
@@ -968,7 +944,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 4,
+                                                            value: 2,
                                                         },
                                                     ),
                                                     Explicit(
@@ -1223,23 +1199,13 @@
                                         2,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Variadic(
+                                        SemaRitchieParameterArgumentMatch::Variadic(
                                             FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -1284,30 +1250,14 @@
                                                 },
                                             ],
                                         ),
-                                        Keyed(
+                                        SemaRitchieParameterArgumentMatch::Keyed(
                                             FluffyRitchieKeyedParameter {
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 446,
-                                                        },
-                                                    ),
-                                                ),
+                                                key: `skip`,
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 has_default: true,
@@ -1320,7 +1270,7 @@
                                                     key: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 446,
+                                                                value: 295,
                                                             },
                                                         ),
                                                     ),
@@ -1638,19 +1588,13 @@
                                         19,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Regular(
+                                        SemaRitchieParameterArgumentMatch::Regular(
                                             FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        Application(
-                                                            EtherealTermApplication(
-                                                                Id {
-                                                                    value: 48,
-                                                                },
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Leash Vec ConcaveComponent`),
                                                     ),
                                                 },
                                             },
@@ -1674,19 +1618,13 @@
                                                 ),
                                             },
                                         ),
-                                        Regular(
+                                        SemaRitchieParameterArgumentMatch::Regular(
                                             FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        Application(
-                                                            EtherealTermApplication(
-                                                                Id {
-                                                                    value: 50,
-                                                                },
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                                     ),
                                                 },
                                             },
@@ -1942,7 +1880,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         29,
@@ -2006,7 +1944,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 4,
+                                                            value: 2,
                                                         },
                                                     ),
                                                     Explicit(
@@ -2218,23 +2156,13 @@
                                         33,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Variadic(
+                                        SemaRitchieParameterArgumentMatch::Variadic(
                                             FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -2260,30 +2188,14 @@
                                                 },
                                             ],
                                         ),
-                                        Keyed(
+                                        SemaRitchieParameterArgumentMatch::Keyed(
                                             FluffyRitchieKeyedParameter {
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 446,
-                                                        },
-                                                    ),
-                                                ),
+                                                key: `skip`,
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 has_default: true,
@@ -2296,7 +2208,7 @@
                                                     key: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 446,
+                                                                value: 295,
                                                             },
                                                         ),
                                                     ),
@@ -2659,7 +2571,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         48,
@@ -2865,7 +2777,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         55,
@@ -3159,7 +3071,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         66,
@@ -3288,7 +3200,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         70,
@@ -3493,17 +3405,11 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: Int {
+                                        signature: FluffyIndexSignature::Int {
                                             element_ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 62,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
                                         },
@@ -3709,17 +3615,11 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: Int {
+                                        signature: FluffyIndexSignature::Int {
                                             element_ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 62,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
                                         },
@@ -3925,17 +3825,11 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: Int {
+                                        signature: FluffyIndexSignature::Int {
                                             element_ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 62,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
                                         },
@@ -4264,7 +4158,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         108,
@@ -4328,7 +4222,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 4,
+                                                            value: 2,
                                                         },
                                                     ),
                                                     Explicit(
@@ -4560,51 +4454,25 @@
                                                 ),
                                             },
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 156,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 53,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`f32`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -4703,23 +4571,13 @@
                                         111,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Variadic(
+                                        SemaRitchieParameterArgumentMatch::Variadic(
                                             FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -4745,30 +4603,14 @@
                                                 },
                                             ],
                                         ),
-                                        Keyed(
+                                        SemaRitchieParameterArgumentMatch::Keyed(
                                             FluffyRitchieKeyedParameter {
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 446,
-                                                        },
-                                                    ),
-                                                ),
+                                                key: `skip`,
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 has_default: true,
@@ -4781,7 +4623,7 @@
                                                     key: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 446,
+                                                                value: 295,
                                                             },
                                                         ),
                                                     ),
@@ -5148,7 +4990,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         128,
@@ -5313,7 +5155,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         132,
@@ -5399,7 +5241,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         136,
@@ -5686,47 +5528,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 180,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Application(
-                                                                EtherealTermApplication(
-                                                                    Id {
-                                                                        value: 54,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -5749,7 +5569,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 252,
+                                                                                            value: 40,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -5966,47 +5786,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 179,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Application(
-                                                                EtherealTermApplication(
-                                                                    Id {
-                                                                        value: 54,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -6029,7 +5827,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 252,
+                                                                                            value: 40,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -6092,7 +5890,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         153,
@@ -6296,7 +6094,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         166,
@@ -6360,7 +6158,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 4,
+                                                            value: 2,
                                                         },
                                                     ),
                                                     Explicit(
@@ -6508,54 +6306,28 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 391,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 224,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`ConnectedComponent`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [
-                                                    Regular(
+                                                    FluffyRitchieParameter::Regular(
                                                         FluffyRitchieRegularParameter {
                                                             contract: Pure,
                                                             ty: FluffyTerm {
                                                                 place: None,
-                                                                base: Ethereal(
-                                                                    EntityPath(
-                                                                        TypeOntology(
-                                                                            TypePath(
-                                                                                ItemPathId(
-                                                                                    Id {
-                                                                                        value: 43,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    ),
+                                                                base: FluffyTermBase::Ethereal(
+                                                                    EtherealTerm(`i32`),
                                                                 ),
                                                             },
                                                         },
@@ -6563,18 +6335,8 @@
                                                 ],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -6594,23 +6356,13 @@
                                         173,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Regular(
+                                        SemaRitchieParameterArgumentMatch::Regular(
                                             FluffyRitchieRegularParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                             },
@@ -7058,23 +6810,13 @@
                                         169,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Variadic(
+                                        SemaRitchieParameterArgumentMatch::Variadic(
                                             FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -7157,30 +6899,14 @@
                                                 },
                                             ],
                                         ),
-                                        Keyed(
+                                        SemaRitchieParameterArgumentMatch::Keyed(
                                             FluffyRitchieKeyedParameter {
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 446,
-                                                        },
-                                                    ),
-                                                ),
+                                                key: `skip`,
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 has_default: true,
@@ -7193,7 +6919,7 @@
                                                     key: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 446,
+                                                                value: 295,
                                                             },
                                                         ),
                                                     ),
@@ -7414,7 +7140,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 4,
+                                                            value: 2,
                                                         },
                                                     ),
                                                     Explicit(
@@ -7633,17 +7359,11 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: Int {
+                                        signature: FluffyIndexSignature::Int {
                                             element_ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 62,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
                                         },
@@ -7955,17 +7675,11 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: Int {
+                                        signature: FluffyIndexSignature::Int {
                                             element_ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 62,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
                                         },
@@ -8124,51 +7838,25 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 156,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 53,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`f32`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -8261,23 +7949,13 @@
                                         196,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Variadic(
+                                        SemaRitchieParameterArgumentMatch::Variadic(
                                             FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -8322,30 +8000,14 @@
                                                 },
                                             ],
                                         ),
-                                        Keyed(
+                                        SemaRitchieParameterArgumentMatch::Keyed(
                                             FluffyRitchieKeyedParameter {
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 446,
-                                                        },
-                                                    ),
-                                                ),
+                                                key: `skip`,
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 has_default: true,
@@ -8358,7 +8020,7 @@
                                                     key: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 446,
+                                                                value: 295,
                                                             },
                                                         ),
                                                     ),
@@ -8802,47 +8464,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 180,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Application(
-                                                                EtherealTermApplication(
-                                                                    Id {
-                                                                        value: 54,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -8865,7 +8505,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 252,
+                                                                                            value: 40,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -9082,47 +8722,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 179,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Application(
-                                                                EtherealTermApplication(
-                                                                    Id {
-                                                                        value: 54,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -9145,7 +8763,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 252,
+                                                                                            value: 40,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -9208,7 +8826,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         244,
@@ -9290,7 +8908,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         253,
@@ -9634,47 +9252,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 179,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Application(
-                                                                EtherealTermApplication(
-                                                                    Id {
-                                                                        value: 54,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -9697,7 +9293,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 252,
+                                                                                            value: 40,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -9797,7 +9393,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         271,
@@ -9855,21 +9451,11 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: Int {
+                                        signature: FluffyIndexSignature::Int {
                                             element_ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 252,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -9959,51 +9545,25 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 429,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 252,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 244,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -10248,7 +9808,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         286,
@@ -10312,7 +9872,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 4,
+                                                            value: 2,
                                                         },
                                                     ),
                                                     Explicit(
@@ -10843,51 +10403,25 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 156,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 53,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`f32`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -10980,23 +10514,13 @@
                                         289,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Variadic(
+                                        SemaRitchieParameterArgumentMatch::Variadic(
                                             FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -11060,30 +10584,14 @@
                                                 },
                                             ],
                                         ),
-                                        Keyed(
+                                        SemaRitchieParameterArgumentMatch::Keyed(
                                             FluffyRitchieKeyedParameter {
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 446,
-                                                        },
-                                                    ),
-                                                ),
+                                                key: `skip`,
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 has_default: true,
@@ -11096,7 +10604,7 @@
                                                     key: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 446,
+                                                                value: 295,
                                                             },
                                                         ),
                                                     ),
@@ -11317,7 +10825,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 4,
+                                                            value: 2,
                                                         },
                                                     ),
                                                     Explicit(
@@ -11444,51 +10952,25 @@
                                                 ),
                                             },
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 432,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 244,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Vector2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -11842,7 +11324,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         326,
@@ -11920,23 +11402,13 @@
                                         316,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Variadic(
+                                        SemaRitchieParameterArgumentMatch::Variadic(
                                             FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -11981,30 +11453,14 @@
                                                 },
                                             ],
                                         ),
-                                        Keyed(
+                                        SemaRitchieParameterArgumentMatch::Keyed(
                                             FluffyRitchieKeyedParameter {
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 446,
-                                                        },
-                                                    ),
-                                                ),
+                                                key: `skip`,
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 has_default: true,
@@ -12017,7 +11473,7 @@
                                                     key: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 446,
+                                                                value: 295,
                                                             },
                                                         ),
                                                     ),
@@ -12326,7 +11782,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 4,
+                                                            value: 2,
                                                         },
                                                     ),
                                                     Explicit(
@@ -12545,17 +12001,11 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: Int {
+                                        signature: FluffyIndexSignature::Int {
                                             element_ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 62,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
                                         },
@@ -12867,17 +12317,11 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: Int {
+                                        signature: FluffyIndexSignature::Int {
                                             element_ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 62,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
                                         },
@@ -13189,17 +12633,11 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: Int {
+                                        signature: FluffyIndexSignature::Int {
                                             element_ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 62,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
                                         },
@@ -13358,51 +12796,25 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 156,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 53,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`f32`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -13495,23 +12907,13 @@
                                         346,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Variadic(
+                                        SemaRitchieParameterArgumentMatch::Variadic(
                                             FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -13575,30 +12977,14 @@
                                                 },
                                             ],
                                         ),
-                                        Keyed(
+                                        SemaRitchieParameterArgumentMatch::Keyed(
                                             FluffyRitchieKeyedParameter {
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 446,
-                                                        },
-                                                    ),
-                                                ),
+                                                key: `skip`,
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 has_default: true,
@@ -13611,7 +12997,7 @@
                                                     key: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 446,
+                                                                value: 295,
                                                             },
                                                         ),
                                                     ),
@@ -13899,7 +13285,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         389,
@@ -14243,47 +13629,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 179,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Application(
-                                                                EtherealTermApplication(
-                                                                    Id {
-                                                                        value: 54,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -14306,7 +13670,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 252,
+                                                                                            value: 40,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -14382,21 +13746,11 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: Int {
+                                        signature: FluffyIndexSignature::Int {
                                             element_ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 252,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -14486,51 +13840,25 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 429,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 252,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 244,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -14889,47 +14217,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 179,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Application(
-                                                                EtherealTermApplication(
-                                                                    Id {
-                                                                        value: 54,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -14952,7 +14258,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 252,
+                                                                                            value: 40,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -15052,7 +14358,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         432,
@@ -15110,21 +14416,11 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: Int {
+                                        signature: FluffyIndexSignature::Int {
                                             element_ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 252,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`LineSegmentStroke`),
                                                 ),
                                             },
                                         },
@@ -15214,51 +14510,25 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 429,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 252,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 244,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -15337,7 +14607,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 4,
+                                                            value: 2,
                                                         },
                                                     ),
                                                     Explicit(
@@ -15717,23 +14987,13 @@
                                         444,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Variadic(
+                                        SemaRitchieParameterArgumentMatch::Variadic(
                                             FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                             },
@@ -15790,30 +15050,14 @@
                                                 },
                                             ],
                                         ),
-                                        Keyed(
+                                        SemaRitchieParameterArgumentMatch::Keyed(
                                             FluffyRitchieKeyedParameter {
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 446,
-                                                        },
-                                                    ),
-                                                ),
+                                                key: `skip`,
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 has_default: true,
@@ -15826,7 +15070,7 @@
                                                     key: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 446,
+                                                                value: 295,
                                                             },
                                                         ),
                                                     ),
@@ -16110,7 +15354,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         460,
@@ -16493,7 +15737,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         478,
@@ -16636,7 +15880,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         484,
@@ -16815,7 +16059,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         488,
@@ -16950,7 +16194,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         493,
@@ -18639,7 +17883,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 264,
+                                                    value: 52,
                                                 },
                                             ),
                                         ),
@@ -18659,7 +17903,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 62,
+                                            value: 58,
                                         },
                                     ),
                                 ),
@@ -18677,7 +17921,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 62,
+                                            value: 58,
                                         },
                                     ),
                                 ),
@@ -18695,7 +17939,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 62,
+                                            value: 58,
                                         },
                                     ),
                                 ),
@@ -18719,7 +17963,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 62,
+                                            value: 58,
                                         },
                                     ),
                                 ),
@@ -18737,7 +17981,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 43,
+                                                    value: 123,
                                                 },
                                             ),
                                         ),
@@ -18763,7 +18007,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 62,
+                                            value: 58,
                                         },
                                     ),
                                 ),
@@ -18783,7 +18027,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 252,
+                                                    value: 40,
                                                 },
                                             ),
                                         ),
@@ -18803,7 +18047,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 244,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -18829,7 +18073,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 62,
+                                            value: 58,
                                         },
                                     ),
                                 ),
@@ -18849,7 +18093,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 252,
+                                                    value: 40,
                                                 },
                                             ),
                                         ),
@@ -18869,7 +18113,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 244,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -18891,7 +18135,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 252,
+                                                    value: 40,
                                                 },
                                             ),
                                         ),
@@ -18911,7 +18155,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 244,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -18933,7 +18177,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 139,
                                                 },
                                             ),
                                         ),
@@ -18955,7 +18199,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 139,
                                                 },
                                             ),
                                         ),
@@ -18975,7 +18219,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 139,
                                                 },
                                             ),
                                         ),
@@ -18995,7 +18239,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 139,
                                                 },
                                             ),
                                         ),
@@ -19019,7 +18263,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 264,
+                                                            value: 52,
                                                         },
                                                     ),
                                                 ),
@@ -19041,7 +18285,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 62,
+                                                    value: 58,
                                                 },
                                             ),
                                         ),
@@ -19061,7 +18305,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 62,
+                                                    value: 58,
                                                 },
                                             ),
                                         ),
@@ -19081,7 +18325,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 62,
+                                                    value: 58,
                                                 },
                                             ),
                                         ),
@@ -19101,7 +18345,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 43,
+                                                            value: 123,
                                                         },
                                                     ),
                                                 ),
@@ -19126,7 +18370,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 252,
+                                                            value: 40,
                                                         },
                                                     ),
                                                 ),
@@ -19148,7 +18392,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 244,
+                                                            value: 32,
                                                         },
                                                     ),
                                                 ),
@@ -19173,7 +18417,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 252,
+                                                            value: 40,
                                                         },
                                                     ),
                                                 ),
@@ -19195,7 +18439,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 244,
+                                                            value: 32,
                                                         },
                                                     ),
                                                 ),
@@ -19219,7 +18463,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 252,
+                                                            value: 40,
                                                         },
                                                     ),
                                                 ),
@@ -19241,7 +18485,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 244,
+                                                            value: 32,
                                                         },
                                                     ),
                                                 ),
@@ -19265,7 +18509,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 53,
+                                                            value: 139,
                                                         },
                                                     ),
                                                 ),
@@ -19289,7 +18533,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 53,
+                                                            value: 139,
                                                         },
                                                     ),
                                                 ),
@@ -19311,7 +18555,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 53,
+                                                            value: 139,
                                                         },
                                                     ),
                                                 ),
@@ -19333,7 +18577,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 53,
+                                                            value: 139,
                                                         },
                                                     ),
                                                 ),
@@ -21974,7 +21218,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 53,
+                                                                                            value: 139,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -21989,7 +21233,7 @@
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 446,
+                                                                            value: 295,
                                                                         },
                                                                     ),
                                                                 ),
@@ -22002,7 +21246,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 43,
+                                                                                            value: 123,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -22371,14 +21615,8 @@
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
-                                                                        base: Ethereal(
-                                                                            Application(
-                                                                                EtherealTermApplication(
-                                                                                    Id {
-                                                                                        value: 48,
-                                                                                    },
-                                                                                ),
-                                                                            ),
+                                                                        base: FluffyTermBase::Ethereal(
+                                                                            EtherealTerm(`Leash Vec ConcaveComponent`),
                                                                         ),
                                                                     },
                                                                 },
@@ -22388,14 +21626,8 @@
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
                                                                         place: None,
-                                                                        base: Ethereal(
-                                                                            Application(
-                                                                                EtherealTermApplication(
-                                                                                    Id {
-                                                                                        value: 50,
-                                                                                    },
-                                                                                ),
-                                                                            ),
+                                                                        base: FluffyTermBase::Ethereal(
+                                                                            EtherealTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                                                         ),
                                                                     },
                                                                 },
@@ -22684,7 +21916,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 53,
+                                                                                            value: 139,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -22699,7 +21931,7 @@
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 446,
+                                                                            value: 295,
                                                                         },
                                                                     ),
                                                                 ),
@@ -22712,7 +21944,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 43,
+                                                                                            value: 123,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -24190,7 +23422,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 53,
+                                                                                            value: 139,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -24205,7 +23437,7 @@
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 446,
+                                                                            value: 295,
                                                                         },
                                                                     ),
                                                                 ),
@@ -24218,7 +23450,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 43,
+                                                                                            value: 123,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -25296,7 +24528,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 53,
+                                                                                            value: 139,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -25311,7 +24543,7 @@
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 446,
+                                                                            value: 295,
                                                                         },
                                                                     ),
                                                                 ),
@@ -25324,7 +24556,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 43,
+                                                                                            value: 123,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -25884,7 +25116,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 53,
+                                                                                            value: 139,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -25899,7 +25131,7 @@
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 446,
+                                                                            value: 295,
                                                                         },
                                                                     ),
                                                                 ),
@@ -25912,7 +25144,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 43,
+                                                                                            value: 123,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -27354,7 +26586,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 53,
+                                                                                            value: 139,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -27369,7 +26601,7 @@
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 446,
+                                                                            value: 295,
                                                                         },
                                                                     ),
                                                                 ),
@@ -27382,7 +26614,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 43,
+                                                                                            value: 123,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -27936,7 +27168,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 53,
+                                                                                            value: 139,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -27951,7 +27183,7 @@
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 446,
+                                                                            value: 295,
                                                                         },
                                                                     ),
                                                                 ),
@@ -27964,7 +27196,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 43,
+                                                                                            value: 123,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -28538,7 +27770,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 53,
+                                                                                            value: 139,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -28553,7 +27785,7 @@
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 446,
+                                                                            value: 295,
                                                                         },
                                                                     ),
                                                                 ),
@@ -28566,7 +27798,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 43,
+                                                                                            value: 123,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -30054,7 +29286,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 53,
+                                                                                            value: 139,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -30069,7 +29301,7 @@
                                                                 key: Ident(
                                                                     Coword(
                                                                         Id {
-                                                                            value: 446,
+                                                                            value: 295,
                                                                         },
                                                                     ),
                                                                 ),
@@ -30082,7 +29314,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 43,
+                                                                                            value: 123,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -31415,51 +30647,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 415,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 259,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`ConcaveComponent`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 244,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -31704,7 +30910,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         13,
@@ -32054,7 +31260,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 244,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -32078,7 +31284,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 244,
+                                                            value: 32,
                                                         },
                                                     ),
                                                 ),
@@ -32602,51 +31808,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 415,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 259,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`ConcaveComponent`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 244,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -32891,7 +32071,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         13,
@@ -33000,51 +32180,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 414,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 259,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`ConcaveComponent`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 242,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Point2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -33346,7 +32500,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 244,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -33370,7 +32524,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 244,
+                                                            value: 32,
                                                         },
                                                     ),
                                                 ),
@@ -33924,51 +33078,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 415,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 259,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`ConcaveComponent`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 244,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Vector2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -34213,7 +33341,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         13,
@@ -34443,7 +33571,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         19,
@@ -34824,7 +33952,7 @@
                                             indirections: [],
                                             final_place: Transient,
                                         },
-                                        signature: Builtin,
+                                        signature: SemaBinaryOprFluffySignature::Builtin,
                                     },
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         25,
@@ -35031,7 +34159,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 244,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -35055,7 +34183,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 244,
+                                                            value: 32,
                                                         },
                                                     ),
                                                 ),

@@ -1,7 +1,7 @@
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct SynExprRangeRegion {
     item_path_expr_ranges: Vec<RegionalTokenIdxRange>,
     pattern_expr_ranges: Vec<RegionalTokenIdxRange>,
@@ -16,12 +16,6 @@ pub(crate) fn syn_expr_range_region(
 ) -> SynExprRangeRegion {
     SynExprRangeCalculator::new(db, expr_region).calc_all()
 }
-
-// #[test]
-// fn expr_range_sheet_works() {
-//     use tests::*;
-//     DB::default().ast_expect_test_debug_with_db("expr_range_sheet", todo!());
-// }
 
 impl std::ops::Index<SynPrincipalEntityPathExprIdx> for SynExprRangeRegion {
     type Output = RegionalTokenIdxRange;

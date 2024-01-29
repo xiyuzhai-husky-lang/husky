@@ -1,7 +1,7 @@
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct EntityAncestry {
     crate_path: CratePath,
     modules: Vec<ModulePath>,

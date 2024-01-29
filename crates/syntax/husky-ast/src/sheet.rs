@@ -21,8 +21,8 @@ pub(crate) fn ast_sheet(db: &::salsa::Db, module_path: ModulePath) -> AstSheet {
     AstParser::new(db, module_path).parse_all()
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct AstSheet {
     ast_arena: AstArena,
     top_level_asts: AstIdxRange,

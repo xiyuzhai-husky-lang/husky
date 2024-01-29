@@ -1,15 +1,14 @@
 use super::*;
 
-pub(super) fn vfs_expect_test<U>(
-    db: &mut Db,
-    f: impl Fn(&::salsa::Db, U) -> String,
-    config: &VfsTestConfig,
-) where
+pub(super) fn vfs_expect_test<DB, U>(f: impl Fn(&::salsa::Db, U) -> String, config: &VfsTestConfig)
+where
+    DB: VfsTestUtils,
     U: VfsTestUnit + salsa::DebugWithDb,
 {
-    let toolchain = db.dev_toolchain().unwrap();
     for test_domain in config.test_domains() {
         for path in collect_package_relative_dirs(&test_domain.src_base()).into_iter() {
+            let db = &mut *DB::default();
+            let toolchain = db.dev_toolchain().unwrap();
             let package_path = PackagePath::new_local_or_toolchain_package(
                 db,
                 toolchain,

@@ -47,11 +47,19 @@
                             ),
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 203,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::Attr(
+                                            AttrItemPathData {
+                                                parent: ItemPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::vec::Vec`, `Extern`),
+                                                    ),
+                                                ),
+                                                ident: `derive`,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
                                 ),
                                 disambiguator: 0,
                             },

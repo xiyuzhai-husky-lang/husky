@@ -290,43 +290,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 217,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Application(
-                                                                EtherealTermApplication(
-                                                                    Id {
-                                                                        value: 81,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`CyclicSlice Point2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        Application(
-                                                            EtherealTermApplication(
-                                                                Id {
-                                                                    value: 84,
-                                                                },
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Option Leash Point2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -337,7 +319,7 @@
                                                         (
                                                             EtherealTermSymbol(
                                                                 Id {
-                                                                    value: 8,
+                                                                    value: 2,
                                                                 },
                                                             ),
                                                             Explicit(
@@ -349,7 +331,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 271,
+                                                                                            value: 30,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -452,51 +434,44 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TraitForTypeItem(
+                                                path: AssociatedItemPath::TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 135,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                                    TraitForTypeItemPathData {
+                                                                        impl_block: TraitForTypeImplBlock {
+                                                                            data: TraitForTypeImplBlockPathData {
+                                                                                module_path: `core::clone`,
+                                                                                trai_path: TraitPath(`core::clone::Clone`),
+                                                                                ty_sketch: TypeSketch::DeriveAny,
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        },
+                                                                        ident: `clone`,
+                                                                        item_kind: MethodFn,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 271,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 271,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Point2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -519,7 +494,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 271,
+                                                                                            value: 30,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -684,43 +659,25 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 218,
-                                                            },
-                                                        ),
-                                                    ),
+                                                path: AssociatedItemPath::TypeItem(
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Application(
-                                                                EtherealTermApplication(
-                                                                    Id {
-                                                                        value: 81,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`CyclicSlice Point2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        Application(
-                                                            EtherealTermApplication(
-                                                                Id {
-                                                                    value: 84,
-                                                                },
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Option Leash Point2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -731,7 +688,7 @@
                                                         (
                                                             EtherealTermSymbol(
                                                                 Id {
-                                                                    value: 8,
+                                                                    value: 2,
                                                                 },
                                                             ),
                                                             Explicit(
@@ -743,7 +700,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 271,
+                                                                                            value: 30,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -846,51 +803,44 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TraitForTypeItem(
+                                                path: AssociatedItemPath::TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 135,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                                    TraitForTypeItemPathData {
+                                                                        impl_block: TraitForTypeImplBlock {
+                                                                            data: TraitForTypeImplBlockPathData {
+                                                                                module_path: `core::clone`,
+                                                                                trai_path: TraitPath(`core::clone::Clone`),
+                                                                                ty_sketch: TypeSketch::DeriveAny,
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        },
+                                                                        ident: `clone`,
+                                                                        item_kind: MethodFn,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 271,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 271,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Point2d`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -913,7 +863,7 @@
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 271,
+                                                                                            value: 30,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -981,7 +931,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 256,
+                                            value: 68,
                                         },
                                     ),
                                 ),
@@ -1003,7 +953,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 141,
+                                            value: 122,
                                         },
                                     ),
                                 ),
@@ -1036,7 +986,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 142,
+                                            value: 123,
                                         },
                                     ),
                                 ),
@@ -1077,7 +1027,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 84,
+                                                    value: 153,
                                                 },
                                             ),
                                         ),
@@ -1100,7 +1050,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 271,
+                                                    value: 30,
                                                 },
                                             ),
                                         ),
@@ -1121,7 +1071,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 81,
+                                            value: 31,
                                         },
                                     ),
                                 ),
@@ -1140,7 +1090,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 82,
+                                            value: 32,
                                         },
                                     ),
                                 ),
@@ -1161,7 +1111,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 271,
+                                                    value: 30,
                                                 },
                                             ),
                                         ),
@@ -1184,7 +1134,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 271,
+                                                    value: 30,
                                                 },
                                             ),
                                         ),
@@ -1930,7 +1880,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 334,
+                                            value: 168,
                                         },
                                     ),
                                 ),
@@ -1952,7 +1902,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 370,
+                                            value: 216,
                                         },
                                     ),
                                 ),
@@ -1982,7 +1932,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 256,
+                                                    value: 15,
                                                 },
                                             ),
                                         ),
@@ -2003,7 +1953,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 55,
+                                            value: 4,
                                         },
                                     ),
                                 ),
@@ -2024,7 +1974,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 82,
+                                                    value: 150,
                                                 },
                                             ),
                                         ),
@@ -2047,7 +1997,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 281,
+                                                    value: 40,
                                                 },
                                             ),
                                         ),
@@ -2068,7 +2018,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 85,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -2525,7 +2475,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 273,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -2548,7 +2498,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 139,
                                                 },
                                             ),
                                         ),
@@ -2571,7 +2521,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 273,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -2943,7 +2893,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 273,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -2966,7 +2916,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 139,
                                                 },
                                             ),
                                         ),
@@ -2989,7 +2939,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 273,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -3436,7 +3386,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 256,
+                                                    value: 15,
                                                 },
                                             ),
                                         ),
@@ -3457,7 +3407,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 55,
+                                            value: 4,
                                         },
                                     ),
                                 ),
@@ -3478,7 +3428,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 43,
+                                                    value: 123,
                                                 },
                                             ),
                                         ),
@@ -3501,7 +3451,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 139,
                                                 },
                                             ),
                                         ),
@@ -3524,7 +3474,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 43,
+                                                    value: 123,
                                                 },
                                             ),
                                         ),
@@ -4095,7 +4045,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 256,
+                                                    value: 15,
                                                 },
                                             ),
                                         ),
@@ -4116,7 +4066,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 55,
+                                            value: 4,
                                         },
                                     ),
                                 ),
@@ -4137,7 +4087,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 43,
+                                                    value: 123,
                                                 },
                                             ),
                                         ),
@@ -4160,7 +4110,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 43,
+                                                    value: 123,
                                                 },
                                             ),
                                         ),
@@ -4183,7 +4133,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 139,
                                                 },
                                             ),
                                         ),
@@ -4206,7 +4156,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 43,
+                                                    value: 123,
                                                 },
                                             ),
                                         ),
@@ -4801,7 +4751,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 256,
+                                                    value: 15,
                                                 },
                                             ),
                                         ),
@@ -4822,7 +4772,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 55,
+                                            value: 4,
                                         },
                                     ),
                                 ),
@@ -4843,7 +4793,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 139,
                                                 },
                                             ),
                                         ),
@@ -4866,7 +4816,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 82,
+                                                    value: 150,
                                                 },
                                             ),
                                         ),
@@ -4889,7 +4839,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 281,
+                                                    value: 40,
                                                 },
                                             ),
                                         ),
@@ -4910,7 +4860,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 85,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -5364,7 +5314,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 87,
+                                                    value: 180,
                                                 },
                                             ),
                                         ),
@@ -5387,7 +5337,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 281,
+                                                    value: 40,
                                                 },
                                             ),
                                         ),
@@ -5639,7 +5589,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 88,
+                                                    value: 144,
                                                 },
                                             ),
                                         ),
@@ -5847,7 +5797,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 281,
+                                                    value: 40,
                                                 },
                                             ),
                                         ),
@@ -6199,7 +6149,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 256,
+                                                    value: 15,
                                                 },
                                             ),
                                         ),
@@ -6220,7 +6170,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 55,
+                                            value: 4,
                                         },
                                     ),
                                 ),
@@ -6241,7 +6191,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 43,
+                                                    value: 123,
                                                 },
                                             ),
                                         ),
@@ -6264,7 +6214,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 43,
+                                                    value: 123,
                                                 },
                                             ),
                                         ),
@@ -6287,7 +6237,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 281,
+                                                    value: 40,
                                                 },
                                             ),
                                         ),
@@ -6655,7 +6605,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 273,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -6899,7 +6849,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 87,
+                                                    value: 180,
                                                 },
                                             ),
                                         ),
@@ -6922,7 +6872,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 282,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -7174,7 +7124,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 88,
+                                                    value: 144,
                                                 },
                                             ),
                                         ),
@@ -7382,7 +7332,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 282,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -7634,7 +7584,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 82,
+                                                    value: 150,
                                                 },
                                             ),
                                         ),
@@ -7657,7 +7607,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 288,
+                                                    value: 47,
                                                 },
                                             ),
                                         ),
@@ -7678,7 +7628,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 75,
+                                            value: 25,
                                         },
                                     ),
                                 ),
@@ -7950,7 +7900,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 275,
+                                                    value: 34,
                                                 },
                                             ),
                                         ),
@@ -8259,7 +8209,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 256,
+                                                    value: 15,
                                                 },
                                             ),
                                         ),
@@ -8280,7 +8230,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 55,
+                                            value: 4,
                                         },
                                     ),
                                 ),
@@ -8301,7 +8251,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 53,
+                                                    value: 139,
                                                 },
                                             ),
                                         ),
@@ -8324,7 +8274,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 282,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),

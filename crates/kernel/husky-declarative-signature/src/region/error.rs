@@ -1,7 +1,7 @@
 use husky_declarative_term::DeclarativeTermSymbolTypeErrorKind;
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub enum DeclarativeTermError2 {
     Original(OriginalDeclarativeTermError2),
     Derived(DerivedDeclarativeTermError2),

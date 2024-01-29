@@ -2,8 +2,8 @@ use super::*;
 use vec_like::VecSet;
 
 // `Default` is not implemented because we might need to initialize it from the parent
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct SolidTerms {
     entries: VecSet<SolidTermData>,
 }
@@ -28,8 +28,8 @@ impl SolidTerms {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SolidTerm(u32);
 
 impl SolidTerm {

@@ -26,8 +26,8 @@ pub enum EagerExprEssence {
     Haha,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct EagerExprTraceData {
     path: TracePath,
     biological_parent: Trace,

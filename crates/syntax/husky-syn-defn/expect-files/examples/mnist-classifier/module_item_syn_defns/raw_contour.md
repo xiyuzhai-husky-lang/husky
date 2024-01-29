@@ -16896,15 +16896,9 @@
                                         ),
                                     },
                                     arguments: [
-                                        Expanded {
+                                        SynHtmlArgumentExpr::Expanded {
                                             property_ident: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 256,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `points`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
