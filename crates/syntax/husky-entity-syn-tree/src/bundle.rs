@@ -15,7 +15,7 @@ pub(crate) fn item_tree_crate_bundle(
 
 #[test]
 fn item_tree_crate_bundle_works() {
-    DB::default().ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         |db, crate_path| item_tree_crate_bundle(db, crate_path),
         &AstTestConfig::new("item_tree_bundle"),
     )

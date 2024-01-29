@@ -57,7 +57,7 @@ fn decl_sema_expr_range_regions(
 #[test]
 fn decl_sema_expr_range_regions_works() {
     use tests::*;
-    DB::default().ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         decl_sema_expr_range_regions,
         &AstTestConfig::new("decl_sema_expr_range_regions"),
     );
@@ -83,7 +83,7 @@ fn defn_sema_expr_range_regions(
 #[test]
 fn defn_sema_expr_range_regions_works() {
     use tests::*;
-    DB::default().ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         defn_sema_expr_range_regions,
         &AstTestConfig::new("defn_sema_expr_range_regions"),
     );

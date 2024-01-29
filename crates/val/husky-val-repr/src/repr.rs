@@ -245,7 +245,7 @@ pub(crate) fn val_item_val_reprs(
 #[test]
 fn val_item_val_repr_works() {
     let _db = DB::default();
-    DB::default().ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         val_item_val_reprs,
         &AstTestConfig::new("val_item_val_reprs"),
     )
