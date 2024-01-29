@@ -10,7 +10,10 @@ use husky_entity_syn_tree::{helpers::paths::module_item_syn_node_paths, ParentUs
 use husky_sema_expr::{
     SemaExprData, SemaExprDb, SemaExprIdx, SemaExprRegionData, SemaHtmlArgumentExpr,
 };
-use husky_syn_expr::*;
+use husky_syn_expr::{
+    entity_path::{SynPrincipalEntityPathExpr, SynPrincipalEntityPathExprIdx},
+    *,
+};
 
 pub(crate) struct TokenInfoEngine<'a> {
     db: &'a ::salsa::Db,

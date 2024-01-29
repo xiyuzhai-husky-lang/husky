@@ -38,7 +38,7 @@ use husky_regional_token::{
 };
 use husky_sema_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{
-    InheritedSynSymbolIdx, InheritedSynSymbolKind, SynPrincipalEntityPathExprIdx,
+    entity_path::SynPrincipalEntityPathExprIdx, InheritedSynSymbolIdx, InheritedSynSymbolKind,
 };
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr, SynSuffixOpr};
 use husky_term_prelude::RitchieKind;

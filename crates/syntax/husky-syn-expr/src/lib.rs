@@ -2,7 +2,7 @@
 #![feature(let_chains)]
 mod context;
 mod db;
-mod entity_path;
+pub mod entity_path;
 mod error;
 mod expr;
 pub mod helpers;
@@ -19,7 +19,6 @@ mod tests;
 
 pub use self::context::*;
 pub use self::db::*;
-pub use self::entity_path::*;
 pub use self::error::*;
 pub use self::expr::*;
 pub use self::parser::*;
@@ -30,6 +29,7 @@ pub use self::stmt::*;
 pub use self::symbol::*;
 pub use self::syndicates::*;
 
+use self::entity_path::*;
 use self::snippet::*;
 use husky_coword::*;
 use husky_entity_path::{EntityPath, MajorItemPath, PrincipalEntityPath};
