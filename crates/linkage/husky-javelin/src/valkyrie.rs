@@ -502,8 +502,7 @@ impl ValkyrieJavelinPantheon {
 
 #[test]
 fn package_javelin_pantheon_works() {
-    let mut db = DB::default();
-    db.ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         |db, package_path| package_valkyrie_javelin_pantheon(db, package_path),
         &AstTestConfig::new("package_javelin_pantheon"),
     )
