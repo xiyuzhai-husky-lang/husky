@@ -22,7 +22,7 @@ impl TokenDb for ::salsa::Db {
     }
 }
 
-#[salsa::jar(db = TokenDb)]
+#[salsa::jar]
 pub struct TokenJar(
     TokenSheet,
     ranged_token_sheet,

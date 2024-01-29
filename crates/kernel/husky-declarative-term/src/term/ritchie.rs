@@ -60,7 +60,7 @@ impl salsa::DisplayWithDb for DeclarativeTermRitchie {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum DeclarativeRitchieParameter {
     Regular(DeclarativeRitchieRegularParameter),

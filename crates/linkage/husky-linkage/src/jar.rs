@@ -1,4 +1,4 @@
-#[salsa::jar(db = LinkageDb)]
+#[salsa::jar]
 pub struct LinkageJar(
     crate::linkage::Linkage,
     crate::linkage::linkages_emancipated_by_javelin,

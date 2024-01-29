@@ -3,7 +3,7 @@ use parsec::{parse_consecutive_list, HasStreamState};
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 pub struct PropsFieldSyndicate {
     decorators: Vec<PropsFieldAttr>,
     visibility: Option<FieldVisibilityExpr>,
@@ -101,7 +101,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 pub struct PropsFieldAttr {
     pound_token: PoundRegionalToken,
     ident: Ident,
@@ -132,7 +132,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 pub enum FieldVisibilityExpr {
     Pub { pub_token: PubRegionalToken },
 }

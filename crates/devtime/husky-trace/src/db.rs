@@ -12,7 +12,7 @@ impl TraceDb for ::salsa::Db {
     }
 }
 
-#[salsa::jar(db = TraceDb)]
+#[salsa::jar]
 pub struct TraceJar(
     crate::trace::TracePath,
     crate::trace::Trace,

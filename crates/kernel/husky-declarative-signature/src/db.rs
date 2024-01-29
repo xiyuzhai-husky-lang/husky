@@ -14,7 +14,7 @@ impl DeclarativeSignatureDb for ::salsa::Db {
 
 // todo: remove unnecessary tracked functions
 // replace them by associated functions
-#[salsa::jar(db = DeclarativeSignatureDb)]
+#[salsa::jar]
 pub struct DeclarativeSignatureJar(
     declarative_term_region,
     // type

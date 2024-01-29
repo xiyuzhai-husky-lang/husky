@@ -21,7 +21,7 @@ use husky_hir_decl::parameter::{
 use husky_hir_eager_expr::helpers::hir_eager_body_with_expr_region;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDefnDb, jar = HirDefnJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum HirDefn {
     Submodule(SubmoduleHirDefn),

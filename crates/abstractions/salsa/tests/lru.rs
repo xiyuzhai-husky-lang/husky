@@ -10,7 +10,7 @@ use husky_salsa_log_utils::HasLogger;
 use salsa::Db;
 use test_log::test;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInput, get_hot_potato, get_hot_potato2, get_volatile);
 
 #[derive(Debug, PartialEq, Eq)]

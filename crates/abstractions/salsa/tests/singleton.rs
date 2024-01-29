@@ -8,7 +8,7 @@ use salsa::DebugWithDb;
 
 use test_log::test;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInput);
 
 #[salsa::input(db = Db, singleton)]

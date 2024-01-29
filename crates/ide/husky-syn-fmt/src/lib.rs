@@ -1,2 +1,2 @@
-#[salsa::jar(db = SyntaxFormatDb)]
+#[salsa::jar]
 pub struct SyntaxFormatJar();

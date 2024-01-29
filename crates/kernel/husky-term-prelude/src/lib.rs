@@ -24,7 +24,7 @@ pub use self::universe::*;
 use crate::literal::float::{TermF32Literal, TermF64Literal};
 use husky_entity_path::*;
 
-#[salsa::jar(db = TermPreludeDb)]
+#[salsa::jar]
 pub struct TermPreludeJar(
     TermI64Literal,
     TermI128Literal,

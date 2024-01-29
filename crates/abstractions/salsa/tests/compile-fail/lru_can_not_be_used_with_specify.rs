@@ -1,4 +1,4 @@
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInput, lru_can_not_be_used_with_specify);
 
 #[salsa::input(jar = Jar)]

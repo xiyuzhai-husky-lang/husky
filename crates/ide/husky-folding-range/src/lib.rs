@@ -20,7 +20,7 @@ impl FoldingRangeDb for ::salsa::Db {
     }
 }
 
-#[salsa::jar(db = FoldingRangeDb)]
+#[salsa::jar]
 pub struct FoldingRangeJar(folding_ranges);
 
 #[salsa::tracked(jar = FoldingRangeJar, return_ref)]

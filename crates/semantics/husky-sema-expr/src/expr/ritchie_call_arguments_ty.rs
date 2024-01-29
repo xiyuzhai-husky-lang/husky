@@ -64,7 +64,7 @@ mod matcher {
     use thiserror::Error;
 
     #[derive(Debug, Error, PartialEq, Eq)]
-    #[salsa::debug_with_db(db = SemaExprDb, jar = SemaExprJar)]
+    #[salsa::debug_with_db]
     pub enum RitchieParameterArgumentMatchError {
         #[error("unexpected argument")]
         UnexpectedArgument,

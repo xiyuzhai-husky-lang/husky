@@ -12,7 +12,7 @@ use self::builder::*;
 use husky_corgi_config_ast::*;
 use husky_vfs::{error::VfsResult, *};
 
-#[salsa::jar(db = CorgiConfigDb)]
+#[salsa::jar]
 pub struct CorgiConfigJar(
     package_corgi_config,
     package_corgi_config_paths_aux,

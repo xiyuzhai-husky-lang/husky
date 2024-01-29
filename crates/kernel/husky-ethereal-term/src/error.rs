@@ -9,7 +9,7 @@ use maybe_result::MaybeResult;
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = EtherealTermDb, jar = EtherealTermJar)]
+#[salsa::debug_with_db]
 pub enum EtherealTermError {
     #[error("EtherealTerm Error: term is not reduced")]
     TermIsNotReduced,

@@ -19,7 +19,7 @@ use sheet::*;
 #[cfg(test)]
 use tests::*;
 
-#[salsa::jar(db = DiagnosticsDb)]
+#[salsa::jar]
 pub struct DiagnosticsJar(
     DiagnosticSheet,
     diagnostic_sheet,

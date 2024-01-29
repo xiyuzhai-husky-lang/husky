@@ -8,14 +8,14 @@ use husky_syn_expr::{
     CurrentSynSymbolData, CurrentTemplateParameterSynSymbolVariant, SynSymbolRegionData,
 };
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirEagerExprDb, jar = HirEagerExprJar)]
 pub struct HirEagerComptimeSymbolRegionData {
     arena: HirEagerComptimeSymbolArena,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirEagerExprDb, jar = HirEagerExprJar)]
 pub struct HirEagerComptimeSymbolEntry {
     name: HirEagerComptimeSymbolName,
     data: HirEagerComptimeSymbolData,
@@ -26,7 +26,7 @@ pub type HirEagerComptimeSymbolArena = Arena<HirEagerComptimeSymbolEntry>;
 pub type HirEagerComptimeSymbolIdx = ArenaIdx<HirEagerComptimeSymbolEntry>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirEagerExprDb, jar = HirEagerExprJar)]
+#[salsa::debug_with_db]
 pub enum HirEagerComptimeSymbolName {
     SelfType,
     Ident(Ident),

@@ -18,7 +18,7 @@ impl EagerLoopGroupTracePath {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct EagerLoopGroupTrace(Trace);
 
-#[cfg_attr(debug_assertions, salsa::debug_with_db(db = TraceDb))]
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerLoopGroupTraceData {
     path: EagerLoopGroupTracePath,

@@ -11,7 +11,7 @@ pub use self::val::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDefnDb, jar = HirDefnJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum FugitiveHirDefn {
     FunctionFn(FunctionFnHirDefn),

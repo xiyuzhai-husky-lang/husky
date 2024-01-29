@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::jar(db = HirDefnDb)]
+#[salsa::jar]
 pub struct HirDefnJar(
     // defn
     // - type

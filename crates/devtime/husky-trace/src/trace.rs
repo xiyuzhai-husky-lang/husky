@@ -7,7 +7,7 @@ pub mod eager_stmt;
 pub mod lazy_call;
 pub mod lazy_call_input;
 pub mod lazy_expr;
-mod lazy_loop_group;
+pub mod lazy_loop_group;
 pub mod lazy_pattern_expr;
 pub mod lazy_stmt;
 pub mod submodule;
@@ -35,6 +35,7 @@ use husky_entity_path::{FugitivePath, ItemPath};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_manifest::HasPackageManifest;
 use husky_sema_expr::SemaExprIdx;
+use husky_trace_protocol::id::TraceId;
 use husky_trace_protocol::{
     id::TraceKind,
     protocol::{IsTrace, TraceBundle},
@@ -51,9 +52,9 @@ pub struct TracePath {
     data: TracePathData,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = TraceDb)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum TracePathData {
     Submodule(SubmoduleTracePathData),
     ValItem(ValItemTracePathData),
@@ -83,14 +84,14 @@ pub struct Trace {
     data: TraceData,
 }
 
-impl From<::husky_trace_protocol::id::TraceId> for Trace {
-    fn from(id: ::husky_trace_protocol::id::TraceId) -> Self {
+impl From<TraceId> for Trace {
+    fn from(id: TraceId) -> Self {
         unsafe { std::mem::transmute(id) }
     }
 }
 
-impl Into<::husky_trace_protocol::id::TraceId> for Trace {
-    fn into(self) -> ::husky_trace_protocol::id::TraceId {
+impl Into<TraceId> for Trace {
+    fn into(self) -> TraceId {
         unsafe { std::mem::transmute(self) }
     }
 }

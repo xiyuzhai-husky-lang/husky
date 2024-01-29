@@ -2,7 +2,7 @@
 //! compiles and executes successfully.
 #![allow(warnings)]
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(
     MyInput,
     MyInput_tracked_fn,

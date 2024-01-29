@@ -1,4 +1,4 @@
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInput, tracked_method_on_untracked_impl);
 
 #[salsa::input]

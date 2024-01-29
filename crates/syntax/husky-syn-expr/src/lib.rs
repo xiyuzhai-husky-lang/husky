@@ -40,7 +40,7 @@ use husky_term_prelude::*;
 use husky_token_data::*;
 use smallvec::SmallVec;
 
-#[salsa::jar(db = SynExprDb)]
+#[salsa::jar]
 pub struct SynExprJar(
     SynExprRegion,
     parse_expr_from_snippet,

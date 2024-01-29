@@ -14,7 +14,7 @@ pub struct PropsStructTypeHirDecl {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDeclDb, jar= HirDeclJar)]
+#[salsa::debug_with_db]
 pub struct PropsStructFieldHirDecl {
     ident: Ident,
     ty: HirType,

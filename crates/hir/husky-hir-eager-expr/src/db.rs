@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::jar(db = HirEagerExprDb)]
+#[salsa::jar]
 pub struct HirEagerExprJar(
     HirEagerExprRegion,
     HirEagerExprSourceMap,

@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 pub struct ValReprJar(
     ValRepr,
     val_repr_val,

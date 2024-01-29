@@ -27,5 +27,5 @@ impl StructureTypeDeclarativeSignatureTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::debug_with_db]
 pub struct StructureTypeDeclarativeSignature {}

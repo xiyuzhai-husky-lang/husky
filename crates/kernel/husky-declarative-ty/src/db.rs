@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::jar(db = DeclarativeTypeDb)]
+#[salsa::jar]
 pub struct DeclarativeTypeJar(
     ty_ontology_path_declarative_ty,
     ty_instance_constructor_path_declarative_ty,

@@ -1,2 +1,2 @@
-#[salsa::jar(db = HirExprDb)]
+#[salsa::jar]
 pub struct HirExprJar();

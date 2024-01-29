@@ -1,4 +1,4 @@
 use crate::*;
 
-#[salsa::jar(db = TokenDataDb)]
+#[salsa::jar]
 pub struct TokenDataJar(UnspecifiedFloatLiteral);

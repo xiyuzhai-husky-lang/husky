@@ -6,7 +6,7 @@ use crate::setup::Database;
 use crate::setup::Knobs;
 use salsa::{Db, ParallelDatabase};
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 pub(crate) struct Jar(MyInput, a1, a2, b1, b2, b3);
 
 #[salsa::input(db = Db, jar = Jar)]

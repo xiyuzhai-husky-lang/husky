@@ -9,7 +9,7 @@ use expect_test::expect;
 use salsa::Db;
 use test_log::test;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(List, Integers, compute);
 
 #[salsa::input(db = Db)]

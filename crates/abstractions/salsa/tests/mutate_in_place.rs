@@ -3,7 +3,7 @@
 
 use test_log::test;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInput);
 
 #[salsa::input(db = Db, jar = Jar)]

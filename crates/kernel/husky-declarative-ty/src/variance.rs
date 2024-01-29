@@ -32,13 +32,13 @@ pub type VarianceResult<T> = Result<T, VarianceError>;
 pub type VarianceResultRef<'a, T> = Result<T, &'a VarianceError>;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = DeclarativeTypeDb, jar = DeclarativeTypeJar)]
+#[salsa::debug_with_db]
 pub enum OriginalVarianceError {
     Todo,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = DeclarativeTypeDb, jar = DeclarativeTypeJar)]
+#[salsa::debug_with_db]
 pub enum DerivedVarianceError {
     DeclError,
     SignatureError,

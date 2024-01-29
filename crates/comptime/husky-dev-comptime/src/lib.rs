@@ -34,7 +34,7 @@ pub struct DevComptime<Task: IsTask> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = VfsDb, jar = VfsJar)]
+#[salsa::debug_with_db]
 pub enum DevComptimeTarget {
     None,
     SingleCrate(CratePath),

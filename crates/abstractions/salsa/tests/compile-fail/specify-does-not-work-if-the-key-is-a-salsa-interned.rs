@@ -2,7 +2,7 @@
 //! compilation fails
 #![allow(warnings)]
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInterned, MyTracked, tracked_fn);
 
 #[salsa::interned(jar = Jar)]

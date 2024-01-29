@@ -6,7 +6,7 @@ use husky_salsa_log_utils::{HasLogger, Logger};
 
 use test_log::test;
 
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInput, MyTracked, Integers, create_tracked_structs);
 
 #[salsa::input(singleton)]

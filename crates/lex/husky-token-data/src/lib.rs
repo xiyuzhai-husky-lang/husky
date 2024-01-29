@@ -20,7 +20,7 @@ use husky_term_prelude::*;
 use husky_token_protocol::TokenClass;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = TokenDataDb, jar = TokenDataJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TokenData {
     Keyword(Keyword),

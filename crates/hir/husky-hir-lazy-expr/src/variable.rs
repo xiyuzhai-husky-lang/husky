@@ -12,7 +12,7 @@ pub struct HirLazyVariable {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = HirLazyExprDb, jar = HirLazyExprJar)]
+#[salsa::debug_with_db]
 pub enum VariableName {
     SelfValue,
     Ident(Ident),

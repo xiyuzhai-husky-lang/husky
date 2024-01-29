@@ -2,7 +2,7 @@ use super::*;
 use husky_manifest::HasPackageManifest;
 
 #[derive(Debug, Clone, Copy)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 pub struct CratePrelude<'a> {
     universal_prelude: Option<EntitySymbolTableRef<'a>>,
     crate_specific_symbol_context: EntitySymbolTableRef<'a>,

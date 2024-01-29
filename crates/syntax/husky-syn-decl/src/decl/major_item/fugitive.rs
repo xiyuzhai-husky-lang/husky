@@ -12,7 +12,7 @@ use super::*;
 use husky_entity_kind::FugitiveKind;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum FugitiveSynNodeDecl {
     FunctionFn(FnSynNodeDecl),
@@ -80,7 +80,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum FugitiveSynDecl {
     FunctionFn(FunctionFnFugitiveSynDecl),

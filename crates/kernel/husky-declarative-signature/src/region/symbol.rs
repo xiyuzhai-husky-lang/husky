@@ -5,7 +5,7 @@ use husky_vfs::Toolchain;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::debug_with_db]
 pub struct SymbolDeclarativeTermRegion {
     symbol_registry: TermSymbolRegistry,
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,

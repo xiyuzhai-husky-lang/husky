@@ -2,8 +2,8 @@ use crate::*;
 use maybe_result::*;
 use vec_like::SmallVecPairMap;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EtherealTermDb, jar = EtherealTermJar)]
 pub struct EtherealInstantiation {
     symbol_map: SmallVecPairMap<EtherealTermSymbol, EtherealTerm, 4>,
     /// indicates the separation for associated item template instantiation
@@ -57,8 +57,8 @@ pub trait EtherealTermInstantiateRef {
     fn instantiate(&self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Target;
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EtherealTermDb, jar = EtherealTermJar)]
 pub struct EtherealInstantiationBuilder {
     symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<EtherealTerm>, 4>,
     /// indicates the separation for associated item template instantiation

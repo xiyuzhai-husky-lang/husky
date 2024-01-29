@@ -4,7 +4,7 @@ use idx_arena::*;
 
 /// syntax tree down to TokenGroup level
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = AstDb, jar = AstJar)]
+#[salsa::debug_with_db]
 pub enum DeclAst {
     Identifiable {},
     ImplBlock,

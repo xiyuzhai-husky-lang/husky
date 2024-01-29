@@ -15,11 +15,11 @@ use self::transformer::*;
 use husky_toml_ast::*;
 use husky_vfs::{error::VfsResult, *};
 
-#[salsa::jar(db = ManifestAstDb)]
+#[salsa::jar]
 pub struct ManifestAstJar(package_manifest_ast_sheet_aux, manifest_ast_menu);
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = ManifestAstDb, jar = ManifestAstJar)]
+#[salsa::debug_with_db]
 pub struct PackageManifestAstSheet {
     package_section: ManifestAstResult<ManifestPackageSectionAst>,
     dependencies_section: Option<ManifestAstResult<ManifestDependenciesSectionAst>>,

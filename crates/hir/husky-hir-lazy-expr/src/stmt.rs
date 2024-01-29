@@ -11,7 +11,7 @@ use husky_sema_expr::{
 use idx_arena::ArenaRef;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db(db = HirLazyExprDb, jar = HirLazyExprJar)]
+#[salsa::debug_with_db]
 pub enum HirLazyStmtData {
     Let {
         pattern: HirLazyLetVariablesPattern,

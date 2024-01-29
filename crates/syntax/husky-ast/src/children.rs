@@ -32,7 +32,7 @@ pub(crate) trait IsAstChildren {
 
 /// ast children and entity path for a definition block
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = AstDb, jar = AstJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum DefnBlock {
     Fugitive {

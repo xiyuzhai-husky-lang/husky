@@ -1,4 +1,4 @@
-#[salsa::jar(db = RustTranspilationDb)]
+#[salsa::jar]
 pub struct RustTranspilationJar(
     crate::defn::module_defn_rust_transpilation,
     crate::package::rust_transpilation_packages,

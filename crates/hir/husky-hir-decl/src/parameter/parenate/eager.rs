@@ -56,8 +56,8 @@ impl HirEagerParenateParameter {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirEagerParenateParameters(SmallVec<[HirEagerParenateParameter; 4]>);
 
 impl std::ops::Deref for HirEagerParenateParameters {

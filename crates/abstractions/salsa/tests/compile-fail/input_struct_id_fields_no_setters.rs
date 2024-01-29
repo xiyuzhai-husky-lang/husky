@@ -1,4 +1,4 @@
-#[salsa::jar(db = Db)]
+#[salsa::jar]
 struct Jar(MyInput);
 
 #[salsa::input(jar = Jar)]

@@ -22,8 +22,8 @@ use husky_syn_defn::ItemSynDefn;
 use husky_token_info::TokenInfoSource;
 use husky_val_repr::expansion::ValReprExpansion;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[cfg_attr(debug_assertions, salsa::debug_with_db(db = TraceDb))]
 pub struct LazyStmtTracePathData {
     biological_parent_path: TracePath,
     essence: LazyStmtEssence,

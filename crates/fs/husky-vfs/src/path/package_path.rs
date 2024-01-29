@@ -16,7 +16,7 @@ fn package_ident_works() {
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
-#[salsa::debug_with_db(db = VfsDb, jar = VfsJar)]
+#[salsa::debug_with_db]
 pub enum PackagePathSource {
     Library,
     Registry {
