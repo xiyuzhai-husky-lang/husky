@@ -154,6 +154,7 @@ where
                                             symbol_modifier_tokens,
                                         ),
                                         FugitiveKind::AliasType => todo!(),
+                                        FugitiveKind::Formal => todo!(),
                                     },
                                 },
                                 PrincipalEntityPath::TypeVariant(path) => {

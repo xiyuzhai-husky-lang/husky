@@ -40,6 +40,7 @@ pub fn item_syn_node_defn(
                         TraitItemKind::AssociatedType => AllowSelfValue::False,
                         TraitItemKind::AssociatedVal => AllowSelfValue::True,
                         TraitItemKind::AssociatedFunctionFn => AllowSelfValue::False,
+                        TraitItemKind::AssociatedFunctionGn => AllowSelfValue::False,
                     }
                 }
                 AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
@@ -48,6 +49,7 @@ pub fn item_syn_node_defn(
                         TraitItemKind::AssociatedType => AllowSelfValue::False,
                         TraitItemKind::AssociatedVal => AllowSelfValue::True,
                         TraitItemKind::AssociatedFunctionFn => AllowSelfValue::False,
+                        TraitItemKind::AssociatedFunctionGn => AllowSelfValue::False,
                     }
                 }
                 AssociatedItemSynNodePath::IllFormedItem(_) => todo!(),

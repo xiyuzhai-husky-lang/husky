@@ -24,12 +24,14 @@ impl IsAstChildren for TraitForTypeItems {
             }
             EntityKindKeywordGroup::FugitiveFn(_) => TraitItemKind::MethodFn,
             EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::AssociatedFunctionFn,
-            EntityKindKeywordGroup::Gn(_) => todo!(),
+            EntityKindKeywordGroup::Gn(_) => TraitItemKind::AssociatedFunctionGn,
             EntityKindKeywordGroup::FormalEntity(_) => todo!(),
-            EntityKindKeywordGroup::MajorType(_) => todo!(),
+            EntityKindKeywordGroup::MajorType(_) => {
+                Err(OriginalAstError::UnexpectedMajorTypeInsideImplBlock)?
+            }
             EntityKindKeywordGroup::AliasOrAssociateType(_) => TraitItemKind::AssociatedType,
-            EntityKindKeywordGroup::Trait(_) => todo!(),
-            EntityKindKeywordGroup::Val(_) => todo!(),
+            EntityKindKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
+            EntityKindKeywordGroup::Val(_) => TraitItemKind::AssociatedVal,
         };
         Ok(EntityKind::AssociatedItem {
             associated_item_kind: AssociatedItemKind::TraitForTypeItem(trait_item_kind),

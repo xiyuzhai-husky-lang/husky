@@ -18,6 +18,7 @@ pub enum FugitiveKind {
     FunctionGn,
     AliasType,
     Val,
+    Formal,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -49,6 +50,7 @@ impl EntityKind {
                     FugitiveKind::FunctionGn => EntityClass::FunctionGn,
                     FugitiveKind::AliasType => EntityClass::AliasType,
                     FugitiveKind::Val => EntityClass::Val,
+                    FugitiveKind::Formal => EntityClass::Formal,
                 },
                 MajorItemKind::Trait => EntityClass::Trait,
             },
@@ -58,16 +60,17 @@ impl EntityKind {
                 AssociatedItemKind::TraitItem(trai_item_kind) => match trai_item_kind {
                     TraitItemKind::MethodFn => EntityClass::MethodFn,
                     TraitItemKind::AssociatedType => EntityClass::AssociatedType,
-                    TraitItemKind::AssociatedVal => todo!(),
-                    TraitItemKind::AssociatedFunctionFn => todo!(),
+                    TraitItemKind::AssociatedVal => EntityClass::AssociatedVal,
+                    TraitItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
+                    TraitItemKind::AssociatedFunctionGn => EntityClass::AssociatedFunctionGn,
                 },
                 AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
                     TypeItemKind::MethodFn => EntityClass::MethodFn,
-                    TypeItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
                     TypeItemKind::AssociatedVal => EntityClass::AssociatedVal,
                     TypeItemKind::AssociatedType => EntityClass::AssociatedType,
                     TypeItemKind::MemoizedField => EntityClass::MemoizedField,
-                    TypeItemKind::AssociatedFunctionGn => todo!(),
+                    TypeItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
+                    TypeItemKind::AssociatedFunctionGn => EntityClass::AssociatedFunctionGn,
                 },
                 AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => {
                     match trai_for_ty_item_kind {
@@ -75,6 +78,7 @@ impl EntityKind {
                         TraitItemKind::AssociatedType => EntityClass::AssociatedType,
                         TraitItemKind::AssociatedVal => EntityClass::AssociatedVal,
                         TraitItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
+                        TraitItemKind::AssociatedFunctionGn => EntityClass::AssociatedFunctionGn,
                     }
                 }
             },
@@ -116,6 +120,7 @@ pub enum TraitItemKind {
     AssociatedType,
     AssociatedVal,
     AssociatedFunctionFn,
+    AssociatedFunctionGn,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

@@ -135,7 +135,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken => {
                 format!("Syntax Error: UnexpectedEndKeyword")
             }
-            OriginalAstError::UnexpectedMajorItemInsideImplBlock => {
+            OriginalAstError::UnexpectedMajorTypeInsideImplBlock => {
                 format!("Syntax Error: UnexpectedTypeDefnInsideTypeImplBlock")
             }
             OriginalAstError::ExpectedEntityKeywordGroup(_) => {
@@ -201,7 +201,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedStaticFnOutsideImplBlock
             | OriginalAstError::UnexpectedTraitInsideForm
             | OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken
-            | OriginalAstError::UnexpectedMajorItemInsideImplBlock
+            | OriginalAstError::UnexpectedMajorTypeInsideImplBlock
             | OriginalAstError::ExpectedEntityKeywordGroup(_)
             | OriginalAstError::UnexpectedMemoFieldOutsideImplBlock
             | OriginalAstError::UnexpectedStmtInsideModule

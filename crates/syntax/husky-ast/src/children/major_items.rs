@@ -13,10 +13,12 @@ impl IsAstChildren for MajorItems {
         let module_item_kind: MajorItemKind = match item_keyword_group {
             EntityKindKeywordGroup::Submodule(_) => return Ok(EntityKind::Module),
             EntityKindKeywordGroup::FugitiveFn(_) => FugitiveKind::FunctionFn.into(),
-            EntityKindKeywordGroup::StaticFn(_, _) => todo!(),
+            EntityKindKeywordGroup::StaticFn(_, _) => {
+                Err(OriginalAstError::UnexpectedStaticFnOutsideImplBlock)?
+            }
             EntityKindKeywordGroup::Val(_) => FugitiveKind::Val.into(),
             EntityKindKeywordGroup::Gn(_) => FugitiveKind::FunctionGn.into(),
-            EntityKindKeywordGroup::FormalEntity(_) => todo!(),
+            EntityKindKeywordGroup::FormalEntity(_) => FugitiveKind::Formal.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
             EntityKindKeywordGroup::AliasOrAssociateType(_) => FugitiveKind::AliasType.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,

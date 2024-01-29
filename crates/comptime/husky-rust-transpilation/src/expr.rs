@@ -154,8 +154,9 @@ impl HirEagerExprSite {
                         match path.fugitive_kind(db) {
                             FugitiveKind::FunctionFn => (),
                             FugitiveKind::Val => builder.bracketed(RustBracket::Par, |_| ()),
-                            FugitiveKind::FunctionGn => unreachable!(),
-                            FugitiveKind::AliasType => unreachable!(),
+                            FugitiveKind::FunctionGn
+                            | FugitiveKind::AliasType
+                            | FugitiveKind::Formal => unreachable!(),
                         }
                     }
                     PrincipalEntityPath::TypeVariant(_) => (),

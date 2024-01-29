@@ -357,7 +357,6 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             .collect(),
                     }
                 }
-                FugitiveKind::AliasType => smallvec![],
                 FugitiveKind::Val => {
                     smallvec![Linkage::new(
                         db,
@@ -367,6 +366,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         }
                     )]
                 }
+                FugitiveKind::AliasType | FugitiveKind::Formal => unreachable!(),
             },
             JavelinPath::TypeItem(path) => match path.item_kind(db) {
                 TypeItemKind::MethodFn => LinkageInstantiation::from_javelin(instantiation, db)
@@ -469,6 +469,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             .collect(),
                     }
                 }
+                TraitItemKind::AssociatedFunctionGn => todo!(),
             },
             JavelinPath::TypeConstructor(path) => match path.ty_kind(db) {
                 TypeKind::Enum => {
