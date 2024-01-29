@@ -81,6 +81,7 @@ impl<'a> DeclParser<'a> {
                 .into(),
             TraitItemKind::AssociatedVal => todo!(),
             TraitItemKind::AssociatedFunctionFn => todo!(),
+            TraitItemKind::AssociatedFunctionGn => todo!(),
         }
     }
 }

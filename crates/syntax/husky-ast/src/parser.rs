@@ -154,7 +154,6 @@ impl<'a> AstParser<'a> {
                 Keyword::Const | Keyword::Pub | Keyword::Static => {
                     self.parse_defn_or_use::<C>(token_group_idx)
                 }
-                Keyword::Async => todo!(),
             },
             TokenData::Punctuation(Punctuation::POUND) => match snd {
                 Some(snd) => match snd {

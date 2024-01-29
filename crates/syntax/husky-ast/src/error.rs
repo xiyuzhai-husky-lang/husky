@@ -91,8 +91,8 @@ pub enum OriginalAstError {
     UnexpectedTraitInsideForm,
     #[error("UnexpectedEndKeywordAsFirstNonCommentToken")]
     UnexpectedEndKeywordAsFirstNonCommentToken,
-    #[error("unexpected major item inside implementation block")]
-    UnexpectedMajorItemInsideImplBlock,
+    #[error("unexpected major type inside implementation block")]
+    UnexpectedMajorTypeInsideImplBlock,
     #[error("unexpected memomoized field outside implementation block")]
     UnexpectedMemoFieldOutsideImplBlock,
     #[error("ExpectedTypeItems")]

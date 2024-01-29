@@ -288,8 +288,9 @@ impl ToHirLazy for SemaExprIdx {
                                     ),
                                     item_groups,
                                 },
-                                FugitiveKind::AliasType => todo!(),
-                                FugitiveKind::Val => todo!(),
+                                FugitiveKind::AliasType
+                                | FugitiveKind::Val
+                                | FugitiveKind::Formal => unreachable!(),
                             },
                         },
                         PrincipalEntityPath::TypeVariant(path) => {

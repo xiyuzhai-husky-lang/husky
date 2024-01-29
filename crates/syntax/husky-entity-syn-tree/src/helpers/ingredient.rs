@@ -54,6 +54,7 @@ impl IngredientPath {
                     FugitiveKind::FunctionGn => false,
                     FugitiveKind::AliasType => false,
                     FugitiveKind::Val => true,
+                    FugitiveKind::Formal => false,
                 },
                 MajorItemKind::Trait => false,
             },
@@ -65,6 +66,7 @@ impl IngredientPath {
                     TraitItemKind::AssociatedType => false,
                     TraitItemKind::AssociatedVal => true,
                     TraitItemKind::AssociatedFunctionFn => false,
+                    TraitItemKind::AssociatedFunctionGn => false,
                 },
                 AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
                     TypeItemKind::MethodFn => false,
@@ -72,7 +74,7 @@ impl IngredientPath {
                     TypeItemKind::AssociatedVal => true,
                     TypeItemKind::AssociatedType => false,
                     TypeItemKind::MemoizedField => true,
-                    TypeItemKind::AssociatedFunctionGn => todo!(),
+                    TypeItemKind::AssociatedFunctionGn => false,
                 },
                 AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => {
                     match trai_for_ty_item_kind {
@@ -80,6 +82,7 @@ impl IngredientPath {
                         TraitItemKind::AssociatedType => false,
                         TraitItemKind::AssociatedVal => true,
                         TraitItemKind::AssociatedFunctionFn => false,
+                        TraitItemKind::AssociatedFunctionGn => false,
                     }
                 }
             },

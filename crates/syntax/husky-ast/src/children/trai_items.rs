@@ -26,12 +26,12 @@ impl IsAstChildren for TraitItems {
             }
             EntityKindKeywordGroup::FugitiveFn(_) => TraitItemKind::MethodFn,
             EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::AssociatedFunctionFn,
-            EntityKindKeywordGroup::Gn(_) => todo!(),
+            EntityKindKeywordGroup::Gn(_) => TraitItemKind::AssociatedFunctionGn,
             EntityKindKeywordGroup::FormalEntity(_) => todo!(),
             EntityKindKeywordGroup::MajorType(_) => todo!(),
             EntityKindKeywordGroup::AliasOrAssociateType(_) => TraitItemKind::AssociatedType,
             EntityKindKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
-            EntityKindKeywordGroup::Val(_) => todo!(),
+            EntityKindKeywordGroup::Val(_) => TraitItemKind::AssociatedVal,
         };
         let trai_item_kind = trait_item_kind;
         Ok(EntityKind::AssociatedItem {

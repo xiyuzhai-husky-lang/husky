@@ -26,7 +26,7 @@ impl IsAstChildren for TypeItems {
             EntityKindKeywordGroup::Gn(_) => TypeItemKind::AssociatedFunctionGn,
             EntityKindKeywordGroup::FormalEntity(_) => todo!(),
             EntityKindKeywordGroup::MajorType(_) => {
-                Err(OriginalAstError::UnexpectedMajorItemInsideImplBlock)?
+                Err(OriginalAstError::UnexpectedMajorTypeInsideImplBlock)?
             }
             EntityKindKeywordGroup::AliasOrAssociateType(_) => TypeItemKind::AssociatedType,
             EntityKindKeywordGroup::Trait(_) => todo!(),
