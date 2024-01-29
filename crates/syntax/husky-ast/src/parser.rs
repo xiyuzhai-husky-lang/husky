@@ -25,11 +25,6 @@ pub(crate) struct AstParser<'a> {
     siblings: Vec<AstIdxRange>,
 }
 
-pub(crate) trait NormalAstChildren {
-    const ALLOW_STMT: AstResult<()>;
-    fn determine_item_kind(_: EntityKindKeywordGroup) -> AstResult<EntityKind>;
-}
-
 impl<'a> HasStreamState for AstParser<'a> {
     type State = TokenGroupIdx;
 
@@ -62,14 +57,14 @@ impl<'a> AstParser<'a> {
         AstSheet::new(self.ast_arena, top_level_asts, self.siblings)
     }
 
-    pub(crate) fn parse_normal_ast_children_indented<C: NormalAstChildren>(
+    pub(crate) fn parse_normal_ast_children_indented<C: IsAstChildren>(
         &mut self,
     ) -> Option<AstIdxRange> {
         let range = self.with_indent(|this| this.parse_normal_ast_children::<C>());
         (range.len() > 0).then_some(range)
     }
 
-    fn parse_normal_ast_children<C: NormalAstChildren>(&mut self) -> AstIdxRange {
+    fn parse_normal_ast_children<C: IsAstChildren>(&mut self) -> AstIdxRange {
         let mut asts: Vec<Ast> = vec![];
         let _token_group_indices: Vec<TokenGroupIdx> = vec![];
         while let Some(ast) = self.parse_ast::<C>() {
@@ -88,7 +83,7 @@ impl<'a> AstParser<'a> {
         self.ast_arena.alloc_one(ast)
     }
 
-    fn parse_ast<C: NormalAstChildren>(&mut self) -> Option<Ast> {
+    fn parse_ast<C: IsAstChildren>(&mut self) -> Option<Ast> {
         let (token_group_idx, token_group, fst, snd) = self
             .token_groups
             .next_token_group_of_no_less_indent_with_its_first_two_tokens(self.indent())?;
@@ -109,7 +104,7 @@ impl<'a> AstParser<'a> {
         )
     }
 
-    fn parse_ast_aux<C: NormalAstChildren>(
+    fn parse_ast_aux<C: IsAstChildren>(
         &mut self,
         token_group_idx: TokenGroupIdx,
         _token_group: TokenGroup,
@@ -190,7 +185,7 @@ impl<'a> AstParser<'a> {
             .is_some()
     }
 
-    fn parse_defn_or_use<C: NormalAstChildren>(&mut self, token_group_idx: TokenGroupIdx) -> Ast {
+    fn parse_defn_or_use<C: IsAstChildren>(&mut self, token_group_idx: TokenGroupIdx) -> Ast {
         let mut aux_parser = BasicAuxAstParser::new(
             self.db,
             self.module_path,

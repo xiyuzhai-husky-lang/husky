@@ -25,26 +25,3 @@ impl<'a> TryParseOptionFromStreamWithContext<AstParser<'a>> for TypeVariants {
         Ok((ast_idx_range.len() > 0).then_some(TypeVariants { ast_idx_range }))
     }
 }
-
-// let ast_ctx_kind = AstContextKind::inside_defn(item_kind, item_path);
-// let (body, body_kind) = {
-//     let body = self.parse_asts(ctx.subcontext(ast_ctx_kind));
-//     match body.last() {
-//         Some(_) => (body, DefnBodyKind::Block),
-//         None => match self
-//             .token_groups
-//             .peek_token_group_of_exact_indent_with_its_first_token(ctx.indent())
-//         {
-//             Some((_, _, first_noncomment_token)) => match first_noncomment_token {
-//                 TokenData::Punctuation(Punctuation::VERTICAL) => (
-//                     self.parse_ty_variants(ctx.subcontext(
-//                         AstContextKind::ExpectTypeVariants { ty_path: todo!() },
-//                     )),
-//                     DefnBodyKind::TypeVariants,
-//                 ),
-//                 _ => (Default::default(), DefnBodyKind::None),
-//             },
-//             None => (Default::default(), DefnBodyKind::None),
-//         },
-//     }
-// };

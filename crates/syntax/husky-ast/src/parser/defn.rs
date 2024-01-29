@@ -4,7 +4,7 @@ use husky_entity_path::*;
 use parsec::IsStreamParser;
 
 impl<'a> AstParser<'a> {
-    pub(super) fn parse_defn<C: NormalAstChildren>(
+    pub(super) fn parse_defn<C: IsAstChildren>(
         &mut self,
         token_group_idx: TokenGroupIdx,
         visibility_expr: VisibilityExpr,
@@ -17,7 +17,7 @@ impl<'a> AstParser<'a> {
             })
     }
 
-    fn parse_defn_aux<C: NormalAstChildren>(
+    fn parse_defn_aux<C: IsAstChildren>(
         &mut self,
         token_group_idx: TokenGroupIdx,
         visibility_expr: VisibilityExpr,
@@ -160,7 +160,7 @@ impl<'a> AstParser<'a> {
 }
 
 impl<'a> BasicAuxAstParser<'a> {
-    fn parse_head<C: NormalAstChildren>(
+    fn parse_head<C: IsAstChildren>(
         mut self,
     ) -> AstResult<(EntityKind, IdentToken, bool, TokenStreamState)> {
         let item_keyword_group =

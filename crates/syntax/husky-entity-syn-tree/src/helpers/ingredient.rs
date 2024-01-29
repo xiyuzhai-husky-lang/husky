@@ -72,6 +72,7 @@ impl IngredientPath {
                     TypeItemKind::AssociatedVal => true,
                     TypeItemKind::AssociatedType => false,
                     TypeItemKind::MemoizedField => true,
+                    TypeItemKind::AssociatedFunctionGn => todo!(),
                 },
                 AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => {
                     match trai_for_ty_item_kind {

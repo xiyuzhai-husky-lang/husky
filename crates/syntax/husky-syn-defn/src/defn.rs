@@ -28,6 +28,7 @@ pub fn item_syn_node_defn(
                     match syn_node_path.data(db).item_kind(db) {
                         TypeItemKind::MethodFn => AllowSelfValue::True,
                         TypeItemKind::AssociatedFunctionFn => AllowSelfValue::False,
+                        TypeItemKind::AssociatedFunctionGn => AllowSelfValue::False,
                         TypeItemKind::AssociatedVal => AllowSelfValue::True,
                         TypeItemKind::AssociatedType => AllowSelfValue::False,
                         TypeItemKind::MemoizedField => AllowSelfValue::True,

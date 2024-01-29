@@ -77,32 +77,24 @@ pub enum OriginalAstError {
     UnexpectedMainInsideTrait,
     #[error("UnexpectedUseInsideTrait")]
     UnexpectedUseInsideTrait,
-    #[error("UnexpectedModInsideTrait")]
-    UnexpectedModInsideTrait,
-    #[error("UnexpectedVisualInsideTrait")]
-    UnexpectedVisualInsideTrait,
-    #[error("UnexpectedImplInsideTrait")]
-    UnexpectedImplInsideTrait,
+    #[error("unexpected submodule inside module item")]
+    UnexpectedModInsideModuleItem,
+    #[error("unexpected implemention block inside module item")]
+    UnexpectedImplBlockInsideModuleItem,
     #[error("UnexpectedTraitInsideTrait")]
     UnexpectedTraitInsideTrait,
     #[error("UnexpectedPattern")]
     UnexpectedPattern,
-    #[error("UnexpectedModInsideForm")]
-    UnexpectedModInsideForm,
-    #[error("UnexpectedVisualInsideForm")]
-    UnexpectedVisualInsideForm,
-    #[error("UnexpectedImplInsideForm")]
-    UnexpectedImplInsideForm,
+    #[error("unexpected static function outside implementation block")]
+    UnexpectedStaticFnOutsideImplBlock,
     #[error("UnexpectedTraitInsideForm")]
     UnexpectedTraitInsideForm,
     #[error("UnexpectedEndKeywordAsFirstNonCommentToken")]
     UnexpectedEndKeywordAsFirstNonCommentToken,
-    #[error("UnexpectedTypeDefnInsideTypeImplBlock")]
-    UnexpectedTypeDefnInsideTypeImplBlock,
-    #[error("VisibilityExprError")]
-    VisibilityExprError(#[from] OriginalVisibilityExprError),
-    #[error("UnexpectedMemoFieldInsideForm")]
-    UnexpectedMemoFieldInsideForm,
+    #[error("unexpected major item inside implementation block")]
+    UnexpectedMajorItemInsideImplBlock,
+    #[error("unexpected memomoized field outside implementation block")]
+    UnexpectedMemoFieldOutsideImplBlock,
     #[error("ExpectedTypeItems")]
     ExpectedTypeItems(TokenGroupIdx),
     #[error("ExpectedTypeVariants")]
@@ -113,6 +105,8 @@ pub enum OriginalAstError {
     ExpectedFormBodyForConfig(TokenGroupIdx),
     #[error("ExpectedFormBodyForMain")]
     ExpectedFormBodyForMain(TokenGroupIdx),
+    #[error("VisibilityExprError")]
+    VisibilityExprError(#[from] OriginalVisibilityExprError),
 }
 
 impl From<std::convert::Infallible> for AstError {

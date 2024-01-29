@@ -117,14 +117,8 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedUseInsideTrait => {
                 format!("Syntax Error: UnexpectedUseInsideTrait")
             }
-            OriginalAstError::UnexpectedModInsideTrait => {
-                format!("Syntax Error: UnexpectedModInsideTrait")
-            }
-            OriginalAstError::UnexpectedVisualInsideTrait => {
-                format!("Syntax Error: UnexpectedVisualInsideTrait")
-            }
-            OriginalAstError::UnexpectedImplInsideTrait => {
-                format!("Syntax Error: UnexpectedImplInsideTrait")
+            OriginalAstError::UnexpectedImplBlockInsideModuleItem => {
+                format!("Syntax Error: unexpected implemention block inside module item")
             }
             OriginalAstError::UnexpectedTraitInsideTrait => {
                 format!("Syntax Error: UnexpectedTraitInsideTrait")
@@ -132,14 +126,8 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedPattern => {
                 format!("Syntax Error: UnexpectedPattern")
             }
-            OriginalAstError::UnexpectedModInsideForm => {
-                format!("Syntax Error: UnexpectedModInsideForm")
-            }
-            OriginalAstError::UnexpectedVisualInsideForm => {
-                format!("Syntax Error: UnexpectedVisualInsideForm")
-            }
-            OriginalAstError::UnexpectedImplInsideForm => {
-                format!("Syntax Error: UnexpectedImplInsideForm")
+            OriginalAstError::UnexpectedStaticFnOutsideImplBlock => {
+                format!("Syntax Error: UnexpectedStaticFnInsideForm")
             }
             OriginalAstError::UnexpectedTraitInsideForm => {
                 format!("Syntax Error: UnexpectedTraitInsideForm")
@@ -147,7 +135,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken => {
                 format!("Syntax Error: UnexpectedEndKeyword")
             }
-            OriginalAstError::UnexpectedTypeDefnInsideTypeImplBlock => {
+            OriginalAstError::UnexpectedMajorItemInsideImplBlock => {
                 format!("Syntax Error: UnexpectedTypeDefnInsideTypeImplBlock")
             }
             OriginalAstError::ExpectedEntityKeywordGroup(_) => {
@@ -156,7 +144,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::VisibilityExprError(_) => {
                 format!("Syntax Error: VisibilityExprError")
             }
-            OriginalAstError::UnexpectedMemoFieldInsideForm => {
+            OriginalAstError::UnexpectedMemoFieldOutsideImplBlock => {
                 format!("Syntax Error: UnexpectedMemoFieldInsideForm")
             }
             OriginalAstError::UnexpectedStmtInsideModule => {
@@ -176,6 +164,9 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             }
             OriginalAstError::ExpectedFormBodyForMain(_) => {
                 format!("Syntax Error: ExpectedFormBodyForMain")
+            }
+            OriginalAstError::UnexpectedModInsideModuleItem => {
+                format!("unexpected submodule inside module item")
             }
         }
     }
@@ -203,19 +194,16 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedStmtInsideTrait
             | OriginalAstError::UnexpectedMainInsideTrait
             | OriginalAstError::UnexpectedUseInsideTrait
-            | OriginalAstError::UnexpectedModInsideTrait
-            | OriginalAstError::UnexpectedVisualInsideTrait
-            | OriginalAstError::UnexpectedImplInsideTrait
+            | OriginalAstError::UnexpectedModInsideModuleItem
+            | OriginalAstError::UnexpectedImplBlockInsideModuleItem
             | OriginalAstError::UnexpectedTraitInsideTrait
             | OriginalAstError::UnexpectedPattern
-            | OriginalAstError::UnexpectedModInsideForm
-            | OriginalAstError::UnexpectedVisualInsideForm
-            | OriginalAstError::UnexpectedImplInsideForm
+            | OriginalAstError::UnexpectedStaticFnOutsideImplBlock
             | OriginalAstError::UnexpectedTraitInsideForm
             | OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken
-            | OriginalAstError::UnexpectedTypeDefnInsideTypeImplBlock
+            | OriginalAstError::UnexpectedMajorItemInsideImplBlock
             | OriginalAstError::ExpectedEntityKeywordGroup(_)
-            | OriginalAstError::UnexpectedMemoFieldInsideForm
+            | OriginalAstError::UnexpectedMemoFieldOutsideImplBlock
             | OriginalAstError::UnexpectedStmtInsideModule
             | OriginalAstError::ExpectedTypeItems(_)
             | OriginalAstError::ExpectedTypeVariants(_)

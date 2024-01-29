@@ -2,31 +2,27 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EntityKindKeywordGroup {
-    // todo: remove mod
-    Mod(ModToken),
-    // `fn`
-    Fn(FormFnToken),
-    // `const fn`
-    ConstFn(ConstToken, FormFnToken),
-    // `static fn`
-    StaticFn(StaticToken, FormFnToken),
-    // `static const fn`
-    StaticConstFn(StaticToken, ConstToken, FormFnToken),
-    // `val`
+    /// todo: remove mod
+    Submodule(ModToken),
+    /// `fn`
+    FugitiveFn(FugitiveFnToken),
+    /// `static fn`
+    StaticFn(StaticToken, FugitiveFnToken),
+    /// `val`
     Val(ValToken),
-    // `gn`
+    /// `gn`
     Gn(GnToken),
-    //
-    GeneralDef(GeneralDefToken),
-    // Type
-    TypeEntity(TypeEntityToken),
-    // Type
-    Type(TypeToken),
+    /// husky will have the capacities of theorem proving
+    FormalEntity(FormalEntityToken),
+    /// type defined as a major entity
+    MajorType(MajorTypeToken),
+    /// type defined as an alias or associated entity
+    AliasOrAssociateType(TypeToken),
     Trait(TraitToken),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct FormFnToken {
+pub struct FugitiveFnToken {
     token_idx: TokenIdx,
 }
 
@@ -62,38 +58,45 @@ pub struct StaticToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum GeneralDefToken {
+pub enum FormalEntityToken {
     Def(DefToken),
     Lemma(LemmaToken),
+    Proposition(PropositionToken),
     Theorem(TheoremToken),
-    Function(FunctionToken),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct DefToken {
     token_idx: TokenIdx,
 }
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LemmaToken {
     token_idx: TokenIdx,
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct PropositionToken {
+    token_idx: TokenIdx,
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TheoremToken {
     token_idx: TokenIdx,
 }
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct FunctionToken {
     token_idx: TokenIdx,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TypeEntityToken {
+pub struct MajorTypeToken {
     keyword: TypeEntityKeyword,
     token_idx: TokenIdx,
 }
-impl TypeEntityToken {
+impl MajorTypeToken {
     pub fn type_kind(self) -> TypeKind {
-        // MOM
         match self.keyword {
             TypeEntityKeyword::Extern => TypeKind::Extern,
             TypeEntityKeyword::Struct => TypeKind::Struct,
@@ -171,16 +174,22 @@ where
             Keyword::Fugitive(kw) => match kw {
                 FugitiveKeyword::Def => todo!(),
                 FugitiveKeyword::Fn => {
-                    Ok(Some(EntityKindKeywordGroup::Fn(FormFnToken { token_idx })))
+                    Ok(Some(EntityKindKeywordGroup::FugitiveFn(FugitiveFnToken {
+                        token_idx,
+                    })))
                 }
-                FugitiveKeyword::Theorem => Ok(Some(EntityKindKeywordGroup::GeneralDef(
-                    GeneralDefToken::Theorem(TheoremToken { token_idx }),
+                FugitiveKeyword::Theorem => Ok(Some(EntityKindKeywordGroup::FormalEntity(
+                    FormalEntityToken::Theorem(TheoremToken { token_idx }),
                 ))),
-                FugitiveKeyword::Lemma => todo!(),
-                FugitiveKeyword::Proposition => todo!(),
-                FugitiveKeyword::Type => {
-                    Ok(Some(EntityKindKeywordGroup::Type(TypeToken { token_idx })))
-                }
+                FugitiveKeyword::Lemma => Ok(Some(EntityKindKeywordGroup::FormalEntity(
+                    FormalEntityToken::Lemma(LemmaToken { token_idx }),
+                ))),
+                FugitiveKeyword::Proposition => Ok(Some(EntityKindKeywordGroup::FormalEntity(
+                    FormalEntityToken::Proposition(PropositionToken { token_idx }),
+                ))),
+                FugitiveKeyword::Type => Ok(Some(EntityKindKeywordGroup::AliasOrAssociateType(
+                    TypeToken { token_idx },
+                ))),
                 FugitiveKeyword::Val => {
                     Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx })))
                 }
@@ -188,13 +197,15 @@ where
                 FugitiveKeyword::Constexpr => todo!(),
             },
             Keyword::TypeEntity(keyword) => {
-                Ok(Some(EntityKindKeywordGroup::TypeEntity(TypeEntityToken {
+                Ok(Some(EntityKindKeywordGroup::MajorType(MajorTypeToken {
                     keyword,
                     token_idx,
                 })))
             }
             Keyword::Stmt(_) => todo!(),
-            Keyword::Mod => Ok(Some(EntityKindKeywordGroup::Mod(ModToken { token_idx }))),
+            Keyword::Mod => Ok(Some(EntityKindKeywordGroup::Submodule(ModToken {
+                token_idx,
+            }))),
             Keyword::Trait => Ok(Some(EntityKindKeywordGroup::Trait(TraitToken {
                 token_idx,
             }))),
@@ -204,7 +215,7 @@ where
                     token_stream.next();
                     Ok(Some(EntityKindKeywordGroup::StaticFn(
                         StaticToken { token_idx },
-                        FormFnToken {
+                        FugitiveFnToken {
                             token_idx: token_idx + 1,
                         },
                     )))

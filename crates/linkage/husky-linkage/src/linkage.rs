@@ -395,6 +395,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         })
                         .collect()
                 }
+                TypeItemKind::AssociatedFunctionGn => todo!(),
                 TypeItemKind::AssociatedVal => todo!(),
                 TypeItemKind::AssociatedType => smallvec![],
                 TypeItemKind::MemoizedField => {

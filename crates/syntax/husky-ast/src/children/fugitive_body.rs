@@ -5,27 +5,28 @@ pub struct FugitiveBody {
     ast_idx_range: AstIdxRange,
 }
 
+/// # getters
 impl FugitiveBody {
     pub fn ast_idx_range(&self) -> AstIdxRange {
         self.ast_idx_range
     }
 }
 
-impl NormalAstChildren for FugitiveBody {
+impl IsAstChildren for FugitiveBody {
     const ALLOW_STMT: AstResult<()> = Ok(());
 
     #[inline(always)]
     fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
         let module_item_kind = match item_keyword_group {
-            EntityKindKeywordGroup::Mod(_) => Err(OriginalAstError::UnexpectedModInsideForm)?,
-            EntityKindKeywordGroup::Fn(_) => FugitiveKind::FunctionFn.into(),
-            EntityKindKeywordGroup::ConstFn(_, _) => todo!(),
+            EntityKindKeywordGroup::Submodule(_) => {
+                Err(OriginalAstError::UnexpectedModInsideModuleItem)?
+            }
+            EntityKindKeywordGroup::FugitiveFn(_) => FugitiveKind::FunctionFn.into(),
             EntityKindKeywordGroup::StaticFn(_, _) => todo!(),
-            EntityKindKeywordGroup::StaticConstFn(_, _, _) => todo!(),
-            EntityKindKeywordGroup::Gn(_) => todo!(),
-            EntityKindKeywordGroup::GeneralDef(_) => todo!(),
-            EntityKindKeywordGroup::TypeEntity(token) => token.type_kind().into(),
-            EntityKindKeywordGroup::Type(_) => todo!(),
+            EntityKindKeywordGroup::Gn(_) => FugitiveKind::FunctionGn.into(),
+            EntityKindKeywordGroup::FormalEntity(_) => todo!(),
+            EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
+            EntityKindKeywordGroup::AliasOrAssociateType(_) => todo!(),
             EntityKindKeywordGroup::Trait(_) => todo!(),
             EntityKindKeywordGroup::Val(_) => FugitiveKind::Val.into(),
         };
