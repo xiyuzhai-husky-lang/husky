@@ -8,7 +8,7 @@ use husky_coword::CowordJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 use husky_declarative_ty::DeclarativeTypeJar;
-use husky_entity_path::{EntityPathJar, MajorItemPath, TypePath};
+use husky_entity_path::{MajorItemPath, TypePath};
 use husky_entity_syn_tree::{EntitySynTreeDb, EntitySynTreeJar};
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
@@ -26,7 +26,7 @@ use husky_vfs::*;
 #[salsa::db(
     CowordJar,
     VfsJar,
-    EntityPathJar,
+    husky_entity_path::jar::EntityPathJar,
     husky_token_data::db::TokenDataJar,
     TokenJar,
     AstJar,
@@ -62,7 +62,7 @@ fn decl_sema_expr_regions(db: &::salsa::Db, module_path: ModulePath) -> Vec<Sema
 }
 
 #[test]
-fn decl_sema_expr_sheets_works() {
+fn decl_sema_expr_regions_works() {
     DB::default().ast_expect_test_debug_with_db(
         decl_sema_expr_regions,
         &AstTestConfig::new("decl_sema_expr_regions"),

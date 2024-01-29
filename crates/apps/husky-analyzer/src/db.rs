@@ -8,7 +8,7 @@ use salsa::snapshot::SnapshotClone;
     husky_vfs::VfsJar,
     // kernel
     husky_coword::CowordJar,
-    husky_entity_path::EntityPathJar,
+    husky_entity_path::jar::EntityPathJar,
     husky_term_prelude::TermPreludeJar,
     husky_declarative_term::DeclarativeTermJar,
     husky_declarative_ty::DeclarativeTypeJar,

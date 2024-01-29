@@ -18,7 +18,7 @@ use std::panic::RefUnwindSafe;
     husky_token_info::db::TokenInfoJar,
     // kernel
     husky_coword::CowordJar,
-    husky_entity_path::EntityPathJar,
+    husky_entity_path::jar::EntityPathJar,
     husky_term_prelude::TermPreludeJar,
     husky_declarative_term::DeclarativeTermJar,
     husky_declarative_ty::DeclarativeTypeJar,
