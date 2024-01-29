@@ -8,6 +8,8 @@ pub(crate) struct DB;
 
 #[test]
 fn item_path_debug_works() {
+    use husky_vfs::test_utils::db::VfsTestUtilsDb;
+
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();

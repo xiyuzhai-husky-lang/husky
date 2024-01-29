@@ -38,7 +38,10 @@ pub trait AstTestUtils: TokenTestUtils {
         R: std::fmt::Display;
 }
 
-impl AstTestUtils for Db {
+impl<DB> AstTestUtils for DB
+where
+    DB: TokenTestUtils,
+{
     fn ast_plain_test<U>(&mut self, f: impl Fn(&::salsa::Db, U), config: &AstTestConfig)
     where
         U: VfsTestUnit + salsa::DebugWithDb,
