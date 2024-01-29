@@ -3,6 +3,7 @@ use husky_print_utils::p;
 use husky_regional_token::{
     EphemSymbolModifierRegionalTokens, RegionalTokenIdxRange, RegionalTokenIdxRangeEnd,
 };
+use husky_syn_expr::entity_path::{SynPrincipalEntityPathExpr, SynPrincipalEntityPathExprIdx};
 use husky_vfs::ModulePath;
 
 #[salsa::tracked(db = SemaExprDb, jar = SemaExprJar)]

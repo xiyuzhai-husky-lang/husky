@@ -1,5 +1,5 @@
-mod identifiable_entity_path;
-mod principal_entity_path;
+pub mod identifiable_entity_path;
+pub mod principal_entity_path;
 
 pub use self::identifiable_entity_path::*;
 pub use self::principal_entity_path::*;

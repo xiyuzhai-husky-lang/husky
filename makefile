@@ -77,6 +77,11 @@ save:
 	git commit -m "Michael Jordan is goat!"
 	git push
 
+save-clean:
+	git add -A
+	git commit -m "clean"
+	git push
+
 syn-tree-build-timings:
 	cargo clean
 	cargo build -p husky-entity-syn-tree --timings

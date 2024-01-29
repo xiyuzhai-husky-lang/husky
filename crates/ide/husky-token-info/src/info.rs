@@ -1,13 +1,11 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
-
 use husky_entity_path::{EntityPath, PrincipalEntityPath};
-
 use husky_entity_syn_tree::{UseExprIdx, UseOneRuleIdx, UseOneRuleState};
 use husky_sema_expr::SemaExprIdx;
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, CurrentSynSymbolKind, InheritedSynSymbolIdx, InheritedSynSymbolKind,
-    SynExprRegion, SynPatternExprIdx, SynPrincipalEntityPathExprIdx,
+    entity_path::SynPrincipalEntityPathExprIdx, CurrentSynSymbolIdx, CurrentSynSymbolKind,
+    InheritedSynSymbolIdx, InheritedSynSymbolKind, SynExprRegion, SynPatternExprIdx,
 };
 #[cfg(feature = "protocol_support")]
 use husky_token_protocol::*;
