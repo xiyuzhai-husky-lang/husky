@@ -224,7 +224,7 @@ impl FluffyPlace {
             (TermContract::Move, FluffyPlace::ImmutableStackOwned { location }) => Ok(()),
             (TermContract::Move, FluffyPlace::MutableStackOwned { location }) => Ok(()),
             (TermContract::Move, FluffyPlace::Transient) => Ok(()),
-            (TermContract::Move, FluffyPlace::Ref { guard }) => Ok(()),
+            (TermContract::Move, FluffyPlace::Ref { guard }) => Ok(()), // ad hoc
             (TermContract::Move, FluffyPlace::RefMut { guard }) => todo!(),
             (TermContract::Move, FluffyPlace::Leashed) => Ok(()),
             (TermContract::Move, FluffyPlace::Todo) => todo!(),
