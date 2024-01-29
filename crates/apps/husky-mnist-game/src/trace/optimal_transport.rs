@@ -1,6 +1,8 @@
-use crate::values::skeleton::MnistBone;
-
-use self::{alg::ot::optimal_transport_for_2d_points, input::Input, skeleton::MnistSkeleton};
+use self::{
+    alg::ot::optimal_transport_for_2d_points,
+    input::Input,
+    skeleton::{MnistBone, MnistSkeleton},
+};
 use super::*;
 use husky_visual_protocol::visual::shape::{Color, Point};
 use ndarray::Array2;
@@ -23,6 +25,18 @@ impl OptimalTransport {
             optimal_transport_matrix,
         }
     }
+
+    pub fn source_points(&self) -> &[Point] {
+        self.source_points.as_ref()
+    }
+
+    pub fn target_points(&self) -> &[Point] {
+        self.target_points.as_ref()
+    }
+
+    pub fn optimal_transport_matrix(&self) -> &Array2<f64> {
+        &self.optimal_transport_matrix
+    }
 }
 
 fn skeleton_points(skeleton: &MnistSkeleton) -> Vec<Point> {
@@ -34,7 +48,7 @@ fn skeleton_points(skeleton: &MnistSkeleton) -> Vec<Point> {
                 for i in 0..(n + 1) {
                     let a: f32 = (i as f32) / (n as f32);
                     let b = 1.0 - a;
-                    let point = ((start.x * a + end.x * b), (start.x * a + end.y * b)).into();
+                    let point = ((start.x * a + end.x * b), (start.y * a + end.y * b)).into();
                     points.push(point)
                 }
             }

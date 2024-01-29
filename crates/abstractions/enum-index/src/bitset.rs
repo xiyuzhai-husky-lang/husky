@@ -34,11 +34,15 @@ impl<I: IsEnumIndex> EnumBitSet<I>
 where
     [(); (I::N + 7) / 8]:,
 {
-    pub fn new() -> Self
+    pub fn new(elems: impl IntoIterator<Item = I>) -> Self
     where
         [u8; (I::N + 7) / 8]: Default,
     {
-        Self::default()
+        let mut slf = Self::default();
+        for elem in elems {
+            slf.insert(elem)
+        }
+        slf
     }
 
     pub fn insert(&mut self, elem: I) {
