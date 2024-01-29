@@ -46,3 +46,7 @@ check that the db trait extends the other db trait
 ## introduce a dependency and things break down
 
 may be the feature flags the dependency introduces into other dependencies. Say smallvec/union for instance.
+
+## nudge the version of the dependency to be consolidated
+
+cargo update -p bson:0.11.1 --precise 0.10.0
