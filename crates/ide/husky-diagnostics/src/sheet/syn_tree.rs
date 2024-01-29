@@ -97,6 +97,8 @@ impl Diagnose for ImplBlockIllForm {
                     }
                     OriginalMajorPathExprError::ExpectedName(_) => format!("expected identifier",),
                     OriginalMajorPathExprError::NoSuchSubitem => todo!(),
+                    OriginalMajorPathExprError::NoSuperForCrateRoot { super_token } => todo!(),
+                    OriginalMajorPathExprError::PathIsNotMajor { ident_token, path } => todo!(),
                 },
                 MajorPathExprError::Derived(_) => todo!(),
             },
@@ -118,7 +120,8 @@ impl Diagnose for ImplBlockIllForm {
             ImplBlockIllForm::TokenData(_) => todo!(),
             ImplBlockIllForm::MajorPath(e) => match e {
                 MajorPathExprError::Original(e) => match e {
-                    OriginalMajorPathExprError::UnrecognizedIdent(ident_token) => {
+                    OriginalMajorPathExprError::UnrecognizedIdent(ident_token)
+                    | OriginalMajorPathExprError::PathIsNotMajor { ident_token, .. } => {
                         ctx.token_idx_text_range(ident_token.token_idx())
                     }
                     OriginalMajorPathExprError::ExpectedName(token_stream_state) => {
@@ -128,6 +131,9 @@ impl Diagnose for ImplBlockIllForm {
                         }
                     }
                     OriginalMajorPathExprError::NoSuchSubitem => todo!(),
+                    OriginalMajorPathExprError::NoSuperForCrateRoot { super_token } => {
+                        ctx.token_idx_text_range(super_token.token_idx())
+                    }
                 },
                 MajorPathExprError::Derived(_) => todo!(),
             },
