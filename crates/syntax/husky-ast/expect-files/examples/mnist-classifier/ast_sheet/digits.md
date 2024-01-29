@@ -6,14 +6,10 @@ AstSheet {
                     0,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {
@@ -48,14 +44,10 @@ AstSheet {
                     1,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {
@@ -90,14 +82,10 @@ AstSheet {
                     2,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {
@@ -132,14 +120,10 @@ AstSheet {
                     3,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {
@@ -174,14 +158,10 @@ AstSheet {
                     4,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {
@@ -216,14 +196,10 @@ AstSheet {
                     5,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {
@@ -258,14 +234,10 @@ AstSheet {
                     6,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {
@@ -300,14 +272,10 @@ AstSheet {
                     7,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {
@@ -342,14 +310,10 @@ AstSheet {
                     8,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {
@@ -384,14 +348,10 @@ AstSheet {
                     9,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {
@@ -426,14 +386,14 @@ AstSheet {
                     10,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 21,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -449,14 +409,14 @@ AstSheet {
                     11,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 26,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -472,14 +432,14 @@ AstSheet {
                     12,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 33,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -495,14 +455,14 @@ AstSheet {
                     13,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 40,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -518,14 +478,14 @@ AstSheet {
                     14,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 47,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -541,14 +501,14 @@ AstSheet {
                     15,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 54,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -564,14 +524,14 @@ AstSheet {
                     16,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 61,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -587,14 +547,14 @@ AstSheet {
                     17,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 68,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -610,14 +570,14 @@ AstSheet {
                     18,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 75,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {
@@ -633,14 +593,10 @@ AstSheet {
                     19,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
                     ),
-                    variant: Protected,
                 },
                 state_after_visibility_expr: None,
             },

@@ -2,7 +2,7 @@ use syn::{ItemEnum, Variant};
 
 use super::*;
 
-pub(super) fn enum_debug_with_db_impl(item: &ItemEnum) -> proc_macro2::TokenStream {
+pub(super) fn enum_debug_with_db_impl(item: &mut ItemEnum) -> proc_macro2::TokenStream {
     let ident = &item.ident;
     let generics = &item.generics;
     let generics_without_trais = generics_with_debug_with_db(generics);

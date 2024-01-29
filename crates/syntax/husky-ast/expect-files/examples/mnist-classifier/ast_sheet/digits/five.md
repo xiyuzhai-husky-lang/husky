@@ -12,14 +12,10 @@ AstSheet {
                     0,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::five`,
                     ),
-                    variant: Protected,
                 },
                 state_after_visibility_expr: None,
             },
@@ -28,14 +24,7 @@ AstSheet {
                     1,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
-                    variant: PubUnder {
+                    data: VisibilityExprData::PubUnder {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 5,
@@ -59,6 +48,9 @@ AstSheet {
                             ),
                         ),
                     },
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
+                    ),
                 },
                 item_kind: MajorItem {
                     module_item_kind: Fugitive(

@@ -51,7 +51,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 269,
+                                        value: 90,
                                     },
                                 ),
                             ),
@@ -113,7 +113,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 271,
+                                        value: 92,
                                     },
                                 ),
                             ),
@@ -998,7 +998,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 47,
+                                                                        value: 19,
                                                                     },
                                                                 ),
                                                             ),

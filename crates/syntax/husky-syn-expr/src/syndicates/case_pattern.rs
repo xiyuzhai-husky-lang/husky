@@ -2,8 +2,8 @@ use parsec::HasStreamState;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct CasePatternSyndicate {
     syn_pattern_root: CaseSynPatternExprRoot,
     variables: CurrentSynSymbolIdxRange,

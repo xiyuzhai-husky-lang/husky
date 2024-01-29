@@ -2,7 +2,7 @@
     (
         Trace(
             Id {
-                value: 1484,
+                value: 1,
             },
         ),
         TraceViewData {

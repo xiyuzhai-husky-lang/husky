@@ -255,47 +255,44 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        signature: MethodFn(
+                                        signature: MethodFluffySignature::MethodFn(
                                             MethodFnFluffySignature {
-                                                path: TraitForTypeItem(
+                                                path: AssociatedItemPath::TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 191,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                                    TraitForTypeItemPathData {
+                                                                        impl_block: TraitForTypeImplBlock {
+                                                                            data: TraitForTypeImplBlockPathData {
+                                                                                module_path: `core::visual`,
+                                                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                ty_sketch: TypeSketch::DeriveAny,
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        },
+                                                                        ident: `visualize`,
+                                                                        item_kind: MethodFn,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                 ),
                                                 self_value_parameter: FluffyRitchieRegularParameter {
                                                     contract: Pure,
                                                     ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Application(
-                                                                EtherealTermApplication(
-                                                                    Id {
-                                                                        value: 54,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 88,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`Visual`),
                                                     ),
                                                 },
                                                 instantiation: FluffyInstantiation {
@@ -316,7 +313,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 54,
+                                                                                    value: 50,
                                                                                 },
                                                                             ),
                                                                         ),

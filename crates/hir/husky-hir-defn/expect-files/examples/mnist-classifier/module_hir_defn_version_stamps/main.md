@@ -5,7 +5,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 262,
+                        value: 1,
                     },
                 ),
             ),
@@ -20,7 +20,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 263,
+                        value: 2,
                     },
                 ),
             ),
@@ -35,7 +35,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 264,
+                        value: 3,
                     },
                 ),
             ),
@@ -50,7 +50,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 265,
+                        value: 4,
                     },
                 ),
             ),
@@ -65,7 +65,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 266,
+                        value: 5,
                     },
                 ),
             ),
@@ -80,7 +80,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 267,
+                        value: 6,
                     },
                 ),
             ),
@@ -95,7 +95,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 268,
+                        value: 7,
                     },
                 ),
             ),
@@ -110,7 +110,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 269,
+                            value: 8,
                         },
                     ),
                 ),
@@ -120,7 +120,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 175,
+                        value: 1,
                     },
                 ),
             ),

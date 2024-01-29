@@ -13,16 +13,16 @@ use husky_entity_syn_tree::ModuleSymbolContext;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::{IsStreamParser, TryParseFromStream};
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Symbol {
     PrincipalEntity(PrincipalEntityPath),
     Inherited(InheritedSynSymbolIdx, InheritedSynSymbolKind),
     Current(CurrentSynSymbolIdx, CurrentSynSymbolKind),
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ImplicitParameterSymbol {
     Lifetime {
         label_token: LifetimeLabelRegionalToken,
@@ -33,8 +33,8 @@ pub enum ImplicitParameterSymbol {
     Const {},
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct InheritedSynSymbol {
     parent_symbol_idx: ParentSynSymbolIdx,
     modifier: SymbolModifier,
@@ -64,16 +64,16 @@ impl InheritedSynSymbol {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InheritedSynSymbolKind {
     TemplateParameter(InheritedTemplateParameterSynSymbol),
     ParenateParameter { ident: Ident },
     FieldVariable { ident: Ident },
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InheritedTemplateParameterSynSymbol {
     Lifetime { label: Label },
     Place { label: Label },
@@ -81,8 +81,8 @@ pub enum InheritedTemplateParameterSynSymbol {
     Constant { ident: Ident },
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct CurrentSynSymbol {
     modifier: SymbolModifier,
     access_start: RegionalTokenIdx,
@@ -148,8 +148,8 @@ impl CurrentSynSymbol {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum CurrentSynSymbolKind {
     TemplateParameter {
         template_parameter_kind: CurrentImplicitParameterSynSymbolKind,
@@ -175,8 +175,8 @@ pub enum CurrentSynSymbolKind {
     LoopVariable(SynExprIdx),
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum CurrentImplicitParameterSynSymbolKind {
     Type {
         ident_token: IdentRegionalToken,
@@ -192,8 +192,8 @@ pub enum CurrentImplicitParameterSynSymbolKind {
     },
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub enum CurrentSynSymbolData {
     TemplateParameter {
         syn_attrs: TemplateParameterSynAttrs,
@@ -307,8 +307,8 @@ impl CurrentSynSymbolData {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 #[non_exhaustive]
 pub enum CurrentTemplateParameterSynSymbolVariant {
     Lifetime {

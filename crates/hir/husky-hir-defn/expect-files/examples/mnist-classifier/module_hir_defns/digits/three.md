@@ -51,7 +51,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 278,
+                                        value: 99,
                                     },
                                 ),
                             ),
@@ -113,7 +113,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 280,
+                                        value: 101,
                                     },
                                 ),
                             ),
@@ -398,7 +398,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 15,
+                                                                        value: 9,
                                                                     },
                                                                 ),
                                                             ),
@@ -770,7 +770,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 15,
+                                                                        value: 9,
                                                                     },
                                                                 ),
                                                             ),
@@ -1142,7 +1142,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 15,
+                                                                        value: 9,
                                                                     },
                                                                 ),
                                                             ),

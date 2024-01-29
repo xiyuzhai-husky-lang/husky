@@ -11,8 +11,8 @@ use super::*;
 
 // impl
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ImplRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -53,8 +53,8 @@ where
 
 // pub
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct PubRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -95,8 +95,8 @@ where
 
 // use
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct UseRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -152,8 +152,8 @@ fn use_token_works() {
 
 // self value
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SelfValueRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -208,8 +208,8 @@ fn self_value_token_works() {
 }
 
 /// `Self` self type token
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SelfTypeRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }

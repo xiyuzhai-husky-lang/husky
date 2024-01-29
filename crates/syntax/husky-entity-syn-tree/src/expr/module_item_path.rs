@@ -8,8 +8,8 @@ use thiserror::Error;
 
 /// major path expr is bottom-up
 /// only module item path is allowed
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub enum MajorItemPathExpr {
     Root {
         name_token: PathNameToken,

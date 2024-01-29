@@ -5,7 +5,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 246,
+                        value: 1,
                     },
                 ),
             ),
@@ -20,7 +20,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 247,
+                        value: 2,
                     },
                 ),
             ),
@@ -35,7 +35,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 248,
+                        value: 3,
                     },
                 ),
             ),

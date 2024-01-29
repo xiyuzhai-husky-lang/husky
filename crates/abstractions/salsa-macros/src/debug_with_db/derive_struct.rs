@@ -1,11 +1,11 @@
 use super::*;
 use syn::Fields;
 
-pub(super) fn struct_debug_with_db_impl(item: &ItemStruct) -> proc_macro2::TokenStream {
+pub(super) fn struct_debug_with_db_impl(item: &mut ItemStruct) -> proc_macro2::TokenStream {
     let ident = &item.ident;
 
     let body = match item.fields {
-        syn::Fields::Named(_) => struct_regular_fields_debug_with_db(&item.ident, &item.fields),
+        syn::Fields::Named(_) => struct_regular_fields_debug_with_db(&item.ident, &mut item.fields),
         syn::Fields::Unnamed(_) => struct_tuple_fields_debug_with_db(&item.ident, &item.fields),
         syn::Fields::Unit => todo!("unit struct debug with db"),
     };
@@ -45,13 +45,18 @@ pub(super) fn struct_debug_with_db_impl(item: &ItemStruct) -> proc_macro2::Token
     }
 }
 
-fn struct_regular_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_macro2::TokenStream {
+fn struct_regular_fields_debug_with_db(
+    ident: &Ident,
+    fields: &mut Fields,
+) -> proc_macro2::TokenStream {
     let ident_string = ident.to_string();
     // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
     let fields = fields
-        .iter()
-        .enumerate()
-        .map(|(_field_idx, field)| -> proc_macro2::TokenStream {
+        .iter_mut()
+        .filter_map(|field| -> Option<proc_macro2::TokenStream> {
+            if has_skip_fmt_attr(field) {
+                return None;
+            }
             let mut field_ident = field.ident.as_ref().unwrap().clone();
             field_ident.set_span(Span::mixed_site());
             let field_ident_string = field_ident.to_string();
@@ -68,9 +73,9 @@ fn struct_regular_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_m
                 );
             };
 
-            quote! {
+            Some(quote! {
                 #field_debug
-            }
+            })
         })
         .collect::<proc_macro2::TokenStream>();
 
@@ -80,6 +85,23 @@ fn struct_regular_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_m
         #fields
 
         debug_struct.finish()
+    }
+}
+
+/// if has #[skip_fmt] attribute, takes it away
+fn has_skip_fmt_attr(field: &mut syn::Field) -> bool {
+    let has_skip_fmt_attr = field
+        .attrs
+        .iter()
+        .any(|attr| attr.path().is_ident("skip_fmt"));
+    if has_skip_fmt_attr {
+        field.attrs = std::mem::take(&mut field.attrs)
+            .into_iter()
+            .filter(|attr| !attr.path().is_ident("skip_fmt"))
+            .collect();
+        true
+    } else {
+        false
     }
 }
 

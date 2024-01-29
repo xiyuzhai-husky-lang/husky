@@ -2,6 +2,7 @@ use vec_like::VecPairMap;
 
 use crate::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::as_id]
 #[salsa::deref_id]

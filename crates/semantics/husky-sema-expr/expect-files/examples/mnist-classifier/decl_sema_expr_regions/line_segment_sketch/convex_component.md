@@ -258,7 +258,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 216,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -280,7 +280,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 395,
+                                            value: 242,
                                         },
                                     ),
                                 ),
@@ -310,7 +310,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 282,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -331,7 +331,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 78,
+                                            value: 28,
                                         },
                                     ),
                                 ),
@@ -352,7 +352,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 84,
+                                                    value: 153,
                                                 },
                                             ),
                                         ),
@@ -375,7 +375,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 281,
+                                                    value: 40,
                                                 },
                                             ),
                                         ),
@@ -396,7 +396,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 79,
+                                            value: 29,
                                         },
                                     ),
                                 ),
@@ -415,7 +415,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 80,
+                                            value: 30,
                                         },
                                     ),
                                 ),
@@ -872,7 +872,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 87,
+                                                    value: 180,
                                                 },
                                             ),
                                         ),
@@ -895,7 +895,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 290,
+                                                    value: 49,
                                                 },
                                             ),
                                         ),
@@ -1147,7 +1147,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 88,
+                                                    value: 144,
                                                 },
                                             ),
                                         ),

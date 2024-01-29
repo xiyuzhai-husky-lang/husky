@@ -14488,15 +14488,9 @@
                                         ),
                                     },
                                     arguments: [
-                                        Expanded {
+                                        SynHtmlArgumentExpr::Expanded {
                                             property_ident: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 141,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `start`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -14518,15 +14512,9 @@
                                                 ),
                                             ),
                                         },
-                                        Expanded {
+                                        SynHtmlArgumentExpr::Expanded {
                                             property_ident: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 142,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `end`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),

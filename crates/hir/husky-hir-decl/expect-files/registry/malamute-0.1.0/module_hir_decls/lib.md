@@ -218,7 +218,7 @@
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 2,
                                         },
                                     ),
                                 ),
@@ -227,14 +227,14 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 447,
+                                            value: 36,
                                         },
                                     ),
                                 ),
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 3,
                                         },
                                     ),
                                 ),
@@ -266,7 +266,7 @@
                                             Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 145,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -278,7 +278,7 @@
                                             Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 447,
+                                                        value: 36,
                                                     },
                                                 ),
                                             ),

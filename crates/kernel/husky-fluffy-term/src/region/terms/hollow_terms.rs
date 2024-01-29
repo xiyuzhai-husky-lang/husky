@@ -417,8 +417,8 @@ pub enum HollowTermResolveProgressBuf {
     Err(HollowTermResolveError),
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct HollowTerm(u32);
 
 impl HollowTerm {

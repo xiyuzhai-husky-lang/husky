@@ -209,8 +209,8 @@ impl ItemSynNodePathRegistry {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct MaybeAmbiguousPath<P> {
     path: P,
     disambiguator: u8,
@@ -230,8 +230,8 @@ impl<P> MaybeAmbiguousPath<P> {
 }
 
 /// this is pub(crate) because it contains AstIdx which affects incremental computation
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
 pub(crate) enum ItemSynNode {
     Submodule(SubmoduleSynNode),

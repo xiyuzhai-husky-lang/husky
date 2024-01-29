@@ -113,7 +113,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 7,
+                                                            value: 1,
                                                         },
                                                     ),
                                                     Explicit(
@@ -130,7 +130,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 8,
+                                                            value: 2,
                                                         },
                                                     ),
                                                     Explicit(
@@ -727,7 +727,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 1,
+                                                            value: 4,
                                                         },
                                                     ),
                                                     Explicit(
@@ -744,7 +744,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 9,
+                                                            value: 6,
                                                         },
                                                     ),
                                                     Explicit(
@@ -815,7 +815,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 1,
+                                                            value: 4,
                                                         },
                                                     ),
                                                     Explicit(
@@ -909,12 +909,12 @@
                                         20,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Regular(
+                                        SemaRitchieParameterArgumentMatch::Regular(
                                             FluffyRitchieRegularParameter {
                                                 contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Hollow(
+                                                    base: FluffyTermBase::Hollow(
                                                         HollowTerm(
                                                             4,
                                                         ),
@@ -978,12 +978,12 @@
                                         16,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Regular(
+                                        SemaRitchieParameterArgumentMatch::Regular(
                                             FluffyRitchieRegularParameter {
                                                 contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Hollow(
+                                                    base: FluffyTermBase::Hollow(
                                                         HollowTerm(
                                                             0,
                                                         ),
@@ -1063,7 +1063,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 1,
+                                                            value: 4,
                                                         },
                                                     ),
                                                     Explicit(
@@ -1080,7 +1080,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 9,
+                                                            value: 6,
                                                         },
                                                     ),
                                                     Explicit(
@@ -1166,12 +1166,12 @@
                                         36,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Regular(
+                                        SemaRitchieParameterArgumentMatch::Regular(
                                             FluffyRitchieRegularParameter {
                                                 contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Hollow(
+                                                    base: FluffyTermBase::Hollow(
                                                         HollowTerm(
                                                             8,
                                                         ),
@@ -1442,7 +1442,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 96,
+                                            value: 13,
                                         },
                                     ),
                                 ),
@@ -1466,7 +1466,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 96,
+                                            value: 13,
                                         },
                                     ),
                                 ),
@@ -1648,7 +1648,7 @@
                                                 contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Hollow(
+                                                    base: FluffyTermBase::Hollow(
                                                         HollowTerm(
                                                             0,
                                                         ),
@@ -1737,7 +1737,7 @@
                                                 contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Hollow(
+                                                    base: FluffyTermBase::Hollow(
                                                         HollowTerm(
                                                             4,
                                                         ),
@@ -1859,7 +1859,7 @@
                                                 contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Hollow(
+                                                    base: FluffyTermBase::Hollow(
                                                         HollowTerm(
                                                             8,
                                                         ),
@@ -1959,7 +1959,7 @@
                                                                     contract: Move,
                                                                     ty: FluffyTerm {
                                                                         place: None,
-                                                                        base: Hollow(
+                                                                        base: FluffyTermBase::Hollow(
                                                                             HollowTerm(
                                                                                 0,
                                                                             ),
@@ -2018,7 +2018,7 @@
                                                                     contract: Move,
                                                                     ty: FluffyTerm {
                                                                         place: None,
-                                                                        base: Hollow(
+                                                                        base: FluffyTermBase::Hollow(
                                                                             HollowTerm(
                                                                                 4,
                                                                             ),
@@ -2281,7 +2281,7 @@
                                                                     contract: Move,
                                                                     ty: FluffyTerm {
                                                                         place: None,
-                                                                        base: Hollow(
+                                                                        base: FluffyTermBase::Hollow(
                                                                             HollowTerm(
                                                                                 8,
                                                                             ),
@@ -2673,7 +2673,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 1,
+                                                            value: 4,
                                                         },
                                                     ),
                                                     Explicit(
@@ -2690,7 +2690,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 9,
+                                                            value: 6,
                                                         },
                                                     ),
                                                     Explicit(
@@ -2761,7 +2761,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 7,
+                                                            value: 1,
                                                         },
                                                     ),
                                                     Explicit(
@@ -2778,7 +2778,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 8,
+                                                            value: 2,
                                                         },
                                                     ),
                                                     Explicit(
@@ -2833,12 +2833,12 @@
                                         16,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Regular(
+                                        SemaRitchieParameterArgumentMatch::Regular(
                                             FluffyRitchieRegularParameter {
                                                 contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Hollow(
+                                                    base: FluffyTermBase::Hollow(
                                                         HollowTerm(
                                                             0,
                                                         ),
@@ -2918,7 +2918,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 1,
+                                                            value: 4,
                                                         },
                                                     ),
                                                     Explicit(
@@ -2935,7 +2935,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 9,
+                                                            value: 6,
                                                         },
                                                     ),
                                                     Explicit(
@@ -3006,7 +3006,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 7,
+                                                            value: 1,
                                                         },
                                                     ),
                                                     Explicit(
@@ -3023,7 +3023,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 8,
+                                                            value: 2,
                                                         },
                                                     ),
                                                     Explicit(
@@ -3078,12 +3078,12 @@
                                         33,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Regular(
+                                        SemaRitchieParameterArgumentMatch::Regular(
                                             FluffyRitchieRegularParameter {
                                                 contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Hollow(
+                                                    base: FluffyTermBase::Hollow(
                                                         HollowTerm(
                                                             7,
                                                         ),
@@ -3163,7 +3163,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 1,
+                                                            value: 4,
                                                         },
                                                     ),
                                                     Explicit(
@@ -3180,7 +3180,7 @@
                                                 (
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 9,
+                                                            value: 6,
                                                         },
                                                     ),
                                                     Explicit(
@@ -3266,12 +3266,12 @@
                                         50,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        Regular(
+                                        SemaRitchieParameterArgumentMatch::Regular(
                                             FluffyRitchieRegularParameter {
                                                 contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Hollow(
+                                                    base: FluffyTermBase::Hollow(
                                                         HollowTerm(
                                                             15,
                                                         ),
@@ -3600,7 +3600,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 107,
+                                            value: 24,
                                         },
                                     ),
                                 ),
@@ -3624,7 +3624,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 107,
+                                            value: 24,
                                         },
                                     ),
                                 ),
@@ -3648,7 +3648,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 107,
+                                            value: 24,
                                         },
                                     ),
                                 ),
@@ -3830,7 +3830,7 @@
                                                 contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Hollow(
+                                                    base: FluffyTermBase::Hollow(
                                                         HollowTerm(
                                                             0,
                                                         ),
@@ -4027,7 +4027,7 @@
                                                 contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Hollow(
+                                                    base: FluffyTermBase::Hollow(
                                                         HollowTerm(
                                                             7,
                                                         ),
@@ -4220,7 +4220,7 @@
                                                 contract: Move,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Hollow(
+                                                    base: FluffyTermBase::Hollow(
                                                         HollowTerm(
                                                             15,
                                                         ),
@@ -4320,7 +4320,7 @@
                                                                     contract: Move,
                                                                     ty: FluffyTerm {
                                                                         place: None,
-                                                                        base: Hollow(
+                                                                        base: FluffyTermBase::Hollow(
                                                                             HollowTerm(
                                                                                 0,
                                                                             ),
@@ -4613,7 +4613,7 @@
                                                                     contract: Move,
                                                                     ty: FluffyTerm {
                                                                         place: None,
-                                                                        base: Hollow(
+                                                                        base: FluffyTermBase::Hollow(
                                                                             HollowTerm(
                                                                                 7,
                                                                             ),
@@ -4906,7 +4906,7 @@
                                                                     contract: Move,
                                                                     ty: FluffyTerm {
                                                                         place: None,
-                                                                        base: Hollow(
+                                                                        base: FluffyTermBase::Hollow(
                                                                             HollowTerm(
                                                                                 15,
                                                                             ),

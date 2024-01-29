@@ -193,8 +193,7 @@ pub fn collect_module_paths(
 
 #[test]
 fn crate_module_paths_works() {
-    let mut db = DB::default();
-    db.vfs_expect_test_debug_with_db(
+    DB::vfs_expect_test_debug_with_db(
         |db, crate_path: CratePath| crate_module_paths(db, crate_path),
         &VfsTestConfig::new("crate_module_paths"),
     )

@@ -2,8 +2,8 @@ use std::ops::FromResidual;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct HirLazyExprRegionControlFlowChart {
     // has value means has control flow
     hir_lazy_expr_control_flow_chart: HirLazyExprMap<HasControlFlow>,

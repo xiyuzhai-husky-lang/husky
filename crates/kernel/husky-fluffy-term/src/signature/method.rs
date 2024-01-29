@@ -3,6 +3,7 @@ pub(crate) mod method_fn;
 use self::method_fn::MethodFnFluffySignature;
 use super::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
 pub enum MethodFluffySignature {

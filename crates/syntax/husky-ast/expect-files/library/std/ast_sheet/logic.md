@@ -6,14 +6,14 @@ AstSheet {
                     0,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: Pub,
-                    variant: Pub {
+                    data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
                                 1,
                             ),
                         },
                     },
+                    visibility: Scope::Pub,
                 },
                 state_after_visibility_expr: Some(
                     TokenStreamState {

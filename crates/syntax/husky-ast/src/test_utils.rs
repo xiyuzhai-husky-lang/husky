@@ -1,4 +1,5 @@
 pub use husky_token::test_utils::*;
+
 use salsa::Db;
 
 /// will have more robustness tests based on token level information than `TokenTestUtils`
@@ -59,7 +60,7 @@ where
         R: salsa::DebugWithDb,
     {
         // todo: robustness
-        self.token_expect_test_debug_with_db(f, &config.token)
+        DB::token_expect_test_debug_with_db(f, &config.token)
     }
 
     fn ast_expect_test_debug<'a, U, R>(
@@ -71,7 +72,7 @@ where
         R: std::fmt::Debug,
     {
         // todo: robustness
-        self.token_expect_test_debug(f, &config.token)
+        DB::token_expect_test_debug(f, &config.token)
     }
 
     fn ast_expect_test_display<U, R>(
@@ -83,7 +84,7 @@ where
         R: std::fmt::Display,
     {
         // todo: robustness
-        self.token_expect_test_display(f, &config.token)
+        DB::token_expect_test_display(f, &config.token)
     }
 }
 

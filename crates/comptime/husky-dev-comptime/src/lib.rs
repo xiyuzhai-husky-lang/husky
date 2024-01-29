@@ -33,8 +33,8 @@ pub struct DevComptime<Task: IsTask> {
     )>,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum DevComptimeTarget {
     None,
     SingleCrate(CratePath),

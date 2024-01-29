@@ -14,8 +14,8 @@ pub struct SemaExprRangeRegion {
     pub data: SemaExprRangeRegionData,
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprRangeRegionData {
     principal_entity_path_expr_ranges: Vec<RegionalTokenIdxRange>,
     pattern_expr_ranges: Vec<RegionalTokenIdxRange>,

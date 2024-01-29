@@ -16,10 +16,10 @@ pub(crate) fn debug_with_db(
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let _options = syn::parse_macro_input!(args as Args);
-    let item = syn::parse_macro_input!(input as Item);
+    let mut item = syn::parse_macro_input!(input as Item);
     let impl_debug_with_db = match item {
-        Item::Enum(ref item) => enum_debug_with_db_impl(item),
-        Item::Struct(ref item) => struct_debug_with_db_impl(item),
+        Item::Enum(ref mut item) => enum_debug_with_db_impl(item),
+        Item::Struct(ref mut item) => struct_debug_with_db_impl(item),
         _ => panic!("expect enum or struct for `derive_debug_with_db`"),
     };
     quote! {

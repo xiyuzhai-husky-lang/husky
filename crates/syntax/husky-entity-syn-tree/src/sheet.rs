@@ -2,8 +2,8 @@ use crate::*;
 
 use vec_like::VecPairMap;
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct EntitySynTreeSheet {
     module_path: ModulePath,
     major_item_node_table: MajorEntityNodeTable,

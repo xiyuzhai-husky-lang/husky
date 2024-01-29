@@ -7,8 +7,8 @@ pub use self::list_item::*;
 use crate::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub enum SynExprData {
     Literal(RegionalTokenIdx, LiteralData),
     PrincipalEntityPath {

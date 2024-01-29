@@ -2,8 +2,8 @@ use super::*;
 use vec_like::VecMapGetEntry;
 
 /// it's separated because it has to be updated indefinitely
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct UseAllRule {
     /// parent is of type `RelativeModulePath`
     ///

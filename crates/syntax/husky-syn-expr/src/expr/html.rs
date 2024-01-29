@@ -1,5 +1,6 @@
 use crate::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SynHtmlArgumentExpr {
     Expanded {

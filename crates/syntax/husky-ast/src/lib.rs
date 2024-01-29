@@ -28,6 +28,8 @@ pub use self::sheet::*;
 use self::error::*;
 use self::jar::*;
 use self::parser::*;
+#[cfg(test)]
+use self::tests::*;
 use husky_coword::*;
 use husky_entity_kind::EntityKind;
 use husky_entity_path::{ItemPath, TypeVariantPath};

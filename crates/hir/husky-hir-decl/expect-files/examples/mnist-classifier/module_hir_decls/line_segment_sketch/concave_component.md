@@ -304,7 +304,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 46,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -775,7 +775,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 46,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -843,7 +843,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 46,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -911,7 +911,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 46,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -979,7 +979,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 46,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -1047,7 +1047,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 46,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -1115,7 +1115,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 46,
+                                    value: 21,
                                 },
                             ),
                         ),

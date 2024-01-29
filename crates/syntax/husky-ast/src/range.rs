@@ -2,8 +2,8 @@ use husky_token::{HasTokenIdxRange, TokenDb, TokenIdxRange, TokenSheetData};
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub struct AstTokenIdxRangeSheet {
     ast_token_idx_ranges: Vec<TokenIdxRange>,
 }
@@ -27,8 +27,7 @@ pub(crate) fn ast_token_idx_range_sheet(
 
 #[test]
 fn ast_range_sheet_works() {
-    use tests::*;
-    DB::default().token_expect_test_debug_with_db(
+    DB::token_expect_test_debug_with_db(
         |db, module_path: ModulePath| module_path.ast_token_idx_range_sheet(db),
         &TokenTestConfig::new("ast_range_sheet"),
     );

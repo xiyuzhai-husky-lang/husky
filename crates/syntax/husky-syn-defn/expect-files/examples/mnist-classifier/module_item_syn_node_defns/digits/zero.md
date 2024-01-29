@@ -1558,50 +1558,44 @@
                                         79,
                                     ),
                                     items: [
-                                        RegularOrVariadic(
+                                        SynCallListItem::RegularOrVariadic(
                                             SynRegularOrVariadicCallListItem {
                                                 argument_expr_idx: 37,
-                                                separator: Comma(
+                                                separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         83,
                                                     ),
                                                 ),
                                             },
                                         ),
-                                        RegularOrVariadic(
+                                        SynCallListItem::RegularOrVariadic(
                                             SynRegularOrVariadicCallListItem {
                                                 argument_expr_idx: 39,
-                                                separator: Comma(
+                                                separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         87,
                                                     ),
                                                 ),
                                             },
                                         ),
-                                        RegularOrVariadic(
+                                        SynCallListItem::RegularOrVariadic(
                                             SynRegularOrVariadicCallListItem {
                                                 argument_expr_idx: 41,
-                                                separator: Comma(
+                                                separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         91,
                                                     ),
                                                 ),
                                             },
                                         ),
-                                        Keyed(
+                                        SynCallListItem::Keyed(
                                             SynKeyedCallListItem {
                                                 key_regional_token_idx: RegionalTokenIdx(
                                                     92,
                                                 ),
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 447,
-                                                        },
-                                                    ),
-                                                ),
+                                                key: `skip`,
                                                 argument_expr_idx: 42,
-                                                separator: None,
+                                                separator: CallListSeparator::None,
                                             },
                                         ),
                                     ],

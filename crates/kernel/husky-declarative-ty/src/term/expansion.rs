@@ -25,8 +25,8 @@ pub(crate) fn application_expansion_salsa(
     application_expansion_aux(db, function).apply(db, argument)
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ApplicationExpansion {
     f: DeclarativeTerm,
     arguments: Option<EtherealApplicationArguments>,

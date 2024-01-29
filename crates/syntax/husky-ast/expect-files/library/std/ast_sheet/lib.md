@@ -6,14 +6,10 @@ AstSheet {
                     0,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `std`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {
@@ -48,14 +44,10 @@ AstSheet {
                     1,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `std`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {
@@ -90,14 +82,10 @@ AstSheet {
                     2,
                 ),
                 visibility_expr: VisibilityExpr {
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `std`,
                     ),
-                    variant: Protected,
                 },
                 item_kind: Module,
                 ident_token: IdentToken {

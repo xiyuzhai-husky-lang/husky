@@ -3,8 +3,8 @@
 use idx_arena::*;
 
 /// syntax tree down to TokenGroup level
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum DeclAst {
     Identifiable {},
     ImplBlock,

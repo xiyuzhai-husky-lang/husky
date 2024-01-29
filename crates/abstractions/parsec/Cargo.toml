@@ -8,4 +8,5 @@ edition = "2021"
 smallvec.workspace = true
 # abstractions
 original-error.workspace = true
+salsa.workspace = true
 vec-like.workspace = true

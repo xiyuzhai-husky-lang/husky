@@ -1,8 +1,8 @@
 use super::*;
 
 /// should only use `Clone` in this crate
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum SolidTermData {
     TypeOntology {
         path: TypePath,

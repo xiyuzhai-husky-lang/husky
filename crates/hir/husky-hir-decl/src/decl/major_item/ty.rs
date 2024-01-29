@@ -103,8 +103,8 @@ fn ty_hir_decl(db: &::salsa::Db, path: TypePath) -> Option<TypeHirDecl> {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum PropsFieldEtherealSignature {
     PropsStruct(PropsStructFieldEtherealSignature),

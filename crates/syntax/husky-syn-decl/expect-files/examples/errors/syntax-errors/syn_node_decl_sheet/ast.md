@@ -53,7 +53,6 @@ SynNodeDeclSheet {
                                 PunctuatedSmallList {
                                     elements: [],
                                     separators: [],
-                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(

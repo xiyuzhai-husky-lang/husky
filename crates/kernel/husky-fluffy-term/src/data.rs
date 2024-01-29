@@ -134,8 +134,8 @@ impl<'a> FluffyTermData<'a> {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
 pub enum FluffyBaseTypeData<'a> {
     TypeOntology {
         ty_path: TypePath,

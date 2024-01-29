@@ -96,8 +96,8 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ExpectEqsFunctionTypeOutcome {
     pub(crate) return_ty: FluffyTerm,
     pub(crate) variant: ExpectEqsFunctionTypeOutcomeData,
@@ -113,8 +113,8 @@ impl ExpectEqsFunctionTypeOutcome {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ExpectEqsFunctionTypeOutcomeData {
     Ritchie {
         ritchie_kind: RitchieKind,
