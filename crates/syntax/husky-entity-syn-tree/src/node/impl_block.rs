@@ -52,14 +52,6 @@ impl ImplBlockSynNodePath {
             _ => unreachable!(),
         })
     }
-
-    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> ImplBlockSynNode {
-        todo!()
-    }
-
-    pub fn item_syn_node_paths(self, _db: &::salsa::Db) -> &[AssociatedItemPath] {
-        todo!()
-    }
 }
 
 impl ImplBlockSynNodePathData {

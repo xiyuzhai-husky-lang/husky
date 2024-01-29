@@ -1,6 +1,10 @@
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
+use husky_term_prelude::literal::{
+    int::{TermI64Literal, TermR64Literal, TermU64Literal, TermUSizeLiteral},
+    TermLiteral,
+};
 use husky_token_data::{IntegerLikeLiteralData, LiteralData};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -82,34 +86,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                             else {
                                 todo!()
                             };
-                            match path {
-                                PreludeIntTypePath::I8 => TermLiteral::I8(value as i8),
-                                PreludeIntTypePath::I16 => TermLiteral::I16(value as i16),
-                                PreludeIntTypePath::I32 => TermLiteral::I32(value as i32),
-                                PreludeIntTypePath::I64 => {
-                                    TermLiteral::I64(TermI64Literal::new(db, value as i64))
-                                }
-                                PreludeIntTypePath::I128 => todo!(),
-                                PreludeIntTypePath::ISize => todo!(),
-                                PreludeIntTypePath::U8 => TermLiteral::U8(value as u8),
-                                PreludeIntTypePath::U16 => TermLiteral::U16(value as u16),
-                                PreludeIntTypePath::U32 => TermLiteral::U32(value as u32),
-                                PreludeIntTypePath::U64 => {
-                                    TermLiteral::U64(TermU64Literal::new(db, value as u64))
-                                }
-                                PreludeIntTypePath::U128 => todo!(),
-                                PreludeIntTypePath::USize => {
-                                    TermLiteral::USize(TermUSizeLiteral::new(db, value as u64))
-                                }
-                                PreludeIntTypePath::R8 => TermLiteral::R8(value as u8),
-                                PreludeIntTypePath::R16 => TermLiteral::R16(value as u16),
-                                PreludeIntTypePath::R32 => TermLiteral::R32(value as u32),
-                                PreludeIntTypePath::R64 => {
-                                    TermLiteral::R64(TermR64Literal::new(db, value as u64))
-                                }
-                                PreludeIntTypePath::R128 => todo!(),
-                                PreludeIntTypePath::RSize => todo!(),
-                            }
+                            TermLiteral::from_unspecified_int(path, value, db)
                         }
                         IntegerLikeLiteralData::UnspecifiedLarge() => todo!(),
                         IntegerLikeLiteralData::I8(_) => todo!(),

@@ -11,10 +11,10 @@ use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffi
 use husky_hir_ty::{
     instantiation::HirInstantiation, place::HirPlace, ritchie::HirEagerContract, HirType,
 };
-
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{InheritedSynSymbolKind, InheritedTemplateParameterSynSymbol};
+use husky_term_prelude::literal::TermLiteral;
 use vec_like::VecMap;
 
 pub type HirEagerExprArena = Arena<HirEagerExprEntry>;

@@ -1,5 +1,5 @@
 use super::*;
-use husky_term_prelude::float::{TermF32Literal, TermF64Literal};
+use husky_term_prelude::literal::float::{TermF32Literal, TermF64Literal};
 
 use std::ops::Neg;
 

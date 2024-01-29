@@ -17,7 +17,7 @@ use husky_hir_ty::{
 };
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
 use husky_sema_opr::binary::SemaBinaryOpr;
-use husky_term_prelude::TermLiteral;
+use husky_term_prelude::literal::TermLiteral;
 use idx_arena::ArenaRef;
 
 pub type HirLazyExprArena = Arena<HirLazyExprData>;

@@ -5,7 +5,7 @@ mod db;
 mod error;
 mod final_destination;
 mod item_path;
-mod literal;
+pub mod literal;
 mod modifier;
 pub mod template_symbol_class;
 mod universe;
@@ -17,7 +17,6 @@ pub use self::curry::*;
 pub use self::error::*;
 pub use self::final_destination::*;
 pub use self::item_path::*;
-pub use self::literal::*;
 pub use self::modifier::*;
 pub use self::universe::*;
 
@@ -26,22 +25,22 @@ use husky_entity_path::*;
 
 #[salsa::jar]
 pub struct TermPreludeJar(
-    TermI64Literal,
-    TermI128Literal,
-    TermI256Literal,
-    TermISizeLiteral,
-    TermU64Literal,
-    TermU128Literal,
-    TermU256Literal,
-    TermUSizeLiteral,
-    TermR64Literal,
-    TermR128Literal,
-    TermR256Literal,
-    TermRSizeLiteral,
-    TermF32Literal,
-    TermF64Literal,
-    TermNatLiteral,
-    StringLiteralData,
+    crate::literal::int::TermI64Literal,
+    crate::literal::int::TermI128Literal,
+    crate::literal::int::TermI256Literal,
+    crate::literal::int::TermISizeLiteral,
+    crate::literal::int::TermU64Literal,
+    crate::literal::int::TermU128Literal,
+    crate::literal::int::TermU256Literal,
+    crate::literal::int::TermUSizeLiteral,
+    crate::literal::int::TermR64Literal,
+    crate::literal::int::TermR128Literal,
+    crate::literal::int::TermR256Literal,
+    crate::literal::int::TermRSizeLiteral,
+    crate::literal::float::TermF32Literal,
+    crate::literal::float::TermF64Literal,
+    crate::literal::TermNatLiteral,
+    crate::literal::StringLiteralData,
 );
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

@@ -1,6 +1,5 @@
-use husky_term_prelude::TermLiteral;
-
 use crate::*;
+use husky_term_prelude::literal::TermLiteral;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirConstant {

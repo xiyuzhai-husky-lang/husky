@@ -10,7 +10,7 @@ use husky_task::{
 };
 use husky_task_interface::{val_control_flow::ValControlFlow, IsLinkageImpl};
 use husky_task_interface::{val_repr::ValArgumentReprInterface, value::IsValue};
-use husky_term_prelude::TermLiteral;
+use husky_term_prelude::literal::TermLiteral;
 use husky_val::{ValOpn, ValPatternData};
 use husky_val_repr::repr::{ValArgumentRepr, ValDomainRepr, ValRepr};
 

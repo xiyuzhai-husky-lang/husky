@@ -1,5 +1,6 @@
 use super::*;
 
+use husky_term_prelude::literal::StringLiteralData;
 use husky_text_protocol::{char_iter::TextCharIter, range::TextRange};
 
 use husky_coword::{is_char_valid_ident_first_char, Label};
