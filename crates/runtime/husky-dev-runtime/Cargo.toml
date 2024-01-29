@@ -46,7 +46,7 @@ husky-task.workspace = true
 husky-ml-task-interface.workspace = true
 husky-ml-task.workspace = true
 # utils
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 husky-path-utils.workspace = true
 husky-print-utils.workspace = true
 sync-utils = { path = "../../utils/husky-sync-utils" }

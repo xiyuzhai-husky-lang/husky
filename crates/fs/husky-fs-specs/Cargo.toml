@@ -7,4 +7,4 @@ edition = "2021"
 [dependencies]
 thiserror.workspace = true
 dirs = "4.0.0"
-husky-path-utils = { path = "../../utils/husky-path-utils" }
+husky-path-utils.workspace = true

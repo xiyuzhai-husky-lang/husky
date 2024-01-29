@@ -106,6 +106,7 @@ enum-index = { path = "crates/abstractions/enum-index" }
 enum-index-macros = { path = "crates/abstractions/enum-index-macros" }
 idx-arena = { path = "crates/abstractions/idx-arena" }
 is = { path = "crates/abstractions/is" }
+maybe-result = { path = "crates/abstractions/maybe-result" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
 propagate = { path = "crates/abstractions/propagate" }
@@ -114,6 +115,7 @@ serde-impl = { path = "crates/abstractions/serde-impl" }
 shifted-unsigned-int = { path = "crates/abstractions/shifted-unsigned-int" }
 ui = { path = "crates/abstractions/ui" }
 vec-like = { path = "crates/abstractions/vec-like" }
+with-db = { path = "crates/abstractions/with-db" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
 husky-rust-transpilation = { path = "crates/comptime/husky-rust-transpilation" }
@@ -146,6 +148,7 @@ husky-ethereal-signature = { path = "crates/kernel/husky-ethereal-signature" }
 husky-expr = { path = "crates/kernel/husky-expr" }
 husky-fluffy-term = { path = "crates/kernel/husky-fluffy-term" }
 husky-opr = { path = "crates/kernel/husky-opr" }
+husky-scope = { path = "crates/kernel/husky-scope" }
 husky-stack-location = { path = "crates/kernel/husky-stack-location" }
 husky-term-prelude = { path = "crates/kernel/husky-term-prelude" }
 # lex
@@ -174,6 +177,9 @@ husky-dev-runtime = { path = "crates/runtime/husky-dev-runtime" }
 husky-sema-expr = { path = "crates/semantics/husky-sema-expr" }
 # syntax
 husky-ast = { path = "crates/syntax/husky-ast" }
+husky-decl-ast = { path = "crates/syntax/husky-decl-ast" }
+husky-defn-ast = { path = "crates/syntax/husky-defn-ast" }
+husky-scope-expr = { path = "crates/syntax/husky-scope-expr" }
 husky-syn-expr = { path = "crates/syntax/husky-syn-expr" }
 husky-syn-decl = { path = "crates/syntax/husky-syn-decl" }
 husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }

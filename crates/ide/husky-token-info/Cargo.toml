@@ -31,8 +31,8 @@ husky-token-protocol = { path = "../../protocols/husky-token-protocol", optional
 husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
 # syntax
 husky-ast.workspace = true
-husky-decl-ast = { path = "../../syntax/husky-decl-ast" }
-husky-defn-ast = { path = "../../syntax/husky-defn-ast" }
+husky-decl-ast.workspace = true
+husky-defn-ast.workspace = true
 husky-entity-syn-tree.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true

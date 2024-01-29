@@ -33,12 +33,12 @@ husky-opr.workspace = true
 husky-expr = { path = "../../kernel/husky-expr" }
 # syntax
 husky-entity-syn-tree.workspace = true
-husky-decl-ast = { path = "../../syntax/husky-decl-ast" }
-husky-defn-ast = { path = "../../syntax/husky-defn-ast" }
+husky-decl-ast.workspace = true
+husky-defn-ast.workspace = true
 husky-syn-opr.workspace = true
 # utils
 husky-print-utils.workspace = true
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
 
 [dev-dependencies]

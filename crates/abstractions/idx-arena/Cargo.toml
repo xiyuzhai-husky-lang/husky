@@ -2,7 +2,7 @@
 name = "idx-arena"
 version = "0.0.0"
 description = "Arena for the Husky Programming Language"
-license = "MIT"
+license = "MIT OR Apache-2.0"
 edition = "2021"
 
 [lib]
@@ -12,5 +12,5 @@ doctest = false
 # abstractions
 salsa.workspace = true
 # utils
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 husky-print-utils.workspace = true

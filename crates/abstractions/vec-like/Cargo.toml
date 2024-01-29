@@ -2,7 +2,7 @@
 name = "vec-like"
 version = "0.0.0"
 description = "Vector-like Map for the Husky Programming Language"
-license = "MIT"
+license = "MIT OR Apache-2.0"
 edition = "2021"
 
 [lib]

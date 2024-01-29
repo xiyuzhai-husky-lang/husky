@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 # abstractions
 salsa.workspace = true
-with-db = { path = "../../abstractions/with-db" }
+with-db.workspace = true
 enum-class.workspace = true
 # fs
 husky-vfs.workspace = true

@@ -131,18 +131,18 @@ TomlTokenSheet {
         TomlToken {
             span: DocumentSpan {
                 start: 52,
-                end: 57,
+                end: 71,
             },
-            range: [4:11, 4:16),
+            range: [4:11, 4:30),
             data: StringLiteral {
-                val: "MIT",
+                val: "MIT OR Apache-2.0",
                 multiline: false,
             },
         },
         TomlToken {
             span: DocumentSpan {
-                start: 58,
-                end: 68,
+                start: 72,
+                end: 82,
             },
             range: [5:1, 5:11),
             data: Word(
@@ -155,8 +155,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 69,
-                end: 70,
+                start: 83,
+                end: 84,
             },
             range: [5:12, 5:13),
             data: Special(
@@ -165,8 +165,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 71,
-                end: 121,
+                start: 85,
+                end: 135,
             },
             range: [5:14, 5:64),
             data: StringLiteral {
@@ -176,8 +176,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 122,
-                end: 133,
+                start: 136,
+                end: 147,
             },
             range: [6:1, 6:12),
             data: Word(
@@ -190,8 +190,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 134,
-                end: 135,
+                start: 148,
+                end: 149,
             },
             range: [6:13, 6:14),
             data: Special(
@@ -200,8 +200,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 136,
-                end: 160,
+                start: 150,
+                end: 174,
             },
             range: [6:15, 6:39),
             data: StringLiteral {
@@ -211,8 +211,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 161,
-                end: 170,
+                start: 175,
+                end: 184,
             },
             range: [7:1, 7:10),
             data: Word(
@@ -225,8 +225,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 171,
-                end: 172,
+                start: 185,
+                end: 186,
             },
             range: [7:11, 7:12),
             data: Special(
@@ -235,8 +235,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 173,
-                end: 178,
+                start: 187,
+                end: 192,
             },
             range: [7:13, 7:18),
             data: Word(
@@ -249,8 +249,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 179,
-                end: 190,
+                start: 193,
+                end: 204,
             },
             range: [8:1, 8:12),
             data: Word(
@@ -263,8 +263,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 191,
-                end: 192,
+                start: 205,
+                end: 206,
             },
             range: [8:13, 8:14),
             data: Special(
@@ -273,8 +273,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 193,
-                end: 198,
+                start: 207,
+                end: 212,
             },
             range: [8:15, 8:20),
             data: Word(
@@ -287,24 +287,24 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 199,
-                end: 273,
+                start: 213,
+                end: 287,
             },
             range: [9:1, 9:75),
             data: Comment,
         },
         TomlToken {
             span: DocumentSpan {
-                start: 274,
-                end: 350,
+                start: 288,
+                end: 364,
             },
             range: [10:1, 10:77),
             data: Comment,
         },
         TomlToken {
             span: DocumentSpan {
-                start: 351,
-                end: 358,
+                start: 365,
+                end: 372,
             },
             range: [11:1, 11:8),
             data: Word(
@@ -317,8 +317,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 359,
-                end: 360,
+                start: 373,
+                end: 374,
             },
             range: [11:9, 11:10),
             data: Special(
@@ -327,8 +327,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 361,
-                end: 367,
+                start: 375,
+                end: 381,
             },
             range: [11:11, 11:17),
             data: StringLiteral {
@@ -338,8 +338,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 369,
-                end: 370,
+                start: 383,
+                end: 384,
             },
             range: [13:1, 13:2),
             data: Special(
@@ -348,8 +348,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 370,
-                end: 373,
+                start: 384,
+                end: 387,
             },
             range: [13:2, 13:5),
             data: Word(
@@ -362,8 +362,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 373,
-                end: 374,
+                start: 387,
+                end: 388,
             },
             range: [13:5, 13:6),
             data: Special(
@@ -372,8 +372,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 375,
-                end: 379,
+                start: 389,
+                end: 393,
             },
             range: [14:1, 14:5),
             data: Word(
@@ -386,8 +386,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 380,
-                end: 381,
+                start: 394,
+                end: 395,
             },
             range: [14:6, 14:7),
             data: Special(
@@ -396,8 +396,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 382,
-                end: 387,
+                start: 396,
+                end: 401,
             },
             range: [14:8, 14:13),
             data: Word(
@@ -410,8 +410,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 388,
-                end: 393,
+                start: 402,
+                end: 407,
             },
             range: [15:1, 15:6),
             data: Word(
@@ -424,8 +424,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 394,
-                end: 395,
+                start: 408,
+                end: 409,
             },
             range: [15:7, 15:8),
             data: Special(
@@ -434,8 +434,8 @@ TomlTokenSheet {
         },
         TomlToken {
             span: DocumentSpan {
-                start: 396,
-                end: 401,
+                start: 410,
+                end: 415,
             },
             range: [15:9, 15:14),
             data: Word(

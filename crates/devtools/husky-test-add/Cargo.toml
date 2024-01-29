@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 clap = { version = "3.2.16", features = ["derive"] }
 husky-print-utils.workspace = true
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 husky-cli-utils = { path = "../../utils/husky-cli-utils" }
 husky-io-utils = { path = "../../utils/husky-io-utils" }
 composite-pattern = { path = "../../abstractions/composite-pattern" }

@@ -3,7 +3,7 @@ edition = "2021"
 name = "husky-text"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
-license = "MIT"
+license = "MIT OR Apache-2.0"
 description = "TODO"
 
 [dependencies]
@@ -19,7 +19,7 @@ husky-coword.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # utils
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 husky-print-utils.workspace = true
 
 [dev-dependencies]

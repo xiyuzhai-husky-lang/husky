@@ -13,7 +13,7 @@ parsec.workspace = true
 # fs
 husky-vfs.workspace = true
 # kernel
-husky-scope = { path = "../../kernel/husky-scope" }
+husky-scope.workspace = true
 # lex
 husky-token-data.workspace = true
 husky-token.workspace = true

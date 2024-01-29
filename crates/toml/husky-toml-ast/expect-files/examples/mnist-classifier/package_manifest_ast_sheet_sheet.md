@@ -12,7 +12,7 @@ Ok(
                     "example mnist classifier",
                 ),
                 TomlExpr::String(
-                    "MIT",
+                    "MIT OR Apache-2.0",
                 ),
                 TomlExpr::String(
                     "0.1.0",

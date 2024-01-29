@@ -15,7 +15,7 @@ smallvec.workspace = true
 salsa.workspace = true
 vec-like.workspace = true
 enum-class.workspace = true
-maybe-result = { path = "../../abstractions/maybe-result" }
+maybe-result.workspace = true
 # fs
 husky-vfs.workspace = true
 # infer
@@ -26,7 +26,7 @@ husky-entity-path.workspace = true
 husky-term-prelude.workspace = true
 husky-declarative-term.workspace = true
 husky-declarative-ty.workspace = true
-husky-scope = { path = "../../kernel/husky-scope" }
+husky-scope.workspace = true
 # lex
 husky-token-data.workspace = true
 # syntax

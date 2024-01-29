@@ -9,7 +9,7 @@ Ok(
                     "0.0.0",
                 ),
                 TomlExpr::String(
-                    "MIT",
+                    "MIT OR Apache-2.0",
                 ),
                 TomlExpr::String(
                     "https://github.com/xiyuzhai-husky-lang/husky.git",
