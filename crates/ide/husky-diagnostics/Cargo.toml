@@ -27,13 +27,13 @@ husky-text-protocol = { path = "../../protocols/husky-text-protocol", features =
     "lsp_support"
 ] }
 husky-entity-syn-tree.workspace = true
-husky-scope-expr = { path = "../../syntax/husky-scope-expr" }
+husky-scope-expr.workspace = true
 husky-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
 # utils
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 husky-print-utils.workspace = true
 
 [dev-dependencies]
@@ -56,7 +56,7 @@ husky-manifest.workspace = true
 husky-declarative-signature.workspace = true
 husky-corgi-config.workspace = true
 # utils
-husky-path-utils = { path = "../../utils/husky-path-utils" }
+husky-path-utils.workspace = true
 husky-diagnostics = { path = ".", features = ["test_utils"] }
 
 [features]

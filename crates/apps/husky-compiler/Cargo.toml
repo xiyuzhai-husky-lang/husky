@@ -26,6 +26,6 @@ husky-coword.workspace = true
 # syntax
 husky-ast.workspace = true
 # utils
-husky-path-utils = { path = "../../utils/husky-path-utils" }
+husky-path-utils.workspace = true
 husky-print-utils.workspace = true
 husky-io-utils = { path = "../../utils/husky-io-utils" }

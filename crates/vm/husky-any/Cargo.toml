@@ -6,9 +6,9 @@ edition = "2021"
 [dependencies]
 serde.workspace = true
 indexmap = "1.8.1"
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 husky-print-utils.workspace = true
-husky-path-utils = { path = "../../utils/husky-path-utils" }
+husky-path-utils.workspace = true
 cyclic-slice = { path = "../../abstractions/cyclic-slice" }
 vec-like.workspace = true
 # kernel

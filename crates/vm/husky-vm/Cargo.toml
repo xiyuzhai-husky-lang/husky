@@ -21,9 +21,9 @@ husky-standard-value = { workspace = true, features = ["vm_support"] }
 # syntax
 husky-syn-expr.workspace = true
 # utils
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 husky-print-utils.workspace = true
-husky-path-utils = { path = "../../utils/husky-path-utils" }
+husky-path-utils.workspace = true
 # vm
 husky-any = { path = "../../vm/husky-any" }
 husky-text-protocol.workspace = true

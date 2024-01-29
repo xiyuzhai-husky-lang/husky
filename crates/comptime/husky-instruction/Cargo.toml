@@ -2,7 +2,7 @@
 name = "husky-instruction"
 version = "0.0.0"
 description = "TBD"
-license = "MIT"
+license = "MIT OR Apache-2.0"
 edition = "2021"
 rust-version = "1.56"
 
@@ -12,7 +12,7 @@ doctest = false
 [dependencies]
 salsa.workspace = true
 husky-print-utils.workspace = true
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 # comptime
 # husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
 # kernel

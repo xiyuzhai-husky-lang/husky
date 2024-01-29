@@ -33,7 +33,7 @@ husky-syn-opr.workspace = true
 # utils
 husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 husky-print-utils.workspace = true
 husky-unicode-symbols.workspace = true
 

@@ -3,7 +3,7 @@ edition = "2021"
 name = "husky-entity-kind"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
-license = "MIT"
+license = "MIT OR Apache-2.0"
 description = "TODO"
 
 [dependencies]

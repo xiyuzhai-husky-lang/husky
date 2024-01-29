@@ -42,7 +42,7 @@ husky-syn-defn.workspace = true
 husky-task.workspace = true
 husky-task-interface.workspace = true
 # utils
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 husky-print-utils.workspace = true
 sync-utils = { path = "../../utils/husky-sync-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }

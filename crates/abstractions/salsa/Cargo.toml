@@ -23,7 +23,7 @@ salsa-macros = { path = "../../abstractions/salsa-macros" }
 snapshot = { path = "../../abstractions/snapshot" }
 enum-index = { path = "../../abstractions/enum-index" }
 vec-like.workspace = true
-maybe-result = { path = "../../abstractions/maybe-result" }
+maybe-result.workspace = true
 husky-salsa-log-utils = { path = "../../utils/husky-salsa-log-utils" }
 
 [dev-dependencies]

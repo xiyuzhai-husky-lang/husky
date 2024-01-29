@@ -13,7 +13,7 @@ salsa.workspace = true
 enum-class.workspace = true
 idx-arena.workspace = true
 vec-like.workspace = true
-maybe-result = { path = "../../abstractions/maybe-result" }
+maybe-result.workspace = true
 alt-option.workspace = true
 # fs
 husky-vfs = { workspace = true, features = ["test_utils"] }
@@ -29,7 +29,7 @@ husky-ethereal-term.workspace = true
 husky-ethereal-signature.workspace = true
 husky-coword.workspace = true
 husky-expr.workspace = true
-husky-scope = { path = "../../kernel/husky-scope" }
+husky-scope.workspace = true
 husky-stack-location = { path = "../../kernel/husky-stack-location" }
 # semantics
 husky-declarative-signature.workspace = true

@@ -14,7 +14,7 @@ enum-class.workspace = true
 idx-arena.workspace = true
 vec-like.workspace = true
 original-error.workspace = true
-maybe-result = { path = "../../abstractions/maybe-result" }
+maybe-result.workspace = true
 # fs
 husky-vfs = { workspace = true, features = ["test_utils"] }
 # kernel

@@ -3,7 +3,7 @@ edition = "2021"
 name = "husky-token"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
-license = "MIT"
+license = "MIT OR Apache-2.0"
 description = "TODO"
 
 [dependencies]
@@ -33,7 +33,7 @@ husky-opr.workspace = true
 # utils
 husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 husky-print-utils.workspace = true
 husky-unicode-symbols.workspace = true
 

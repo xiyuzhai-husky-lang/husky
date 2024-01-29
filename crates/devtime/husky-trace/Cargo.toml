@@ -48,7 +48,7 @@ husky-entity-syn-tree.workspace = true
 husky-manifest.workspace = true
 husky-sema-expr.workspace = true
 # utils
-husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-check-utils.workspace = true
 husky-print-utils.workspace = true
 
 [dev-dependencies]

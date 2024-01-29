@@ -11,7 +11,7 @@ either.workspace = true
 # abstractions
 salsa.workspace = true
 vec-like.workspace = true
-maybe-result = { path = "../../abstractions/maybe-result" }
+maybe-result.workspace = true
 enum-class.workspace = true
 # kernel
 husky-ethereal-term.workspace = true

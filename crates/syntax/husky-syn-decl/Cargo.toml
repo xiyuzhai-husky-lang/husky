@@ -28,7 +28,7 @@ husky-regional-token.workspace = true
 # syntax
 husky-syn-expr.workspace = true
 husky-entity-syn-tree.workspace = true
-husky-decl-ast = { path = "../../syntax/husky-decl-ast" }
+husky-decl-ast.workspace = true
 # utils
 husky-print-utils.workspace = true
 

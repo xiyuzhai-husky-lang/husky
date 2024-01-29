@@ -23,7 +23,7 @@ lsp-types = { workspace = true, optional = true }
 # abstractions
 vec-like.workspace = true
 salsa.workspace = true
-with-db = { path = "../../abstractions/with-db" }
+with-db.workspace = true
 enum-class.workspace = true
 # fs
 # husky-toolchain-config.workspace = true
@@ -34,7 +34,7 @@ husky-text-protocol.workspace = true
 husky-coword.workspace = true
 husky-platform = { path = "../../kernel/husky-platform" }
 # utils
-husky-path-utils = { path = "../../utils/husky-path-utils" }
+husky-path-utils.workspace = true
 husky-print-utils.workspace = true
 husky-minimal-toml-utils = { path = "../../utils/husky-minimal-toml-utils" }
 husky-adversarial-utils = { path = "../../utils/husky-adversarial-utils", optional = true }
