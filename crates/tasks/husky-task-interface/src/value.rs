@@ -63,7 +63,7 @@ pub trait IsValue:
     + 'static
 {
     // the followings are methods that should be implemented.
-    // they are commented out because rust doesn't have trait associated traits.
+    // they are commented out because they would probably be done in a way outside of rust trait system
     // fn from_owned<T>(t: T) -> Self;
     // fn into_owned<T>(self) -> T;
     // fn from_ref<'a, T>(t: &'a T) -> Self;
