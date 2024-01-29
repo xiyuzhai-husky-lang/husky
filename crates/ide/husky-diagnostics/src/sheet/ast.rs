@@ -174,7 +174,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedModInsideModuleItem => {
                 format!("unexpected submodule inside module item")
             }
-            OriginalAstError::SubmoduleFileNotFound(_) => {
+            OriginalAstError::SubmoduleFileNotFound { ident_token, error } => {
                 format!("submodule file not found")
             }
             OriginalAstError::UnexpectedTraitInsideImplBlock => todo!(),
@@ -240,7 +240,9 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::VisibilityExprError(OriginalVisibilityExprError::NoSuperForRoot(
                 token_idx,
             )) => ctx.token_idx_text_range(*token_idx),
-            OriginalAstError::SubmoduleFileNotFound(_) => todo!(),
+            OriginalAstError::SubmoduleFileNotFound { ident_token, .. } => {
+                ctx.token_idx_text_range(ident_token.token_idx())
+            }
             OriginalAstError::UnexpectedTraitInsideImplBlock => todo!(),
             OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce => todo!(),
         }

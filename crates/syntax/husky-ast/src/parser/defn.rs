@@ -35,8 +35,9 @@ impl<'a> AstParser<'a> {
         let block = match item_kind {
             EntityKind::Module => DefnBlock::Submodule {
                 path: SubmoduleItemPath::new(
-                    ModulePath::new_child(self.db, self.module_path, ident)
-                        .map_err(OriginalAstError::SubmoduleFileNotFound)?,
+                    ModulePath::new_child(self.db, self.module_path, ident).map_err(|error| {
+                        OriginalAstError::SubmoduleFileNotFound { ident_token, error }
+                    })?,
                     self.db,
                 ),
             },

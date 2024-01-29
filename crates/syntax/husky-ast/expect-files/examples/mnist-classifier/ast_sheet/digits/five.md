@@ -15,7 +15,7 @@ AstSheet {
                     visibility: PubUnder(
                         ModulePath(
                             Id {
-                                value: 30,
+                                value: 33,
                             },
                         ),
                     ),
@@ -31,7 +31,7 @@ AstSheet {
                     visibility: PubUnder(
                         ModulePath(
                             Id {
-                                value: 28,
+                                value: 31,
                             },
                         ),
                     ),

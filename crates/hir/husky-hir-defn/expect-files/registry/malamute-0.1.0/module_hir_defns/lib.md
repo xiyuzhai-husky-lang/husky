@@ -22,7 +22,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 534,
+                                                    value: 539,
                                                 },
                                             ),
                                         ),
@@ -192,7 +192,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 534,
+                                                    value: 539,
                                                 },
                                             ),
                                         ),
@@ -211,7 +211,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 537,
+                                                    value: 542,
                                                 },
                                             ),
                                         ),
@@ -244,7 +244,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 442,
+                                                value: 447,
                                             },
                                         ),
                                     ),
@@ -295,7 +295,7 @@
                                                 Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 442,
+                                                            value: 447,
                                                         },
                                                     ),
                                                 ),
@@ -634,7 +634,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 534,
+                                                value: 539,
                                             },
                                         ),
                                     ),
@@ -653,7 +653,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 537,
+                                                value: 542,
                                             },
                                         ),
                                     ),
@@ -1088,7 +1088,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 540,
+                                                    value: 545,
                                                 },
                                             ),
                                         ),
@@ -1287,7 +1287,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 79,
+                                                                        value: 80,
                                                                     },
                                                                 ),
                                                             ),
@@ -1417,7 +1417,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 513,
+                                                            value: 516,
                                                         },
                                                     ),
                                                 ),
@@ -1428,7 +1428,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 514,
+                                                            value: 517,
                                                         },
                                                     ),
                                                 ),
@@ -1831,7 +1831,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 545,
+                                                    value: 550,
                                                 },
                                             ),
                                         ),
@@ -1958,7 +1958,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 78,
+                                                                        value: 79,
                                                                     },
                                                                 ),
                                                             ),
@@ -2022,7 +2022,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 78,
+                                                                        value: 79,
                                                                     },
                                                                 ),
                                                             ),
@@ -2169,7 +2169,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 516,
+                                                            value: 519,
                                                         },
                                                     ),
                                                 ),
@@ -2180,7 +2180,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 517,
+                                                            value: 520,
                                                         },
                                                     ),
                                                 ),
@@ -2191,7 +2191,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 518,
+                                                            value: 521,
                                                         },
                                                     ),
                                                 ),

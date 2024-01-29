@@ -1,45 +1,451 @@
 [
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 9,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::mem::Ref`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [
+                            HirTemplateParameter {
+                                symbol: Lifetime(
+                                    HirLifetimeSymbol {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: Some(
+                                            Covariant,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                data: Lifetime {
+                                    label: Label {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 45,
+                                                },
+                                            ),
+                                        ),
+                                        kind: AllNonGreek,
+                                    },
+                                },
+                            },
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: Some(
+                                            Covariant,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                        ],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::mem::Ref`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Label(
+                                            `'a`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirTemplateSymbol::Lifetime(
+                                            HirLifetimeSymbol {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: Some(
+                                                    Covariant,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `E`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirTemplateSymbol::Type(
+                                            HirTypeSymbol::Type {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: Some(
+                                                    Covariant,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 10,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::mem::RefMut`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [
+                            HirTemplateParameter {
+                                symbol: Lifetime(
+                                    HirLifetimeSymbol {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: Some(
+                                            Covariant,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                data: Lifetime {
+                                    label: Label {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 45,
+                                                },
+                                            ),
+                                        ),
+                                        kind: AllNonGreek,
+                                    },
+                                },
+                            },
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: Some(
+                                            Invariant,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                        ],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::mem::RefMut`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Label(
+                                            `'a`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirTemplateSymbol::Lifetime(
+                                            HirLifetimeSymbol {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: Some(
+                                                    Covariant,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `E`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirTemplateSymbol::Type(
+                                            HirTypeSymbol::Type {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: Some(
+                                                    Invariant,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 11,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::mem::Leash`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: Some(
+                                            Covariant,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                        ],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::mem::Leash`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `E`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirTemplateSymbol::Type(
+                                            HirTypeSymbol::Type {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: Some(
+                                                    Covariant,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 12,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::mem::At`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [
+                            HirTemplateParameter {
+                                symbol: Place(
+                                    HirPlaceSymbol {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                data: Place {
+                                    label: Label {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 49,
+                                                },
+                                            ),
+                                        ),
+                                        kind: AllGreek,
+                                    },
+                                },
+                            },
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                        ],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::mem::At`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Label(
+                                            `'α`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirTemplateSymbol::Place(
+                                            HirPlaceSymbol {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `E`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirTemplateSymbol::Type(
+                                            HirTypeSymbol::Type {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),

@@ -136,7 +136,7 @@ AstSheet {
                     visibility: PubUnder(
                         ModulePath(
                             Id {
-                                value: 46,
+                                value: 49,
                             },
                         ),
                     ),

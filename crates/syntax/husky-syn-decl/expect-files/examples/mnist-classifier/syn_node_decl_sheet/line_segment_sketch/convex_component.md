@@ -59,7 +59,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 209,
+                                                            value: 216,
                                                         },
                                                     ),
                                                 ),
@@ -83,7 +83,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 390,
+                                                            value: 395,
                                                         },
                                                     ),
                                                 ),
@@ -314,7 +314,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 209,
+                                                                    value: 216,
                                                                 },
                                                             ),
                                                         ),
@@ -334,7 +334,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 390,
+                                                                    value: 395,
                                                                 },
                                                             ),
                                                         ),

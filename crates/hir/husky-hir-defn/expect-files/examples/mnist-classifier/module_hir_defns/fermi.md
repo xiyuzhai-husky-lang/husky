@@ -265,7 +265,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 366,
+                                                    value: 371,
                                                 },
                                             ),
                                         ),
@@ -275,7 +275,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 428,
+                                                    value: 433,
                                                 },
                                             ),
                                         ),
@@ -740,7 +740,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 59,
+                                                                        value: 60,
                                                                     },
                                                                 ),
                                                             ),
@@ -797,7 +797,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 60,
+                                                                        value: 61,
                                                                     },
                                                                 ),
                                                             ),
@@ -821,7 +821,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 63,
+                                                                        value: 64,
                                                                     },
                                                                 ),
                                                             ),
@@ -893,7 +893,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 60,
+                                                                value: 61,
                                                             },
                                                         ),
                                                     ),
@@ -914,7 +914,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 249,
+                                                            value: 254,
                                                         },
                                                     ),
                                                 ),
@@ -957,7 +957,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 425,
+                                                        value: 430,
                                                     },
                                                 ),
                                             ),
@@ -969,7 +969,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 237,
+                                                        value: 242,
                                                     },
                                                 ),
                                             ),
@@ -979,7 +979,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 429,
+                                                        value: 434,
                                                     },
                                                 ),
                                             ),
@@ -1499,7 +1499,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 249,
+                                                            value: 254,
                                                         },
                                                     ),
                                                 ),
@@ -1548,7 +1548,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 343,
+                                                        value: 348,
                                                     },
                                                 ),
                                             ),
@@ -1978,7 +1978,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 249,
+                                                            value: 254,
                                                         },
                                                     ),
                                                 ),
@@ -2027,7 +2027,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 343,
+                                                        value: 348,
                                                     },
                                                 ),
                                             ),
@@ -2476,7 +2476,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 249,
+                                                            value: 254,
                                                         },
                                                     ),
                                                 ),
@@ -2525,7 +2525,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 343,
+                                                        value: 348,
                                                     },
                                                 ),
                                             ),

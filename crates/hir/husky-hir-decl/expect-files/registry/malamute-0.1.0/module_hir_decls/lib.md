@@ -1,34 +1,162 @@
 [
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Enum(
-                EnumTypeHirDecl(
-                    Id {
-                        value: 5,
+            TypeHirDecl::Enum(
+                EnumTypeHirDecl {
+                    path: TypePath(`malamute::Class`, `Enum`),
+                    template_parameters: HirTemplateParameters(
+                        [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 539,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                        ],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`malamute::Class`, `Enum`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `Label`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirTemplateSymbol::Type(
+                                            HirTypeSymbol::Type {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Enum(
-                EnumTypeHirDecl(
-                    Id {
-                        value: 6,
+            TypeHirDecl::Enum(
+                EnumTypeHirDecl {
+                    path: TypePath(`malamute::OneVsAll`, `Enum`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Enum(
-                EnumTypeHirDecl(
-                    Id {
-                        value: 7,
+            TypeHirDecl::Enum(
+                EnumTypeHirDecl {
+                    path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -53,7 +181,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 534,
+                                                value: 539,
                                             },
                                         ),
                                     ),
@@ -72,7 +200,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 537,
+                                                value: 542,
                                             },
                                         ),
                                     ),
@@ -105,7 +233,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 442,
+                                            value: 447,
                                         },
                                     ),
                                 ),
@@ -156,7 +284,7 @@
                                             Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 442,
+                                                        value: 447,
                                                     },
                                                 ),
                                             ),
@@ -368,7 +496,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 534,
+                                            value: 539,
                                         },
                                     ),
                                 ),
@@ -387,7 +515,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 537,
+                                            value: 542,
                                         },
                                     ),
                                 ),
@@ -774,7 +902,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 540,
+                                                value: 545,
                                             },
                                         ),
                                     ),
@@ -1131,7 +1259,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 545,
+                                                value: 550,
                                             },
                                         ),
                                     ),

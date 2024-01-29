@@ -224,6 +224,10 @@ fn collect_package_relative_dirs_works() {
                 `quick-sort`,
             ),
             (
+                "./errors/syntax-errors",
+                `syntax-errors`,
+            ),
+            (
                 "./mnist-classifier",
                 `mnist-classifier`,
             ),

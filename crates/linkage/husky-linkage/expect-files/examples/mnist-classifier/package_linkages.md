@@ -27,7 +27,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 217,
+                            value: 252,
                         },
                     ),
                 ),
@@ -44,7 +44,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 218,
+                            value: 253,
                         },
                     ),
                 ),
@@ -61,7 +61,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 219,
+                            value: 254,
                         },
                     ),
                 ),
@@ -78,7 +78,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 220,
+                            value: 255,
                         },
                     ),
                 ),
@@ -104,7 +104,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 222,
+                            value: 257,
                         },
                     ),
                 ),
@@ -139,7 +139,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 228,
+                            value: 263,
                         },
                     ),
                 ),
@@ -313,7 +313,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 260,
+                            value: 293,
                         },
                     ),
                 ),
@@ -330,7 +330,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 236,
+                            value: 270,
                         },
                     ),
                 ),
@@ -415,7 +415,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 303,
+                            value: 336,
                         },
                     ),
                 ),
@@ -432,7 +432,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 304,
+                            value: 337,
                         },
                     ),
                 ),
@@ -541,7 +541,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 249,
+                            value: 283,
                         },
                     ),
                 ),
@@ -558,7 +558,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 250,
+                            value: 284,
                         },
                     ),
                 ),
@@ -584,7 +584,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 249,
+                            value: 283,
                         },
                     ),
                 ),
@@ -601,7 +601,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 250,
+                            value: 284,
                         },
                     ),
                 ),
@@ -627,7 +627,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 249,
+                            value: 283,
                         },
                     ),
                 ),
@@ -644,7 +644,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 250,
+                            value: 284,
                         },
                     ),
                 ),
@@ -670,7 +670,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 128,
+                            value: 129,
                         },
                     ),
                 ),
@@ -687,7 +687,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 125,
+                            value: 126,
                         },
                     ),
                 ),
@@ -713,7 +713,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 345,
+                            value: 377,
                         },
                     ),
                 ),
@@ -730,7 +730,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 346,
+                            value: 378,
                         },
                     ),
                 ),
@@ -756,7 +756,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 345,
+                            value: 377,
                         },
                     ),
                 ),
@@ -773,7 +773,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 346,
+                            value: 378,
                         },
                     ),
                 ),
@@ -1124,24 +1124,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 236,
-                        },
-                    ),
-                ),
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::StructField {
-            self_ty: LinkageTypePathLeading {
-                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                template_arguments: [],
-            },
-            field: Props {
-                ident: Ident(
-                    Coword(
-                        Id {
-                            value: 178,
+                            value: 270,
                         },
                     ),
                 ),
@@ -1159,6 +1142,23 @@
                     Coword(
                         Id {
                             value: 179,
+                        },
+                    ),
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::StructField {
+            self_ty: LinkageTypePathLeading {
+                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                template_arguments: [],
+            },
+            field: Props {
+                ident: Ident(
+                    Coword(
+                        Id {
+                            value: 180,
                         },
                     ),
                 ),
@@ -1184,7 +1184,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 314,
+                            value: 346,
                         },
                     ),
                 ),
@@ -1201,7 +1201,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 354,
+                            value: 386,
                         },
                     ),
                 ),
@@ -1337,7 +1337,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 197,
+                            value: 237,
                         },
                     ),
                 ),
@@ -1354,7 +1354,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 354,
+                            value: 386,
                         },
                     ),
                 ),
@@ -1545,7 +1545,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 197,
+                            value: 237,
                         },
                     ),
                 ),
@@ -1562,7 +1562,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 379,
+                            value: 411,
                         },
                     ),
                 ),
@@ -1597,7 +1597,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 178,
+                            value: 179,
                         },
                     ),
                 ),
@@ -1614,7 +1614,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 179,
+                            value: 180,
                         },
                     ),
                 ),
@@ -1666,7 +1666,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 222,
+                            value: 257,
                         },
                     ),
                 ),
@@ -1683,7 +1683,7 @@
                 ident: Ident(
                     Coword(
                         Id {
-                            value: 414,
+                            value: 446,
                         },
                     ),
                 ),
@@ -2249,7 +2249,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 21,
+                                            value: 22,
                                         },
                                     ),
                                 ),
@@ -2304,7 +2304,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 21,
+                                            value: 22,
                                         },
                                     ),
                                 ),
@@ -2363,7 +2363,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 22,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -2399,7 +2399,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -2441,7 +2441,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -2505,7 +2505,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 23,
+                                            value: 24,
                                         },
                                     ),
                                 ),
@@ -2547,7 +2547,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 24,
+                                            value: 25,
                                         },
                                     ),
                                 ),
@@ -2589,7 +2589,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -2625,7 +2625,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -2681,7 +2681,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -2725,7 +2725,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -2769,7 +2769,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -2811,7 +2811,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -2853,7 +2853,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -2895,7 +2895,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -2944,7 +2944,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -2980,7 +2980,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -3026,7 +3026,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -3062,7 +3062,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -3106,7 +3106,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -3150,7 +3150,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -3186,7 +3186,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -3228,7 +3228,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -3264,7 +3264,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -3306,7 +3306,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -3350,7 +3350,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -3394,7 +3394,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 9,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -3440,7 +3440,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -3476,7 +3476,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 17,
+                                            value: 18,
                                         },
                                     ),
                                 ),
@@ -3518,7 +3518,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -3554,7 +3554,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -3590,7 +3590,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -3626,7 +3626,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -3662,7 +3662,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 17,
+                                            value: 18,
                                         },
                                     ),
                                 ),
@@ -3762,7 +3762,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 25,
+                                            value: 26,
                                         },
                                     ),
                                 ),
@@ -3804,7 +3804,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 26,
+                                            value: 27,
                                         },
                                     ),
                                 ),
@@ -3846,7 +3846,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 25,
+                                            value: 26,
                                         },
                                     ),
                                 ),
@@ -3870,7 +3870,7 @@
                             parameter_ty: PathLeading(
                                 LinkageTypePathLeading(
                                     Id {
-                                        value: 25,
+                                        value: 26,
                                     },
                                 ),
                             ),
@@ -3917,7 +3917,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 6,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -3951,7 +3951,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 21,
+                                            value: 22,
                                         },
                                     ),
                                 ),
@@ -3995,7 +3995,7 @@
                                 PathLeading(
                                     LinkageTypePathLeading(
                                         Id {
-                                            value: 17,
+                                            value: 18,
                                         },
                                     ),
                                 ),

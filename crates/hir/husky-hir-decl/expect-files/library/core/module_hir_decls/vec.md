@@ -1,12 +1,84 @@
 [
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 32,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::vec::Vec`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [
+                            HirTemplateParameter {
+                                symbol: Type(
+                                    Type {
+                                        attrs: HirTemplateSymbolAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: Some(
+                                            Covariant,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                data: Type {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                    traits: [],
+                                },
+                            },
+                        ],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::vec::Vec`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeSymbolEntry {
+                                        name: HirEagerComptimeSymbolName::Ident(
+                                            `E`,
+                                        ),
+                                        data: Current,
+                                        hir_comptime_symbol: HirTemplateSymbol::Type(
+                                            HirTypeSymbol::Type {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: Some(
+                                                    Covariant,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
