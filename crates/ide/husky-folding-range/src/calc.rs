@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{Ast, AstIdx, AstSheet, AstTokenIdxRangeSheet};
+use husky_ast::{range::AstTokenIdxRangeSheet, Ast, AstIdx, AstSheet};
 
 use husky_token::RangedTokenSheet;
 use lsp_types::FoldingRangeKind;

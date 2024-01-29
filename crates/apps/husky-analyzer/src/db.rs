@@ -21,7 +21,7 @@ use salsa::snapshot::SnapshotClone;
     husky_token::TokenJar,
     husky_toml_token::TomlTokenJar,
     // syntax
-    husky_ast::AstJar,
+    husky_ast::jar::AstJar,
     husky_toml_ast::TomlAstJar,
     husky_corgi_config_ast::CorgiConfigAstJar,
     husky_manifest_ast::ManifestAstJar,

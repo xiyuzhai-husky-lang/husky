@@ -1,7 +1,6 @@
 pub(crate) use husky_ast::test_utils::{AstTestConfig, AstTestUtils};
 pub(crate) use husky_vfs::ModulePath;
 
-use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
@@ -30,7 +29,7 @@ use husky_vfs::VfsJar;
  husky_entity_path::jar::EntityPathJar,
     husky_token_data::db::TokenDataJar,
     TokenJar,
-    AstJar,
+    husky_ast::jar::AstJar,
     EntitySynTreeJar,
     TomlTokenJar,
     TomlAstJar,

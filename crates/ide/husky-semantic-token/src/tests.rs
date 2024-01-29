@@ -1,7 +1,6 @@
 pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
-use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
@@ -36,7 +35,7 @@ use husky_toml_token::TomlTokenJar;
     CorgiConfigJar,
     CorgiConfigAstJar,
     ManifestJar,
-    AstJar,
+    husky_ast::jar::AstJar,
     EntitySynTreeJar,
     SynDeclJar,
     SynDefnJar,
