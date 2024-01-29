@@ -312,6 +312,7 @@ impl SemaExprEntry {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct SemaExprArena(Arena<SemaExprEntry>);
 

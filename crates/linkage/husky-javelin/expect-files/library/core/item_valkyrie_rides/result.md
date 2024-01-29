@@ -11,8 +11,8 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -20,20 +20,14 @@
                                         disambiguator: 0,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 107,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `T`,
                                     traits: [],
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -41,14 +35,8 @@
                                         disambiguator: 1,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 25,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `E`,
                                     traits: [],
                                 },
                             },
@@ -80,8 +68,8 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -89,20 +77,14 @@
                                         disambiguator: 0,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 128,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `T1`,
                                     traits: [],
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -110,20 +92,14 @@
                                         disambiguator: 1,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 129,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `T2`,
                                     traits: [],
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -131,20 +107,14 @@
                                         disambiguator: 2,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 130,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `E1`,
                                     traits: [],
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -152,14 +122,8 @@
                                         disambiguator: 3,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 131,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `E2`,
                                     traits: [],
                                 },
                             },

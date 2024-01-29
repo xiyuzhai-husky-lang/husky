@@ -255,25 +255,13 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 371,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `concave_components`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 433,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `templates`,
                                 },
                             ],
                         },

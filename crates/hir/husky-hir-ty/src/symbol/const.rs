@@ -6,6 +6,7 @@ pub struct HirConstSymbol {
     pub index: HirConstSymbolIndex,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirConstSymbolIndex {
     PathLeading {

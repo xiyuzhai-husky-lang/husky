@@ -11,6 +11,7 @@ pub struct HirEagerExprSourceMap {
     pub data: HirEagerExprSourceMapData,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct HirEagerExprSourceMapData {
     syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternExprIdx>,

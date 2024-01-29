@@ -20,315 +20,23 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::MajorItem(
-                                    MajorItemSynNodePath::Fugitive(
-                                        FugitiveSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::MajorItem(
-                                                    MajorItemSynNodePathData::Fugitive(
-                                                        FugitiveSynNodePathData {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 1,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `FermiMatchResult`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    4,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                allow_self_type: False,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::ReturnType,
-                                    syn_expr_idx: 1,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 2,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 3,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::List {
-                            lbox_regional_token_idx: RegionalTokenIdx(
-                                5,
-                            ),
-                            items: [
-                                SynCommaListItem {
-                                    syn_expr_idx: 3,
-                                    comma_regional_token_idx: None,
-                                },
-                            ],
-                            rbox_regional_token_idx: RegionalTokenIdx(
-                                7,
-                            ),
-                        },
-                        SynExprData::FunctionApplicationOrCall {
-                            function: 1,
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                2,
-                            ),
-                            items: [
-                                SynCommaListItem {
-                                    syn_expr_idx: 2,
-                                    comma_regional_token_idx: Some(
-                                        RegionalTokenIdx(
-                                            4,
-                                        ),
-                                    ),
-                                },
-                                SynCommaListItem {
-                                    syn_expr_idx: 4,
-                                    comma_regional_token_idx: None,
-                                },
-                            ],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                8,
-                            ),
-                        },
-                        SynExprData::Block {
-                            stmts: ArenaIdxRange(
-                                1..2,
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `fermi_match`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `major_concave_components`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        3,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `almost_closed`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        6,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [
-                        SynStmtData::Eval {
-                            expr_idx: 5,
-                            eol_semicolon: Ok(
-                                None,
-                            ),
-                        },
-                    ],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::EvalExpr,
-                        syn_expr_idx: 5,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::BlockExpr,
-                        syn_expr_idx: 6,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
         data: SemaExprRegionData {
-            path: Defn(
-                MajorItem(
-                    Fugitive(
+            path: SynNodeRegionPath::Defn(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 265,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Fugitive(
+                                        FugitiveSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -338,17 +46,11 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -364,14 +66,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Ritchie(
-                                            EtherealTermRitchie(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -380,14 +76,8 @@
                                     1,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Ritchie(
-                                                EtherealTermRitchie(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -395,17 +85,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 327,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -423,14 +107,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 48,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash Vec ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -441,14 +119,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 48,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -456,17 +128,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 277,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -482,14 +148,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Ritchie(
-                                            EtherealTermRitchie(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                     ),
                                 },
                             ),
@@ -498,14 +158,8 @@
                                     3,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Ritchie(
-                                                EtherealTermRitchie(
-                                                    Id {
-                                                        value: 12,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
                                 ),
@@ -513,7 +167,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                NewList {
+                                SemaExprData::NewList {
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -527,14 +181,8 @@
                                     ],
                                     element_ty: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Ritchie(
-                                                EtherealTermRitchie(
-                                                    Id {
-                                                        value: 12,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
                                     rbox_regional_token_idx: RegionalTokenIdx(
@@ -545,14 +193,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 50,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                     ),
                                 },
                             ),
@@ -561,14 +203,8 @@
                                     4,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 50,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
                                 ),
@@ -576,7 +212,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionRitchieCall {
+                                SemaExprData::FunctionRitchieCall {
                                     function_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
@@ -662,18 +298,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -682,18 +308,8 @@
                                     5,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -701,7 +317,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Block {
+                                SemaExprData::Block {
                                     stmts: SemaStmtIdxRange(
                                         ArenaIdxRange(
                                             1..2,
@@ -712,18 +328,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -732,18 +338,8 @@
                                     6,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -757,12 +353,12 @@
                     data: [
                         SemaStmtEntry {
                             data_result: Ok(
-                                Eval {
+                                SemaStmtData::Eval {
                                     sema_expr_idx: SemaExprIdx(
                                         5,
                                     ),
                                     outcome: Some(
-                                        Coersion(
+                                        ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
                                                     TrivialFluffyCoersion {
@@ -780,18 +376,8 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -810,35 +396,23 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
             sema_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -849,9 +423,9 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: TypeOntology,
+                                        final_destination: FinalDestination::TypeOntology,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -862,43 +436,27 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Ritchie(
-                                                EtherealTermRitchie(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 264,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`FermiMatchResult`),
                                                         ),
                                                     },
-                                                    variant: Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),
                                                         parameter_contracted_tys: [
-                                                            Regular(
+                                                            FluffyRitchieParameter::Regular(
                                                                 FluffyRitchieRegularParameter {
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
@@ -915,7 +473,7 @@
                                                                     },
                                                                 },
                                                             ),
-                                                            Regular(
+                                                            FluffyRitchieParameter::Regular(
                                                                 FluffyRitchieRegularParameter {
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
@@ -941,19 +499,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Application(
-                                                    EtherealTermApplication(
-                                                        Id {
-                                                            value: 48,
-                                                        },
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Leash Vec ConcaveComponent`),
                                             ),
                                         },
                                     },
@@ -968,20 +520,14 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 48,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -995,19 +541,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Ritchie(
-                                                    EtherealTermRitchie(
-                                                        Id {
-                                                            value: 12,
-                                                        },
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                             ),
                                         },
                                     },
@@ -1020,20 +560,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Ritchie(
-                                                EtherealTermRitchie(
-                                                    Id {
-                                                        value: 12,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -1047,19 +581,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Application(
-                                                    EtherealTermApplication(
-                                                        Id {
-                                                            value: 50,
-                                                        },
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                             ),
                                         },
                                     },
@@ -1072,20 +600,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 50,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -1099,23 +621,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 264,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`FermiMatchResult`),
                                             ),
                                         },
                                     },
@@ -1128,24 +640,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -1159,23 +661,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 264,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`FermiMatchResult`),
                                             ),
                                         },
                                     },
@@ -1188,24 +680,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -1224,17 +706,7 @@
                 },
             },
             return_ty: Some(
-                EntityPath(
-                    TypeOntology(
-                        TypePath(
-                            ItemPathId(
-                                Id {
-                                    value: 264,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
+                EtherealTerm(`FermiMatchResult`),
             ),
             self_ty: None,
         },
@@ -1260,455 +732,23 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::MajorItem(
-                                    MajorItemSynNodePath::Fugitive(
-                                        FugitiveSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::MajorItem(
-                                                    MajorItemSynNodePathData::Fugitive(
-                                                        FugitiveSynNodePathData {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 1,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::Prefix {
-                                        opr: Tilde,
-                                        opr_regional_token_idx: RegionalTokenIdx(
-                                            6,
-                                        ),
-                                        opd: 1,
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 2,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`core::num::f32`, `Extern`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::Prefix {
-                                        opr: Option,
-                                        opr_regional_token_idx: RegionalTokenIdx(
-                                            10,
-                                        ),
-                                        opd: 3,
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `ConcaveComponent`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    7,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `f32`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    11,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::num::f32`, `Extern`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [
-                                        SynPatternExprData::Ident {
-                                            symbol_modifier_tokens: None,
-                                            ident_token: IdentRegionalToken {
-                                                ident: `cc`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    4,
-                                                ),
-                                            },
-                                        },
-                                    ],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [
-                                        Pure,
-                                    ],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [
-                                        SynPatternSymbol::Atom(
-                                            1,
-                                        ),
-                                    ],
-                                },
-                                pattern_symbol_maps: [
-                                    [
-                                        (
-                                            `cc`,
-                                            1,
-                                        ),
-                                    ],
-                                ],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [
-                                        Pure,
-                                    ],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [
-                                        CurrentSynSymbol {
-                                            modifier: Pure,
-                                            access_start: RegionalTokenIdx(
-                                                5,
-                                            ),
-                                            access_end: None,
-                                            data: CurrentSynSymbolData::ParenateRegularParameter {
-                                                ident: `cc`,
-                                                pattern_symbol_idx: 1,
-                                            },
-                                        },
-                                    ],
-                                },
-                                allow_self_type: False,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [
-                                    (
-                                        OrdinaryParenateParameter {
-                                            syn_pattern_root: ParenateSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 1,
-                                            },
-                                            ty_expr_idx: 2,
-                                        },
-                                        ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                    ),
-                                ],
-                            },
-                            syn_pattern_expr_roots: [
-                                SynPatternExprRoot {
-                                    kind: SynPatternExprRootKind::Parenate,
-                                    syn_pattern_expr_idx: 1,
-                                },
-                            ],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::ExplicitParameterType,
-                                    syn_expr_idx: 2,
-                                },
-                                SynExprRoot {
-                                    kind: SynExprRootKind::ReturnType,
-                                    syn_expr_idx: 4,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [
-                                (
-                                    1,
-                                    1,
-                                ),
-                            ],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::InheritedSynSymbol {
-                            ident: `cc`,
-                            regional_token_idx: RegionalTokenIdx(
-                                2,
-                            ),
-                            inherited_syn_symbol_idx: 1,
-                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                                ident: `cc`,
-                            },
-                        },
-                        SynExprData::Field {
-                            owner: 1,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                3,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `angle_change`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    4,
-                                ),
-                            },
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                6,
-                            ),
-                            LiteralData::Float(
-                                Unspecified(
-                                    UnspecifiedFloatLiteral(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                9,
-                            ),
-                            LiteralData::Float(
-                                Unspecified(
-                                    UnspecifiedFloatLiteral(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        SynExprData::Binary {
-                            lopd: 2,
-                            opr: Closed(
-                                Add,
-                            ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                5,
-                            ),
-                            ropd: 3,
-                        },
-                        SynExprData::Prefix {
-                            opr: Minus,
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                8,
-                            ),
-                            opd: 4,
-                        },
-                        SynExprData::Binary {
-                            lopd: 5,
-                            opr: Comparison(
-                                Less,
-                            ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                7,
-                            ),
-                            ropd: 6,
-                        },
-                        SynExprData::InheritedSynSymbol {
-                            ident: `cc`,
-                            regional_token_idx: RegionalTokenIdx(
-                                11,
-                            ),
-                            inherited_syn_symbol_idx: 1,
-                            inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                                ident: `cc`,
-                            },
-                        },
-                        SynExprData::Field {
-                            owner: 8,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                12,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `angle_change`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    13,
-                                ),
-                            },
-                        },
-                        SynExprData::Prefix {
-                            opr: Minus,
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                10,
-                            ),
-                            opd: 9,
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                15,
-                            ),
-                            LiteralData::Float(
-                                Unspecified(
-                                    UnspecifiedFloatLiteral(
-                                        Id {
-                                            value: 42,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        SynExprData::Binary {
-                            lopd: 10,
-                            opr: Closed(
-                                Add,
-                            ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                14,
-                            ),
-                            ropd: 11,
-                        },
-                        SynExprData::Block {
-                            stmts: ArenaIdxRange(
-                                1..3,
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [
-                        SynStmtData::Require {
-                            require_token: RequireRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    1,
-                                ),
-                            },
-                            condition: 7,
-                        },
-                        SynStmtData::Eval {
-                            expr_idx: 12,
-                            eol_semicolon: Ok(
-                                None,
-                            ),
-                        },
-                    ],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [
-                            InheritedSynSymbol {
-                                parent_symbol_idx: Current(
-                                    1,
-                                ),
-                                modifier: Pure,
-                                kind: InheritedSynSymbolKind::ParenateParameter {
-                                    ident: `cc`,
-                                },
-                            },
-                        ],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::Condition,
-                        syn_expr_idx: 7,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::EvalExpr,
-                        syn_expr_idx: 12,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::BlockExpr,
-                        syn_expr_idx: 13,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
         data: SemaExprRegionData {
-            path: Defn(
-                MajorItem(
-                    Fugitive(
+            path: SynNodeRegionPath::Defn(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 266,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Fugitive(
+                                        FugitiveSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -1718,26 +758,14 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 279,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::InheritedSynSymbol {
+                                    ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: ParenateParameter {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 279,
-                                                },
-                                            ),
-                                        ),
+                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                        ident: `cc`,
                                     },
                                 },
                             ),
@@ -1752,14 +780,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 49,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -1776,14 +798,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 49,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -1791,7 +807,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
@@ -1805,27 +821,15 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 49,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         3,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 344,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `angle_change`,
                                         regional_token_idx: RegionalTokenIdx(
                                             4,
                                         ),
@@ -1844,38 +848,16 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 259,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`f32`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 409,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -1893,18 +875,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -1915,18 +887,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -1934,11 +896,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         6,
                                     ),
-                                    Float(
+                                    LiteralData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -1954,18 +916,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -1976,18 +928,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -1995,7 +937,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Binary {
+                                SemaExprData::Binary {
                                     lopd: SemaExprIdx(
                                         2,
                                     ),
@@ -2021,18 +963,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -2041,18 +973,8 @@
                                     4,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -2060,11 +982,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         9,
                                     ),
-                                    Float(
+                                    LiteralData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -2080,7 +1002,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             0,
                                         ),
@@ -2094,7 +1016,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 0,
                                             ),
@@ -2105,7 +1027,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Prefix {
+                                SemaExprData::Prefix {
                                     opr: Minus,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         8,
@@ -2120,7 +1042,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             0,
                                         ),
@@ -2134,7 +1056,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 0,
                                             ),
@@ -2145,7 +1067,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Binary {
+                                SemaExprData::Binary {
                                     lopd: SemaExprIdx(
                                         4,
                                     ),
@@ -2171,18 +1093,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -2191,18 +1103,8 @@
                                     7,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -2210,26 +1112,14 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 279,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::InheritedSynSymbol {
+                                    ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         11,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: ParenateParameter {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 279,
-                                                },
-                                            ),
-                                        ),
+                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                        ident: `cc`,
                                     },
                                 },
                             ),
@@ -2244,14 +1134,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 49,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -2268,14 +1152,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 49,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -2283,7 +1161,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         8,
                                     ),
@@ -2297,27 +1175,15 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 49,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         12,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 344,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `angle_change`,
                                         regional_token_idx: RegionalTokenIdx(
                                             13,
                                         ),
@@ -2336,38 +1202,16 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 259,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`f32`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 409,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -2385,18 +1229,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -2407,18 +1241,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -2426,7 +1250,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Prefix {
+                                SemaExprData::Prefix {
                                     opr: Minus,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -2441,18 +1265,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -2463,18 +1277,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -2482,11 +1286,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         15,
                                     ),
-                                    Float(
+                                    LiteralData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -2502,18 +1306,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -2524,18 +1318,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -2543,7 +1327,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Binary {
+                                SemaExprData::Binary {
                                     lopd: SemaExprIdx(
                                         10,
                                     ),
@@ -2569,18 +1353,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -2589,18 +1363,8 @@
                                     12,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -2608,7 +1372,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Block {
+                                SemaExprData::Block {
                                     stmts: SemaStmtIdxRange(
                                         ArenaIdxRange(
                                             1..3,
@@ -2619,18 +1383,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -2639,18 +1393,8 @@
                                     13,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -2664,7 +1408,7 @@
                     data: [
                         SemaStmtEntry {
                             data_result: Ok(
-                                Require {
+                                SemaStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             1,
@@ -2681,30 +1425,20 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Eval {
+                                SemaStmtData::Eval {
                                     sema_expr_idx: SemaExprIdx(
                                         12,
                                     ),
                                     outcome: Some(
-                                        Coersion(
+                                        ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: WrapInSome,
                                             },
@@ -2718,18 +1452,8 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -2748,9 +1472,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
@@ -2820,114 +1542,64 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        StackPure {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    1,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 49,
-                                                },
-                                            ),
+                inherited_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                StackPure {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            1,
                                         ),
                                     ),
                                 },
                             ),
-                        ),
-                    ],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Leash ConcaveComponent`),
+                            ),
+                        },
+                    ),
+                ],
+                current_syn_symbol_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [
-                        None,
-                    ],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [
                             HollowTermEntry {
-                                data: Hole {
-                                    hole_source: Expr(
+                                data: HollowTermData::Hole {
+                                    hole_source: HoleSource::Expr(
                                         4,
                                     ),
                                     hole_kind: UnspecifiedFloatType,
                                     fill: Some(
                                         FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        CoercibleInto {
+                                        HoleConstraint::CoercibleInto {
                                             target: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`f32`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 53,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`f32`),
                                 ),
                             },
                         ],
@@ -2938,7 +1610,7 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -2957,22 +1629,16 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 49,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -2985,44 +1651,24 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: Some(
                                                 Leashed,
                                             ),
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -3037,24 +1683,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -3068,7 +1704,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -3079,26 +1715,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -3111,34 +1737,24 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 0,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -3153,16 +1769,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 0,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -3176,7 +1792,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ConditionType(
+                                expectation: Expectation::ConditionType(
                                     ExpectConditionType,
                                 ),
                                 state: ExpectationState {
@@ -3187,24 +1803,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ConditionType(
+                                            ExpectationOutcome::ConditionType(
                                                 ExpectConditionTypeOutcome {
                                                     conversion: None,
                                                 },
@@ -3214,7 +1820,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -3233,22 +1839,16 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 49,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -3261,26 +1861,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -3293,44 +1883,24 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: Some(
                                                 Leashed,
                                             ),
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -3345,24 +1915,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -3376,19 +1936,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Application(
-                                                    EtherealTermApplication(
-                                                        Id {
-                                                            value: 26,
-                                                        },
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Option f32`),
                                             ),
                                         },
                                     },
@@ -3401,24 +1955,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: WrapInSome,
                                                 },
@@ -3428,19 +1972,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Application(
-                                                    EtherealTermApplication(
-                                                        Id {
-                                                            value: 26,
-                                                        },
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Option f32`),
                                             ),
                                         },
                                     },
@@ -3453,24 +1991,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: WrapInSome,
                                                 },
@@ -3485,13 +2013,7 @@
                 },
             },
             return_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 26,
-                        },
-                    ),
-                ),
+                EtherealTerm(`Option f32`),
             ),
             self_ty: None,
         },
@@ -3517,2733 +2039,23 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::MajorItem(
-                                    MajorItemSynNodePath::Fugitive(
-                                        FugitiveSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::MajorItem(
-                                                    MajorItemSynNodePathData::Fugitive(
-                                                        FugitiveSynNodePathData {
-                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 1,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 2,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist::MnistLabel`, `Enum`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 1,
-                                        argument_expr_idx: 2,
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 4,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                ident: `Zero`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 3,
-                                        argument_expr_idx: 4,
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `OneVsAll`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    8,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `MnistLabel`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    9,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`mnist::MnistLabel`, `Enum`),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `MnistLabel`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    10,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`mnist::MnistLabel`, `Enum`),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Subitem {
-                                        parent: 3,
-                                        colon_colon_token: ColonColonRegionalToken(
-                                            RegionalTokenIdx(
-                                                11,
-                                            ),
-                                        ),
-                                        ident_token: Ok(
-                                            IdentRegionalToken {
-                                                ident: `Zero`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    12,
-                                                ),
-                                            },
-                                        ),
-                                        path: Ok(
-                                            PrincipalEntityPath::TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                ident: `Zero`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                allow_self_type: False,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::ReturnType,
-                                    syn_expr_idx: 5,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::Field {
-                            owner: 1,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                3,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `raw_contours`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    4,
-                                ),
-                            },
-                        },
-                        SynExprData::MethodApplicationOrCall {
-                            self_argument: 2,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                5,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `ilen`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    6,
-                                ),
-                            },
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                7,
-                            ),
-                            items: [],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                8,
-                            ),
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                10,
-                            ),
-                            LiteralData::Integer(
-                                UnspecifiedRegular(
-                                    1,
-                                ),
-                            ),
-                        ),
-                        SynExprData::Binary {
-                            lopd: 3,
-                            opr: Comparison(
-                                Eq,
-                            ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                9,
-                            ),
-                            ropd: 4,
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 2,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::Field {
-                            owner: 6,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                16,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `norm`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    17,
-                                ),
-                            },
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `n`,
-                            regional_token_idx: RegionalTokenIdx(
-                                19,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                pattern_symbol_idx: 1,
-                            },
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                21,
-                            ),
-                            LiteralData::Float(
-                                Unspecified(
-                                    UnspecifiedFloatLiteral(
-                                        Id {
-                                            value: 43,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        SynExprData::Binary {
-                            lopd: 8,
-                            opr: Comparison(
-                                Less,
-                            ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                20,
-                            ),
-                            ropd: 9,
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 3,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::Field {
-                            owner: 11,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                24,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `matches`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    25,
-                                ),
-                            },
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                27,
-                            ),
-                            LiteralData::Integer(
-                                UnspecifiedRegular(
-                                    0,
-                                ),
-                            ),
-                        ),
-                        SynExprData::IndexOrCompositionWithList {
-                            owner: 12,
-                            lbox_regional_token_idx: RegionalTokenIdx(
-                                26,
-                            ),
-                            items: [
-                                SynCommaListItem {
-                                    syn_expr_idx: 13,
-                                    comma_regional_token_idx: None,
-                                },
-                            ],
-                            rbox_regional_token_idx: RegionalTokenIdx(
-                                28,
-                            ),
-                        },
-                        SynExprData::Be {
-                            src: 14,
-                            be_regional_token_idx: RegionalTokenIdx(
-                                29,
-                            ),
-                            target: Ok(
-                                BePatternSynSyndicate {
-                                    pattern_expr_root: BeSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 3,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        2..2,
-                                    ),
-                                },
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 5,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::MethodApplicationOrCall {
-                            self_argument: 16,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                36,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `ilen`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    37,
-                                ),
-                            },
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                38,
-                            ),
-                            items: [],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                39,
-                            ),
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                41,
-                            ),
-                            LiteralData::Integer(
-                                UnspecifiedRegular(
-                                    1,
-                                ),
-                            ),
-                        ),
-                        SynExprData::Binary {
-                            lopd: 17,
-                            opr: Comparison(
-                                Eq,
-                            ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                40,
-                            ),
-                            ropd: 18,
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 6,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::Field {
-                            owner: 20,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                46,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `matches`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    47,
-                                ),
-                            },
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                49,
-                            ),
-                            LiteralData::Integer(
-                                UnspecifiedRegular(
-                                    0,
-                                ),
-                            ),
-                        ),
-                        SynExprData::IndexOrCompositionWithList {
-                            owner: 21,
-                            lbox_regional_token_idx: RegionalTokenIdx(
-                                48,
-                            ),
-                            items: [
-                                SynCommaListItem {
-                                    syn_expr_idx: 22,
-                                    comma_regional_token_idx: None,
-                                },
-                            ],
-                            rbox_regional_token_idx: RegionalTokenIdx(
-                                50,
-                            ),
-                        },
-                        SynExprData::Suffix {
-                            opd: 23,
-                            opr: UnwrapOrComposeWithNot,
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                51,
-                            ),
-                        },
-                        SynExprData::MethodApplicationOrCall {
-                            self_argument: 24,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                52,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `displacement`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    53,
-                                ),
-                            },
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                54,
-                            ),
-                            items: [],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                55,
-                            ),
-                        },
-                        SynExprData::MethodApplicationOrCall {
-                            self_argument: 25,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                56,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `norm`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    57,
-                                ),
-                            },
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                58,
-                            ),
-                            items: [],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                59,
-                            ),
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `c`,
-                            regional_token_idx: RegionalTokenIdx(
-                                61,
-                            ),
-                            current_syn_symbol_idx: 2,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                pattern_symbol_idx: 3,
-                            },
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                63,
-                            ),
-                            LiteralData::Float(
-                                Unspecified(
-                                    UnspecifiedFloatLiteral(
-                                        Id {
-                                            value: 44,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        SynExprData::Binary {
-                            lopd: 27,
-                            opr: Comparison(
-                                Less,
-                            ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                62,
-                            ),
-                            ropd: 28,
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 8,
-                            opt_path: Some(
-                                PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId {
-                                            data: ItemPathData::TypeVariant(
-                                                TypeVariantPathData {
-                                                    parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    ident: `Yes`,
-                                                    index: U8(
-                                                        0,
-                                                    ),
-                                                },
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 9,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 10,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::List {
-                            lbox_regional_token_idx: RegionalTokenIdx(
-                                75,
-                            ),
-                            items: [],
-                            rbox_regional_token_idx: RegionalTokenIdx(
-                                76,
-                            ),
-                        },
-                        SynExprData::FunctionApplicationOrCall {
-                            function: 31,
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                72,
-                            ),
-                            items: [
-                                SynCommaListItem {
-                                    syn_expr_idx: 32,
-                                    comma_regional_token_idx: Some(
-                                        RegionalTokenIdx(
-                                            74,
-                                        ),
-                                    ),
-                                },
-                                SynCommaListItem {
-                                    syn_expr_idx: 33,
-                                    comma_regional_token_idx: None,
-                                },
-                            ],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                77,
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 11,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `simp_zero_match`,
-                            regional_token_idx: RegionalTokenIdx(
-                                80,
-                            ),
-                            current_syn_symbol_idx: 3,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                pattern_symbol_idx: 4,
-                            },
-                        },
-                        SynExprData::Field {
-                            owner: 36,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                81,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `norm`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    82,
-                                ),
-                            },
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `simp_zero_match`,
-                            regional_token_idx: RegionalTokenIdx(
-                                84,
-                            ),
-                            current_syn_symbol_idx: 3,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                pattern_symbol_idx: 4,
-                            },
-                        },
-                        SynExprData::Field {
-                            owner: 38,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                85,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `rel_norm`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    86,
-                                ),
-                            },
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `simp_zero_match`,
-                            regional_token_idx: RegionalTokenIdx(
-                                88,
-                            ),
-                            current_syn_symbol_idx: 3,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                pattern_symbol_idx: 4,
-                            },
-                        },
-                        SynExprData::Field {
-                            owner: 40,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                89,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `angle_change_norm`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    90,
-                                ),
-                            },
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                94,
-                            ),
-                            LiteralData::Integer(
-                                UnspecifiedRegular(
-                                    5,
-                                ),
-                            ),
-                        ),
-                        SynExprData::FunctionCall {
-                            function: 35,
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                79,
-                            ),
-                            items: [
-                                RegularOrVariadic(
-                                    SynRegularOrVariadicCallListItem {
-                                        argument_expr_idx: 37,
-                                        separator: Comma(
-                                            RegionalTokenIdx(
-                                                83,
-                                            ),
-                                        ),
-                                    },
-                                ),
-                                RegularOrVariadic(
-                                    SynRegularOrVariadicCallListItem {
-                                        argument_expr_idx: 39,
-                                        separator: Comma(
-                                            RegionalTokenIdx(
-                                                87,
-                                            ),
-                                        ),
-                                    },
-                                ),
-                                RegularOrVariadic(
-                                    SynRegularOrVariadicCallListItem {
-                                        argument_expr_idx: 41,
-                                        separator: Comma(
-                                            RegionalTokenIdx(
-                                                91,
-                                            ),
-                                        ),
-                                    },
-                                ),
-                                Keyed(
-                                    SynKeyedCallListItem {
-                                        key_regional_token_idx: RegionalTokenIdx(
-                                            92,
-                                        ),
-                                        key: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 446,
-                                                },
-                                            ),
-                                        ),
-                                        argument_expr_idx: 42,
-                                        separator: None,
-                                    },
-                                ),
-                            ],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                95,
-                            ),
-                        },
-                        SynExprData::Suffix {
-                            opd: 43,
-                            opr: UnveilOrComposeWithOption,
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                96,
-                            ),
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `simp_zero_match`,
-                            regional_token_idx: RegionalTokenIdx(
-                                98,
-                            ),
-                            current_syn_symbol_idx: 3,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                pattern_symbol_idx: 4,
-                            },
-                        },
-                        SynExprData::Field {
-                            owner: 45,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                99,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `norm`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    100,
-                                ),
-                            },
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                102,
-                            ),
-                            LiteralData::Float(
-                                Unspecified(
-                                    UnspecifiedFloatLiteral(
-                                        Id {
-                                            value: 45,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        SynExprData::Binary {
-                            lopd: 46,
-                            opr: Comparison(
-                                Less,
-                            ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                101,
-                            ),
-                            ropd: 47,
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 12,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::Field {
-                            owner: 49,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                105,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `eff_holes`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    106,
-                                ),
-                            },
-                        },
-                        SynExprData::Field {
-                            owner: 50,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                107,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `matches`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    108,
-                                ),
-                            },
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                110,
-                            ),
-                            LiteralData::Integer(
-                                UnspecifiedRegular(
-                                    1,
-                                ),
-                            ),
-                        ),
-                        SynExprData::IndexOrCompositionWithList {
-                            owner: 51,
-                            lbox_regional_token_idx: RegionalTokenIdx(
-                                109,
-                            ),
-                            items: [
-                                SynCommaListItem {
-                                    syn_expr_idx: 52,
-                                    comma_regional_token_idx: None,
-                                },
-                            ],
-                            rbox_regional_token_idx: RegionalTokenIdx(
-                                111,
-                            ),
-                        },
-                        SynExprData::Be {
-                            src: 53,
-                            be_regional_token_idx: RegionalTokenIdx(
-                                112,
-                            ),
-                            target: Ok(
-                                BePatternSynSyndicate {
-                                    pattern_expr_root: BeSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 6,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        4..4,
-                                    ),
-                                },
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 14,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::Field {
-                            owner: 55,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                116,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `eff_holes`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    117,
-                                ),
-                            },
-                        },
-                        SynExprData::Field {
-                            owner: 56,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                118,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `matches`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    119,
-                                ),
-                            },
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                121,
-                            ),
-                            LiteralData::Integer(
-                                UnspecifiedRegular(
-                                    0,
-                                ),
-                            ),
-                        ),
-                        SynExprData::IndexOrCompositionWithList {
-                            owner: 57,
-                            lbox_regional_token_idx: RegionalTokenIdx(
-                                120,
-                            ),
-                            items: [
-                                SynCommaListItem {
-                                    syn_expr_idx: 58,
-                                    comma_regional_token_idx: None,
-                                },
-                            ],
-                            rbox_regional_token_idx: RegionalTokenIdx(
-                                122,
-                            ),
-                        },
-                        SynExprData::Be {
-                            src: 59,
-                            be_regional_token_idx: RegionalTokenIdx(
-                                123,
-                            ),
-                            target: Ok(
-                                BePatternSynSyndicate {
-                                    pattern_expr_root: BeSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 8,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        4..4,
-                                    ),
-                                },
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 16,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::Field {
-                            owner: 61,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                132,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `eff_holes`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    133,
-                                ),
-                            },
-                        },
-                        SynExprData::Field {
-                            owner: 62,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                134,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `matches`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    135,
-                                ),
-                            },
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                137,
-                            ),
-                            LiteralData::Integer(
-                                UnspecifiedRegular(
-                                    0,
-                                ),
-                            ),
-                        ),
-                        SynExprData::IndexOrCompositionWithList {
-                            owner: 63,
-                            lbox_regional_token_idx: RegionalTokenIdx(
-                                136,
-                            ),
-                            items: [
-                                SynCommaListItem {
-                                    syn_expr_idx: 64,
-                                    comma_regional_token_idx: None,
-                                },
-                            ],
-                            rbox_regional_token_idx: RegionalTokenIdx(
-                                138,
-                            ),
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `major_hole`,
-                            regional_token_idx: RegionalTokenIdx(
-                                142,
-                            ),
-                            current_syn_symbol_idx: 4,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                pattern_symbol_idx: 6,
-                            },
-                        },
-                        SynExprData::Suffix {
-                            opd: 66,
-                            opr: UnwrapOrComposeWithNot,
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                143,
-                            ),
-                        },
-                        SynExprData::Field {
-                            owner: 67,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                144,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `bounding_box`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    145,
-                                ),
-                            },
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `major_hole`,
-                            regional_token_idx: RegionalTokenIdx(
-                                151,
-                            ),
-                            current_syn_symbol_idx: 4,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                pattern_symbol_idx: 6,
-                            },
-                        },
-                        SynExprData::Suffix {
-                            opd: 69,
-                            opr: UnwrapOrComposeWithNot,
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                152,
-                            ),
-                        },
-                        SynExprData::Field {
-                            owner: 70,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                153,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `bounding_box`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    154,
-                                ),
-                            },
-                        },
-                        SynExprData::MethodApplicationOrCall {
-                            self_argument: 68,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                146,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `ymax`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    147,
-                                ),
-                            },
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                148,
-                            ),
-                            items: [],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                149,
-                            ),
-                        },
-                        SynExprData::MethodApplicationOrCall {
-                            self_argument: 71,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                155,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `ymin`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    156,
-                                ),
-                            },
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                157,
-                            ),
-                            items: [],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                158,
-                            ),
-                        },
-                        SynExprData::Binary {
-                            lopd: 72,
-                            opr: Closed(
-                                Sub,
-                            ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                150,
-                            ),
-                            ropd: 73,
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 17,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::Field {
-                            owner: 75,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                163,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `bounding_box`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    164,
-                                ),
-                            },
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 18,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::Field {
-                            owner: 77,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                171,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `bounding_box`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    172,
-                                ),
-                            },
-                        },
-                        SynExprData::MethodApplicationOrCall {
-                            self_argument: 76,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                165,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `ymax`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    166,
-                                ),
-                            },
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                167,
-                            ),
-                            items: [],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                168,
-                            ),
-                        },
-                        SynExprData::MethodApplicationOrCall {
-                            self_argument: 78,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                173,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `ymin`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    174,
-                                ),
-                            },
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                175,
-                            ),
-                            items: [],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                176,
-                            ),
-                        },
-                        SynExprData::Binary {
-                            lopd: 79,
-                            opr: Closed(
-                                Sub,
-                            ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                169,
-                            ),
-                            ropd: 80,
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `a`,
-                            regional_token_idx: RegionalTokenIdx(
-                                180,
-                            ),
-                            current_syn_symbol_idx: 5,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                pattern_symbol_idx: 7,
-                            },
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `b`,
-                            regional_token_idx: RegionalTokenIdx(
-                                182,
-                            ),
-                            current_syn_symbol_idx: 6,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                pattern_symbol_idx: 8,
-                            },
-                        },
-                        SynExprData::Binary {
-                            lopd: 82,
-                            opr: Closed(
-                                Div,
-                            ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                181,
-                            ),
-                            ropd: 83,
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `ratio`,
-                            regional_token_idx: RegionalTokenIdx(
-                                184,
-                            ),
-                            current_syn_symbol_idx: 7,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                pattern_symbol_idx: 9,
-                            },
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                186,
-                            ),
-                            LiteralData::Float(
-                                Unspecified(
-                                    UnspecifiedFloatLiteral(
-                                        Id {
-                                            value: 46,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        SynExprData::Binary {
-                            lopd: 85,
-                            opr: Comparison(
-                                Greater,
-                            ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                185,
-                            ),
-                            ropd: 86,
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `simp_zero_match`,
-                            regional_token_idx: RegionalTokenIdx(
-                                190,
-                            ),
-                            current_syn_symbol_idx: 3,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                pattern_symbol_idx: 4,
-                            },
-                        },
-                        SynExprData::Field {
-                            owner: 88,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                191,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `norm`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    192,
-                                ),
-                            },
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 20,
-                            opt_path: Some(
-                                PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId {
-                                            data: ItemPathData::TypeVariant(
-                                                TypeVariantPathData {
-                                                    parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    ident: `Yes`,
-                                                    index: U8(
-                                                        0,
-                                                    ),
-                                                },
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::Block {
-                            stmts: ArenaIdxRange(
-                                8..21,
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `major_connected_component`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        2,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `open_one_match`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        15,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `open_one_match`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        23,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `Some`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        30,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                TypeVariantPath(
-                                    ItemPathId {
-                                        data: ItemPathData::TypeVariant(
-                                            TypeVariantPathData {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                                index: U8(
-                                                    0,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `connected_components`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        35,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `open_one_match`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        45,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `OneVsAll`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        65,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Subitem {
-                            parent: 7,
-                            colon_colon_token: ColonColonRegionalToken(
-                                RegionalTokenIdx(
-                                    66,
-                                ),
-                            ),
-                            ident_token: Ok(
-                                IdentRegionalToken {
-                                    ident: `Yes`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        67,
-                                    ),
-                                },
-                            ),
-                            path: Ok(
-                                PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId {
-                                            data: ItemPathData::TypeVariant(
-                                                TypeVariantPathData {
-                                                    parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    ident: `Yes`,
-                                                    index: U8(
-                                                        0,
-                                                    ),
-                                                },
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `fermi_match`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        71,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `major_concave_components`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        73,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `narrow_down`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        78,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `major_connected_component`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        104,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `None`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        113,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                TypeVariantPath(
-                                    ItemPathId {
-                                        data: ItemPathData::TypeVariant(
-                                            TypeVariantPathData {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                                index: U8(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `major_connected_component`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        115,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `Some`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        124,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                TypeVariantPath(
-                                    ItemPathId {
-                                        data: ItemPathData::TypeVariant(
-                                            TypeVariantPathData {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                                index: U8(
-                                                    0,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `major_connected_component`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        131,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `major_line_segment_sketch`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        162,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `major_line_segment_sketch`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        170,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `OneVsAll`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        193,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Subitem {
-                            parent: 19,
-                            colon_colon_token: ColonColonRegionalToken(
-                                RegionalTokenIdx(
-                                    194,
-                                ),
-                            ),
-                            ident_token: Ok(
-                                IdentRegionalToken {
-                                    ident: `Yes`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        195,
-                                    ),
-                                },
-                            ),
-                            path: Ok(
-                                PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId {
-                                            data: ItemPathData::TypeVariant(
-                                                TypeVariantPathData {
-                                                    parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    ident: `Yes`,
-                                                    index: U8(
-                                                        0,
-                                                    ),
-                                                },
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [
-                        SynStmtData::Let {
-                            let_token: LetRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    12,
-                                ),
-                            },
-                            let_variables_pattern: Ok(
-                                LetPatternSynSyndicate {
-                                    syn_pattern_expr_root: LetSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 1,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        1..2,
-                                    ),
-                                    colon_token: Ok(
-                                        None,
-                                    ),
-                                    ty: None,
-                                },
-                            ),
-                            assign_token: Ok(
-                                EqRegionalToken(
-                                    RegionalTokenIdx(
-                                        14,
-                                    ),
-                                ),
-                            ),
-                            initial_value: 7,
-                        },
-                        SynStmtData::Require {
-                            require_token: RequireRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    18,
-                                ),
-                            },
-                            condition: 10,
-                        },
-                        SynStmtData::Require {
-                            require_token: RequireRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    22,
-                                ),
-                            },
-                            condition: 15,
-                        },
-                        SynStmtData::Require {
-                            require_token: RequireRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    34,
-                                ),
-                            },
-                            condition: 19,
-                        },
-                        SynStmtData::Let {
-                            let_token: LetRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    42,
-                                ),
-                            },
-                            let_variables_pattern: Ok(
-                                LetPatternSynSyndicate {
-                                    syn_pattern_expr_root: LetSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 4,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        2..3,
-                                    ),
-                                    colon_token: Ok(
-                                        None,
-                                    ),
-                                    ty: None,
-                                },
-                            ),
-                            assign_token: Ok(
-                                EqRegionalToken(
-                                    RegionalTokenIdx(
-                                        44,
-                                    ),
-                                ),
-                            ),
-                            initial_value: 26,
-                        },
-                        SynStmtData::Require {
-                            require_token: RequireRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    60,
-                                ),
-                            },
-                            condition: 29,
-                        },
-                        SynStmtData::Return {
-                            return_token: ReturnRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    64,
-                                ),
-                            },
-                            result: 30,
-                        },
-                        SynStmtData::IfElse {
-                            if_branch: SynIfBranch {
-                                if_token: IfRegionalToken {
-                                    regional_token_idx: RegionalTokenIdx(
-                                        1,
-                                    ),
-                                },
-                                condition: Ok(
-                                    5,
-                                ),
-                                eol_colon: Ok(
-                                    EolColonRegionalToken {
-                                        regional_token_idx: RegionalTokenIdx(
-                                            11,
-                                        ),
-                                    },
-                                ),
-                                stmts: ArenaIdxRange(
-                                    1..8,
-                                ),
-                            },
-                            elif_branches: [],
-                            else_branch: None,
-                        },
-                        SynStmtData::Let {
-                            let_token: LetRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    68,
-                                ),
-                            },
-                            let_variables_pattern: Ok(
-                                LetPatternSynSyndicate {
-                                    syn_pattern_expr_root: LetSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 5,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        3..4,
-                                    ),
-                                    colon_token: Ok(
-                                        None,
-                                    ),
-                                    ty: None,
-                                },
-                            ),
-                            assign_token: Ok(
-                                EqRegionalToken(
-                                    RegionalTokenIdx(
-                                        70,
-                                    ),
-                                ),
-                            ),
-                            initial_value: 34,
-                        },
-                        SynStmtData::Eval {
-                            expr_idx: 44,
-                            eol_semicolon: Ok(
-                                None,
-                            ),
-                        },
-                        SynStmtData::Require {
-                            require_token: RequireRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    97,
-                                ),
-                            },
-                            condition: 48,
-                        },
-                        SynStmtData::Require {
-                            require_token: RequireRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    103,
-                                ),
-                            },
-                            condition: 54,
-                        },
-                        SynStmtData::Require {
-                            require_token: RequireRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    114,
-                                ),
-                            },
-                            condition: 60,
-                        },
-                        SynStmtData::Let {
-                            let_token: LetRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    128,
-                                ),
-                            },
-                            let_variables_pattern: Ok(
-                                LetPatternSynSyndicate {
-                                    syn_pattern_expr_root: LetSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 9,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        4..5,
-                                    ),
-                                    colon_token: Ok(
-                                        None,
-                                    ),
-                                    ty: None,
-                                },
-                            ),
-                            assign_token: Ok(
-                                EqRegionalToken(
-                                    RegionalTokenIdx(
-                                        130,
-                                    ),
-                                ),
-                            ),
-                            initial_value: 65,
-                        },
-                        SynStmtData::Let {
-                            let_token: LetRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    139,
-                                ),
-                            },
-                            let_variables_pattern: Ok(
-                                LetPatternSynSyndicate {
-                                    syn_pattern_expr_root: LetSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 10,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        5..6,
-                                    ),
-                                    colon_token: Ok(
-                                        None,
-                                    ),
-                                    ty: None,
-                                },
-                            ),
-                            assign_token: Ok(
-                                EqRegionalToken(
-                                    RegionalTokenIdx(
-                                        141,
-                                    ),
-                                ),
-                            ),
-                            initial_value: 74,
-                        },
-                        SynStmtData::Let {
-                            let_token: LetRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    159,
-                                ),
-                            },
-                            let_variables_pattern: Ok(
-                                LetPatternSynSyndicate {
-                                    syn_pattern_expr_root: LetSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 11,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        6..7,
-                                    ),
-                                    colon_token: Ok(
-                                        None,
-                                    ),
-                                    ty: None,
-                                },
-                            ),
-                            assign_token: Ok(
-                                EqRegionalToken(
-                                    RegionalTokenIdx(
-                                        161,
-                                    ),
-                                ),
-                            ),
-                            initial_value: 81,
-                        },
-                        SynStmtData::Let {
-                            let_token: LetRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    177,
-                                ),
-                            },
-                            let_variables_pattern: Ok(
-                                LetPatternSynSyndicate {
-                                    syn_pattern_expr_root: LetSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 12,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        7..8,
-                                    ),
-                                    colon_token: Ok(
-                                        None,
-                                    ),
-                                    ty: None,
-                                },
-                            ),
-                            assign_token: Ok(
-                                EqRegionalToken(
-                                    RegionalTokenIdx(
-                                        179,
-                                    ),
-                                ),
-                            ),
-                            initial_value: 84,
-                        },
-                        SynStmtData::Require {
-                            require_token: RequireRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    183,
-                                ),
-                            },
-                            condition: 87,
-                        },
-                        SynStmtData::Let {
-                            let_token: LetRegionalToken {
-                                regional_token_idx: RegionalTokenIdx(
-                                    187,
-                                ),
-                            },
-                            let_variables_pattern: Ok(
-                                LetPatternSynSyndicate {
-                                    syn_pattern_expr_root: LetSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 13,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        8..9,
-                                    ),
-                                    colon_token: Ok(
-                                        None,
-                                    ),
-                                    ty: None,
-                                },
-                            ),
-                            assign_token: Ok(
-                                EqRegionalToken(
-                                    RegionalTokenIdx(
-                                        189,
-                                    ),
-                                ),
-                            ),
-                            initial_value: 89,
-                        },
-                        SynStmtData::Eval {
-                            expr_idx: 90,
-                            eol_semicolon: Ok(
-                                None,
-                            ),
-                        },
-                    ],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `n`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        13,
-                                    ),
-                                },
-                            },
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `_`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        32,
-                                    ),
-                                },
-                            },
-                            SynPatternExprData::TupleTypeVariant {
-                                path_expr_idx: 4,
-                                path: TypeVariantPath(
-                                    ItemPathId {
-                                        data: ItemPathData::TypeVariant(
-                                            TypeVariantPathData {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                                index: U8(
-                                                    0,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                ),
-                                lpar: LparRegionalToken(
-                                    RegionalTokenIdx(
-                                        31,
-                                    ),
-                                ),
-                                fields: PunctuatedSmallList {
-                                    elements: [
-                                        SynPatternComponent(
-                                            2,
-                                        ),
-                                    ],
-                                    separators: [],
-                                    phantom: PhantomData<husky_syn_expr::error::SynExprError>,
-                                },
-                                rpar: RparRegionalToken(
-                                    RegionalTokenIdx(
-                                        33,
-                                    ),
-                                ),
-                            },
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `c`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        43,
-                                    ),
-                                },
-                            },
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `simp_zero_match`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        69,
-                                    ),
-                                },
-                            },
-                            SynPatternExprData::UnitTypeVariant {
-                                path_expr_idx: 13,
-                                path: TypeVariantPath(
-                                    ItemPathId {
-                                        data: ItemPathData::TypeVariant(
-                                            TypeVariantPathData {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `None`,
-                                                index: U8(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                ),
-                            },
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `_`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        126,
-                                    ),
-                                },
-                            },
-                            SynPatternExprData::TupleTypeVariant {
-                                path_expr_idx: 15,
-                                path: TypeVariantPath(
-                                    ItemPathId {
-                                        data: ItemPathData::TypeVariant(
-                                            TypeVariantPathData {
-                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                ident: `Some`,
-                                                index: U8(
-                                                    0,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                ),
-                                lpar: LparRegionalToken(
-                                    RegionalTokenIdx(
-                                        125,
-                                    ),
-                                ),
-                                fields: PunctuatedSmallList {
-                                    elements: [
-                                        SynPatternComponent(
-                                            7,
-                                        ),
-                                    ],
-                                    separators: [],
-                                    phantom: PhantomData<husky_syn_expr::error::SynExprError>,
-                                },
-                                rpar: RparRegionalToken(
-                                    RegionalTokenIdx(
-                                        127,
-                                    ),
-                                ),
-                            },
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `major_hole`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        129,
-                                    ),
-                                },
-                            },
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `a`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        140,
-                                    ),
-                                },
-                            },
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `b`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        160,
-                                    ),
-                                },
-                            },
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `ratio`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        178,
-                                    ),
-                                },
-                            },
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `a`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        188,
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                        ],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [
-                            SynPatternSymbol::Atom(
-                                1,
-                            ),
-                            SynPatternSymbol::Atom(
-                                2,
-                            ),
-                            SynPatternSymbol::Atom(
-                                4,
-                            ),
-                            SynPatternSymbol::Atom(
-                                5,
-                            ),
-                            SynPatternSymbol::Atom(
-                                7,
-                            ),
-                            SynPatternSymbol::Atom(
-                                9,
-                            ),
-                            SynPatternSymbol::Atom(
-                                10,
-                            ),
-                            SynPatternSymbol::Atom(
-                                11,
-                            ),
-                            SynPatternSymbol::Atom(
-                                12,
-                            ),
-                            SynPatternSymbol::Atom(
-                                13,
-                            ),
-                        ],
-                    },
-                    pattern_symbol_maps: [
-                        [
-                            (
-                                `n`,
-                                1,
-                            ),
-                        ],
-                        [
-                            (
-                                `_`,
-                                2,
-                            ),
-                        ],
-                        [],
-                        [
-                            (
-                                `c`,
-                                3,
-                            ),
-                        ],
-                        [
-                            (
-                                `simp_zero_match`,
-                                4,
-                            ),
-                        ],
-                        [],
-                        [
-                            (
-                                `_`,
-                                5,
-                            ),
-                        ],
-                        [],
-                        [
-                            (
-                                `major_hole`,
-                                6,
-                            ),
-                        ],
-                        [
-                            (
-                                `a`,
-                                7,
-                            ),
-                        ],
-                        [
-                            (
-                                `b`,
-                                8,
-                            ),
-                        ],
-                        [
-                            (
-                                `ratio`,
-                                9,
-                            ),
-                        ],
-                        [
-                            (
-                                `a`,
-                                10,
-                            ),
-                        ],
-                    ],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                            Pure,
-                        ],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    14,
-                                ),
-                                access_end: Some(
-                                    RegionalTokenIdxRangeEnd(
-                                        RegionalTokenIdx(
-                                            68,
-                                        ),
-                                    ),
-                                ),
-                                data: CurrentSynSymbolData::LetVariable {
-                                    ident: `n`,
-                                    pattern_symbol_idx: 1,
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    44,
-                                ),
-                                access_end: Some(
-                                    RegionalTokenIdxRangeEnd(
-                                        RegionalTokenIdx(
-                                            68,
-                                        ),
-                                    ),
-                                ),
-                                data: CurrentSynSymbolData::LetVariable {
-                                    ident: `c`,
-                                    pattern_symbol_idx: 3,
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    70,
-                                ),
-                                access_end: Some(
-                                    RegionalTokenIdxRangeEnd(
-                                        RegionalTokenIdx(
-                                            196,
-                                        ),
-                                    ),
-                                ),
-                                data: CurrentSynSymbolData::LetVariable {
-                                    ident: `simp_zero_match`,
-                                    pattern_symbol_idx: 4,
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    130,
-                                ),
-                                access_end: Some(
-                                    RegionalTokenIdxRangeEnd(
-                                        RegionalTokenIdx(
-                                            196,
-                                        ),
-                                    ),
-                                ),
-                                data: CurrentSynSymbolData::LetVariable {
-                                    ident: `major_hole`,
-                                    pattern_symbol_idx: 6,
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    141,
-                                ),
-                                access_end: Some(
-                                    RegionalTokenIdxRangeEnd(
-                                        RegionalTokenIdx(
-                                            196,
-                                        ),
-                                    ),
-                                ),
-                                data: CurrentSynSymbolData::LetVariable {
-                                    ident: `a`,
-                                    pattern_symbol_idx: 7,
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    161,
-                                ),
-                                access_end: Some(
-                                    RegionalTokenIdxRangeEnd(
-                                        RegionalTokenIdx(
-                                            196,
-                                        ),
-                                    ),
-                                ),
-                                data: CurrentSynSymbolData::LetVariable {
-                                    ident: `b`,
-                                    pattern_symbol_idx: 8,
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    179,
-                                ),
-                                access_end: Some(
-                                    RegionalTokenIdxRangeEnd(
-                                        RegionalTokenIdx(
-                                            196,
-                                        ),
-                                    ),
-                                ),
-                                data: CurrentSynSymbolData::LetVariable {
-                                    ident: `ratio`,
-                                    pattern_symbol_idx: 9,
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    189,
-                                ),
-                                access_end: Some(
-                                    RegionalTokenIdxRangeEnd(
-                                        RegionalTokenIdx(
-                                            196,
-                                        ),
-                                    ),
-                                ),
-                                data: CurrentSynSymbolData::LetVariable {
-                                    ident: `a`,
-                                    pattern_symbol_idx: 10,
-                                },
-                            },
-                        ],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Let,
-                        syn_pattern_expr_idx: 1,
-                    },
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Be,
-                        syn_pattern_expr_idx: 3,
-                    },
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Let,
-                        syn_pattern_expr_idx: 4,
-                    },
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Let,
-                        syn_pattern_expr_idx: 5,
-                    },
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Be,
-                        syn_pattern_expr_idx: 6,
-                    },
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Be,
-                        syn_pattern_expr_idx: 8,
-                    },
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Let,
-                        syn_pattern_expr_idx: 9,
-                    },
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Let,
-                        syn_pattern_expr_idx: 10,
-                    },
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Let,
-                        syn_pattern_expr_idx: 11,
-                    },
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Let,
-                        syn_pattern_expr_idx: 12,
-                    },
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Let,
-                        syn_pattern_expr_idx: 13,
-                    },
-                ],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::LetStmtInitialValue,
-                        syn_expr_idx: 7,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::Condition,
-                        syn_expr_idx: 10,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::Condition,
-                        syn_expr_idx: 15,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::Condition,
-                        syn_expr_idx: 19,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::LetStmtInitialValue,
-                        syn_expr_idx: 26,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::Condition,
-                        syn_expr_idx: 29,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::ReturnExpr,
-                        syn_expr_idx: 30,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::LetStmtInitialValue,
-                        syn_expr_idx: 34,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::EvalExpr,
-                        syn_expr_idx: 44,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::Condition,
-                        syn_expr_idx: 48,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::Condition,
-                        syn_expr_idx: 54,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::Condition,
-                        syn_expr_idx: 60,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::LetStmtInitialValue,
-                        syn_expr_idx: 65,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::LetStmtInitialValue,
-                        syn_expr_idx: 74,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::LetStmtInitialValue,
-                        syn_expr_idx: 81,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::LetStmtInitialValue,
-                        syn_expr_idx: 84,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::Condition,
-                        syn_expr_idx: 87,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::LetStmtInitialValue,
-                        syn_expr_idx: 89,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::EvalExpr,
-                        syn_expr_idx: 90,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::BlockExpr,
-                        syn_expr_idx: 91,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [
-                    (
-                        1,
-                        1,
-                    ),
-                    (
-                        3,
-                        2,
-                    ),
-                    (
-                        4,
-                        3,
-                    ),
-                    (
-                        6,
-                        4,
-                    ),
-                    (
-                        7,
-                        5,
-                    ),
-                    (
-                        8,
-                        6,
-                    ),
-                    (
-                        9,
-                        7,
-                    ),
-                    (
-                        10,
-                        8,
-                    ),
-                ],
-            },
-        },
         data: SemaExprRegionData {
-            path: Defn(
-                MajorItem(
-                    Fugitive(
+            path: SynNodeRegionPath::Defn(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 267,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Fugitive(
+                                        FugitiveSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -6253,17 +2065,11 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 322,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -6281,14 +2087,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 28,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
                             ),
@@ -6299,14 +2099,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 28,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
                                 ),
@@ -6314,7 +2108,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
@@ -6322,27 +2116,15 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 28,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         3,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 249,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `raw_contours`,
                                         regional_token_idx: RegionalTokenIdx(
                                             4,
                                         ),
@@ -6355,34 +2137,16 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 224,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Vec RawContour`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 383,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -6400,14 +2164,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 43,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vec RawContour`),
                                     ),
                                 },
                             ),
@@ -6418,14 +2176,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec RawContour`),
                                         ),
                                     },
                                 ),
@@ -6433,7 +2185,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                MethodFnCall {
+                                SemaExprData::MethodFnCall {
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         2,
                                     ),
@@ -6442,13 +2194,7 @@
                                         5,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 134,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `ilen`,
                                         regional_token_idx: RegionalTokenIdx(
                                             6,
                                         ),
@@ -6553,18 +2299,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 43,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -6573,18 +2309,8 @@
                                     3,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -6592,11 +2318,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         10,
                                     ),
-                                    Integer(
+                                    LiteralData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -6608,18 +2334,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 43,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -6630,18 +2346,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -6649,7 +2355,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Binary {
+                                SemaExprData::Binary {
                                     lopd: SemaExprIdx(
                                         3,
                                     ),
@@ -6675,18 +2381,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -6695,18 +2391,8 @@
                                     5,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -6714,17 +2400,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 276,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -6742,18 +2422,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -6764,18 +2434,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -6783,7 +2443,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         6,
                                     ),
@@ -6791,31 +2451,15 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 347,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `norm`,
                                         regional_token_idx: RegionalTokenIdx(
                                             17,
                                         ),
@@ -6826,38 +2470,16 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 264,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`f32`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 423,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -6875,18 +2497,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -6897,18 +2509,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -6916,19 +2518,13 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 440,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `n`,
                                     regional_token_idx: RegionalTokenIdx(
                                         19,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: LetVariable {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                         pattern_symbol_idx: 1,
                                     },
                                 },
@@ -6944,18 +2540,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -6972,18 +2558,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -6991,11 +2567,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         21,
                                     ),
-                                    Float(
+                                    LiteralData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -7011,18 +2587,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -7033,18 +2599,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -7052,7 +2608,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Binary {
+                                SemaExprData::Binary {
                                     lopd: SemaExprIdx(
                                         8,
                                     ),
@@ -7078,18 +2634,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -7098,18 +2644,8 @@
                                     10,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -7117,17 +2653,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 276,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -7145,18 +2675,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -7167,18 +2687,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -7186,7 +2696,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         11,
                                     ),
@@ -7194,31 +2704,15 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         24,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 241,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                         regional_token_idx: RegionalTokenIdx(
                                             25,
                                         ),
@@ -7229,24 +2723,12 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 264,
-                                                },
-                                            ),
-                                        ),
-                                        signature: PropsStruct {
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        signature: FluffyFieldSignature::PropsStruct {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 63,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Vec Option Leash ConcaveComponent`),
                                                 ),
                                             },
                                         },
@@ -7258,14 +2740,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 63,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vec Option Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -7276,14 +2752,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 63,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -7291,11 +2761,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         27,
                                     ),
-                                    Integer(
+                                    LiteralData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -7307,7 +2777,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             0,
                                         ),
@@ -7321,7 +2791,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 0,
                                             ),
@@ -7332,7 +2802,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Index {
+                                SemaExprData::Index {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         12,
                                     ),
@@ -7378,14 +2848,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 62,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -7396,14 +2860,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 62,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -7411,7 +2869,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Be {
+                                SemaExprData::Be {
                                     src: SemaExprIdx(
                                         14,
                                     ),
@@ -7431,18 +2889,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -7451,18 +2899,8 @@
                                     16,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -7470,17 +2908,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 5,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 321,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -7498,14 +2930,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 31,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vec ConnectedComponent`),
                                     ),
                                 },
                             ),
@@ -7516,14 +2942,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 31,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec ConnectedComponent`),
                                         ),
                                     },
                                 ),
@@ -7531,7 +2951,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                MethodFnCall {
+                                SemaExprData::MethodFnCall {
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         16,
                                     ),
@@ -7540,13 +2960,7 @@
                                         36,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 134,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `ilen`,
                                         regional_token_idx: RegionalTokenIdx(
                                             37,
                                         ),
@@ -7651,18 +3065,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 43,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -7671,18 +3075,8 @@
                                     18,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -7690,11 +3084,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         41,
                                     ),
-                                    Integer(
+                                    LiteralData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -7706,18 +3100,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 43,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -7728,18 +3112,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -7747,7 +3121,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Binary {
+                                SemaExprData::Binary {
                                     lopd: SemaExprIdx(
                                         17,
                                     ),
@@ -7773,18 +3147,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -7793,18 +3157,8 @@
                                     20,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -7812,17 +3166,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 6,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 276,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -7840,18 +3188,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -7862,18 +3200,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -7881,7 +3209,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         20,
                                     ),
@@ -7889,31 +3217,15 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         46,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 241,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                         regional_token_idx: RegionalTokenIdx(
                                             47,
                                         ),
@@ -7924,24 +3236,12 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 264,
-                                                },
-                                            ),
-                                        ),
-                                        signature: PropsStruct {
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        signature: FluffyFieldSignature::PropsStruct {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 63,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Vec Option Leash ConcaveComponent`),
                                                 ),
                                             },
                                         },
@@ -7953,14 +3253,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 63,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vec Option Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -7971,14 +3265,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 63,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -7986,11 +3274,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         49,
                                     ),
-                                    Integer(
+                                    LiteralData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -8002,7 +3290,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             1,
                                         ),
@@ -8016,7 +3304,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 1,
                                             ),
@@ -8027,7 +3315,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Index {
+                                SemaExprData::Index {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         21,
                                     ),
@@ -8073,14 +3361,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 62,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -8091,14 +3373,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 62,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -8106,7 +3382,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Unwrap {
+                                SemaExprData::Unwrap {
                                     opd_sema_expr_idx: SemaExprIdx(
                                         23,
                                     ),
@@ -8118,14 +3394,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 49,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -8134,14 +3404,8 @@
                                     26,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 49,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -8149,7 +3413,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                MethodFnCall {
+                                SemaExprData::MethodFnCall {
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         24,
                                     ),
@@ -8158,13 +3422,7 @@
                                         52,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 295,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `displacement`,
                                         regional_token_idx: RegionalTokenIdx(
                                             53,
                                         ),
@@ -8249,18 +3507,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 244,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vector2d`),
                                     ),
                                 },
                             ),
@@ -8269,18 +3517,8 @@
                                     27,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 244,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vector2d`),
                                         ),
                                     },
                                 ),
@@ -8288,7 +3526,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                MethodFnCall {
+                                SemaExprData::MethodFnCall {
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         25,
                                     ),
@@ -8297,13 +3535,7 @@
                                         56,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 347,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `norm`,
                                         regional_token_idx: RegionalTokenIdx(
                                             57,
                                         ),
@@ -8386,18 +3618,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -8406,18 +3628,8 @@
                                     28,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -8425,19 +3637,13 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 442,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `c`,
                                     regional_token_idx: RegionalTokenIdx(
                                         61,
                                     ),
                                     current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: LetVariable {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                         pattern_symbol_idx: 3,
                                     },
                                 },
@@ -8453,18 +3659,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -8481,18 +3677,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -8500,11 +3686,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         63,
                                     ),
-                                    Float(
+                                    LiteralData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -8520,18 +3706,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -8542,18 +3718,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -8561,7 +3727,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Binary {
+                                SemaExprData::Binary {
                                     lopd: SemaExprIdx(
                                         27,
                                     ),
@@ -8587,18 +3753,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -8607,18 +3763,8 @@
                                     31,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -8626,15 +3772,21 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 8,
-                                    path: TypeVariant(
+                                    path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 332,
-                                                },
-                                            ),
+                                            ItemPathId {
+                                                data: ItemPathData::TypeVariant(
+                                                    TypeVariantPathData {
+                                                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ident: `Yes`,
+                                                        index: U8(
+                                                            0,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -8685,7 +3837,7 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             4,
                                         ),
@@ -8697,7 +3849,7 @@
                                     32,
                                     FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 4,
                                             ),
@@ -8708,17 +3860,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 9,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -8734,14 +3880,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Ritchie(
-                                            EtherealTermRitchie(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -8750,14 +3890,8 @@
                                     35,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Ritchie(
-                                                EtherealTermRitchie(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -8765,17 +3899,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 10,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 327,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -8793,14 +3921,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 48,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash Vec ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -8811,14 +3933,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 48,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -8826,21 +3942,15 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                NewList {
+                                SemaExprData::NewList {
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         75,
                                     ),
                                     items: [],
                                     element_ty: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Ritchie(
-                                                EtherealTermRitchie(
-                                                    Id {
-                                                        value: 12,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
                                     rbox_regional_token_idx: RegionalTokenIdx(
@@ -8851,14 +3961,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 50,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                     ),
                                 },
                             ),
@@ -8867,14 +3971,8 @@
                                     37,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 50,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
                                 ),
@@ -8882,7 +3980,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionRitchieCall {
+                                SemaExprData::FunctionRitchieCall {
                                     function_sema_expr_idx: SemaExprIdx(
                                         31,
                                     ),
@@ -8968,18 +4066,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -8988,18 +4076,8 @@
                                     38,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -9007,17 +4085,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 11,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 338,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -9068,7 +4140,7 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             8,
                                         ),
@@ -9080,7 +4152,7 @@
                                     39,
                                     FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 8,
                                             ),
@@ -9091,19 +4163,13 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 444,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `simp_zero_match`,
                                     regional_token_idx: RegionalTokenIdx(
                                         80,
                                     ),
                                     current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: LetVariable {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                         pattern_symbol_idx: 4,
                                     },
                                 },
@@ -9119,18 +4185,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -9147,18 +4203,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -9166,7 +4212,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         36,
                                     ),
@@ -9180,31 +4226,15 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         81,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 347,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `norm`,
                                         regional_token_idx: RegionalTokenIdx(
                                             82,
                                         ),
@@ -9227,38 +4257,16 @@
                                                 ),
                                             },
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 264,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`f32`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 423,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -9282,18 +4290,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -9310,18 +4308,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -9329,19 +4317,13 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 444,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `simp_zero_match`,
                                     regional_token_idx: RegionalTokenIdx(
                                         84,
                                     ),
                                     current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: LetVariable {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                         pattern_symbol_idx: 4,
                                     },
                                 },
@@ -9357,18 +4339,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -9385,18 +4357,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -9404,7 +4366,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         38,
                                     ),
@@ -9418,31 +4380,15 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         85,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 406,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `rel_norm`,
                                         regional_token_idx: RegionalTokenIdx(
                                             86,
                                         ),
@@ -9465,38 +4411,16 @@
                                                 ),
                                             },
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 264,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`f32`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 424,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -9520,18 +4444,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -9548,18 +4462,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -9567,19 +4471,13 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 444,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `simp_zero_match`,
                                     regional_token_idx: RegionalTokenIdx(
                                         88,
                                     ),
                                     current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: LetVariable {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                         pattern_symbol_idx: 4,
                                     },
                                 },
@@ -9595,18 +4493,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -9623,18 +4511,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -9642,7 +4520,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         40,
                                     ),
@@ -9656,31 +4534,15 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         89,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 430,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `angle_change_norm`,
                                         regional_token_idx: RegionalTokenIdx(
                                             90,
                                         ),
@@ -9703,38 +4565,16 @@
                                                 ),
                                             },
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 264,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`f32`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 425,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -9758,18 +4598,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -9786,18 +4616,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -9805,11 +4625,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         94,
                                     ),
-                                    Integer(
+                                    LiteralData::Integer(
                                         UnspecifiedRegular(
                                             5,
                                         ),
@@ -9821,18 +4641,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 43,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -9843,18 +4653,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -9862,7 +4662,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionRitchieCall {
+                                SemaExprData::FunctionRitchieCall {
                                     function_sema_expr_idx: SemaExprIdx(
                                         35,
                                     ),
@@ -10034,7 +4834,7 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             7,
                                         ),
@@ -10046,7 +4846,7 @@
                                     47,
                                     FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 7,
                                             ),
@@ -10057,7 +4857,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Unveil {
+                                SemaExprData::Unveil {
                                     opd_sema_expr_idx: SemaExprIdx(
                                         43,
                                     ),
@@ -10066,98 +4866,113 @@
                                     ),
                                     unveil_output_ty_signature: TraitForTypeAssociatedTypeEtherealSignature {
                                         path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 426,
-                                                },
-                                            ),
+                                            ItemPathId {
+                                                data: ItemPathData::AssociatedItem(
+                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                        TraitForTypeItemPathData {
+                                                            impl_block: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `malamute`,
+                                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                            ident: `Output`,
+                                                            item_kind: AssociatedType,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
                                         ),
                                         instantiation: EtherealInstantiation {
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
-                                                        Id {
-                                                            value: 7,
+                                                    EtherealTermSymbol {
+                                                        toolchain: Toolchain {
+                                                            data: ToolchainData::Local {
+                                                                library_path: VirtualPath {
+                                                                    _data: VirtualPathBuf(
+                                                                        "../../../library",
+                                                                    ),
+                                                                },
+                                                            },
                                                         },
-                                                    ),
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 342,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        ty: EtherealTerm(`Type`),
+                                                        index: EtherealTermSymbolIndex(
+                                                            EtherealTermSymbolIndexInner::Type {
+                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                                    class: Phantom,
+                                                                },
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
                                                         ),
-                                                    ),
+                                                    },
+                                                    EtherealTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EtherealTermSymbol(
-                                                        Id {
-                                                            value: 8,
+                                                    EtherealTermSymbol {
+                                                        toolchain: Toolchain {
+                                                            data: ToolchainData::Local {
+                                                                library_path: VirtualPath {
+                                                                    _data: VirtualPathBuf(
+                                                                        "../../../library",
+                                                                    ),
+                                                                },
+                                                            },
                                                         },
-                                                    ),
-                                                    EntityPath(
-                                                        TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 343,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        ty: EtherealTerm(`t`),
+                                                        index: EtherealTermSymbolIndex(
+                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                                attrs: EtherealTemplateSymbolAttrs {
+                                                                    class: Phantom,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
                                                         ),
-                                                    ),
+                                                    },
+                                                    EtherealTerm(`Zero`),
                                                 ),
                                             ],
                                             separator: Some(
                                                 2,
                                             ),
                                         },
-                                        ty_term: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                        ty_term: EtherealTerm(`unit`),
                                     },
                                     unveil_associated_fn_path: TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 427,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::AssociatedItem(
+                                                AssociatedItemPathData::TraitForTypeItem(
+                                                    TraitForTypeItemPathData {
+                                                        impl_block: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `malamute`,
+                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                        ident: `unveil`,
+                                                        item_kind: AssociatedFunctionFn,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
-                                    return_ty: Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    return_ty: EtherealTerm(`OneVsAll MnistLabel Zero`),
                                 },
                             ),
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
@@ -10166,18 +4981,8 @@
                                     50,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 23,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`unit`),
                                         ),
                                     },
                                 ),
@@ -10185,19 +4990,13 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 444,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `simp_zero_match`,
                                     regional_token_idx: RegionalTokenIdx(
                                         98,
                                     ),
                                     current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: LetVariable {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                         pattern_symbol_idx: 4,
                                     },
                                 },
@@ -10213,18 +5012,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -10241,18 +5030,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -10260,7 +5039,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         45,
                                     ),
@@ -10274,31 +5053,15 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         99,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 347,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `norm`,
                                         regional_token_idx: RegionalTokenIdx(
                                             100,
                                         ),
@@ -10321,38 +5084,16 @@
                                                 ),
                                             },
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 264,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`f32`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 423,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -10376,18 +5117,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -10404,18 +5135,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -10423,11 +5144,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         102,
                                     ),
-                                    Float(
+                                    LiteralData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -10443,18 +5164,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -10465,18 +5176,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -10484,7 +5185,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Binary {
+                                SemaExprData::Binary {
                                     lopd: SemaExprIdx(
                                         46,
                                     ),
@@ -10510,18 +5211,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -10530,18 +5221,8 @@
                                     54,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -10549,17 +5230,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 12,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 322,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10577,14 +5252,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 28,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
                             ),
@@ -10595,14 +5264,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 28,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
                                 ),
@@ -10610,7 +5273,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         49,
                                     ),
@@ -10618,27 +5281,15 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 28,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         105,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 251,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `eff_holes`,
                                         regional_token_idx: RegionalTokenIdx(
                                             106,
                                         ),
@@ -10651,38 +5302,16 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 224,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 222,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`EffHoles`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 384,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -10700,18 +5329,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 222,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`EffHoles`),
                                     ),
                                 },
                             ),
@@ -10722,18 +5341,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 222,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`EffHoles`),
                                         ),
                                     },
                                 ),
@@ -10741,7 +5350,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         50,
                                     ),
@@ -10749,31 +5358,15 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 222,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`EffHoles`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         107,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 241,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                         regional_token_idx: RegionalTokenIdx(
                                             108,
                                         ),
@@ -10784,24 +5377,12 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 222,
-                                                },
-                                            ),
-                                        ),
-                                        signature: PropsStruct {
+                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        signature: FluffyFieldSignature::PropsStruct {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 46,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Vec Option Leash RawContour`),
                                                 ),
                                             },
                                         },
@@ -10813,14 +5394,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 46,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vec Option Leash RawContour`),
                                     ),
                                 },
                             ),
@@ -10831,14 +5406,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 46,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec Option Leash RawContour`),
                                         ),
                                     },
                                 ),
@@ -10846,11 +5415,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         110,
                                     ),
-                                    Integer(
+                                    LiteralData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -10862,7 +5431,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             9,
                                         ),
@@ -10876,7 +5445,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 9,
                                             ),
@@ -10887,7 +5456,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Index {
+                                SemaExprData::Index {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         51,
                                     ),
@@ -10933,14 +5502,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash RawContour`),
                                     ),
                                 },
                             ),
@@ -10951,14 +5514,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 45,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash RawContour`),
                                         ),
                                     },
                                 ),
@@ -10966,7 +5523,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Be {
+                                SemaExprData::Be {
                                     src: SemaExprIdx(
                                         53,
                                     ),
@@ -10986,18 +5543,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -11006,18 +5553,8 @@
                                     61,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -11025,17 +5562,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 14,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 322,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -11053,14 +5584,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 28,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
                             ),
@@ -11071,14 +5596,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 28,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
                                 ),
@@ -11086,7 +5605,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         55,
                                     ),
@@ -11094,27 +5613,15 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 28,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         116,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 251,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `eff_holes`,
                                         regional_token_idx: RegionalTokenIdx(
                                             117,
                                         ),
@@ -11127,38 +5634,16 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 224,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 222,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`EffHoles`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 384,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -11176,18 +5661,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 222,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`EffHoles`),
                                     ),
                                 },
                             ),
@@ -11198,18 +5673,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 222,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`EffHoles`),
                                         ),
                                     },
                                 ),
@@ -11217,7 +5682,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         56,
                                     ),
@@ -11225,31 +5690,15 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 222,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`EffHoles`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         118,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 241,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                         regional_token_idx: RegionalTokenIdx(
                                             119,
                                         ),
@@ -11260,24 +5709,12 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 222,
-                                                },
-                                            ),
-                                        ),
-                                        signature: PropsStruct {
+                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        signature: FluffyFieldSignature::PropsStruct {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 46,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Vec Option Leash RawContour`),
                                                 ),
                                             },
                                         },
@@ -11289,14 +5726,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 46,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vec Option Leash RawContour`),
                                     ),
                                 },
                             ),
@@ -11307,14 +5738,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 46,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec Option Leash RawContour`),
                                         ),
                                     },
                                 ),
@@ -11322,11 +5747,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         121,
                                     ),
-                                    Integer(
+                                    LiteralData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -11338,7 +5763,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             10,
                                         ),
@@ -11352,7 +5777,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 10,
                                             ),
@@ -11363,7 +5788,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Index {
+                                SemaExprData::Index {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         57,
                                     ),
@@ -11409,14 +5834,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash RawContour`),
                                     ),
                                 },
                             ),
@@ -11427,14 +5846,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 45,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash RawContour`),
                                         ),
                                     },
                                 ),
@@ -11442,7 +5855,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Be {
+                                SemaExprData::Be {
                                     src: SemaExprIdx(
                                         59,
                                     ),
@@ -11462,18 +5875,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -11482,18 +5885,8 @@
                                     68,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -11501,17 +5894,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 16,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 322,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -11529,14 +5916,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 28,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
                             ),
@@ -11547,14 +5928,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 28,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
                                 ),
@@ -11562,7 +5937,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         61,
                                     ),
@@ -11570,27 +5945,15 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 28,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         132,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 251,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `eff_holes`,
                                         regional_token_idx: RegionalTokenIdx(
                                             133,
                                         ),
@@ -11603,38 +5966,16 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 224,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 222,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`EffHoles`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 384,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -11652,18 +5993,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 222,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`EffHoles`),
                                     ),
                                 },
                             ),
@@ -11674,18 +6005,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 222,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`EffHoles`),
                                         ),
                                     },
                                 ),
@@ -11693,7 +6014,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         62,
                                     ),
@@ -11701,31 +6022,15 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 222,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`EffHoles`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         134,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 241,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `matches`,
                                         regional_token_idx: RegionalTokenIdx(
                                             135,
                                         ),
@@ -11736,24 +6041,12 @@
                                             indirections: [],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 222,
-                                                },
-                                            ),
-                                        ),
-                                        signature: PropsStruct {
+                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        signature: FluffyFieldSignature::PropsStruct {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    Application(
-                                                        EtherealTermApplication(
-                                                            Id {
-                                                                value: 46,
-                                                            },
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`Vec Option Leash RawContour`),
                                                 ),
                                             },
                                         },
@@ -11765,14 +6058,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 46,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vec Option Leash RawContour`),
                                     ),
                                 },
                             ),
@@ -11783,14 +6070,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 46,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec Option Leash RawContour`),
                                         ),
                                     },
                                 ),
@@ -11798,11 +6079,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         137,
                                     ),
-                                    Integer(
+                                    LiteralData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -11814,7 +6095,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             11,
                                         ),
@@ -11828,7 +6109,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 11,
                                             ),
@@ -11839,7 +6120,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Index {
+                                SemaExprData::Index {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         63,
                                     ),
@@ -11885,14 +6166,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash RawContour`),
                                     ),
                                 },
                             ),
@@ -11903,14 +6178,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 45,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash RawContour`),
                                         ),
                                     },
                                 ),
@@ -11918,19 +6187,13 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 447,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `major_hole`,
                                     regional_token_idx: RegionalTokenIdx(
                                         142,
                                     ),
                                     current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: LetVariable {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                         pattern_symbol_idx: 6,
                                     },
                                 },
@@ -11946,14 +6209,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash RawContour`),
                                     ),
                                 },
                             ),
@@ -11970,14 +6227,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 45,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash RawContour`),
                                         ),
                                     },
                                 ),
@@ -11985,7 +6236,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Unwrap {
+                                SemaExprData::Unwrap {
                                     opd_sema_expr_idx: SemaExprIdx(
                                         66,
                                     ),
@@ -11997,14 +6248,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 27,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash RawContour`),
                                     ),
                                 },
                             ),
@@ -12013,14 +6258,8 @@
                                     76,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 27,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash RawContour`),
                                         ),
                                     },
                                 ),
@@ -12028,33 +6267,21 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         67,
                                     ),
                                     owner_ty: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 27,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash RawContour`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         144,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 284,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `bounding_box`,
                                         regional_token_idx: RegionalTokenIdx(
                                             145,
                                         ),
@@ -12067,38 +6294,16 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 227,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 246,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`BoundingBox`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 395,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -12116,18 +6321,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 246,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`BoundingBox`),
                                     ),
                                 },
                             ),
@@ -12138,18 +6333,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 246,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`BoundingBox`),
                                         ),
                                     },
                                 ),
@@ -12157,7 +6342,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                MethodFnCall {
+                                SemaExprData::MethodFnCall {
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         68,
                                     ),
@@ -12166,13 +6351,7 @@
                                         146,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 290,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `ymax`,
                                         regional_token_idx: RegionalTokenIdx(
                                             147,
                                         ),
@@ -12255,18 +6434,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -12275,18 +6444,8 @@
                                     78,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -12294,19 +6453,13 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 447,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `major_hole`,
                                     regional_token_idx: RegionalTokenIdx(
                                         151,
                                     ),
                                     current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: LetVariable {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                         pattern_symbol_idx: 6,
                                     },
                                 },
@@ -12322,14 +6475,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash RawContour`),
                                     ),
                                 },
                             ),
@@ -12346,14 +6493,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 45,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash RawContour`),
                                         ),
                                     },
                                 ),
@@ -12361,7 +6502,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Unwrap {
+                                SemaExprData::Unwrap {
                                     opd_sema_expr_idx: SemaExprIdx(
                                         70,
                                     ),
@@ -12373,14 +6514,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 27,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash RawContour`),
                                     ),
                                 },
                             ),
@@ -12389,14 +6524,8 @@
                                     80,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 27,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash RawContour`),
                                         ),
                                     },
                                 ),
@@ -12404,33 +6533,21 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         71,
                                     ),
                                     owner_ty: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 27,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash RawContour`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         153,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 284,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `bounding_box`,
                                         regional_token_idx: RegionalTokenIdx(
                                             154,
                                         ),
@@ -12443,38 +6560,16 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 227,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 246,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`BoundingBox`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 395,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -12492,18 +6587,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 246,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`BoundingBox`),
                                     ),
                                 },
                             ),
@@ -12514,18 +6599,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 246,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`BoundingBox`),
                                         ),
                                     },
                                 ),
@@ -12533,7 +6608,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                MethodFnCall {
+                                SemaExprData::MethodFnCall {
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         72,
                                     ),
@@ -12542,13 +6617,7 @@
                                         155,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 289,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `ymin`,
                                         regional_token_idx: RegionalTokenIdx(
                                             156,
                                         ),
@@ -12631,18 +6700,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -12651,18 +6710,8 @@
                                     82,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -12670,7 +6719,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Binary {
+                                SemaExprData::Binary {
                                     lopd: SemaExprIdx(
                                         69,
                                     ),
@@ -12696,18 +6745,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -12716,18 +6755,8 @@
                                     83,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -12735,17 +6764,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 17,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 326,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -12763,14 +6786,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 53,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentSketch`),
                                     ),
                                 },
                             ),
@@ -12781,14 +6798,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 53,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                 ),
@@ -12796,7 +6807,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         75,
                                     ),
@@ -12804,27 +6815,15 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 53,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         163,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 284,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `bounding_box`,
                                         regional_token_idx: RegionalTokenIdx(
                                             164,
                                         ),
@@ -12837,38 +6836,16 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 253,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 246,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`BoundingBox`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 439,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -12886,18 +6863,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 246,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`BoundingBox`),
                                     ),
                                 },
                             ),
@@ -12908,18 +6875,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 246,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`BoundingBox`),
                                         ),
                                     },
                                 ),
@@ -12927,7 +6884,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                MethodFnCall {
+                                SemaExprData::MethodFnCall {
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         76,
                                     ),
@@ -12936,13 +6893,7 @@
                                         165,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 290,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `ymax`,
                                         regional_token_idx: RegionalTokenIdx(
                                             166,
                                         ),
@@ -13025,18 +6976,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -13045,18 +6986,8 @@
                                     86,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -13064,17 +6995,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 18,
-                                    path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 326,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -13092,14 +7017,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 53,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentSketch`),
                                     ),
                                 },
                             ),
@@ -13110,14 +7029,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 53,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                 ),
@@ -13125,7 +7038,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         78,
                                     ),
@@ -13133,27 +7046,15 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 53,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         171,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 284,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `bounding_box`,
                                         regional_token_idx: RegionalTokenIdx(
                                             172,
                                         ),
@@ -13166,38 +7067,16 @@
                                             ],
                                             final_place: Leashed,
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 253,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 246,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`BoundingBox`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 439,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -13215,18 +7094,8 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 246,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`BoundingBox`),
                                     ),
                                 },
                             ),
@@ -13237,18 +7106,8 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 246,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`BoundingBox`),
                                         ),
                                     },
                                 ),
@@ -13256,7 +7115,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                MethodFnCall {
+                                SemaExprData::MethodFnCall {
                                     self_argument_sema_expr_idx: SemaExprIdx(
                                         79,
                                     ),
@@ -13265,13 +7124,7 @@
                                         173,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 289,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `ymin`,
                                         regional_token_idx: RegionalTokenIdx(
                                             174,
                                         ),
@@ -13354,18 +7207,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -13374,18 +7217,8 @@
                                     89,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -13393,7 +7226,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Binary {
+                                SemaExprData::Binary {
                                     lopd: SemaExprIdx(
                                         77,
                                     ),
@@ -13419,18 +7252,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -13439,18 +7262,8 @@
                                     90,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -13458,19 +7271,13 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 45,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `a`,
                                     regional_token_idx: RegionalTokenIdx(
                                         180,
                                     ),
                                     current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: LetVariable {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                         pattern_symbol_idx: 7,
                                     },
                                 },
@@ -13486,18 +7293,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -13514,18 +7311,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -13533,19 +7320,13 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 150,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `b`,
                                     regional_token_idx: RegionalTokenIdx(
                                         182,
                                     ),
                                     current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: LetVariable {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                         pattern_symbol_idx: 8,
                                     },
                                 },
@@ -13561,18 +7342,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -13589,18 +7360,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -13608,7 +7369,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Binary {
+                                SemaExprData::Binary {
                                     lopd: SemaExprIdx(
                                         82,
                                     ),
@@ -13634,18 +7395,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -13654,18 +7405,8 @@
                                     93,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -13673,19 +7414,13 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 449,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `ratio`,
                                     regional_token_idx: RegionalTokenIdx(
                                         184,
                                     ),
                                     current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: LetVariable {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                         pattern_symbol_idx: 9,
                                     },
                                 },
@@ -13701,18 +7436,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -13729,18 +7454,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -13748,11 +7463,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         186,
                                     ),
-                                    Float(
+                                    LiteralData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -13768,18 +7483,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -13790,18 +7495,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -13809,7 +7504,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Binary {
+                                SemaExprData::Binary {
                                     lopd: SemaExprIdx(
                                         85,
                                     ),
@@ -13835,18 +7530,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
                                 },
                             ),
@@ -13855,18 +7540,8 @@
                                     96,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                 ),
@@ -13874,19 +7549,13 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 444,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `simp_zero_match`,
                                     regional_token_idx: RegionalTokenIdx(
                                         190,
                                     ),
                                     current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: LetVariable {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                         pattern_symbol_idx: 4,
                                     },
                                 },
@@ -13902,18 +7571,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
                                 },
                             ),
@@ -13930,18 +7589,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                 ),
@@ -13949,7 +7598,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Field {
+                                SemaExprData::Field {
                                     owner_sema_expr_idx: SemaExprIdx(
                                         88,
                                     ),
@@ -13963,31 +7612,15 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         191,
                                     ),
                                     ident_token: IdentRegionalToken {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 347,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `norm`,
                                         regional_token_idx: RegionalTokenIdx(
                                             192,
                                         ),
@@ -14010,38 +7643,16 @@
                                                 ),
                                             },
                                         },
-                                        ty_path: TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 264,
-                                                },
-                                            ),
-                                        ),
-                                        signature: Memoized {
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        signature: FluffyFieldSignature::Memoized {
                                             ty: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`f32`),
                                                 ),
                                             },
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 423,
-                                                        },
-                                                    ),
-                                                ),
+                                            path: AssociatedItemPath::TypeItem(
+                                                TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                             ),
                                             instantiation: FluffyInstantiation {
                                                 env: MemoizedField,
@@ -14065,18 +7676,8 @@
                                             ),
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                             ),
@@ -14093,18 +7694,8 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                 ),
@@ -14112,15 +7703,21 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 20,
-                                    path: TypeVariant(
+                                    path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 332,
-                                                },
-                                            ),
+                                            ItemPathId {
+                                                data: ItemPathData::TypeVariant(
+                                                    TypeVariantPathData {
+                                                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ident: `Yes`,
+                                                        index: U8(
+                                                            0,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -14171,7 +7768,7 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             14,
                                         ),
@@ -14183,7 +7780,7 @@
                                     99,
                                     FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 14,
                                             ),
@@ -14194,7 +7791,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Block {
+                                SemaExprData::Block {
                                     stmts: SemaStmtIdxRange(
                                         ArenaIdxRange(
                                             8..21,
@@ -14205,7 +7802,7 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             14,
                                         ),
@@ -14217,7 +7814,7 @@
                                     102,
                                     FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 14,
                                             ),
@@ -14234,7 +7831,7 @@
                     data: [
                         SemaStmtEntry {
                             data_result: Ok(
-                                Let {
+                                SemaStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             12,
@@ -14265,25 +7862,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Require {
+                                SemaStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             18,
@@ -14300,25 +7887,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Require {
+                                SemaStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             22,
@@ -14345,25 +7922,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Require {
+                                SemaStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             34,
@@ -14380,25 +7947,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Let {
+                                SemaStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             42,
@@ -14429,25 +7986,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Require {
+                                SemaStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             60,
@@ -14464,25 +8011,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Return {
+                                SemaStmtData::Return {
                                     return_token: ReturnRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             64,
@@ -14505,25 +8042,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 22,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`never`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                IfElse {
+                                SemaStmtData::IfElse {
                                     if_branch: SemaIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
@@ -14554,25 +8081,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 22,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`never`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Let {
+                                SemaStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             68,
@@ -14603,30 +8120,20 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Eval {
+                                SemaStmtData::Eval {
                                     sema_expr_idx: SemaExprIdx(
                                         44,
                                     ),
                                     outcome: Some(
-                                        Coersion(
+                                        ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
                                                     TrivialFluffyCoersion {
@@ -14644,25 +8151,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Require {
+                                SemaStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             97,
@@ -14679,25 +8176,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Require {
+                                SemaStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             103,
@@ -14724,25 +8211,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Require {
+                                SemaStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             114,
@@ -14769,25 +8246,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Let {
+                                SemaStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             128,
@@ -14818,25 +8285,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Let {
+                                SemaStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             139,
@@ -14867,25 +8324,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Let {
+                                SemaStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             159,
@@ -14916,25 +8363,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Let {
+                                SemaStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             177,
@@ -14965,25 +8402,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Require {
+                                SemaStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             183,
@@ -15000,25 +8427,15 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Let {
+                                SemaStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             187,
@@ -15049,30 +8466,20 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`unit`),
                                     ),
                                 },
                             ),
                         },
                         SemaStmtEntry {
                             data_result: Ok(
-                                Eval {
+                                SemaStmtData::Eval {
                                     sema_expr_idx: SemaExprIdx(
                                         90,
                                     ),
                                     outcome: Some(
-                                        Coersion(
+                                        ExpectationOutcome::Coersion(
                                             ExpectCoersionOutcome {
                                                 coersion: Trivial(
                                                     TrivialFluffyCoersion {
@@ -15090,7 +8497,7 @@
                             ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Hollow(
+                                    base: FluffyTermBase::Hollow(
                                         HollowTerm(
                                             14,
                                         ),
@@ -15112,256 +8519,230 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [
-                    Some(
-                        PatternExprTypeInfo {
-                            ty: Ok(
-                                FluffyTerm {
-                                    place: Some(
-                                        Leashed,
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+            syn_pattern_expr_ty_infos: [
+                PatternExprTypeInfo {
+                    ty: Ok(
+                        FluffyTerm {
+                            place: Some(
+                                Leashed,
                             ),
-                        },
-                    ),
-                    None,
-                    Some(
-                        PatternExprTypeInfo {
-                            ty: Ok(
-                                FluffyTerm {
-                                    place: Some(
-                                        Leashed,
-                                    ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
                                                 Id {
-                                                    value: 62,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
                                     ),
-                                },
+                                ),
                             ),
                         },
                     ),
-                    Some(
-                        PatternExprTypeInfo {
-                            ty: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                },
+                PatternExprTypeInfo {
+                    ty: Ok(
+                        FluffyTerm {
+                            place: Some(
+                                Leashed,
                             ),
-                        },
-                    ),
-                    Some(
-                        PatternExprTypeInfo {
-                            ty: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ),
-                    Some(
-                        PatternExprTypeInfo {
-                            ty: Ok(
-                                FluffyTerm {
-                                    place: Some(
-                                        Leashed,
-                                    ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ),
-                    None,
-                    Some(
-                        PatternExprTypeInfo {
-                            ty: Ok(
-                                FluffyTerm {
-                                    place: Some(
-                                        Leashed,
-                                    ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ),
-                    Some(
-                        PatternExprTypeInfo {
-                            ty: Ok(
-                                FluffyTerm {
-                                    place: Some(
-                                        Leashed,
-                                    ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ),
-                    Some(
-                        PatternExprTypeInfo {
-                            ty: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ),
-                    Some(
-                        PatternExprTypeInfo {
-                            ty: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ),
-                    Some(
-                        PatternExprTypeInfo {
-                            ty: Ok(
-                                FluffyTerm {
-                                    place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        },
-                    ),
-                    Some(
-                        PatternExprTypeInfo {
-                            ty: Ok(
-                                FluffyTerm {
-                                    place: Some(
-                                        ImmutableStackOwned {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    3,
-                                                ),
-                                            ),
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 62,
                                         },
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                PatternExprTypeInfo {
+                    ty: Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 53,
+                                                },
                                             ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                PatternExprTypeInfo {
+                    ty: Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 264,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                PatternExprTypeInfo {
+                    ty: Ok(
+                        FluffyTerm {
+                            place: Some(
+                                Leashed,
+                            ),
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 45,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                PatternExprTypeInfo {
+                    ty: Ok(
+                        FluffyTerm {
+                            place: Some(
+                                Leashed,
+                            ),
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 45,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                PatternExprTypeInfo {
+                    ty: Ok(
+                        FluffyTerm {
+                            place: Some(
+                                Leashed,
+                            ),
+                            base: Ethereal(
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 45,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                PatternExprTypeInfo {
+                    ty: Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 53,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                PatternExprTypeInfo {
+                    ty: Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 53,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                PatternExprTypeInfo {
+                    ty: Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 53,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                },
+                PatternExprTypeInfo {
+                    ty: Ok(
+                        FluffyTerm {
+                            place: Some(
+                                ImmutableStackOwned {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            3,
                                         ),
                                     ),
                                 },
                             ),
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 53,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
                         },
                     ),
-                ],
-            },
+                },
+            ],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     Some(
@@ -15795,501 +9176,268 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        ImmutableStackOwned {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    1,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                ImmutableStackOwned {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            1,
                                         ),
                                     ),
                                 },
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        ImmutableStackOwned {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    2,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`f32`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                ImmutableStackOwned {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            2,
                                         ),
                                     ),
                                 },
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        ImmutableStackOwned {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    3,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 264,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`f32`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                ImmutableStackOwned {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            3,
                                         ),
                                     ),
                                 },
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        ImmutableStackOwned {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    4,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 45,
-                                                },
-                                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`FermiMatchResult`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                ImmutableStackOwned {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            4,
                                         ),
                                     ),
                                 },
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        ImmutableStackOwned {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    5,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Option Leash RawContour`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                ImmutableStackOwned {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            5,
                                         ),
                                     ),
                                 },
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        ImmutableStackOwned {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    6,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`f32`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                ImmutableStackOwned {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            6,
                                         ),
                                     ),
                                 },
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        ImmutableStackOwned {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    7,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`f32`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                ImmutableStackOwned {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            7,
                                         ),
                                     ),
                                 },
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        ImmutableStackOwned {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    8,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`f32`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                ImmutableStackOwned {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            8,
                                         ),
                                     ),
                                 },
                             ),
-                        ),
-                    ],
-                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`f32`),
+                            ),
+                        },
+                    ),
+                ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        None,
-                        None,
-                        None,
-                        None,
-                        None,
-                        None,
-                        None,
-                        None,
-                    ],
-                },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [
                             HollowTermEntry {
-                                data: Hole {
-                                    hole_source: Expr(
+                                data: HollowTermData::Hole {
+                                    hole_source: HoleSource::Expr(
                                         13,
                                     ),
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`usize`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        CoercibleInto {
+                                        HoleConstraint::CoercibleInto {
                                             target: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 52,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 52,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`usize`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: Hole {
-                                    hole_source: Expr(
+                                data: HollowTermData::Hole {
+                                    hole_source: HoleSource::Expr(
                                         22,
                                     ),
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`usize`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        CoercibleInto {
+                                        HoleConstraint::CoercibleInto {
                                             target: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 52,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 52,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`usize`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: Hole {
-                                    hole_source: Expr(
+                                data: HollowTermData::Hole {
+                                    hole_source: HoleSource::Expr(
                                         30,
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 342,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        CoercibleInto {
+                                        HoleConstraint::CoercibleInto {
                                             target: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 342,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 342,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`MnistLabel`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: Hole {
-                                    hole_source: Expr(
+                                data: HollowTermData::Hole {
+                                    hole_source: HoleSource::Expr(
                                         30,
                                     ),
                                     hole_kind: Any,
                                     fill: Some(
                                         FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 343,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Zero`),
                                             ),
                                         },
                                     ),
                                     constraints: [],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    EntityPath(
-                                        TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 343,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`Zero`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: TypeOntology {
-                                    path: TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 331,
-                                            },
-                                        ),
-                                    ),
+                                data: HollowTermData::TypeOntology {
+                                    path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 331,
-                                                    },
-                                                ),
-                                            ),
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
                                     arguments: [
                                         FluffyTerm {
                                             place: None,
-                                            base: Hollow(
+                                            base: FluffyTermBase::Hollow(
                                                 HollowTerm(
                                                     2,
                                                 ),
@@ -16297,7 +9445,7 @@
                                         },
                                         FluffyTerm {
                                             place: None,
-                                            base: Hollow(
+                                            base: FluffyTermBase::Hollow(
                                                 HollowTerm(
                                                     3,
                                                 ),
@@ -16305,139 +9453,71 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`OneVsAll MnistLabel Zero`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: Hole {
-                                    hole_source: Expr(
+                                data: HollowTermData::Hole {
+                                    hole_source: HoleSource::Expr(
                                         35,
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 342,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        CoercibleInto {
+                                        HoleConstraint::CoercibleInto {
                                             target: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 342,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 342,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`MnistLabel`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: Hole {
-                                    hole_source: Expr(
+                                data: HollowTermData::Hole {
+                                    hole_source: HoleSource::Expr(
                                         35,
                                     ),
                                     hole_kind: Any,
                                     fill: Some(
                                         FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 343,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Zero`),
                                             ),
                                         },
                                     ),
                                     constraints: [],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    EntityPath(
-                                        TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 343,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`Zero`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: TypeOntology {
-                                    path: TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 334,
-                                            },
-                                        ),
-                                    ),
+                                data: HollowTermData::TypeOntology {
+                                    path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 334,
-                                                    },
-                                                ),
-                                            ),
+                                            TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
                                     arguments: [
                                         FluffyTerm {
                                             place: None,
-                                            base: Hollow(
+                                            base: FluffyTermBase::Hollow(
                                                 HollowTerm(
                                                     5,
                                                 ),
@@ -16445,7 +9525,7 @@
                                         },
                                         FluffyTerm {
                                             place: None,
-                                            base: Hollow(
+                                            base: FluffyTermBase::Hollow(
                                                 HollowTerm(
                                                     6,
                                                 ),
@@ -16453,67 +9533,35 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 80,
-                                            },
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`OneVsAllResult MnistLabel Zero`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: Ritchie {
+                                data: HollowTermData::Ritchie {
                                     ritchie_kind: Type(
                                         Gn,
                                     ),
                                     params: [
-                                        Variadic(
+                                        FluffyRitchieParameter::Variadic(
                                             FluffyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 53,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`f32`),
                                                     ),
                                                 },
                                             },
                                         ),
-                                        Keyed(
+                                        FluffyRitchieParameter::Keyed(
                                             FluffyRitchieKeyedParameter {
-                                                key: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 446,
-                                                        },
-                                                    ),
-                                                ),
+                                                key: `skip`,
                                                 contract: Pure,
                                                 ty: FluffyTerm {
                                                     place: None,
-                                                    base: Ethereal(
-                                                        EntityPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`i32`),
                                                     ),
                                                 },
                                                 has_default: true,
@@ -16522,323 +9570,165 @@
                                     ],
                                     return_ty: FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 7,
                                             ),
                                         ),
                                     },
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    Ritchie(
-                                        EtherealTermRitchie(
-                                            Id {
-                                                value: 29,
-                                            },
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`gn((f32, i32) -> OneVsAllResult MnistLabel Zero`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: Hole {
-                                    hole_source: Expr(
+                                data: HollowTermData::Hole {
+                                    hole_source: HoleSource::Expr(
                                         52,
                                     ),
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`usize`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        CoercibleInto {
+                                        HoleConstraint::CoercibleInto {
                                             target: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 52,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 52,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`usize`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: Hole {
-                                    hole_source: Expr(
+                                data: HollowTermData::Hole {
+                                    hole_source: HoleSource::Expr(
                                         58,
                                     ),
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`usize`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        CoercibleInto {
+                                        HoleConstraint::CoercibleInto {
                                             target: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 52,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 52,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`usize`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: Hole {
-                                    hole_source: Expr(
+                                data: HollowTermData::Hole {
+                                    hole_source: HoleSource::Expr(
                                         64,
                                     ),
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`usize`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        CoercibleInto {
+                                        HoleConstraint::CoercibleInto {
                                             target: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 52,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 52,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`usize`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: Hole {
-                                    hole_source: Expr(
+                                data: HollowTermData::Hole {
+                                    hole_source: HoleSource::Expr(
                                         90,
                                     ),
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 342,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        CoercibleInto {
+                                        HoleConstraint::CoercibleInto {
                                             target: FluffyTerm {
                                                 place: None,
-                                                base: Ethereal(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 342,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                base: FluffyTermBase::Ethereal(
+                                                    EtherealTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 342,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`MnistLabel`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: Hole {
-                                    hole_source: Expr(
+                                data: HollowTermData::Hole {
+                                    hole_source: HoleSource::Expr(
                                         90,
                                     ),
                                     hole_kind: Any,
                                     fill: Some(
                                         FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 343,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Zero`),
                                             ),
                                         },
                                     ),
                                     constraints: [],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    EntityPath(
-                                        TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 343,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`Zero`),
                                 ),
                             },
                             HollowTermEntry {
-                                data: TypeOntology {
-                                    path: TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 331,
-                                            },
-                                        ),
-                                    ),
+                                data: HollowTermData::TypeOntology {
+                                    path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 331,
-                                                    },
-                                                ),
-                                            ),
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
                                     arguments: [
                                         FluffyTerm {
                                             place: None,
-                                            base: Hollow(
+                                            base: FluffyTermBase::Hollow(
                                                 HollowTerm(
                                                     12,
                                                 ),
@@ -16846,7 +9736,7 @@
                                         },
                                         FluffyTerm {
                                             place: None,
-                                            base: Hollow(
+                                            base: FluffyTermBase::Hollow(
                                                 HollowTerm(
                                                     13,
                                                 ),
@@ -16854,14 +9744,8 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: ResolvedEthereal(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                    EtherealTerm(`OneVsAll MnistLabel Zero`),
                                 ),
                             },
                         ],
@@ -16872,7 +9756,7 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -16885,22 +9769,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 28,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -16913,22 +9791,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec RawContour`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -16939,42 +9811,22 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 43,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -16989,24 +9841,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -17020,7 +9862,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ConditionType(
+                                expectation: Expectation::ConditionType(
                                     ExpectConditionType,
                                 ),
                                 state: ExpectationState {
@@ -17031,24 +9873,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ConditionType(
+                                            ExpectationOutcome::ConditionType(
                                                 ExpectConditionTypeOutcome {
                                                     conversion: None,
                                                 },
@@ -17058,7 +9890,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17071,26 +9903,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17103,26 +9925,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17141,26 +9953,16 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
@@ -17173,18 +9975,8 @@
                                                     ),
                                                 },
                                             ),
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -17199,24 +9991,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -17230,7 +10012,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ConditionType(
+                                expectation: Expectation::ConditionType(
                                     ExpectConditionType,
                                 ),
                                 state: ExpectationState {
@@ -17241,24 +10023,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ConditionType(
+                                            ExpectationOutcome::ConditionType(
                                                 ExpectConditionTypeOutcome {
                                                     conversion: None,
                                                 },
@@ -17268,7 +10040,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17281,26 +10053,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17313,22 +10075,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 63,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17341,34 +10097,24 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 0,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`usize`),
                                             ),
                                         },
                                     },
@@ -17383,16 +10129,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 0,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -17406,7 +10152,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17419,22 +10165,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 62,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ConditionType(
+                                expectation: Expectation::ConditionType(
                                     ExpectConditionType,
                                 ),
                                 state: ExpectationState {
@@ -17445,24 +10185,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ConditionType(
+                                            ExpectationOutcome::ConditionType(
                                                 ExpectConditionTypeOutcome {
                                                     conversion: None,
                                                 },
@@ -17472,7 +10202,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17485,22 +10215,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 31,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec ConnectedComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17511,42 +10235,22 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 43,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -17561,24 +10265,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -17592,7 +10286,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ConditionType(
+                                expectation: Expectation::ConditionType(
                                     ExpectConditionType,
                                 ),
                                 state: ExpectationState {
@@ -17603,24 +10297,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ConditionType(
+                                            ExpectationOutcome::ConditionType(
                                                 ExpectConditionTypeOutcome {
                                                     conversion: None,
                                                 },
@@ -17630,7 +10314,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17643,26 +10327,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17675,22 +10349,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 63,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17703,34 +10371,24 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 1,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`usize`),
                                             ),
                                         },
                                     },
@@ -17745,16 +10403,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 1,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -17768,7 +10426,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17781,22 +10439,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 62,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17807,22 +10459,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 49,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17833,26 +10479,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 244,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vector2d`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17863,26 +10499,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -17901,26 +10527,16 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
@@ -17933,18 +10549,8 @@
                                                     ),
                                                 },
                                             ),
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -17959,24 +10565,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -17990,7 +10586,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ConditionType(
+                                expectation: Expectation::ConditionType(
                                     ExpectConditionType,
                                 ),
                                 state: ExpectationState {
@@ -18001,24 +10597,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ConditionType(
+                                            ExpectationOutcome::ConditionType(
                                                 ExpectConditionTypeOutcome {
                                                     conversion: None,
                                                 },
@@ -18028,19 +10614,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Application(
-                                                    EtherealTermApplication(
-                                                        Id {
-                                                            value: 19,
-                                                        },
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`OneVsAll MnistLabel Zero`),
                                             ),
                                         },
                                     },
@@ -18053,16 +10633,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 4,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -18076,22 +10656,12 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsExactly(
+                                expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
                                         expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 342,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`MnistLabel`),
                                             ),
                                         },
                                     },
@@ -18106,16 +10676,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 2,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Subtype(
+                                            ExpectationOutcome::Subtype(
                                                 ExpectSubtypeOutcome,
                                             ),
                                         ),
@@ -18123,22 +10693,12 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsExactly(
+                                expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
                                         expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 343,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Zero`),
                                             ),
                                         },
                                     },
@@ -18153,16 +10713,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 3,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Subtype(
+                                            ExpectationOutcome::Subtype(
                                                 ExpectSubtypeOutcome,
                                             ),
                                         ),
@@ -18170,9 +10730,9 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: AnyOriginal,
+                                        final_destination: FinalDestination::AnyOriginal,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -18183,43 +10743,27 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Ritchie(
-                                                EtherealTermRitchie(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 264,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`FermiMatchResult`),
                                                         ),
                                                     },
-                                                    variant: Ritchie {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Ritchie {
                                                         ritchie_kind: Type(
                                                             Fn,
                                                         ),
                                                         parameter_contracted_tys: [
-                                                            Regular(
+                                                            FluffyRitchieParameter::Regular(
                                                                 FluffyRitchieRegularParameter {
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
@@ -18236,7 +10780,7 @@
                                                                     },
                                                                 },
                                                             ),
-                                                            Regular(
+                                                            FluffyRitchieParameter::Regular(
                                                                 FluffyRitchieRegularParameter {
                                                                     contract: Pure,
                                                                     ty: FluffyTerm {
@@ -18262,19 +10806,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Application(
-                                                    EtherealTermApplication(
-                                                        Id {
-                                                            value: 48,
-                                                        },
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Leash Vec ConcaveComponent`),
                                             ),
                                         },
                                     },
@@ -18289,20 +10827,14 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 48,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -18316,19 +10848,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Application(
-                                                    EtherealTermApplication(
-                                                        Id {
-                                                            value: 50,
-                                                        },
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                             ),
                                         },
                                     },
@@ -18341,20 +10867,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 50,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -18368,7 +10888,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -18379,28 +10899,18 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsRitchieType(
+                                expectation: Expectation::EqsRitchieType(
                                     ExpectEqsRitchieType {
-                                        final_destination: TypeOntology,
+                                        final_destination: FinalDestination::TypeOntology,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -18411,16 +10921,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 8,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsRitchieCallType(
+                                            ExpectationOutcome::EqsRitchieCallType(
                                                 ExpectEqsRitchieTypeOutcome {
                                                     ritchie_kind: Type(
                                                         Gn,
@@ -18492,7 +11002,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -18511,42 +11021,22 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -18567,24 +11057,14 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -18604,7 +11084,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -18623,42 +11103,22 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -18679,24 +11139,14 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -18716,7 +11166,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -18735,42 +11185,22 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -18791,24 +11221,14 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -18828,23 +11248,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 43,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -18859,24 +11269,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -18890,19 +11290,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Application(
-                                                    EtherealTermApplication(
-                                                        Id {
-                                                            value: 80,
-                                                        },
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`OneVsAllResult MnistLabel Zero`),
                                             ),
                                         },
                                     },
@@ -18915,16 +11309,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 7,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -18938,22 +11332,12 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsExactly(
+                                expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
                                         expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 342,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`MnistLabel`),
                                             ),
                                         },
                                     },
@@ -18968,16 +11352,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 5,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Subtype(
+                                            ExpectationOutcome::Subtype(
                                                 ExpectSubtypeOutcome,
                                             ),
                                         ),
@@ -18985,22 +11369,12 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsExactly(
+                                expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
                                         expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 343,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Zero`),
                                             ),
                                         },
                                     },
@@ -19015,16 +11389,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 6,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Subtype(
+                                            ExpectationOutcome::Subtype(
                                                 ExpectSubtypeOutcome,
                                             ),
                                         ),
@@ -19032,23 +11406,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 23,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`unit`),
                                             ),
                                         },
                                     },
@@ -19061,24 +11425,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 23,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`unit`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -19092,7 +11446,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19111,26 +11465,16 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19149,26 +11493,16 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
@@ -19181,18 +11515,8 @@
                                                     ),
                                                 },
                                             ),
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -19207,24 +11531,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -19238,7 +11552,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ConditionType(
+                                expectation: Expectation::ConditionType(
                                     ExpectConditionType,
                                 ),
                                 state: ExpectationState {
@@ -19249,24 +11563,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ConditionType(
+                                            ExpectationOutcome::ConditionType(
                                                 ExpectConditionTypeOutcome {
                                                     conversion: None,
                                                 },
@@ -19276,7 +11580,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19289,22 +11593,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 28,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19317,26 +11615,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 222,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`EffHoles`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19349,22 +11637,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 46,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec Option Leash RawContour`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19377,34 +11659,24 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 9,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`usize`),
                                             ),
                                         },
                                     },
@@ -19419,16 +11691,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 9,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -19442,7 +11714,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19455,22 +11727,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 45,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash RawContour`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ConditionType(
+                                expectation: Expectation::ConditionType(
                                     ExpectConditionType,
                                 ),
                                 state: ExpectationState {
@@ -19481,24 +11747,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ConditionType(
+                                            ExpectationOutcome::ConditionType(
                                                 ExpectConditionTypeOutcome {
                                                     conversion: None,
                                                 },
@@ -19508,7 +11764,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19521,22 +11777,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 28,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19549,26 +11799,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 222,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`EffHoles`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19581,22 +11821,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 46,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec Option Leash RawContour`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19609,34 +11843,24 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 10,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`usize`),
                                             ),
                                         },
                                     },
@@ -19651,16 +11875,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 10,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -19674,7 +11898,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19687,22 +11911,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 45,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash RawContour`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ConditionType(
+                                expectation: Expectation::ConditionType(
                                     ExpectConditionType,
                                 ),
                                 state: ExpectationState {
@@ -19713,24 +11931,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ConditionType(
+                                            ExpectationOutcome::ConditionType(
                                                 ExpectConditionTypeOutcome {
                                                     conversion: None,
                                                 },
@@ -19740,7 +11948,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19753,22 +11961,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 28,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19781,26 +11983,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 222,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`EffHoles`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19813,22 +12005,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 46,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vec Option Leash RawContour`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19841,34 +12027,24 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 11,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 52,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`usize`),
                                             ),
                                         },
                                     },
@@ -19883,16 +12059,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 11,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -19906,7 +12082,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19919,22 +12095,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 45,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash RawContour`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19953,22 +12123,16 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 45,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash RawContour`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -19979,22 +12143,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 27,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash RawContour`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20007,26 +12165,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 246,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`BoundingBox`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20037,26 +12185,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20075,22 +12213,16 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 45,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash RawContour`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20101,22 +12233,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 27,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash RawContour`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20129,42 +12255,22 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 246,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`BoundingBox`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -20177,24 +12283,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -20208,7 +12304,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20219,26 +12315,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20251,22 +12337,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 53,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20279,26 +12359,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 246,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`BoundingBox`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20309,26 +12379,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20341,22 +12401,16 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 53,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash LineSegmentSketch`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20369,42 +12423,22 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 246,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`BoundingBox`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -20417,24 +12451,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -20448,7 +12472,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20459,26 +12483,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20497,26 +12511,16 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
@@ -20529,18 +12533,8 @@
                                                     ),
                                                 },
                                             ),
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -20561,24 +12555,14 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -20598,7 +12582,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20609,26 +12593,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20647,26 +12621,16 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FluffyTerm {
@@ -20679,18 +12643,8 @@
                                                     ),
                                                 },
                                             ),
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 53,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`f32`),
                                             ),
                                         },
                                     },
@@ -20705,24 +12659,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -20736,7 +12680,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ConditionType(
+                                expectation: Expectation::ConditionType(
                                     ExpectConditionType,
                                 ),
                                 state: ExpectationState {
@@ -20747,24 +12691,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ConditionType(
+                                            ExpectationOutcome::ConditionType(
                                                 ExpectConditionTypeOutcome {
                                                     conversion: None,
                                                 },
@@ -20774,7 +12708,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20793,26 +12727,16 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 264,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -20831,38 +12755,22 @@
                                                 ),
                                             },
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 53,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Application(
-                                                    EtherealTermApplication(
-                                                        Id {
-                                                            value: 19,
-                                                        },
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`OneVsAll MnistLabel Zero`),
                                             ),
                                         },
                                     },
@@ -20875,16 +12783,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 14,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -20898,22 +12806,12 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsExactly(
+                                expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
                                         expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 342,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`MnistLabel`),
                                             ),
                                         },
                                     },
@@ -20928,16 +12826,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 12,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Subtype(
+                                            ExpectationOutcome::Subtype(
                                                 ExpectSubtypeOutcome,
                                             ),
                                         ),
@@ -20945,22 +12843,12 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsExactly(
+                                expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
                                         expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 343,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Zero`),
                                             ),
                                         },
                                     },
@@ -20975,16 +12863,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 13,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Subtype(
+                                            ExpectationOutcome::Subtype(
                                                 ExpectSubtypeOutcome,
                                             ),
                                         ),
@@ -20992,19 +12880,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Application(
-                                                    EtherealTermApplication(
-                                                        Id {
-                                                            value: 19,
-                                                        },
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`OneVsAll MnistLabel Zero`),
                                             ),
                                         },
                                     },
@@ -21017,16 +12899,16 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Hollow(
+                                        base: FluffyTermBase::Hollow(
                                             HollowTerm(
                                                 14,
                                             ),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -21045,13 +12927,7 @@
                 },
             },
             return_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 19,
-                        },
-                    ),
-                ),
+                EtherealTerm(`OneVsAll MnistLabel Zero`),
             ),
             self_ty: None,
         },

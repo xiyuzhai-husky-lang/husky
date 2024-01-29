@@ -9,8 +9,8 @@
                         template_parameters: HirTemplateParameters(
                             [
                                 HirTemplateParameter {
-                                    symbol: Type(
-                                        Type {
+                                    symbol: HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
                                             attrs: HirTemplateSymbolAttrs {
                                                 class: Comptime,
                                             },
@@ -18,14 +18,8 @@
                                             disambiguator: 0,
                                         },
                                     ),
-                                    data: Type {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 539,
-                                                },
-                                            ),
-                                        ),
+                                    data: HirTemplateParameterData::Type {
+                                        ident: `Label`,
                                         traits: [],
                                     },
                                 },
@@ -179,8 +173,8 @@
                         template_parameters: HirTemplateParameters(
                             [
                                 HirTemplateParameter {
-                                    symbol: Type(
-                                        Type {
+                                    symbol: HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
                                             attrs: HirTemplateSymbolAttrs {
                                                 class: Comptime,
                                             },
@@ -188,35 +182,35 @@
                                             disambiguator: 0,
                                         },
                                     ),
-                                    data: Type {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 539,
-                                                },
-                                            ),
-                                        ),
+                                    data: HirTemplateParameterData::Type {
+                                        ident: `Label`,
                                         traits: [],
                                     },
                                 },
                                 HirTemplateParameter {
-                                    symbol: Const(
-                                        HirConstSymbol(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
-                                    data: Constant {
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 542,
+                                    symbol: HirTemplateSymbol::Const(
+                                        HirConstSymbol {
+                                            ty: HirType::Symbol(
+                                                HirTypeSymbol::Type {
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
                                                 },
                                             ),
-                                        ),
-                                        ty: Symbol(
-                                            Type {
+                                            index: HirConstSymbolIndex::Other {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Runtime,
+                                                },
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    data: HirTemplateParameterData::Constant {
+                                        ident: `label`,
+                                        ty: HirType::Symbol(
+                                            HirTypeSymbol::Type {
                                                 attrs: HirTemplateSymbolAttrs {
                                                     class: Comptime,
                                                 },
@@ -283,7 +277,7 @@
                                                 Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 146,
+                                                            value: 145,
                                                         },
                                                     ),
                                                 ),
@@ -621,8 +615,8 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -630,35 +624,35 @@
                                         disambiguator: 0,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `Label`,
                                     traits: [],
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: Const(
-                                    HirConstSymbol(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
-                                ),
-                                data: Constant {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 542,
+                                symbol: HirTemplateSymbol::Const(
+                                    HirConstSymbol {
+                                        ty: HirType::Symbol(
+                                            HirTypeSymbol::Type {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
                                             },
                                         ),
-                                    ),
-                                    ty: Symbol(
-                                        Type {
+                                        index: HirConstSymbolIndex::Other {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Runtime,
+                                            },
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                                data: HirTemplateParameterData::Constant {
+                                    ident: `label`,
+                                    ty: HirType::Symbol(
+                                        HirTypeSymbol::Type {
                                             attrs: HirTemplateSymbolAttrs {
                                                 class: Comptime,
                                             },
@@ -763,7 +757,7 @@
                                                         disambiguator: 0,
                                                     },
                                                 ),
-                                                index: Other {
+                                                index: HirConstSymbolIndex::Other {
                                                     attrs: HirTemplateSymbolAttrs {
                                                         class: Runtime,
                                                     },
@@ -917,7 +911,7 @@
                                                             disambiguator: 0,
                                                         },
                                                     ),
-                                                    index: Other {
+                                                    index: HirConstSymbolIndex::Other {
                                                         attrs: HirTemplateSymbolAttrs {
                                                             class: Runtime,
                                                         },
@@ -1083,15 +1077,9 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    Ident {
+                                    HirEagerPatternExpr::Ident {
                                         symbol_modifier: None,
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 545,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `one_vs_all`,
                                     },
                                 ],
                             },
@@ -1129,7 +1117,7 @@
                                                             disambiguator: 0,
                                                         },
                                                     ),
-                                                    index: Other {
+                                                    index: HirConstSymbolIndex::Other {
                                                         attrs: HirTemplateSymbolAttrs {
                                                             class: Runtime,
                                                         },
@@ -1412,25 +1400,37 @@
                                 },
                                 pattern_expr_arena: Arena {
                                     data: [
-                                        Unit(
-                                            TypeVariant(
+                                        HirEagerPatternExpr::Unit(
+                                            PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 516,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ident: `Yes`,
+                                                                index: U8(
+                                                                    0,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
-                                        Unit(
-                                            TypeVariant(
+                                        HirEagerPatternExpr::Unit(
+                                            PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 517,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ident: `No`,
+                                                                index: U8(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -1470,7 +1470,7 @@
                                                                 disambiguator: 0,
                                                             },
                                                         ),
-                                                        index: Other {
+                                                        index: HirConstSymbolIndex::Other {
                                                             attrs: HirTemplateSymbolAttrs {
                                                                 class: Runtime,
                                                             },
@@ -1826,15 +1826,9 @@
                             },
                             pattern_expr_arena: Arena {
                                 data: [
-                                    Ident {
+                                    HirEagerPatternExpr::Ident {
                                         symbol_modifier: None,
-                                        ident: Ident(
-                                            Coword(
-                                                Id {
-                                                    value: 550,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `one_vs_all_result`,
                                     },
                                 ],
                             },
@@ -2164,36 +2158,54 @@
                                 },
                                 pattern_expr_arena: Arena {
                                     data: [
-                                        Unit(
-                                            TypeVariant(
+                                        HirEagerPatternExpr::Unit(
+                                            PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 519,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                                ident: `ConfidentYes`,
+                                                                index: U8(
+                                                                    0,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
-                                        Unit(
-                                            TypeVariant(
+                                        HirEagerPatternExpr::Unit(
+                                            PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 520,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                                ident: `ConfidentNo`,
+                                                                index: U8(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
-                                        Unit(
-                                            TypeVariant(
+                                        HirEagerPatternExpr::Unit(
+                                            PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 521,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                                ident: `Unconfident`,
+                                                                index: U8(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),

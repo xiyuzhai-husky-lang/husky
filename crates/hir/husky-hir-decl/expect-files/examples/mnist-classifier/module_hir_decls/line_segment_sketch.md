@@ -572,25 +572,13 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 377,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `u`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 374,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `r`,
                                 },
                             ],
                         },
@@ -680,25 +668,13 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 377,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `u`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 374,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `r`,
                                 },
                             ],
                         },
@@ -809,35 +785,17 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 245,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `ct`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 142,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `start`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 374,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `r`,
                                 },
                             ],
                         },
@@ -965,45 +923,21 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 245,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `ct`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 392,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `start0`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 143,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `end`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 374,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `r`,
                                 },
                             ],
                         },
@@ -1125,25 +1059,13 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 245,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `ct`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 374,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `r`,
                                 },
                             ],
                         },
@@ -1502,35 +1424,17 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 245,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `ct`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 369,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `from`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 301,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `to`,
                                 },
                             ],
                         },
@@ -2072,25 +1976,13 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 245,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `ct`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 374,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `r`,
                                 },
                             ],
                         },

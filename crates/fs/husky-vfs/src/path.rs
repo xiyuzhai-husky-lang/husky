@@ -13,7 +13,7 @@ pub use self::package_path::*;
 pub use self::virtual_path::*;
 
 use crate::*;
-use husky_minimal_toml_utils::read_package_name_from_manifest;
+use husky_minimal_toml_utils::read_package_name_string_from_manifest;
 
 #[salsa::tracked(jar = VfsJar)]
 pub(crate) fn module_virtual_path(
@@ -121,7 +121,7 @@ pub(crate) fn resolve_module_path(
 
 #[test]
 fn resolve_module_path_works() {
-    DB::default().vfs_plain_test(
+    DB::vfs_plain_test(
         |db, module_path| {
             let abs_path = module_virtual_path(db, module_path).unwrap();
             let item_path_resolved = db

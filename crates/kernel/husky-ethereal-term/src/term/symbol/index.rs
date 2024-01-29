@@ -28,8 +28,8 @@ pub enum EtherealTemplateSymbolAttr {
 }
 
 /// wrapper so such the construction is private
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct EtherealTermSymbolIndex(EtherealTermSymbolIndexInner);
 
 impl EtherealTermSymbolIndex {

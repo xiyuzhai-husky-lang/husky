@@ -18,7 +18,7 @@ use std::path::PathBuf;
 pub trait VfsTestUtils: Default + std::ops::Deref<Target = Db> + std::ops::DerefMut {
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_plain_test<U>(&mut self, f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
+    fn vfs_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
         U: VfsTestUnit;
 
@@ -59,26 +59,25 @@ where
 {
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_plain_test<U>(&mut self, f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
+    fn vfs_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
         U: VfsTestUnit,
     {
-        let toolchain = self.dev_toolchain().unwrap();
         for test_suite in config.test_domains() {
-            for (path, _name) in
-                collect_package_relative_dirs(self, &test_suite.src_base()).into_iter()
-            {
+            for path in collect_package_relative_dirs(&test_suite.src_base()).into_iter() {
+                let db = &mut *DB::default();
+                let toolchain = db.dev_toolchain().unwrap();
                 let package_path = PackagePath::new_local_or_toolchain_package(
-                    self,
+                    db,
                     toolchain,
                     &path.to_logical_path(&test_suite.src_base()),
                 )
                 .unwrap();
-                for unit in <U as VfsTestUnit>::collect_from_package_path(self, package_path) {
-                    f(self, unit);
+                for unit in <U as VfsTestUnit>::collect_from_package_path(db, package_path) {
+                    f(db, unit);
                     if let Some(adversarials_base) = test_suite.adversarials_base() {
                         vfs_adversarial_test(
-                            self,
+                            db,
                             &path.to_logical_path(adversarials_base),
                             unit,
                             &f,

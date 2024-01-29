@@ -11,8 +11,8 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -20,14 +20,8 @@
                                         disambiguator: 0,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `Label`,
                                     traits: [],
                                 },
                             },
@@ -84,8 +78,8 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -93,35 +87,35 @@
                                         disambiguator: 0,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `Label`,
                                     traits: [],
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: Const(
-                                    HirConstSymbol(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
-                                ),
-                                data: Constant {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 542,
+                                symbol: HirTemplateSymbol::Const(
+                                    HirConstSymbol {
+                                        ty: HirType::Symbol(
+                                            HirTypeSymbol::Type {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
                                             },
                                         ),
-                                    ),
-                                    ty: Symbol(
-                                        Type {
+                                        index: HirConstSymbolIndex::Other {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Runtime,
+                                            },
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                                data: HirTemplateParameterData::Constant {
+                                    ident: `label`,
+                                    ty: HirType::Symbol(
+                                        HirTypeSymbol::Type {
                                             attrs: HirTemplateSymbolAttrs {
                                                 class: Comptime,
                                             },
@@ -223,8 +217,8 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -232,35 +226,35 @@
                                         disambiguator: 0,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `Label`,
                                     traits: [],
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: Const(
-                                    HirConstSymbol(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
-                                ),
-                                data: Constant {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 542,
+                                symbol: HirTemplateSymbol::Const(
+                                    HirConstSymbol {
+                                        ty: HirType::Symbol(
+                                            HirTypeSymbol::Type {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
                                             },
                                         ),
-                                    ),
-                                    ty: Symbol(
-                                        Type {
+                                        index: HirConstSymbolIndex::Other {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Runtime,
+                                            },
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                                data: HirTemplateParameterData::Constant {
+                                    ident: `label`,
+                                    ty: HirType::Symbol(
+                                        HirTypeSymbol::Type {
                                             attrs: HirTemplateSymbolAttrs {
                                                 class: Comptime,
                                             },

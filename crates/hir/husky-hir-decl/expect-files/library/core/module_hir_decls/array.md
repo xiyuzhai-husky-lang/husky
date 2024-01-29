@@ -7,33 +7,38 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: Const(
-                                    HirConstSymbol(
-                                        Id {
-                                            value: 1,
+                                symbol: HirTemplateSymbol::Const(
+                                    HirConstSymbol {
+                                        ty: HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                template_arguments: [],
+                                                always_copyable: true,
+                                            },
+                                        ),
+                                        index: HirConstSymbolIndex::PathLeading {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            disambiguator: 0,
+                                            ty_path: TypePath(`core::num::usize`, `Extern`),
                                         },
-                                    ),
+                                    },
                                 ),
-                                data: Constant {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
+                                data: HirTemplateParameterData::Constant {
+                                    ident: `L`,
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::usize`, `Extern`),
+                                            template_arguments: [],
+                                            always_copyable: true,
+                                        },
                                     ),
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -43,14 +48,8 @@
                                         disambiguator: 0,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 25,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `E`,
                                     traits: [],
                                 },
                             },
@@ -90,18 +89,12 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
-                                                index: PathLeading {
+                                                index: HirConstSymbolIndex::PathLeading {
                                                     attrs: HirTemplateSymbolAttrs {
                                                         class: Comptime,
                                                     },
                                                     disambiguator: 0,
-                                                    ty_path: TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 52,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ty_path: TypePath(`core::num::usize`, `Extern`),
                                                 },
                                             },
                                         ),

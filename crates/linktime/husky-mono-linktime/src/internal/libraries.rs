@@ -86,8 +86,7 @@ impl MonoLinkageLibraries {
 fn generate_linkage_storage_works() {
     use husky_dev_comptime::db::DevComptimeDb;
 
-    let mut db = DevComptimeDb::default();
-    db.vfs_plain_test(
+    DevComptimeDb::vfs_plain_test(
         |db, package_path: PackagePath| {
             MonoLinkageLibraries::generate(LinktimeTargetPath::new_package(package_path, db), db)
                 .unwrap();

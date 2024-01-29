@@ -7,8 +7,8 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -16,20 +16,13 @@
                                         disambiguator: 0,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 107,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `T`,
                                     traits: [
-                                        HirTrait(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
+                                        HirTrait {
+                                            trai_path: TraitPath(`core::cmp::Ord`),
+                                            template_arguments: [],
+                                        },
                                     ],
                                 },
                             },
@@ -85,17 +78,11 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: Some(
                                         RefMut,
                                     ),
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 183,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `arr`,
                                 },
                             ],
                         },
@@ -146,8 +133,8 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -155,20 +142,13 @@
                                         disambiguator: 0,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 107,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `T`,
                                     traits: [
-                                        HirTrait(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
+                                        HirTrait {
+                                            trai_path: TraitPath(`core::cmp::Ord`),
+                                            template_arguments: [],
+                                        },
                                     ],
                                 },
                             },
@@ -246,37 +226,19 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: Some(
                                         RefMut,
                                     ),
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 183,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `arr`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 185,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `low`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 186,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `high`,
                                 },
                             ],
                         },
@@ -339,8 +301,8 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -348,20 +310,13 @@
                                         disambiguator: 0,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 107,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `T`,
                                     traits: [
-                                        HirTrait(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
+                                        HirTrait {
+                                            trai_path: TraitPath(`core::cmp::Ord`),
+                                            template_arguments: [],
+                                        },
                                     ],
                                 },
                             },
@@ -439,37 +394,19 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: Some(
                                         RefMut,
                                     ),
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 183,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `arr`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 185,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `low`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 186,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `high`,
                                 },
                             ],
                         },
