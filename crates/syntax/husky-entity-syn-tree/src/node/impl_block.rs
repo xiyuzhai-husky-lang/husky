@@ -186,10 +186,7 @@ impl ImplBlockSynNode {
         impl_token: ImplToken,
     ) -> Result<Self, ImplBlockIllForm> {
         if let Some(_) = parser.try_parse_err_as_none::<LaOrLtToken>() {
-            match ignore_template_parameters(&mut parser) {
-                Ok(_) => (),
-                Err(_e) => todo!(),
-            }
+            ignore_template_parameters(&mut parser)?
         }
         let (expr, path) = parser.parse_major_path_expr_expected()?;
         Ok(match path {
@@ -211,10 +208,7 @@ impl ImplBlockSynNode {
             }
             MajorItemPath::Trait(trai_path) => {
                 let trai_expr = expr;
-                let for_token = match ignore_util_for_is_eaten(&mut parser) {
-                    Ok(for_token) => for_token,
-                    Err(_) => todo!(),
-                };
+                let for_token = ignore_util_for_is_eaten(&mut parser)?;
                 let (ty_path_expr, ty_sketch) =
                     match parser.parse_major_path_expr().into_result_option()? {
                         Some((expr, MajorItemPath::Type(path))) => {
@@ -264,9 +258,7 @@ impl ImplBlockSynNode {
                 }
             }
             MajorItemPath::Fugitive(fugitive_path) => {
-                p!(module_path.debug(db));
-                p!(fugitive_path.debug(db));
-                todo!()
+                Err(ImplBlockIllForm::UnexpectedFugitivePath(fugitive_path))?
             }
         })
     }
@@ -285,18 +277,7 @@ impl ImplBlockSynNode {
     }
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
-pub enum ImplError {
-    #[error("unmatched angle bras")]
-    UnmatchedAngleBras,
-    #[error("token error")]
-    TokenData(#[from] TokenDataError),
-    #[error("principal path expr error")]
-    MajorPath(#[from] MajorPathExprError),
-}
-
-pub type ImplResult<T> = Result<T, ImplError>;
+pub type ImplResult<T> = Result<T, ImplBlockIllForm>;
 
 fn ignore_template_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplResult<()> {
     let mut layer = 1;
@@ -315,7 +296,7 @@ fn ignore_template_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplRes
     }
     match layer {
         0 => Ok(()),
-        _ => Err(ImplError::UnmatchedAngleBras),
+        _ => Err(ImplBlockIllForm::UnmatchedAngleBras),
     }
 }
 

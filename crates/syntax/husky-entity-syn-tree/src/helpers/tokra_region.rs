@@ -36,10 +36,6 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionData<'a> {
     }
 }
 
-pub fn token_region_data(_path: SynNodeRegionPath, _db: &::salsa::Db) -> Option<TokraRegionData> {
-    todo!()
-}
-
 impl SynNodeRegionPath {
     pub fn regional_token_idx_base(self, db: &::salsa::Db) -> Option<RegionalTokenIdxBase> {
         match self {

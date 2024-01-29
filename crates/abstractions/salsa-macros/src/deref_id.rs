@@ -14,7 +14,7 @@ pub(crate) fn deref_id(
     match item.fields {
         syn::Fields::Named(ref fields) => {
             if fields.named.len() != 1 {
-                todo!()
+                panic!("expect just one field")
             }
             let field_ident = &fields.named[0].ident;
             let field_ty = &fields.named[0].ty;

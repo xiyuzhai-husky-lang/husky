@@ -3,8 +3,8 @@ edition = "2021"
 name = "husky-token"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
-license = "MIT OR Apache-2.0"
-description = "Generic LSP server scaffold."
+license = "MIT"
+description = "TODO"
 
 [dependencies]
 thiserror.workspace = true

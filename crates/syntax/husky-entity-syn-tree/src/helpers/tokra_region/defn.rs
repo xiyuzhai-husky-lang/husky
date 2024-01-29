@@ -191,7 +191,7 @@ impl<'a> SynDefnTokraRegionBuilder<'a> {
                     _ => None,
                 })
         else {
-            todo!()
+            unreachable!("should be guaranteed by a checker associated with trait `IsAstChildren` in `husky-ast` so that this is not reachable")
         };
         let regional_token_group_idx_base =
             RegionalTokenGroupIdxBase::from_token_group_idx(first_token_group_idx);

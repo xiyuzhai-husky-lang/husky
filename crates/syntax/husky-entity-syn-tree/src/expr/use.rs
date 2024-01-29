@@ -270,9 +270,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
             return Ok(UseExprChildren::Single { child });
         };
         let (children, comma_tokens, result) = parsec::parse_separated_list(self);
-        if let Err(_e) = result {
-            todo!()
-        }
+        result?;
         let children = self.use_expr_arena.alloc_batch(children);
         Ok(UseExprChildren::Multiple {
             lcurl_token,

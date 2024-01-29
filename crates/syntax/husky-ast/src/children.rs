@@ -25,6 +25,9 @@ pub(crate) trait IsAstChildren {
 
     /// specifies how to determine item kinds
     fn determine_item_kind(keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind>;
+
+    // todo: add a checker for trivialness
+    // for example, a function body might be filled with uses, which is not enough
 }
 
 /// ast children and entity path for a definition block

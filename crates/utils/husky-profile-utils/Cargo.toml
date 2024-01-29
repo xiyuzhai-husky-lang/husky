@@ -2,7 +2,7 @@
 name = "husky-profile-utils"
 version = "0.0.0"
 description = "TBD"
-license = "MIT OR Apache-2.0"
+license = "MIT"
 edition = "2021"
 
 [lib]

@@ -54,10 +54,10 @@ impl EntitySymbol {
             }),
             ItemSynNode::AssociatedItem(_)
             | ItemSynNode::TypeVariant(_)
-            | ItemSynNode::ImplBlock(_) => {
-                unreachable!()
+            | ItemSynNode::ImplBlock(_)
+            | ItemSynNode::Attr(_) => {
+                unreachable!("these nodes shouldn't have been created at this stage")
             }
-            ItemSynNode::Attr(_) => todo!(),
         }
     }
 }

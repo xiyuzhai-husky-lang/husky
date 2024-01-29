@@ -1,7 +1,7 @@
 [package]
 name = "core"
 version = "0.0.0"
-license = "MIT OR Apache-2.0"
+license = "MIT"
 repository = "https://github.com/xiyuzhai-husky-lang/husky.git"
 description = "The Husky Core Library"
 autotests = false

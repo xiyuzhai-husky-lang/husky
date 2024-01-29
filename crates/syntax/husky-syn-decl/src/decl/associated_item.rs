@@ -134,15 +134,6 @@ impl HasSynDecl for AssociatedItemPath {
     }
 }
 
-pub trait HasItemDeclsMap {
-    type ItemDecls;
-
-    fn item_syn_decls_map<'a>(
-        self,
-        db: &'a ::salsa::Db,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<Self::ItemDecls, ()>)]>;
-}
-
 pub trait HasItemDecls {
     type ItemDecls;
 

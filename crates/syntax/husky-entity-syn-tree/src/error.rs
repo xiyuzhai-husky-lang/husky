@@ -1,4 +1,4 @@
-use crate::{EntityTreeBundleError, ItemSynNodePath, PreludeError};
+use crate::{ItemSynNodePath, PreludeError};
 use husky_entity_path::{EntityPathError, TypePath};
 use husky_token::IdentToken;
 use husky_vfs::{error::VfsError, ModulePath, ToolchainError};
@@ -25,29 +25,11 @@ impl From<PreludeError> for EntitySynTreeError {
     }
 }
 
-impl From<EntityTreeBundleError> for EntitySynTreeError {
-    fn from(e: EntityTreeBundleError) -> Self {
-        EntitySynTreeError::Derived(e.into())
-    }
-}
-
-impl From<&EntityTreeBundleError> for EntitySynTreeError {
-    fn from(_e: &EntityTreeBundleError) -> Self {
-        todo!()
-    }
-}
-
 impl From<VfsError> for EntitySynTreeError {
     fn from(e: VfsError) -> Self {
         EntitySynTreeError::Derived(e.into())
     }
 }
-
-// impl From<&EntityTreeError> for EntityTreeError {
-//     fn from(e: &EntityTreeError) -> Self {
-//         todo!("e = {:?}", e)
-//     }
-// }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
@@ -81,8 +63,6 @@ pub enum DerivedEntityTreeError {
     Toolchain(#[from] ToolchainError),
     #[error("from prelude error {0}")]
     Prelude(#[from] PreludeError),
-    #[error("from bundle {0}")]
-    CrateBundle(#[from] EntityTreeBundleError),
     #[error("invalid module path")]
     InvalidModulePath(ModulePath),
 }
