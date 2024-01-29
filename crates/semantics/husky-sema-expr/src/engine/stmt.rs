@@ -1,5 +1,7 @@
 mod let_init;
 
+use self::condition::SemaCondition;
+
 use super::*;
 
 impl<'a> SemaExprEngine<'a> {

@@ -1,6 +1,5 @@
-use husky_sema_expr::{SemaElifBranch, SemaElseBranch, SemaIfBranch};
-
 use super::*;
+use husky_sema_expr::stmt::if_else_stmt::{SemaElifBranch, SemaElseBranch, SemaIfBranch};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirLazyIfBranch {

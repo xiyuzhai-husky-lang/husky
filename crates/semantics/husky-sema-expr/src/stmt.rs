@@ -1,12 +1,12 @@
-mod condition;
-mod if_else_stmt;
-mod loop_stmt;
-mod match_stmt;
+pub mod condition;
+pub mod if_else_stmt;
+pub mod loop_stmt;
+pub mod match_stmt;
 
-pub use self::condition::*;
-pub use self::if_else_stmt::*;
-pub use self::loop_stmt::*;
-pub use self::match_stmt::*;
+use self::condition::*;
+use self::if_else_stmt::*;
+use self::loop_stmt::*;
+use self::match_stmt::*;
 
 use husky_regional_token::{
     AssertRegionalToken, BreakRegionalToken, DoRegionalToken, EolRegionalToken,
