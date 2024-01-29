@@ -73,6 +73,14 @@ impl Point {
             y: v.into(),
         }
     }
+
+    pub fn x(self) -> f32 {
+        self.x.into_inner()
+    }
+
+    pub fn y(self) -> f32 {
+        self.y.into_inner()
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

@@ -1,7 +1,13 @@
+pub mod image;
+pub mod input;
+pub mod optimal_transport;
+pub mod optimal_transport_average;
+pub mod skeleton;
+
+use self::input::Input;
 use crate::{
     op::{frame::MnistOpFrame, history::OpTime},
-    values::input::Input,
-    MnistDb,
+    MnistDb, *,
 };
 use enum_index::{bitset::EnumBitSet, IsEnumIndex};
 use husky_ml_task_interface::InputId;
@@ -14,6 +20,7 @@ pub enum Trace {
     Input,
     Skeleton,
     OptimalTransport,
+    OptimalTransportAverage,
 }
 
 impl From<TraceId> for Trace {
@@ -76,6 +83,9 @@ impl Trace {
             Trace::Input => db.input_visual(input_id),
             Trace::Skeleton => db.op_history(input_id)[op_time].skeleton_visual(),
             Trace::OptimalTransport => db.op_history(input_id)[op_time].optimal_transport_visual(),
+            Trace::OptimalTransportAverage => {
+                db.op_history(input_id)[op_time].optimal_transport_average_visual()
+            }
         }
     }
 
@@ -84,6 +94,7 @@ impl Trace {
             Trace::Input => "input",
             Trace::Skeleton => "skeleton",
             Trace::OptimalTransport => "optimal transport",
+            Trace::OptimalTransportAverage => "optimal transport average",
         }
     }
 }
@@ -93,10 +104,10 @@ pub struct TraceSelection {
     set: EnumBitSet<Trace>,
 }
 
-impl Default for TraceSelection {
-    fn default() -> Self {
+impl TraceSelection {
+    pub fn new(traces: impl IntoIterator<Item = Trace>) -> Self {
         Self {
-            set: Default::default(),
+            set: EnumBitSet::new(traces),
         }
     }
 }

@@ -1,4 +1,7 @@
-use crate::{trace::TraceSelection, MnistApp};
+use crate::{
+    trace::{Trace, TraceSelection},
+    MnistApp,
+};
 
 #[derive(Debug)]
 pub struct MnistChannels {
@@ -8,12 +11,21 @@ pub struct MnistChannels {
 
 impl MnistChannels {
     pub fn new() -> Self {
+        use crate::trace::Trace::*;
+        macro_rules! channels {
+            ($($args: expr),*) => {
+                vec![$(MnistChannel::new($args)),*]
+            };
+            ($($args: expr,)*) => {
+                vec![$(MnistChannel::new($args)),*]
+            }
+        }
         MnistChannels {
-            channels: vec![
-                MnistChannel::new(),
-                MnistChannel::new(),
-                MnistChannel::new(),
-                MnistChannel::new(),
+            channels: channels![
+                [Input],
+                [Input, Skeleton],
+                [Input, Skeleton, OptimalTransport],
+                [Input, Skeleton, OptimalTransportAverage],
             ],
             current: 0,
         }
@@ -34,9 +46,9 @@ pub struct MnistChannel {
 }
 /// # constructors
 impl MnistChannel {
-    pub(crate) fn new() -> Self {
+    pub(crate) fn new(traces: impl IntoIterator<Item = Trace>) -> Self {
         Self {
-            trace_selection: TraceSelection::default(),
+            trace_selection: TraceSelection::new(traces),
         }
     }
 

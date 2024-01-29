@@ -1,5 +1,6 @@
-use self::{frame::MnistOpFrame, values::input::Input};
+use self::frame::MnistOpFrame;
 use super::*;
+use crate::trace::input::Input;
 use shifted_unsigned_int::ShiftedU32;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
