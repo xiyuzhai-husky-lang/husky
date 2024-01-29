@@ -1,4 +1,4 @@
-use husky_ast::AstError;
+use husky_ast::error::AstError;
 use husky_vfs::error::VfsError;
 
 use thiserror::Error;

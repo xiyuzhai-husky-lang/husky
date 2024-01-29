@@ -1,7 +1,6 @@
 pub(crate) use husky_vfs::VfsTestUtils;
 
 use crate::*;
-use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
@@ -25,7 +24,7 @@ use husky_vfs::VfsJar;
     CowordJar,
     husky_token_data::db::TokenDataJar,
     TokenJar,
-    AstJar,
+    husky_ast::jar::AstJar,
     EntitySynTreeJar,
     TomlTokenJar,
     TomlAstJar,

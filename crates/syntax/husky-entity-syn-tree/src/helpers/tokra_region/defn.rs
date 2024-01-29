@@ -1,3 +1,4 @@
+use husky_ast::range::AstTokenIdxRangeSheet;
 use husky_defn_ast::{DefnAst, DefnAstArena, DefnAstArenaRef, DefnAstIdx, DefnAstIdxRange};
 use husky_token::{TokenDb, TokenIdxRange, TokenSheetData};
 

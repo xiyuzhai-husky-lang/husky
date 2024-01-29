@@ -12,7 +12,7 @@ use husky_vfs::*;
     husky_entity_path::jar::EntityPathJar,
     husky_token_data::db::TokenDataJar,
     TokenJar,
-    AstJar,
+    crate::jar::AstJar,
     TermPreludeJar
 )]
 pub(crate) struct DB;

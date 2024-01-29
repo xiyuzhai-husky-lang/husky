@@ -1,7 +1,6 @@
 pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
-use husky_ast::AstJar;
 use husky_coword::CowordJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
@@ -13,7 +12,7 @@ use husky_token::TokenJar;
     TermPreludeJar,
     husky_token_data::db::TokenDataJar,
     TokenJar,
-    AstJar,
+    husky_ast::jar::AstJar,
     FoldingRangeJar
 )]
 #[derive(Default)]

@@ -40,7 +40,7 @@ use std::panic::RefUnwindSafe;
     husky_corgi_config::CorgiConfigJar,
     husky_manifest::ManifestJar,
     // syntax
-    husky_ast::AstJar,
+    husky_ast::jar::AstJar,
     husky_toml_ast::TomlAstJar,
     husky_corgi_config_ast::CorgiConfigAstJar,
     husky_manifest_ast::ManifestAstJar,
