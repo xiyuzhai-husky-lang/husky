@@ -74,7 +74,7 @@ mnist-developer:
 
 save:
 	git add -A
-	git commit -m "Michael Jordan is goat!"
+	git commit -m "save"
 	git push
 
 save-clean:

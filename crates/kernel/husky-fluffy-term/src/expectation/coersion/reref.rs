@@ -10,7 +10,6 @@ impl ExpectCoersion {
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
-        FluffyPlace::Transient.bind(self.contract);
         let expected_base_ty_data = self.ty_expected.base_ty_data_inner(db, terms) else {
             unreachable!(
                 "place should be merged with contract already, self.ty_expected = {}",
