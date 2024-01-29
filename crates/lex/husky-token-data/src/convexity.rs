@@ -25,18 +25,6 @@ impl Convexity {
 }
 
 impl TokenData {
-    // pub fn left_convexity(&self) -> Option<Convexity> {
-    //     match self {
-    //         TokenData::Attr(_) => todo!(),
-    //         TokenData::Keyword(_) => todo!(),
-    //         TokenData::Ident(_) | TokenData::Label(_) => Some(Convexity::Convex),
-    //         TokenData::Punctuation(punc) => punc.left_convexity(),
-    //         TokenData::WordOpr(_) => todo!(),
-    //         TokenData::Literal(_) => Some(Convexity::Convex),
-    //         TokenData::Error(_) => unreachable!(),
-    //     }
-    // }
-
     pub fn right_convexity(&self) -> Convexity {
         match self {
             TokenData::Keyword(_) => Convexity::Concave,
