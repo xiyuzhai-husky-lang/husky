@@ -107,6 +107,7 @@ impl Diagnose for ImplBlockIllForm {
                 format!("expect type path after `for` keyword")
             }
             ImplBlockIllForm::ExpectedDeriveIdent(_) => todo!(),
+            ImplBlockIllForm::UnexpectedFugitivePath(_) => todo!(),
         }
     }
 
@@ -140,6 +141,7 @@ impl Diagnose for ImplBlockIllForm {
             ImplBlockIllForm::MissingForKeyword => todo!(),
             ImplBlockIllForm::ExpectTypePathAfterForKeyword => todo!(),
             ImplBlockIllForm::ExpectedDeriveIdent(_) => todo!(),
+            ImplBlockIllForm::UnexpectedFugitivePath(_) => todo!(),
         }
     }
 }

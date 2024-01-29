@@ -2,7 +2,7 @@
 name = "husky-val-repr"
 version = "0.0.0"
 description = "TBD"
-license = "MIT OR Apache-2.0"
+license = "MIT"
 edition = "2021"
 rust-version = "1.56"
 

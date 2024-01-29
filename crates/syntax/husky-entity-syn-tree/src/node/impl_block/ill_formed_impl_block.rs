@@ -105,6 +105,8 @@ pub enum ImplBlockIllForm {
     ExpectTypePathAfterForKeyword,
     #[error("expected `derive` identifier")]
     ExpectedDeriveIdent(TokenStreamState),
+    #[error("UnexpectedFugitivePath")]
+    UnexpectedFugitivePath(FugitivePath),
 }
 
 impl OriginalError for ImplBlockIllForm {

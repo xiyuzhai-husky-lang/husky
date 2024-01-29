@@ -5,7 +5,7 @@ edition = "2021"
 description = "representation of a target platform for the Husky programming language"
 homepage = "https://github.com/xiyuzhai-husky-lang/husky"
 keywords = ["husky", "platform"]
-license = "MIT OR Apache-2.0"
+license = "MIT"
 readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

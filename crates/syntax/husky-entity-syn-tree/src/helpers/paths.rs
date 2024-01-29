@@ -1,9 +1,7 @@
 use super::*;
 
 pub trait HasItemPaths: Copy {
-    fn item_paths<'a>(self, _db: &'a ::salsa::Db) -> &'a [ItemPath] {
-        todo!()
-    }
+    fn item_paths<'a>(self, _db: &'a ::salsa::Db) -> &'a [ItemPath];
 }
 
 impl HasItemPaths for ModulePath {
