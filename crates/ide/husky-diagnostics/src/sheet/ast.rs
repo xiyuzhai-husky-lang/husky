@@ -135,6 +135,9 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken => {
                 format!("Syntax Error: UnexpectedEndKeyword")
             }
+            OriginalAstError::UnexpectedConnectionKeywordAsFirstNonCommentToken => {
+                format!("Syntax Error: unexpected connection keyword as first non-comment token")
+            }
             OriginalAstError::UnexpectedMajorTypeInsideImplBlock => {
                 format!("Syntax Error: UnexpectedTypeDefnInsideTypeImplBlock")
             }
@@ -168,6 +171,11 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedModInsideModuleItem => {
                 format!("unexpected submodule inside module item")
             }
+            OriginalAstError::SubmoduleFileNotFound(_) => {
+                format!("submodule file not found")
+            }
+            OriginalAstError::UnexpectedTraitInsideImplBlock => todo!(),
+            OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce => todo!(),
         }
     }
 
@@ -201,6 +209,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedStaticFnOutsideImplBlock
             | OriginalAstError::UnexpectedTraitInsideForm
             | OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken
+            | OriginalAstError::UnexpectedConnectionKeywordAsFirstNonCommentToken
             | OriginalAstError::UnexpectedMajorTypeInsideImplBlock
             | OriginalAstError::ExpectedEntityKeywordGroup(_)
             | OriginalAstError::UnexpectedMemoFieldOutsideImplBlock
@@ -228,6 +237,9 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::VisibilityExprError(OriginalVisibilityExprError::NoSuperForRoot(
                 token_idx,
             )) => ctx.token_idx_text_range(*token_idx),
+            OriginalAstError::SubmoduleFileNotFound(_) => todo!(),
+            OriginalAstError::UnexpectedTraitInsideImplBlock => todo!(),
+            OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce => todo!(),
         }
     }
 }

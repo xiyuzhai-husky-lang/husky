@@ -250,34 +250,6 @@ where
                 }),
                 IncompleteCallListOpr::MethodCall { .. } => todo!(),
             },
-            // IncompleteExpr::RitchieCallKeyedArgumentList {
-            //     function,
-            //     generic_arguments,
-            //     bra,
-            //     lpar_regional_token_idx,
-            //     arguments,
-            //     keyed_arguments,
-            //     commas,
-            // } => {
-            //     if ket != Bracket::Par {
-            //         todo!()
-            //     }
-            // IncompleteExpr::MethodRitchieCallKeyedArgumentList {
-            //     self_expr,
-            //     dot_regional_token_idx,
-            //     ident_token,
-            //     generic_arguments,
-            //     bra,
-            //     bra_regional_token_idx,
-            //     arguments,
-            //     commas,
-            //     keyed_arguments,
-            // } => {
-            //     if ket != Bracket::Par {
-            //         todo!()
-            //     }
-            //     todo!()
-            // }
             _ => {
                 p!(last_incomplete_expr);
                 // p!(self.context.path.debug(self.db()));

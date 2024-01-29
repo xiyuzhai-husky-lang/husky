@@ -18,4 +18,5 @@ pub enum EntityClass {
     ImplBlock,
     Attr,
     Formal,
+    AssociatedFormal,
 }

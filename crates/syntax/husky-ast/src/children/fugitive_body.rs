@@ -22,12 +22,14 @@ impl IsAstChildren for FugitiveBody {
                 Err(OriginalAstError::UnexpectedModInsideModuleItem)?
             }
             EntityKindKeywordGroup::FugitiveFn(_) => FugitiveKind::FunctionFn.into(),
-            EntityKindKeywordGroup::StaticFn(_, _) => todo!(),
+            EntityKindKeywordGroup::StaticFn(_, _) => {
+                Err(OriginalAstError::UnexpectedStaticFnOutsideImplBlock)?
+            }
             EntityKindKeywordGroup::Gn(_) => FugitiveKind::FunctionGn.into(),
-            EntityKindKeywordGroup::FormalEntity(_) => todo!(),
+            EntityKindKeywordGroup::FormalEntity(_) => FugitiveKind::Formal.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
-            EntityKindKeywordGroup::AliasOrAssociateType(_) => todo!(),
-            EntityKindKeywordGroup::Trait(_) => todo!(),
+            EntityKindKeywordGroup::AliasOrAssociateType(_) => FugitiveKind::AliasType.into(),
+            EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
             EntityKindKeywordGroup::Val(_) => FugitiveKind::Val.into(),
         };
         Ok(EntityKind::MajorItem {

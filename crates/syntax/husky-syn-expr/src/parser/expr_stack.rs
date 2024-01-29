@@ -103,32 +103,19 @@ impl SynExprData {
             SynExprData::TemplateInstantiation { template, .. } => {
                 arena[template].base_item_path(db, arena)
             }
-            SynExprData::Block { stmts: _ } => BaseEntityPath::None,
-            SynExprData::Be {
-                src: _,
-                be_regional_token_idx: _,
-                target: _,
-            } => todo!(),
+            SynExprData::Block { .. } => BaseEntityPath::None,
+            SynExprData::Be { .. } => BaseEntityPath::None,
             SynExprData::BoxColonList { .. } => todo!(),
-            SynExprData::FrameVarDecl { .. } => todo!(),
-            SynExprData::IndexOrCompositionWithList {
-                owner,
-                lbox_regional_token_idx: _,
-                items: _indices,
-                rbox_regional_token_idx: _,
-            } => arena[owner].base_item_path(db, arena),
+            SynExprData::FrameVarDecl { .. } => BaseEntityPath::None,
+            SynExprData::IndexOrCompositionWithList { owner, .. } => {
+                arena[owner].base_item_path(db, arena)
+            }
             SynExprData::EmptyHtmlTag { .. } => BaseEntityPath::Err,
-            SynExprData::FunctionCall { .. } => todo!(),
-            SynExprData::Ritchie { .. } => todo!(),
-            SynExprData::Sorry {
-                regional_token_idx: _,
-            } => todo!(),
-            SynExprData::Todo {
-                regional_token_idx: _,
-            } => todo!(),
-            SynExprData::Unreachable {
-                regional_token_idx: _,
-            } => todo!(),
+            SynExprData::FunctionCall { .. } => BaseEntityPath::None,
+            SynExprData::Ritchie { .. } => BaseEntityPath::None,
+            SynExprData::Sorry { .. } => BaseEntityPath::None,
+            SynExprData::Todo { .. } => BaseEntityPath::None,
+            SynExprData::Unreachable { .. } => BaseEntityPath::None,
         }
     }
 }

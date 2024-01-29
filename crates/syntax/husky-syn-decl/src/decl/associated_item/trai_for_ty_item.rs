@@ -84,6 +84,7 @@ impl<'a> DeclParser<'a> {
             unreachable!()
         };
         match syn_node_path.data(db).item_kind(db) {
+            TraitItemKind::MemoizedField => todo!(),
             TraitItemKind::MethodFn => self
                 .parse_trai_for_ty_method_fn_node_decl(syn_node_path)
                 .into(),
@@ -95,6 +96,7 @@ impl<'a> DeclParser<'a> {
                 .parse_trai_for_ty_associated_fn_node_decl(syn_node_path)
                 .into(),
             TraitItemKind::AssociatedFunctionGn => todo!(),
+            TraitItemKind::AssociatedFormal => todo!(),
         }
     }
 }

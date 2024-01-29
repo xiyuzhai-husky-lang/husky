@@ -150,7 +150,11 @@ impl<'a> AstParser<'a> {
                     token_group_idx,
                     error: OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken.into(),
                 },
-                Keyword::Connection(_) => todo!(),
+                Keyword::Connection(_) => Ast::Err {
+                    token_group_idx,
+                    error: OriginalAstError::UnexpectedConnectionKeywordAsFirstNonCommentToken
+                        .into(),
+                },
                 Keyword::Const | Keyword::Pub | Keyword::Static => {
                     self.parse_defn_or_use::<C>(token_group_idx)
                 }
@@ -162,9 +166,15 @@ impl<'a> AstParser<'a> {
                         token_group_idx,
                         ident,
                     },
-                    _ => todo!(),
+                    _ => Ast::Err {
+                        token_group_idx,
+                        error: OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce.into(),
+                    },
                 },
-                None => todo!(),
+                None => Ast::Err {
+                    token_group_idx,
+                    error: OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce.into(),
+                },
             },
             TokenData::Punctuation(_)
             | TokenData::Ident(_)

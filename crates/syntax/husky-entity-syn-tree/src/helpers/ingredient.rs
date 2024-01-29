@@ -61,30 +61,14 @@ impl IngredientPath {
             EntityKind::AssociatedItem {
                 associated_item_kind,
             } => match associated_item_kind {
-                AssociatedItemKind::TraitItem(trai_item_kind) => match trai_item_kind {
-                    TraitItemKind::MethodFn => false,
-                    TraitItemKind::AssociatedType => false,
-                    TraitItemKind::AssociatedVal => true,
-                    TraitItemKind::AssociatedFunctionFn => false,
-                    TraitItemKind::AssociatedFunctionGn => false,
-                },
-                AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
-                    TypeItemKind::MethodFn => false,
-                    TypeItemKind::AssociatedFunctionFn => false,
-                    TypeItemKind::AssociatedVal => true,
-                    TypeItemKind::AssociatedType => false,
-                    TypeItemKind::MemoizedField => true,
-                    TypeItemKind::AssociatedFunctionGn => false,
-                },
-                AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => {
-                    match trai_for_ty_item_kind {
-                        TraitItemKind::MethodFn => false,
-                        TraitItemKind::AssociatedType => false,
-                        TraitItemKind::AssociatedVal => true,
-                        TraitItemKind::AssociatedFunctionFn => false,
-                        TraitItemKind::AssociatedFunctionGn => false,
-                    }
-                }
+                AssociatedItemKind::TraitItem(TraitItemKind::AssociatedVal)
+                | AssociatedItemKind::TypeItem(
+                    TypeItemKind::MemoizedField | TypeItemKind::AssociatedVal,
+                )
+                | AssociatedItemKind::TraitForTypeItem(
+                    TraitItemKind::MemoizedField | TraitItemKind::AssociatedVal,
+                ) => true,
+                _ => false,
             },
             EntityKind::TypeVariant => false,
             EntityKind::ImplBlock => false,

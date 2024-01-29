@@ -32,24 +32,29 @@ pub fn item_syn_node_defn(
                         TypeItemKind::AssociatedVal => AllowSelfValue::True,
                         TypeItemKind::AssociatedType => AllowSelfValue::False,
                         TypeItemKind::MemoizedField => AllowSelfValue::True,
+                        TypeItemKind::AssociatedFormal => todo!(),
                     }
                 }
                 AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
                     match syn_node_path.data(db).item_kind(db) {
+                        TraitItemKind::MemoizedField => AllowSelfValue::True,
                         TraitItemKind::MethodFn => AllowSelfValue::True,
                         TraitItemKind::AssociatedType => AllowSelfValue::False,
                         TraitItemKind::AssociatedVal => AllowSelfValue::True,
                         TraitItemKind::AssociatedFunctionFn => AllowSelfValue::False,
                         TraitItemKind::AssociatedFunctionGn => AllowSelfValue::False,
+                        TraitItemKind::AssociatedFormal => todo!(),
                     }
                 }
                 AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
                     match syn_node_path.data(db).item_kind(db) {
+                        TraitItemKind::MemoizedField => AllowSelfValue::True,
                         TraitItemKind::MethodFn => AllowSelfValue::True,
                         TraitItemKind::AssociatedType => AllowSelfValue::False,
                         TraitItemKind::AssociatedVal => AllowSelfValue::True,
                         TraitItemKind::AssociatedFunctionFn => AllowSelfValue::False,
                         TraitItemKind::AssociatedFunctionGn => AllowSelfValue::False,
+                        TraitItemKind::AssociatedFormal => todo!(),
                     }
                 }
                 AssociatedItemSynNodePath::IllFormedItem(_) => todo!(),

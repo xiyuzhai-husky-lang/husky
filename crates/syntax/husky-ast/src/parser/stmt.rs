@@ -88,7 +88,12 @@ impl<'a> AstParser<'a> {
     fn parse_stmt(&mut self, token_group_idx: TokenGroupIdx) -> Ast {
         let body = match self.try_parse_option() {
             Ok(body) => body,
-            Err(_) => todo!(),
+            Err(error) => {
+                return Ast::Err {
+                    token_group_idx,
+                    error,
+                }
+            }
         };
         Ast::BasicStmtOrBranch {
             token_group_idx,

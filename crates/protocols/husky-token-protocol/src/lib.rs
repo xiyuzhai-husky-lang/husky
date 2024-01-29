@@ -112,6 +112,7 @@ impl From<EntityClass> for TokenClass {
             EntityClass::ImplBlock => unreachable!(),
             EntityClass::Attr => unreachable!(),
             EntityClass::Formal => todo!(),
+            EntityClass::AssociatedFormal => todo!(),
         }
     }
 }

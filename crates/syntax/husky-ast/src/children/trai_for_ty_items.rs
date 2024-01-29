@@ -25,7 +25,7 @@ impl IsAstChildren for TraitForTypeItems {
             EntityKindKeywordGroup::FugitiveFn(_) => TraitItemKind::MethodFn,
             EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::AssociatedFunctionFn,
             EntityKindKeywordGroup::Gn(_) => TraitItemKind::AssociatedFunctionGn,
-            EntityKindKeywordGroup::FormalEntity(_) => todo!(),
+            EntityKindKeywordGroup::FormalEntity(_) => TraitItemKind::AssociatedFormal,
             EntityKindKeywordGroup::MajorType(_) => {
                 Err(OriginalAstError::UnexpectedMajorTypeInsideImplBlock)?
             }

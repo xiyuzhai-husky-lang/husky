@@ -75,6 +75,7 @@ impl<'a> DeclParser<'a> {
         syn_node_path: TraitItemSynNodePath,
     ) -> TraitItemSynNodeDecl {
         match syn_node_path.item_kind(self.db()) {
+            TraitItemKind::MemoizedField => todo!(),
             TraitItemKind::MethodFn => self.parse_trai_method_fn_node_decl(syn_node_path).into(),
             TraitItemKind::AssociatedType => self
                 .parse_trai_associated_ty_node_decl(syn_node_path)
@@ -82,6 +83,7 @@ impl<'a> DeclParser<'a> {
             TraitItemKind::AssociatedVal => todo!(),
             TraitItemKind::AssociatedFunctionFn => todo!(),
             TraitItemKind::AssociatedFunctionGn => todo!(),
+            TraitItemKind::AssociatedFormal => todo!(),
         }
     }
 }
