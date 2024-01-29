@@ -13,7 +13,6 @@ pub trait AstTestUtils: TokenTestUtils {
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn ast_expect_test_debug_with_db<'a, U, R>(
-        &'a mut self,
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &AstTestConfig<'a>,
     ) where
@@ -22,19 +21,13 @@ pub trait AstTestUtils: TokenTestUtils {
 
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn ast_expect_test_debug<'a, U, R>(
-        &'a mut self,
-        f: impl Fn(&'a ::salsa::Db, U) -> R,
-        config: &AstTestConfig,
-    ) where
+    fn ast_expect_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &AstTestConfig)
+    where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Debug;
 
-    fn ast_expect_test_display<U, R>(
-        &mut self,
-        f: impl Fn(&::salsa::Db, U) -> R,
-        config: &AstTestConfig,
-    ) where
+    fn ast_expect_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &AstTestConfig)
+    where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display;
 }
@@ -52,7 +45,6 @@ where
     }
 
     fn ast_expect_test_debug_with_db<'a, U, R>(
-        &'a mut self,
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &AstTestConfig<'a>,
     ) where
@@ -63,11 +55,8 @@ where
         DB::token_expect_test_debug_with_db(f, &config.token)
     }
 
-    fn ast_expect_test_debug<'a, U, R>(
-        &'a mut self,
-        f: impl Fn(&'a ::salsa::Db, U) -> R,
-        config: &AstTestConfig,
-    ) where
+    fn ast_expect_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &AstTestConfig)
+    where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Debug,
     {
@@ -75,11 +64,8 @@ where
         DB::token_expect_test_debug(f, &config.token)
     }
 
-    fn ast_expect_test_display<U, R>(
-        &mut self,
-        f: impl Fn(&::salsa::Db, U) -> R,
-        config: &AstTestConfig,
-    ) where
+    fn ast_expect_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &AstTestConfig)
+    where
         U: VfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display,
     {

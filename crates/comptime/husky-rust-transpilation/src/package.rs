@@ -113,7 +113,7 @@ pub(crate) fn rust_transpilation_packages(
 
 #[test]
 fn rust_transpilation_packages_works() {
-    DB::default().ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         |db, package_path: PackagePath| {
             let linktime_target_path = LinktimeTargetPath::new_package(package_path, db);
             rust_transpilation_packages(db, linktime_target_path)

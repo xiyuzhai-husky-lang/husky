@@ -572,7 +572,7 @@ pub fn package_linkages(db: &::salsa::Db, package_path: PackagePath) -> Vec<Link
 
 #[test]
 fn package_linkages_works() {
-    DB::default().ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         package_linkages,
         &AstTestConfig::new("package_linkages")
             .with_vfs_test_domains_config(VfsTestDomainsConfig::ExcludeLibrary),

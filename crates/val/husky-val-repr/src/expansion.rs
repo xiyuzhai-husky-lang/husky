@@ -788,7 +788,7 @@ fn val_item_val_repr_expansions(
 fn val_item_val_repr_expansions_works() {
     // todo: why compiler needs this line to work?
     use husky_ast::test_utils::AstTestUtils;
-    DB::default().ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         val_item_val_repr_expansions,
         &AstTestConfig::new("val_item_val_repr_expansions"),
     )

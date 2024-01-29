@@ -53,7 +53,7 @@ pub(crate) struct DB;
 
 #[test]
 fn token_infer_sheet_works() {
-    DB::default().ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         TokenInfoDb::token_info_sheet,
         &AstTestConfig::new("token_infer_sheet"),
     )

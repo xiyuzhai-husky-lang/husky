@@ -134,8 +134,7 @@ pub fn module_submodule_item_paths(
 
 #[test]
 fn module_item_paths_works() {
-    let mut db = DB::default();
-    db.ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         |db, module_path| module_item_paths(db, module_path),
         &AstTestConfig::new("module_item_paths"),
     )

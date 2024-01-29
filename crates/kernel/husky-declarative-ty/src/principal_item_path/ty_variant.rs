@@ -58,7 +58,7 @@ pub fn ty_variant_path_declarative_ty(
 
 #[test]
 fn ty_variant_path_declarative_ty_works() {
-    DB::default().ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         |db, module_path: husky_vfs::ModulePath| {
             use husky_entity_syn_tree::HasTypeVariantPaths;
             module_item_paths(db, module_path)

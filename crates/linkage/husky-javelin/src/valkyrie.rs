@@ -365,7 +365,7 @@ impl ValkyrieRides {
 
 #[test]
 fn item_valkyrie_rides_works() {
-    DB::default().ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         |db, module_path| -> Vec<_> {
             module_item_paths(db, module_path)
                 .iter()

@@ -51,7 +51,7 @@ fn module_declarative_signature_templates(
 
 #[test]
 fn module_declarative_signature_templates_works() {
-    DB::default().ast_expect_test_debug_with_db(
+    DB::ast_expect_test_debug_with_db(
         |db, module_path| module_declarative_signature_templates(db, module_path),
         &AstTestConfig::new("module_declarative_signature"),
     )
