@@ -131,17 +131,18 @@ impl ImplBlockSynNode {
     pub(crate) fn parse_from_token_group<'a, 'b>(
         db: &::salsa::Db,
         crate_root_path: ModulePath,
-        registry: &mut ImplBlockRegistry,
         item_tree_context: EntityTreeSymbolContext<'a, 'b>,
         module_path: ModulePath,
         ast_idx: AstIdx,
         items: Option<ImplBlockItems>, // there could be no items for trait impl block
         token_stream: TokenStream<'a>,
+        registry: &mut ImplBlockRegistry,
         princiapl_item_path_expr_arena: &mut MajorPathExprArena,
     ) -> Self {
         let mut parser = MajorItemPathExprParser::new(
             db,
             crate_root_path,
+            module_path,
             token_stream,
             princiapl_item_path_expr_arena,
             item_tree_context,

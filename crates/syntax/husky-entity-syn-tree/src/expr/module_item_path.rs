@@ -39,10 +39,17 @@ pub enum MajorPathExprError {
 pub enum OriginalMajorPathExprError {
     #[error("unrecognized identifier")]
     UnrecognizedIdent(IdentToken),
+    #[error("path is not major")]
+    PathIsNotMajor {
+        ident_token: IdentToken,
+        path: PrincipalEntityPath,
+    },
     #[error("expect identifier")]
     ExpectedName(TokenStreamState),
     #[error("NoSuchSubitem")]
     NoSuchSubitem,
+    #[error("NoSuperForCrateRoot")]
+    NoSuperForCrateRoot { super_token: SuperToken },
 }
 
 impl OriginalError for OriginalMajorPathExprError {
@@ -68,9 +75,13 @@ pub type MajorItemPathExprMaybeResult<T> = MaybeResult<T, MajorPathExprError>;
 pub(crate) struct MajorItemPathExprParser<'a, 'b> {
     db: &'a ::salsa::Db,
     crate_root_path: ModulePath,
+    /// the module of the source code
+    module_path: ModulePath,
     token_stream: TokenStream<'a>,
-    major_path_expr_arena: &'b mut MajorPathExprArena,
+    /// context for resolving symbols
     item_tree_symbol_context: EntityTreeSymbolContext<'a, 'b>,
+    /// the storage of allocated major path expressions
+    major_path_expr_arena: &'b mut MajorPathExprArena,
 }
 
 impl<'a, 'b> ::salsa::db::HasDb<'a> for MajorItemPathExprParser<'a, 'b> {
@@ -83,6 +94,7 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
     pub(crate) fn new(
         db: &'a ::salsa::Db,
         crate_root_path: ModulePath,
+        module_path: ModulePath,
         token_stream: TokenStream<'a>,
         major_path_expr_arena: &'b mut MajorPathExprArena,
         item_tree_symbol_context: EntityTreeSymbolContext<'a, 'b>,
@@ -90,6 +102,7 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
         Self {
             db,
             crate_root_path,
+            module_path,
             token_stream,
             major_path_expr_arena,
             item_tree_symbol_context,
@@ -123,20 +136,22 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
             self.try_parse_expected(OriginalMajorPathExprError::ExpectedName)?;
         let path = match name_token {
             PathNameToken::Ident(ident_token) => {
-                match self
+                let path = self
                     .item_tree_symbol_context
                     .resolve_root_ident(ident_token)
                     .ok_or(OriginalMajorPathExprError::UnrecognizedIdent(ident_token))?
-                    .principal_entity_path(self.db)
-                    .major()
-                {
+                    .principal_entity_path(self.db);
+                match path.major() {
                     Some(path) => path,
-                    None => todo!(),
+                    None => Err(OriginalMajorPathExprError::PathIsNotMajor { ident_token, path })?,
                 }
             }
             PathNameToken::CrateRoot(_) => self.crate_root_path.into(),
-            PathNameToken::SelfMod(_) => todo!(),
-            PathNameToken::Super(_) => todo!(),
+            PathNameToken::SelfMod(_) => self.module_path.into(),
+            PathNameToken::Super(super_token) => match self.module_path.parent(self.db) {
+                Some(parent) => parent.into(),
+                None => Err(OriginalMajorPathExprError::NoSuperForCrateRoot { super_token })?,
+            },
         };
         self.parse_major_path_expr_aux(path, name_token)
     }

@@ -94,7 +94,6 @@ impl<'a> EntityTreeCollector<'a> {
                         } => Some(ImplBlockSynNode::parse_from_token_group(
                             self.db,
                             self.crate_root_path,
-                            &mut self.impl_registry,
                             context!(self, presheet),
                             module_path,
                             ast_idx,
@@ -102,6 +101,7 @@ impl<'a> EntityTreeCollector<'a> {
                             self.db
                                 .token_sheet_data(module_path)
                                 .token_group_token_stream(*token_group_idx, None),
+                            &mut self.impl_registry,
                             &mut self.major_path_expr_arena,
                         )),
                         _ => None,
