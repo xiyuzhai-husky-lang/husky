@@ -1,9 +1,11 @@
 mod adversarial_test;
+pub mod db;
 mod domain;
 mod expect_test;
 mod unit;
 
 pub use self::adversarial_test::*;
+pub use self::db::*;
 pub use self::domain::*;
 pub use self::unit::*;
 
@@ -13,12 +15,7 @@ use husky_path_utils::*;
 use salsa::Db;
 use std::path::PathBuf;
 
-pub trait VfsTestUtils {
-    // toolchain
-    fn dev_toolchain(&self) -> ToolchainResult<Toolchain>;
-
-    fn dev_path_menu(&self) -> ToolchainResult<&VfsPathMenu>;
-
+pub trait VfsTestUtils: Default + std::ops::Deref<Target = Db> + std::ops::DerefMut {
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_plain_test<U>(&mut self, f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
@@ -56,23 +53,10 @@ pub trait VfsTestUtils {
 
 const ADVERSARIAL_EXTENSION: &'static str = "json";
 
-impl VfsTestUtils for Db {
-    // toolchain
-    fn dev_toolchain(&self) -> ToolchainResult<Toolchain> {
-        let library_path = find_lang_dev_library_path()?;
-        Ok(Toolchain::new(
-            self,
-            ToolchainData::Local {
-                library_path: VirtualPath::try_new(self, &library_path).unwrap(),
-            },
-        ))
-    }
-
-    fn dev_path_menu(&self) -> ToolchainResult<&VfsPathMenu> {
-        let toolchain = self.dev_toolchain()?;
-        Ok(self.vfs_path_menu(toolchain))
-    }
-
+impl<DB> VfsTestUtils for DB
+where
+    DB: Default + std::ops::Deref<Target = Db> + std::ops::DerefMut,
+{
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_plain_test<U>(&mut self, f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)

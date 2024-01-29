@@ -1,4 +1,5 @@
-pub use husky_vfs::{VfsTestConfig, VfsTestDomainsConfig, VfsTestUnit, VfsTestUtils};
+pub use husky_vfs::test_utils::*;
+
 use salsa::Db;
 
 /// will have more robustness tests based on token level information than `VfsTestUtils`
@@ -38,9 +39,9 @@ pub trait TokenTestUtils: VfsTestUtils {
         R: std::fmt::Display;
 }
 
-impl TokenTestUtils for Db
+impl<DB> TokenTestUtils for DB
 where
-    Db: VfsTestUtils,
+    DB: VfsTestUtils,
 {
     fn token_plain_test<U>(&mut self, f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
