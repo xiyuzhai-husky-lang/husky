@@ -1,12 +1,42 @@
 [
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 27,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::raw_bits::r32`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),

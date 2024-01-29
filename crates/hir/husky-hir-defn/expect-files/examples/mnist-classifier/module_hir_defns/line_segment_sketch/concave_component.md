@@ -183,7 +183,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 209,
+                                                    value: 216,
                                                 },
                                             ),
                                         ),
@@ -426,7 +426,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 65,
+                                                                        value: 66,
                                                                     },
                                                                 ),
                                                             ),
@@ -680,7 +680,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 65,
+                                                                        value: 66,
                                                                     },
                                                                 ),
                                                             ),
@@ -1011,7 +1011,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 66,
+                                                                        value: 67,
                                                                     },
                                                                 ),
                                                             ),
@@ -1035,7 +1035,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 58,
+                                                                        value: 59,
                                                                     },
                                                                 ),
                                                             ),
@@ -1102,7 +1102,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 51,
                                                                     },
                                                                 ),
                                                             ),
@@ -1319,7 +1319,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 51,
+                                                                value: 52,
                                                             },
                                                         ),
                                                     ),
@@ -1414,7 +1414,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 366,
+                                                        value: 371,
                                                     },
                                                 ),
                                             ),
@@ -1458,7 +1458,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 410,
+                                                        value: 415,
                                                     },
                                                 ),
                                             ),
@@ -1647,7 +1647,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                             ),
@@ -2877,7 +2877,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 46,
+                                                                        value: 47,
                                                                     },
                                                                 ),
                                                             ),
@@ -3075,7 +3075,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 249,
+                                                            value: 254,
                                                         },
                                                     ),
                                                 ),
@@ -3126,7 +3126,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 401,
+                                                        value: 406,
                                                     },
                                                 ),
                                             ),
@@ -3136,7 +3136,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 403,
+                                                        value: 408,
                                                     },
                                                 ),
                                             ),
@@ -3146,7 +3146,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 404,
+                                                        value: 409,
                                                     },
                                                 ),
                                             ),
@@ -3156,7 +3156,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 383,
+                                                        value: 388,
                                                     },
                                                 ),
                                             ),
@@ -3166,7 +3166,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 287,
+                                                        value: 292,
                                                     },
                                                 ),
                                             ),
@@ -3176,7 +3176,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 405,
+                                                        value: 410,
                                                     },
                                                 ),
                                             ),
@@ -3804,7 +3804,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 61,
+                                                                        value: 62,
                                                                     },
                                                                 ),
                                                             ),
@@ -3828,7 +3828,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 62,
+                                                                        value: 63,
                                                                     },
                                                                 ),
                                                             ),
@@ -3971,7 +3971,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 249,
+                                                            value: 254,
                                                         },
                                                     ),
                                                 ),
@@ -4022,7 +4022,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 340,
+                                                        value: 345,
                                                     },
                                                 ),
                                             ),
@@ -4034,7 +4034,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 388,
+                                                        value: 393,
                                                     },
                                                 ),
                                             ),
@@ -4044,7 +4044,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 378,
+                                                        value: 383,
                                                     },
                                                 ),
                                             ),
@@ -5174,7 +5174,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 67,
+                                                                        value: 68,
                                                                     },
                                                                 ),
                                                             ),
@@ -5192,7 +5192,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 67,
+                                                                        value: 68,
                                                                     },
                                                                 ),
                                                             ),
@@ -5325,7 +5325,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 249,
+                                                            value: 254,
                                                         },
                                                     ),
                                                 ),
@@ -5368,7 +5368,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 282,
+                                                        value: 287,
                                                     },
                                                 ),
                                             ),
@@ -5380,7 +5380,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 283,
+                                                        value: 288,
                                                     },
                                                 ),
                                             ),
@@ -5392,7 +5392,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 284,
+                                                        value: 289,
                                                     },
                                                 ),
                                             ),
@@ -5404,7 +5404,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 285,
+                                                        value: 290,
                                                     },
                                                 ),
                                             ),
@@ -5416,7 +5416,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 286,
+                                                        value: 291,
                                                     },
                                                 ),
                                             ),
@@ -5426,7 +5426,7 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 287,
+                                                        value: 292,
                                                     },
                                                 ),
                                             ),
@@ -5646,7 +5646,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 68,
+                                                                        value: 69,
                                                                     },
                                                                 ),
                                                             ),
@@ -5732,7 +5732,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                             ),
@@ -6157,7 +6157,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 46,
+                                                                        value: 47,
                                                                     },
                                                                 ),
                                                             ),
@@ -6175,7 +6175,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 46,
+                                                                        value: 47,
                                                                     },
                                                                 ),
                                                             ),
@@ -6261,7 +6261,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                             ),
@@ -6568,7 +6568,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                             ),
@@ -6875,7 +6875,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                             ),
@@ -7060,7 +7060,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                             ),
@@ -7316,7 +7316,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 50,
+                                        value: 51,
                                     },
                                 ),
                             ),

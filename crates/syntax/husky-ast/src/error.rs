@@ -110,7 +110,10 @@ pub enum OriginalAstError {
     #[error("ExpectedFormBodyForMain")]
     ExpectedFormBodyForMain(TokenGroupIdx),
     #[error("SubmoduleFileNotFound")]
-    SubmoduleFileNotFound(VfsError),
+    SubmoduleFileNotFound {
+        ident_token: IdentToken,
+        error: VfsError,
+    },
     #[error("VisibilityExprError")]
     VisibilityExprError(#[from] OriginalVisibilityExprError),
     #[error("ExpectedLboxOrIdentAfterPoundForAttrOrSorce")]

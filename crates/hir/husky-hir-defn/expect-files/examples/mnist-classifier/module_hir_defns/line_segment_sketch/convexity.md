@@ -63,7 +63,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 209,
+                                                    value: 216,
                                                 },
                                             ),
                                         ),
@@ -73,7 +73,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 412,
+                                                    value: 417,
                                                 },
                                             ),
                                         ),
@@ -504,7 +504,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 61,
+                                                                        value: 62,
                                                                     },
                                                                 ),
                                                             ),
@@ -1097,7 +1097,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 61,
+                                                                        value: 62,
                                                                     },
                                                                 ),
                                                             ),
@@ -1684,7 +1684,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 61,
+                                                                        value: 62,
                                                                     },
                                                                 ),
                                                             ),
@@ -1900,7 +1900,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 258,
+                                                            value: 263,
                                                         },
                                                     ),
                                                 ),
@@ -1949,7 +1949,7 @@
                                                 frame_var_ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 259,
+                                                            value: 264,
                                                         },
                                                     ),
                                                 ),
@@ -2065,70 +2065,6 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 413,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 414,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 415,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 416,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 417,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: None,
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 291,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        Ident {
-                                            symbol_modifier: Some(
-                                                Mut,
-                                            ),
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
                                                         value: 418,
                                                     },
                                                 ),
@@ -2149,7 +2085,71 @@
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 291,
+                                                        value: 420,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 421,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 422,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 296,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: Some(
+                                                Mut,
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 423,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 424,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        Ident {
+                                            symbol_modifier: None,
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 296,
                                                     },
                                                 ),
                                             ),

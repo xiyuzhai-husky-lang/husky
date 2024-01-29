@@ -5,51 +5,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 335,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 225,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        MajorItem(
-            Fugitive(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 336,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 226,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        MajorItem(
-            Fugitive(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 337,
+                            value: 338,
                         },
                     ),
                 ),
@@ -71,7 +27,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 338,
+                            value: 339,
                         },
                     ),
                 ),
@@ -93,7 +49,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 339,
+                            value: 340,
                         },
                     ),
                 ),
@@ -104,6 +60,50 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 229,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 341,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 230,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 342,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 231,
                     },
                 ),
             ),

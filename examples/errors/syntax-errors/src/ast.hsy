@@ -1,0 +1,10 @@
+//
+
+mod submodule_name
+
+struct A {}
+
+// submodules can only be defined in the root
+
+impl A:
+    mod submodule_name

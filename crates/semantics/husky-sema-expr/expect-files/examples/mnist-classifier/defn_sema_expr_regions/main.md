@@ -688,7 +688,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 210,
+                                    value: 213,
                                 },
                             ),
                         ),
@@ -707,7 +707,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 277,
+                                                        value: 280,
                                                     },
                                                 ),
                                             ),
@@ -772,7 +772,7 @@
                                         path: TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 377,
+                                                    value: 380,
                                                 },
                                             ),
                                         ),
@@ -789,7 +789,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 339,
+                                                                        value: 342,
                                                                     },
                                                                 ),
                                                             ),
@@ -807,7 +807,7 @@
                                                             TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 341,
+                                                                        value: 344,
                                                                     },
                                                                 ),
                                                             ),
@@ -834,7 +834,7 @@
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 378,
+                                                value: 381,
                                             },
                                         ),
                                     ),
@@ -896,7 +896,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 283,
+                                                        value: 286,
                                                     },
                                                 ),
                                             ),
@@ -961,7 +961,7 @@
                                         path: TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 377,
+                                                    value: 380,
                                                 },
                                             ),
                                         ),
@@ -978,7 +978,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 339,
+                                                                        value: 342,
                                                                     },
                                                                 ),
                                                             ),
@@ -996,7 +996,7 @@
                                                             TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 346,
+                                                                        value: 349,
                                                                     },
                                                                 ),
                                                             ),
@@ -1023,7 +1023,7 @@
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 378,
+                                                value: 381,
                                             },
                                         ),
                                     ),
@@ -1085,7 +1085,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 275,
+                                                        value: 278,
                                                     },
                                                 ),
                                             ),
@@ -1150,7 +1150,7 @@
                                         path: TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 377,
+                                                    value: 380,
                                                 },
                                             ),
                                         ),
@@ -1167,7 +1167,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 339,
+                                                                        value: 342,
                                                                     },
                                                                 ),
                                                             ),
@@ -1185,7 +1185,7 @@
                                                             TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 340,
+                                                                        value: 343,
                                                                     },
                                                                 ),
                                                             ),
@@ -1212,7 +1212,7 @@
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 378,
+                                                value: 381,
                                             },
                                         ),
                                     ),
@@ -1274,7 +1274,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 304,
+                                                        value: 307,
                                                     },
                                                 ),
                                             ),
@@ -1339,7 +1339,7 @@
                                         path: TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 377,
+                                                    value: 380,
                                                 },
                                             ),
                                         ),
@@ -1356,7 +1356,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 339,
+                                                                        value: 342,
                                                                     },
                                                                 ),
                                                             ),
@@ -1374,7 +1374,7 @@
                                                             TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 347,
+                                                                        value: 350,
                                                                     },
                                                                 ),
                                                             ),
@@ -1401,7 +1401,7 @@
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 378,
+                                                value: 381,
                                             },
                                         ),
                                     ),
@@ -1463,7 +1463,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 306,
+                                                        value: 309,
                                                     },
                                                 ),
                                             ),
@@ -1528,7 +1528,7 @@
                                         path: TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 377,
+                                                    value: 380,
                                                 },
                                             ),
                                         ),
@@ -1545,7 +1545,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 339,
+                                                                        value: 342,
                                                                     },
                                                                 ),
                                                             ),
@@ -1563,7 +1563,7 @@
                                                             TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 348,
+                                                                        value: 351,
                                                                     },
                                                                 ),
                                                             ),
@@ -1590,7 +1590,7 @@
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 378,
+                                                value: 381,
                                             },
                                         ),
                                     ),
@@ -1652,7 +1652,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 287,
+                                                        value: 290,
                                                     },
                                                 ),
                                             ),
@@ -1717,7 +1717,7 @@
                                         path: TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 377,
+                                                    value: 380,
                                                 },
                                             ),
                                         ),
@@ -1734,7 +1734,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 339,
+                                                                        value: 342,
                                                                     },
                                                                 ),
                                                             ),
@@ -1752,7 +1752,7 @@
                                                             TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 343,
+                                                                        value: 346,
                                                                     },
                                                                 ),
                                                             ),
@@ -1779,7 +1779,7 @@
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 378,
+                                                value: 381,
                                             },
                                         ),
                                     ),
@@ -1841,7 +1841,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 310,
+                                                        value: 313,
                                                     },
                                                 ),
                                             ),
@@ -1906,7 +1906,7 @@
                                         path: TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 377,
+                                                    value: 380,
                                                 },
                                             ),
                                         ),
@@ -1923,7 +1923,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 339,
+                                                                        value: 342,
                                                                     },
                                                                 ),
                                                             ),
@@ -1941,7 +1941,7 @@
                                                             TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 349,
+                                                                        value: 352,
                                                                     },
                                                                 ),
                                                             ),
@@ -1968,7 +1968,7 @@
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 378,
+                                                value: 381,
                                             },
                                         ),
                                     ),
@@ -2030,7 +2030,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 298,
+                                                        value: 301,
                                                     },
                                                 ),
                                             ),
@@ -2095,7 +2095,7 @@
                                         path: TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 377,
+                                                    value: 380,
                                                 },
                                             ),
                                         ),
@@ -2112,7 +2112,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 339,
+                                                                        value: 342,
                                                                     },
                                                                 ),
                                                             ),
@@ -2130,7 +2130,7 @@
                                                             TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 345,
+                                                                        value: 348,
                                                                     },
                                                                 ),
                                                             ),
@@ -2157,7 +2157,7 @@
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 378,
+                                                value: 381,
                                             },
                                         ),
                                     ),
@@ -2219,7 +2219,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 317,
+                                                        value: 320,
                                                     },
                                                 ),
                                             ),
@@ -2284,7 +2284,7 @@
                                         path: TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 377,
+                                                    value: 380,
                                                 },
                                             ),
                                         ),
@@ -2301,7 +2301,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 339,
+                                                                        value: 342,
                                                                     },
                                                                 ),
                                                             ),
@@ -2319,7 +2319,7 @@
                                                             TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 342,
+                                                                        value: 345,
                                                                     },
                                                                 ),
                                                             ),
@@ -2346,7 +2346,7 @@
                                     unveil_associated_fn_path: TraitForTypeItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 378,
+                                                value: 381,
                                             },
                                         ),
                                     ),
@@ -2407,7 +2407,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 327,
+                                                    value: 330,
                                                 },
                                             ),
                                         ),
@@ -2967,7 +2967,7 @@
                                                         TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 339,
+                                                                    value: 342,
                                                                 },
                                                             ),
                                                         ),
@@ -2986,7 +2986,7 @@
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 339,
+                                                                        value: 342,
                                                                     },
                                                                 ),
                                                             ),
@@ -3003,7 +3003,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 339,
+                                                        value: 342,
                                                     },
                                                 ),
                                             ),
@@ -3016,7 +3016,7 @@
                                     path: TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 325,
+                                                value: 328,
                                             },
                                         ),
                                     ),
@@ -3025,7 +3025,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 325,
+                                                        value: 328,
                                                     },
                                                 ),
                                             ),
@@ -3910,7 +3910,7 @@
                                                         TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 339,
+                                                                    value: 342,
                                                                 },
                                                             ),
                                                         ),

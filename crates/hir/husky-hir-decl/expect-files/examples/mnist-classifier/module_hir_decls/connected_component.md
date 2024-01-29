@@ -1,23 +1,204 @@
 [
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            PropsStruct(
-                PropsStructTypeHirDecl(
-                    Id {
-                        value: 1,
+            TypeHirDecl::PropsStruct(
+                PropsStructTypeHirDecl {
+                    path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    fields: [
+                        PropsStructFieldHirDecl {
+                            ident: `row_start`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                    template_arguments: [],
+                                    always_copyable: true,
+                                },
+                            ),
+                            initialization: None,
+                        },
+                        PropsStructFieldHirDecl {
+                            ident: `row_end`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                    template_arguments: [],
+                                    always_copyable: true,
+                                },
+                            ),
+                            initialization: None,
+                        },
+                        PropsStructFieldHirDecl {
+                            ident: `upper_mass`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                    template_arguments: [],
+                                    always_copyable: true,
+                                },
+                            ),
+                            initialization: None,
+                        },
+                        PropsStructFieldHirDecl {
+                            ident: `lower_mass`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                    template_arguments: [],
+                                    always_copyable: true,
+                                },
+                            ),
+                            initialization: None,
+                        },
+                    ],
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `row_start`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `row_end`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `upper_mass`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `lower_mass`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                ],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            PropsStruct(
-                PropsStructTypeHirDecl(
-                    Id {
-                        value: 2,
+            TypeHirDecl::PropsStruct(
+                PropsStructTypeHirDecl {
+                    path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    fields: [
+                        PropsStructFieldHirDecl {
+                            ident: `matches`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                                    template_arguments: [
+                                                                        HirTemplateArgument::Type(
+                                                                            HirType::PathLeading(
+                                                                                HirTypePathLeading {
+                                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                    template_arguments: [],
+                                                                                    always_copyable: false,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: true,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: false,
+                                },
+                            ),
+                            initialization: None,
+                        },
+                    ],
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `matches`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                ],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -92,7 +273,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 240,
+                                                value: 245,
                                             },
                                         ),
                                     ),
@@ -124,12 +305,62 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            PropsStruct(
-                PropsStructTypeHirDecl(
-                    Id {
-                        value: 3,
+            TypeHirDecl::PropsStruct(
+                PropsStructTypeHirDecl {
+                    path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    fields: [
+                        PropsStructFieldHirDecl {
+                            ident: `mask`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                    template_arguments: [],
+                                    always_copyable: false,
+                                },
+                            ),
+                            initialization: None,
+                        },
+                    ],
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `mask`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                ],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -205,7 +436,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 264,
+                                                value: 269,
                                             },
                                         ),
                                     ),
@@ -302,7 +533,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 268,
+                                                value: 273,
                                             },
                                         ),
                                     ),
@@ -434,7 +665,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -1019,7 +1250,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -1116,7 +1347,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),

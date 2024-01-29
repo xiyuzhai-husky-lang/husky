@@ -1,155 +1,575 @@
 [
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 13,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::i8`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::i8`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 14,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::i16`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::i16`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 15,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::i32`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::i32`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 16,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::i64`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::i64`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 17,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::i128`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::i128`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 18,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::isize`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::isize`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 19,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::u8`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::u8`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 20,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::u16`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::u16`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 21,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::u32`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::u32`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 22,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::u64`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::u64`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 23,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::u128`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::u128`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 24,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::usize`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 25,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::f32`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 26,
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::f64`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::f64`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),

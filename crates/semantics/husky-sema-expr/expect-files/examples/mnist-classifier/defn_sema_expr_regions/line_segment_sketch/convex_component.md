@@ -445,7 +445,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 443,
+                                    value: 446,
                                 },
                             ),
                         ),
@@ -480,7 +480,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 258,
+                                                            value: 261,
                                                         },
                                                     ),
                                                 ),
@@ -508,7 +508,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 258,
+                                                                value: 261,
                                                             },
                                                         ),
                                                     ),
@@ -541,7 +541,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 258,
+                                                                value: 261,
                                                             },
                                                         ),
                                                     ),
@@ -556,7 +556,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 390,
+                                                    value: 394,
                                                 },
                                             ),
                                         ),
@@ -585,7 +585,7 @@
                                         ty_path: TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 258,
+                                                    value: 261,
                                                 },
                                             ),
                                         ),
@@ -992,7 +992,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 258,
+                                                                value: 261,
                                                             },
                                                         ),
                                                     ),
@@ -1182,7 +1182,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 258,
+                                    value: 261,
                                 },
                             ),
                         ),

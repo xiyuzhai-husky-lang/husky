@@ -19,8 +19,9 @@ use husky_entity_path::TypePath;
 
 use husky_syn_decl::TypeSynDecl;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeHirDecl {
     Enum(EnumTypeHirDecl),
     PropsStruct(PropsStructTypeHirDecl),

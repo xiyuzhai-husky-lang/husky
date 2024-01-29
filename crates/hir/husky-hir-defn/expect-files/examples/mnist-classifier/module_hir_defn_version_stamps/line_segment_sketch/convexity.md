@@ -5,7 +5,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 308,
+                            value: 311,
                         },
                     ),
                 ),
@@ -15,7 +15,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 300,
+                        value: 302,
                     },
                 ),
             ),

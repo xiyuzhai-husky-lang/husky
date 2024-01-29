@@ -1,12 +1,109 @@
 [
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            PropsStruct(
-                PropsStructTypeHirDecl(
-                    Id {
-                        value: 11,
+            TypeHirDecl::PropsStruct(
+                PropsStructTypeHirDecl {
+                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    fields: [
+                        PropsStructFieldHirDecl {
+                            ident: `line_segment_sketch`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: true,
+                                },
+                            ),
+                            initialization: None,
+                        },
+                        PropsStructFieldHirDecl {
+                            ident: `strokes`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: false,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: true,
+                                },
+                            ),
+                            initialization: None,
+                        },
+                    ],
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `line_segment_sketch`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `strokes`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                ],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -81,7 +178,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 209,
+                                                value: 216,
                                             },
                                         ),
                                     ),
@@ -213,7 +310,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),
@@ -684,7 +781,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),
@@ -752,7 +849,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),
@@ -820,7 +917,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),
@@ -888,7 +985,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),
@@ -956,7 +1053,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),
@@ -1024,7 +1121,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),

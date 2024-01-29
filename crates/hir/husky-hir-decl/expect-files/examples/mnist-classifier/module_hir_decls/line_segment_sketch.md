@@ -61,23 +61,457 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            PropsStruct(
-                PropsStructTypeHirDecl(
-                    Id {
-                        value: 14,
+            TypeHirDecl::PropsStruct(
+                PropsStructTypeHirDecl {
+                    path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    fields: [
+                        PropsStructFieldHirDecl {
+                            ident: `points`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: false,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: true,
+                                },
+                            ),
+                            initialization: None,
+                        },
+                        PropsStructFieldHirDecl {
+                            ident: `start`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                    template_arguments: [],
+                                    always_copyable: false,
+                                },
+                            ),
+                            initialization: Some(
+                                Bind {
+                                    value: 4,
+                                },
+                            ),
+                        },
+                        PropsStructFieldHirDecl {
+                            ident: `end`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                    template_arguments: [],
+                                    always_copyable: false,
+                                },
+                            ),
+                            initialization: Some(
+                                Bind {
+                                    value: 8,
+                                },
+                            ),
+                        },
+                    ],
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [
+                                HirEagerExprEntry {
+                                    data: HirEagerExprData::Variable(
+                                        1,
+                                    ),
+                                    ty_place: StackPure {
+                                        location: StackLocationIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
+                                        ),
+                                    },
+                                    is_ty_always_copyable: true,
+                                },
+                                HirEagerExprEntry {
+                                    data: HirEagerExprData::MethodFnCall {
+                                        self_argument: 1,
+                                        self_contract: Pure,
+                                        ident: `first`,
+                                        path: AssociatedItemPath::TypeItem(
+                                            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
+                                        ),
+                                        instantiation: HirInstantiation {
+                                            symbol_map: [
+                                                (
+                                                    HirTemplateSymbol::Type(
+                                                        HirTypeSymbol::Type {
+                                                            attrs: HirTemplateSymbolAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                    HirTermSymbolResolution::Explicit(
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: false,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                1,
+                                            ),
+                                        },
+                                        item_groups: [],
+                                    },
+                                    ty_place: Transient,
+                                    is_ty_always_copyable: true,
+                                },
+                                HirEagerExprEntry {
+                                    data: HirEagerExprData::Unwrap {
+                                        opd_hir_expr_idx: 2,
+                                    },
+                                    ty_place: Transient,
+                                    is_ty_always_copyable: true,
+                                },
+                                HirEagerExprEntry {
+                                    data: HirEagerExprData::MethodFnCall {
+                                        self_argument: 3,
+                                        self_contract: Pure,
+                                        ident: `clone`,
+                                        path: AssociatedItemPath::TraitForTypeItem(
+                                            TraitForTypeItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                            TraitForTypeItemPathData {
+                                                                impl_block: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::clone`,
+                                                                        trai_path: TraitPath(`core::clone::Clone`),
+                                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                                ident: `clone`,
+                                                                item_kind: MethodFn,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                        instantiation: HirInstantiation {
+                                            symbol_map: [
+                                                (
+                                                    HirTemplateSymbol::Type(
+                                                        HirTypeSymbol::SelfType,
+                                                    ),
+                                                    HirTermSymbolResolution::Explicit(
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: false,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                1,
+                                            ),
+                                        },
+                                        item_groups: [],
+                                    },
+                                    ty_place: Transient,
+                                    is_ty_always_copyable: false,
+                                },
+                                HirEagerExprEntry {
+                                    data: HirEagerExprData::Variable(
+                                        1,
+                                    ),
+                                    ty_place: StackPure {
+                                        location: StackLocationIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
+                                        ),
+                                    },
+                                    is_ty_always_copyable: true,
+                                },
+                                HirEagerExprEntry {
+                                    data: HirEagerExprData::MethodFnCall {
+                                        self_argument: 5,
+                                        self_contract: Pure,
+                                        ident: `last`,
+                                        path: AssociatedItemPath::TypeItem(
+                                            TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
+                                        ),
+                                        instantiation: HirInstantiation {
+                                            symbol_map: [
+                                                (
+                                                    HirTemplateSymbol::Type(
+                                                        HirTypeSymbol::Type {
+                                                            attrs: HirTemplateSymbolAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                    HirTermSymbolResolution::Explicit(
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: false,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                1,
+                                            ),
+                                        },
+                                        item_groups: [],
+                                    },
+                                    ty_place: Transient,
+                                    is_ty_always_copyable: true,
+                                },
+                                HirEagerExprEntry {
+                                    data: HirEagerExprData::Unwrap {
+                                        opd_hir_expr_idx: 6,
+                                    },
+                                    ty_place: Transient,
+                                    is_ty_always_copyable: true,
+                                },
+                                HirEagerExprEntry {
+                                    data: HirEagerExprData::MethodFnCall {
+                                        self_argument: 7,
+                                        self_contract: Pure,
+                                        ident: `clone`,
+                                        path: AssociatedItemPath::TraitForTypeItem(
+                                            TraitForTypeItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                            TraitForTypeItemPathData {
+                                                                impl_block: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::clone`,
+                                                                        trai_path: TraitPath(`core::clone::Clone`),
+                                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                                ident: `clone`,
+                                                                item_kind: MethodFn,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                        instantiation: HirInstantiation {
+                                            symbol_map: [
+                                                (
+                                                    HirTemplateSymbol::Type(
+                                                        HirTypeSymbol::SelfType,
+                                                    ),
+                                                    HirTermSymbolResolution::Explicit(
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: false,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                1,
+                                            ),
+                                        },
+                                        item_groups: [],
+                                    },
+                                    ty_place: Transient,
+                                    is_ty_always_copyable: false,
+                                },
+                            ],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `points`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `start`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `end`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                ],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
-            PropsStruct(
-                PropsStructTypeHirDecl(
-                    Id {
-                        value: 15,
+            TypeHirDecl::PropsStruct(
+                PropsStructTypeHirDecl {
+                    path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    fields: [
+                        PropsStructFieldHirDecl {
+                            ident: `contour`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: true,
+                                },
+                            ),
+                            initialization: None,
+                        },
+                        PropsStructFieldHirDecl {
+                            ident: `strokes`,
+                            ty: HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: false,
+                                },
+                            ),
+                            initialization: None,
+                        },
+                    ],
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `contour`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                    HirEagerRuntimeSymbolEntry {
+                                        name: HirEagerRuntimeSymbolName::Ident(
+                                            `strokes`,
+                                        ),
+                                        data: HirEagerRuntimeSymbolData::FieldVariable,
+                                    },
+                                ],
+                            },
+                            self_value_variable: None,
+                        },
                     },
-                ),
+                },
             ),
         ),
     ),
@@ -143,7 +577,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 372,
+                                                value: 377,
                                             },
                                         ),
                                     ),
@@ -153,7 +587,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 369,
+                                                value: 374,
                                             },
                                         ),
                                     ),
@@ -251,7 +685,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 372,
+                                                value: 377,
                                             },
                                         ),
                                     ),
@@ -261,7 +695,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 369,
+                                                value: 374,
                                             },
                                         ),
                                     ),
@@ -380,7 +814,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 240,
+                                                value: 245,
                                             },
                                         ),
                                     ),
@@ -400,7 +834,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 369,
+                                                value: 374,
                                             },
                                         ),
                                     ),
@@ -536,7 +970,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 240,
+                                                value: 245,
                                             },
                                         ),
                                     ),
@@ -546,7 +980,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 387,
+                                                value: 392,
                                             },
                                         ),
                                     ),
@@ -566,7 +1000,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 369,
+                                                value: 374,
                                             },
                                         ),
                                     ),
@@ -696,7 +1130,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 240,
+                                                value: 245,
                                             },
                                         ),
                                     ),
@@ -706,7 +1140,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 369,
+                                                value: 374,
                                             },
                                         ),
                                     ),
@@ -844,7 +1278,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 62,
+                                    value: 63,
                                 },
                             ),
                         ),
@@ -1073,7 +1507,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 240,
+                                                value: 245,
                                             },
                                         ),
                                     ),
@@ -1083,7 +1517,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 364,
+                                                value: 369,
                                             },
                                         ),
                                     ),
@@ -1093,7 +1527,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 296,
+                                                value: 301,
                                             },
                                         ),
                                     ),
@@ -1154,7 +1588,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 62,
+                                    value: 63,
                                 },
                             ),
                         ),
@@ -1311,7 +1745,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 60,
+                                    value: 61,
                                 },
                             ),
                         ),
@@ -1643,7 +2077,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 240,
+                                                value: 245,
                                             },
                                         ),
                                     ),
@@ -1653,7 +2087,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 369,
+                                                value: 374,
                                             },
                                         ),
                                     ),

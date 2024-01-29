@@ -153,7 +153,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 239,
+                                    value: 242,
                                 },
                             ),
                         ),
@@ -172,7 +172,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 354,
+                                                        value: 357,
                                                     },
                                                 ),
                                             ),
@@ -223,7 +223,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 368,
+                                                        value: 371,
                                                     },
                                                 ),
                                             ),
@@ -347,7 +347,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 354,
+                                                    value: 357,
                                                 },
                                             ),
                                         ),
@@ -370,7 +370,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 368,
+                                                    value: 371,
                                                 },
                                             ),
                                         ),
