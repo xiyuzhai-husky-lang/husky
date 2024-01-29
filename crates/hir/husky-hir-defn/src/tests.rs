@@ -65,6 +65,5 @@ pub(crate) fn module_hir_defns(db: &::salsa::Db, module_path: ModulePath) -> Vec
 
 #[test]
 fn module_hir_defns_works() {
-    DB::default()
-        .ast_expect_test_debug_with_db(module_hir_defns, &AstTestConfig::new("module_hir_defns"));
+    DB::ast_expect_test_debug_with_db(module_hir_defns, &AstTestConfig::new("module_hir_defns"));
 }

@@ -284,8 +284,7 @@ pub(crate) fn module_hir_defn_dependencies(
 
 #[test]
 fn module_hir_defn_dependencies_works() {
-    let mut db = DB::default();
-    db.ast_expect_test_debug(
+    DB::ast_expect_test_debug(
         module_hir_defn_dependencies,
         &AstTestConfig::new("module_hir_defn_dependencies"),
     )
