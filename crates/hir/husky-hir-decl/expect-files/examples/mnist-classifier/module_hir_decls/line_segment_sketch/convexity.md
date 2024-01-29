@@ -56,25 +56,13 @@
                         },
                         pattern_expr_arena: Arena {
                             data: [
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 216,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `line_segment_sketch`,
                                 },
-                                Ident {
+                                HirEagerPatternExpr::Ident {
                                     symbol_modifier: None,
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 417,
-                                            },
-                                        ),
-                                    ),
+                                    ident: `index`,
                                 },
                             ],
                         },

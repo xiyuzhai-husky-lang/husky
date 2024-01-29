@@ -20,110 +20,23 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Type(
-                            TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`malamute::Class`, `Enum`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    6,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `Label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                5,
-                                            ),
-                                        },
-                                    },
-                                },
-                            },
-                        ],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                1..2,
-                            ),
-                        ),
-                    ],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
         data: SemaExprRegionData {
-            path: Decl(
-                MajorItem(
-                    Type(
+            path: SynNodeRegionPath::Decl(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 460,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`malamute::Class`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -139,69 +52,41 @@
                 },
             ),
             sema_expr_roots: [],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
             sema_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
                             ),
-                        ),
-                    ],
-                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Type`),
+                            ),
+                        },
+                    ),
+                ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                    ],
-                },
+                    },
+                ],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -217,13 +102,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 89,
-                        },
-                    ),
-                ),
+                EtherealTerm(`Class t`),
             ),
         },
     },
@@ -248,187 +127,23 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Type(
-                            TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::CurrentSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                14,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            7,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    8,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [
-                                            Phantom(
-                                                PoundRegionalToken(
-                                                    RegionalTokenIdx(
-                                                        5,
-                                                    ),
-                                                ),
-                                                PhantomRegionalToken {
-                                                    token_idx: RegionalTokenIdx(
-                                                        6,
-                                                    ),
-                                                },
-                                            ),
-                                        ],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `Label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                7,
-                                            ),
-                                        },
-                                    },
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    15,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [
-                                            Phantom(
-                                                PoundRegionalToken(
-                                                    RegionalTokenIdx(
-                                                        9,
-                                                    ),
-                                                ),
-                                                PhantomRegionalToken {
-                                                    token_idx: RegionalTokenIdx(
-                                                        10,
-                                                    ),
-                                                },
-                                            ),
-                                        ],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                12,
-                                            ),
-                                        },
-                                        ty_expr_idx: 1,
-                                    },
-                                },
-                            },
-                        ],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                1..2,
-                            ),
-                        ),
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                2..3,
-                            ),
-                        ),
-                    ],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ConstantImplicitParameterType,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
         data: SemaExprRegionData {
-            path: Decl(
-                MajorItem(
-                    Type(
+            path: SynNodeRegionPath::Decl(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 461,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -438,28 +153,16 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Type {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 539,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     7,
                                                 ),
@@ -473,14 +176,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -491,14 +188,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -523,9 +214,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
@@ -551,93 +240,51 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Type`),
                             ),
-                        ),
-                    ],
-                },
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`t`),
+                            ),
+                        },
+                    ),
+                ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                    },
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`a`),
                         ),
-                    ],
-                },
+                    },
+                ],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -648,7 +295,7 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -665,20 +312,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -694,13 +335,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 91,
-                        },
-                    ),
-                ),
+                EtherealTerm(`OneVsAll t a`),
             ),
         },
     },
@@ -725,187 +360,23 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Type(
-                            TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::CurrentSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                14,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            7,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    8,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [
-                                            Phantom(
-                                                PoundRegionalToken(
-                                                    RegionalTokenIdx(
-                                                        5,
-                                                    ),
-                                                ),
-                                                PhantomRegionalToken {
-                                                    token_idx: RegionalTokenIdx(
-                                                        6,
-                                                    ),
-                                                },
-                                            ),
-                                        ],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `Label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                7,
-                                            ),
-                                        },
-                                    },
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    15,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [
-                                            Phantom(
-                                                PoundRegionalToken(
-                                                    RegionalTokenIdx(
-                                                        9,
-                                                    ),
-                                                ),
-                                                PhantomRegionalToken {
-                                                    token_idx: RegionalTokenIdx(
-                                                        10,
-                                                    ),
-                                                },
-                                            ),
-                                        ],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                12,
-                                            ),
-                                        },
-                                        ty_expr_idx: 1,
-                                    },
-                                },
-                            },
-                        ],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                1..2,
-                            ),
-                        ),
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                2..3,
-                            ),
-                        ),
-                    ],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ConstantImplicitParameterType,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
         data: SemaExprRegionData {
-            path: Decl(
-                MajorItem(
-                    Type(
+            path: SynNodeRegionPath::Decl(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 462,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -915,28 +386,16 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Type {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 539,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     7,
                                                 ),
@@ -950,14 +409,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -968,14 +421,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -1000,9 +447,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
@@ -1028,93 +473,51 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Type`),
                             ),
-                        ),
-                    ],
-                },
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`t`),
+                            ),
+                        },
+                    ),
+                ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                    },
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`a`),
                         ),
-                    ],
-                },
+                    },
+                ],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -1125,7 +528,7 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -1142,20 +545,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -1171,13 +568,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 93,
-                        },
-                    ),
-                ),
+                EtherealTerm(`OneVsAllResult t a`),
             ),
         },
     },
@@ -1202,401 +593,23 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::MajorItem(
-                        MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::CurrentSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                12,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            5,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::f32`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 2,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::num::i32`, `Extern`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                26,
-                            ),
-                            LiteralData::Integer(
-                                UnspecifiedRegular(
-                                    5,
-                                ),
-                            ),
-                        ),
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 3,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                31,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            5,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 5,
-                            argument_expr_idx: 6,
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                32,
-                            ),
-                            current_syn_symbol_idx: 2,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            10,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 7,
-                            argument_expr_idx: 8,
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `f32`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        20,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::f32`, `Extern`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `i32`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        24,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::i32`, `Extern`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `OneVsAllResult`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        30,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `skip`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        22,
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [
-                            Pure,
-                        ],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [
-                            SynPatternSymbol::Atom(
-                                1,
-                            ),
-                        ],
-                    },
-                    pattern_symbol_maps: [
-                        [
-                            (
-                                `skip`,
-                                1,
-                            ),
-                        ],
-                    ],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [
-                            Pure,
-                        ],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    6,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `Label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                5,
-                                            ),
-                                        },
-                                    },
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    13,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [
-                                            Runtime(
-                                                PoundRegionalToken(
-                                                    RegionalTokenIdx(
-                                                        7,
-                                                    ),
-                                                ),
-                                                RuntimeRegionalToken {
-                                                    token_idx: RegionalTokenIdx(
-                                                        8,
-                                                    ),
-                                                },
-                                            ),
-                                        ],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                10,
-                                            ),
-                                        },
-                                        ty_expr_idx: 1,
-                                    },
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    16,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::ParenateVariadicParameter {
-                                    symbol_modifier_keyword_group: None,
-                                    ident_token: IdentRegionalToken {
-                                        ident: `f`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            18,
-                                        ),
-                                    },
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    23,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::ParenateRegularParameter {
-                                    ident: `skip`,
-                                    pattern_symbol_idx: 1,
-                                },
-                            },
-                        ],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                1..2,
-                            ),
-                        ),
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                2..3,
-                            ),
-                        ),
-                        (
-                            VariadicParenateParameter {
-                                ty: 2,
-                            },
-                            ArenaIdxRange(
-                                3..4,
-                            ),
-                        ),
-                        (
-                            OrdinaryParenateParameter {
-                                syn_pattern_root: ParenateSynPatternExprRoot {
-                                    syn_pattern_expr_idx: 1,
-                                },
-                                ty_expr_idx: 3,
-                            },
-                            ArenaIdxRange(
-                                4..5,
-                            ),
-                        ),
-                    ],
-                },
-                syn_pattern_expr_roots: [
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Parenate,
-                        syn_pattern_expr_idx: 1,
-                    },
-                ],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ConstantImplicitParameterType,
-                        syn_expr_idx: 1,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::ExplicitParameterType,
-                        syn_expr_idx: 2,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::ExplicitParameterType,
-                        syn_expr_idx: 3,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::ExplicitParameterDefaultValue {
-                            ty_syn_expr_idx: 3,
-                        },
-                        syn_expr_idx: 4,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::ReturnType,
-                        syn_expr_idx: 9,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [
-                    (
-                        1,
-                        4,
-                    ),
-                ],
-            },
-        },
         data: SemaExprRegionData {
-            path: Decl(
-                MajorItem(
-                    Fugitive(
+            path: SynNodeRegionPath::Decl(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 463,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Fugitive(
+                                        FugitiveSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -1606,28 +619,16 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         12,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Type {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 539,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -1641,14 +642,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -1659,14 +654,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -1674,17 +663,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 53,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -1694,14 +677,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -1710,14 +687,8 @@
                                     2,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -1725,17 +696,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::num::i32`, `Extern`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -1745,14 +710,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -1761,14 +720,8 @@
                                     3,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -1776,11 +729,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Literal(
+                                SemaExprData::Literal(
                                     RegionalTokenIdx(
                                         26,
                                     ),
-                                    Integer(
+                                    LiteralData::Integer(
                                         UnspecifiedRegular(
                                             5,
                                         ),
@@ -1792,18 +745,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 43,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`i32`),
                                     ),
                                 },
                             ),
@@ -1814,18 +757,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`i32`),
                                         ),
                                     },
                                 ),
@@ -1833,17 +766,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 484,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -1853,14 +780,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                     ),
                                 },
                             ),
@@ -1869,14 +790,8 @@
                                     5,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                 ),
@@ -1884,28 +799,16 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         31,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Type {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 539,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -1919,14 +822,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -1937,14 +834,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -1952,7 +843,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         5,
                                     ),
@@ -1964,14 +855,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 15,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent t -> Type`),
                                     ),
                                 },
                             ),
@@ -1980,14 +865,8 @@
                                     7,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 15,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent t -> Type`),
                                         ),
                                     },
                                 ),
@@ -1995,28 +874,16 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 542,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         32,
                                     ),
                                     current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Constant {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 542,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),
@@ -2030,14 +897,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`t`),
                                     ),
                                 },
                             ),
@@ -2048,14 +909,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                 ),
@@ -2063,7 +918,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         7,
                                     ),
@@ -2075,14 +930,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -2091,14 +940,8 @@
                                     9,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -2161,11 +1004,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     None,
@@ -2355,158 +1194,83 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Type`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`t`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`f32`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                StackPure {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            1,
                                         ),
                                     ),
                                 },
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`i32`),
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 53,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        StackPure {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    1,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 43,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ],
-                },
+                        },
+                    ),
+                ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                    },
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`a`),
                         ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                    },
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`a`),
                         ),
-                        None,
-                    ],
-                },
+                    },
+                ],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -2517,7 +1281,7 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -2534,20 +1298,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -2557,7 +1315,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -2572,20 +1330,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -2595,7 +1347,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -2610,20 +1362,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -2633,23 +1379,13 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: ImplicitlyConvertible(
+                                expectation: Expectation::ImplicitlyConvertible(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 43,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`i32`),
                                             ),
                                         },
                                     },
@@ -2664,24 +1400,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`i32`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Coersion(
+                                            ExpectationOutcome::Coersion(
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFluffyCoersion {
@@ -2695,9 +1421,9 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -2708,34 +1434,22 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Curry(
-                                                                EtherealTermCurry(
-                                                                    Id {
-                                                                        value: 12,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: Some(
                                                             FluffyTermRune(
@@ -2755,26 +1469,14 @@
                                                         ),
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Curry(
-                                                                    EtherealTermCurry(
-                                                                        Id {
-                                                                            value: 12,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                             ),
                                                         },
                                                     },
@@ -2785,7 +1487,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -2811,24 +1513,18 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -2839,58 +1535,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 15,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent t -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Category(
-                                                                TermCategory {
-                                                                    universe: TermUniverse(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Symbol(
-                                                                    EtherealTermSymbol(
-                                                                        Id {
-                                                                            value: 8,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`t`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                     },
@@ -2901,7 +1573,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -2927,22 +1599,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -2957,20 +1623,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -3015,294 +1675,29 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::ImplBlock(
-                        ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::default::Default`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
+        data: SemaExprRegionData {
+            path: SynNodeRegionPath::Decl(
+                ItemSynNodePath::ImplBlock(
+                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `malamute`,
+                                                    trai_path: TraitPath(`core::default::Default`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    ),
+                                                    disambiguator: 0,
                                                 },
                                             },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::CurrentSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                12,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            5,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Trait(
-                                        TraitPath(`core::default::Default`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 2,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                17,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            5,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 3,
-                            argument_expr_idx: 4,
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                18,
-                            ),
-                            current_syn_symbol_idx: 2,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            10,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 5,
-                            argument_expr_idx: 6,
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `Default`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        14,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::default::Default`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `OneVsAll`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        16,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    6,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [
-                                            Phantom(
-                                                PoundRegionalToken(
-                                                    RegionalTokenIdx(
-                                                        3,
-                                                    ),
-                                                ),
-                                                PhantomRegionalToken {
-                                                    token_idx: RegionalTokenIdx(
-                                                        4,
-                                                    ),
-                                                },
-                                            ),
-                                        ],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `Label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                5,
-                                            ),
                                         },
-                                    },
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    13,
+                                    ),
                                 ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [
-                                            Phantom(
-                                                PoundRegionalToken(
-                                                    RegionalTokenIdx(
-                                                        7,
-                                                    ),
-                                                ),
-                                                PhantomRegionalToken {
-                                                    token_idx: RegionalTokenIdx(
-                                                        8,
-                                                    ),
-                                                },
-                                            ),
-                                        ],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                10,
-                                            ),
-                                        },
-                                        ty_expr_idx: 1,
-                                    },
-                                },
                             },
-                        ],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                1..2,
-                            ),
-                        ),
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                2..3,
-                            ),
-                        ),
-                    ],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ConstantImplicitParameterType,
-                        syn_expr_idx: 1,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::Trait,
-                        syn_expr_idx: 2,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::SelfType,
-                        syn_expr_idx: 7,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
-        data: SemaExprRegionData {
-            path: Decl(
-                ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 464,
-                                },
-                            ),
                         ),
                     ),
                 ),
@@ -3312,28 +1707,16 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         12,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Type {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 539,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -3347,14 +1730,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -3365,14 +1742,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -3380,17 +1751,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Trait(
-                                            TraitPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 33,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Trait(
+                                            TraitPath(`core::default::Default`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -3400,18 +1765,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 24,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Trait`),
                                     ),
                                 },
                             ),
@@ -3420,18 +1775,8 @@
                                     2,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 24,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Trait`),
                                         ),
                                     },
                                 ),
@@ -3439,17 +1784,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 481,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -3459,14 +1798,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                     ),
                                 },
                             ),
@@ -3475,14 +1808,8 @@
                                     3,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                 ),
@@ -3490,28 +1817,16 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         17,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Type {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 539,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -3525,14 +1840,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -3543,14 +1852,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -3558,7 +1861,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         3,
                                     ),
@@ -3570,14 +1873,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 16,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent t -> Type`),
                                     ),
                                 },
                             ),
@@ -3586,14 +1883,8 @@
                                     5,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 16,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent t -> Type`),
                                         ),
                                     },
                                 ),
@@ -3601,28 +1892,16 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 542,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
                                     current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Constant {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 542,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),
@@ -3636,14 +1915,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`t`),
                                     ),
                                 },
                             ),
@@ -3654,14 +1927,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 14,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                 ),
@@ -3669,7 +1936,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         5,
                                     ),
@@ -3681,14 +1948,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -3697,14 +1958,8 @@
                                     7,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -3747,9 +2002,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
@@ -3897,93 +2150,51 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Type`),
                             ),
-                        ),
-                    ],
-                },
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`t`),
+                            ),
+                        },
+                    ),
+                ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                    },
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`a`),
                         ),
-                    ],
-                },
+                    },
+                ],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -3994,7 +2205,7 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -4011,20 +2222,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -4034,7 +2239,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -4045,28 +2250,18 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 24,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Trait`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -4077,34 +2272,22 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Curry(
-                                                                EtherealTermCurry(
-                                                                    Id {
-                                                                        value: 12,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: Some(
                                                             FluffyTermRune(
@@ -4124,26 +2307,14 @@
                                                         ),
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Curry(
-                                                                    EtherealTermCurry(
-                                                                        Id {
-                                                                            value: 12,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                             ),
                                                         },
                                                     },
@@ -4154,7 +2325,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -4180,24 +2351,18 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -4208,58 +2373,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 16,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent t -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Category(
-                                                                TermCategory {
-                                                                    universe: TermUniverse(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Symbol(
-                                                                    EtherealTermSymbol(
-                                                                        Id {
-                                                                            value: 14,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`t`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                     },
@@ -4270,7 +2411,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -4296,22 +2437,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 14,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -4326,20 +2461,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -4355,13 +2484,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 91,
-                        },
-                    ),
-                ),
+                EtherealTerm(`OneVsAll t a`),
             ),
         },
     },
@@ -4407,415 +2530,44 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::ImplBlock(
-                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::ImplBlock(
-                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                                        TraitForTypeImplBlockSynNodePathData {
-                                                            path: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `malamute`,
-                                                                    trai_path: TraitPath(`core::default::Default`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            12,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        5,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 1,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Trait(
-                                                    TraitPath(`core::default::Default`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 2,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            17,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        5,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 3,
-                                        argument_expr_idx: 4,
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            18,
-                                        ),
-                                        current_syn_symbol_idx: 2,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        10,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 5,
-                                        argument_expr_idx: 6,
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `Default`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    14,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Trait(
-                                                TraitPath(`core::default::Default`),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `OneVsAll`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    16,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [
-                                        CurrentSynSymbol {
-                                            modifier: Const,
-                                            access_start: RegionalTokenIdx(
-                                                6,
-                                            ),
-                                            access_end: None,
-                                            data: CurrentSynSymbolData::TemplateParameter {
-                                                syn_attrs: TemplateParameterSynAttrs {
-                                                    syn_attrs: [
-                                                        Phantom(
-                                                            PoundRegionalToken(
-                                                                RegionalTokenIdx(
-                                                                    3,
-                                                                ),
-                                                            ),
-                                                            PhantomRegionalToken {
-                                                                token_idx: RegionalTokenIdx(
-                                                                    4,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ],
-                                                },
-                                                annotated_variance_token: None,
-                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                    ident_token: IdentRegionalToken {
-                                                        ident: `Label`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            5,
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                        },
-                                        CurrentSynSymbol {
-                                            modifier: Const,
-                                            access_start: RegionalTokenIdx(
-                                                13,
-                                            ),
-                                            access_end: None,
-                                            data: CurrentSynSymbolData::TemplateParameter {
-                                                syn_attrs: TemplateParameterSynAttrs {
-                                                    syn_attrs: [
-                                                        Phantom(
-                                                            PoundRegionalToken(
-                                                                RegionalTokenIdx(
-                                                                    7,
-                                                                ),
-                                                            ),
-                                                            PhantomRegionalToken {
-                                                                token_idx: RegionalTokenIdx(
-                                                                    8,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ],
-                                                },
-                                                annotated_variance_token: None,
-                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
-                                                    ident_token: IdentRegionalToken {
-                                                        ident: `label`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            10,
-                                                        ),
-                                                    },
-                                                    ty_expr_idx: 1,
-                                                },
-                                            },
-                                        },
-                                    ],
-                                },
-                                allow_self_type: True,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [
-                                    (
-                                        TemplateTypeParameter,
-                                        ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                    ),
-                                    (
-                                        TemplateTypeParameter,
-                                        ArenaIdxRange(
-                                            2..3,
-                                        ),
-                                    ),
-                                ],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::ConstantImplicitParameterType,
-                                    syn_expr_idx: 1,
-                                },
-                                SynExprRoot {
-                                    kind: SynExprRootKind::Trait,
-                                    syn_expr_idx: 2,
-                                },
-                                SynExprRoot {
-                                    kind: SynExprRootKind::SelfType,
-                                    syn_expr_idx: 7,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TraitForTypeItem(
-                                            TraitForTypeItemSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `malamute`,
-                                                                                trai_path: TraitPath(`core::default::Default`),
-                                                                                ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                                ),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `default`,
-                                                                        item_kind: AssociatedFunctionFn,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::SelfType(
-                            RegionalTokenIdx(
-                                7,
-                            ),
-                        ),
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [
-                            InheritedSynSymbol {
-                                parent_symbol_idx: Current(
-                                    1,
-                                ),
-                                modifier: Const,
-                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                    InheritedTemplateParameterSynSymbol::Type {
-                                        ident: `Label`,
-                                    },
-                                ),
-                            },
-                            InheritedSynSymbol {
-                                parent_symbol_idx: Current(
-                                    2,
-                                ),
-                                modifier: Const,
-                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                    InheritedTemplateParameterSynSymbol::Constant {
-                                        ident: `label`,
-                                    },
-                                ),
-                            },
-                        ],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: True,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ReturnType,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
         data: SemaExprRegionData {
-            path: Decl(
-                AssociatedItem(
-                    TraitForTypeItem(
+            path: SynNodeRegionPath::Decl(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 467,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::AssociatedItem(
+                                    AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        TraitForTypeItemSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitForTypeItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TraitForTypeItem(
+                                                                TraitForTypeItemPathData {
+                                                                    impl_block: TraitForTypeImplBlock {
+                                                                        data: TraitForTypeImplBlockPathData {
+                                                                            module_path: `malamute`,
+                                                                            trai_path: TraitPath(`core::default::Default`),
+                                                                            ty_sketch: TypeSketch::Path(
+                                                                                TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                    ident: `default`,
+                                                                    item_kind: AssociatedFunctionFn,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -4825,7 +2577,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SemaExprData::SelfType(
                                     RegionalTokenIdx(
                                         7,
                                     ),
@@ -4834,14 +2586,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -4850,14 +2596,8 @@
                                     1,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -4882,9 +2622,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
@@ -4910,93 +2648,51 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                inherited_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Type`),
                             ),
-                        ),
-                    ],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`t`),
+                            ),
+                        },
+                    ),
+                ],
+                current_syn_symbol_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                inherited_syn_symbol_map: [
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                    },
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`a`),
                         ),
-                    ],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
+                    },
+                ],
+                current_syn_symbol_map: [],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -5007,7 +2703,7 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -5022,20 +2718,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -5051,13 +2741,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 91,
-                        },
-                    ),
-                ),
+                EtherealTerm(`OneVsAll t a`),
             ),
         },
     },
@@ -5088,373 +2772,29 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::ImplBlock(
-                        ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
+        data: SemaExprRegionData {
+            path: SynNodeRegionPath::Decl(
+                ItemSynNodePath::ImplBlock(
+                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `malamute`,
+                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`malamute::Class`, `Enum`),
+                                                    ),
+                                                    disambiguator: 0,
                                                 },
                                             },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::CurrentSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                10,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            3,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 3,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Trait(
-                                        TraitPath(`core::ops::Unveil`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 4,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 2,
-                            argument_expr_idx: 3,
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                18,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            3,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 4,
-                            argument_expr_idx: 5,
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                19,
-                            ),
-                            current_syn_symbol_idx: 2,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            8,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 6,
-                            argument_expr_idx: 7,
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 5,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`malamute::Class`, `Enum`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                22,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            3,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 9,
-                            argument_expr_idx: 10,
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `core`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        12,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::Module(
-                                `core`,
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Subitem {
-                            parent: 1,
-                            colon_colon_token: ColonColonRegionalToken(
-                                RegionalTokenIdx(
-                                    13,
-                                ),
-                            ),
-                            ident_token: Ok(
-                                IdentRegionalToken {
-                                    ident: `ops`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        14,
-                                    ),
-                                },
-                            ),
-                            path: Ok(
-                                PrincipalEntityPath::Module(
-                                    `core::ops`,
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Subitem {
-                            parent: 2,
-                            colon_colon_token: ColonColonRegionalToken(
-                                RegionalTokenIdx(
-                                    15,
-                                ),
-                            ),
-                            ident_token: Ok(
-                                IdentRegionalToken {
-                                    ident: `Unveil`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        16,
-                                    ),
-                                },
-                            ),
-                            path: Ok(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Trait(
-                                        TraitPath(`core::ops::Unveil`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `OneVsAll`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        17,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `Class`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        21,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::Class`, `Enum`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    4,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `Label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                3,
-                                            ),
                                         },
-                                    },
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    11,
+                                    ),
                                 ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [
-                                            Runtime(
-                                                PoundRegionalToken(
-                                                    RegionalTokenIdx(
-                                                        5,
-                                                    ),
-                                                ),
-                                                RuntimeRegionalToken {
-                                                    token_idx: RegionalTokenIdx(
-                                                        6,
-                                                    ),
-                                                },
-                                            ),
-                                        ],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                8,
-                                            ),
-                                        },
-                                        ty_expr_idx: 1,
-                                    },
-                                },
                             },
-                        ],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                1..2,
-                            ),
-                        ),
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                2..3,
-                            ),
-                        ),
-                    ],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ConstantImplicitParameterType,
-                        syn_expr_idx: 1,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::Trait,
-                        syn_expr_idx: 8,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::SelfType,
-                        syn_expr_idx: 11,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
-        data: SemaExprRegionData {
-            path: Decl(
-                ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 465,
-                                },
-                            ),
                         ),
                     ),
                 ),
@@ -5464,28 +2804,16 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Type {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 539,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -5499,14 +2827,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -5517,14 +2839,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -5532,17 +2848,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
-                                    path: MajorItem(
-                                        Trait(
-                                            TraitPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 71,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Trait(
+                                            TraitPath(`core::ops::Unveil`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -5552,14 +2862,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`invariant Type -> Trait`),
                                     ),
                                 },
                             ),
@@ -5568,14 +2872,8 @@
                                     2,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`invariant Type -> Trait`),
                                         ),
                                     },
                                 ),
@@ -5583,17 +2881,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 4,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 481,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -5603,14 +2895,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                     ),
                                 },
                             ),
@@ -5619,14 +2905,8 @@
                                     3,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                 ),
@@ -5634,7 +2914,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         2,
                                     ),
@@ -5646,14 +2926,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 18,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent Type -> independent variable_ad_hoc_fmt -> Trait`),
                                     ),
                                 },
                             ),
@@ -5662,14 +2936,8 @@
                                     4,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> independent variable_ad_hoc_fmt -> Trait`),
                                         ),
                                     },
                                 ),
@@ -5677,28 +2945,16 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Type {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 539,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -5712,14 +2968,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -5730,14 +2980,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -5745,7 +2989,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         4,
                                     ),
@@ -5757,14 +3001,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 17,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent variable_ad_hoc_fmt -> Trait`),
                                     ),
                                 },
                             ),
@@ -5773,14 +3011,8 @@
                                     6,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent variable_ad_hoc_fmt -> Trait`),
                                         ),
                                     },
                                 ),
@@ -5788,28 +3020,16 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 542,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         19,
                                     ),
                                     current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Constant {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 542,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     8,
                                                 ),
@@ -5823,14 +3043,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`t`),
                                     ),
                                 },
                             ),
@@ -5841,14 +3055,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                 ),
@@ -5856,7 +3064,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         6,
                                     ),
@@ -5868,18 +3076,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 24,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Trait`),
                                     ),
                                 },
                             ),
@@ -5888,18 +3086,8 @@
                                     8,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 24,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Trait`),
                                         ),
                                     },
                                 ),
@@ -5907,17 +3095,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 5,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 478,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`malamute::Class`, `Enum`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -5927,14 +3109,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent Type -> Type`),
                                     ),
                                 },
                             ),
@@ -5943,14 +3119,8 @@
                                     9,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> Type`),
                                         ),
                                     },
                                 ),
@@ -5958,28 +3128,16 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         22,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Type {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 539,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     3,
                                                 ),
@@ -5993,14 +3151,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -6011,14 +3163,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -6026,7 +3172,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         9,
                                     ),
@@ -6038,14 +3184,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -6054,14 +3194,8 @@
                                     11,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -6104,9 +3238,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
@@ -6334,93 +3466,51 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Type`),
                             ),
-                        ),
-                    ],
-                },
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`t`),
+                            ),
+                        },
+                    ),
+                ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                    },
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`a`),
                         ),
-                    ],
-                },
+                    },
+                ],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -6431,7 +3521,7 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -6448,20 +3538,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -6471,9 +3555,9 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: AnyOriginal,
+                                        final_destination: FinalDestination::AnyOriginal,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -6484,66 +3568,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`invariant Type -> Trait`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 24,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Trait`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Invariant,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                EntityPath(
-                                                                    TypeOntology(
-                                                                        TypePath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 24,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Trait`),
                                                             ),
                                                         },
                                                     },
@@ -6554,7 +3606,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -6578,24 +3630,18 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: AnyOriginal,
+                                        final_destination: FinalDestination::AnyOriginal,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -6606,58 +3652,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> independent variable_ad_hoc_fmt -> Trait`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Curry(
-                                                                EtherealTermCurry(
-                                                                    Id {
-                                                                        value: 17,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`independent variable_ad_hoc_fmt -> Trait`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Curry(
-                                                                    EtherealTermCurry(
-                                                                        Id {
-                                                                            value: 17,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`independent variable_ad_hoc_fmt -> Trait`),
                                                             ),
                                                         },
                                                     },
@@ -6668,7 +3690,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -6694,24 +3716,18 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: AnyOriginal,
+                                        final_destination: FinalDestination::AnyOriginal,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -6722,66 +3738,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent variable_ad_hoc_fmt -> Trait`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 24,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Trait`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Rune(
-                                                                    EtherealTermRune(
-                                                                        Id {
-                                                                            value: 1,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`variable_ad_hoc_fmt`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                EntityPath(
-                                                                    TypeOntology(
-                                                                        TypePath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 24,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Trait`),
                                                             ),
                                                         },
                                                     },
@@ -6792,7 +3776,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -6818,22 +3802,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -6844,28 +3822,18 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 24,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Trait`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -6876,58 +3844,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Category(
-                                                                TermCategory {
-                                                                    universe: TermUniverse(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                     },
@@ -6938,7 +3882,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -6964,22 +3908,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -6994,20 +3932,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -7023,13 +3955,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 89,
-                        },
-                    ),
-                ),
+                EtherealTerm(`Class t`),
             ),
         },
     },
@@ -7075,497 +4001,44 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::ImplBlock(
-                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::ImplBlock(
-                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                                        TraitForTypeImplBlockSynNodePathData {
-                                                            path: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `malamute`,
-                                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`malamute::Class`, `Enum`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            10,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        3,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 3,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Trait(
-                                                    TraitPath(`core::ops::Unveil`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 4,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 2,
-                                        argument_expr_idx: 3,
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            18,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        3,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 4,
-                                        argument_expr_idx: 5,
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            19,
-                                        ),
-                                        current_syn_symbol_idx: 2,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        8,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 6,
-                                        argument_expr_idx: 7,
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 5,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`malamute::Class`, `Enum`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            22,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        3,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 9,
-                                        argument_expr_idx: 10,
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `core`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    12,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::Module(
-                                            `core`,
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Subitem {
-                                        parent: 1,
-                                        colon_colon_token: ColonColonRegionalToken(
-                                            RegionalTokenIdx(
-                                                13,
-                                            ),
-                                        ),
-                                        ident_token: Ok(
-                                            IdentRegionalToken {
-                                                ident: `ops`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    14,
-                                                ),
-                                            },
-                                        ),
-                                        path: Ok(
-                                            PrincipalEntityPath::Module(
-                                                `core::ops`,
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Subitem {
-                                        parent: 2,
-                                        colon_colon_token: ColonColonRegionalToken(
-                                            RegionalTokenIdx(
-                                                15,
-                                            ),
-                                        ),
-                                        ident_token: Ok(
-                                            IdentRegionalToken {
-                                                ident: `Unveil`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    16,
-                                                ),
-                                            },
-                                        ),
-                                        path: Ok(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Trait(
-                                                    TraitPath(`core::ops::Unveil`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `OneVsAll`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    17,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `Class`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    21,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`malamute::Class`, `Enum`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [
-                                        CurrentSynSymbol {
-                                            modifier: Const,
-                                            access_start: RegionalTokenIdx(
-                                                4,
-                                            ),
-                                            access_end: None,
-                                            data: CurrentSynSymbolData::TemplateParameter {
-                                                syn_attrs: TemplateParameterSynAttrs {
-                                                    syn_attrs: [],
-                                                },
-                                                annotated_variance_token: None,
-                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                    ident_token: IdentRegionalToken {
-                                                        ident: `Label`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            3,
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                        },
-                                        CurrentSynSymbol {
-                                            modifier: Const,
-                                            access_start: RegionalTokenIdx(
-                                                11,
-                                            ),
-                                            access_end: None,
-                                            data: CurrentSynSymbolData::TemplateParameter {
-                                                syn_attrs: TemplateParameterSynAttrs {
-                                                    syn_attrs: [
-                                                        Runtime(
-                                                            PoundRegionalToken(
-                                                                RegionalTokenIdx(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                            RuntimeRegionalToken {
-                                                                token_idx: RegionalTokenIdx(
-                                                                    6,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ],
-                                                },
-                                                annotated_variance_token: None,
-                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
-                                                    ident_token: IdentRegionalToken {
-                                                        ident: `label`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            8,
-                                                        ),
-                                                    },
-                                                    ty_expr_idx: 1,
-                                                },
-                                            },
-                                        },
-                                    ],
-                                },
-                                allow_self_type: True,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [
-                                    (
-                                        TemplateTypeParameter,
-                                        ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                    ),
-                                    (
-                                        TemplateTypeParameter,
-                                        ArenaIdxRange(
-                                            2..3,
-                                        ),
-                                    ),
-                                ],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::ConstantImplicitParameterType,
-                                    syn_expr_idx: 1,
-                                },
-                                SynExprRoot {
-                                    kind: SynExprRootKind::Trait,
-                                    syn_expr_idx: 8,
-                                },
-                                SynExprRoot {
-                                    kind: SynExprRootKind::SelfType,
-                                    syn_expr_idx: 11,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TraitForTypeItem(
-                                            TraitForTypeItemSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `malamute`,
-                                                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                                                ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`malamute::Class`, `Enum`),
-                                                                                ),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `Output`,
-                                                                        item_kind: AssociatedType,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::Unit {
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                4,
-                            ),
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                5,
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [
-                            InheritedSynSymbol {
-                                parent_symbol_idx: Current(
-                                    1,
-                                ),
-                                modifier: Const,
-                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                    InheritedTemplateParameterSynSymbol::Type {
-                                        ident: `Label`,
-                                    },
-                                ),
-                            },
-                            InheritedSynSymbol {
-                                parent_symbol_idx: Current(
-                                    2,
-                                ),
-                                modifier: Const,
-                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                    InheritedTemplateParameterSynSymbol::Constant {
-                                        ident: `label`,
-                                    },
-                                ),
-                            },
-                        ],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::AssociatedTypeTerm,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
         data: SemaExprRegionData {
-            path: Decl(
-                AssociatedItem(
-                    TraitForTypeItem(
+            path: SynNodeRegionPath::Decl(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 468,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::AssociatedItem(
+                                    AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        TraitForTypeItemSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitForTypeItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TraitForTypeItem(
+                                                                TraitForTypeItemPathData {
+                                                                    impl_block: TraitForTypeImplBlock {
+                                                                        data: TraitForTypeImplBlockPathData {
+                                                                            module_path: `malamute`,
+                                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                                            ty_sketch: TypeSketch::Path(
+                                                                                TypePath(`malamute::Class`, `Enum`),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                    ident: `Output`,
+                                                                    item_kind: AssociatedType,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -7575,7 +4048,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                Unit {
+                                SemaExprData::Unit {
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
@@ -7587,14 +4060,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -7603,14 +4070,8 @@
                                     1,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -7635,9 +4096,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
@@ -7667,93 +4126,51 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                inherited_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Type`),
                             ),
-                        ),
-                    ],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`t`),
+                            ),
+                        },
+                    ),
+                ],
+                current_syn_symbol_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                inherited_syn_symbol_map: [
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                    },
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`a`),
                         ),
-                    ],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
+                    },
+                ],
+                current_syn_symbol_map: [],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -7764,7 +4181,7 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -7779,20 +4196,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -7808,13 +4219,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 89,
-                        },
-                    ),
-                ),
+                EtherealTerm(`Class t`),
             ),
         },
     },
@@ -7860,697 +4265,44 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::ImplBlock(
-                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::ImplBlock(
-                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                                        TraitForTypeImplBlockSynNodePathData {
-                                                            path: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `malamute`,
-                                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`malamute::Class`, `Enum`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            10,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        3,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 3,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Trait(
-                                                    TraitPath(`core::ops::Unveil`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 4,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 2,
-                                        argument_expr_idx: 3,
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            18,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        3,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 4,
-                                        argument_expr_idx: 5,
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            19,
-                                        ),
-                                        current_syn_symbol_idx: 2,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        8,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 6,
-                                        argument_expr_idx: 7,
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 5,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`malamute::Class`, `Enum`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            22,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        3,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 9,
-                                        argument_expr_idx: 10,
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `core`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    12,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::Module(
-                                            `core`,
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Subitem {
-                                        parent: 1,
-                                        colon_colon_token: ColonColonRegionalToken(
-                                            RegionalTokenIdx(
-                                                13,
-                                            ),
-                                        ),
-                                        ident_token: Ok(
-                                            IdentRegionalToken {
-                                                ident: `ops`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    14,
-                                                ),
-                                            },
-                                        ),
-                                        path: Ok(
-                                            PrincipalEntityPath::Module(
-                                                `core::ops`,
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Subitem {
-                                        parent: 2,
-                                        colon_colon_token: ColonColonRegionalToken(
-                                            RegionalTokenIdx(
-                                                15,
-                                            ),
-                                        ),
-                                        ident_token: Ok(
-                                            IdentRegionalToken {
-                                                ident: `Unveil`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    16,
-                                                ),
-                                            },
-                                        ),
-                                        path: Ok(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Trait(
-                                                    TraitPath(`core::ops::Unveil`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `OneVsAll`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    17,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `Class`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    21,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`malamute::Class`, `Enum`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [
-                                        CurrentSynSymbol {
-                                            modifier: Const,
-                                            access_start: RegionalTokenIdx(
-                                                4,
-                                            ),
-                                            access_end: None,
-                                            data: CurrentSynSymbolData::TemplateParameter {
-                                                syn_attrs: TemplateParameterSynAttrs {
-                                                    syn_attrs: [],
-                                                },
-                                                annotated_variance_token: None,
-                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                    ident_token: IdentRegionalToken {
-                                                        ident: `Label`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            3,
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                        },
-                                        CurrentSynSymbol {
-                                            modifier: Const,
-                                            access_start: RegionalTokenIdx(
-                                                11,
-                                            ),
-                                            access_end: None,
-                                            data: CurrentSynSymbolData::TemplateParameter {
-                                                syn_attrs: TemplateParameterSynAttrs {
-                                                    syn_attrs: [
-                                                        Runtime(
-                                                            PoundRegionalToken(
-                                                                RegionalTokenIdx(
-                                                                    5,
-                                                                ),
-                                                            ),
-                                                            RuntimeRegionalToken {
-                                                                token_idx: RegionalTokenIdx(
-                                                                    6,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ],
-                                                },
-                                                annotated_variance_token: None,
-                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
-                                                    ident_token: IdentRegionalToken {
-                                                        ident: `label`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            8,
-                                                        ),
-                                                    },
-                                                    ty_expr_idx: 1,
-                                                },
-                                            },
-                                        },
-                                    ],
-                                },
-                                allow_self_type: True,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [
-                                    (
-                                        TemplateTypeParameter,
-                                        ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                    ),
-                                    (
-                                        TemplateTypeParameter,
-                                        ArenaIdxRange(
-                                            2..3,
-                                        ),
-                                    ),
-                                ],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::ConstantImplicitParameterType,
-                                    syn_expr_idx: 1,
-                                },
-                                SynExprRoot {
-                                    kind: SynExprRootKind::Trait,
-                                    syn_expr_idx: 8,
-                                },
-                                SynExprRoot {
-                                    kind: SynExprRootKind::SelfType,
-                                    syn_expr_idx: 11,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TraitForTypeItem(
-                                            TraitForTypeItemSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `malamute`,
-                                                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                                                ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`malamute::Class`, `Enum`),
-                                                                                ),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `unveil`,
-                                                                        item_kind: AssociatedFunctionFn,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::InheritedSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                8,
-                            ),
-                            inherited_syn_symbol_idx: 1,
-                            inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
-                                InheritedTemplateParameterSynSymbol::Type {
-                                    ident: `Label`,
-                                },
-                            ),
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 1,
-                            argument_expr_idx: 2,
-                        },
-                        SynExprData::InheritedSynSymbol {
-                            ident: `label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                9,
-                            ),
-                            inherited_syn_symbol_idx: 2,
-                            inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
-                                InheritedTemplateParameterSynSymbol::Constant {
-                                    ident: `label`,
-                                },
-                            ),
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 3,
-                            argument_expr_idx: 4,
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 4,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::ops::ControlFlow`, `Enum`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::SelfType(
-                            RegionalTokenIdx(
-                                17,
-                            ),
-                        ),
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 6,
-                            argument_expr_idx: 7,
-                        },
-                        SynExprData::FunctionApplicationOrCall {
-                            function: 8,
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                18,
-                            ),
-                            items: [],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                19,
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `OneVsAll`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        7,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `core`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        12,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::Module(
-                                `core`,
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Subitem {
-                            parent: 2,
-                            colon_colon_token: ColonColonRegionalToken(
-                                RegionalTokenIdx(
-                                    13,
-                                ),
-                            ),
-                            ident_token: Ok(
-                                IdentRegionalToken {
-                                    ident: `ops`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        14,
-                                    ),
-                                },
-                            ),
-                            path: Ok(
-                                PrincipalEntityPath::Module(
-                                    `core::ops`,
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Subitem {
-                            parent: 3,
-                            colon_colon_token: ColonColonRegionalToken(
-                                RegionalTokenIdx(
-                                    15,
-                                ),
-                            ),
-                            ident_token: Ok(
-                                IdentRegionalToken {
-                                    ident: `ControlFlow`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        16,
-                                    ),
-                                },
-                            ),
-                            path: Ok(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::ops::ControlFlow`, `Enum`),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `one_vs_all`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        5,
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [
-                            Pure,
-                        ],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [
-                            SynPatternSymbol::Atom(
-                                1,
-                            ),
-                        ],
-                    },
-                    pattern_symbol_maps: [
-                        [
-                            (
-                                `one_vs_all`,
-                                1,
-                            ),
-                        ],
-                    ],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [
-                            Pure,
-                        ],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [
-                            InheritedSynSymbol {
-                                parent_symbol_idx: Current(
-                                    1,
-                                ),
-                                modifier: Const,
-                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                    InheritedTemplateParameterSynSymbol::Type {
-                                        ident: `Label`,
-                                    },
-                                ),
-                            },
-                            InheritedSynSymbol {
-                                parent_symbol_idx: Current(
-                                    2,
-                                ),
-                                modifier: Const,
-                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                    InheritedTemplateParameterSynSymbol::Constant {
-                                        ident: `label`,
-                                    },
-                                ),
-                            },
-                        ],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    6,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::ParenateRegularParameter {
-                                    ident: `one_vs_all`,
-                                    pattern_symbol_idx: 1,
-                                },
-                            },
-                        ],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: True,
-                    pattern_ty_constraints: [
-                        (
-                            OrdinaryParenateParameter {
-                                syn_pattern_root: ParenateSynPatternExprRoot {
-                                    syn_pattern_expr_idx: 1,
-                                },
-                                ty_expr_idx: 5,
-                            },
-                            ArenaIdxRange(
-                                1..2,
-                            ),
-                        ),
-                    ],
-                },
-                syn_pattern_expr_roots: [
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Parenate,
-                        syn_pattern_expr_idx: 1,
-                    },
-                ],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ExplicitParameterType,
-                        syn_expr_idx: 5,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::ReturnType,
-                        syn_expr_idx: 9,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [
-                    (
-                        1,
-                        1,
-                    ),
-                ],
-            },
-        },
         data: SemaExprRegionData {
-            path: Decl(
-                AssociatedItem(
-                    TraitForTypeItem(
+            path: SynNodeRegionPath::Decl(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 469,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::AssociatedItem(
+                                    AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        TraitForTypeItemSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitForTypeItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TraitForTypeItem(
+                                                                TraitForTypeItemPathData {
+                                                                    impl_block: TraitForTypeImplBlock {
+                                                                        data: TraitForTypeImplBlockPathData {
+                                                                            module_path: `malamute`,
+                                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                                            ty_sketch: TypeSketch::Path(
+                                                                                TypePath(`malamute::Class`, `Enum`),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                    ident: `unveil`,
+                                                                    item_kind: AssociatedFunctionFn,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -8560,17 +4312,11 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 481,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -8580,14 +4326,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                     ),
                                 },
                             ),
@@ -8596,14 +4336,8 @@
                                     1,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                 ),
@@ -8611,27 +4345,15 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::InheritedSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         8,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: TemplateParameter(
-                                        Type {
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 539,
-                                                    },
-                                                ),
-                                            ),
+                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                        InheritedTemplateParameterSynSymbol::Type {
+                                            ident: `Label`,
                                         },
                                     ),
                                 },
@@ -8641,14 +4363,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -8659,14 +4375,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -8674,7 +4384,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
@@ -8686,14 +4396,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 15,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent t -> Type`),
                                     ),
                                 },
                             ),
@@ -8702,14 +4406,8 @@
                                     3,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 15,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent t -> Type`),
                                         ),
                                     },
                                 ),
@@ -8717,27 +4415,15 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 542,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::InheritedSynSymbol {
+                                    ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: TemplateParameter(
-                                        Constant {
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 542,
-                                                    },
-                                                ),
-                                            ),
+                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                        InheritedTemplateParameterSynSymbol::Constant {
+                                            ident: `label`,
                                         },
                                     ),
                                 },
@@ -8747,14 +4433,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`t`),
                                     ),
                                 },
                             ),
@@ -8765,14 +4445,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                 ),
@@ -8780,7 +4454,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         3,
                                     ),
@@ -8792,14 +4466,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -8808,14 +4476,8 @@
                                     5,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -8823,17 +4485,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 4,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 72,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::ops::ControlFlow`, `Enum`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -8843,14 +4499,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 9,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent Type -> independent Type -> Type`),
                                     ),
                                 },
                             ),
@@ -8859,14 +4509,8 @@
                                     6,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 9,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> independent Type -> Type`),
                                         ),
                                     },
                                 ),
@@ -8874,7 +4518,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SemaExprData::SelfType(
                                     RegionalTokenIdx(
                                         17,
                                     ),
@@ -8883,14 +4527,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -8899,14 +4537,8 @@
                                     7,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -8914,7 +4546,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         6,
                                     ),
@@ -8926,14 +4558,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent Type -> Type`),
                                     ),
                                 },
                             ),
@@ -8942,14 +4568,8 @@
                                     8,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> Type`),
                                         ),
                                     },
                                 ),
@@ -8957,7 +4577,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Unit {
+                                SemaExprData::Unit {
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
@@ -8969,14 +4589,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -8985,14 +4599,8 @@
                                     9,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -9000,7 +4608,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         8,
                                     ),
@@ -9012,14 +4620,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -9028,14 +4630,8 @@
                                     10,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -9069,11 +4665,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     None,
@@ -9284,120 +4876,68 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
+                inherited_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Type`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`t`),
+                            ),
+                        },
+                    ),
+                ],
+                current_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                StackPure {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            1,
                                         ),
                                     ),
                                 },
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`OneVsAll t a`),
                             ),
-                        ),
-                    ],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        StackPure {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    1,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 101,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ],
-                },
+                        },
+                    ),
+                ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                inherited_syn_symbol_map: [
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                    },
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`a`),
                         ),
-                    ],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        None,
-                    ],
-                },
+                    },
+                ],
+                current_syn_symbol_map: [],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -9408,9 +4948,9 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -9421,34 +4961,22 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Curry(
-                                                                EtherealTermCurry(
-                                                                    Id {
-                                                                        value: 12,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: Some(
                                                             FluffyTermRune(
@@ -9468,26 +4996,14 @@
                                                         ),
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Curry(
-                                                                    EtherealTermCurry(
-                                                                        Id {
-                                                                            value: 12,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                             ),
                                                         },
                                                     },
@@ -9498,7 +5014,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -9524,24 +5040,18 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -9552,58 +5062,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 15,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent t -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Category(
-                                                                TermCategory {
-                                                                    universe: TermUniverse(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Symbol(
-                                                                    EtherealTermSymbol(
-                                                                        Id {
-                                                                            value: 8,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`t`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                     },
@@ -9614,7 +5100,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -9640,22 +5126,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -9670,20 +5150,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -9693,9 +5167,9 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -9706,58 +5180,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 9,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> independent Type -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Curry(
-                                                                EtherealTermCurry(
-                                                                    Id {
-                                                                        value: 8,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`independent Type -> Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Curry(
-                                                                    EtherealTermCurry(
-                                                                        Id {
-                                                                            value: 8,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`independent Type -> Type`),
                                                             ),
                                                         },
                                                     },
@@ -9768,7 +5218,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -9792,24 +5242,18 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -9820,58 +5264,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Category(
-                                                                TermCategory {
-                                                                    universe: TermUniverse(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                     },
@@ -9882,18 +5302,12 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsExactly(
+                                expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
                                         expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Type`),
                                             ),
                                         },
                                     },
@@ -9906,20 +5320,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Subtype(
+                                            ExpectationOutcome::Subtype(
                                                 ExpectSubtypeOutcome,
                                             ),
                                         ),
@@ -9927,7 +5335,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -9942,20 +5350,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -9971,13 +5373,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 89,
-                        },
-                    ),
-                ),
+                EtherealTerm(`Class t`),
             ),
         },
     },
@@ -10008,407 +5404,29 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::ImplBlock(
-                        ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePathData {
-                                                path: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
+        data: SemaExprRegionData {
+            path: SynNodeRegionPath::Decl(
+                ItemSynNodePath::ImplBlock(
+                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `malamute`,
+                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    ),
+                                                    disambiguator: 0,
                                                 },
                                             },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::CurrentSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                12,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            5,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 3,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Trait(
-                                        TraitPath(`core::ops::Unveil`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 4,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 2,
-                            argument_expr_idx: 3,
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                20,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            5,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 4,
-                            argument_expr_idx: 5,
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                21,
-                            ),
-                            current_syn_symbol_idx: 2,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            10,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 6,
-                            argument_expr_idx: 7,
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 5,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                24,
-                            ),
-                            current_syn_symbol_idx: 1,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            5,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 9,
-                            argument_expr_idx: 10,
-                        },
-                        SynExprData::CurrentSynSymbol {
-                            ident: `label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                25,
-                            ),
-                            current_syn_symbol_idx: 2,
-                            current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                    ident_token: IdentRegionalToken {
-                                        ident: `label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            10,
-                                        ),
-                                    },
-                                },
-                            },
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 11,
-                            argument_expr_idx: 12,
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `core`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        14,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::Module(
-                                `core`,
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Subitem {
-                            parent: 1,
-                            colon_colon_token: ColonColonRegionalToken(
-                                RegionalTokenIdx(
-                                    15,
-                                ),
-                            ),
-                            ident_token: Ok(
-                                IdentRegionalToken {
-                                    ident: `ops`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        16,
-                                    ),
-                                },
-                            ),
-                            path: Ok(
-                                PrincipalEntityPath::Module(
-                                    `core::ops`,
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Subitem {
-                            parent: 2,
-                            colon_colon_token: ColonColonRegionalToken(
-                                RegionalTokenIdx(
-                                    17,
-                                ),
-                            ),
-                            ident_token: Ok(
-                                IdentRegionalToken {
-                                    ident: `Unveil`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        18,
-                                    ),
-                                },
-                            ),
-                            path: Ok(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Trait(
-                                        TraitPath(`core::ops::Unveil`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `OneVsAllResult`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        19,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `OneVsAll`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        23,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    6,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [
-                                            Phantom(
-                                                PoundRegionalToken(
-                                                    RegionalTokenIdx(
-                                                        3,
-                                                    ),
-                                                ),
-                                                PhantomRegionalToken {
-                                                    token_idx: RegionalTokenIdx(
-                                                        4,
-                                                    ),
-                                                },
-                                            ),
-                                        ],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `Label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                5,
-                                            ),
                                         },
-                                    },
-                                },
-                            },
-                            CurrentSynSymbol {
-                                modifier: Const,
-                                access_start: RegionalTokenIdx(
-                                    13,
+                                    ),
                                 ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::TemplateParameter {
-                                    syn_attrs: TemplateParameterSynAttrs {
-                                        syn_attrs: [
-                                            Phantom(
-                                                PoundRegionalToken(
-                                                    RegionalTokenIdx(
-                                                        7,
-                                                    ),
-                                                ),
-                                                PhantomRegionalToken {
-                                                    token_idx: RegionalTokenIdx(
-                                                        8,
-                                                    ),
-                                                },
-                                            ),
-                                        ],
-                                    },
-                                    annotated_variance_token: None,
-                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
-                                        ident_token: IdentRegionalToken {
-                                            ident: `label`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                10,
-                                            ),
-                                        },
-                                        ty_expr_idx: 1,
-                                    },
-                                },
                             },
-                        ],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                1..2,
-                            ),
-                        ),
-                        (
-                            TemplateTypeParameter,
-                            ArenaIdxRange(
-                                2..3,
-                            ),
-                        ),
-                    ],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ConstantImplicitParameterType,
-                        syn_expr_idx: 1,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::Trait,
-                        syn_expr_idx: 8,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::SelfType,
-                        syn_expr_idx: 13,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
-        data: SemaExprRegionData {
-            path: Decl(
-                ImplBlock(
-                    TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 466,
-                                },
-                            ),
                         ),
                     ),
                 ),
@@ -10418,28 +5436,16 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         12,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Type {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 539,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -10453,14 +5459,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -10471,14 +5471,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -10486,17 +5480,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
-                                    path: MajorItem(
-                                        Trait(
-                                            TraitPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 71,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Trait(
+                                            TraitPath(`core::ops::Unveil`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10506,14 +5494,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`invariant Type -> Trait`),
                                     ),
                                 },
                             ),
@@ -10522,14 +5504,8 @@
                                     2,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`invariant Type -> Trait`),
                                         ),
                                     },
                                 ),
@@ -10537,17 +5513,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 4,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 484,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -10557,14 +5527,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                     ),
                                 },
                             ),
@@ -10573,14 +5537,8 @@
                                     3,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                 ),
@@ -10588,7 +5546,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         2,
                                     ),
@@ -10600,14 +5558,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 18,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent Type -> independent variable_ad_hoc_fmt -> Trait`),
                                     ),
                                 },
                             ),
@@ -10616,14 +5568,8 @@
                                     4,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> independent variable_ad_hoc_fmt -> Trait`),
                                         ),
                                     },
                                 ),
@@ -10631,28 +5577,16 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         20,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Type {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 539,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -10666,14 +5600,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -10684,14 +5612,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -10699,7 +5621,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         4,
                                     ),
@@ -10711,14 +5633,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 17,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent variable_ad_hoc_fmt -> Trait`),
                                     ),
                                 },
                             ),
@@ -10727,14 +5643,8 @@
                                     6,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent variable_ad_hoc_fmt -> Trait`),
                                         ),
                                     },
                                 ),
@@ -10742,28 +5652,16 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 542,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         21,
                                     ),
                                     current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Constant {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 542,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),
@@ -10777,14 +5675,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`t`),
                                     ),
                                 },
                             ),
@@ -10795,14 +5687,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 14,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                 ),
@@ -10810,7 +5696,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         6,
                                     ),
@@ -10822,18 +5708,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 24,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Trait`),
                                     ),
                                 },
                             ),
@@ -10842,18 +5718,8 @@
                                     8,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 24,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Trait`),
                                         ),
                                     },
                                 ),
@@ -10861,17 +5727,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 5,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 481,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -10881,14 +5741,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                     ),
                                 },
                             ),
@@ -10897,14 +5751,8 @@
                                     9,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                 ),
@@ -10912,28 +5760,16 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         24,
                                     ),
                                     current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Type {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 539,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     5,
                                                 ),
@@ -10947,14 +5783,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -10965,14 +5795,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -10980,7 +5804,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         9,
                                     ),
@@ -10992,14 +5816,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 16,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent t -> Type`),
                                     ),
                                 },
                             ),
@@ -11008,14 +5826,8 @@
                                     11,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 16,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent t -> Type`),
                                         ),
                                     },
                                 ),
@@ -11023,28 +5835,16 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                CurrentSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 542,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::CurrentSynSymbol {
+                                    ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         25,
                                     ),
                                     current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: TemplateParameter {
-                                        template_parameter_kind: Constant {
+                                    current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                             ident_token: IdentRegionalToken {
-                                                ident: Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 542,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),
@@ -11058,14 +5858,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`t`),
                                     ),
                                 },
                             ),
@@ -11076,14 +5870,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 14,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                 ),
@@ -11091,7 +5879,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         11,
                                     ),
@@ -11103,14 +5891,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -11119,14 +5901,8 @@
                                     13,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -11169,9 +5945,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
@@ -11437,93 +6211,51 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Type`),
                             ),
-                        ),
-                    ],
-                },
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`t`),
+                            ),
+                        },
+                    ),
+                ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                inherited_syn_symbol_map: [],
+                current_syn_symbol_map: [
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                    },
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`a`),
                         ),
-                    ],
-                },
+                    },
+                ],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -11534,7 +6266,7 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -11551,20 +6283,14 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -11574,9 +6300,9 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: AnyOriginal,
+                                        final_destination: FinalDestination::AnyOriginal,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -11587,66 +6313,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`invariant Type -> Trait`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 24,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Trait`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Invariant,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                EntityPath(
-                                                                    TypeOntology(
-                                                                        TypePath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 24,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Trait`),
                                                             ),
                                                         },
                                                     },
@@ -11657,7 +6351,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -11681,24 +6375,18 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: AnyOriginal,
+                                        final_destination: FinalDestination::AnyOriginal,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -11709,58 +6397,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> independent variable_ad_hoc_fmt -> Trait`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Curry(
-                                                                EtherealTermCurry(
-                                                                    Id {
-                                                                        value: 17,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`independent variable_ad_hoc_fmt -> Trait`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Curry(
-                                                                    EtherealTermCurry(
-                                                                        Id {
-                                                                            value: 17,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`independent variable_ad_hoc_fmt -> Trait`),
                                                             ),
                                                         },
                                                     },
@@ -11771,7 +6435,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -11797,24 +6461,18 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: AnyOriginal,
+                                        final_destination: FinalDestination::AnyOriginal,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -11825,66 +6483,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent variable_ad_hoc_fmt -> Trait`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        ItemPathId(
-                                                                            Id {
-                                                                                value: 24,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Trait`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Rune(
-                                                                    EtherealTermRune(
-                                                                        Id {
-                                                                            value: 1,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`variable_ad_hoc_fmt`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                EntityPath(
-                                                                    TypeOntology(
-                                                                        TypePath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 24,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Trait`),
                                                             ),
                                                         },
                                                     },
@@ -11895,7 +6521,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -11921,22 +6547,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 14,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: AnyOriginal(
+                                expectation: Expectation::AnyOriginal(
                                     ExpectAnyOriginal,
                                 ),
                                 state: ExpectationState {
@@ -11947,28 +6567,18 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            EntityPath(
-                                                TypeOntology(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 24,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Trait`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -11979,34 +6589,22 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Curry(
-                                                                EtherealTermCurry(
-                                                                    Id {
-                                                                        value: 12,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: Some(
                                                             FluffyTermRune(
@@ -12026,26 +6624,14 @@
                                                         ),
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Curry(
-                                                                    EtherealTermCurry(
-                                                                        Id {
-                                                                            value: 12,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                             ),
                                                         },
                                                     },
@@ -12056,7 +6642,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -12082,24 +6668,18 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -12110,58 +6690,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 16,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent t -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Category(
-                                                                TermCategory {
-                                                                    universe: TermUniverse(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Symbol(
-                                                                    EtherealTermSymbol(
-                                                                        Id {
-                                                                            value: 14,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`t`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                     },
@@ -12172,7 +6728,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -12198,22 +6754,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 14,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -12228,20 +6778,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -12257,13 +6801,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 91,
-                        },
-                    ),
-                ),
+                EtherealTerm(`OneVsAll t a`),
             ),
         },
     },
@@ -12309,531 +6847,44 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::ImplBlock(
-                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::ImplBlock(
-                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                                        TraitForTypeImplBlockSynNodePathData {
-                                                            path: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `malamute`,
-                                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            12,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        5,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 3,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Trait(
-                                                    TraitPath(`core::ops::Unveil`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 4,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 2,
-                                        argument_expr_idx: 3,
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            20,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        5,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 4,
-                                        argument_expr_idx: 5,
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            21,
-                                        ),
-                                        current_syn_symbol_idx: 2,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        10,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 6,
-                                        argument_expr_idx: 7,
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 5,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            24,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        5,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 9,
-                                        argument_expr_idx: 10,
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            25,
-                                        ),
-                                        current_syn_symbol_idx: 2,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        10,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 11,
-                                        argument_expr_idx: 12,
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `core`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    14,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::Module(
-                                            `core`,
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Subitem {
-                                        parent: 1,
-                                        colon_colon_token: ColonColonRegionalToken(
-                                            RegionalTokenIdx(
-                                                15,
-                                            ),
-                                        ),
-                                        ident_token: Ok(
-                                            IdentRegionalToken {
-                                                ident: `ops`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    16,
-                                                ),
-                                            },
-                                        ),
-                                        path: Ok(
-                                            PrincipalEntityPath::Module(
-                                                `core::ops`,
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Subitem {
-                                        parent: 2,
-                                        colon_colon_token: ColonColonRegionalToken(
-                                            RegionalTokenIdx(
-                                                17,
-                                            ),
-                                        ),
-                                        ident_token: Ok(
-                                            IdentRegionalToken {
-                                                ident: `Unveil`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    18,
-                                                ),
-                                            },
-                                        ),
-                                        path: Ok(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Trait(
-                                                    TraitPath(`core::ops::Unveil`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `OneVsAllResult`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    19,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `OneVsAll`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    23,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [
-                                        CurrentSynSymbol {
-                                            modifier: Const,
-                                            access_start: RegionalTokenIdx(
-                                                6,
-                                            ),
-                                            access_end: None,
-                                            data: CurrentSynSymbolData::TemplateParameter {
-                                                syn_attrs: TemplateParameterSynAttrs {
-                                                    syn_attrs: [
-                                                        Phantom(
-                                                            PoundRegionalToken(
-                                                                RegionalTokenIdx(
-                                                                    3,
-                                                                ),
-                                                            ),
-                                                            PhantomRegionalToken {
-                                                                token_idx: RegionalTokenIdx(
-                                                                    4,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ],
-                                                },
-                                                annotated_variance_token: None,
-                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                    ident_token: IdentRegionalToken {
-                                                        ident: `Label`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            5,
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                        },
-                                        CurrentSynSymbol {
-                                            modifier: Const,
-                                            access_start: RegionalTokenIdx(
-                                                13,
-                                            ),
-                                            access_end: None,
-                                            data: CurrentSynSymbolData::TemplateParameter {
-                                                syn_attrs: TemplateParameterSynAttrs {
-                                                    syn_attrs: [
-                                                        Phantom(
-                                                            PoundRegionalToken(
-                                                                RegionalTokenIdx(
-                                                                    7,
-                                                                ),
-                                                            ),
-                                                            PhantomRegionalToken {
-                                                                token_idx: RegionalTokenIdx(
-                                                                    8,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ],
-                                                },
-                                                annotated_variance_token: None,
-                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
-                                                    ident_token: IdentRegionalToken {
-                                                        ident: `label`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            10,
-                                                        ),
-                                                    },
-                                                    ty_expr_idx: 1,
-                                                },
-                                            },
-                                        },
-                                    ],
-                                },
-                                allow_self_type: True,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [
-                                    (
-                                        TemplateTypeParameter,
-                                        ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                    ),
-                                    (
-                                        TemplateTypeParameter,
-                                        ArenaIdxRange(
-                                            2..3,
-                                        ),
-                                    ),
-                                ],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::ConstantImplicitParameterType,
-                                    syn_expr_idx: 1,
-                                },
-                                SynExprRoot {
-                                    kind: SynExprRootKind::Trait,
-                                    syn_expr_idx: 8,
-                                },
-                                SynExprRoot {
-                                    kind: SynExprRootKind::SelfType,
-                                    syn_expr_idx: 13,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TraitForTypeItem(
-                                            TraitForTypeItemSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `malamute`,
-                                                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                                                ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                                ),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `Output`,
-                                                                        item_kind: AssociatedType,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::Unit {
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                4,
-                            ),
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                5,
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [
-                            InheritedSynSymbol {
-                                parent_symbol_idx: Current(
-                                    1,
-                                ),
-                                modifier: Const,
-                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                    InheritedTemplateParameterSynSymbol::Type {
-                                        ident: `Label`,
-                                    },
-                                ),
-                            },
-                            InheritedSynSymbol {
-                                parent_symbol_idx: Current(
-                                    2,
-                                ),
-                                modifier: Const,
-                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                    InheritedTemplateParameterSynSymbol::Constant {
-                                        ident: `label`,
-                                    },
-                                ),
-                            },
-                        ],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                syn_pattern_expr_roots: [],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::AssociatedTypeTerm,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [],
-            },
-        },
         data: SemaExprRegionData {
-            path: Decl(
-                AssociatedItem(
-                    TraitForTypeItem(
+            path: SynNodeRegionPath::Decl(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 470,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::AssociatedItem(
+                                    AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        TraitForTypeItemSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitForTypeItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TraitForTypeItem(
+                                                                TraitForTypeItemPathData {
+                                                                    impl_block: TraitForTypeImplBlock {
+                                                                        data: TraitForTypeImplBlockPathData {
+                                                                            module_path: `malamute`,
+                                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                                            ty_sketch: TypeSketch::Path(
+                                                                                TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                    ident: `Output`,
+                                                                    item_kind: AssociatedType,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -12843,7 +6894,7 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                Unit {
+                                SemaExprData::Unit {
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
@@ -12855,14 +6906,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -12871,14 +6916,8 @@
                                     1,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -12903,9 +6942,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [],
             },
@@ -12935,93 +6972,51 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                inherited_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Type`),
                             ),
-                        ),
-                    ],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`t`),
+                            ),
+                        },
+                    ),
+                ],
+                current_syn_symbol_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                inherited_syn_symbol_map: [
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                    },
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`a`),
                         ),
-                    ],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [],
-                },
+                    },
+                ],
+                current_syn_symbol_map: [],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -13032,7 +7027,7 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -13047,20 +7042,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -13076,13 +7065,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 91,
-                        },
-                    ),
-                ),
+                EtherealTerm(`OneVsAll t a`),
             ),
         },
     },
@@ -13128,731 +7111,44 @@
                 ),
             ),
         ),
-        syn_expr_region: SynExprRegion {
-            data: SynExprRegionData {
-                parent: Some(
-                    SynExprRegion {
-                        data: SynExprRegionData {
-                            parent: None,
-                            path: SynNodeRegionPath::Decl(
-                                ItemSynNodePath::ImplBlock(
-                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath(
-                                            ItemSynNodePathId {
-                                                data: ItemSynNodePathData::ImplBlock(
-                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                                        TraitForTypeImplBlockSynNodePathData {
-                                                            path: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `malamute`,
-                                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            syn_expr_arena: Arena {
-                                data: [
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            12,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        5,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 3,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Trait(
-                                                    TraitPath(`core::ops::Unveil`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 4,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 2,
-                                        argument_expr_idx: 3,
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            20,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        5,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 4,
-                                        argument_expr_idx: 5,
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            21,
-                                        ),
-                                        current_syn_symbol_idx: 2,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        10,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 6,
-                                        argument_expr_idx: 7,
-                                    },
-                                    SynExprData::PrincipalEntityPath {
-                                        path_expr_idx: 5,
-                                        opt_path: Some(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `Label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            24,
-                                        ),
-                                        current_syn_symbol_idx: 1,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `Label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        5,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 9,
-                                        argument_expr_idx: 10,
-                                    },
-                                    SynExprData::CurrentSynSymbol {
-                                        ident: `label`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            25,
-                                        ),
-                                        current_syn_symbol_idx: 2,
-                                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                                ident_token: IdentRegionalToken {
-                                                    ident: `label`,
-                                                    regional_token_idx: RegionalTokenIdx(
-                                                        10,
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                    },
-                                    SynExprData::ExplicitApplication {
-                                        function_expr_idx: 11,
-                                        argument_expr_idx: 12,
-                                    },
-                                ],
-                            },
-                            principal_item_path_expr_arena: Arena {
-                                data: [
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `core`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    14,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::Module(
-                                            `core`,
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Subitem {
-                                        parent: 1,
-                                        colon_colon_token: ColonColonRegionalToken(
-                                            RegionalTokenIdx(
-                                                15,
-                                            ),
-                                        ),
-                                        ident_token: Ok(
-                                            IdentRegionalToken {
-                                                ident: `ops`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    16,
-                                                ),
-                                            },
-                                        ),
-                                        path: Ok(
-                                            PrincipalEntityPath::Module(
-                                                `core::ops`,
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Subitem {
-                                        parent: 2,
-                                        colon_colon_token: ColonColonRegionalToken(
-                                            RegionalTokenIdx(
-                                                17,
-                                            ),
-                                        ),
-                                        ident_token: Ok(
-                                            IdentRegionalToken {
-                                                ident: `Unveil`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    18,
-                                                ),
-                                            },
-                                        ),
-                                        path: Ok(
-                                            PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Trait(
-                                                    TraitPath(`core::ops::Unveil`),
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `OneVsAllResult`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    19,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                            ),
-                                        ),
-                                    },
-                                    SynPrincipalEntityPathExpr::Root {
-                                        path_name_token: PathNameRegionalToken::Ident(
-                                            IdentRegionalToken {
-                                                ident: `OneVsAll`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    23,
-                                                ),
-                                            },
-                                        ),
-                                        principal_entity_path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            stmt_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_region: SynPatternExprRegion {
-                                pattern_expr_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_expr_contracts: ArenaMap {
-                                    data: [],
-                                },
-                                pattern_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                pattern_symbol_maps: [],
-                                pattern_symbol_modifiers: ArenaMap {
-                                    data: [],
-                                },
-                            },
-                            symbol_region: SynSymbolRegionData {
-                                inherited_syn_symbol_arena: Arena {
-                                    data: [],
-                                },
-                                current_syn_symbol_arena: Arena {
-                                    data: [
-                                        CurrentSynSymbol {
-                                            modifier: Const,
-                                            access_start: RegionalTokenIdx(
-                                                6,
-                                            ),
-                                            access_end: None,
-                                            data: CurrentSynSymbolData::TemplateParameter {
-                                                syn_attrs: TemplateParameterSynAttrs {
-                                                    syn_attrs: [
-                                                        Phantom(
-                                                            PoundRegionalToken(
-                                                                RegionalTokenIdx(
-                                                                    3,
-                                                                ),
-                                                            ),
-                                                            PhantomRegionalToken {
-                                                                token_idx: RegionalTokenIdx(
-                                                                    4,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ],
-                                                },
-                                                annotated_variance_token: None,
-                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
-                                                    ident_token: IdentRegionalToken {
-                                                        ident: `Label`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            5,
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                        },
-                                        CurrentSynSymbol {
-                                            modifier: Const,
-                                            access_start: RegionalTokenIdx(
-                                                13,
-                                            ),
-                                            access_end: None,
-                                            data: CurrentSynSymbolData::TemplateParameter {
-                                                syn_attrs: TemplateParameterSynAttrs {
-                                                    syn_attrs: [
-                                                        Phantom(
-                                                            PoundRegionalToken(
-                                                                RegionalTokenIdx(
-                                                                    7,
-                                                                ),
-                                                            ),
-                                                            PhantomRegionalToken {
-                                                                token_idx: RegionalTokenIdx(
-                                                                    8,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ],
-                                                },
-                                                annotated_variance_token: None,
-                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
-                                                    ident_token: IdentRegionalToken {
-                                                        ident: `label`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            10,
-                                                        ),
-                                                    },
-                                                    ty_expr_idx: 1,
-                                                },
-                                            },
-                                        },
-                                    ],
-                                },
-                                allow_self_type: True,
-                                allow_self_value: False,
-                                pattern_ty_constraints: [
-                                    (
-                                        TemplateTypeParameter,
-                                        ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                    ),
-                                    (
-                                        TemplateTypeParameter,
-                                        ArenaIdxRange(
-                                            2..3,
-                                        ),
-                                    ),
-                                ],
-                            },
-                            syn_pattern_expr_roots: [],
-                            syn_expr_roots: [
-                                SynExprRoot {
-                                    kind: SynExprRootKind::ConstantImplicitParameterType,
-                                    syn_expr_idx: 1,
-                                },
-                                SynExprRoot {
-                                    kind: SynExprRootKind::Trait,
-                                    syn_expr_idx: 8,
-                                },
-                                SynExprRoot {
-                                    kind: SynExprRootKind::SelfType,
-                                    syn_expr_idx: 13,
-                                },
-                            ],
-                            has_self_lifetime: false,
-                            has_self_place: false,
-                            syn_pattern_to_current_syn_symbol_map: [],
-                        },
-                    },
-                ),
-                path: SynNodeRegionPath::Decl(
-                    ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::AssociatedItem(
-                                        AssociatedItemSynNodePathData::TraitForTypeItem(
-                                            TraitForTypeItemSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `malamute`,
-                                                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                                                ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                                ),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `unveil`,
-                                                                        item_kind: AssociatedFunctionFn,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                syn_expr_arena: Arena {
-                    data: [
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 1,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::InheritedSynSymbol {
-                            ident: `Label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                8,
-                            ),
-                            inherited_syn_symbol_idx: 1,
-                            inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
-                                InheritedTemplateParameterSynSymbol::Type {
-                                    ident: `Label`,
-                                },
-                            ),
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 1,
-                            argument_expr_idx: 2,
-                        },
-                        SynExprData::InheritedSynSymbol {
-                            ident: `label`,
-                            regional_token_idx: RegionalTokenIdx(
-                                9,
-                            ),
-                            inherited_syn_symbol_idx: 2,
-                            inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
-                                InheritedTemplateParameterSynSymbol::Constant {
-                                    ident: `label`,
-                                },
-                            ),
-                        },
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 3,
-                            argument_expr_idx: 4,
-                        },
-                        SynExprData::PrincipalEntityPath {
-                            path_expr_idx: 4,
-                            opt_path: Some(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::ops::ControlFlow`, `Enum`),
-                                    ),
-                                ),
-                            ),
-                        },
-                        SynExprData::SelfType(
-                            RegionalTokenIdx(
-                                17,
-                            ),
-                        ),
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 6,
-                            argument_expr_idx: 7,
-                        },
-                        SynExprData::FunctionApplicationOrCall {
-                            function: 8,
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                18,
-                            ),
-                            items: [],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                19,
-                            ),
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `OneVsAllResult`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        7,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Root {
-                            path_name_token: PathNameRegionalToken::Ident(
-                                IdentRegionalToken {
-                                    ident: `core`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        12,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: PrincipalEntityPath::Module(
-                                `core`,
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Subitem {
-                            parent: 2,
-                            colon_colon_token: ColonColonRegionalToken(
-                                RegionalTokenIdx(
-                                    13,
-                                ),
-                            ),
-                            ident_token: Ok(
-                                IdentRegionalToken {
-                                    ident: `ops`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        14,
-                                    ),
-                                },
-                            ),
-                            path: Ok(
-                                PrincipalEntityPath::Module(
-                                    `core::ops`,
-                                ),
-                            ),
-                        },
-                        SynPrincipalEntityPathExpr::Subitem {
-                            parent: 3,
-                            colon_colon_token: ColonColonRegionalToken(
-                                RegionalTokenIdx(
-                                    15,
-                                ),
-                            ),
-                            ident_token: Ok(
-                                IdentRegionalToken {
-                                    ident: `ControlFlow`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        16,
-                                    ),
-                                },
-                            ),
-                            path: Ok(
-                                PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::ops::ControlFlow`, `Enum`),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [
-                            SynPatternExprData::Ident {
-                                symbol_modifier_tokens: None,
-                                ident_token: IdentRegionalToken {
-                                    ident: `one_vs_all_result`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        5,
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [
-                            Pure,
-                        ],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [
-                            SynPatternSymbol::Atom(
-                                1,
-                            ),
-                        ],
-                    },
-                    pattern_symbol_maps: [
-                        [
-                            (
-                                `one_vs_all_result`,
-                                1,
-                            ),
-                        ],
-                    ],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [
-                            Pure,
-                        ],
-                    },
-                },
-                symbol_region: SynSymbolRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [
-                            InheritedSynSymbol {
-                                parent_symbol_idx: Current(
-                                    1,
-                                ),
-                                modifier: Const,
-                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                    InheritedTemplateParameterSynSymbol::Type {
-                                        ident: `Label`,
-                                    },
-                                ),
-                            },
-                            InheritedSynSymbol {
-                                parent_symbol_idx: Current(
-                                    2,
-                                ),
-                                modifier: Const,
-                                kind: InheritedSynSymbolKind::TemplateParameter(
-                                    InheritedTemplateParameterSynSymbol::Constant {
-                                        ident: `label`,
-                                    },
-                                ),
-                            },
-                        ],
-                    },
-                    current_syn_symbol_arena: Arena {
-                        data: [
-                            CurrentSynSymbol {
-                                modifier: Pure,
-                                access_start: RegionalTokenIdx(
-                                    6,
-                                ),
-                                access_end: None,
-                                data: CurrentSynSymbolData::ParenateRegularParameter {
-                                    ident: `one_vs_all_result`,
-                                    pattern_symbol_idx: 1,
-                                },
-                            },
-                        ],
-                    },
-                    allow_self_type: True,
-                    allow_self_value: True,
-                    pattern_ty_constraints: [
-                        (
-                            OrdinaryParenateParameter {
-                                syn_pattern_root: ParenateSynPatternExprRoot {
-                                    syn_pattern_expr_idx: 1,
-                                },
-                                ty_expr_idx: 5,
-                            },
-                            ArenaIdxRange(
-                                1..2,
-                            ),
-                        ),
-                    ],
-                },
-                syn_pattern_expr_roots: [
-                    SynPatternExprRoot {
-                        kind: SynPatternExprRootKind::Parenate,
-                        syn_pattern_expr_idx: 1,
-                    },
-                ],
-                syn_expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::ExplicitParameterType,
-                        syn_expr_idx: 5,
-                    },
-                    SynExprRoot {
-                        kind: SynExprRootKind::ReturnType,
-                        syn_expr_idx: 9,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                syn_pattern_to_current_syn_symbol_map: [
-                    (
-                        1,
-                        1,
-                    ),
-                ],
-            },
-        },
         data: SemaExprRegionData {
-            path: Decl(
-                AssociatedItem(
-                    TraitForTypeItem(
+            path: SynNodeRegionPath::Decl(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 471,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::AssociatedItem(
+                                    AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        TraitForTypeItemSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitForTypeItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TraitForTypeItem(
+                                                                TraitForTypeItemPathData {
+                                                                    impl_block: TraitForTypeImplBlock {
+                                                                        data: TraitForTypeImplBlockPathData {
+                                                                            module_path: `malamute`,
+                                                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                                                            ty_sketch: TypeSketch::Path(
+                                                                                TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                    ident: `unveil`,
+                                                                    item_kind: AssociatedFunctionFn,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -13862,17 +7158,11 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 484,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -13882,14 +7172,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                     ),
                                 },
                             ),
@@ -13898,14 +7182,8 @@
                                     1,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                 ),
@@ -13913,27 +7191,15 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 539,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::InheritedSynSymbol {
+                                    ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         8,
                                     ),
                                     inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: TemplateParameter(
-                                        Type {
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 539,
-                                                    },
-                                                ),
-                                            ),
+                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                        InheritedTemplateParameterSynSymbol::Type {
+                                            ident: `Label`,
                                         },
                                     ),
                                 },
@@ -13943,14 +7209,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -13961,14 +7221,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -13976,7 +7230,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
@@ -13988,14 +7242,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 16,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent t -> Type`),
                                     ),
                                 },
                             ),
@@ -14004,14 +7252,8 @@
                                     3,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 16,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent t -> Type`),
                                         ),
                                     },
                                 ),
@@ -14019,27 +7261,15 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                InheritedSynSymbol {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 542,
-                                            },
-                                        ),
-                                    ),
+                                SemaExprData::InheritedSynSymbol {
+                                    ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         9,
                                     ),
                                     inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: TemplateParameter(
-                                        Constant {
-                                            ident: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 542,
-                                                    },
-                                                ),
-                                            ),
+                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                        InheritedTemplateParameterSynSymbol::Constant {
+                                            ident: `label`,
                                         },
                                     ),
                                 },
@@ -14049,14 +7279,8 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`t`),
                                     ),
                                 },
                             ),
@@ -14067,14 +7291,8 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 14,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                 ),
@@ -14082,7 +7300,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         3,
                                     ),
@@ -14094,14 +7312,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -14110,14 +7322,8 @@
                                     5,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -14125,17 +7331,11 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                PrincipalEntityPath {
+                                SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 4,
-                                    path: MajorItem(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 72,
-                                                    },
-                                                ),
-                                            ),
+                                    path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Type(
+                                            TypePath(`core::ops::ControlFlow`, `Enum`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -14145,14 +7345,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 9,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent Type -> independent Type -> Type`),
                                     ),
                                 },
                             ),
@@ -14161,14 +7355,8 @@
                                     6,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 9,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> independent Type -> Type`),
                                         ),
                                     },
                                 ),
@@ -14176,7 +7364,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SelfType(
+                                SemaExprData::SelfType(
                                     RegionalTokenIdx(
                                         17,
                                     ),
@@ -14185,14 +7373,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -14201,14 +7383,8 @@
                                     7,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -14216,7 +7392,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         6,
                                     ),
@@ -14228,14 +7404,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Curry(
-                                            EtherealTermCurry(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`independent Type -> Type`),
                                     ),
                                 },
                             ),
@@ -14244,14 +7414,8 @@
                                     8,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> Type`),
                                         ),
                                     },
                                 ),
@@ -14259,7 +7423,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                Unit {
+                                SemaExprData::Unit {
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
@@ -14271,14 +7435,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -14287,14 +7445,8 @@
                                     9,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -14302,7 +7454,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                FunctionApplication {
+                                SemaExprData::FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
                                         8,
                                     ),
@@ -14314,14 +7466,8 @@
                             immediate_ty_result: Ok(
                                 FluffyTerm {
                                     place: None,
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Type`),
                                     ),
                                 },
                             ),
@@ -14330,14 +7476,8 @@
                                     10,
                                     FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                 ),
@@ -14371,11 +7511,7 @@
                     ),
                 ),
             ],
-            syn_pattern_expr_ty_infos: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
+            syn_pattern_expr_ty_infos: [],
             syn_pattern_symbol_ty_infos: ArenaMap {
                 data: [
                     None,
@@ -14586,120 +7722,68 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
+                inherited_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`Type`),
+                            ),
+                        },
+                    ),
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                Const,
+                            ),
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`t`),
+                            ),
+                        },
+                    ),
+                ],
+                current_syn_symbol_map: [
+                    SymbolType(
+                        FluffyTerm {
+                            place: Some(
+                                StackPure {
+                                    location: StackLocationIdx(
+                                        ShiftedU32(
+                                            1,
                                         ),
                                     ),
                                 },
                             ),
-                        ),
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        Const,
-                                    ),
-                                    base: Ethereal(
-                                        Symbol(
-                                            EtherealTermSymbol(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            base: FluffyTermBase::Ethereal(
+                                EtherealTerm(`OneVsAllResult t a`),
                             ),
-                        ),
-                    ],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            SymbolType(
-                                FluffyTerm {
-                                    place: Some(
-                                        StackPure {
-                                            location: StackLocationIdx(
-                                                ShiftedU32(
-                                                    1,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    base: Ethereal(
-                                        Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 93,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ],
-                },
+                        },
+                    ),
+                ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: ArenaMap {
-                    data: [
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                inherited_syn_symbol_map: [
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                        Some(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
+                    },
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`a`),
                         ),
-                    ],
-                },
-                current_syn_symbol_map: ArenaMap {
-                    data: [
-                        None,
-                    ],
-                },
+                    },
+                ],
+                current_syn_symbol_map: [],
             },
             fluffy_term_region: FluffyTermRegion {
                 terms: FluffyTerms {
                     solid_terms: SolidTerms {
-                        entries: VecSet {
-                            data: [],
-                        },
+                        entries: [],
                     },
                     hollow_terms: HollowTerms {
                         entries: [],
@@ -14710,9 +7794,9 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -14723,34 +7807,22 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Curry(
-                                                                EtherealTermCurry(
-                                                                    Id {
-                                                                        value: 12,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: Some(
                                                             FluffyTermRune(
@@ -14770,26 +7842,14 @@
                                                         ),
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Curry(
-                                                                    EtherealTermCurry(
-                                                                        Id {
-                                                                            value: 12,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                             ),
                                                         },
                                                     },
@@ -14800,7 +7860,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -14826,24 +7886,18 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -14854,58 +7908,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 16,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent t -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Category(
-                                                                TermCategory {
-                                                                    universe: TermUniverse(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Symbol(
-                                                                    EtherealTermSymbol(
-                                                                        Id {
-                                                                            value: 14,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`t`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                     },
@@ -14916,7 +7946,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -14942,22 +7972,16 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: Ethereal(
-                                            Symbol(
-                                                EtherealTermSymbol(
-                                                    Id {
-                                                        value: 14,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`t`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -14972,20 +7996,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -14995,9 +8013,9 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -15008,58 +8026,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 9,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> independent Type -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Curry(
-                                                                EtherealTermCurry(
-                                                                    Id {
-                                                                        value: 8,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`independent Type -> Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Curry(
-                                                                    EtherealTermCurry(
-                                                                        Id {
-                                                                            value: 8,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`independent Type -> Type`),
                                                             ),
                                                         },
                                                     },
@@ -15070,7 +8064,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: CurryDestination(
+                                expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FluffyTerm {
                                             place: None,
@@ -15094,24 +8088,18 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Intact,
+                                    resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsFunctionType(
+                                expectation: Expectation::EqsFunctionType(
                                     ExpectEqsFunctionType {
-                                        final_destination: Sort,
+                                        final_destination: FinalDestination::Sort,
                                     },
                                 ),
                                 state: ExpectationState {
@@ -15122,58 +8110,34 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Curry(
-                                                EtherealTermCurry(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`independent Type -> Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsFunctionCallType(
+                                            ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FluffyTerm {
                                                         place: None,
-                                                        base: Ethereal(
-                                                            Category(
-                                                                TermCategory {
-                                                                    universe: TermUniverse(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
+                                                        base: FluffyTermBase::Ethereal(
+                                                            EtherealTerm(`Type`),
                                                         ),
                                                     },
-                                                    variant: Curry {
+                                                    variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: None,
                                                         parameter_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FluffyTerm {
                                                             place: None,
-                                                            base: Ethereal(
-                                                                Category(
-                                                                    TermCategory {
-                                                                        universe: TermUniverse(
-                                                                            1,
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                            base: FluffyTermBase::Ethereal(
+                                                                EtherealTerm(`Type`),
                                                             ),
                                                         },
                                                     },
@@ -15184,18 +8148,12 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsExactly(
+                                expectation: Expectation::EqsExactly(
                                     ExpectSubtype {
                                         expected: FluffyTerm {
                                             place: None,
-                                            base: Ethereal(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
+                                            base: FluffyTermBase::Ethereal(
+                                                EtherealTerm(`Type`),
                                             ),
                                         },
                                     },
@@ -15208,20 +8166,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            Subtype(
+                                            ExpectationOutcome::Subtype(
                                                 ExpectSubtypeOutcome,
                                             ),
                                         ),
@@ -15229,7 +8181,7 @@
                                 },
                             },
                             FluffyTermExpectationEntry {
-                                expectation: EqsSort(
+                                expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
                                         smallest_universe: TermUniverse(
                                             1,
@@ -15244,20 +8196,14 @@
                                     },
                                     expectee: FluffyTerm {
                                         place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Type`),
                                         ),
                                     },
                                     implicit_parameter_substitutions: [],
-                                    resolve_progress: Resolved(
+                                    resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            EqsSort(
+                                            ExpectationOutcome::EqsSort(
                                                 TermUniverse(
                                                     1,
                                                 ),
@@ -15273,13 +8219,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                Application(
-                    EtherealTermApplication(
-                        Id {
-                            value: 91,
-                        },
-                    ),
-                ),
+                EtherealTerm(`OneVsAll t a`),
             ),
         },
     },

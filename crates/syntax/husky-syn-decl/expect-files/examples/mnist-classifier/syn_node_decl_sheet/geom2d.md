@@ -1085,7 +1085,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 59,
+                                                            value: 58,
                                                         },
                                                     ),
                                                 ),
@@ -1109,7 +1109,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 54,
+                                                            value: 53,
                                                         },
                                                     ),
                                                 ),
@@ -1297,7 +1297,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 59,
+                                                                    value: 58,
                                                                 },
                                                             ),
                                                         ),
@@ -1317,7 +1317,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 54,
+                                                                    value: 53,
                                                                 },
                                                             ),
                                                         ),

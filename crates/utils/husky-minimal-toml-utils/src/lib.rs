@@ -16,7 +16,13 @@ pub enum MinimalTomlError {
 
 pub type MinimalTomlResult<T> = Result<T, MinimalTomlError>;
 
-pub fn read_package_name_from_manifest(db: &::salsa::Db, path: &Path) -> Option<Kebab> {
+pub fn read_package_name_string_from_manifest(path: &Path) -> Option<String> {
+    find_package_name_in_manifest_toml(&std::fs::read_to_string(path).ok()?)
+        .ok()
+        .map(|s| s.to_string())
+}
+
+pub fn read_package_name_kebab_from_manifest(db: &::salsa::Db, path: &Path) -> Option<Kebab> {
     find_package_name_in_manifest_toml(&std::fs::read_to_string(path).ok()?)
         .ok()
         .map(|s| Kebab::from_ref(db, s))

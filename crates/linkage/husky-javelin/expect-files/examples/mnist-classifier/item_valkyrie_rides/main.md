@@ -189,7 +189,7 @@
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: Other {
+                                            index: HirConstSymbolIndex::Other {
                                                 attrs: HirTemplateSymbolAttrs {
                                                     class: Runtime,
                                                 },
@@ -278,7 +278,7 @@
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: Other {
+                                            index: HirConstSymbolIndex::Other {
                                                 attrs: HirTemplateSymbolAttrs {
                                                     class: Runtime,
                                                 },
@@ -367,7 +367,7 @@
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: Other {
+                                            index: HirConstSymbolIndex::Other {
                                                 attrs: HirTemplateSymbolAttrs {
                                                     class: Runtime,
                                                 },
@@ -456,7 +456,7 @@
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: Other {
+                                            index: HirConstSymbolIndex::Other {
                                                 attrs: HirTemplateSymbolAttrs {
                                                     class: Runtime,
                                                 },
@@ -545,7 +545,7 @@
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: Other {
+                                            index: HirConstSymbolIndex::Other {
                                                 attrs: HirTemplateSymbolAttrs {
                                                     class: Runtime,
                                                 },
@@ -634,7 +634,7 @@
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: Other {
+                                            index: HirConstSymbolIndex::Other {
                                                 attrs: HirTemplateSymbolAttrs {
                                                     class: Runtime,
                                                 },
@@ -723,7 +723,7 @@
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: Other {
+                                            index: HirConstSymbolIndex::Other {
                                                 attrs: HirTemplateSymbolAttrs {
                                                     class: Runtime,
                                                 },
@@ -812,7 +812,7 @@
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: Other {
+                                            index: HirConstSymbolIndex::Other {
                                                 attrs: HirTemplateSymbolAttrs {
                                                     class: Runtime,
                                                 },
@@ -901,7 +901,7 @@
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: Other {
+                                            index: HirConstSymbolIndex::Other {
                                                 attrs: HirTemplateSymbolAttrs {
                                                     class: Runtime,
                                                 },

@@ -5,7 +5,7 @@ use salsa::Db;
 pub trait AstTestUtils: TokenTestUtils {
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn ast_plain_test<U>(&mut self, f: impl Fn(&::salsa::Db, U), config: &AstTestConfig)
+    fn ast_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &AstTestConfig)
     where
         U: VfsTestUnit + salsa::DebugWithDb;
 
@@ -42,12 +42,12 @@ impl<DB> AstTestUtils for DB
 where
     DB: TokenTestUtils,
 {
-    fn ast_plain_test<U>(&mut self, f: impl Fn(&::salsa::Db, U), config: &AstTestConfig)
+    fn ast_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &AstTestConfig)
     where
         U: VfsTestUnit + salsa::DebugWithDb,
     {
         // todo: robustness
-        self.token_plain_test(f, config);
+        DB::token_plain_test(f, config)
     }
 
     fn ast_expect_test_debug_with_db<'a, U, R>(

@@ -4,6 +4,7 @@ use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
 use husky_term_prelude::literal::TermLiteral;
 use idx_arena::ArenaRef;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirLazyPatternExpr {
     /// example: `1`

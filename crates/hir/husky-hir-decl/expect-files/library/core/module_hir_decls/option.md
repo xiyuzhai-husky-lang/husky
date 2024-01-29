@@ -7,8 +7,8 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: Type(
-                                    Type {
+                                symbol: HirTemplateSymbol::Type(
+                                    HirTypeSymbol::Type {
                                         attrs: HirTemplateSymbolAttrs {
                                             class: Comptime,
                                         },
@@ -16,14 +16,8 @@
                                         disambiguator: 0,
                                     },
                                 ),
-                                data: Type {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 107,
-                                            },
-                                        ),
-                                    ),
+                                data: HirTemplateParameterData::Type {
+                                    ident: `T`,
                                     traits: [],
                                 },
                             },

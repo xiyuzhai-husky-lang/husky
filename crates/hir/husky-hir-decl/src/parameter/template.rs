@@ -110,6 +110,7 @@ impl HirTemplateParameter {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirTemplateParameters(SmallVec<[HirTemplateParameter; 2]>);
 

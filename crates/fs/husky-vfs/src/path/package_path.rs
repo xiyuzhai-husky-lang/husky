@@ -1,5 +1,6 @@
 use super::*;
 use husky_coword::Ident;
+use husky_minimal_toml_utils::read_package_name_kebab_from_manifest;
 use std::path::Path;
 use url::Url;
 
@@ -47,7 +48,7 @@ impl PackagePath {
         path: &Path,
     ) -> VfsResult<Self> {
         let manifest_path = path.join("Corgi.toml");
-        let name = read_package_name_from_manifest(db, &manifest_path)
+        let name = read_package_name_kebab_from_manifest(db, &manifest_path)
             .ok_or(VfsError::FailToReadPackageNameFromManifest)?;
         match name.data(db) {
             "core" | "std" => {

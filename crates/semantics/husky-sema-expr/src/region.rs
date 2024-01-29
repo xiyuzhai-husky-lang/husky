@@ -7,6 +7,7 @@ use crate::*;
 pub struct SemaExprRegion {
     #[id]
     pub path: SynNodeRegionPath,
+    #[skip_fmt]
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
     pub data: SemaExprRegionData,
@@ -51,6 +52,7 @@ impl SemaExprRegion {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprRegionData {
     path: SynNodeRegionPath,

@@ -83,7 +83,7 @@ impl ItemSynNodePathId {
 fn syn_node_path_id_conversion_works() {
     use crate::helpers::paths::module_item_syn_node_paths;
 
-    DB::default().ast_plain_test(
+    DB::ast_plain_test(
         |db, module_path| {
             for &syn_node_path in module_item_syn_node_paths(db, module_path) {
                 assert_eq!(syn_node_path.syn_node_path(db), syn_node_path);

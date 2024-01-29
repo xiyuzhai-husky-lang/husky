@@ -5,6 +5,7 @@ use husky_syn_expr::BePatternSynSyndicate;
 
 use crate::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerLetVariablesPattern {
     pub pattern_expr_idx: HirEagerPatternExprIdx,
@@ -38,6 +39,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerBeVariablesPattern {
     pub pattern_expr_idx: HirEagerPatternExprIdx,

@@ -8,7 +8,7 @@ mod tests;
 pub use self::dev_paths::*;
 pub use self::error::*;
 pub use self::rel::*;
-use husky_minimal_toml_utils::read_package_name_from_manifest;
+use husky_minimal_toml_utils::read_package_name_string_from_manifest;
 pub use module_tree::*;
 
 pub use std::path::{Path, PathBuf};
@@ -127,7 +127,7 @@ fn collect_rust_package_dirs_aux(dir: impl AsRef<Path>, pack_paths: &mut Vec<Pat
     }
 }
 
-pub fn collect_husky_package_dirs(db: &::salsa::Db, dir: &Path) -> Vec<(PathBuf, Kebab)> {
+pub fn collect_husky_package_dirs(db: &::salsa::Db, dir: &Path) -> Vec<PathBuf> {
     should_satisfy!(&dir, |dir: &Path| dir.is_dir());
     let mut pack_paths = vec![];
     collect_husky_package_dirs_aux(db, dir, &mut pack_paths);
@@ -135,11 +135,7 @@ pub fn collect_husky_package_dirs(db: &::salsa::Db, dir: &Path) -> Vec<(PathBuf,
     pack_paths
 }
 
-fn collect_husky_package_dirs_aux(
-    db: &::salsa::Db,
-    dir: &Path,
-    pack_paths: &mut Vec<(PathBuf, Kebab)>,
-) {
+fn collect_husky_package_dirs_aux(db: &::salsa::Db, dir: &Path, pack_paths: &mut Vec<PathBuf>) {
     let manifest_path = dir.join("Corgi.toml");
     for entry in std::fs::read_dir(&dir).unwrap() {
         let entry = entry.unwrap();
@@ -148,28 +144,24 @@ fn collect_husky_package_dirs_aux(
             collect_husky_package_dirs_aux(db, &subpath, pack_paths)
         }
     }
-    if let Some(name) = read_package_name_from_manifest(db, &manifest_path) {
-        pack_paths.push((dir.to_owned(), name))
+    if let Some(name) = read_package_name_string_from_manifest(&manifest_path) {
+        pack_paths.push(dir.to_owned())
     }
 }
 
-pub fn collect_package_relative_dirs(
-    db: &::salsa::Db,
-    base: &Path,
-) -> Vec<(RelativePathBuf, Kebab)> {
+pub fn collect_package_relative_dirs(base: &Path) -> Vec<RelativePathBuf> {
     should_satisfy!(&base, |dir: &Path| dir.is_dir());
     let mut pack_paths = vec![];
     let dir = RelativePathBuf::from(".");
-    collect_package_relative_dirs_aux(db, base, &dir, &mut pack_paths);
+    collect_package_relative_dirs_aux(base, &dir, &mut pack_paths);
     pack_paths.sort();
     pack_paths
 }
 
 fn collect_package_relative_dirs_aux(
-    db: &::salsa::Db,
     base: &Path,
     dir: &RelativePath,
-    pack_paths: &mut Vec<(RelativePathBuf, Kebab)>,
+    pack_paths: &mut Vec<RelativePathBuf>,
 ) {
     let manifest_path = dir.join("Corgi.toml");
     for entry in std::fs::read_dir(&dir.to_logical_path(base)).unwrap() {
@@ -177,15 +169,15 @@ fn collect_package_relative_dirs_aux(
         let subpath = entry.path();
         if subpath.is_dir() {
             collect_package_relative_dirs_aux(
-                db,
                 base,
                 &dir.join(subpath.file_name().unwrap().to_str().unwrap()),
                 pack_paths,
             )
         }
     }
-    if let Some(name) = read_package_name_from_manifest(db, &manifest_path.to_logical_path(base)) {
-        pack_paths.push((dir.to_owned(), name))
+    if let Some(name) = read_package_name_string_from_manifest(&manifest_path.to_logical_path(base))
+    {
+        pack_paths.push(dir.to_owned())
     }
 }
 
@@ -201,17 +193,11 @@ fn collect_package_relative_dirs_works() {
         .unwrap();
     expect_test::expect![[r#"
         [
-            (
-                "./core",
-                `core`,
-            ),
-            (
-                "./std",
-                `std`,
-            ),
+            "./core",
+            "./std",
         ]
     "#]]
-    .assert_debug_eq(&collect_package_relative_dirs(db, &library_dir).debug(db));
+    .assert_debug_eq(&collect_package_relative_dirs(&library_dir).debug(db));
 
     let examples_dir = cargo_manifest_dir
         .join("../../../examples")
@@ -219,21 +205,12 @@ fn collect_package_relative_dirs_works() {
         .unwrap();
     expect_test::expect![[r#"
         [
-            (
-                "./algorithms/quick-sort",
-                `quick-sort`,
-            ),
-            (
-                "./errors/syntax-errors",
-                `syntax-errors`,
-            ),
-            (
-                "./mnist-classifier",
-                `mnist-classifier`,
-            ),
+            "./algorithms/quick-sort",
+            "./errors/syntax-errors",
+            "./mnist-classifier",
         ]
     "#]]
-    .assert_debug_eq(&collect_package_relative_dirs(db, &examples_dir).debug(db));
+    .assert_debug_eq(&collect_package_relative_dirs(&examples_dir).debug(db));
 }
 
 #[test]
@@ -242,9 +219,9 @@ fn collect_package_dirs_works() {
     let db = &*db;
     fn t(db: &::salsa::Db, dir: &Path) {
         assert_eq!(
-            collect_package_relative_dirs(db, dir)
+            collect_package_relative_dirs(dir)
                 .into_iter()
-                .map(|(rpath, name)| (rpath.to_logical_path(dir), name))
+                .map(|rpath| rpath.to_logical_path(dir))
                 .collect::<Vec<_>>(),
             collect_husky_package_dirs(db, dir)
         )

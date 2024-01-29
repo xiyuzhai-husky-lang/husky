@@ -143,7 +143,7 @@ fn module_item_paths_works() {
 
 #[test]
 fn item_path_id_conversion_works() {
-    DB::default().vfs_plain_test(
+    DB::vfs_plain_test(
         |db, module_path| {
             for &item_path in module_item_paths(db, module_path) {
                 assert_eq!(item_path.item_path(db), item_path);
