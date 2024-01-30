@@ -1,3 +1,5 @@
+use self::instantiation::JavelinTermSymbolResolution;
+
 use super::*;
 use husky_entity_path::TypePath;
 use husky_hir_ty::{
@@ -76,9 +78,9 @@ impl JavelinType {
                 ),
             )
             .into(),
-            HirType::Symbol(_) => unreachable!(),
-            HirType::TypeAssociatedType(_) => unreachable!(),
-            HirType::TraitAssociatedType(_) => unreachable!(),
+            HirType::Symbol(symbol) => javelin_instantiation.unwrap().resolve_ty(symbol),
+            HirType::TypeAssociatedType(_) => todo!(),
+            HirType::TraitAssociatedType(_) => todo!(),
             HirType::Ritchie(hir_ty) => JavelinRitchieType::new(
                 db,
                 hir_ty

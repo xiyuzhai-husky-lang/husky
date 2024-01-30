@@ -4009,4 +4009,224 @@
             },
         },
     },
+    Linkage {
+        data: LinkageData::TypeVariantConstructor {
+            path: TypeVariantPath(
+                ItemPathId {
+                    data: ItemPathData::TypeVariant(
+                        TypeVariantPathData {
+                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                            ident: `Some`,
+                            index: U8(
+                                0,
+                            ),
+                        },
+                    ),
+                },
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 24,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::TypeVariantConstructor {
+            path: TypeVariantPath(
+                ItemPathId {
+                    data: ItemPathData::TypeVariant(
+                        TypeVariantPathData {
+                            parent_ty_path: TypePath(`malamute::Class`, `Enum`),
+                            ident: `Known`,
+                            index: U8(
+                                0,
+                            ),
+                        },
+                    ),
+                },
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 18,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::TypeVariantConstructor {
+            path: TypeVariantPath(
+                ItemPathId {
+                    data: ItemPathData::TypeVariant(
+                        TypeVariantPathData {
+                            parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                            ident: `Break`,
+                            index: U8(
+                                1,
+                            ),
+                        },
+                    ),
+                },
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 27,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 1,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 28,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::TypeVariantConstructor {
+            path: TypeVariantPath(
+                ItemPathId {
+                    data: ItemPathData::TypeVariant(
+                        TypeVariantPathData {
+                            parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                            ident: `Continue`,
+                            index: U8(
+                                0,
+                            ),
+                        },
+                    ),
+                },
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 27,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateSymbolAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 1,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinkageTypePathLeading(
+                                        Id {
+                                            value: 28,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: None,
+            },
+        },
+    },
 ]

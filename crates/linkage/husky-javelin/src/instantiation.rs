@@ -1,4 +1,4 @@
-use crate::template_argument::JavelinTemplateArgument;
+use crate::template_argument::{ty::JavelinType, JavelinTemplateArgument};
 use husky_entity_path::ItemPath;
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolResolution},
@@ -72,6 +72,18 @@ impl JavelinInstantiation {
         self.symbol_resolutions
             .iter()
             .all(|(_, res)| res.is_univalent())
+    }
+
+    pub fn resolve(&self, symbol: impl Into<HirTemplateSymbol>) -> JavelinTermSymbolResolution {
+        self.symbol_resolutions[symbol.into()].1
+    }
+
+    #[track_caller]
+    pub fn resolve_ty(&self, symbol: impl Into<HirTemplateSymbol>) -> JavelinType {
+        match self.symbol_resolutions[symbol.into()].1 {
+            JavelinTermSymbolResolution::Explicit(JavelinTemplateArgument::Type(ty)) => ty,
+            _ => unreachable!("expect type"),
+        }
     }
 }
 

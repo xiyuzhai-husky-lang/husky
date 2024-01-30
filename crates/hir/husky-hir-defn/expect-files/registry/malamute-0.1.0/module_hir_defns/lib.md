@@ -1220,7 +1220,32 @@
                                                     },
                                                 ),
                                                 instantiation: HirInstantiation {
-                                                    symbol_map: [],
+                                                    symbol_map: [
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::Symbol(
+                                                                        HirTypeSymbol::Type {
+                                                                            attrs: HirTemplateSymbolAttrs {
+                                                                                class: Comptime,
+                                                                            },
+                                                                            variance: None,
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ],
                                                     separator: None,
                                                 },
                                                 item_groups: [
@@ -1265,7 +1290,64 @@
                                                     },
                                                 ),
                                                 instantiation: HirInstantiation {
-                                                    symbol_map: [],
+                                                    symbol_map: [
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                                            template_arguments: [
+                                                                                HirTemplateArgument::Type(
+                                                                                    HirType::Symbol(
+                                                                                        HirTypeSymbol::Type {
+                                                                                            attrs: HirTemplateSymbolAttrs {
+                                                                                                class: Comptime,
+                                                                                            },
+                                                                                            variance: None,
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            ],
+                                                                            always_copyable: true,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 1,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: true,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ],
                                                     separator: None,
                                                 },
                                                 item_groups: [
@@ -1317,7 +1399,64 @@
                                                     },
                                                 ),
                                                 instantiation: HirInstantiation {
-                                                    symbol_map: [],
+                                                    symbol_map: [
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                                            template_arguments: [
+                                                                                HirTemplateArgument::Type(
+                                                                                    HirType::Symbol(
+                                                                                        HirTypeSymbol::Type {
+                                                                                            attrs: HirTemplateSymbolAttrs {
+                                                                                                class: Comptime,
+                                                                                            },
+                                                                                            variance: None,
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            ],
+                                                                            always_copyable: true,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 1,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: true,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ],
                                                     separator: None,
                                                 },
                                                 item_groups: [
@@ -1942,7 +2081,52 @@
                                                     },
                                                 ),
                                                 instantiation: HirInstantiation {
-                                                    symbol_map: [],
+                                                    symbol_map: [
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: true,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 1,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: true,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ],
                                                     separator: None,
                                                 },
                                                 item_groups: [
@@ -2006,7 +2190,52 @@
                                                     },
                                                 ),
                                                 instantiation: HirInstantiation {
-                                                    symbol_map: [],
+                                                    symbol_map: [
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: true,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 1,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: true,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ],
                                                     separator: None,
                                                 },
                                                 item_groups: [
@@ -2058,7 +2287,52 @@
                                                     },
                                                 ),
                                                 instantiation: HirInstantiation {
-                                                    symbol_map: [],
+                                                    symbol_map: [
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: true,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        (
+                                                            HirTemplateSymbol::Type(
+                                                                HirTypeSymbol::Type {
+                                                                    attrs: HirTemplateSymbolAttrs {
+                                                                        class: Comptime,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 1,
+                                                                },
+                                                            ),
+                                                            HirTermSymbolResolution::Explicit(
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: true,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ],
                                                     separator: None,
                                                 },
                                                 item_groups: [

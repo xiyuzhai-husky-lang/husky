@@ -242,4 +242,8 @@ linkage_impls![
     gn_linkage_impl!(malamute::narrow_down::<mnist::MnistLabel>),
     ty_default_linkage_impl!(malamute::OneVsAll),
     fn_linkage_impl!(<Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>>::ilen),
+    fn_linkage_impl!(Option::Some::<f32>),
+    fn_linkage_impl!(malamute::Class::Known::<mnist::MnistLabel>),
+    fn_linkage_impl!(husky_core::ops::ControlFlow::Break::<malamute::Class<mnist::MnistLabel>, ()>),
+    fn_linkage_impl!(husky_core::ops::ControlFlow::Continue::<malamute::Class<mnist::MnistLabel>, ()>),
 ];
