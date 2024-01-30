@@ -231,7 +231,7 @@ where
 
 fn parse_overriding_ident_pattern<'a, C>(
     parser: &mut SynExprParser<'a, C>,
-    path_expr_idx: ArenaIdx<SynPrincipalEntityPathExpr>,
+    path_expr_idx: SynPrincipalEntityPathExprIdx,
     symbol_modifier_tokens: Option<EphemSymbolModifierRegionalTokens>,
 ) -> Option<SynPatternExprData>
 where
