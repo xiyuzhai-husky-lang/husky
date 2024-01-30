@@ -45,8 +45,6 @@ use thiserror::Error;
 
 #[derive(Error, Debug)]
 enum DesIoError {
-    #[error("not valid file")]
-    NotValidFile(PathBuf),
     #[error("io error: {e} for path {path:?}")]
     IO { e: std::io::Error, path: PathBuf },
     #[error("serde json error {0}")]

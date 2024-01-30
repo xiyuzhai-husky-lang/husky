@@ -64,13 +64,14 @@ impl From<IllFormedImplBlockSynNodePath> for ItemSynNodePath {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct IllFormedImplBlockSynNode {
-    pub(crate) syn_node_path: IllFormedImplBlockSynNodePath,
+    syn_node_path: IllFormedImplBlockSynNodePath,
     pub(crate) impl_token: ImplToken,
     pub(crate) ast_idx: AstIdx,
     pub(crate) items: Option<ImplBlockItems>,
     pub(crate) ill_form: ImplBlockIllForm,
 }
 
+/// # constructor
 impl IllFormedImplBlockSynNode {
     pub(super) fn new(
         db: &::salsa::Db,
@@ -96,6 +97,13 @@ impl IllFormedImplBlockSynNode {
             items,
             ill_form,
         }
+    }
+}
+
+/// # getters
+impl IllFormedImplBlockSynNode {
+    pub(crate) fn syn_node_path(&self) -> IllFormedImplBlockSynNodePath {
+        self.syn_node_path
     }
 
     pub(crate) fn ill_form(&self) -> &ImplBlockIllForm {

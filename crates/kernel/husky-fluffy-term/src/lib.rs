@@ -19,23 +19,20 @@ mod tests;
 mod utils;
 
 pub use self::data::*;
-pub use self::db::*;
-pub use self::dispatch::*;
 pub use self::engine::*;
 pub use self::error::*;
 pub use self::expectation::*;
-pub use self::progress::*;
 pub use self::region::*;
 pub use self::resolve::*;
 pub use self::rewite::*;
-pub use self::signature::*;
 pub use self::term::*;
 
-pub(crate) use self::signature::*;
 #[cfg(test)]
 pub(crate) use self::tests::*;
 
+use self::dispatch::*;
 use self::instantiation::*;
+use self::signature::*;
 use alt_option::*;
 use either::*;
 use husky_declarative_signature::*;

@@ -8,7 +8,6 @@ pub use self::ty_impl_block::*;
 
 use crate::*;
 
-
 use husky_token::ImplToken;
 use husky_token::*;
 
@@ -112,9 +111,11 @@ pub(crate) enum ImplBlockSynNode {
 impl ImplBlockSynNode {
     pub fn syn_node_path(&self) -> ImplBlockSynNodePath {
         match self {
-            ImplBlockSynNode::TypeImplBlock(impl_block) => impl_block.syn_node_path.into(),
-            ImplBlockSynNode::TraitForTypeImplBlock(impl_block) => impl_block.syn_node_path.into(),
-            ImplBlockSynNode::IllFormedImplBlock(impl_block) => impl_block.syn_node_path.into(),
+            ImplBlockSynNode::TypeImplBlock(impl_block) => impl_block.syn_node_path().into(),
+            ImplBlockSynNode::TraitForTypeImplBlock(impl_block) => {
+                impl_block.syn_node_path().into()
+            }
+            ImplBlockSynNode::IllFormedImplBlock(impl_block) => impl_block.syn_node_path().into(),
         }
     }
 }

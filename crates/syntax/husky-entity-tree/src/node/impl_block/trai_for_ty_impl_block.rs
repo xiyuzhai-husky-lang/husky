@@ -109,7 +109,7 @@ impl HasSynNodePath for TraitForTypeImplBlockPath {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct TraitForTypeImplBlockSynNode {
-    pub(crate) syn_node_path: TraitForTypeImplBlockSynNodePath,
+    syn_node_path: TraitForTypeImplBlockSynNodePath,
     pub(crate) ast_idx: AstIdx,
     pub(crate) impl_token: ImplToken,
     pub(crate) trai_expr: MajorItemPathExprIdx,
@@ -168,6 +168,13 @@ impl TraitForTypeImplBlockSynNode {
             ty_sketch_expr,
             items,
         })
+    }
+}
+
+/// # getters
+impl TraitForTypeImplBlockSynNode {
+    pub fn syn_node_path(&self) -> TraitForTypeImplBlockSynNodePath {
+        self.syn_node_path
     }
 
     pub fn module_path(&self, db: &::salsa::Db) -> ModulePath {

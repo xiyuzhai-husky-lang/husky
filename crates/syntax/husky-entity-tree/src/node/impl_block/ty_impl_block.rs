@@ -98,13 +98,14 @@ impl HasSynNodePath for TypeImplBlockPath {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct TypeImplBlockSynNode {
-    pub(crate) syn_node_path: TypeImplBlockSynNodePath,
-    pub(crate) ast_idx: AstIdx,
-    pub(crate) impl_token: ImplToken,
-    pub(crate) ty_expr: MajorItemPathExprIdx,
-    pub(crate) items: TypeItems,
+    syn_node_path: TypeImplBlockSynNodePath,
+    ast_idx: AstIdx,
+    impl_token: ImplToken,
+    ty_expr: MajorItemPathExprIdx,
+    items: TypeItems,
 }
 
+/// # constructor
 impl TypeImplBlockSynNode {
     pub(super) fn new(
         db: &::salsa::Db,
@@ -131,9 +132,16 @@ impl TypeImplBlockSynNode {
             items,
         }
     }
+}
 
-    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+/// # getters
+impl TypeImplBlockSynNode {
+    pub fn module_path(&self, db: &::salsa::Db) -> ModulePath {
         self.syn_node_path.path(db).module_path(db)
+    }
+
+    pub fn syn_node_path(&self) -> TypeImplBlockSynNodePath {
+        self.syn_node_path
     }
 
     pub fn ty_path(self, db: &::salsa::Db) -> TypePath {
@@ -142,6 +150,10 @@ impl TypeImplBlockSynNode {
 
     pub(crate) fn ast_idx(&self) -> AstIdx {
         self.ast_idx
+    }
+
+    pub fn items(&self) -> TypeItems {
+        self.items
     }
 }
 
