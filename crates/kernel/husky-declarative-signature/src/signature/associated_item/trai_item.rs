@@ -66,12 +66,15 @@ pub(crate) fn trai_item_syn_declarative_signature_template(
 }
 
 impl TraitItemDeclarativeSignatureTemplate {
-    pub fn template_parameters(self, _db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
+    pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            TraitItemDeclarativeSignatureTemplate::AssociatedFn(_) => todo!(),
-            TraitItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),
-            TraitItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
-            TraitItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
+            TraitItemDeclarativeSignatureTemplate::AssociatedFn(slf) => slf.template_parameters(db),
+            TraitItemDeclarativeSignatureTemplate::MethodFn(slf) => slf.template_parameters(db),
+            TraitItemDeclarativeSignatureTemplate::AssociatedType(slf) => {
+                // slf.template_parameters(db)
+                &[]
+            }
+            TraitItemDeclarativeSignatureTemplate::AssociatedVal(slf) => &[],
         }
     }
 }

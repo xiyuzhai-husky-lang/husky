@@ -100,7 +100,7 @@ impl<'a> SemaExprEngine<'a> {
                                 TermLiteral::I128(TermI128Literal::new(self.db, val))
                             }
                             IntegerLikeLiteralData::ISize(val) => {
-                                TermLiteral::ISize(TermISizeLiteral::new(self.db, val))
+                                TermLiteral::ISize(TermISizeLiteral::new(self.db, val as i64))
                             }
                             IntegerLikeLiteralData::R8(val) => TermLiteral::R8(val),
                             IntegerLikeLiteralData::R16(val) => TermLiteral::R16(val),
