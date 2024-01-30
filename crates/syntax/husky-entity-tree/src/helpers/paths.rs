@@ -17,7 +17,7 @@ impl HasItemPaths for CratePath {
 }
 
 // include submodules, major items, associated items
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub fn module_item_syn_node_paths(
     db: &::salsa::Db,
     module_path: ModulePath,
@@ -74,7 +74,7 @@ pub fn module_item_syn_node_paths(
 // include submodules, module items, associated items
 // todo: type variants
 // todo: trait item
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub fn module_item_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<ItemPath> {
     let mut paths: Vec<ItemPath> = Default::default();
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
@@ -107,7 +107,7 @@ pub fn module_item_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<ItemP
     paths
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub fn crate_item_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ItemPath> {
     crate_path
         .module_paths(db)
@@ -117,7 +117,7 @@ pub fn crate_item_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ItemPath
         .collect()
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub fn module_submodule_item_paths(
     db: &::salsa::Db,
     module_path: ModulePath,
@@ -152,7 +152,7 @@ fn item_path_id_conversion_works() {
     )
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub fn crate_module_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ModulePath> {
     let root_module_path = crate_path.root_module_path(db);
     let mut module_paths = vec![];

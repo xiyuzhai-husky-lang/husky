@@ -4,7 +4,7 @@ use husky_token::{TokenDb, TokenIdxRange, TokenSheetData};
 
 use super::*;
 
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct DefnTokraRegion {
     #[return_ref]
     _tokens_data: Vec<TokenData>,
@@ -107,7 +107,7 @@ impl<'a> std::ops::Index<DefnAstIdx> for DefnTokraRegionData<'a> {
     }
 }
 
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct DefnTokraRegionSourceMap {
     pub regional_token_group_idx_base: RegionalTokenGroupIdxBase,
     pub regional_token_idx_base: RegionalTokenIdxBase,
@@ -136,7 +136,7 @@ impl ItemSynNodePathId {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar)]
+#[salsa::tracked(jar = EntityTreeJar)]
 fn item_syn_defn_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,

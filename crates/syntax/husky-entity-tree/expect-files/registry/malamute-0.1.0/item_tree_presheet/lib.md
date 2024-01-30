@@ -1,4 +1,4 @@
-EntitySynTreePresheet {
+EntityTreePresheet {
     module_path: `malamute`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [

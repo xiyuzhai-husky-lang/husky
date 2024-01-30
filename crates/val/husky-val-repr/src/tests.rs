@@ -7,7 +7,7 @@ use husky_coword::CowordJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 
-use husky_entity_tree::EntitySynTreeJar;
+use husky_entity_tree::EntityTreeJar;
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
 use husky_fluffy_term::FluffyTermJar;
@@ -33,7 +33,7 @@ use husky_vfs::VfsJar;
     husky_token_data::db::TokenDataJar,
     TokenJar,
     husky_ast::jar::AstJar,
-    EntitySynTreeJar,
+    EntityTreeJar,
     TomlTokenJar,
     TomlAstJar,
     ManifestAstJar,

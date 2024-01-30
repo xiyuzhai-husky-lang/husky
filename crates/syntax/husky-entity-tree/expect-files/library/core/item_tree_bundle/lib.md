@@ -1,6 +1,6 @@
-EntitySynTreeCrateBundle {
+EntityTreeCrateBundle {
     sheets: [
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -3174,7 +3174,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::array`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -5999,7 +5999,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::basic`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -9202,7 +9202,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::clone`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -12114,7 +12114,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::cmp`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -15128,7 +15128,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::default`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -17959,7 +17959,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::fmt`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -20784,7 +20784,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::logic`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [],
@@ -20801,7 +20801,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::marker`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -23762,7 +23762,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::mem`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -26839,7 +26839,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::num`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -32531,7 +32531,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::ops`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -36535,7 +36535,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::option`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -39501,7 +39501,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::prelude`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [],
@@ -41384,7 +41384,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::raw_bits`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -44276,7 +44276,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::result`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -47313,7 +47313,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::vec`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -50205,7 +50205,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::slice`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -53296,7 +53296,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::str`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -56184,7 +56184,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `core::visual`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [

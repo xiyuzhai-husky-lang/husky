@@ -5,13 +5,13 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::as_id(jar = EntitySynTreeJar)]
+#[salsa::as_id(jar = EntityTreeJar)]
 #[salsa::deref_id]
 pub struct TraitForTypeImplBlockSynNodePath(ItemSynNodePathId);
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::as_id(jar = EntitySynTreeJar)]
+#[salsa::as_id(jar = EntityTreeJar)]
 pub struct TraitForTypeImplBlockSynNodePathData {
     pub(crate) path: TraitForTypeImplBlockPath,
 }
@@ -79,7 +79,7 @@ impl TraitForTypeImplBlockSynNodePathData {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 fn trai_for_ty_impl_block_items(
     db: &::salsa::Db,
     syn_node_path: TraitForTypeImplBlockSynNodePath,
@@ -240,7 +240,7 @@ impl HasAssociatedItemPaths for TraitForTypeImplBlockPath {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 fn trai_for_ty_impl_block_item_paths(
     db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,

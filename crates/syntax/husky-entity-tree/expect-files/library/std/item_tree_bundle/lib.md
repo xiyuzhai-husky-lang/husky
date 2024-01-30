@@ -1,6 +1,6 @@
-EntitySynTreeCrateBundle {
+EntityTreeCrateBundle {
     sheets: [
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `std`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -277,7 +277,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `std::prelude`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [],
@@ -294,7 +294,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `std::logic`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [],
@@ -390,7 +390,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `std::ops`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [

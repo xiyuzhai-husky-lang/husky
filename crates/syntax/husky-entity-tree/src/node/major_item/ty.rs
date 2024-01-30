@@ -5,7 +5,7 @@ use smallvec::SmallVec;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::as_id(jar = EntitySynTreeJar)]
+#[salsa::as_id(jar = EntityTreeJar)]
 #[salsa::deref_id]
 pub struct TypeSynNodePath(ItemSynNodePathId);
 
@@ -116,7 +116,7 @@ impl HasAttrPaths for TypePath {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 fn ty_attrs(
     db: &::salsa::Db,
     ty_syn_node_path: TypeSynNodePath,
@@ -139,7 +139,7 @@ fn ty_attrs(
     )
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 fn ty_attr_paths(db: &::salsa::Db, path: TypePath) -> SmallVec<[AttrItemPath; 2]> {
     path.syn_node_path(db)
         .attr_syn_nodes(db)

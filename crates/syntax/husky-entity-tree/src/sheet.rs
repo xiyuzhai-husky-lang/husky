@@ -4,7 +4,7 @@ use vec_like::VecPairMap;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct EntitySynTreeSheet {
+pub struct EntityTreeSheet {
     module_path: ModulePath,
     major_item_node_table: MajorEntityNodeTable,
     item_symbol_table: EntitySymbolTable,
@@ -12,10 +12,10 @@ pub struct EntitySynTreeSheet {
     impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
     once_use_rules: OnceUseRules,
     use_all_rules: UseAllRules,
-    errors: Vec<EntitySynTreeError>,
+    errors: Vec<EntityTreeError>,
 }
 
-impl vec_like::AsVecMapEntry for EntitySynTreeSheet {
+impl vec_like::AsVecMapEntry for EntityTreeSheet {
     type K = ModulePath;
 
     fn key(&self) -> Self::K
@@ -30,14 +30,14 @@ impl vec_like::AsVecMapEntry for EntitySynTreeSheet {
     }
 }
 
-impl EntitySynTreeSheet {
+impl EntityTreeSheet {
     pub(crate) fn new(
         module_path: ModulePath,
         major_item_node_table: MajorEntityNodeTable,
         item_symbol_table: EntitySymbolTable,
         once_use_rules: OnceUseRules,
         use_all_rules: UseAllRules,
-        errors: Vec<EntitySynTreeError>,
+        errors: Vec<EntityTreeError>,
         impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
     ) -> Self {
         Self {
@@ -55,7 +55,7 @@ impl EntitySynTreeSheet {
         self.item_symbol_table.as_ref()
     }
 
-    pub fn errors(&self) -> &[EntitySynTreeError] {
+    pub fn errors(&self) -> &[EntityTreeError] {
         &self.errors
     }
 
@@ -176,16 +176,16 @@ impl EntitySynTreeSheet {
 }
 
 pub trait HasEntityTreeSheet: Copy {
-    fn item_tree_sheet<'a>(self, db: &'a ::salsa::Db) -> &'a EntitySynTreeSheet;
+    fn item_tree_sheet<'a>(self, db: &'a ::salsa::Db) -> &'a EntityTreeSheet;
 }
 
 impl HasEntityTreeSheet for ModulePath {
-    fn item_tree_sheet<'a>(self, db: &'a ::salsa::Db) -> &'a EntitySynTreeSheet {
+    fn item_tree_sheet<'a>(self, db: &'a ::salsa::Db) -> &'a EntityTreeSheet {
         item_tree_sheet(db, self)
     }
 }
 
-pub(crate) fn item_tree_sheet(db: &::salsa::Db, module_path: ModulePath) -> &EntitySynTreeSheet {
+pub(crate) fn item_tree_sheet(db: &::salsa::Db, module_path: ModulePath) -> &EntityTreeSheet {
     let crate_path = module_path.crate_path(db);
     let item_tree_bundle = item_tree_crate_bundle(db, crate_path);
     item_tree_bundle

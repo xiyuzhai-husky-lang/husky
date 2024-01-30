@@ -1,4 +1,4 @@
-EntitySynTreePresheet {
+EntityTreePresheet {
     module_path: `mnist_classifier::digits::seven`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [

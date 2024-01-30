@@ -21,7 +21,7 @@ use husky_vfs::snippet::Snippet;
     husky_token_data::db::TokenDataJar,
     TokenJar,
     husky_ast::jar::AstJar,
-    EntitySynTreeJar,
+    EntityTreeJar,
     TomlTokenJar,
     TomlAstJar,
     ManifestAstJar,

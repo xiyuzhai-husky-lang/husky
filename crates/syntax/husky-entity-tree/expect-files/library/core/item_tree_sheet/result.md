@@ -1,4 +1,4 @@
-EntitySynTreeSheet {
+EntityTreeSheet {
     module_path: `core::result`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [

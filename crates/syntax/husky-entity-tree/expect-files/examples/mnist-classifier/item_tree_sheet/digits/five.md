@@ -1,4 +1,4 @@
-EntitySynTreeSheet {
+EntityTreeSheet {
     module_path: `mnist_classifier::digits::five`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [

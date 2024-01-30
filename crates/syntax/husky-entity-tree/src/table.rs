@@ -271,7 +271,7 @@ impl ItemNodeEntry {
         item_path: ItemPath,
         block: DefnBlock,
     ) -> Option<Self> {
-        let node = ItemSynNode::try_new(
+        let node = ItemSynNode::try_new_major(
             db,
             registry,
             visibility,

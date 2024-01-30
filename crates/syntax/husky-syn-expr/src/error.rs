@@ -167,7 +167,7 @@ pub enum OriginalSynExprError {
     #[error("entity tree error")]
     EntityTree {
         regional_token_idx: RegionalTokenIdx,
-        error: EntitySynTreeError,
+        error: EntityTreeError,
     },
 }
 

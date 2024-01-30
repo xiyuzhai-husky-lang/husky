@@ -33,15 +33,14 @@ pub(crate) fn subitem_path(
                 MajorItemPath::Type(path) => {
                     if let Some((_, path)) = path.ty_variant_paths(db).get_entry(ident).copied() {
                         Ok(SubitemPath::Principal(path.into()))
-                    } else if let Some((_, _node)) = path.item_syn_node_paths(db).get_entry(ident) {
-                        Ok(SubitemPath::Associated)
                     } else {
-                        // todo: check trait impls
-                        Err(OriginalEntityTreeError::NoVisibleSubitem)?
+                        Ok(SubitemPath::Associated)
                     }
                 }
-                MajorItemPath::Trait(_) => todo!(),
-                MajorItemPath::Fugitive(_) => todo!(),
+                MajorItemPath::Trait(_) => Ok(SubitemPath::Associated),
+                MajorItemPath::Fugitive(_) => {
+                    Err(OriginalEntityTreeError::NoSubitemForFugitive.into())
+                }
             }
         }
     }

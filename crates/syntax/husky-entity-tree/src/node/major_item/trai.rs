@@ -3,7 +3,7 @@ use super::*;
 use vec_like::SmallVecPairMap;
 
 #[salsa::debug_with_db]
-#[salsa::as_id(jar = EntitySynTreeJar)]
+#[salsa::as_id(jar = EntityTreeJar)]
 #[salsa::deref_id]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TraitSynNodePath(ItemSynNodePathId);
@@ -114,7 +114,7 @@ impl HasAssociatedItemPaths for TraitPath {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 fn trai_item_paths(
     db: &::salsa::Db,
     path: TraitPath,

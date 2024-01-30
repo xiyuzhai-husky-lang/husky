@@ -1,6 +1,6 @@
-EntitySynTreeCrateBundle {
+EntityTreeCrateBundle {
     sheets: [
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [

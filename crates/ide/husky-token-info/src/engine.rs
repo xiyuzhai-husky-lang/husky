@@ -20,8 +20,8 @@ pub(crate) struct TokenInfoEngine<'a> {
     module_path: ModulePath,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
-    item_tree_presheet: &'a EntitySynTreePresheet,
-    item_tree_sheet: &'a EntitySynTreeSheet,
+    item_tree_presheet: &'a EntityTreePresheet,
+    item_tree_sheet: &'a EntityTreeSheet,
     module_symbol_context: ModuleSymbolContext<'a>,
     sheet: TokenInfoSheet,
 }

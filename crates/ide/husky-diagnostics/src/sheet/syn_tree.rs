@@ -1,8 +1,8 @@
 use super::*;
 use husky_ast::Ast;
 use husky_entity_tree::{
-    EntitySynTreeDb, EntitySynTreeError, ImplBlockIllForm, MajorPathExprError,
-    OriginalEntityTreeError, OriginalMajorPathExprError,
+    EntityTreeDb, EntityTreeError, ImplBlockIllForm, MajorPathExprError, OriginalEntityTreeError,
+    OriginalMajorItemPathExprError,
 };
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
@@ -21,8 +21,8 @@ pub(crate) fn item_tree_diagnostic_sheet(
     let item_syn_tree_sheet = db.item_syn_tree_sheet(module_path);
     for e in item_syn_tree_sheet.errors() {
         match e {
-            EntitySynTreeError::Original(e) => diagnostics.push(e.to_diagnostic(&ctx)),
-            EntitySynTreeError::Derived(_) => (),
+            EntityTreeError::Original(e) => diagnostics.push(e.to_diagnostic(&ctx)),
+            EntityTreeError::Derived(_) => (),
         }
     }
     for impl_block_ill_form in item_syn_tree_sheet.all_impl_block_ill_forms(db) {
@@ -48,6 +48,7 @@ impl Diagnose for OriginalEntityTreeError {
             OriginalEntityTreeError::InvalidTypePath(_) => todo!(),
             OriginalEntityTreeError::CanOnlyUseParentSuperForModulePath => todo!(),
             OriginalEntityTreeError::NoSuperForCrateRoot { super_token } => todo!(),
+            OriginalEntityTreeError::NoSubitemForFugitive => todo!(),
         }
     }
 
@@ -80,6 +81,7 @@ impl Diagnose for OriginalEntityTreeError {
             OriginalEntityTreeError::InvalidTypePath(_) => todo!(),
             OriginalEntityTreeError::CanOnlyUseParentSuperForModulePath => todo!(),
             OriginalEntityTreeError::NoSuperForCrateRoot { super_token } => todo!(),
+            OriginalEntityTreeError::NoSubitemForFugitive => todo!(),
         }
     }
 }
@@ -93,19 +95,25 @@ impl Diagnose for ImplBlockIllForm {
             ImplBlockIllForm::TokenData(_) => todo!(),
             ImplBlockIllForm::MajorPath(e) => match e {
                 MajorPathExprError::Original(e) => match e {
-                    OriginalMajorPathExprError::UnrecognizedIdent(ident_token) => {
+                    OriginalMajorItemPathExprError::UnrecognizedIdent(ident_token) => {
                         format!(
                             "Syntax Error: unrecognized identifier `{}` for major entity path",
                             ident_token.ident().data(ctx.db())
                         )
                     }
-                    OriginalMajorPathExprError::ExpectedName(_) => format!("expected identifier",),
-                    OriginalMajorPathExprError::NoSuchSubitem => todo!(),
-                    OriginalMajorPathExprError::NoSuperForCrateRoot { super_token } => todo!(),
-                    OriginalMajorPathExprError::PathIsNotMajor { ident_token, path } => todo!(),
-                    OriginalMajorPathExprError::NoSuperForParent {
+                    OriginalMajorItemPathExprError::ExpectedName(_) => {
+                        format!("expected identifier",)
+                    }
+                    OriginalMajorItemPathExprError::NoSuchSubitem => todo!(),
+                    OriginalMajorItemPathExprError::NoSuperForCrateRoot { super_token } => todo!(),
+                    OriginalMajorItemPathExprError::PathIsNotMajor { ident_token, path } => todo!(),
+                    OriginalMajorItemPathExprError::NoSuperForParent {
                         parent,
                         super_token,
+                    } => todo!(),
+                    OriginalMajorItemPathExprError::ExpectedMajorItemButGotModule {
+                        name_token,
+                        module_path,
                     } => todo!(),
                 },
                 MajorPathExprError::Derived(_) => todo!(),
@@ -129,23 +137,27 @@ impl Diagnose for ImplBlockIllForm {
             ImplBlockIllForm::TokenData(_) => todo!(),
             ImplBlockIllForm::MajorPath(e) => match e {
                 MajorPathExprError::Original(e) => match e {
-                    OriginalMajorPathExprError::UnrecognizedIdent(ident_token)
-                    | OriginalMajorPathExprError::PathIsNotMajor { ident_token, .. } => {
+                    OriginalMajorItemPathExprError::UnrecognizedIdent(ident_token)
+                    | OriginalMajorItemPathExprError::PathIsNotMajor { ident_token, .. } => {
                         ctx.token_idx_text_range(ident_token.token_idx())
                     }
-                    OriginalMajorPathExprError::ExpectedName(token_stream_state) => {
+                    OriginalMajorItemPathExprError::ExpectedName(token_stream_state) => {
                         match token_stream_state.drained() {
                             true => todo!(),
                             false => ctx.token_idx_text_range(token_stream_state.next_token_idx()),
                         }
                     }
-                    OriginalMajorPathExprError::NoSuchSubitem => todo!(),
-                    OriginalMajorPathExprError::NoSuperForCrateRoot { super_token } => {
+                    OriginalMajorItemPathExprError::NoSuchSubitem => todo!(),
+                    OriginalMajorItemPathExprError::NoSuperForCrateRoot { super_token } => {
                         ctx.token_idx_text_range(super_token.token_idx())
                     }
-                    OriginalMajorPathExprError::NoSuperForParent {
+                    OriginalMajorItemPathExprError::NoSuperForParent {
                         parent,
                         super_token,
+                    } => todo!(),
+                    OriginalMajorItemPathExprError::ExpectedMajorItemButGotModule {
+                        name_token,
+                        module_path,
                     } => todo!(),
                 },
                 MajorPathExprError::Derived(_) => todo!(),

@@ -4,7 +4,7 @@ use super::*;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::as_id(jar = EntitySynTreeJar)]
+#[salsa::as_id(jar = EntityTreeJar)]
 #[salsa::deref_id]
 pub struct AttrSynNodePath(ItemSynNodePathId);
 

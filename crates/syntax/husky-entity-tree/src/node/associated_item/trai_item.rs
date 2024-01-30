@@ -164,7 +164,7 @@ impl TraitItemSynNode {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn trai_item_syn_nodes(
     db: &::salsa::Db,
     trai_node_path: TraitSynNodePath,

@@ -6,7 +6,7 @@ use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
-use husky_entity_tree::{helpers::paths::module_item_paths, EntitySynTreeJar};
+use husky_entity_tree::{helpers::paths::module_item_paths, EntityTreeJar};
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
 use husky_fluffy_term::FluffyTermJar;
@@ -28,7 +28,7 @@ use husky_toml_token::TomlTokenJar;
     husky_token_data::db::TokenDataJar,
     TokenJar,
     husky_ast::jar::AstJar,
-    EntitySynTreeJar,
+    EntityTreeJar,
     TomlTokenJar,
     TomlAstJar,
     ManifestAstJar,

@@ -28,7 +28,7 @@ pub(crate) enum PresheetAction {
     Err {
         module_path: ModulePath,
         rule_idx: OnceUseRuleIdx,
-        error: EntitySynTreeError,
+        error: EntityTreeError,
     },
 }
 
@@ -312,7 +312,7 @@ impl<'a> EntityTreePresheetMut<'a> {
     pub(crate) fn mark_once_use_rule_as_erroneous(
         &mut self,
         rule_idx: OnceUseRuleIdx,
-        error: EntitySynTreeError,
+        error: EntityTreeError,
     ) {
         let rule = &mut self.once_use_rules[rule_idx];
         self.errors.push(error);
@@ -322,7 +322,7 @@ impl<'a> EntityTreePresheetMut<'a> {
     pub(crate) fn mark_use_all_rule_as_erroneous(
         &mut self,
         rule_idx: UseAllModuleSymbolsRuleIdx,
-        error: EntitySynTreeError,
+        error: EntityTreeError,
     ) {
         let rule = &mut self.all_module_items_use_rules[rule_idx];
         self.errors.push(error);

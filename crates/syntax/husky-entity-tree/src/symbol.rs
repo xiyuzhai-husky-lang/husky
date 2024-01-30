@@ -1,7 +1,7 @@
 use crate::*;
 use husky_regional_token::RegionalTokenIdx;
 
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct UseSymbol {
     #[id]
     pub original_symbol: EntitySymbol,
@@ -56,7 +56,7 @@ impl EntitySymbol {
     }
 }
 
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct ParentSuperSymbol {
     pub parent_symbol: EntitySymbol,
     pub parent_super_module_path: ModulePath,
