@@ -1,4 +1,5 @@
 use super::*;
+use husky_hir_decl::decl::TraitAssociatedValHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct TraitAssociatedValHirDefn {

@@ -3,6 +3,8 @@ mod gn;
 mod type_alias;
 mod val;
 
+use husky_hir_decl::decl::FugitiveHirDecl;
+
 pub use self::gn::*;
 pub use self::r#fn::*;
 pub use self::type_alias::*;

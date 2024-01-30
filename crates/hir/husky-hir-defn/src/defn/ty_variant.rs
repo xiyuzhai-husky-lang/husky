@@ -7,6 +7,7 @@ pub use self::enum_tuple_ty_variant::*;
 pub use self::enum_unit_ty_variant::*;
 
 use super::*;
+use husky_hir_decl::decl::TypeVariantHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]

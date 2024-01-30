@@ -1,4 +1,4 @@
-use husky_hir_decl::{TypeMemoizedFieldHirDecl, TypeMethodFnHirDecl};
+use husky_hir_decl::decl::{TypeMemoizedFieldHirDecl, TypeMethodFnHirDecl};
 
 use super::*;
 

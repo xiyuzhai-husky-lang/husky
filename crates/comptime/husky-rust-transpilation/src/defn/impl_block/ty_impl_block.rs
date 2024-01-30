@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_tree::HasAssociatedItemPaths;
-use husky_hir_decl::TypeImplBlockHirDecl;
+use husky_hir_decl::decl::TypeImplBlockHirDecl;
 
 impl TranspileToRustWith for TypeImplBlockHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {

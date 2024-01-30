@@ -26,7 +26,7 @@ impl<'a> EntityTreeCollector<'a> {
         )
         .expect("no repetitions");
         let toolchain = crate_path.toolchain(db);
-        let path_menu = db.vfs_path_menu(toolchain);
+        let _path_menu = db.vfs_path_menu(toolchain);
         Self {
             db,
             crate_path,

@@ -1,3 +1,5 @@
+//! this crate is an ad hoc implementation for husky to be able to compile
+#![allow(warnings)]
 #![feature(let_chains)]
 #![feature(if_let_guard)]
 mod binding;

@@ -1,4 +1,5 @@
 use super::*;
+use husky_hir_decl::decl::ValFugitiveHirDecl;
 use husky_hir_expr::helpers::hir_body_with_expr_region;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]

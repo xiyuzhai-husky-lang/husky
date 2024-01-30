@@ -1,5 +1,6 @@
 use super::*;
 use husky_entity_tree::HasTypeVariantPaths;
+use husky_hir_decl::decl::EnumTypeHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = pub(super) new)]
 pub struct EnumHirDefn {

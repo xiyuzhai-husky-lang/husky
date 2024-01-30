@@ -3,9 +3,9 @@
 #![feature(absolute_path)]
 #![feature(let_chains)]
 mod cache;
-pub mod db;
 pub mod error;
 mod file;
+pub mod jar;
 #[cfg(feature = "lsp_support")]
 mod lsp_support;
 pub mod path;

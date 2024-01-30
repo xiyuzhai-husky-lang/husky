@@ -3,6 +3,8 @@ mod associated_ty;
 mod associated_val;
 mod method_fn;
 
+use husky_hir_decl::decl::TraitForTypeItemHirDecl;
+
 pub use self::associated_fn::*;
 pub use self::associated_ty::*;
 pub use self::associated_val::*;

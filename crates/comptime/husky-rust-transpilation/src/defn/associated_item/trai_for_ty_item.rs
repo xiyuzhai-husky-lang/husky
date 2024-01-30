@@ -1,6 +1,6 @@
 use either::Either;
 use husky_entity_path::PreludeTraitPath;
-use husky_hir_decl::HasHirDecl;
+use husky_hir_decl::decl::HasHirDecl;
 use husky_hir_ty::{HirConstSymbol, HirTemplateSymbol, HirTemplateSymbolClass};
 use smallvec::SmallVec;
 

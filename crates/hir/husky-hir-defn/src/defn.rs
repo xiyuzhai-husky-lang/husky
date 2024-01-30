@@ -14,9 +14,10 @@ pub use self::ty_variant::*;
 
 use crate::*;
 use ::version_stamp::HasVersionStamp;
-
-use husky_hir_decl::parameter::{
-    parenate::eager::HirEagerParenateParameter, template::HirTemplateParameters,
+use husky_hir_decl::decl::HasHirDecl;
+use husky_hir_decl::{
+    decl::HirDecl,
+    parameter::{parenate::eager::HirEagerParenateParameter, template::HirTemplateParameters},
 };
 use husky_hir_eager_expr::helpers::hir_eager_body_with_expr_region;
 
