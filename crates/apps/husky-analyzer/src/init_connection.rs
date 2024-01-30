@@ -1,6 +1,6 @@
 use crate::server_capabilities;
 
-pub fn init_connection(connection: &lsp_server::Connection) -> error_utils::Result<()> {
+pub fn init_connection(connection: &lsp_server::Connection) -> husky_error_utils::Result<()> {
     let (init_id, _init_params) = connection.initialize_start()?;
     connection.initialize_finish(init_id, get_init_result())?;
 

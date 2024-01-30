@@ -2232,10 +2232,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "error-utils"
-version = "0.0.0"
-
-[[package]]
 name = "event-listener"
 version = "2.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3595,9 +3591,9 @@ dependencies = [
 
 [[package]]
 name = "hashlink"
-version = "0.8.4"
+version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e8094feaf31ff591f651a2664fb9cfd92bba7a60ce3197265e9482ebe753c8f7"
+checksum = "692eaaf7f7607518dd3cef090f1474b61edc5301d8012f09579920df68b725ee"
 dependencies = [
  "hashbrown 0.14.3",
 ]
@@ -3753,7 +3749,6 @@ version = "0.0.0"
 dependencies = [
  "crossbeam-channel",
  "dashmap",
- "error-utils",
  "husky-ast",
  "husky-check-utils",
  "husky-corgi-config",
@@ -3765,6 +3760,7 @@ dependencies = [
  "husky-diagnostics",
  "husky-entity-path",
  "husky-entity-tree",
+ "husky-error-utils",
  "husky-ethereal-signature",
  "husky-ethereal-term",
  "husky-fluffy-term",
@@ -3789,7 +3785,7 @@ dependencies = [
  "husky-toml-ast",
  "husky-toml-token",
  "husky-vfs",
- "itertools 0.11.0",
+ "itertools 0.12.1",
  "lsp-server",
  "lsp-types 0.95.0",
  "rustc-hash",
@@ -3800,7 +3796,6 @@ dependencies = [
  "tracing",
  "vec-like",
  "winapi",
- "xflags",
 ]
 
 [[package]]
@@ -3858,10 +3853,6 @@ version = "0.1.0"
 dependencies = [
  "bindgen",
 ]
-
-[[package]]
-name = "husky-binding-infer"
-version = "0.1.0"
 
 [[package]]
 name = "husky-boot-linktime"
@@ -4224,6 +4215,7 @@ dependencies = [
  "husky-opr",
  "husky-path-utils",
  "husky-print-utils",
+ "husky-sync-utils",
  "husky-task",
  "husky-task-interface",
  "husky-term-prelude",
@@ -4240,7 +4232,6 @@ dependencies = [
  "salsa",
  "serde",
  "smallvec",
- "sync-utils",
 ]
 
 [[package]]
@@ -4264,6 +4255,7 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
+ "husky-sync-utils",
  "husky-task",
  "husky-task-interface",
  "husky-text-protocol",
@@ -4277,13 +4269,12 @@ dependencies = [
  "husky-vm-interface",
  "husky-vm-primitive-value",
  "husky-vm-register-method",
+ "husky-wild-utils",
  "salsa",
  "serde",
  "serde-impl",
  "serde_json",
- "sync-utils",
  "vec-like",
- "wild-utils",
 ]
 
 [[package]]
@@ -4413,6 +4404,10 @@ dependencies = [
  "vec-like",
  "with-db",
 ]
+
+[[package]]
+name = "husky-error-utils"
+version = "0.1.0"
 
 [[package]]
 name = "husky-ethereal-signature"
@@ -5483,13 +5478,13 @@ dependencies = [
  "husky-term-prelude",
  "husky-value-protocol",
  "husky-visual-protocol",
+ "husky-wild-utils",
  "ordered-float 4.2.0",
  "salsa",
  "serde",
  "serde-impl",
  "serde_json",
  "smallvec",
- "wild-utils",
 ]
 
 [[package]]
@@ -5630,6 +5625,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-sync-utils"
+version = "0.0.0"
+
+[[package]]
 name = "husky-task"
 version = "0.1.0"
 dependencies = [
@@ -5759,6 +5758,7 @@ dependencies = [
  "husky-token-data",
  "husky-unicode-symbols",
  "husky-vfs",
+ "husky-wild-utils",
  "indicatif",
  "lsp-types 0.94.1",
  "ordered-float 4.2.0",
@@ -5769,7 +5769,6 @@ dependencies = [
  "serde_json",
  "thiserror",
  "vec-like",
- "wild-utils",
 ]
 
 [[package]]
@@ -5791,6 +5790,7 @@ dependencies = [
  "husky-token-protocol",
  "husky-unicode-symbols",
  "husky-vfs",
+ "husky-wild-utils",
  "lsp-types 0.94.1",
  "ordered-float 4.2.0",
  "parsec",
@@ -5800,7 +5800,6 @@ dependencies = [
  "serde_json",
  "thiserror",
  "vec-like",
- "wild-utils",
 ]
 
 [[package]]
@@ -6196,8 +6195,8 @@ dependencies = [
  "husky-standard-value",
  "husky-vm-binding",
  "husky-vm-primitive-value",
+ "husky-wild-utils",
  "ordered-float 4.2.0",
- "wild-utils",
 ]
 
 [[package]]
@@ -6238,6 +6237,10 @@ dependencies = [
  "tracing",
  "tracing-subscriber",
 ]
+
+[[package]]
+name = "husky-wild-utils"
+version = "0.0.0"
 
 [[package]]
 name = "husky-word-meaning"
@@ -6519,6 +6522,15 @@ name = "itertools"
 version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b1c173a5686ce8bfa551b3563d0c2170bf24ca44da99c7ca4bfdab5418c3fe57"
+dependencies = [
+ "either",
+]
+
+[[package]]
+name = "itertools"
+version = "0.12.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ba291022dbbd398a455acf126c1e341954079855bc60dfdda641363bd6922569"
 dependencies = [
  "either",
 ]
@@ -8982,10 +8994,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "sync-utils"
-version = "0.0.0"
-
-[[package]]
 name = "sync_wrapper"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -9635,10 +9643,10 @@ checksum = "accd4ea62f7bb7a82fe23066fb0957d48ef677f6eeb8215f372f52e48bb32426"
 name = "vec-like"
 version = "0.0.0"
 dependencies = [
+ "husky-wild-utils",
  "serde",
  "smallvec",
  "thiserror",
- "wild-utils",
 ]
 
 [[package]]
@@ -9921,10 +9929,6 @@ dependencies = [
  "bytemuck",
  "safe_arch",
 ]
-
-[[package]]
-name = "wild-utils"
-version = "0.0.0"
 
 [[package]]
 name = "winapi"
@@ -10351,21 +10355,6 @@ dependencies = [
  "nix",
  "winapi",
 ]
-
-[[package]]
-name = "xflags"
-version = "0.2.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3f14fe1ed41a5a2b5ef3f565586c4a8a559ee55d3953faab360a771135bdee00"
-dependencies = [
- "xflags-macros",
-]
-
-[[package]]
-name = "xflags-macros"
-version = "0.2.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "45d11d5fc2a97287eded8b170ca80533b3c42646dd7fa386a5eb045817921022"
 
 [[package]]
 name = "xkbcommon-dl"

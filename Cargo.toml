@@ -38,13 +38,16 @@ opt-level = 3
 lto = false
 
 [workspace.dependencies]
+arc-swap = "1.4.0"
+atomic_enum = "0.2.0"
+axum = { version = "0.7.4" }
 cargo = "0.76.0"
 cargo-manifest = "0.13.0"
-atomic_enum = "0.2.0"
-itertools = "0.12.0"
-axum = { version = "0.7.4" }
 clap = { version = "4.4.6", features = ["derive"] }
 colored = "2.0.0"
+crossbeam = "0.8.1"
+crossbeam-channel = "0.5.0"
+crossbeam-utils = { version = "0.8", default-features = false }
 dashmap = "5.5.1"
 ecolor = { version = "0.25.0", features = ["serde", "bytemuck"] }
 eframe = "0.25.0"
@@ -64,10 +67,15 @@ futures-util = { version = "0.3", default-features = false, features = [
     "std"
 ] }
 fxhash = "0.2.1"
+hashlink = "0.9.0"
 image = "0.24.8"
 imageproc = "0.23.0"
+indexmap = "2.0.0"
+itertools = "0.12.0"
 lazy_static = "1.4.0"
 libloading = "0.8.1"
+log = "0.4.5"
+lsp-server = "0.7.0"
 lsp-types = { version = "=0.95.0", features = ["proposed"] }
 ndarray = "0.15.6"
 ndarray-stats = "0.5.1"
@@ -77,27 +85,31 @@ parking_lot = "0.12.1"
 paste = "1.0.6"
 pathdiff = "0.2.1"
 proc-macro2 = "1.0.69"
+quote = "1.0"
+relative-path = "1.7.2"
 rust-optimal-transport = { version = "0.2", features = ["blas"] }
 rustc_version = "0.4"
-quote = "1.0"
+rustc-hash = "1.1.0"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 serde_with = "3.4.0"
 # turn on "union" to guarantee the size of SmallVec is unaffected by dependencies
 smallvec = { version = "1.12", features = ["union", "serde"] }
+stacker = "0.1.15"
 syn = { version = "2.0.38", features = ["full", "extra-traits", "visit-mut"] }
 thiserror = "1.0.37"
+threadpool = "1.7.1"
 tokio = { version = "1.32.0", features = ["full"] }
 tokio-stream = { version = "0.1.9" }
 tokio-tungstenite = { version = "0.21" }
 toml = "0.8.8"
 toml_edit = "0.21.0"
-tracing = "0.1"
-xxhash-rust = { version = "0.8.5" }
 tower = { version = "0.4", features = ["util"] }
 tower-http = { version = "0.5.1", features = ["fs", "trace"] }
+tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
-rustc-hash = "1.1.0"
+xxhash-rust = { version = "0.8.5" }
+winapi = "0.3.9"
 # abstractions
 alt-option = { path = "crates/abstractions/alt-option" }
 enum-class = { path = "crates/abstractions/enum-class" }
@@ -111,13 +123,16 @@ original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
 propagate = { path = "crates/abstractions/propagate" }
 salsa = { path = "crates/abstractions/salsa" }
+salsa-macros = { path = "crates/abstractions/salsa-macros" }
 serde-impl = { path = "crates/abstractions/serde-impl" }
 shifted-unsigned-int = { path = "crates/abstractions/shifted-unsigned-int" }
+snapshot = { path = "crates/abstractions/snapshot" }
 ui = { path = "crates/abstractions/ui" }
 vec-like = { path = "crates/abstractions/vec-like" }
 with-db = { path = "crates/abstractions/with-db" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
+husky-instruction = { path = "crates/comptime/husky-instruction" }
 husky-rust-transpilation = { path = "crates/comptime/husky-rust-transpilation" }
 # fs
 husky-corgi-config = { path = "crates/fs/husky-corgi-config" }
@@ -136,7 +151,12 @@ husky-hir-opr = { path = "crates/hir/husky-hir-opr" }
 husky-hir-prelude = { path = "crates/hir/husky-hir-prelude" }
 husky-hir-ty = { path = "crates/hir/husky-hir-ty" }
 # ide
+husky-diagnostics = { path = "crates/ide/husky-diagnostics" }
+husky-hover = { path = "crates/ide/husky-hover" }
+husky-folding-range = { path = "crates/ide/husky-folding-range" }
+husky-semantic-token = { path = "crates/ide/husky-semantic-token" }
 husky-token-info = { path = "crates/ide/husky-token-info" }
+husky-syn-fmt = { path = "crates/ide/husky-syn-fmt" }
 # kernel
 husky-coword = { path = "crates/kernel/husky-coword" }
 husky-declarative-term = { path = "crates/kernel/husky-declarative-term" }
@@ -176,6 +196,7 @@ husky-visual-protocol = { path = "crates/protocols/husky-visual-protocol" }
 husky-dev-runtime = { path = "crates/runtime/husky-dev-runtime" }
 # semantics
 husky-sema-expr = { path = "crates/semantics/husky-sema-expr" }
+husky-sema-opr = { path = "crates/semantics/husky-sema-opr" }
 # syntax
 husky-ast = { path = "crates/syntax/husky-ast" }
 husky-decl-ast = { path = "crates/syntax/husky-decl-ast" }
@@ -187,13 +208,13 @@ husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-syn-opr = { path = "crates/syntax/husky-syn-opr" }
 husky-entity-tree = { path = "crates/syntax/husky-entity-tree" }
 # tasks
-husky-task = { path = "crates/tasks/husky-task" }
-husky-task-interface = { path = "crates/tasks/husky-task-interface" }
-husky-task-interface-macros = { path = "crates/tasks/husky-task-interface-macros" }
 husky-io-task = { path = "crates/tasks/husky-io-task" }
 husky-ml-task = { path = "crates/tasks/husky-ml-task" }
 husky-ml-task-interface = { path = "crates/tasks/husky-ml-task-interface" }
 husky-ml-task-interface-macros = { path = "crates/tasks/husky-ml-task-interface-macros" }
+husky-task = { path = "crates/tasks/husky-task" }
+husky-task-interface = { path = "crates/tasks/husky-task-interface" }
+husky-task-interface-macros = { path = "crates/tasks/husky-task-interface-macros" }
 # toml
 husky-corgi-config-ast = { path = "crates/toml/husky-corgi-config-ast" }
 husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }
@@ -204,13 +225,18 @@ husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
 husky-decl-macro-utils = { path = "crates/utils/husky-decl-macro-utils" }
+husky-error-utils = { path = "crates/utils/husky-error-utils" }
 husky-io-utils = { path = "crates/utils/husky-io-utils" }
 husky-macro-utils = { path = "crates/utils/husky-macro-utils" }
 husky-path-utils = { path = "crates/utils/husky-path-utils" }
 husky-print-utils = { path = "crates/utils/husky-print-utils" }
+husky-profile-utils = { path = "crates/utils/husky-profile-utils" }
+husky-salsa-log-utils = { path = "crates/utils/husky-salsa-log-utils" }
+husky-sync-utils = { path = "crates/utils/husky-sync-utils" }
 husky-toml-utils = { path = "crates/utils/husky-toml-utils" }
 husky-rng-utils = { path = "crates/utils/husky-rng-utils" }
 husky-unicode-symbols = { path = "crates/utils/husky-unicode-symbols" }
+husky-wild-utils = { path = "crates/utils/husky-wild-utils" }
 # val
 husky-val = { path = "crates/val/husky-val" }
 husky-val-repr = { path = "crates/val/husky-val-repr" }

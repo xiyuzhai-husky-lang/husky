@@ -13,7 +13,7 @@ relative-path = "1.7.2"
 idx-arena.workspace = true
 # comptime
 husky-dev-comptime.workspace = true
-husky-instruction = { path = "../../comptime/husky-instruction" }
+husky-instruction.workspace = true
 # fs
 husky-vfs.workspace = true
 # hir
@@ -49,7 +49,7 @@ husky-ml-task.workspace = true
 husky-check-utils.workspace = true
 husky-path-utils.workspace = true
 husky-print-utils.workspace = true
-sync-utils = { path = "../../utils/husky-sync-utils" }
+husky-sync-utils.workspace = true
 husky-vm.workspace = true
 # val
 husky-val.workspace = true

@@ -5,31 +5,30 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-stacker = "0.1.15"
-crossbeam = "0.8.1"
-dashmap = "5.4.0"
-rustc-hash.workspace = true
-indexmap = "2.0.0"
-hashlink = "0.8.0"
-arc-swap = "1.4.0"
-relative-path = "1.7.2"
-crossbeam-utils = { version = "0.8", default-features = false }
-log = "0.4.5"
-parking_lot = "0.12.1"
-smallvec.workspace = true
+arc-swap.workspace = true
+crossbeam.workspace = true
+crossbeam-utils = { workspace = true, default-features = false }
+dashmap.workspace = true
 either.workspace = true
+hashlink.workspace = true
+indexmap.workspace = true
+log.workspace = true
+parking_lot.workspace = true
+relative-path.workspace = true
+rustc-hash.workspace = true
+stacker.workspace = true
+smallvec.workspace = true
 # abstractions
-salsa-macros = { path = "../../abstractions/salsa-macros" }
-snapshot = { path = "../../abstractions/snapshot" }
-enum-index = { path = "../../abstractions/enum-index" }
+salsa-macros.workspace = true
+snapshot.workspace = true
+enum-index.workspace = true
 vec-like.workspace = true
 maybe-result.workspace = true
-husky-salsa-log-utils = { path = "../../utils/husky-salsa-log-utils" }
+husky-salsa-log-utils.workspace = true
 
 [dev-dependencies]
 expect-test.workspace = true
 test-log = "0.2.11"
-husky-salsa-log-utils = { path = "../../utils/husky-salsa-log-utils" }
 env_logger = "*"
 rustversion = "1.0"
 trybuild = "1.0"

@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 serde = { workspace = true, optional = true }
 # abstractions
-enum-index-macros = { path = "../../abstractions/enum-index-macros" }
+enum-index-macros.workspace = true
 
 [features]
 serde = ["dep:serde"]
