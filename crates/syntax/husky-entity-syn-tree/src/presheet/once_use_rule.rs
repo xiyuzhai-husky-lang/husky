@@ -2,11 +2,12 @@ use crate::{ParentUseExprData, *};
 use husky_coword::Ident;
 use husky_token::{IdentToken, PathNameToken};
 
-#[derive(Debug, Default, PartialEq, Eq, Clone)]
+/// a use rule that only needs to be applied once
 #[salsa::debug_with_db]
-pub(crate) struct UseOneRules(Vec<OnceUseRule>);
+#[derive(Debug, Default, PartialEq, Eq, Clone)]
+pub(crate) struct OnceUseRules(Vec<OnceUseRule>);
 
-impl std::ops::Index<OnceUseRuleIdx> for UseOneRules {
+impl std::ops::Index<OnceUseRuleIdx> for OnceUseRules {
     type Output = OnceUseRule;
 
     fn index(&self, index: OnceUseRuleIdx) -> &Self::Output {
@@ -14,7 +15,7 @@ impl std::ops::Index<OnceUseRuleIdx> for UseOneRules {
     }
 }
 
-impl std::ops::IndexMut<OnceUseRuleIdx> for UseOneRules {
+impl std::ops::IndexMut<OnceUseRuleIdx> for OnceUseRules {
     fn index_mut(&mut self, index: OnceUseRuleIdx) -> &mut Self::Output {
         &mut self.0[index.0]
     }
@@ -23,7 +24,7 @@ impl std::ops::IndexMut<OnceUseRuleIdx> for UseOneRules {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct OnceUseRuleIdx(usize);
 
-impl UseOneRules {
+impl OnceUseRules {
     pub(crate) fn push(&mut self, new_rule: OnceUseRule) {
         self.0.push(new_rule)
     }
@@ -202,12 +203,12 @@ impl<'a> std::ops::Index<OnceUseRuleIdx> for EntityTreePresheetMut<'a> {
     type Output = OnceUseRule;
 
     fn index(&self, index: OnceUseRuleIdx) -> &Self::Output {
-        &self.use_one_rules[index]
+        &self.once_use_rules[index]
     }
 }
 
 impl<'a> std::ops::IndexMut<OnceUseRuleIdx> for EntityTreePresheetMut<'a> {
     fn index_mut(&mut self, index: OnceUseRuleIdx) -> &mut Self::Output {
-        &mut self.use_one_rules[index]
+        &mut self.once_use_rules[index]
     }
 }

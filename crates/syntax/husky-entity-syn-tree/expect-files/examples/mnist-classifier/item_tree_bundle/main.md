@@ -1757,7 +1757,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 18,
@@ -4802,7 +4802,7 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 119,
@@ -8126,7 +8126,7 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 191,
@@ -9153,7 +9153,7 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [],
             ),
             use_all_rules: UseAllRules(
@@ -10553,7 +10553,7 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 164,
@@ -13986,7 +13986,7 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 70,
@@ -15366,7 +15366,7 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 3,
@@ -16464,7 +16464,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 20,
@@ -17023,7 +17023,7 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 16,
@@ -19158,7 +19158,7 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 22,
@@ -22096,7 +22096,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 11,
@@ -26443,7 +26443,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 25,
@@ -29961,7 +29961,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 62,
@@ -33485,7 +33485,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 49,
@@ -37009,7 +37009,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 28,
@@ -40683,7 +40683,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 38,
@@ -43907,7 +43907,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 2,
@@ -47506,7 +47506,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 37,
@@ -50880,7 +50880,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 14,
@@ -54404,7 +54404,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 34,
@@ -57928,7 +57928,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 44,
@@ -60301,7 +60301,7 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: UseOneRules(
+            once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
                         ast_idx: 19,

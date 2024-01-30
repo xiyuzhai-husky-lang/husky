@@ -53,7 +53,7 @@ where
     }
 
     // associated items not included
-    pub(crate) fn resolve_subitem(
+    pub(crate) fn resolve_subitem_symbol(
         &self,
         parent: MajorEntityPath,
         ident: Ident,
@@ -75,16 +75,19 @@ where
                         ident,
                     )
                 }
-                MajorEntityPath::MajorItem(_) => todo!(),
+                MajorEntityPath::MajorItem(path) => match path {
+                    MajorItemPath::Type(path) => todo!(),
+                    MajorItemPath::Trait(_) => None,
+                    MajorItemPath::Fugitive(_) => None,
+                },
             }
         } else {
             match self.db.subitem_path(parent, ident).ok()? {
-                SubitemPath::Principal(principal_item_path) => {
-                    Some(EntitySymbol::PackageDependency {
-                        item_path: principal_item_path,
-                    })
+                SubitemPath::Principal(item_path) => {
+                    // ad hoc
+                    Some(EntitySymbol::PackageDependency { item_path })
                 }
-                SubitemPath::Associated => todo!(),
+                SubitemPath::Associated => None,
             }
         }
     }
