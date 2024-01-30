@@ -102,16 +102,9 @@ impl EntitySymbol {
             // symbol.path(db).into(),
             EntitySymbol::Use(symbol) => symbol.path(db).into(),
             EntitySymbol::TypeVariant { ty_variant_path } => ty_variant_path.into(),
-            EntitySymbol::ParentSuper(_) => todo!(),
+            EntitySymbol::ParentSuper(symbol) => symbol.parent_super_module_path(db).into(),
         }
     }
-
-    // pub(crate) fn module_item_syn_node(self) -> Option<MajorItemSynNode> {
-    //     match self {
-    //         EntitySymbol::MajorItem { node, .. } => Some(node),
-    //         _ => None,
-    //     }
-    // }
 }
 
 // can only see module symbols

@@ -60,6 +60,8 @@ pub enum OriginalMajorItemPathExprError {
         name_token: PathNameToken,
         module_path: ModulePath,
     },
+    #[error("NoColonColonAfterMajorItemPath")]
+    NoColonColonAfterMajorItemPath,
 }
 
 impl OriginalError for OriginalMajorItemPathExprError {
@@ -218,7 +220,9 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
                             module_item_path,
                         )
                     }
-                    MajorEntityPath::MajorItem(_) => todo!(),
+                    MajorEntityPath::MajorItem(_) => {
+                        Err(OriginalMajorItemPathExprError::NoColonColonAfterMajorItemPath)?
+                    }
                 }
             } else {
                 // we haven't seen a `::` after, so it's a root

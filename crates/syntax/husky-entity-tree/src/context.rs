@@ -1,5 +1,6 @@
 use crate::*;
 use husky_coword::Ident;
+use husky_entity_kind::TypeKind;
 use husky_token::IdentToken;
 use vec_like::VecMap;
 
@@ -76,7 +77,22 @@ where
                     )
                 }
                 MajorEntityPath::MajorItem(path) => match path {
-                    MajorItemPath::Type(path) => todo!(),
+                    MajorItemPath::Type(path) => {
+                        let db = self.db;
+                        match path.ty_kind(db) {
+                            TypeKind::Enum | TypeKind::Inductive => path
+                                .ty_variant_paths(db)
+                                .iter()
+                                .find_map(|&(ident1, ty_variant_path)| {
+                                    (ident == ident1)
+                                        .then_some(EntitySymbol::TypeVariant { ty_variant_path })
+                                }),
+                            TypeKind::Record
+                            | TypeKind::Struct
+                            | TypeKind::Structure
+                            | TypeKind::Extern => None,
+                        }
+                    }
                     MajorItemPath::Trait(_) => None,
                     MajorItemPath::Fugitive(_) => None,
                 },

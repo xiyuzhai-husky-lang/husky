@@ -124,9 +124,12 @@ impl<'a> EntityTreeCollector<'a> {
                 rule_idx,
                 path_name_token,
                 symbol,
-            } => {
-                self.presheets[module_path].resolve_use_expr(db, rule_idx, path_name_token, symbol)
-            }
+            } => self.presheets[module_path].resolve_use_expr_leading_symbol(
+                db,
+                rule_idx,
+                path_name_token,
+                symbol,
+            ),
             PresheetAction::UpdateUseAllRule {
                 rule_module_path,
                 rule_idx,
@@ -157,8 +160,7 @@ impl<'a> EntityTreeCollector<'a> {
                 let new_uses: Vec<EntitySymbolEntry> = parent_ty_path
                     .ty_variant_paths(db)
                     .iter()
-                    .copied()
-                    .map(|(ident, ty_variant_path)| {
+                    .map(|&(ident, ty_variant_path)| {
                         EntitySymbolEntry::new_use_ty_variant_entry(
                             db,
                             &item_tree_presheet[rule_idx],

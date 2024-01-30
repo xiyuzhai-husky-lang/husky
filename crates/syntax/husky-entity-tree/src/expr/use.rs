@@ -18,8 +18,8 @@ pub struct ParentUseExprData {
 #[derive(Debug, PartialEq, Eq)]
 pub enum UseExpr {
     All { star_token: StarToken },
-    Leaf { ident_token: IdentToken },
-    SelfOne { self_mod_token: SelfModToken },
+    IdentLeaf { ident_token: IdentToken },
+    SelfLeaf { self_mod_token: SelfModToken },
     Parent(ParentUseExprData),
     Err(UseExprError),
 }
@@ -234,12 +234,12 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
                 star_token,
             }
             .into()),
-            UseExpr::Leaf { ident_token } => Err(OriginalUseExprError::InvalidLeafAsRoot {
+            UseExpr::IdentLeaf { ident_token } => Err(OriginalUseExprError::InvalidLeafAsRoot {
                 use_token,
                 ident_token,
             }
             .into()),
-            UseExpr::SelfOne { self_mod_token } => Err(OriginalUseExprError::InvalidSelfAsRoot {
+            UseExpr::SelfLeaf { self_mod_token } => Err(OriginalUseExprError::InvalidSelfAsRoot {
                 use_token,
                 self_mod_token,
             }
@@ -254,7 +254,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
 
     fn parse_use_expr_after_ident(&mut self, ident_token: IdentToken) -> UseExprResult<UseExpr> {
         let Some(colon_colon_token) = self.try_parse_option::<ColonColonToken>()? else {
-            return Ok(UseExpr::Leaf { ident_token });
+            return Ok(UseExpr::IdentLeaf { ident_token });
         };
         Ok(UseExpr::Parent(ParentUseExprData {
             parent_name_token: PathNameToken::Ident(ident_token),
@@ -322,7 +322,7 @@ impl<'a, 'b> TryParseOptionFromStream<UseExprParser<'a, 'b>> for UseExpr {
                         children: ctx.parse_children(),
                     })))
                 } else {
-                    Ok(Some(UseExpr::SelfOne { self_mod_token }))
+                    Ok(Some(UseExpr::SelfLeaf { self_mod_token }))
                 }
             }
             PathNameToken::Super(super_token) => Ok(Some(UseExpr::Parent(ParentUseExprData {

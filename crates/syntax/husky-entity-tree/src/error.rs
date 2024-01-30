@@ -1,6 +1,6 @@
 use crate::{ItemSynNodePath, PreludeError};
-use husky_entity_path::{EntityPathError, TypePath};
-use husky_token::{IdentToken, SuperToken};
+use husky_entity_path::{EntityPathError, PrincipalEntityPath, TypePath};
+use husky_token::{IdentToken, PathNameToken, SuperToken};
 use husky_vfs::{error::VfsError, ModulePath, ToolchainError};
 use thiserror::Error;
 
@@ -13,26 +13,14 @@ pub enum EntityTreeError {
     Derived(#[from] DerivedEntityTreeError),
 }
 
-impl From<&PreludeError> for EntityTreeError {
-    fn from(_e: &PreludeError) -> Self {
-        todo!()
-    }
-}
-
 impl From<PreludeError> for EntityTreeError {
     fn from(e: PreludeError) -> Self {
         EntityTreeError::Derived(e.into())
     }
 }
 
-impl From<VfsError> for EntityTreeError {
-    fn from(e: VfsError) -> Self {
-        EntityTreeError::Derived(e.into())
-    }
-}
-
-#[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum OriginalEntityTreeError {
     #[error("unresolved root identifier")]
     UnresolvedRootIdent(IdentToken),
@@ -53,6 +41,15 @@ pub enum OriginalEntityTreeError {
     NoSuperForCrateRoot { super_token: SuperToken },
     #[error("NoSubitemForFugitive")]
     NoSubitemForFugitive,
+    #[error("InvalidParentPath")]
+    InvalidParentPath {
+        name_token: PathNameToken,
+        principal_entity_path: PrincipalEntityPath,
+    },
+    #[error("StandaloneSelf")]
+    StandaloneSelf,
+    #[error("SameNameTypeItemsButNotTheSameKind")]
+    SameNameTypeItemsButNotTheSameKind,
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]

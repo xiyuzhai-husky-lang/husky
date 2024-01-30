@@ -90,7 +90,6 @@ pub struct EntityTreeJar(
     none_core_crate_universal_prelude,
     // helpers
     crate::helpers::ty_side_trai_for_ty_impl_block_paths_map,
-    crate::helpers::trai_item_table,
     crate::helpers::TraitOrderedSet,
     crate::helpers::non_core_crate_prelude_trait_items_table,
     crate::helpers::module_specific_trait_items_table,

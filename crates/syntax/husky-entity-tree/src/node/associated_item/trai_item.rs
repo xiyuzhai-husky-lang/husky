@@ -81,9 +81,8 @@ impl TraitItemSynNodePathData {
         self.maybe_ambiguous_path.path.item_kind(db)
     }
 
-    pub fn ast_idx(self, _id: ItemSynNodePathId, _db: &::salsa::Db) -> AstIdx {
-        todo!()
-        // TraitItemSynNodePath(id).syn_node(db).ast_idx
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        self.syn_node(TraitItemSynNodePath(id), db).ast_idx
     }
 
     pub(crate) fn syn_node<'a>(
@@ -126,6 +125,7 @@ pub(crate) struct TraitItemSynNode {
     is_generic: bool,
 }
 
+/// # constructor
 impl TraitItemSynNode {
     #[inline(always)]
     fn new(
@@ -157,6 +157,13 @@ impl TraitItemSynNode {
                 is_generic,
             },
         )
+    }
+}
+
+/// # getters
+impl TraitItemSynNode {
+    pub fn syn_node_path(&self) -> TraitItemSynNodePath {
+        self.syn_node_path
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {

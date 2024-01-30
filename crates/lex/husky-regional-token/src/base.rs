@@ -5,6 +5,10 @@ use crate::*;
 pub struct RegionalTokenIdxBase(usize);
 
 impl RegionalTokenIdxBase {
+    pub fn new_snippet() -> Self {
+        Self(0)
+    }
+
     pub fn new(token_group_base: TokenGroupStart) -> Self {
         Self(token_group_base.token_idx().index())
     }

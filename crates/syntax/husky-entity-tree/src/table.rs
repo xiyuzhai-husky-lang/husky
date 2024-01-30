@@ -89,9 +89,9 @@ impl EntitySymbolEntry {
         package_dependency: &PackageDependency,
     ) -> VfsResult<Self> {
         let package_path = package_dependency.package_path();
-        let Some(lib_root_module_path) = package_path.lib_root_module_path(db) else {
-            todo!()
-        };
+        let lib_root_module_path = package_path
+            .lib_root_module_path(db)
+            .expect("should be guaranteed in manifest");
         Ok(Self {
             ident: package_path.ident(db),
             visibility: Scope::Pub,

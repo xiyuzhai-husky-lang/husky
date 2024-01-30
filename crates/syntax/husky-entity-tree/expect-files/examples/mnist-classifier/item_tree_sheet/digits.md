@@ -3156,7 +3156,7 @@ EntityTreeSheet {
                 ast_idx: 11,
                 use_expr_idx: 1,
                 visibility: Scope::Pub,
-                variant: OnceUseRuleVariant::Leaf {
+                variant: OnceUseRuleVariant::IdentLeaf {
                     ident_token: IdentToken {
                         ident: `is_one`,
                         token_idx: TokenIdx(
@@ -3558,7 +3558,7 @@ EntityTreeSheet {
                 ast_idx: 12,
                 use_expr_idx: 3,
                 visibility: Scope::Pub,
-                variant: OnceUseRuleVariant::Leaf {
+                variant: OnceUseRuleVariant::IdentLeaf {
                     ident_token: IdentToken {
                         ident: `is_six`,
                         token_idx: TokenIdx(
@@ -3600,7 +3600,7 @@ EntityTreeSheet {
                 ast_idx: 13,
                 use_expr_idx: 6,
                 visibility: Scope::Pub,
-                variant: OnceUseRuleVariant::Leaf {
+                variant: OnceUseRuleVariant::IdentLeaf {
                     ident_token: IdentToken {
                         ident: `is_zero`,
                         token_idx: TokenIdx(
@@ -3642,7 +3642,7 @@ EntityTreeSheet {
                 ast_idx: 14,
                 use_expr_idx: 9,
                 visibility: Scope::Pub,
-                variant: OnceUseRuleVariant::Leaf {
+                variant: OnceUseRuleVariant::IdentLeaf {
                     ident_token: IdentToken {
                         ident: `is_two`,
                         token_idx: TokenIdx(
@@ -3684,7 +3684,7 @@ EntityTreeSheet {
                 ast_idx: 15,
                 use_expr_idx: 12,
                 visibility: Scope::Pub,
-                variant: OnceUseRuleVariant::Leaf {
+                variant: OnceUseRuleVariant::IdentLeaf {
                     ident_token: IdentToken {
                         ident: `is_three`,
                         token_idx: TokenIdx(
@@ -3726,7 +3726,7 @@ EntityTreeSheet {
                 ast_idx: 16,
                 use_expr_idx: 15,
                 visibility: Scope::Pub,
-                variant: OnceUseRuleVariant::Leaf {
+                variant: OnceUseRuleVariant::IdentLeaf {
                     ident_token: IdentToken {
                         ident: `is_five`,
                         token_idx: TokenIdx(
@@ -3768,7 +3768,7 @@ EntityTreeSheet {
                 ast_idx: 17,
                 use_expr_idx: 18,
                 visibility: Scope::Pub,
-                variant: OnceUseRuleVariant::Leaf {
+                variant: OnceUseRuleVariant::IdentLeaf {
                     ident_token: IdentToken {
                         ident: `is_seven`,
                         token_idx: TokenIdx(
@@ -3810,7 +3810,7 @@ EntityTreeSheet {
                 ast_idx: 18,
                 use_expr_idx: 21,
                 visibility: Scope::Pub,
-                variant: OnceUseRuleVariant::Leaf {
+                variant: OnceUseRuleVariant::IdentLeaf {
                     ident_token: IdentToken {
                         ident: `is_eight`,
                         token_idx: TokenIdx(
@@ -3852,7 +3852,7 @@ EntityTreeSheet {
                 ast_idx: 19,
                 use_expr_idx: 24,
                 visibility: Scope::Pub,
-                variant: OnceUseRuleVariant::Leaf {
+                variant: OnceUseRuleVariant::IdentLeaf {
                     ident_token: IdentToken {
                         ident: `is_nine`,
                         token_idx: TokenIdx(

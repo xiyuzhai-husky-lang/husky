@@ -1,6 +1,6 @@
 use crate::{ParentUseExprData, *};
 use husky_coword::Ident;
-use husky_token::{IdentToken, PathNameToken};
+use husky_token::{IdentToken, PathNameToken, SelfModToken};
 
 /// a use rule that only needs to be applied once
 #[salsa::debug_with_db]
@@ -71,8 +71,11 @@ pub enum OnceUseRuleVariant {
         parent_name_token: PathNameToken,
         children: UseExprIdxRange,
     },
-    Leaf {
+    IdentLeaf {
         ident_token: IdentToken,
+    },
+    SelfLeaf {
+        self_mod_token: SelfModToken,
     },
     UseAllTypeVariants {
         parent_ty_path: TypePath,
@@ -174,11 +177,6 @@ impl OnceUseRule {
         self.visibility
     }
 
-    pub(crate) fn children(&self) -> Option<UseExprIdxRange> {
-        todo!()
-        // self.children
-    }
-
     pub(crate) fn mark_as_erroneous(&mut self) {
         self.state = UseOneRuleState::Erroneous
     }
@@ -193,7 +191,7 @@ impl OnceUseRule {
                 parent_name_token: PathNameToken::Ident(ident_token),
                 ..
             }
-            | OnceUseRuleVariant::Leaf { ident_token } => Some(ident_token.ident()),
+            | OnceUseRuleVariant::IdentLeaf { ident_token } => Some(ident_token.ident()),
             _ => None,
         }
     }

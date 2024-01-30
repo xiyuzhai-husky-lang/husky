@@ -288,7 +288,7 @@ impl ItemSynNode {
             ItemSynNode::AssociatedItem(node) => node.syn_node_path().into(),
             ItemSynNode::TypeVariant(node) => node.syn_node_path.into(),
             ItemSynNode::ImplBlock(node) => node.syn_node_path().into(),
-            ItemSynNode::Attr(_) => todo!(),
+            ItemSynNode::Attr(node) => node.syn_node_path().into(),
         }
     }
 }

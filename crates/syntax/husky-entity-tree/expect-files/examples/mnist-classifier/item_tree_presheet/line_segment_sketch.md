@@ -980,7 +980,7 @@ EntityTreePresheet {
                     ),
                 },
             ),
-            UseExpr::Leaf {
+            UseExpr::IdentLeaf {
                 ident_token: IdentToken {
                     ident: `RawContour`,
                     token_idx: TokenIdx(

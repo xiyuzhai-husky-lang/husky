@@ -12,16 +12,11 @@ pub enum PreludeError {
     #[error("vfs error {0}")]
     VfsError(#[from] VfsError),
 }
-pub type PreludeResult<T> = Result<T, PreludeError>;
 
-impl From<&PreludeError> for PreludeError {
-    fn from(_value: &PreludeError) -> Self {
-        todo!()
-    }
-}
+pub type PreludeResult<T> = Result<T, PreludeError>;
 
 impl From<&ManifestError> for PreludeError {
     fn from(_value: &ManifestError) -> Self {
-        todo!()
+        PreludeError::ManifestError
     }
 }

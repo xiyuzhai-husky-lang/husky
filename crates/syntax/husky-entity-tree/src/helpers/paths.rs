@@ -57,13 +57,8 @@ pub fn module_item_syn_node_paths(
                 }
             }
             ImplBlockSynNodePath::IllFormedImplBlock(impl_block_syn_node_path) => {
-                for _syn_node_path in impl_block_syn_node_path
-                    .item_syn_node_paths(db)
-                    .iter()
-                    .copied()
-                {
-                    todo!()
-                    // push(syn_node_path.into())
+                for syn_node_path in impl_block_syn_node_path.item_syn_node_paths(db) {
+                    push(syn_node_path.into())
                 }
             }
         }
