@@ -1,6 +1,6 @@
-EntitySynTreeCrateBundle {
+EntityTreeCrateBundle {
     sheets: [
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `syntax_errors`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -191,7 +191,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `syntax_errors::ast`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -346,7 +346,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `syntax_errors::uses`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [],

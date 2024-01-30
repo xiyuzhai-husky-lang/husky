@@ -34,7 +34,7 @@ pub enum OriginalSynExprError {
     #[error("item tree")]
     EntityTree {
         regional_token_idx: RegionalTokenIdx,
-        error: EntitySynTreeError,
+        error: EntityTreeError,
     },
     #[error("expect identifier after `::`")]
     ExpectIdentAfterScopeResolution(RegionalTokenStreamState),

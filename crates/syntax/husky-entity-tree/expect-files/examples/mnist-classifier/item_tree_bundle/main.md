@@ -1,6 +1,6 @@
-EntitySynTreeCrateBundle {
+EntityTreeCrateBundle {
     sheets: [
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -2367,7 +2367,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::connected_component`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -4937,7 +4937,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::raw_contour`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -8433,7 +8433,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::geom2d`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -9161,7 +9161,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::line_segment_sketch`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -10955,7 +10955,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::line_segment_sketch::concave_component`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -14493,7 +14493,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::line_segment_sketch::convex_component`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -15462,7 +15462,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::line_segment_sketch::convexity`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -16732,7 +16732,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::line_segment_sketch::line_segment`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -17119,7 +17119,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::fermi`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -19207,7 +19207,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::digits`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -23119,7 +23119,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::digits::zero`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -26493,7 +26493,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::digits::one`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -30011,7 +30011,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::digits::six`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -33535,7 +33535,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::digits::three`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -37059,7 +37059,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::digits::four`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -40733,7 +40733,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::digits::five`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -43957,7 +43957,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::digits::seven`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -47556,7 +47556,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::digits::eight`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -50930,7 +50930,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::digits::nine`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -54454,7 +54454,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::digits::two`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
@@ -57978,7 +57978,7 @@ EntitySynTreeCrateBundle {
             ),
             errors: [],
         },
-        EntitySynTreeSheet {
+        EntityTreeSheet {
             module_path: `mnist_classifier::major`,
             major_item_node_table: MajorEntityNodeTable {
                 entries: [

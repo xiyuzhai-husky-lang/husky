@@ -6,28 +6,28 @@ use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
-pub enum EntitySynTreeError {
+pub enum EntityTreeError {
     #[error("original {0}")]
     Original(#[from] OriginalEntityTreeError),
     #[error("derived {0}")]
     Derived(#[from] DerivedEntityTreeError),
 }
 
-impl From<&PreludeError> for EntitySynTreeError {
+impl From<&PreludeError> for EntityTreeError {
     fn from(_e: &PreludeError) -> Self {
         todo!()
     }
 }
 
-impl From<PreludeError> for EntitySynTreeError {
+impl From<PreludeError> for EntityTreeError {
     fn from(e: PreludeError) -> Self {
-        EntitySynTreeError::Derived(e.into())
+        EntityTreeError::Derived(e.into())
     }
 }
 
-impl From<VfsError> for EntitySynTreeError {
+impl From<VfsError> for EntityTreeError {
     fn from(e: VfsError) -> Self {
-        EntitySynTreeError::Derived(e.into())
+        EntityTreeError::Derived(e.into())
     }
 }
 
@@ -51,6 +51,8 @@ pub enum OriginalEntityTreeError {
     CanOnlyUseParentSuperForModulePath,
     #[error("NoSuperForCrateRoot")]
     NoSuperForCrateRoot { super_token: SuperToken },
+    #[error("NoSubitemForFugitive")]
+    NoSubitemForFugitive,
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
@@ -71,5 +73,5 @@ pub enum DerivedEntityTreeError {
     InvalidModulePath(ModulePath),
 }
 
-pub type EntityTreeResult<T> = Result<T, EntitySynTreeError>;
-pub type EntityTreeResultRef<'a, T> = Result<T, &'a EntitySynTreeError>;
+pub type EntityTreeResult<T> = Result<T, EntityTreeError>;
+pub type EntityTreeResultRef<'a, T> = Result<T, &'a EntityTreeError>;

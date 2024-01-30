@@ -1,4 +1,4 @@
-EntitySynTreeSheet {
+EntityTreeSheet {
     module_path: `std::prelude`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [],

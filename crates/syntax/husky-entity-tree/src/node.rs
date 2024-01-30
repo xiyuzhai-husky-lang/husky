@@ -38,7 +38,7 @@ impl std::ops::Deref for ItemSynNodePath {
     }
 }
 
-#[salsa::interned(jar = EntitySynTreeJar)]
+#[salsa::interned(jar = EntityTreeJar)]
 pub struct ItemSynNodePathId {
     data: ItemSynNodePathData,
 }
@@ -185,11 +185,11 @@ impl HasSynNodePath for ItemPath {
 #[derive(Default)]
 pub(crate) struct ItemSynNodePathRegistry {
     next_disambiguators: VecPairMap<ItemPath, u8>,
-    errors: Vec<EntitySynTreeError>,
+    errors: Vec<EntityTreeError>,
 }
 
 impl ItemSynNodePathRegistry {
-    pub(crate) fn finish_with_errors(self) -> Vec<EntitySynTreeError> {
+    pub(crate) fn finish_with_errors(self) -> Vec<EntityTreeError> {
         self.errors
     }
 
@@ -243,7 +243,7 @@ pub(crate) enum ItemSynNode {
 }
 
 impl ItemSynNode {
-    pub(crate) fn try_new(
+    pub(crate) fn try_new_major(
         db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
         visibility: Scope,
@@ -277,8 +277,7 @@ impl ItemSynNode {
                 .into(),
             ),
             ItemPath::AssociatedItem(_) | ItemPath::TypeVariant(_, _) => None,
-            ItemPath::ImplBlock(_) => todo!(),
-            ItemPath::Attr(_, _) => todo!(),
+            ItemPath::ImplBlock(_) | ItemPath::Attr(_, _) => unreachable!(),
         }
     }
 

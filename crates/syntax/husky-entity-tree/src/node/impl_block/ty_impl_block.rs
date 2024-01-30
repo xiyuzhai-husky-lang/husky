@@ -4,7 +4,7 @@ use vec_like::SmallVecPairMap;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::as_id(jar = EntitySynTreeJar)]
+#[salsa::as_id(jar = EntityTreeJar)]
 #[salsa::deref_id]
 pub struct TypeImplBlockSynNodePath(ItemSynNodePathId);
 
@@ -153,7 +153,7 @@ impl HasAssociatedItemPaths for TypeImplBlockPath {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 fn ty_impl_block_item_paths(
     db: &::salsa::Db,
     path: TypeImplBlockPath,

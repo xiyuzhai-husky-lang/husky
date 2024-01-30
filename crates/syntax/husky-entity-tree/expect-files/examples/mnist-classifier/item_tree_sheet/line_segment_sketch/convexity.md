@@ -1,4 +1,4 @@
-EntitySynTreeSheet {
+EntityTreeSheet {
     module_path: `mnist_classifier::line_segment_sketch::convexity`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [

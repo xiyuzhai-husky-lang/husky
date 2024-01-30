@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct SnippetTokraRegion {
     #[return_ref]
     tokens: Vec<TokenData>,

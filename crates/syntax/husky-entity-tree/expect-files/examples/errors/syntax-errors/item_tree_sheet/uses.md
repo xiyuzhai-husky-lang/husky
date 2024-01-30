@@ -1,4 +1,4 @@
-EntitySynTreeSheet {
+EntityTreeSheet {
     module_path: `syntax_errors::uses`,
     major_item_node_table: MajorEntityNodeTable {
         entries: [],

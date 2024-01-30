@@ -40,7 +40,7 @@ impl<'a> EntityTreeCollector<'a> {
         }
     }
 
-    pub(crate) fn collect_all(mut self) -> EntitySynTreeCrateBundle {
+    pub(crate) fn collect_all(mut self) -> EntityTreeCrateBundle {
         // for testing purposes
         let mut loop_idx = 0;
         const LOOP_LIMIT: usize = 100;
@@ -73,7 +73,7 @@ impl<'a> EntityTreeCollector<'a> {
             }),
         )
         .expect("no repetitions");
-        EntitySynTreeCrateBundle::new(sheets, self.major_path_expr_arena)
+        EntityTreeCrateBundle::new(sheets, self.major_path_expr_arena)
     }
 
     fn collect_impl_node_block_tables(

@@ -3,7 +3,7 @@ use husky_decl_ast::DeclAst;
 use husky_token::{TokenDb, TokenIdxRange};
 
 ///
-#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct DeclTokraRegion {
     #[return_ref]
     tokens_data: Vec<TokenData>,
@@ -158,7 +158,7 @@ impl ItemSynNodePathId {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar)]
+#[salsa::tracked(jar = EntityTreeJar)]
 fn item_syn_node_decl_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,

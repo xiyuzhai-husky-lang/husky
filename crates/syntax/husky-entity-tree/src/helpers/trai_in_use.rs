@@ -44,7 +44,7 @@ impl<'a> TraitInUseItemsTable<'a> {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 fn non_core_crate_prelude_trait_items_table(
     db: &::salsa::Db,
     toolchain: Toolchain,
@@ -55,7 +55,7 @@ fn non_core_crate_prelude_trait_items_table(
     )
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 fn module_specific_trait_items_table(
     db: &::salsa::Db,
     module_path: ModulePath,
@@ -135,7 +135,7 @@ impl<'a> TraitInUseItemsWithGivenIdent<'a> {
     }
 }
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 fn trai_item_table(_db: &::salsa::Db, _traits: TraitOrderedSet) -> TraitInUseItemsTableImpl {
     todo!()
 }

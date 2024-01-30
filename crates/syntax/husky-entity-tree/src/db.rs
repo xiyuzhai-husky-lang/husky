@@ -1,12 +1,12 @@
 use crate::*;
 use husky_vfs::*;
 
-pub trait EntitySynTreeDb {
+pub trait EntityTreeDb {
     fn submodules(&self, module_path: ModulePath) -> &[SubmodulePath];
     fn all_modules_within_crate(&self, crate_path: CratePath) -> &[ModulePath];
-    fn item_syn_tree_bundle(&self, crate_path: CratePath) -> &EntitySynTreeCrateBundle;
-    fn item_syn_tree_presheet(&self, module_path: ModulePath) -> &EntitySynTreePresheet;
-    fn item_syn_tree_sheet(&self, module_path: ModulePath) -> &EntitySynTreeSheet;
+    fn item_syn_tree_bundle(&self, crate_path: CratePath) -> &EntityTreeCrateBundle;
+    fn item_syn_tree_presheet(&self, module_path: ModulePath) -> &EntityTreePresheet;
+    fn item_syn_tree_sheet(&self, module_path: ModulePath) -> &EntityTreeSheet;
     fn module_symbol_context<'a>(
         &'a self,
         module_path: ModulePath,
@@ -18,7 +18,7 @@ pub trait EntitySynTreeDb {
     ) -> EntityTreeResult<SubitemPath>;
 }
 
-impl EntitySynTreeDb for ::salsa::Db {
+impl EntityTreeDb for ::salsa::Db {
     fn submodules(&self, module_path: ModulePath) -> &[SubmodulePath] {
         submodules(self, module_path)
     }
@@ -27,15 +27,15 @@ impl EntitySynTreeDb for ::salsa::Db {
         all_modules_within_crate(self, crate_path)
     }
 
-    fn item_syn_tree_bundle(&self, crate_path: CratePath) -> &EntitySynTreeCrateBundle {
+    fn item_syn_tree_bundle(&self, crate_path: CratePath) -> &EntityTreeCrateBundle {
         item_tree_crate_bundle(self, crate_path)
     }
 
-    fn item_syn_tree_presheet(&self, module_path: ModulePath) -> &EntitySynTreePresheet {
+    fn item_syn_tree_presheet(&self, module_path: ModulePath) -> &EntityTreePresheet {
         item_tree_presheet(self, module_path)
     }
 
-    fn item_syn_tree_sheet(&self, module_path: ModulePath) -> &EntitySynTreeSheet {
+    fn item_syn_tree_sheet(&self, module_path: ModulePath) -> &EntityTreeSheet {
         item_tree_sheet(self, module_path)
     }
 
@@ -56,7 +56,7 @@ impl EntitySynTreeDb for ::salsa::Db {
 }
 
 #[salsa::jar]
-pub struct EntitySynTreeJar(
+pub struct EntityTreeJar(
     ItemSynNodePathId,
     UseSymbol,
     ParentSuperSymbol,

@@ -151,7 +151,7 @@ pub enum JarIndex {
     SemaExprJar,
     // syntax
     AstJar,
-    EntitySynTreeJar,
+    EntityTreeJar,
     ManifestAstJar,
     SynDeclJar,
     SynDefnJar,

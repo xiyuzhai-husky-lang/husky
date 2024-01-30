@@ -5,11 +5,11 @@ mod error;
 
 pub use self::error::*;
 
-#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn item_tree_crate_bundle(
     db: &::salsa::Db,
     crate_path: CratePath,
-) -> EntitySynTreeCrateBundle {
+) -> EntityTreeCrateBundle {
     EntityTreeCollector::new(db, crate_path).collect_all()
 }
 
@@ -23,14 +23,14 @@ fn item_tree_crate_bundle_works() {
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct EntitySynTreeCrateBundle {
-    sheets: VecMap<EntitySynTreeSheet>,
+pub struct EntityTreeCrateBundle {
+    sheets: VecMap<EntityTreeSheet>,
     principal_item_path_expr_arena: MajorPathExprArena,
 }
 
-impl EntitySynTreeCrateBundle {
+impl EntityTreeCrateBundle {
     pub(crate) fn new(
-        sheets: VecMap<EntitySynTreeSheet>,
+        sheets: VecMap<EntityTreeSheet>,
         principal_item_path_expr_arena: MajorPathExprArena,
     ) -> Self {
         Self {
@@ -39,7 +39,7 @@ impl EntitySynTreeCrateBundle {
         }
     }
 
-    pub fn sheets(&self) -> &[EntitySynTreeSheet] {
+    pub fn sheets(&self) -> &[EntityTreeSheet] {
         &self.sheets
     }
 
@@ -86,7 +86,7 @@ impl EntitySynTreeCrateBundle {
             .filter(move |path| path.ty_sketch(db) == TypeSketch::Path(ty_path))
     }
 
-    pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntitySynTreeSheet> {
+    pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntityTreeSheet> {
         self.sheets.get_entry(module_path)
     }
 }
