@@ -1,6 +1,7 @@
 //! rust version of Haskell Alternative monad
 //!
 //! ```
+//! use alt_option::*;
 //! struct Shop {}
 //!
 //! enum Food {}
