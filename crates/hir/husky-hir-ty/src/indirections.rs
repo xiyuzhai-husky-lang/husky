@@ -1,5 +1,5 @@
 use crate::place::HirPlace;
-use husky_fluffy_term::{FluffyIndirection, FluffyIndirections};
+use husky_fluffy_term::dispatch::{FluffyIndirection, FluffyIndirections};
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
