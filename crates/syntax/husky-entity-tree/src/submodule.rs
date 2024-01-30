@@ -45,7 +45,7 @@ fn submodules_works() {
         &AstTestConfig::new(
             "submodules",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     )
 }
@@ -57,7 +57,7 @@ fn all_modules_works() {
         &AstTestConfig::new(
             "all_modules_within_crate",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     )
 }

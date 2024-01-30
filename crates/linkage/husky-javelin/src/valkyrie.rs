@@ -375,7 +375,7 @@ fn item_valkyrie_rides_works() {
         &AstTestConfig::new(
             "item_valkyrie_rides",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::LINKAGE,
         ),
     )
 }
@@ -511,7 +511,7 @@ fn package_javelin_pantheon_works() {
         &AstTestConfig::new(
             "package_javelin_pantheon",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::LINKAGE,
         ),
     )
 }

@@ -92,7 +92,7 @@ fn syn_node_path_id_conversion_works() {
         &AstTestConfig::new(
             "syn_node_path_id_conversion",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     )
 }

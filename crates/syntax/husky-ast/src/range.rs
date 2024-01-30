@@ -32,7 +32,7 @@ fn ast_range_sheet_works() {
         &TokenTestConfig::new(
             "ast_range_sheet",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     );
 }

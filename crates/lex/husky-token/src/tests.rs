@@ -36,7 +36,7 @@ fn token_sheet_works() {
         &VfsTestConfig::new(
             "token_sheet",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::KERNEL,
         ),
     )
 }

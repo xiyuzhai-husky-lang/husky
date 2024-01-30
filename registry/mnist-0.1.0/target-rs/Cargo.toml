@@ -1,0 +1,15 @@
+[workspace]
+members = ["mnist/linkages"]
+resolver = "2"
+
+[workspace.dependencies.ad-hoc-task-dependency]
+path = "../../ad-hoc-task-dependency"
+
+[workspace.dependencies.husky-core]
+path = "../../../library/core"
+
+[workspace.dependencies.mnist]
+path = ".."
+
+[workspace.dependencies.mnist-linkages]
+path = "mnist/linkages"

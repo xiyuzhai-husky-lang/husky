@@ -23,7 +23,7 @@ fn item_tree_presheet_works() {
         &AstTestConfig::new(
             "item_tree_presheet",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     )
 }

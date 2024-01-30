@@ -58,7 +58,7 @@ fn token_infer_sheet_works() {
         &AstTestConfig::new(
             "token_infer_sheet",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::IDE,
         ),
     )
 }

@@ -94,7 +94,7 @@ fn generate_linkage_storage_works() {
         &VfsTestConfig::new(
             "generate_linkage_storage",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::ExamplesOnly,
+            TestDomainsConfig::LINKTIME,
         ),
     );
 }

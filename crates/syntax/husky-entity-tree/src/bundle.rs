@@ -18,7 +18,7 @@ fn item_tree_crate_bundle_works() {
         &AstTestConfig::new(
             "item_tree_bundle",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     )
 }

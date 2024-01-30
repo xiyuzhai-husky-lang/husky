@@ -69,7 +69,7 @@ fn syn_node_decl_sheet_works() {
         &AstTestConfig::new(
             "syn_node_decl_sheet",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     );
 }
@@ -133,7 +133,7 @@ fn syn_decl_sheet_works() {
         &AstTestConfig::new(
             "syn_decl_sheet",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     );
 }

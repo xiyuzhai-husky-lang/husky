@@ -121,7 +121,7 @@ fn rust_transpilation_packages_works() {
         &AstTestConfig::new(
             "rust_transpilation_packages",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::COMPTIME,
         ),
     )
 }

@@ -25,7 +25,7 @@ fn folding_ranges_works() {
         &AstTestConfig::new(
             "folding_ranges",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::IDE,
         ),
     );
 }

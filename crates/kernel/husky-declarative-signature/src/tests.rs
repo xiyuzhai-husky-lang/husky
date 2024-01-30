@@ -56,7 +56,7 @@ fn module_declarative_signature_templates_works() {
         &AstTestConfig::new(
             "module_declarative_signature",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::KERNEL,
         ),
     )
 }

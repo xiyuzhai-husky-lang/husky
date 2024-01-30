@@ -24,7 +24,7 @@ fn ast_sheet_works() {
         &TokenTestConfig::new(
             "ast_sheet",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     );
 }

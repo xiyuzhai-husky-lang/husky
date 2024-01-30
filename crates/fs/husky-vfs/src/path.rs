@@ -131,7 +131,7 @@ fn resolve_module_path_works() {
         &VfsTestConfig::new(
             "resolve-module-path",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::FS,
         ),
     )
 }

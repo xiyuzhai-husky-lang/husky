@@ -38,7 +38,7 @@ fn module_relative_path_works() {
         &VfsTestConfig::new(
             "module_relative_path",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::FS,
         ),
     )
 }

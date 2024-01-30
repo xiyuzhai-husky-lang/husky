@@ -58,7 +58,7 @@ fn package_amazon_javelins_works() {
         &AstTestConfig::new(
             "package_amazon_javelins",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::LINKAGE,
         ),
     )
 }

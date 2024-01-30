@@ -111,7 +111,7 @@ fn ty_instance_constructor_path_declarative_ty_works() {
         &AstTestConfig::new(
             "ty_instance_constructor_path_declarative_ty",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::KERNEL,
         ),
     );
 }

@@ -113,7 +113,7 @@ fn module_item_syn_node_defns_works() {
         &AstTestConfig::new(
             "module_item_syn_node_defns",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     );
 }
@@ -138,7 +138,7 @@ fn module_item_syn_defns_works() {
         &AstTestConfig::new(
             "module_item_syn_defns",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     );
 }

@@ -62,7 +62,7 @@ fn decl_sema_expr_range_regions_works() {
         &AstTestConfig::new(
             "decl_sema_expr_range_regions",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SEMANTICS,
         ),
     );
 }
@@ -92,7 +92,7 @@ fn defn_sema_expr_range_regions_works() {
         &AstTestConfig::new(
             "defn_sema_expr_range_regions",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SEMANTICS,
         ),
     );
 }

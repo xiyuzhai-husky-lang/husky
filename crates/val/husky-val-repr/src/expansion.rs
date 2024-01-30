@@ -793,7 +793,7 @@ fn val_item_val_repr_expansions_works() {
         &AstTestConfig::new(
             "val_item_val_repr_expansions",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::VAL,
         ),
     )
 }
