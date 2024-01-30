@@ -57,6 +57,10 @@ impl DiagnosticSheet {
 fn diagnostic_sheet_works() {
     DB::ast_expect_test_debug_with_db(
         DiagnosticsDb::diagnostic_sheet,
-        &AstTestConfig::new("diagnostic_sheet"),
+        &AstTestConfig::new(
+            "diagnostic_sheet",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     );
 }

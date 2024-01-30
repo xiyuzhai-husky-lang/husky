@@ -1,0 +1,7 @@
+enum A {
+    UnitVariant,
+    PropsVariantWithOneField { x: i32 },
+    PropsVariantWithTwoFields { x: i32, y: f32 },
+    TupleVariantWithOneField(i32),
+    TupleVariantWithTwoFields(i32, f32),
+}

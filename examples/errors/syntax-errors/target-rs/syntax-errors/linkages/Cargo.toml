@@ -9,12 +9,6 @@ workspace = true
 [dependencies.husky-core]
 workspace = true
 
-[dependencies.malamute]
-workspace = true
-
-[dependencies.mnist]
-workspace = true
-
 [dependencies.syntax-errors]
 workspace = true
 

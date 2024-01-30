@@ -108,6 +108,10 @@ fn ty_instance_constructor_path_declarative_ty_works() {
                 })
                 .collect::<Vec<_>>()
         },
-        &AstTestConfig::new("ty_instance_constructor_path_declarative_ty"),
+        &AstTestConfig::new(
+            "ty_instance_constructor_path_declarative_ty",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     );
 }

@@ -16,7 +16,7 @@ fn main() {
     // clean_library_adversarials();
     // clean_tests()
     // restructure()
-    clean_target_rs()
+    // clean_target_rs()
 }
 
 pub fn clean_target_rs() {
@@ -31,8 +31,8 @@ pub fn clean_expect_files() {
         let expect_files_dir = dir.join("expect-files");
         if expect_files_dir.exists() {
             assert!(expect_files_dir.is_dir());
+            clear_directory(&expect_files_dir).unwrap();
         }
-        clear_directory(&expect_files_dir).unwrap();
     }
 }
 

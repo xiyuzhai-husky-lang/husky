@@ -247,6 +247,10 @@ fn val_item_val_repr_works() {
     let _db = DB::default();
     DB::ast_expect_test_debug_with_db(
         val_item_val_reprs,
-        &AstTestConfig::new("val_item_val_reprs"),
+        &AstTestConfig::new(
+            "val_item_val_reprs",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

@@ -31,8 +31,8 @@ impl VfsTestUnit for PackagePath {
         config: &VfsTestConfig,
     ) -> PathBuf {
         package_expect_files_dir
-            .join(config.test_name)
-            .with_extension(config.expect_file_extension())
+            .join(config.test_name())
+            .with_extension(config.expect_file_extension().str())
     }
 
     fn determine_adversarial_path(
@@ -63,7 +63,7 @@ impl VfsTestUnit for CratePath {
     ) -> PathBuf {
         package_expect_files_dir.join(format!(
             "{}/{}.{}",
-            config.test_name,
+            config.test_name(),
             match self.crate_kind(db) {
                 CrateKind::Lib => format!("lib"),
                 CrateKind::Main => format!("main"),
@@ -71,7 +71,7 @@ impl VfsTestUnit for CratePath {
                 CrateKind::IntegratedTest(_) => todo!(),
                 CrateKind::Example => todo!(),
             },
-            config.expect_file_extension()
+            config.expect_file_extension().str()
         ))
     }
 
@@ -108,7 +108,7 @@ impl VfsTestUnit for ModulePath {
             config: &VfsTestConfig,
         ) -> PathBuf {
             match module_path.data(db) {
-                ModulePathData::Root(_) => package_expect_files_dir.join(config.test_name),
+                ModulePathData::Root(_) => package_expect_files_dir.join(config.test_name()),
                 ModulePathData::Child { parent, ident } => {
                     determine_expect_file_aux_path(db, parent, package_expect_files_dir, config)
                         .join(ident.data(db))
@@ -126,9 +126,11 @@ impl VfsTestUnit for ModulePath {
                     CrateKind::IntegratedTest(_) => todo!(),
                     CrateKind::Example => todo!(),
                 },
-                config.expect_file_extension()
+                config.expect_file_extension().str()
             )),
-            ModulePathData::Child { .. } => aux_path.with_extension(config.expect_file_extension()),
+            ModulePathData::Child { .. } => {
+                aux_path.with_extension(config.expect_file_extension().str())
+            }
         }
     }
 
@@ -147,7 +149,7 @@ impl VfsTestUnit for ModulePath {
             config: &VfsTestConfig,
         ) -> PathBuf {
             match module_path.data(db) {
-                ModulePathData::Root(_) => package_adversarials_dir.join(config.test_name),
+                ModulePathData::Root(_) => package_adversarials_dir.join(config.test_name()),
                 ModulePathData::Child { parent, ident } => determine_adversarial_aux_path(
                     db,
                     adversarial_kind,

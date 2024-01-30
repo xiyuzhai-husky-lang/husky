@@ -64,7 +64,11 @@ fn decl_sema_expr_regions(db: &::salsa::Db, module_path: ModulePath) -> Vec<Sema
 fn decl_sema_expr_regions_works() {
     DB::ast_expect_test_debug_with_db(
         decl_sema_expr_regions,
-        &AstTestConfig::new("decl_sema_expr_regions"),
+        &AstTestConfig::new(
+            "decl_sema_expr_regions",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }
 
@@ -80,6 +84,10 @@ fn defn_sema_expr_regions(db: &::salsa::Db, module_path: ModulePath) -> Vec<Sema
 fn defn_sema_expr_regions_works() {
     DB::ast_expect_test_debug_with_db(
         defn_sema_expr_regions,
-        &AstTestConfig::new("defn_sema_expr_regions"),
+        &AstTestConfig::new(
+            "defn_sema_expr_regions",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

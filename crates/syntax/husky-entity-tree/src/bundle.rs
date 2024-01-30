@@ -3,8 +3,6 @@ use crate::*;
 use vec_like::VecMap;
 mod error;
 
-
-
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn item_tree_crate_bundle(
     db: &::salsa::Db,
@@ -17,7 +15,11 @@ pub(crate) fn item_tree_crate_bundle(
 fn item_tree_crate_bundle_works() {
     DB::ast_expect_test_debug_with_db(
         |db, crate_path| item_tree_crate_bundle(db, crate_path),
-        &AstTestConfig::new("item_tree_bundle"),
+        &AstTestConfig::new(
+            "item_tree_bundle",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }
 

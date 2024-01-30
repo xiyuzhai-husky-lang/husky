@@ -33,6 +33,10 @@ fn tokenize_works() {
 fn token_sheet_works() {
     DB::vfs_expect_test_debug_with_db(
         |db, module_path| db.token_sheet_data(module_path),
-        &VfsTestConfig::new("token_sheet"),
+        &VfsTestConfig::new(
+            "token_sheet",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

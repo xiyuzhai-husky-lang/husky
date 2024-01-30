@@ -42,7 +42,11 @@ fn collect_all_modules(db: &::salsa::Db, root: ModulePath, all_modules: &mut Vec
 fn submodules_works() {
     DB::ast_expect_test_debug_with_db(
         |db, module_path| db.submodules(module_path),
-        &AstTestConfig::new("submodules"),
+        &AstTestConfig::new(
+            "submodules",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }
 
@@ -50,6 +54,10 @@ fn submodules_works() {
 fn all_modules_works() {
     DB::ast_expect_test_debug_with_db(
         |db, crate_path| EntityTreeDb::all_modules_within_crate(db, crate_path),
-        &AstTestConfig::new("all_modules_within_crate"),
+        &AstTestConfig::new(
+            "all_modules_within_crate",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

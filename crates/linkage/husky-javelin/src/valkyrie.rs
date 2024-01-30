@@ -372,7 +372,11 @@ fn item_valkyrie_rides_works() {
                 .map(|&item_path| (item_path, item_valkyrie_rides(db, *item_path)))
                 .collect()
         },
-        &AstTestConfig::new("item_valkyrie_rides"),
+        &AstTestConfig::new(
+            "item_valkyrie_rides",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }
 
@@ -504,6 +508,10 @@ impl ValkyrieJavelinPantheon {
 fn package_javelin_pantheon_works() {
     DB::ast_expect_test_debug_with_db(
         |db, package_path| package_valkyrie_javelin_pantheon(db, package_path),
-        &AstTestConfig::new("package_javelin_pantheon"),
+        &AstTestConfig::new(
+            "package_javelin_pantheon",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

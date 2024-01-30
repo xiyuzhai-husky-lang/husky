@@ -1,0 +1,19 @@
+[package]
+name = "syntax-basics-linkages"
+edition = "2021"
+version = "0.1.0"
+
+[dependencies.ad-hoc-task-dependency]
+workspace = true
+
+[dependencies.husky-core]
+workspace = true
+
+[dependencies.syntax-basics]
+workspace = true
+
+[lib]
+plugin = false
+proc-macro = false
+required-features = []
+crate-type = ["cdylib"]

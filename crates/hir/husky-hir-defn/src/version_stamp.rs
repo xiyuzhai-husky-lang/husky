@@ -105,6 +105,10 @@ pub(crate) fn module_hir_defn_version_stamps(
 fn module_hir_defn_version_stamps_works() {
     DB::ast_expect_test_debug(
         module_hir_defn_version_stamps,
-        &AstTestConfig::new("module_hir_defn_version_stamps"),
+        &AstTestConfig::new(
+            "module_hir_defn_version_stamps",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

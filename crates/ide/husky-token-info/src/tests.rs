@@ -55,6 +55,10 @@ pub(crate) struct DB;
 fn token_infer_sheet_works() {
     DB::ast_expect_test_debug_with_db(
         TokenInfoDb::token_info_sheet,
-        &AstTestConfig::new("token_infer_sheet"),
+        &AstTestConfig::new(
+            "token_infer_sheet",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

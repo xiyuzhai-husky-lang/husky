@@ -118,7 +118,11 @@ fn rust_transpilation_packages_works() {
             let linktime_target_path = LinktimeTargetPath::new_package(package_path, db);
             rust_transpilation_packages(db, linktime_target_path)
         },
-        &AstTestConfig::new("rust_transpilation_packages"),
+        &AstTestConfig::new(
+            "rust_transpilation_packages",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }
 

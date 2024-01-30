@@ -110,7 +110,11 @@ fn module_item_syn_node_defns_works() {
 
     DB::ast_expect_test_debug_with_db(
         |db, module_path: ModulePath| module_item_syn_node_defns(db, module_path),
-        &AstTestConfig::new("module_item_syn_node_defns"),
+        &AstTestConfig::new(
+            "module_item_syn_node_defns",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     );
 }
 
@@ -131,6 +135,10 @@ fn module_item_syn_defns_works() {
 
     DB::ast_expect_test_debug_with_db(
         |db, module_path: ModulePath| module_item_syn_defns(db, module_path),
-        &AstTestConfig::new("module_item_syn_defns"),
+        &AstTestConfig::new(
+            "module_item_syn_defns",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     );
 }

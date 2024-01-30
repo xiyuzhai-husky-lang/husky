@@ -1,5 +1,6 @@
 use crate::*;
 
+use salsa::DebugWithDb;
 use vec_like::VecPairMap;
 
 #[salsa::debug_with_db]
@@ -188,15 +189,23 @@ impl HasEntityTreeSheet for ModulePath {
 pub(crate) fn item_tree_sheet(db: &::salsa::Db, module_path: ModulePath) -> &EntityTreeSheet {
     let crate_path = module_path.crate_path(db);
     let item_tree_bundle = item_tree_crate_bundle(db, crate_path);
-    item_tree_bundle
-        .get_sheet(module_path)
-        .expect("module should be guaranteed to be valid!!")
+    let Some(sheet) = item_tree_bundle.get_sheet(module_path) else {
+        unreachable!(
+            "module {:?} should be guaranteed to be valid!!",
+            module_path.debug(db)
+        )
+    };
+    sheet
 }
 
 #[test]
 fn item_tree_sheet_works() {
     DB::ast_expect_test_debug_with_db(
         |db, module_path| item_tree_sheet(db, module_path),
-        &AstTestConfig::new("item_tree_sheet"),
+        &AstTestConfig::new(
+            "item_tree_sheet",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

@@ -66,7 +66,11 @@ fn syn_node_decl_sheet_works() {
 
     DB::ast_expect_test_debug_with_db(
         |db, module_path| db.syn_node_decl_sheet(module_path),
-        &AstTestConfig::new("syn_node_decl_sheet"),
+        &AstTestConfig::new(
+            "syn_node_decl_sheet",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     );
 }
 
@@ -126,6 +130,10 @@ fn syn_decl_sheet_works() {
 
     DB::ast_expect_test_debug_with_db(
         |db, module_path| db.syn_decl_sheet(module_path),
-        &AstTestConfig::new("syn_decl_sheet"),
+        &AstTestConfig::new(
+            "syn_decl_sheet",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     );
 }

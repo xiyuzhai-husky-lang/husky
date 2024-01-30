@@ -112,9 +112,11 @@ fn module_defn_rust_transpilation_works() {
             let setup = TranspilationSetup::new_ad_hoc(package_path, db);
             crate::defn::module_defn_rust_transpilation(db, module_path, setup).to_string()
         },
-        &AstTestConfig::new("module_defn_rust_transpilation")
-            .with_vfs_test_domains_config(VfsTestDomainsConfig::ExcludeLibrary)
-            .with_expect_file_extension("rs"),
+        &AstTestConfig::new(
+            "module_defn_rust_transpilation",
+            FileExtensionConfig::Rust,
+            VfsTestDomainsConfig::ExcludeLibrary,
+        ),
     );
 }
 

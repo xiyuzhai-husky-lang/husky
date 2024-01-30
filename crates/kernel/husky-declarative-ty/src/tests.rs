@@ -64,6 +64,10 @@ fn major_item_declarative_tys(
 fn item_declarative_tys_works() {
     DB::ast_expect_test_debug_with_db(
         major_item_declarative_tys,
-        &AstTestConfig::new("major_item_declarative_tys"),
+        &AstTestConfig::new(
+            "major_item_declarative_tys",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

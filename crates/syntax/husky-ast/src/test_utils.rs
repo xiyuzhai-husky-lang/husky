@@ -1,7 +1,5 @@
 pub use husky_token::test_utils::*;
 
-
-
 /// will have more robustness tests based on token level information than `TokenTestUtils`
 pub trait AstTestUtils: TokenTestUtils {
     /// only run to see whether the program will panic
@@ -79,9 +77,13 @@ pub struct AstTestConfig<'a> {
 }
 
 impl<'a> AstTestConfig<'a> {
-    pub fn new(test_name: &'a str) -> Self {
+    pub fn new(
+        test_name: &'a str,
+        expect_file_extension: FileExtensionConfig,
+        test_domains_config: VfsTestDomainsConfig,
+    ) -> Self {
         Self {
-            token: TokenTestConfig::new(test_name),
+            token: TokenTestConfig::new(test_name, expect_file_extension, test_domains_config),
         }
     }
 }
@@ -91,20 +93,5 @@ impl<'a> std::ops::Deref for AstTestConfig<'a> {
 
     fn deref(&self) -> &Self::Target {
         &self.token
-    }
-}
-
-impl<'a> AstTestConfig<'a> {
-    pub fn with_vfs_test_domains_config(
-        mut self,
-        test_domains_config: VfsTestDomainsConfig,
-    ) -> Self {
-        self.token = self.token.with_vfs_test_domains_config(test_domains_config);
-        self
-    }
-
-    pub fn with_expect_file_extension(mut self, expect_file_extension: &'a str) -> Self {
-        self.token = self.token.with_expect_file_extension(expect_file_extension);
-        self
     }
 }

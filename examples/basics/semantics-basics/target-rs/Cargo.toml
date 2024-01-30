@@ -1,0 +1,15 @@
+[workspace]
+members = ["semantics-basics", "semantics-basics/linkages"]
+resolver = "2"
+
+[workspace.dependencies.ad-hoc-task-dependency]
+path = "../../../../registry/ad-hoc-task-dependency"
+
+[workspace.dependencies.husky-core]
+path = "../../../../library/core"
+
+[workspace.dependencies.semantics-basics]
+path = "semantics-basics"
+
+[workspace.dependencies.semantics-basics-linkages]
+path = "semantics-basics/linkages"

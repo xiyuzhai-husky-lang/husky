@@ -1,0 +1,9 @@
+[
+    `syntax_basics`,
+    `syntax_basics::ast`,
+    `syntax_basics::uses`,
+    `syntax_basics::defn`,
+    `syntax_basics::defn::major_item`,
+    `syntax_basics::defn::major_item::ty`,
+    `syntax_basics::defn::major_item::ty::enum_ty`,
+]
