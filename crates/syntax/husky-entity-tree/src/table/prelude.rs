@@ -53,26 +53,30 @@ pub(crate) fn none_core_crate_universal_prelude(
     let coword_menu = coword_menu(db);
     let core_prelude_module = vfs_path_menu.core_prelude().inner();
     let mut table = EntitySymbolTable::default();
-    table.push(EntitySymbolEntry {
-        ident: coword_menu.core_ident(),
-        visibility: Scope::Pub,
-        symbol: EntitySymbol::UniversalPrelude {
-            item_path: vfs_path_menu.core_root().into(),
-        },
-    });
-    table.extend(
-        item_tree_sheet(db, core_prelude_module)
-            .module_symbols()
-            .data()
-            .iter()
-            .map(|entry| EntitySymbolEntry {
-                ident: entry.ident,
-                visibility: Scope::Pub,
-                symbol: EntitySymbol::UniversalPrelude {
-                    item_path: entry.symbol.principal_entity_path(db),
-                },
-            }),
-    );
+    table
+        .push(EntitySymbolEntry {
+            ident: coword_menu.core_ident(),
+            visibility: Scope::Pub,
+            symbol: EntitySymbol::UniversalPrelude {
+                item_path: vfs_path_menu.core_root().into(),
+            },
+        })
+        .unwrap();
+    table
+        .extend(
+            item_tree_sheet(db, core_prelude_module)
+                .module_symbols()
+                .data()
+                .iter()
+                .map(|entry| EntitySymbolEntry {
+                    ident: entry.ident,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::UniversalPrelude {
+                        item_path: entry.symbol.principal_entity_path(db),
+                    },
+                }),
+        )
+        .unwrap();
     table
 }
 

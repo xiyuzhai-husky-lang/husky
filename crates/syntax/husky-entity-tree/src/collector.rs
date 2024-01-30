@@ -12,7 +12,6 @@ pub(crate) struct EntityTreeCollector<'a> {
     crate_root_path: ModulePath,
     impl_registry: ImplBlockRegistry,
     presheets: VecMap<EntityTreePresheetMut<'a>>,
-    core_prelude_module: ModulePath,
     major_path_expr_arena: MajorPathExprArena,
 }
 
@@ -28,14 +27,12 @@ impl<'a> EntityTreeCollector<'a> {
         .expect("no repetitions");
         let toolchain = crate_path.toolchain(db);
         let path_menu = db.vfs_path_menu(toolchain);
-        let core_prelude_module = path_menu.core_prelude().inner();
         Self {
             db,
             crate_path,
             crate_root_path: crate_root,
             impl_registry: ImplBlockRegistry::default(),
             presheets,
-            core_prelude_module,
             major_path_expr_arena: Default::default(),
         }
     }

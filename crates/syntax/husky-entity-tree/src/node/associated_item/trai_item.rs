@@ -160,17 +160,6 @@ impl TraitItemSynNode {
     }
 }
 
-/// # getters
-impl TraitItemSynNode {
-    pub fn syn_node_path(&self) -> TraitItemSynNodePath {
-        self.syn_node_path
-    }
-
-    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
-        self.syn_node_path.module_path(db)
-    }
-}
-
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn trai_item_syn_nodes(
     db: &::salsa::Db,

@@ -18,10 +18,6 @@ impl EntitySymbolTable {
         EntitySymbolTableRef(&self.0)
     }
 
-    pub(crate) fn data<'a>(&'a self) -> &'a [EntitySymbolEntry] {
-        &self.0
-    }
-
     pub(crate) fn push(&mut self, new_entry: EntitySymbolEntry) -> EntityTreeResult<()> {
         // todo: should there be checks?
         self.0.push(new_entry);
@@ -286,9 +282,5 @@ impl ItemNodeEntry {
             visibility,
             node,
         })
-    }
-
-    pub(crate) fn syn_node(&self) -> &ItemSynNode {
-        &self.node
     }
 }

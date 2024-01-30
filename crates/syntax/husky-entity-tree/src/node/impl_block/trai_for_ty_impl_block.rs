@@ -41,7 +41,7 @@ impl TraitForTypeImplBlockSynNodePath {
         }
     }
 
-    pub fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a TraitForTypeImplBlockSynNode {
+    pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a TraitForTypeImplBlockSynNode {
         let module_path = self.module_path(db);
         let item_tree_sheet = db.item_syn_tree_sheet(module_path);
         item_tree_sheet.trai_for_ty_impl_block_syn_node(db, self)
@@ -179,14 +179,6 @@ impl TraitForTypeImplBlockSynNode {
 
     pub fn module_path(&self, db: &::salsa::Db) -> ModulePath {
         self.syn_node_path.path(db).module_path(db)
-    }
-
-    pub fn ty_sketch(&self, db: &::salsa::Db) -> TypeSketch {
-        self.syn_node_path.ty_sketch(db)
-    }
-
-    pub fn trai_path(&self, db: &::salsa::Db) -> TraitPath {
-        self.syn_node_path.path(db).trai_path(db)
     }
 
     pub(crate) fn trai_for_ty_impl_block_items(

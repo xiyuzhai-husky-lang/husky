@@ -95,21 +95,3 @@ impl HasSynNodePath for AssociatedItemPath {
         }
     }
 }
-
-#[salsa::debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub(crate) enum AssociatedItemSynNode {
-    TypeItem(TypeItemSynNode),
-    TraitItem(TraitItemSynNode),
-    TraitForTypeItem(TraitForTypeItemSynNode),
-}
-
-impl AssociatedItemSynNode {
-    pub fn syn_node_path(&self) -> AssociatedItemSynNodePath {
-        match self {
-            AssociatedItemSynNode::TypeItem(node) => node.syn_node_path.into(),
-            AssociatedItemSynNode::TraitItem(node) => node.syn_node_path().into(),
-            AssociatedItemSynNode::TraitForTypeItem(node) => node.syn_node_path().into(),
-        }
-    }
-}

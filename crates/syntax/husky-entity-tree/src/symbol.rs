@@ -71,10 +71,7 @@ impl EntitySymbol {
             ItemSynNode::MajorItem(node) => Some(EntitySymbol::MajorItem {
                 major_item_path: node.unambiguous_path(db)?,
             }),
-            ItemSynNode::AssociatedItem(_)
-            | ItemSynNode::TypeVariant(_)
-            | ItemSynNode::ImplBlock(_)
-            | ItemSynNode::Attr(_) => {
+            ItemSynNode::TypeVariant(_) | ItemSynNode::ImplBlock(_) | ItemSynNode::Attr(_) => {
                 unreachable!("these nodes shouldn't have been created at this stage")
             }
         }

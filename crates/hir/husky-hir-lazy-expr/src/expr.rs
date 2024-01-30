@@ -10,7 +10,7 @@ use husky_entity_path::{
     AssociatedItemPath, FugitivePath, MajorItemPath, PrincipalEntityPath, TraitForTypeItemPath,
     TypePath, TypeVariantPath,
 };
-use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature};
+use husky_fluffy_term::signature::{FluffyFieldSignature, MethodFluffySignature};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
     indirections::HirIndirections, instantiation::HirInstantiation, HirConstSymbol, HirType,
@@ -256,51 +256,57 @@ impl ToHirLazy for SemaExprIdx {
                 match *builder.sema_expr_arena_ref()[function_sema_expr_idx].data() {
                     SemaExprData::PrincipalEntityPath {
                         path,
-                        ref instantiation,
+                        // only None if `path` is an ontology constructor
+                        instantiation: Some(ref instantiation),
                         ..
-                    } => match path {
-                        PrincipalEntityPath::Module(_) => unreachable!(),
-                        PrincipalEntityPath::MajorItem(path) => match path {
-                            MajorItemPath::Type(path) => HirLazyExprData::TypeConstructorFnCall {
-                                path,
-                                // ad hoc
-                                instantiation: HirInstantiation::new_empty(false),
-                                item_groups,
+                    } => {
+                        let instantiation = HirInstantiation::from_fluffy(
+                            instantiation,
+                            builder.db(),
+                            builder.fluffy_terms(),
+                        );
+                        match path {
+                            PrincipalEntityPath::Module(_) => unreachable!(),
+                            PrincipalEntityPath::MajorItem(path) => match path {
+                                MajorItemPath::Type(path) => {
+                                    HirLazyExprData::TypeConstructorFnCall {
+                                        path,
+                                        instantiation,
+                                        item_groups,
+                                    }
+                                }
+                                MajorItemPath::Trait(_) => unreachable!(),
+                                MajorItemPath::Fugitive(path) => {
+                                    match path.fugitive_kind(builder.db()) {
+                                        FugitiveKind::FunctionFn => {
+                                            HirLazyExprData::FunctionFnItemCall {
+                                                path,
+                                                instantiation,
+                                                item_groups,
+                                            }
+                                        }
+                                        FugitiveKind::FunctionGn => {
+                                            HirLazyExprData::FunctionGnItemCall {
+                                                path,
+                                                instantiation,
+                                                item_groups,
+                                            }
+                                        }
+                                        FugitiveKind::AliasType
+                                        | FugitiveKind::Val
+                                        | FugitiveKind::Formal => unreachable!(),
+                                    }
+                                }
                             },
-                            MajorItemPath::Trait(_) => unreachable!(),
-                            MajorItemPath::Fugitive(path) => match path.fugitive_kind(builder.db())
-                            {
-                                FugitiveKind::FunctionFn => HirLazyExprData::FunctionFnItemCall {
+                            PrincipalEntityPath::TypeVariant(path) => {
+                                HirLazyExprData::TypeVariantConstructorFnCall {
                                     path,
-                                    instantiation: HirInstantiation::from_fluffy(
-                                        instantiation.as_ref().unwrap(),
-                                        builder.db(),
-                                        builder.fluffy_terms(),
-                                    ),
+                                    instantiation,
                                     item_groups,
-                                },
-                                FugitiveKind::FunctionGn => HirLazyExprData::FunctionGnItemCall {
-                                    path,
-                                    instantiation: HirInstantiation::from_fluffy(
-                                        instantiation.as_ref().unwrap(),
-                                        builder.db(),
-                                        builder.fluffy_terms(),
-                                    ),
-                                    item_groups,
-                                },
-                                FugitiveKind::AliasType
-                                | FugitiveKind::Val
-                                | FugitiveKind::Formal => unreachable!(),
-                            },
-                        },
-                        PrincipalEntityPath::TypeVariant(path) => {
-                            HirLazyExprData::TypeVariantConstructorFnCall {
-                                path,
-                                instantiation: todo!(),
-                                item_groups,
+                                }
                             }
                         }
-                    },
+                    }
                     SemaExprData::AssociatedItem { .. } => todo!(),
                     _ => todo!(),
                 }

@@ -1,5 +1,3 @@
-
-
 use super::*;
 use crate::ParentUseExprData;
 use husky_entity_kind::TypeKind;
@@ -30,20 +28,6 @@ pub(crate) enum PresheetAction {
         rule_idx: OnceUseRuleIdx,
         error: EntityTreeError,
     },
-}
-
-impl PresheetAction {
-    pub(crate) fn module_path(&self) -> ModulePath {
-        match *self {
-            PresheetAction::ResolveUseExpr { module_path, .. }
-            | PresheetAction::UpdateUseAllRule {
-                rule_module_path: module_path,
-                ..
-            }
-            | PresheetAction::Err { module_path, .. }
-            | PresheetAction::UseAllTypeVariants { module_path, .. } => module_path,
-        }
-    }
 }
 
 impl<'a> EntityTreePresheetMut<'a> {
@@ -373,16 +357,6 @@ impl<'a> EntityTreePresheetMut<'a> {
         error: EntityTreeError,
     ) {
         let rule = &mut self.once_use_rules[rule_idx];
-        self.errors.push(error);
-        rule.mark_as_erroneous()
-    }
-
-    pub(crate) fn mark_use_all_rule_as_erroneous(
-        &mut self,
-        rule_idx: UseAllModuleSymbolsRuleIdx,
-        error: EntityTreeError,
-    ) {
-        let rule = &mut self.all_module_items_use_rules[rule_idx];
         self.errors.push(error);
         rule.mark_as_erroneous()
     }

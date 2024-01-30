@@ -155,8 +155,4 @@ impl MajorItemSynNode {
     pub fn unambiguous_path(&self, db: &::salsa::Db) -> Option<MajorItemPath> {
         self.syn_node_path.path(db)
     }
-
-    pub fn ident(&self) -> Ident {
-        self.ident_token.ident()
-    }
 }

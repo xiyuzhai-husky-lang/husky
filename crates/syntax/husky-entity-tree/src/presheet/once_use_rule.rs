@@ -38,12 +38,9 @@ impl OnceUseRules {
 
     #[cfg(test)]
     pub(crate) fn check_done(&self, db: &::salsa::Db) {
-        use husky_print_utils::p;
-
         for tracker in self.0.iter() {
             match tracker.state {
                 UseOneRuleState::Unresolved => {
-                    p!(tracker.debug(db));
                     panic!()
                 }
                 UseOneRuleState::Resolved { .. } | UseOneRuleState::Erroneous => (),

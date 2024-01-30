@@ -29,11 +29,11 @@ impl TypeVariantHirDecl {
         }
     }
 
-    pub fn hir_expr_region(self, _db: &::salsa::Db) -> HirExprRegion {
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
         match self {
-            TypeVariantHirDecl::Props(_) => todo!(),
-            TypeVariantHirDecl::Unit(_) => todo!(),
-            TypeVariantHirDecl::Tuple(_) => todo!(),
+            TypeVariantHirDecl::Props(slf) => slf.hir_eager_expr_region(db).into(),
+            TypeVariantHirDecl::Unit(slf) => slf.hir_eager_expr_region(db).into(),
+            TypeVariantHirDecl::Tuple(slf) => slf.hir_eager_expr_region(db).into(),
         }
     }
 }

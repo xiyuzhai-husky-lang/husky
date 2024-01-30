@@ -133,8 +133,4 @@ impl AttrSynNode {
     pub(crate) fn syn_node_path(&self) -> AttrSynNodePath {
         self.syn_node_path
     }
-
-    pub(crate) fn ast_idx(&self) -> ArenaIdx<Ast> {
-        self.ast_idx
-    }
 }
