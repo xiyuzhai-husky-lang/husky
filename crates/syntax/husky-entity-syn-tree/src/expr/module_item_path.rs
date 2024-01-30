@@ -173,7 +173,7 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
             PathNameToken::Ident(ident_token) => {
                 let path = self
                     .item_tree_symbol_context
-                    .resolve_subitem(parent.into(), ident_token.ident())
+                    .resolve_subitem_symbol(parent.into(), ident_token.ident())
                     .ok_or(OriginalMajorPathExprError::NoSuchSubitem)?
                     .principal_entity_path(self.db);
                 path.major()

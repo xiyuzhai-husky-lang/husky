@@ -320,7 +320,7 @@ EntitySynTreePresheet {
             },
         ],
     },
-    use_one_rules: UseOneRules(
+    once_use_rules: OnceUseRules(
         [],
     ),
     use_all_rules: UseAllRules(

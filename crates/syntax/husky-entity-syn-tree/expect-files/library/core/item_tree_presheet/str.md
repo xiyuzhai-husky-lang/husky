@@ -112,7 +112,7 @@ EntitySynTreePresheet {
             },
         ],
     },
-    use_one_rules: UseOneRules(
+    once_use_rules: OnceUseRules(
         [
             OnceUseRule {
                 ast_idx: 1,

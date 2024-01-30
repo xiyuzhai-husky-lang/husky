@@ -10,7 +10,7 @@ pub struct EntitySynTreeSheet {
     item_symbol_table: EntitySymbolTable,
     // todo: split this into ty impl block and trai for ty impl block
     impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
-    once_use_rules: UseOneRules,
+    once_use_rules: OnceUseRules,
     use_all_rules: UseAllRules,
     errors: Vec<EntitySynTreeError>,
 }
@@ -35,7 +35,7 @@ impl EntitySynTreeSheet {
         module_path: ModulePath,
         major_item_node_table: MajorEntityNodeTable,
         item_symbol_table: EntitySymbolTable,
-        once_use_rules: UseOneRules,
+        once_use_rules: OnceUseRules,
         use_all_rules: UseAllRules,
         errors: Vec<EntitySynTreeError>,
         impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,

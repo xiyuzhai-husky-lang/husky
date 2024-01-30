@@ -1,9 +1,9 @@
 mod action;
+mod once_use_rule;
 mod use_all_rule;
-mod use_one_rule;
 
+pub use once_use_rule::*;
 pub use use_all_rule::*;
-pub use use_one_rule::*;
 
 pub(crate) use action::*;
 
@@ -32,7 +32,7 @@ fn item_tree_presheet_works() {
 pub struct EntitySynTreePresheet {
     module_path: ModulePath,
     major_item_node_table: MajorEntityNodeTable,
-    use_one_rules: UseOneRules,
+    once_use_rules: OnceUseRules,
     use_all_rules: UseAllRules,
     use_expr_arena: UseExprArena,
 }
@@ -51,7 +51,7 @@ impl EntitySynTreePresheet {
             module_path: self.module_path,
             node_table: self.major_item_node_table.clone(),
             symbol_table: self.major_item_node_table.item_symbol_table(db),
-            use_one_rules: self.use_one_rules.clone(),
+            once_use_rules: self.once_use_rules.clone(),
             all_module_items_use_rules: self.use_all_rules.clone(),
             errors: vec![],
             use_expr_arena: &self.use_expr_arena,
@@ -68,7 +68,7 @@ pub(crate) struct EntityTreePresheetMut<'a> {
     module_path: ModulePath,
     node_table: MajorEntityNodeTable,
     symbol_table: EntitySymbolTable,
-    use_one_rules: UseOneRules,
+    once_use_rules: OnceUseRules,
     all_module_items_use_rules: UseAllRules,
     errors: Vec<EntitySynTreeError>,
     use_expr_arena: &'a UseExprArena,
@@ -92,7 +92,7 @@ impl<'a> EntityTreePresheetMut<'a> {
             self.module_path,
             self.node_table,
             self.symbol_table,
-            self.use_one_rules,
+            self.once_use_rules,
             self.all_module_items_use_rules,
             self.errors,
             impl_block_syn_node_table,
@@ -101,7 +101,7 @@ impl<'a> EntityTreePresheetMut<'a> {
 
     #[cfg(test)]
     pub(crate) fn check_done(&self, db: &::salsa::Db) {
-        self.use_one_rules.check_done(db)
+        self.once_use_rules.check_done(db)
     }
 
     #[cfg(test)]
@@ -128,7 +128,7 @@ struct EntityTreePresheetBuilder<'a> {
     token_sheet_data: &'a TokenSheetData,
     item_node_table: MajorEntityNodeTable,
     use_expr_arena: UseExprArena,
-    item_use_trackers: UseOneRules,
+    item_use_trackers: OnceUseRules,
     registry: ItemSynNodePathRegistry,
 }
 
@@ -153,22 +153,22 @@ impl<'a> EntityTreePresheetBuilder<'a> {
         EntitySynTreePresheet {
             module_path: self.module_path,
             major_item_node_table: self.item_node_table,
-            use_one_rules: self.item_use_trackers,
+            once_use_rules: self.item_use_trackers,
             use_all_rules: Default::default(),
             use_expr_arena: self.use_expr_arena,
         }
     }
 
     fn process(&mut self, ast_idx: AstIdx, ast: &Ast) {
-        match ast {
+        match *ast {
             Ast::Use {
                 token_group_idx,
-                visibility_expr,
+                ref visibility_expr,
                 state_after_visibility_expr,
             } => {
                 let mut token_stream = self
                     .token_sheet_data
-                    .token_group_token_stream(*token_group_idx, *state_after_visibility_expr);
+                    .token_group_token_stream(token_group_idx, state_after_visibility_expr);
                 let Ok(use_expr_root) =
                     parse_use_expr_root(&mut token_stream, &mut self.use_expr_arena)
                 else {
@@ -185,22 +185,21 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                 }
             }
             Ast::Identifiable {
-                visibility_expr,
+                ref visibility_expr,
                 ident_token,
                 block,
                 ..
             } => {
                 let visibility = visibility_expr.visibility();
-                let _ident = ident_token.ident();
                 if let Some(item_path) = block.item_path() {
                     self.item_node_table.try_add_new_node(
                         self.db,
                         &mut self.registry,
                         visibility,
                         ast_idx,
-                        *ident_token,
+                        ident_token,
                         item_path,
-                        *block,
+                        block,
                     )
                 }
             }

@@ -52,7 +52,7 @@ impl<'a> EntityTreePresheetMut<'a> {
         ctx: EntityTreeSymbolContext<'a, '_>,
         actions: &mut Vec<PresheetAction>,
     ) {
-        for (rule_idx, rule) in self.use_one_rules.indexed_iter() {
+        for (rule_idx, rule) in self.once_use_rules.indexed_iter() {
             if rule.is_unresolved() {
                 self.collect_possible_actions_from_once_use_rule(rule_idx, rule, &ctx, actions)
             }
@@ -92,7 +92,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                     ..
                 } => (
                     ident_token.into(),
-                    ctx.resolve_subitem(parent_major_entity_path, ident_token.ident())
+                    ctx.resolve_subitem_symbol(parent_major_entity_path, ident_token.ident())
                         .ok_or(t(ident_token)),
                 ),
                 OnceUseRuleVariant::Parent {
@@ -182,7 +182,7 @@ impl<'a> EntityTreePresheetMut<'a> {
         _name_token: PathNameToken,
         original_symbol: EntitySymbol,
     ) {
-        let rule = &mut self.use_one_rules[rule_idx];
+        let rule = &mut self.once_use_rules[rule_idx];
         #[cfg(test)]
         assert!(rule.is_unresolved());
         rule.mark_as_resolved(original_symbol);
@@ -191,7 +191,7 @@ impl<'a> EntityTreePresheetMut<'a> {
             OnceUseRuleVariant::Parent { children, .. } => {
                 for child_use_expr_idx in children {
                     let use_expr = &self.use_expr_arena[child_use_expr_idx];
-                    let rule = &self.use_one_rules[rule_idx];
+                    let rule = &self.once_use_rules[rule_idx];
                     match use_expr {
                         UseExpr::All { star_token: _ } => match path {
                             PrincipalEntityPath::Module(parent_path) => {
@@ -209,7 +209,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                                     MajorItemPath::Type(parent_ty_path) => {
                                         match parent_ty_path.ty_kind(db) {
                                             TypeKind::Enum | TypeKind::Inductive => {
-                                                self.use_one_rules.push(rule.new_nonroot(
+                                                self.once_use_rules.push(rule.new_nonroot(
                                                     child_use_expr_idx,
                                                     parent_ty_path.into(),
                                                     original_symbol,
@@ -237,7 +237,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                                         ident_token: *ident_token,
                                     },
                                 );
-                                self.use_one_rules.push(new_rule)
+                                self.once_use_rules.push(new_rule)
                             }
                             None => todo!(),
                         },
@@ -256,7 +256,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                                         children: children.idx_range(),
                                     },
                                 );
-                                self.use_one_rules.push(new_rule)
+                                self.once_use_rules.push(new_rule)
                             }
                             None => todo!(),
                         },
@@ -302,7 +302,7 @@ impl<'a> EntityTreePresheetMut<'a> {
         rule_idx: OnceUseRuleIdx,
         new_uses: Vec<EntitySymbolEntry>,
     ) {
-        self.use_one_rules[rule_idx].mark_as_resolved(None);
+        self.once_use_rules[rule_idx].mark_as_resolved(None);
         match self.symbol_table.extend(new_uses) {
             Ok(_) => (),
             Err(_) => todo!(),
@@ -314,7 +314,7 @@ impl<'a> EntityTreePresheetMut<'a> {
         rule_idx: OnceUseRuleIdx,
         error: EntitySynTreeError,
     ) {
-        let rule = &mut self.use_one_rules[rule_idx];
+        let rule = &mut self.once_use_rules[rule_idx];
         self.errors.push(error);
         rule.mark_as_erroneous()
     }
