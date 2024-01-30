@@ -120,18 +120,6 @@ impl<'a> TokenStream<'a> {
         }
     }
 
-    pub fn peek_next_bra(&mut self) -> Option<Bracket> {
-        if self.next_relative.index() < self.tokens.len() {
-            match self.tokens[self.next_relative.index()] {
-                TokenData::Punctuation(_punct) => todo!(),
-                //  punct.opt_bra(),
-                _ => None,
-            }
-        } else {
-            None
-        }
-    }
-
     pub fn is_next_ident(&mut self) -> bool {
         match self.peek() {
             Some(token) => match token {

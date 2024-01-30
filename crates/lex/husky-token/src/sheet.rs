@@ -105,7 +105,6 @@ impl RangedTokenSheet {
             .map(|i| TokenIdx::from_index(i))
     }
 
-    // todo: test this
     pub fn search_token_by_position(&self, pos: TextPosition) -> Option<TokenIdx> {
         let index = match self
             .token_ranges
@@ -116,15 +115,6 @@ impl RangedTokenSheet {
         };
         (self.token_ranges[index].end > pos).then(|| TokenIdx::from_index(index))
     }
-
-    // pub fn tokens_text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
-    //     let start = token_idx_range.start().index();
-    //     let end = token_idx_range.end().index();
-    //     if start >= end {
-    //         todo!()
-    //     }
-    //     self.token_ranges[start].join(self.token_ranges[end - 1])
-    // }
 
     pub fn token_sheet_data<'a>(&self, db: &'a ::salsa::Db) -> &'a TokenSheetData {
         self.token_sheet.data(db)
@@ -320,7 +310,7 @@ impl RangedTokenSheet {
             true => {
                 let next_token_idx_index = token_stream_state.next_token_idx().index();
                 match next_token_idx_index {
-                    0 => todo!(),
+                    0 => TextRange::default(),
                     _ => self.token_ranges[(next_token_idx_index - 1) as usize].right_after(),
                 }
             }

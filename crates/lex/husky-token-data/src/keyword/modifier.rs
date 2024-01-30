@@ -31,7 +31,7 @@ impl From<ModifierKeyword> for TokenData {
 }
 
 impl ModifierKeyword {
-    pub const fn code(self) -> &'static str {
+    pub fn code(self) -> &'static str {
         match self {
             ModifierKeyword::Mut => "mut",
             ModifierKeyword::Ref => "ref",

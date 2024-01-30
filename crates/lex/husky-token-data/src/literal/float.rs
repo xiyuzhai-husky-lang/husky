@@ -16,10 +16,12 @@ pub struct UnspecifiedFloatLiteral {
     pub data: String,
 }
 
-impl Neg for FloatLiteralData {
-    type Output = Self;
-
-    fn neg(self) -> Self::Output {
-        todo!()
+impl FloatLiteralData {
+    pub fn negative(self, db: &::salsa::Db) -> Self {
+        match self {
+            FloatLiteralData::Unspecified(slf) => todo!(),
+            FloatLiteralData::F32(slf) => todo!(),
+            FloatLiteralData::F64(slf) => todo!(),
+        }
     }
 }

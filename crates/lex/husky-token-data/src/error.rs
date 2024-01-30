@@ -27,8 +27,12 @@ pub enum TokenDataError {
     InvalidIdent,
     #[error("nothing after `'`")]
     NothingAfterSingleQuote,
+    #[error("new line after `'`")]
+    NewLineAfterSingleQuote,
     #[error("InvalidLabel")]
     InvalidLabel,
+    #[error("NoNegativeForLiteral")]
+    NoNegativeForLiteral(LiteralData),
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]

@@ -22,7 +22,7 @@ pub enum StmtKeyword {
 }
 
 impl StmtKeyword {
-    pub const fn code(self) -> &'static str {
+    pub fn code(self) -> &'static str {
         match self {
             StmtKeyword::Let => "let",
             StmtKeyword::If => "if",

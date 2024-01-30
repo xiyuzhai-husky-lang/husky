@@ -14,7 +14,7 @@ pub enum FugitiveKeyword {
 }
 
 impl FugitiveKeyword {
-    pub const fn code(self) -> &'static str {
+    pub fn code(self) -> &'static str {
         match self {
             FugitiveKeyword::Def => "def",
             FugitiveKeyword::Fn => "fn",

@@ -188,10 +188,10 @@ where
                         Ok(Some(WhileRegionalToken { regional_token_idx }.into()))
                     }
                     StmtKeyword::Do => Ok(Some(DoRegionalToken { regional_token_idx }.into())),
-                    StmtKeyword::If => todo!(),
-                    StmtKeyword::Elif => todo!(),
-                    StmtKeyword::Else => todo!(),
-                    StmtKeyword::Match => todo!(),
+                    StmtKeyword::If
+                    | StmtKeyword::Elif
+                    | StmtKeyword::Else
+                    | StmtKeyword::Match => Ok(None),
                 },
                 TokenData::Error(error) => Err(error),
                 TokenData::Label(_)

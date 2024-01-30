@@ -33,14 +33,6 @@ impl<'a> std::fmt::Debug for Text<'a> {
     }
 }
 
-impl<'a> std::ops::Index<TextRange> for Text<'a> {
-    type Output = str;
-
-    fn index(&self, _index: TextRange) -> &Self::Output {
-        todo!()
-    }
-}
-
 impl<'a> std::ops::Index<std::ops::Range<(u32, u32)>> for Text<'a> {
     type Output = str;
 
@@ -50,14 +42,6 @@ impl<'a> std::ops::Index<std::ops::Range<(u32, u32)>> for Text<'a> {
 }
 
 impl<'a> Text<'a> {
-    // pub(crate) fn new(content: impl Into<String>) -> Self {
-    //     let content: String = content.into();
-    //     Self {
-    //         line_map: LineMap::new(&content),
-    //         content,
-    //     }
-    // }
-
     pub fn text_within(self, range: TextRange) -> &'a str {
         &self.raw_text[self.line_map.offset_range(range)]
     }

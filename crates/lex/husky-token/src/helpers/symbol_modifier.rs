@@ -36,7 +36,7 @@ impl Into<TermContract> for EphemSymbolModifierTokenGroup {
             EphemSymbolModifierTokenGroup::RefMut(..) => TermContract::BorrowMut,
             EphemSymbolModifierTokenGroup::Ambersand(_, _) => TermContract::Borrow,
             EphemSymbolModifierTokenGroup::AmbersandMut(_, _, _) => TermContract::BorrowMut,
-            EphemSymbolModifierTokenGroup::Le(_) => todo!(),
+            EphemSymbolModifierTokenGroup::Le(_) => TermContract::Leash,
             EphemSymbolModifierTokenGroup::Tilde(_) => TermContract::Leash,
         }
     }

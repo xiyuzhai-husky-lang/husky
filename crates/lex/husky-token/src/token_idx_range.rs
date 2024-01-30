@@ -158,14 +158,9 @@ impl<T> HasTokenIdxRange for [T]
 where
     T: HasTokenIdxRange,
 {
+    /// assuming non empty
+    #[track_caller]
     fn token_idx_range(&self) -> TokenIdxRange {
-        if self.len() == 0 {
-            todo!();
-            // return TokenIdxRange {
-            //     start: TokenIdxRangeStart(TokenIdx(0)),
-            //     end: TokenIdxRangeEnd(TokenIdx(0)),
-            // };
-        }
         TokenIdxRange {
             start: self.first().unwrap().token_idx_range().start,
             end: self.last().unwrap().token_idx_range().end,
