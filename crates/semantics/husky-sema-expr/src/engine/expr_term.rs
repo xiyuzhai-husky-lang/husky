@@ -138,7 +138,7 @@ impl<'a> SemaExprEngine<'a> {
                                                                 ) => {
                                                                     match float_ty_path {
                                                     PreludeFloatTypePath::F32 => TermLiteral::F32(
-                                                        TermF32Literal::try_new(lit.data(self.db).to_string(),self.db) .expect("todo"),
+                                                        TermF32Literal::try_new(lit.text(self.db).to_string(),self.db) .expect("todo"),
                                                     ),
                                                     PreludeFloatTypePath::F64 => TermLiteral::F64(
                                                         todo!(), // lit.data(self.db).parse().expect("todo"),

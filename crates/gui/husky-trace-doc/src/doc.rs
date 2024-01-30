@@ -3,7 +3,7 @@ use crate::{view::TraceDocView, *};
 use egui::*;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
 use husky_task_interface::pedestal::IsPedestal;
-use husky_visual_protocol::visual::image::{BinaryImageVisualData, ImageVisualData};
+
 use std::{path::PathBuf, sync::Arc};
 
 use husky_trace_protocol::{

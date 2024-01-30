@@ -13,7 +13,7 @@ pub use self::package_path::*;
 pub use self::virtual_path::*;
 
 use crate::*;
-use husky_minimal_toml_utils::read_package_name_string_from_manifest;
+
 
 #[salsa::tracked(jar = VfsJar)]
 pub(crate) fn module_virtual_path(

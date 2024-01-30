@@ -16,7 +16,7 @@ pub use std::path::{Path, PathBuf};
 #[cfg(test)]
 use self::tests::*;
 use husky_check_utils::should_satisfy;
-use husky_coword::Kebab;
+
 use relative_path::{RelativePath, RelativePathBuf};
 
 pub fn path_has_file_name(path: &Path, name: &str) -> bool {
@@ -144,7 +144,7 @@ fn collect_husky_package_dirs_aux(db: &::salsa::Db, dir: &Path, pack_paths: &mut
             collect_husky_package_dirs_aux(db, &subpath, pack_paths)
         }
     }
-    if let Some(name) = read_package_name_string_from_manifest(&manifest_path) {
+    if let Some(_name) = read_package_name_string_from_manifest(&manifest_path) {
         pack_paths.push(dir.to_owned())
     }
 }
@@ -175,7 +175,7 @@ fn collect_package_relative_dirs_aux(
             )
         }
     }
-    if let Some(name) = read_package_name_string_from_manifest(&manifest_path.to_logical_path(base))
+    if let Some(_name) = read_package_name_string_from_manifest(&manifest_path.to_logical_path(base))
     {
         pack_paths.push(dir.to_owned())
     }

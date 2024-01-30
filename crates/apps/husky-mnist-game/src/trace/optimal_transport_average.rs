@@ -1,12 +1,8 @@
-use self::{
-    alg::ot::optimal_transport_for_2d_points,
-    input::Input,
-    skeleton::{MnistBone, MnistSkeleton},
-};
+
 use super::*;
 use crate::trace::optimal_transport::OptimalTransport;
 use husky_visual_protocol::visual::shape::{Color, Point};
-use ndarray::Array2;
+
 
 pub struct OptimalTransportAverage {
     source_points: Vec<Point>,
@@ -45,7 +41,7 @@ impl Visualize for OptimalTransportAverage {
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         assert_eq!(self.source_points.len(), self.average_target_points.len());
         let n = self.source_points.len();
-        let mut elements: Vec<Visual> = (0..n)
+        let elements: Vec<Visual> = (0..n)
             .into_iter()
             .map(|i| {
                 let start = self.source_points[i].into();

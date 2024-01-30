@@ -23,7 +23,7 @@ impl IllFormedImplBlockSynNodePath {
 
     pub(crate) fn associated_items(
         self,
-        db: &::salsa::Db,
+        _db: &::salsa::Db,
     ) -> &[(Ident, IllFormedItemSynNodePath, IllFormedItemSynNode)] {
         // ill_formed_impl_block_items(db, self)
         // ad hoc

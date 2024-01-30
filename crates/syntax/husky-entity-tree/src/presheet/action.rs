@@ -1,4 +1,4 @@
-use std::ops::ControlFlow;
+
 
 use super::*;
 use crate::ParentUseExprData;
@@ -202,7 +202,7 @@ impl<'a> EntityTreePresheetMut<'a> {
         rule_idx: OnceUseRuleIdx,
         original_symbol: EntitySymbol,
         path: PrincipalEntityPath,
-        db: &salsa::Db,
+        _db: &salsa::Db,
         name_token: PathNameToken,
     ) {
         let rule = &mut self.once_use_rules[rule_idx];

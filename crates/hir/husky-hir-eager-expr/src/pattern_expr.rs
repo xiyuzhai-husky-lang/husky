@@ -2,7 +2,6 @@ use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
 use husky_term_prelude::literal::{
-    int::{TermI64Literal, TermR64Literal, TermU64Literal, TermUSizeLiteral},
     TermLiteral,
 };
 use husky_token_data::{IntegerLikeLiteralData, LiteralData};

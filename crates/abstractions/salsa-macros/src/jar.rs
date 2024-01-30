@@ -8,7 +8,7 @@ use syn::{Field, FieldsUnnamed, Ident, ItemStruct, Token};
 // pub struct Jar0(Entity0, Ty0, EntityComponent0, my_func);
 
 pub(crate) fn jar(
-    args: proc_macro::TokenStream,
+    _args: proc_macro::TokenStream,
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let input = syn::parse_macro_input!(input as ItemStruct);

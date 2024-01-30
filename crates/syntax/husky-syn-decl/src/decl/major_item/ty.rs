@@ -265,7 +265,7 @@ pub(crate) fn ty_decl(db: &::salsa::Db, path: TypePath) -> DeclResult<TypeSynDec
 
 #[test]
 fn ty_decl_works() {
-    use husky_vfs::VfsTestUtils;
+    
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();

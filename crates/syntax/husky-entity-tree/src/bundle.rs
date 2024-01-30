@@ -1,9 +1,9 @@
 use crate::*;
-use thiserror::Error;
+
 use vec_like::VecMap;
 mod error;
 
-pub use self::error::*;
+
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn item_tree_crate_bundle(
