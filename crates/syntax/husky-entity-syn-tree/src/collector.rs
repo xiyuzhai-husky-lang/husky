@@ -122,9 +122,11 @@ impl<'a> EntityTreeCollector<'a> {
             PresheetAction::ResolveUseExpr {
                 module_path,
                 rule_idx,
-                path_name_token: name_token,
+                path_name_token,
                 symbol,
-            } => self.presheets[module_path].resolve_use_expr(db, rule_idx, name_token, symbol),
+            } => {
+                self.presheets[module_path].resolve_use_expr(db, rule_idx, path_name_token, symbol)
+            }
             PresheetAction::UpdateUseAllRule {
                 rule_module_path,
                 rule_idx,

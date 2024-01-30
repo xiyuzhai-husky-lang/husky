@@ -350,7 +350,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 2,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             0,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -381,13 +381,13 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 1,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             10,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                     ),
                                 },
@@ -405,12 +405,12 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 5,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             1,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
-                                EntitySymbol::SelfModule {
+                                EntitySymbol::RootSelfModule {
                                     module_path: `mnist_classifier::digits`,
                                 },
                             ),
@@ -426,7 +426,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 4,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             11,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -457,13 +457,13 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 3,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             19,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                     ),
                                 },
@@ -481,12 +481,12 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 8,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             2,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
-                                EntitySymbol::SelfModule {
+                                EntitySymbol::RootSelfModule {
                                     module_path: `mnist_classifier::digits`,
                                 },
                             ),
@@ -502,7 +502,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 7,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             12,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -533,13 +533,13 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 6,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             20,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                     ),
                                 },
@@ -557,12 +557,12 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 11,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             3,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
-                                EntitySymbol::SelfModule {
+                                EntitySymbol::RootSelfModule {
                                     module_path: `mnist_classifier::digits`,
                                 },
                             ),
@@ -578,7 +578,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 10,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             13,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -609,13 +609,13 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 9,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             21,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                     ),
                                 },
@@ -633,12 +633,12 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 14,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             4,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
-                                EntitySymbol::SelfModule {
+                                EntitySymbol::RootSelfModule {
                                     module_path: `mnist_classifier::digits`,
                                 },
                             ),
@@ -654,7 +654,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 13,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             14,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -685,13 +685,13 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 12,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             22,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                     ),
                                 },
@@ -709,12 +709,12 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 17,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             5,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
-                                EntitySymbol::SelfModule {
+                                EntitySymbol::RootSelfModule {
                                     module_path: `mnist_classifier::digits`,
                                 },
                             ),
@@ -730,7 +730,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 16,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             15,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -761,13 +761,13 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 15,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             23,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                     ),
                                 },
@@ -785,12 +785,12 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 20,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             6,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
-                                EntitySymbol::SelfModule {
+                                EntitySymbol::RootSelfModule {
                                     module_path: `mnist_classifier::digits`,
                                 },
                             ),
@@ -806,7 +806,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 19,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             16,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -837,13 +837,13 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 18,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             24,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                     ),
                                 },
@@ -861,12 +861,12 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 23,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             7,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
-                                EntitySymbol::SelfModule {
+                                EntitySymbol::RootSelfModule {
                                     module_path: `mnist_classifier::digits`,
                                 },
                             ),
@@ -882,7 +882,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 22,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             17,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -913,13 +913,13 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 21,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             25,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                     ),
                                 },
@@ -937,12 +937,12 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 26,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             8,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
-                                EntitySymbol::SelfModule {
+                                EntitySymbol::RootSelfModule {
                                     module_path: `mnist_classifier::digits`,
                                 },
                             ),
@@ -958,7 +958,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 25,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             18,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -989,13 +989,13 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 24,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             26,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                     ),
                                 },
@@ -1012,7 +1012,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 28,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             9,
                         ),
                         state: UseOneRuleState::Resolved {

@@ -39,14 +39,52 @@ AstSheet {
                     ),
                 },
             },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    1,
+                ),
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `syntax_errors`,
+                    ),
+                },
+                item_kind: Module,
+                ident_token: IdentToken {
+                    ident: `uses`,
+                    token_idx: TokenIdx(
+                        4,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        5,
+                    ),
+                    drained: true,
+                },
+                block: DefnBlock::Submodule {
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `syntax_errors::uses`,
+                                    ),
+                                },
+                            ),
+                        },
+                    ),
+                },
+            },
         ],
     },
     top_level_asts: ArenaIdxRange(
-        1..2,
+        1..3,
     ),
     siblings: [
         ArenaIdxRange(
-            1..2,
+            1..3,
         ),
     ],
 }

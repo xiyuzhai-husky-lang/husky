@@ -66,8 +66,8 @@ where
         if query_crate_path == self.crate_path {
             match parent {
                 MajorEntityPath::Module(module_path) => {
-                    // 如果出现 unwrap None的错误，就是因为module_path对应的文件不存在
-                    // 后面应该通过某些东西保证每个module_path对应的文件都存在
+                    // If an 'unwrap None' error occurs, it is because the file corresponding to the module_path does not exist.
+                    // Later, something should ensure that a file exists for each module_path.
                     let module_sheet = &self.presheets[module_path];
                     module_sheet.module_specific_symbols().resolve_ident(
                         self.db(),

@@ -9,7 +9,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 3,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             0,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -30,7 +30,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 2,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             5,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -63,7 +63,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 7,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             1,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -84,7 +84,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 6,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             6,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -115,7 +115,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 5,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             9,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -148,7 +148,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 11,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             2,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -169,7 +169,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 10,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             7,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -200,7 +200,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 9,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             10,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -233,7 +233,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 14,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             3,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -254,7 +254,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 13,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             8,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -287,7 +287,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 16,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             4,
                         ),
                         state: UseOneRuleState::Resolved {

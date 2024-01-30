@@ -46,6 +46,8 @@ impl Diagnose for OriginalEntityTreeError {
                 format!("ExpectIdentAfterKeyword")
             }
             OriginalEntityTreeError::InvalidTypePath(_) => todo!(),
+            OriginalEntityTreeError::CanOnlyUseParentSuperForModulePath => todo!(),
+            OriginalEntityTreeError::NoSuperForCrateRoot { super_token } => todo!(),
         }
     }
 
@@ -76,6 +78,8 @@ impl Diagnose for OriginalEntityTreeError {
             }
             OriginalEntityTreeError::ExpectIdentAfterKeyword => todo!(),
             OriginalEntityTreeError::InvalidTypePath(_) => todo!(),
+            OriginalEntityTreeError::CanOnlyUseParentSuperForModulePath => todo!(),
+            OriginalEntityTreeError::NoSuperForCrateRoot { super_token } => todo!(),
         }
     }
 }
@@ -99,6 +103,10 @@ impl Diagnose for ImplBlockIllForm {
                     OriginalMajorPathExprError::NoSuchSubitem => todo!(),
                     OriginalMajorPathExprError::NoSuperForCrateRoot { super_token } => todo!(),
                     OriginalMajorPathExprError::PathIsNotMajor { ident_token, path } => todo!(),
+                    OriginalMajorPathExprError::NoSuperForParent {
+                        parent,
+                        super_token,
+                    } => todo!(),
                 },
                 MajorPathExprError::Derived(_) => todo!(),
             },
@@ -135,6 +143,10 @@ impl Diagnose for ImplBlockIllForm {
                     OriginalMajorPathExprError::NoSuperForCrateRoot { super_token } => {
                         ctx.token_idx_text_range(super_token.token_idx())
                     }
+                    OriginalMajorPathExprError::NoSuperForParent {
+                        parent,
+                        super_token,
+                    } => todo!(),
                 },
                 MajorPathExprError::Derived(_) => todo!(),
             },

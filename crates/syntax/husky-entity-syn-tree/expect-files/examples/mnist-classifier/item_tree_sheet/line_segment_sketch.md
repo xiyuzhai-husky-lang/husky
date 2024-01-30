@@ -782,7 +782,7 @@ EntitySynTreeSheet {
                 ident: `LineSegmentStroke`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                 },
@@ -791,7 +791,7 @@ EntitySynTreeSheet {
                 ident: `LineSegmentSketch`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                     ),
                 },
@@ -802,7 +802,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Fugitive(
+                    major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                     ),
                 },
@@ -813,7 +813,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Fugitive(
+                    major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                     ),
                 },
@@ -824,7 +824,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Fugitive(
+                    major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                     ),
                 },
@@ -835,7 +835,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Fugitive(
+                    major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                     ),
                 },
@@ -846,7 +846,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Fugitive(
+                    major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                     ),
                 },
@@ -857,7 +857,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             ),
                         },
@@ -878,7 +878,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Fugitive(
+                            major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                             ),
                         },
@@ -899,7 +899,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             ),
                         },
@@ -922,7 +922,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             ),
                         },
@@ -947,7 +947,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             ),
                         },
@@ -972,7 +972,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             ),
                         },
@@ -997,7 +997,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                             ),
                         },
@@ -1022,7 +1022,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             ),
                         },
@@ -1047,7 +1047,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                             ),
                         },
@@ -1072,7 +1072,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             ),
                         },
@@ -1097,7 +1097,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             ),
                         },
@@ -1392,7 +1392,7 @@ EntitySynTreeSheet {
     ],
     once_use_rules: UseOneRules(
         [
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 164,
                 use_expr_idx: 2,
                 visibility: Scope::Pub,
@@ -1428,7 +1428,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 165,
                 use_expr_idx: 4,
                 visibility: Scope::Pub,
@@ -1464,7 +1464,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 166,
                 use_expr_idx: 6,
                 visibility: Scope::Pub,
@@ -1500,7 +1500,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 167,
                 use_expr_idx: 9,
                 visibility: Scope::PubUnder(
@@ -1527,7 +1527,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 168,
                 use_expr_idx: 12,
                 visibility: Scope::PubUnder(
@@ -1554,7 +1554,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 169,
                 use_expr_idx: 14,
                 visibility: Scope::PubUnder(
@@ -1592,7 +1592,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 167,
                 use_expr_idx: 8,
                 visibility: Scope::PubUnder(
@@ -1612,8 +1612,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `mnist_classifier`,
+                    (
+                        MajorEntityPath::Module(
+                            `mnist_classifier`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1634,7 +1639,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 168,
                 use_expr_idx: 11,
                 visibility: Scope::PubUnder(
@@ -1654,8 +1659,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `mnist_classifier`,
+                    (
+                        MajorEntityPath::Module(
+                            `mnist_classifier`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1676,7 +1686,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 168,
                 use_expr_idx: 10,
                 visibility: Scope::PubUnder(
@@ -1691,14 +1701,29 @@ EntitySynTreeSheet {
                     },
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `mnist_classifier::raw_contour`,
+                    (
+                        MajorEntityPath::Module(
+                            `mnist_classifier::raw_contour`,
+                        ),
+                        EntitySymbol::Submodule {
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::raw_contour`,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             ),
                         },

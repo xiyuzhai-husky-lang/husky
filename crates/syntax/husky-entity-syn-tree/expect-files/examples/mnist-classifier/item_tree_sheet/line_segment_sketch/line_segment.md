@@ -64,7 +64,7 @@ EntitySynTreeSheet {
                 ident: `LineSegment`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                     ),
                 },
@@ -77,7 +77,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             ),
                         },
@@ -102,7 +102,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                             ),
                         },
@@ -127,7 +127,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             ),
                         },
@@ -152,7 +152,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                             ),
                         },
@@ -177,7 +177,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             ),
                         },
@@ -202,7 +202,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             ),
                         },
@@ -291,7 +291,7 @@ EntitySynTreeSheet {
     ],
     once_use_rules: UseOneRules(
         [
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 16,
                 use_expr_idx: 3,
                 visibility: Scope::PubUnder(
@@ -318,7 +318,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 16,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
@@ -338,8 +338,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `mnist_classifier`,
+                    (
+                        MajorEntityPath::Module(
+                            `mnist_classifier`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `mnist_classifier`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {

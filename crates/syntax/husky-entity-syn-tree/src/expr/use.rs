@@ -6,7 +6,7 @@ use thiserror::Error;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct ParentUseExpr {
+pub struct ParentUseExprData {
     pub parent_name_token: PathNameToken,
     pub colon_colon_token: UseExprResult<ColonColonToken>,
     pub children: UseExprResult<UseExprChildren>,
@@ -20,7 +20,7 @@ pub enum UseExpr {
     All { star_token: StarToken },
     Leaf { ident_token: IdentToken },
     SelfOne { self_mod_token: SelfModToken },
-    Parent(ParentUseExpr),
+    Parent(ParentUseExprData),
     Err(UseExprError),
 }
 
@@ -80,7 +80,7 @@ impl ParentUseExprIdx {
         self.0
     }
 
-    pub(crate) fn index(self, arena: &UseExprArena) -> &ParentUseExpr {
+    pub(crate) fn data(self, arena: &UseExprArena) -> &ParentUseExprData {
         match arena[self.0] {
             UseExpr::Parent(ref expr) => expr,
             _ => unreachable!(),
@@ -156,6 +156,8 @@ pub enum OriginalUseExprError {
         use_token: UseToken,
         self_mod_token: SelfModToken,
     },
+    #[error("CannotUseCrateForChild")]
+    CannotUseCrateForChild { crate_token: CrateToken },
 }
 
 impl OriginalError for OriginalUseExprError {
@@ -254,7 +256,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
         let Some(colon_colon_token) = self.try_parse_option::<ColonColonToken>()? else {
             return Ok(UseExpr::Leaf { ident_token });
         };
-        Ok(UseExpr::Parent(ParentUseExpr {
+        Ok(UseExpr::Parent(ParentUseExprData {
             parent_name_token: PathNameToken::Ident(ident_token),
             colon_colon_token: Ok(colon_colon_token),
             children: self.parse_children(),
@@ -266,11 +268,17 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
             let child = self
                 .try_parse_expected(OriginalUseExprError::ExpectUseExpr)
                 .into();
+            match child {
+                UseExpr::Parent(ParentUseExprData {
+                    parent_name_token: PathNameToken::CrateRoot(crate_token),
+                    ..
+                }) => Err(OriginalUseExprError::CannotUseCrateForChild { crate_token })?,
+                _ => (),
+            }
             let child = self.use_expr_arena.alloc_one(child);
             return Ok(UseExprChildren::Single { child });
         };
-        let (children, comma_tokens, result) = parsec::parse_separated_list(self);
-        result?;
+        let (children, comma_tokens) = parsec::parse_separated_list(self)?;
         let children = self.use_expr_arena.alloc_batch(children);
         Ok(UseExprChildren::Multiple {
             lcurl_token,
@@ -296,7 +304,7 @@ impl<'a, 'b> TryParseOptionFromStream<UseExprParser<'a, 'b>> for UseExpr {
             PathNameToken::Ident(ident_token) => {
                 Ok(Some(ctx.parse_use_expr_after_ident(ident_token)?))
             }
-            PathNameToken::CrateRoot(crate_token) => Ok(Some(UseExpr::Parent(ParentUseExpr {
+            PathNameToken::CrateRoot(crate_token) => Ok(Some(UseExpr::Parent(ParentUseExprData {
                 parent_name_token: PathNameToken::CrateRoot(crate_token),
                 colon_colon_token: ctx
                     .try_parse_expected(OriginalUseExprError::ExpectScopeResolution),
@@ -305,7 +313,7 @@ impl<'a, 'b> TryParseOptionFromStream<UseExprParser<'a, 'b>> for UseExpr {
             PathNameToken::SelfMod(self_mod_token) => {
                 // differentiate betwee self one and self children
                 if ctx.peek() == Some(&TokenData::Punctuation(Punctuation::COLON_COLON)) {
-                    Ok(Some(UseExpr::Parent(ParentUseExpr {
+                    Ok(Some(UseExpr::Parent(ParentUseExprData {
                         parent_name_token: self_mod_token.into(),
                         colon_colon_token: Ok(ctx
                             .try_parse_option()
@@ -317,7 +325,7 @@ impl<'a, 'b> TryParseOptionFromStream<UseExprParser<'a, 'b>> for UseExpr {
                     Ok(Some(UseExpr::SelfOne { self_mod_token }))
                 }
             }
-            PathNameToken::Super(super_token) => Ok(Some(UseExpr::Parent(ParentUseExpr {
+            PathNameToken::Super(super_token) => Ok(Some(UseExpr::Parent(ParentUseExprData {
                 parent_name_token: PathNameToken::Super(super_token),
                 colon_colon_token: ctx
                     .try_parse_expected(OriginalUseExprError::ExpectScopeResolution),

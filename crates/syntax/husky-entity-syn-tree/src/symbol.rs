@@ -18,10 +18,10 @@ pub enum EntitySymbol {
     CrateRoot {
         root_module_path: ModulePath,
     },
-    SelfModule {
+    RootSelfModule {
         module_path: ModulePath,
     },
-    SuperModule {
+    RootSuperModule {
         current_module_path: ModulePath,
         super_module_path: ModulePath,
     },
@@ -35,12 +35,31 @@ pub enum EntitySymbol {
         submodule_item_path: SubmoduleItemPath,
     },
     MajorItem {
-        module_item_path: MajorItemPath,
+        major_item_path: MajorItemPath,
     },
     TypeVariant {
         ty_variant_path: TypeVariantPath,
     },
+    ParentSuper(ParentSuperSymbol),
     Use(UseSymbol),
+}
+
+impl EntitySymbol {
+    pub(crate) fn super_symbol(self, db: &::salsa::Db) -> EntityTreeResult<Self> {
+        let parent_super_module_path = match self.principal_entity_path(db) {
+            PrincipalEntityPath::Module(parent_super_module_path) => parent_super_module_path,
+            PrincipalEntityPath::MajorItem(_) | PrincipalEntityPath::TypeVariant(_) => {
+                Err(OriginalEntityTreeError::CanOnlyUseParentSuperForModulePath)?
+            }
+        };
+        Ok(ParentSuperSymbol::new(db, self, parent_super_module_path).into())
+    }
+}
+
+#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+pub struct ParentSuperSymbol {
+    pub parent_symbol: EntitySymbol,
+    pub parent_super_module_path: ModulePath,
 }
 
 impl EntitySymbol {
@@ -50,7 +69,7 @@ impl EntitySymbol {
                 submodule_item_path: node.unambiguous_path(db)?,
             }),
             ItemSynNode::MajorItem(node) => Some(EntitySymbol::MajorItem {
-                module_item_path: node.unambiguous_path(db)?,
+                major_item_path: node.unambiguous_path(db)?,
             }),
             ItemSynNode::AssociatedItem(_)
             | ItemSynNode::TypeVariant(_)
@@ -66,8 +85,8 @@ impl EntitySymbol {
     pub fn principal_entity_path(self, db: &::salsa::Db) -> PrincipalEntityPath {
         match self {
             EntitySymbol::CrateRoot { root_module_path } => root_module_path.into(),
-            EntitySymbol::SelfModule { module_path } => module_path.into(),
-            EntitySymbol::SuperModule {
+            EntitySymbol::RootSelfModule { module_path } => module_path.into(),
+            EntitySymbol::RootSuperModule {
                 super_module_path, ..
             } => super_module_path.into(),
             EntitySymbol::UniversalPrelude { item_path }
@@ -77,11 +96,13 @@ impl EntitySymbol {
                 ..
             } => submodule_path.self_module_path(db).into(),
             EntitySymbol::MajorItem {
-                module_item_path, ..
+                major_item_path: module_item_path,
+                ..
             } => module_item_path.into(),
             // symbol.path(db).into(),
             EntitySymbol::Use(symbol) => symbol.path(db).into(),
             EntitySymbol::TypeVariant { ty_variant_path } => ty_variant_path.into(),
+            EntitySymbol::ParentSuper(_) => todo!(),
         }
     }
 
@@ -134,7 +155,7 @@ impl<'a> ModuleSymbolContext<'a> {
 pub(crate) fn module_symbol_context<'a>(
     db: &'a ::salsa::Db,
     module_path: ModulePath,
-) -> EntitySynTreeResult<ModuleSymbolContext<'a>> {
+) -> EntityTreeResult<ModuleSymbolContext<'a>> {
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
     Ok(ModuleSymbolContext {
         crate_prelude: CratePrelude::new(db, module_path.crate_path(db))?,

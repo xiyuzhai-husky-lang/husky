@@ -222,7 +222,7 @@ EntitySynTreePresheet {
     },
     use_one_rules: UseOneRules(
         [
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 1,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
@@ -258,7 +258,7 @@ EntitySynTreePresheet {
                 ),
             },
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::CrateRoot(
                         CrateToken {
                             token_idx: TokenIdx(

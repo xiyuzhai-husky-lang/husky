@@ -6,7 +6,7 @@ use crate::*;
 pub(crate) fn collect_semantic_tokens(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<SemanticToken>> {
+) -> EntityTreeResult<Vec<SemanticToken>> {
     let ranged_token_sheet = db.ranged_token_sheet(module_path);
     let _token_sheet_data = db.token_sheet_data(module_path);
     let token_infer_sheet = db.token_info_sheet(module_path)?;

@@ -64,7 +64,7 @@ EntitySynTreePresheet {
     },
     use_one_rules: UseOneRules(
         [
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 3,
                 use_expr_idx: 3,
                 visibility: Scope::PubUnder(
@@ -100,7 +100,7 @@ EntitySynTreePresheet {
                 ),
             },
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `line_segment_sketch`,
@@ -124,7 +124,7 @@ EntitySynTreePresheet {
                 },
             ),
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::CrateRoot(
                         CrateToken {
                             token_idx: TokenIdx(

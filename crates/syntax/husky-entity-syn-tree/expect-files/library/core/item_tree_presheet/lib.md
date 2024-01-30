@@ -1203,7 +1203,7 @@ EntitySynTreePresheet {
     },
     use_one_rules: UseOneRules(
         [
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 20,
                 use_expr_idx: 3,
                 visibility: Scope::PubUnder(
@@ -1239,7 +1239,7 @@ EntitySynTreePresheet {
                 ),
             },
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `prelude`,
@@ -1263,7 +1263,7 @@ EntitySynTreePresheet {
                 },
             ),
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::SelfMod(
                         SelfModToken {
                             token_idx: TokenIdx(

@@ -50,6 +50,11 @@ pub enum OriginalMajorPathExprError {
     NoSuchSubitem,
     #[error("NoSuperForCrateRoot")]
     NoSuperForCrateRoot { super_token: SuperToken },
+    #[error("NoSuperForParent")]
+    NoSuperForParent {
+        parent: ModulePath,
+        super_token: SuperToken,
+    },
 }
 
 impl OriginalError for OriginalMajorPathExprError {
@@ -123,8 +128,11 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
                 .principal_entity_path(self.db)
                 .major()?,
             PathNameToken::CrateRoot(_) => self.crate_root_path.into(),
-            PathNameToken::SelfMod(_) => todo!(),
-            PathNameToken::Super(_) => todo!(),
+            PathNameToken::SelfMod(_) => self.module_path.into(),
+            PathNameToken::Super(super_token) => match self.module_path.parent(self.db) {
+                Some(parent) => parent.into(),
+                None => Err(OriginalMajorPathExprError::NoSuperForCrateRoot { super_token })?,
+            },
         };
         self.parse_major_path_expr_aux(path, name_token).into()
     }
@@ -141,10 +149,8 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
                     .resolve_root_ident(ident_token)
                     .ok_or(OriginalMajorPathExprError::UnrecognizedIdent(ident_token))?
                     .principal_entity_path(self.db);
-                match path.major() {
-                    Some(path) => path,
-                    None => Err(OriginalMajorPathExprError::PathIsNotMajor { ident_token, path })?,
-                }
+                path.major()
+                    .ok_or(OriginalMajorPathExprError::PathIsNotMajor { ident_token, path })?
             }
             PathNameToken::CrateRoot(_) => self.crate_root_path.into(),
             PathNameToken::SelfMod(_) => self.module_path.into(),
@@ -160,22 +166,28 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
         &mut self,
         parent: ModulePath,
     ) -> MajorItemPathExprResult<(MajorItemPathExprIdx, MajorItemPath)> {
+        let db = self.db;
         let name_token: PathNameToken =
             self.try_parse_expected(OriginalMajorPathExprError::ExpectedName)?;
         let major_path = match name_token {
-            PathNameToken::Ident(ident_token) => match self
-                .item_tree_symbol_context
-                .resolve_subitem(parent.into(), ident_token.ident())
-                .ok_or(OriginalMajorPathExprError::NoSuchSubitem)?
-                .principal_entity_path(self.db)
-                .major()
-            {
-                Some(major_path) => major_path,
-                None => todo!(),
-            },
+            PathNameToken::Ident(ident_token) => {
+                let path = self
+                    .item_tree_symbol_context
+                    .resolve_subitem(parent.into(), ident_token.ident())
+                    .ok_or(OriginalMajorPathExprError::NoSuchSubitem)?
+                    .principal_entity_path(self.db);
+                path.major()
+                    .ok_or(OriginalMajorPathExprError::PathIsNotMajor { ident_token, path })?
+            }
             PathNameToken::CrateRoot(_) => self.crate_root_path.into(),
-            PathNameToken::SelfMod(_) => todo!(),
-            PathNameToken::Super(_) => todo!(),
+            PathNameToken::SelfMod(_) => parent.into(),
+            PathNameToken::Super(super_token) => parent
+                .parent(db)
+                .ok_or(OriginalMajorPathExprError::NoSuperForParent {
+                    parent,
+                    super_token,
+                })?
+                .into(),
         };
         self.parse_major_path_expr_aux(major_path, name_token)
     }

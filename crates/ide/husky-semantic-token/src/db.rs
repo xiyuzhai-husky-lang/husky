@@ -5,7 +5,7 @@ pub trait SemanticTokenDb {
         &self,
         module_path: ModulePath,
         range: Option<TextRange>,
-    ) -> EntitySynTreeResult<&[ext::SemanticToken]>;
+    ) -> EntityTreeResult<&[ext::SemanticToken]>;
 }
 
 impl SemanticTokenDb for ::salsa::Db {
@@ -13,7 +13,7 @@ impl SemanticTokenDb for ::salsa::Db {
         &self,
         module_path: ModulePath,
         _range: Option<TextRange>,
-    ) -> EntitySynTreeResult<&[ext::SemanticToken]> {
+    ) -> EntityTreeResult<&[ext::SemanticToken]> {
         Ok(semantic_tokens_ext_without_range(self, module_path)
             .as_ref()
             .map_err(|e| e.clone())?)

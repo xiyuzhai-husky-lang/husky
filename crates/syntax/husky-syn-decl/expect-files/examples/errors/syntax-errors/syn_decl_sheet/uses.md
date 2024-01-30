@@ -1,0 +1,3 @@
+SynDeclSheet {
+    decls: [],
+}

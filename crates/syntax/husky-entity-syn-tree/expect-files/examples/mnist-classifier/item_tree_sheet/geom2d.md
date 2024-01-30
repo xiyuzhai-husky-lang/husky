@@ -334,7 +334,7 @@ EntitySynTreeSheet {
                 ident: `Point2d`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     ),
                 },
@@ -343,7 +343,7 @@ EntitySynTreeSheet {
                 ident: `RelativePoint2d`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                     ),
                 },
@@ -352,7 +352,7 @@ EntitySynTreeSheet {
                 ident: `Vector2d`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                 },
@@ -361,7 +361,7 @@ EntitySynTreeSheet {
                 ident: `ClosedRange`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                     ),
                 },
@@ -370,7 +370,7 @@ EntitySynTreeSheet {
                 ident: `BoundingBox`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                     ),
                 },
@@ -379,7 +379,7 @@ EntitySynTreeSheet {
                 ident: `RelativeBoundingBox`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                     ),
                 },

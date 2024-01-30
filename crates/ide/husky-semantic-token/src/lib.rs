@@ -14,7 +14,7 @@ use husky_text_protocol::range::TextRange;
 use self::collect::*;
 use self::convert::*;
 use self::token::*;
-use husky_entity_syn_tree::EntitySynTreeResult;
+use husky_entity_syn_tree::EntityTreeResult;
 use husky_token::*;
 
 use husky_token_info::*;
@@ -27,7 +27,7 @@ pub struct SemanticTokenJar(semantic_tokens, semantic_tokens_ext_without_range);
 fn semantic_tokens(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<SemanticToken>> {
+) -> EntityTreeResult<Vec<SemanticToken>> {
     collect_semantic_tokens(db, module_path)
 }
 
@@ -35,7 +35,7 @@ fn semantic_tokens(
 fn semantic_tokens_ext_without_range(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<ext::SemanticToken>> {
+) -> EntityTreeResult<Vec<ext::SemanticToken>> {
     let tokens = semantic_tokens(db, module_path)
         .as_ref()
         .map_err(|e| e.clone())?;
@@ -46,7 +46,7 @@ fn semantic_tokens_ext_within_range(
     db: &::salsa::Db,
     module_path: ModulePath,
     range: &TextRange,
-) -> EntitySynTreeResult<Vec<ext::SemanticToken>> {
+) -> EntityTreeResult<Vec<ext::SemanticToken>> {
     let tokens = semantic_tokens(db, module_path)
         .as_ref()
         .map_err(|e| e.clone())?

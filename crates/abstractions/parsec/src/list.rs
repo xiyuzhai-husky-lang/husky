@@ -125,58 +125,27 @@ where
     }
 }
 
-pub fn parse_separated_list<SP, Element, Separator, Error>(
-    ctx: &mut SP,
-) -> (Vec<Element>, Vec<Separator>, Result<(), Error>)
-where
-    SP: IsStreamParser,
-    Element: TryParseOptionFromStream<SP, Error = Error>,
-    Separator: TryParseOptionFromStream<SP>,
-    Error: From<<Separator as TryParseOptionFromStream<SP>>::Error>,
-{
-    let mut elements = vec![];
-    let mut separators = vec![];
-    let result = loop {
-        match ctx.try_parse_option::<Element>() {
-            Ok(Some(element)) => {
-                elements.push(element);
-                match ctx.try_parse_option::<Separator>() {
-                    Ok(Some(separator)) => separators.push(separator),
-                    Ok(None) => break Ok(()),
-                    Err(error) => break Err(error.into()),
-                }
-            }
-            Ok(None) => break Ok(()),
-            Err(error) => break Err(error),
-        }
-    };
-    (elements, separators, result)
-}
-
-pub fn parse_separated_list2<Context, Element, Separator, E1, E2>(
+pub fn parse_separated_list<Context, Element, Separator, E>(
     ctx: &mut Context,
-    f: impl FnOnce(E1) -> E2,
-) -> Result<(Vec<Element>, Vec<Separator>), E2>
+) -> Result<(Vec<Element>, Vec<Separator>), E>
 where
     Context: IsStreamParser,
-    Element: TryParseOptionFromStream<Context, Error = E1>,
+    Element: TryParseOptionFromStream<Context, Error = E>,
     Separator: TryParseOptionFromStream<Context>,
-    E1: From<<Separator as TryParseOptionFromStream<Context>>::Error>,
+    E: From<<Separator as TryParseOptionFromStream<Context>>::Error>,
 {
     let mut elements = vec![];
     let mut separators = vec![];
     loop {
-        match ctx.try_parse_option::<Element>() {
-            Ok(Some(element)) => {
+        match ctx.try_parse_option::<Element>()? {
+            Some(element) => {
                 elements.push(element);
-                match ctx.try_parse_option::<Separator>() {
-                    Ok(Some(separator)) => separators.push(separator),
-                    Ok(None) => break,
-                    Err(error) => return Err(f(error.into())),
+                match ctx.try_parse_option::<Separator>()? {
+                    Some(separator) => separators.push(separator),
+                    None => break,
                 }
             }
-            Ok(None) => break,
-            Err(error) => return Err(f(error)),
+            None => break,
         }
     }
     Ok((elements, separators))
@@ -213,16 +182,14 @@ where
 
 #[test]
 fn parse_separated_list_works() {
-    fn t(input: &str) -> (Vec<A>, Vec<Comma>, Result<(), ()>) {
+    fn t(input: &str) -> Result<(Vec<A>, Vec<Comma>), ()> {
         parse_separated_list(&mut CharStream::new(input))
     }
-    assert_eq!(t("a,a"), (vec![A {}, A {}], vec![Comma {}], Ok(())));
-    assert_eq!(t("a,ab"), (vec![A {}, A {}], vec![Comma {}], Ok(())));
-    assert_eq!(t("a,bab"), (vec![A {},], vec![Comma {}], Ok(())));
-    assert_eq!(
-        t("a,a,"),
-        (vec![A {}, A {}], vec![Comma {}, Comma {}], Ok(()))
-    );
+
+    assert_eq!(t("a,a"), Ok((vec![A {}, A {}], vec![Comma {}])));
+    assert_eq!(t("a,ab"), Ok((vec![A {}, A {}], vec![Comma {}])));
+    assert_eq!(t("a,bab"), Ok((vec![A {},], vec![Comma {}])));
+    assert_eq!(t("a,a,"), Ok((vec![A {}, A {}], vec![Comma {}, Comma {}])));
 }
 
 pub fn parse_separated_list_expected<Context, Element, Separator, E: OriginalError>(

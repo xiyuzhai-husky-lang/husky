@@ -31,5 +31,36 @@ SynDeclSheet {
                 },
             ),
         ),
+        (
+            ItemPath::Submodule(
+                Room32,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `syntax_errors::uses`,
+                                ),
+                            },
+                        ),
+                    },
+                ),
+            ),
+            SynDecl::Submodule(
+                SubmoduleSynDecl {
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `syntax_errors::uses`,
+                                    ),
+                                },
+                            ),
+                        },
+                    ),
+                },
+            ),
+        ),
     ],
 }

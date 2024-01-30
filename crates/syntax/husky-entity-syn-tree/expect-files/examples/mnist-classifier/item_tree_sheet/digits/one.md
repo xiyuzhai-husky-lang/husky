@@ -328,7 +328,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::digits::one`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Fugitive(
+                    major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                     ),
                 },
@@ -337,7 +337,7 @@ EntitySynTreeSheet {
                 ident: `is_one`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Fugitive(
+                    major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                     ),
                 },
@@ -348,7 +348,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::digits::one`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Fugitive(
+                    major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
                     ),
                 },
@@ -359,7 +359,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::digits::one`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Fugitive(
+                    major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
                     ),
                 },
@@ -370,7 +370,7 @@ EntitySynTreeSheet {
                     `mnist_classifier::digits::one`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Fugitive(
+                    major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
                     ),
                 },
@@ -695,7 +695,7 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                     ),
                                 },
@@ -1033,7 +1033,7 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::main`, `Val`),
                                     ),
                                 },
@@ -1074,7 +1074,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`malamute::Class`, `Enum`),
                                             ),
                                         },
@@ -1127,7 +1127,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`malamute::OneVsAll`, `Enum`),
                                             ),
                                         },
@@ -1180,7 +1180,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`malamute::OneVsAllResult`, `Enum`),
                                             ),
                                         },
@@ -1233,7 +1233,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Fugitive(
+                                            major_item_path: MajorItemPath::Fugitive(
                                                 FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                             ),
                                         },
@@ -1286,7 +1286,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`mnist::MnistLabel`, `Enum`),
                                             ),
                                         },
@@ -1339,7 +1339,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`mnist::BinaryImage28`, `Extern`),
                                             ),
                                         },
@@ -1392,7 +1392,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`mnist::BinaryGrid28`, `Extern`),
                                             ),
                                         },
@@ -1445,7 +1445,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Fugitive(
+                                            major_item_path: MajorItemPath::Fugitive(
                                                 FugitivePath(`mnist::input`, `Val`),
                                             ),
                                         },
@@ -1496,7 +1496,7 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                     ),
                                 },
@@ -1533,7 +1533,7 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                     ),
                                 },
@@ -1570,7 +1570,7 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                     ),
                                 },
@@ -1607,7 +1607,7 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                     ),
                                 },
@@ -1644,7 +1644,7 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                     ),
                                 },
@@ -1681,7 +1681,7 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                     ),
                                 },
@@ -1718,7 +1718,7 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                     ),
                                 },
@@ -1755,7 +1755,7 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Fugitive(
+                                    major_item_path: MajorItemPath::Fugitive(
                                         FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                     ),
                                 },
@@ -1794,7 +1794,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Fugitive(
+                                            major_item_path: MajorItemPath::Fugitive(
                                                 FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         },
@@ -1847,7 +1847,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Fugitive(
+                                            major_item_path: MajorItemPath::Fugitive(
                                                 FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         },
@@ -1900,7 +1900,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Fugitive(
+                                            major_item_path: MajorItemPath::Fugitive(
                                                 FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                             ),
                                         },
@@ -1953,7 +1953,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Fugitive(
+                                            major_item_path: MajorItemPath::Fugitive(
                                                 FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                             ),
                                         },
@@ -2006,7 +2006,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Fugitive(
+                                            major_item_path: MajorItemPath::Fugitive(
                                                 FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                             ),
                                         },
@@ -2059,7 +2059,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Fugitive(
+                                            major_item_path: MajorItemPath::Fugitive(
                                                 FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                             ),
                                         },
@@ -2112,7 +2112,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Fugitive(
+                                            major_item_path: MajorItemPath::Fugitive(
                                                 FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                             ),
                                         },
@@ -2167,7 +2167,7 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    module_item_path: MajorItemPath::Fugitive(
+                                                    major_item_path: MajorItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                     ),
                                                 },
@@ -2230,7 +2230,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             ),
                                         },
@@ -2283,7 +2283,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Fugitive(
+                                            major_item_path: MajorItemPath::Fugitive(
                                                 FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                             ),
                                         },
@@ -2336,7 +2336,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
                                         },
@@ -2389,7 +2389,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Fugitive(
+                                            major_item_path: MajorItemPath::Fugitive(
                                                 FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                                             ),
                                         },
@@ -2442,7 +2442,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
                                         },
@@ -2495,7 +2495,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
                                         },
@@ -2550,7 +2550,7 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    module_item_path: MajorItemPath::Type(
+                                                    major_item_path: MajorItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
                                                 },
@@ -2615,7 +2615,7 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    module_item_path: MajorItemPath::Fugitive(
+                                                    major_item_path: MajorItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                                                     ),
                                                 },
@@ -2680,7 +2680,7 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    module_item_path: MajorItemPath::Type(
+                                                    major_item_path: MajorItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
                                                 },
@@ -2743,7 +2743,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                             ),
                                         },
@@ -2796,7 +2796,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                             ),
                                         },
@@ -2849,7 +2849,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ),
                                         },
@@ -2902,7 +2902,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Fugitive(
+                                            major_item_path: MajorItemPath::Fugitive(
                                                 FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                                             ),
                                         },
@@ -2957,7 +2957,7 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    module_item_path: MajorItemPath::Fugitive(
+                                                    major_item_path: MajorItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                                     ),
                                                 },
@@ -3022,7 +3022,7 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    module_item_path: MajorItemPath::Fugitive(
+                                                    major_item_path: MajorItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                                     ),
                                                 },
@@ -3087,7 +3087,7 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    module_item_path: MajorItemPath::Fugitive(
+                                                    major_item_path: MajorItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                                     ),
                                                 },
@@ -3152,7 +3152,7 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    module_item_path: MajorItemPath::Fugitive(
+                                                    major_item_path: MajorItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                                     ),
                                                 },
@@ -3217,7 +3217,7 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    module_item_path: MajorItemPath::Fugitive(
+                                                    major_item_path: MajorItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                                     ),
                                                 },
@@ -3282,7 +3282,7 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    module_item_path: MajorItemPath::Fugitive(
+                                                    major_item_path: MajorItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                                     ),
                                                 },
@@ -3347,7 +3347,7 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    module_item_path: MajorItemPath::Fugitive(
+                                                    major_item_path: MajorItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                                     ),
                                                 },
@@ -3412,7 +3412,7 @@ EntitySynTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    module_item_path: MajorItemPath::Fugitive(
+                                                    major_item_path: MajorItemPath::Fugitive(
                                                         FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                                     ),
                                                 },
@@ -3468,7 +3468,7 @@ EntitySynTreeSheet {
     impl_block_syn_node_table: [],
     once_use_rules: UseOneRules(
         [
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 62,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
@@ -3489,7 +3489,7 @@ EntitySynTreeSheet {
                 parent: None,
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
-                        EntitySymbol::SuperModule {
+                        EntitySymbol::RootSuperModule {
                             current_module_path: `mnist_classifier::digits::one`,
                             super_module_path: `mnist_classifier::digits`,
                         },

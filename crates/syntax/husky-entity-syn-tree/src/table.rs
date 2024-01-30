@@ -22,7 +22,7 @@ impl EntitySymbolTable {
         &self.0
     }
 
-    pub(crate) fn push(&mut self, new_entry: EntitySymbolEntry) -> EntitySynTreeResult<()> {
+    pub(crate) fn push(&mut self, new_entry: EntitySymbolEntry) -> EntityTreeResult<()> {
         // todo: should there be checks?
         self.0.push(new_entry);
         Ok(())
@@ -31,7 +31,7 @@ impl EntitySymbolTable {
     pub(crate) fn extend(
         &mut self,
         iter: impl IntoIterator<Item = EntitySymbolEntry>,
-    ) -> EntitySynTreeResult<()> {
+    ) -> EntityTreeResult<()> {
         for new_entry in iter {
             self.push(new_entry)?
         }
@@ -104,7 +104,7 @@ impl EntitySymbolEntry {
     pub(crate) fn new_use_symbol_entry(
         db: &::salsa::Db,
         original_symbol: EntitySymbol,
-        rule: &mut UseOneRule,
+        rule: &mut OnceUseRule,
     ) -> Self {
         rule.mark_as_resolved(original_symbol);
         let visibility = rule.visibility();
@@ -125,7 +125,7 @@ impl EntitySymbolEntry {
 
     pub(crate) fn new_use_ty_variant_entry(
         db: &::salsa::Db,
-        parent_rule: &UseOneRule,
+        parent_rule: &OnceUseRule,
         ident: Ident,
         ty_variant_path: TypeVariantPath,
     ) -> Self {

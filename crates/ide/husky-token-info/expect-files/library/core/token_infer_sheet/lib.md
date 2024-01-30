@@ -674,12 +674,12 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 3,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             0,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
-                                EntitySymbol::SelfModule {
+                                EntitySymbol::RootSelfModule {
                                     module_path: `core`,
                                 },
                             ),
@@ -695,7 +695,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 2,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             1,
                         ),
                         state: UseOneRuleState::Resolved {

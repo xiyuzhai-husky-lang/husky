@@ -1,0 +1,2 @@
+// Syntax Error: `crate` must be root in `use` expression
+use self::crate::*

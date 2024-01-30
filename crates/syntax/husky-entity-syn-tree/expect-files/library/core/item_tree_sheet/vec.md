@@ -64,7 +64,7 @@ EntitySynTreeSheet {
                 ident: `Vec`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`core::vec::Vec`, `Extern`),
                     ),
                 },
@@ -670,7 +670,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::basic::bool`, `Extern`),
                                             ),
                                         },
@@ -721,7 +721,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::basic::never`, `Extern`),
                                             ),
                                         },
@@ -772,7 +772,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::basic::unit`, `Extern`),
                                             ),
                                         },
@@ -823,7 +823,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::basic::Trait`, `Extern`),
                                             ),
                                         },
@@ -874,7 +874,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::basic::Module`, `Extern`),
                                             ),
                                         },
@@ -925,7 +925,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::basic::Lifetime`, `Extern`),
                                             ),
                                         },
@@ -976,7 +976,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::basic::Place`, `Extern`),
                                             ),
                                         },
@@ -1027,7 +1027,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Trait(
+                                            major_item_path: MajorItemPath::Trait(
                                                 TraitPath(`core::default::Default`),
                                             ),
                                         },
@@ -1078,7 +1078,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::i8`, `Extern`),
                                             ),
                                         },
@@ -1129,7 +1129,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::i16`, `Extern`),
                                             ),
                                         },
@@ -1180,7 +1180,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::i32`, `Extern`),
                                             ),
                                         },
@@ -1231,7 +1231,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::i64`, `Extern`),
                                             ),
                                         },
@@ -1282,7 +1282,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::i128`, `Extern`),
                                             ),
                                         },
@@ -1333,7 +1333,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::isize`, `Extern`),
                                             ),
                                         },
@@ -1384,7 +1384,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::u8`, `Extern`),
                                             ),
                                         },
@@ -1435,7 +1435,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::u16`, `Extern`),
                                             ),
                                         },
@@ -1486,7 +1486,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::u32`, `Extern`),
                                             ),
                                         },
@@ -1537,7 +1537,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::u64`, `Extern`),
                                             ),
                                         },
@@ -1588,7 +1588,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::u128`, `Extern`),
                                             ),
                                         },
@@ -1639,7 +1639,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::usize`, `Extern`),
                                             ),
                                         },
@@ -1690,7 +1690,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::f32`, `Extern`),
                                             ),
                                         },
@@ -1741,7 +1741,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::num::f64`, `Extern`),
                                             ),
                                         },
@@ -1792,7 +1792,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                             ),
                                         },
@@ -1843,7 +1843,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Trait(
+                                            major_item_path: MajorItemPath::Trait(
                                                 TraitPath(`core::fmt::Debug`),
                                             ),
                                         },
@@ -1894,7 +1894,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Trait(
+                                            major_item_path: MajorItemPath::Trait(
                                                 TraitPath(`core::visual::Visualize`),
                                             ),
                                         },
@@ -1945,7 +1945,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::visual::Visual`, `Extern`),
                                             ),
                                         },
@@ -1996,7 +1996,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Trait(
+                                            major_item_path: MajorItemPath::Trait(
                                                 TraitPath(`core::marker::Copy`),
                                             ),
                                         },
@@ -2047,7 +2047,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Trait(
+                                            major_item_path: MajorItemPath::Trait(
                                                 TraitPath(`core::marker::Sized`),
                                             ),
                                         },
@@ -2098,7 +2098,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Trait(
+                                            major_item_path: MajorItemPath::Trait(
                                                 TraitPath(`core::clone::Clone`),
                                             ),
                                         },
@@ -2149,7 +2149,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::option::Option`, `Enum`),
                                             ),
                                         },
@@ -2426,7 +2426,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Trait(
+                                            major_item_path: MajorItemPath::Trait(
                                                 TraitPath(`core::cmp::PartialEq`),
                                             ),
                                         },
@@ -2477,7 +2477,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Trait(
+                                            major_item_path: MajorItemPath::Trait(
                                                 TraitPath(`core::cmp::Eq`),
                                             ),
                                         },
@@ -2528,7 +2528,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Trait(
+                                            major_item_path: MajorItemPath::Trait(
                                                 TraitPath(`core::cmp::PartialOrd`),
                                             ),
                                         },
@@ -2579,7 +2579,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Trait(
+                                            major_item_path: MajorItemPath::Trait(
                                                 TraitPath(`core::cmp::Ord`),
                                             ),
                                         },
@@ -2630,7 +2630,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::slice::Slice`, `Extern`),
                                             ),
                                         },
@@ -2681,7 +2681,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::slice::CyclicSlice`, `Extern`),
                                             ),
                                         },
@@ -2732,7 +2732,7 @@ EntitySynTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            module_item_path: MajorItemPath::Type(
+                                            major_item_path: MajorItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
                                         },
@@ -2843,7 +2843,7 @@ EntitySynTreeSheet {
     ],
     once_use_rules: UseOneRules(
         [
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 9,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(

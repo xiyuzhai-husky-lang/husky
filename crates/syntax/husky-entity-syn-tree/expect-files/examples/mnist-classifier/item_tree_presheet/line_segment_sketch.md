@@ -702,7 +702,7 @@ EntitySynTreePresheet {
     },
     use_one_rules: UseOneRules(
         [
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 164,
                 use_expr_idx: 2,
                 visibility: Scope::Pub,
@@ -722,7 +722,7 @@ EntitySynTreePresheet {
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 165,
                 use_expr_idx: 4,
                 visibility: Scope::Pub,
@@ -742,7 +742,7 @@ EntitySynTreePresheet {
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 166,
                 use_expr_idx: 6,
                 visibility: Scope::Pub,
@@ -762,7 +762,7 @@ EntitySynTreePresheet {
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 167,
                 use_expr_idx: 9,
                 visibility: Scope::PubUnder(
@@ -783,7 +783,7 @@ EntitySynTreePresheet {
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 168,
                 use_expr_idx: 12,
                 visibility: Scope::PubUnder(
@@ -804,7 +804,7 @@ EntitySynTreePresheet {
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 169,
                 use_expr_idx: 14,
                 visibility: Scope::PubUnder(
@@ -841,7 +841,7 @@ EntitySynTreePresheet {
                 ),
             },
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `concave_component`,
@@ -872,7 +872,7 @@ EntitySynTreePresheet {
                 ),
             },
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `convex_component`,
@@ -903,7 +903,7 @@ EntitySynTreePresheet {
                 ),
             },
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `line_segment`,
@@ -934,7 +934,7 @@ EntitySynTreePresheet {
                 ),
             },
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `geom2d`,
@@ -958,7 +958,7 @@ EntitySynTreePresheet {
                 },
             ),
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::CrateRoot(
                         CrateToken {
                             token_idx: TokenIdx(
@@ -989,7 +989,7 @@ EntitySynTreePresheet {
                 },
             },
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `raw_contour`,
@@ -1013,7 +1013,7 @@ EntitySynTreePresheet {
                 },
             ),
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::CrateRoot(
                         CrateToken {
                             token_idx: TokenIdx(
@@ -1043,7 +1043,7 @@ EntitySynTreePresheet {
                 ),
             },
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `line_segment`,

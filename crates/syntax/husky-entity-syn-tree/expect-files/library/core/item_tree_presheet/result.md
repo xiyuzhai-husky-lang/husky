@@ -66,7 +66,7 @@ EntitySynTreePresheet {
     },
     use_one_rules: UseOneRules(
         [
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 5,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
@@ -87,7 +87,7 @@ EntitySynTreePresheet {
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 6,
                 use_expr_idx: 4,
                 visibility: Scope::Pub,
@@ -122,7 +122,7 @@ EntitySynTreePresheet {
                 ),
             },
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::CrateRoot(
                         CrateToken {
                             token_idx: TokenIdx(
@@ -152,7 +152,7 @@ EntitySynTreePresheet {
                 ),
             },
             UseExpr::Parent(
-                ParentUseExpr {
+                ParentUseExprData {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `Result`,

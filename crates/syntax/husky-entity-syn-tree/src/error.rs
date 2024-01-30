@@ -1,6 +1,6 @@
 use crate::{ItemSynNodePath, PreludeError};
 use husky_entity_path::{EntityPathError, TypePath};
-use husky_token::IdentToken;
+use husky_token::{IdentToken, SuperToken};
 use husky_vfs::{error::VfsError, ModulePath, ToolchainError};
 use thiserror::Error;
 
@@ -47,6 +47,10 @@ pub enum OriginalEntityTreeError {
     ExpectIdentAfterKeyword,
     #[error("InvalidTypePath")]
     InvalidTypePath(TypePath),
+    #[error("CanOnlyUseParentSuperNotForModulePath")]
+    CanOnlyUseParentSuperForModulePath,
+    #[error("NoSuperForCrateRoot")]
+    NoSuperForCrateRoot { super_token: SuperToken },
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
@@ -67,5 +71,5 @@ pub enum DerivedEntityTreeError {
     InvalidModulePath(ModulePath),
 }
 
-pub type EntitySynTreeResult<T> = Result<T, EntitySynTreeError>;
+pub type EntityTreeResult<T> = Result<T, EntitySynTreeError>;
 pub type EntityTreeResultRef<'a, T> = Result<T, &'a EntitySynTreeError>;

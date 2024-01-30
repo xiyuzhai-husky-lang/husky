@@ -61,7 +61,7 @@ impl EntitySynTreeSheet {
 
     pub fn once_use_rule_indexed_iter<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (UseOneRuleIdx, &'a UseOneRule)> + 'a {
+    ) -> impl Iterator<Item = (OnceUseRuleIdx, &'a OnceUseRule)> + 'a {
         self.once_use_rules.indexed_iter()
     }
 
