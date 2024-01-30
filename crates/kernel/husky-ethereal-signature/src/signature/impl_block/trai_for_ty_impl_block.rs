@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_syn_tree::HasAssociatedItemPaths;
+use husky_entity_tree::HasAssociatedItemPaths;
 use husky_term_prelude::TermTypeExpectation;
 use smallvec::SmallVec;
 use vec_like::VecMapGetEntry;

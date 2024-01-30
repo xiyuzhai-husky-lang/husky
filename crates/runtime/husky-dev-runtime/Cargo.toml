@@ -38,7 +38,7 @@ husky-opr.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
 # syntax
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 husky-ast.workspace = true
 # tasks
 husky-task-interface.workspace = true

@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_syn_tree::HasAssociatedItemPaths;
+use husky_entity_tree::HasAssociatedItemPaths;
 use husky_hir_decl::TypeImplBlockHirDecl;
 
 impl TranspileToRustWith for TypeImplBlockHirDefn {

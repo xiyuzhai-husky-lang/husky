@@ -9,7 +9,7 @@ pub use self::ordered_map::*;
 pub use self::region::*;
 
 use crate::*;
-use husky_entity_syn_tree::ModuleSymbolContext;
+use husky_entity_tree::ModuleSymbolContext;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::{IsStreamParser, TryParseFromStream};
 

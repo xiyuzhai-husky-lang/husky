@@ -8,7 +8,7 @@ use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 use husky_declarative_ty::DeclarativeTypeJar;
 use husky_entity_path::{MajorItemPath, TypePath};
-use husky_entity_syn_tree::{EntitySynTreeDb, EntitySynTreeJar};
+use husky_entity_tree::{EntitySynTreeDb, EntitySynTreeJar};
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
 use husky_manifest::ManifestJar;

@@ -4,7 +4,7 @@ mod solid;
 
 use super::*;
 use husky_coword::Ident;
-use husky_entity_syn_tree::helpers::TraitInUseItemsWithGivenIdent;
+use husky_entity_tree::helpers::TraitInUseItemsWithGivenIdent;
 use husky_regional_token::IdentRegionalToken;
 
 pub type FluffyMethodDynamicDispatch = FluffyDynamicDispatch<MethodFluffySignature>;

@@ -58,7 +58,7 @@ husky-corgi-config-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 # task
 husky-task-interface.workspace = true
 # utils

@@ -1,4 +1,4 @@
-use husky_entity_syn_tree::HasAttrPaths;
+use husky_entity_tree::HasAttrPaths;
 
 use husky_term_prelude::TermTypeExpectation;
 use vec_like::{OrderedSmallVecSet, SmallVecPairMap, VecMapGetEntry};

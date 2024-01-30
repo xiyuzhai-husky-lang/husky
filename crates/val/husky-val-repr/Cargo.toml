@@ -36,7 +36,7 @@ husky-linkage.workspace = true
 # semantics
 husky-sema-expr.workspace = true
 # syntax
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 husky-syn-defn.workspace = true
 # task
 husky-task-interface.workspace = true

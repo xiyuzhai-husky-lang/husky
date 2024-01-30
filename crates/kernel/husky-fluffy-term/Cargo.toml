@@ -35,7 +35,7 @@ husky-stack-location = { path = "../../kernel/husky-stack-location" }
 husky-declarative-signature.workspace = true
 # syntax
 husky-syn-expr.workspace = true
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 # utils
 husky-print-utils.workspace = true
 

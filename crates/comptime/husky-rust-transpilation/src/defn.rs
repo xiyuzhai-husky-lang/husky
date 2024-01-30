@@ -8,7 +8,7 @@ mod ty_variant;
 use crate::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
 use husky_entity_kind::{EntityKind, FugitiveKind, MajorItemKind};
-use husky_entity_syn_tree::helpers::paths::{module_item_paths, module_submodule_item_paths};
+use husky_entity_tree::helpers::paths::{module_item_paths, module_submodule_item_paths};
 use husky_hir_decl::parameter::{
     parenate::eager::{HirEagerParenateParameter, HirEagerParenateParameters},
     self_value::eager::HirEagerSelfValueParameter,

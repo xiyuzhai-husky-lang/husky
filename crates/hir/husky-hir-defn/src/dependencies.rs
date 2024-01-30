@@ -1,6 +1,6 @@
 use crate::*;
 #[cfg(test)]
-use husky_entity_syn_tree::helpers::paths::module_item_paths;
+use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_hir_ty::{
     indirections::{HirIndirection, HirIndirections},
     instantiation::{HirInstantiation, HirTermSymbolResolution},

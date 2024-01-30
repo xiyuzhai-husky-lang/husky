@@ -1,5 +1,5 @@
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
-use husky_entity_syn_tree::helpers::paths::crate_module_paths;
+use husky_entity_tree::helpers::paths::crate_module_paths;
 use husky_io_utils::error::IOResult;
 use husky_manifest::HasPackageManifest;
 use husky_vfs::path::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};

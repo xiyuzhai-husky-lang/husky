@@ -29,7 +29,7 @@ husky-entity-kind = { path = "../../kernel/husky-entity-kind", features = [
 husky-entity-protocol = { path = "../../protocols/husky-entity-protocol" }
 husky-token-protocol = { path = "../../protocols/husky-token-protocol" }
 # syntax
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true

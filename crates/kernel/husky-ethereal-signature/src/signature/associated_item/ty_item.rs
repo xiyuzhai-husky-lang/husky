@@ -6,7 +6,7 @@ mod method_fn;
 mod method_function;
 
 use husky_entity_kind::TypeItemKind;
-use husky_entity_syn_tree::HasItemPathsMap;
+use husky_entity_tree::HasItemPathsMap;
 
 pub use self::associated_fn::*;
 pub use self::associated_ty::*;

@@ -9,7 +9,7 @@ pub(crate) use engine::*;
 
 use crate::*;
 
-use husky_entity_syn_tree::SynNodeRegionPath;
+use husky_entity_tree::SynNodeRegionPath;
 use husky_syn_expr::{
     CurrentSynSymbolIdx, SynExprIdx, SynExprMap, SynPatternExprMap, SynPatternSymbolMap,
 };

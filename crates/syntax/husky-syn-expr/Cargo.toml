@@ -32,7 +32,7 @@ husky-term-prelude.workspace = true
 husky-opr.workspace = true
 husky-expr = { path = "../../kernel/husky-expr" }
 # syntax
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 husky-decl-ast.workspace = true
 husky-defn-ast.workspace = true
 husky-syn-opr.workspace = true

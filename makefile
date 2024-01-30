@@ -89,7 +89,7 @@ save-improve-debug:
 
 syn-tree-build-timings:
 	cargo clean
-	cargo build -p husky-entity-syn-tree --timings
+	cargo build -p husky-entity-tree --timings
 	cp target/cargo-timings/cargo-timing.html benchmarks/syn-tree-build-timings.html
 
 build-timings:

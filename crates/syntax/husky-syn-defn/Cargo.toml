@@ -22,7 +22,7 @@ husky-coword.workspace = true
 husky-token.workspace = true
 # syntax
 husky-ast.workspace = true
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 # utils

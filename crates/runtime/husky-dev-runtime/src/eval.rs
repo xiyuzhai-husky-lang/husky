@@ -328,7 +328,7 @@ impl<Task: IsTask> DevRuntime<Task> {
 fn val_repr_eval_works() {
     use husky_entity_kind::FugitiveKind;
     use husky_entity_path::*;
-    use husky_entity_syn_tree::helpers::paths::module_item_paths;
+    use husky_entity_tree::helpers::paths::module_item_paths;
     use husky_ml_task::MlTask;
     use husky_ml_task_interface::InputId;
     use husky_path_utils::dev_paths::*;

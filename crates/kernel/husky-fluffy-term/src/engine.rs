@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_syn_tree::helpers::TraitInUseItemsTable;
+use husky_entity_tree::helpers::TraitInUseItemsTable;
 use husky_stack_location::{StackLocationIdx, StackLocationRegistry};
 
 pub trait FluffyTermEngine<'a>: Sized {

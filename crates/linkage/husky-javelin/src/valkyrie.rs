@@ -4,7 +4,7 @@ use crate::{
 };
 use fxhash::FxHashMap;
 use husky_entity_path::{ItemPathId, MajorItemPath, PrincipalEntityPath};
-use husky_entity_syn_tree::helpers::paths::module_item_paths;
+use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_hir_decl::{parameter::template::HirTemplateParameters, HasHirDecl};
 use husky_hir_defn::HasHirDefn;
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprRegion};
