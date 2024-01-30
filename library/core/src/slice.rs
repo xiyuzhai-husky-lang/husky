@@ -38,7 +38,7 @@ where
         todo!("CyclicSlice serialize_to_value")
     }
 
-    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
+    fn visualize_or_void(&self, _visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
         todo!()
     }
 }
@@ -65,7 +65,7 @@ impl<T> __FromValue for CyclicSliceLeashed<T>
 where
     T: __Static,
 {
-    fn from_value_aux(value: __Value, _: Option<&mut __ValueStands>) -> Self {
+    fn from_value_aux(_value: __Value, _: Option<&mut __ValueStands>) -> Self {
         todo!()
     }
 }

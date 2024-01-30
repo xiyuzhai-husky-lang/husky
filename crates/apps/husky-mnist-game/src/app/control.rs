@@ -1,6 +1,6 @@
 use super::*;
 use crate::{op::history::OpTime, MnistDb};
-use egui::{vec2, Slider};
+use egui::Slider;
 use husky_ml_task_interface::{pedestal::MlPedestal, InputId};
 
 pub struct MnistControl {

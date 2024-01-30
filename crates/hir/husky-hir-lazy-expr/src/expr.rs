@@ -182,7 +182,7 @@ impl ToHirLazy for SemaExprIdx {
             } => match opr {
                 SemaBinaryOpr::As => HirLazyExprData::As {
                     opd: lopd.to_hir_lazy(builder),
-                    ty: todo!(),
+                    ty: builder.expr_term_to_hir_ty(ropd).expect("valid"),
                 },
                 _ => HirLazyExprData::Binary {
                     lopd: lopd.to_hir_lazy(builder),
@@ -392,19 +392,9 @@ impl ToHirLazy for SemaExprIdx {
                 template: _,
                 template_arguments: _,
             } => todo!(),
-            SemaExprData::At {
-                at_regional_token_idx: _,
-                place_label_regional_token: _,
-            } => todo!(),
-            SemaExprData::Unit {
-                lpar_regional_token_idx: _,
-                rpar_regional_token_idx: _,
-            } => todo!(),
-            SemaExprData::Bracketed {
-                lpar_regional_token_idx: _,
-                item: _,
-                rpar_regional_token_idx: _,
-            } => todo!(),
+            SemaExprData::At { .. } => unreachable!("this is a type"),
+            SemaExprData::Unit { .. } => HirLazyExprData::Literal(().into()),
+            SemaExprData::Bracketed { item, .. } => return item.to_hir_lazy(builder),
             SemaExprData::NewTuple {
                 lpar_regional_token_idx: _,
                 items: _,

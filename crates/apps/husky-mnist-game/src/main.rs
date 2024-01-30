@@ -1,3 +1,4 @@
+#![allow(incomplete_features)]
 #![feature(generic_const_exprs)]
 mod alg;
 mod app;
@@ -10,8 +11,6 @@ mod view;
 use self::app::*;
 use self::db::*;
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual, visualize::Visualize};
-use image::{ImageBuffer, Rgba};
-use imageproc::drawing::draw_line_segment_mut;
 
 fn main() -> Result<(), eframe::Error> {
     let options = eframe::NativeOptions {

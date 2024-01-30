@@ -4,11 +4,7 @@ pub mod optimal_transport;
 pub mod optimal_transport_average;
 pub mod skeleton;
 
-use self::input::Input;
-use crate::{
-    op::{frame::MnistOpFrame, history::OpTime},
-    MnistDb, *,
-};
+use crate::{op::history::OpTime, MnistDb, *};
 use enum_index::{bitset::EnumBitSet, IsEnumIndex};
 use husky_ml_task_interface::InputId;
 use husky_task_interface::val_repr::ValReprInterface;
@@ -74,8 +70,6 @@ fn trace_from_into_val_repr_interface_works() {
     t(Skeleton);
     t(OptimalTransport);
 }
-
-pub const ALL_TRACES: &[Trace] = &[Trace::Input];
 
 impl Trace {
     pub(crate) fn visual<'a>(self, db: &'a MnistDb, input_id: InputId, op_time: OpTime) -> Visual {

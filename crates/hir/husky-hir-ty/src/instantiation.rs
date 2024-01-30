@@ -50,7 +50,7 @@ impl HirTermSymbolResolution {
 }
 
 impl HirInstantiation {
-    #[deprecated]
+    #[deprecated(note = "ad hoc")]
     pub fn new_empty(is_associated: bool) -> Self {
         Self {
             symbol_map: Default::default(),

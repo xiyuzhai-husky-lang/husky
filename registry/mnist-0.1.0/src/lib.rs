@@ -4,7 +4,7 @@ use dataset::MNIST_DATASET;
 use husky_core::*;
 use husky_linkage_impl::standard::ugly::*;
 use husky_ml_task_interface::{input_id, label::IsLabel, ugly::*, InputId};
-use husky_standard_value::ugly::*;
+
 use husky_task_interface::{init_crate, ugly::*};
 
 init_crate!();
