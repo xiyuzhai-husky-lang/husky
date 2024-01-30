@@ -1,72 +1,60 @@
 use super::*;
 
-/// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermI64Literal {
     pub value: i64,
 }
 
-/// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermI128Literal {
     pub value: i128,
 }
 
-/// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermI256Literal {
     pub value: [i128; 2],
 }
 
-/// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermISizeLiteral {
-    pub value: isize,
+    pub value: i64,
 }
 
-/// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermU64Literal {
     pub value: u64,
 }
 
-/// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermU128Literal {
     pub value: u128,
 }
 
-/// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermU256Literal {
     pub value: [u128; 2],
 }
 
-/// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermUSizeLiteral {
     pub value: u64,
 }
 
-/// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermR64Literal {
     pub value: u64,
 }
 
-/// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermR128Literal {
     pub value: u128,
 }
 
-/// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermR256Literal {
     pub value: [u128; 2],
 }
 
-/// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermRSizeLiteral {
     pub value: u64,

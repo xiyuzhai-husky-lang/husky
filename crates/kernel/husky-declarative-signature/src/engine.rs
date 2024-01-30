@@ -6,6 +6,13 @@ use crate::*;
 use husky_print_utils::p;
 use husky_syn_expr::*;
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
+use husky_term_prelude::literal::{
+    int::{
+        TermI128Literal, TermI64Literal, TermISizeLiteral, TermR128Literal, TermR64Literal,
+        TermRSizeLiteral, TermU128Literal, TermU64Literal, TermUSizeLiteral,
+    },
+    TermLiteral,
+};
 use husky_token_data::{IntegerLikeLiteralData, LiteralData};
 use husky_vfs::Toolchain;
 use salsa::DebugWithDb;
@@ -350,6 +357,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     }
 
     fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> DeclarativeTermResult2<DeclarativeTerm> {
+        let db = self.db;
         match self.syn_expr_region_data.expr_arena()[expr_idx] {
             SynExprData::Literal(token_idx, literal) => match literal {
                 LiteralData::Unit => todo!(),
@@ -360,24 +368,60 @@ impl<'a> DeclarativeTermEngine<'a> {
                         UnresolvedTermLiteral::RegularInteger(i).into(),
                     )),
                     IntegerLikeLiteralData::UnspecifiedLarge() => todo!(),
-                    IntegerLikeLiteralData::I8(_) => todo!(),
-                    IntegerLikeLiteralData::I16(_) => todo!(),
-                    IntegerLikeLiteralData::I32(_) => todo!(),
-                    IntegerLikeLiteralData::I64(_) => todo!(),
-                    IntegerLikeLiteralData::I128(_) => todo!(),
-                    IntegerLikeLiteralData::ISize(_) => todo!(),
-                    IntegerLikeLiteralData::R8(_) => todo!(),
-                    IntegerLikeLiteralData::R16(_) => todo!(),
-                    IntegerLikeLiteralData::R32(_) => todo!(),
-                    IntegerLikeLiteralData::R64(_) => todo!(),
-                    IntegerLikeLiteralData::R128(_) => todo!(),
-                    IntegerLikeLiteralData::RSize(_) => todo!(),
-                    IntegerLikeLiteralData::U8(_) => todo!(),
-                    IntegerLikeLiteralData::U16(_) => todo!(),
-                    IntegerLikeLiteralData::U32(_) => todo!(),
-                    IntegerLikeLiteralData::U64(_) => todo!(),
-                    IntegerLikeLiteralData::U128(_) => todo!(),
-                    IntegerLikeLiteralData::USize(_) => todo!(),
+                    IntegerLikeLiteralData::I8(i) => {
+                        Ok(DeclarativeTerm::Literal(TermLiteral::I8(i).into()))
+                    }
+                    IntegerLikeLiteralData::I16(i) => {
+                        Ok(DeclarativeTerm::Literal(TermLiteral::I16(i).into()))
+                    }
+                    IntegerLikeLiteralData::I32(i) => {
+                        Ok(DeclarativeTerm::Literal(TermLiteral::I32(i).into()))
+                    }
+                    IntegerLikeLiteralData::I64(i) => Ok(DeclarativeTerm::Literal(
+                        TermLiteral::I64(TermI64Literal::new(db, i)).into(),
+                    )),
+                    IntegerLikeLiteralData::I128(r) => Ok(DeclarativeTerm::Literal(
+                        TermLiteral::I128(TermI128Literal::new(db, r)).into(),
+                    )),
+                    IntegerLikeLiteralData::ISize(i) => Ok(DeclarativeTerm::Literal(
+                        TermLiteral::ISize(TermISizeLiteral::new(db, i as i64)).into(),
+                    )),
+                    IntegerLikeLiteralData::R8(r) => {
+                        Ok(DeclarativeTerm::Literal(TermLiteral::R8(r).into()))
+                    }
+                    IntegerLikeLiteralData::R16(r) => {
+                        Ok(DeclarativeTerm::Literal(TermLiteral::R16(r).into()))
+                    }
+                    IntegerLikeLiteralData::R32(r) => {
+                        Ok(DeclarativeTerm::Literal(TermLiteral::R32(r).into()))
+                    }
+                    IntegerLikeLiteralData::R64(r) => Ok(DeclarativeTerm::Literal(
+                        TermLiteral::R64(TermR64Literal::new(db, r)).into(),
+                    )),
+                    IntegerLikeLiteralData::R128(r) => Ok(DeclarativeTerm::Literal(
+                        TermLiteral::R128(TermR128Literal::new(db, r)).into(),
+                    )),
+                    IntegerLikeLiteralData::RSize(r) => Ok(DeclarativeTerm::Literal(
+                        TermLiteral::RSize(TermRSizeLiteral::new(db, r as u64)).into(),
+                    )),
+                    IntegerLikeLiteralData::U8(u) => {
+                        Ok(DeclarativeTerm::Literal(TermLiteral::U8(u).into()))
+                    }
+                    IntegerLikeLiteralData::U16(u) => {
+                        Ok(DeclarativeTerm::Literal(TermLiteral::U16(u).into()))
+                    }
+                    IntegerLikeLiteralData::U32(u) => {
+                        Ok(DeclarativeTerm::Literal(TermLiteral::U32(u).into()))
+                    }
+                    IntegerLikeLiteralData::U64(u) => Ok(DeclarativeTerm::Literal(
+                        TermLiteral::U64(TermU64Literal::new(db, u)).into(),
+                    )),
+                    IntegerLikeLiteralData::U128(u) => Ok(DeclarativeTerm::Literal(
+                        TermLiteral::U128(TermU128Literal::new(db, u)).into(),
+                    )),
+                    IntegerLikeLiteralData::USize(u) => Ok(DeclarativeTerm::Literal(
+                        TermLiteral::USize(TermUSizeLiteral::new(db, u as u64)).into(),
+                    )),
                 },
                 LiteralData::Float(_) => todo!(),
                 LiteralData::TupleIndex(_) => todo!(),

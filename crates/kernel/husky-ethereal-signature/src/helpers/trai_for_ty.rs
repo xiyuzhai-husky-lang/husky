@@ -85,28 +85,12 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
         EtherealTerm::Ritchie(ritchie) => match ritchie.ritchie_kind(db) {
             RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
                 RitchieTypeKind::Fn => match trai_path.refine(db) {
-                    Left(prelude_trai_path) => match prelude_trai_path {
-                        PreludeTraitPath::Add => todo!(),
-                        PreludeTraitPath::AddAssign => todo!(),
-                        PreludeTraitPath::BitAnd => todo!(),
-                        PreludeTraitPath::BitAndAssign => todo!(),
-                        PreludeTraitPath::BitOr => todo!(),
-                        PreludeTraitPath::BitOrAssign => todo!(),
-                        PreludeTraitPath::BitXor => todo!(),
-                        PreludeTraitPath::BitXorAssign => todo!(),
-                        PreludeTraitPath::Div => todo!(),
-                        PreludeTraitPath::DivAssign => todo!(),
-                        PreludeTraitPath::IntIndex => todo!(),
-                        PreludeTraitPath::Mul => todo!(),
-                        PreludeTraitPath::MulAssign => todo!(),
-                        PreludeTraitPath::Neg => todo!(),
-                        PreludeTraitPath::Not => todo!(),
-                        PreludeTraitPath::Unveil => todo!(),
-                        PreludeTraitPath::Clone => return Ok(true),
-                        PreludeTraitPath::Copy => return Ok(true),
-                        PreludeTraitPath::Default => return Ok(false),
-                        PreludeTraitPath::Visualize => todo!(),
-                    },
+                    Left(prelude_trai_path) => {
+                        return Ok(match prelude_trai_path {
+                            PreludeTraitPath::Clone | PreludeTraitPath::Copy => true,
+                            _ => false,
+                        })
+                    }
                     Right(_) => todo!(),
                 },
                 RitchieTypeKind::Gn => todo!(),
