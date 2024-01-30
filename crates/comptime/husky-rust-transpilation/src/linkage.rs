@@ -175,8 +175,8 @@ fn turbo_fish_instantiation<E>(
             RustBracket::TurboFish,
             instantiation.iter().map(|&(_, res)| match res {
                 LinkageTermSymbolResolution::Explicit(arg) => arg,
-                LinkageTermSymbolResolution::SelfLifetime => unreachable!(),
-                LinkageTermSymbolResolution::SelfPlace(_) => unreachable!(),
+                LinkageTermSymbolResolution::SelfLifetime => todo!(),
+                LinkageTermSymbolResolution::SelfPlace(_) => todo!(),
             }),
         )
     }
