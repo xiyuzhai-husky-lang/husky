@@ -289,7 +289,7 @@ fn module_hir_defn_dependencies_works() {
         &AstTestConfig::new(
             "module_hir_defn_dependencies",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::HIR,
         ),
     )
 }

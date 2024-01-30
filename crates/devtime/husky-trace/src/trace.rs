@@ -354,7 +354,7 @@ fn root_traces_works() {
         &AstTestConfig::new(
             "root_traces",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::DEVTIME,
         ),
     )
 }
@@ -401,7 +401,7 @@ fn find_traces_works() {
         &AstTestConfig::new(
             "find_traces",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::DEVTIME,
         ),
     )
 }
@@ -413,7 +413,7 @@ fn trace_view_data_works() {
         &AstTestConfig::new(
             "trace_view_data",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::DEVTIME,
         ),
     )
 }
@@ -425,7 +425,7 @@ fn trace_val_repr_works() {
         &AstTestConfig::new(
             "trace_val_repr",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::DEVTIME,
         ),
     )
 }

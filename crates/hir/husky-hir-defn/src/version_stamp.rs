@@ -108,7 +108,7 @@ fn module_hir_defn_version_stamps_works() {
         &AstTestConfig::new(
             "module_hir_defn_version_stamps",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::HIR,
         ),
     )
 }

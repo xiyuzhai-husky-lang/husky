@@ -205,7 +205,7 @@ fn item_tree_sheet_works() {
         &AstTestConfig::new(
             "item_tree_sheet",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     )
 }

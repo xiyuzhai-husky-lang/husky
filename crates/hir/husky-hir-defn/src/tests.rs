@@ -70,7 +70,7 @@ fn module_hir_defns_works() {
         &AstTestConfig::new(
             "module_hir_defns",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::HIR,
         ),
     );
 }

@@ -67,7 +67,7 @@ fn item_declarative_tys_works() {
         &AstTestConfig::new(
             "major_item_declarative_tys",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::KERNEL,
         ),
     )
 }

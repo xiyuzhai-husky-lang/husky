@@ -2,13 +2,13 @@ use super::*;
 
 #[derive(Debug)]
 #[salsa::debug_with_db]
-pub(super) struct VfsTestDomain {
+pub(super) struct TestDomain {
     src_base: PathBuf,
     expect_files_base: PathBuf,
     adversarials_base: Option<PathBuf>,
 }
 
-impl VfsTestDomain {
+impl TestDomain {
     pub(super) fn new(
         src_base: PathBuf,
         expect_files_base: PathBuf,
@@ -38,60 +38,73 @@ impl VfsTestDomain {
     }
 }
 
-pub enum VfsTestDomainsConfig {
+pub struct TestDomainsConfig(TestDomainsConfigImpl);
+
+pub enum TestDomainsConfigImpl {
     Full,
     ExcludeLibrary,
     ExamplesOnly,
 }
 
-impl Default for VfsTestDomainsConfig {
-    fn default() -> Self {
-        VfsTestDomainsConfig::Full
-    }
+/// # exports
+impl TestDomainsConfig {
+    pub const COMPTIME: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
+    pub const DEVTIME: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
+    pub const FS: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
+    pub const HIR: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
+    pub const IDE: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
+    pub const LEX: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
+    pub const LINKAGE: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
+    pub const LINKTIME: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
+    pub const KERNEL: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
+    pub const SYNTAX: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
+    pub const SEMANTICS: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
+    pub const TOML: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
+    pub const VAL: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
 }
 
-impl VfsTestDomainsConfig {
-    pub(super) fn test_domains(&self) -> Vec<VfsTestDomain> {
+impl TestDomainsConfig {
+    pub(super) fn test_domains(&self) -> Vec<TestDomain> {
         let env = HuskyLangDevPaths::new();
         let dir = env
             .cargo_manifest_dir()
             .map(|p| p.to_owned())
             .unwrap_or("temp".into());
-        match self {
-            VfsTestDomainsConfig::Full => {
+        match self.0 {
+            TestDomainsConfigImpl::Full => {
                 vec![
-                    VfsTestDomain::new(
+                    TestDomain::new(
                         env.lang_dev_library_dir().to_owned(),
                         dir.join("expect-files/library"),
                         None,
                     ),
-                    VfsTestDomain::new(
+                    TestDomain::new(
                         env.lang_dev_examples_dir().to_owned(),
                         dir.join("expect-files/examples"),
                         Some(dir.join("adversarials/examples")),
                     ),
-                    VfsTestDomain::new(
+                    TestDomain::new(
                         env.lang_dev_registry_dir().to_owned(),
                         dir.join("expect-files/registry"),
                         Some(dir.join("adversarials/registry")),
                     ),
                 ]
             }
-            VfsTestDomainsConfig::ExcludeLibrary => {
+            TestDomainsConfigImpl::ExcludeLibrary => {
                 vec![
-                    VfsTestDomain::new(
+                    TestDomain::new(
                         env.lang_dev_examples_dir().to_owned(),
                         dir.join("expect-files/examples"),
                         Some(dir.join("adversarials/examples")),
                     ),
-                    VfsTestDomain::new(
+                    TestDomain::new(
                         env.lang_dev_registry_dir().to_owned(),
                         dir.join("expect-files/registry"),
                         Some(dir.join("adversarials/registry")),
                     ),
                 ]
             }
-            VfsTestDomainsConfig::ExamplesOnly => vec![VfsTestDomain::new(
+            TestDomainsConfigImpl::ExamplesOnly => vec![TestDomain::new(
                 env.lang_dev_examples_dir().to_owned(),
                 dir.join("expect-files/examples"),
                 Some(dir.join("adversarials/examples")),

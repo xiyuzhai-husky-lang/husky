@@ -60,7 +60,7 @@ fn diagnostic_sheet_works() {
         &AstTestConfig::new(
             "diagnostic_sheet",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::IDE,
         ),
     );
 }

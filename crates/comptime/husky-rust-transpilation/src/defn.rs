@@ -115,7 +115,7 @@ fn module_defn_rust_transpilation_works() {
         &AstTestConfig::new(
             "module_defn_rust_transpilation",
             FileExtensionConfig::Rust,
-            VfsTestDomainsConfig::ExcludeLibrary,
+            TestDomainsConfig::COMPTIME,
         ),
     );
 }

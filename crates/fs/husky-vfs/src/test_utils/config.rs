@@ -1,24 +1,15 @@
+pub mod domain;
+pub mod extension;
+
+pub use self::domain::*;
+pub use self::extension::*;
+
 use super::*;
 
 pub struct VfsTestConfig<'a> {
     test_name: &'a str,
     expect_file_extension: FileExtensionConfig,
-    test_domains_config: VfsTestDomainsConfig,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum FileExtensionConfig {
-    Markdown,
-    Rust,
-}
-
-impl FileExtensionConfig {
-    pub fn str(self) -> &'static str {
-        match self {
-            FileExtensionConfig::Markdown => "md",
-            FileExtensionConfig::Rust => "rs",
-        }
-    }
+    test_domains_config: TestDomainsConfig,
 }
 
 /// # constructor
@@ -26,7 +17,7 @@ impl<'a> VfsTestConfig<'a> {
     pub fn new(
         test_name: &'a str,
         expect_file_extension: FileExtensionConfig,
-        test_domains_config: VfsTestDomainsConfig,
+        test_domains_config: TestDomainsConfig,
     ) -> Self {
         Self {
             test_name,
@@ -46,11 +37,11 @@ impl<'a> VfsTestConfig<'a> {
         &self.expect_file_extension
     }
 
-    pub fn test_domains_config(&self) -> &VfsTestDomainsConfig {
+    pub fn test_domains_config(&self) -> &TestDomainsConfig {
         &self.test_domains_config
     }
 
-    pub(super) fn test_domains(&self) -> Vec<VfsTestDomain> {
+    pub(super) fn test_domains(&self) -> Vec<TestDomain> {
         self.test_domains_config.test_domains()
     }
 }

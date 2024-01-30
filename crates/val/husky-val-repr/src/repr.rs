@@ -250,7 +250,7 @@ fn val_item_val_repr_works() {
         &AstTestConfig::new(
             "val_item_val_reprs",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::VAL,
         ),
     )
 }

@@ -15,7 +15,7 @@ fn manifest_ast_works() {
         &VfsTestConfig::new(
             "package_manifest_ast_sheet_sheet",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::TOML,
         ),
     )
 }

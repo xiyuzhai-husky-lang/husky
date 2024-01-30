@@ -92,7 +92,7 @@ impl<'a> TokenTestConfig<'a> {
     pub fn new(
         test_name: &'a str,
         expect_file_extension: FileExtensionConfig,
-        test_domains_config: VfsTestDomainsConfig,
+        test_domains_config: TestDomainsConfig,
     ) -> Self {
         Self {
             vfs: VfsTestConfig::new(test_name, expect_file_extension, test_domains_config),

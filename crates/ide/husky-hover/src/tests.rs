@@ -75,7 +75,7 @@ fn hover_result_works() {
         &AstTestConfig::new(
             "hover_result",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::IDE,
         ),
     )
 }

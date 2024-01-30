@@ -617,7 +617,7 @@ fn package_linkages_works() {
         &AstTestConfig::new(
             "package_linkages",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::ExcludeLibrary,
+            TestDomainsConfig::LINKAGE,
         ),
     )
 }

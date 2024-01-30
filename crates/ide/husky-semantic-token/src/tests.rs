@@ -60,7 +60,7 @@ fn semantic_tokens_works() {
         &AstTestConfig::new(
             "semantic_tokens",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::IDE,
         ),
     )
 }

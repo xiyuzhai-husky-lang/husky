@@ -69,7 +69,7 @@ fn module_hir_decls_works() {
         &AstTestConfig::new(
             "module_hir_decls",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::HIR,
         ),
     );
 }

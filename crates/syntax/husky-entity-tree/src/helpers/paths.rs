@@ -134,7 +134,7 @@ fn module_item_paths_works() {
         &AstTestConfig::new(
             "module_item_paths",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     )
 }
@@ -150,7 +150,7 @@ fn item_path_id_conversion_works() {
         &AstTestConfig::new(
             "item_path_id_conversion",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     )
 }
@@ -200,7 +200,7 @@ fn crate_module_paths_works() {
         &VfsTestConfig::new(
             "crate_module_paths",
             FileExtensionConfig::Markdown,
-            VfsTestDomainsConfig::Full,
+            TestDomainsConfig::SYNTAX,
         ),
     )
 }
