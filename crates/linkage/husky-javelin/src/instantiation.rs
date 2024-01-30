@@ -24,7 +24,7 @@ impl std::ops::Deref for JavelinInstantiation {
 impl JavelinInstantiation {
     pub(crate) fn from_hir(
         hir_instantiation: &HirInstantiation,
-        javelin_instantiation: Option<&JavelinInstantiation>,
+        javelin_instantiation: &JavelinInstantiation,
         db: &::salsa::Db,
     ) -> JavelinInstantiation {
         JavelinInstantiation {
@@ -98,7 +98,7 @@ pub enum JavelinTermSymbolResolution {
 impl JavelinTermSymbolResolution {
     fn from_hir(
         resolution: HirTermSymbolResolution,
-        javelin_instantiation: Option<&JavelinInstantiation>,
+        javelin_instantiation: &JavelinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match resolution {
