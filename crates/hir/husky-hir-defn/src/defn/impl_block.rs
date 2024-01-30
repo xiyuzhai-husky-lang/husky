@@ -5,6 +5,7 @@ pub use self::trai_for_ty_impl_block::*;
 pub use self::ty_impl_block::*;
 
 use super::*;
+use husky_hir_decl::decl::ImplBlockHirDecl;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]

@@ -13,7 +13,6 @@ use self::dependencies::*;
 use self::tests::*;
 use self::version_stamp::*;
 use husky_entity_path::*;
-use husky_hir_decl::*;
 use husky_hir_eager_expr::*;
 use husky_hir_expr::*;
 use husky_hir_lazy_expr::*;

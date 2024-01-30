@@ -10,6 +10,7 @@ pub use self::method_fn::*;
 
 use super::*;
 use husky_entity_path::AssociatedItemPath;
+use husky_hir_decl::decl::TraitItemHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]

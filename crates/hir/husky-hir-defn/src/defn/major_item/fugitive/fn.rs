@@ -1,6 +1,7 @@
-use husky_hir_decl::parameter::parenate::eager::HirEagerParenateParameter;
-
 use super::*;
+use husky_hir_decl::{
+    decl::FunctionFnFugitiveHirDecl, parameter::parenate::eager::HirEagerParenateParameter,
+};
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct FunctionFnHirDefn {

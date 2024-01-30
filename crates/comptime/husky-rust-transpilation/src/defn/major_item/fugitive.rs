@@ -1,4 +1,4 @@
-use husky_hir_decl::{FunctionFnFugitiveHirDecl, ValFugitiveHirDecl};
+use husky_hir_decl::decl::{FunctionFnFugitiveHirDecl, ValFugitiveHirDecl};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 
 use super::*;

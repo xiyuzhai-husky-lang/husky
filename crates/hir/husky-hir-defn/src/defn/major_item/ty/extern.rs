@@ -1,4 +1,5 @@
 use super::*;
+use husky_hir_decl::decl::ExternTypeHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
 pub struct ExternHirDefn {

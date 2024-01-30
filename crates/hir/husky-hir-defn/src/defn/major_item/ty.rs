@@ -5,6 +5,8 @@ mod tuple_struct;
 mod union;
 mod unit_struct;
 
+use husky_hir_decl::decl::TypeHirDecl;
+
 pub use self::props_struct::*;
 pub use self::r#enum::*;
 pub use self::r#extern::*;

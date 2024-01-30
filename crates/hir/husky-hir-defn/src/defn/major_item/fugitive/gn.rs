@@ -1,7 +1,8 @@
-use husky_hir_decl::parameter::parenate::lazy::HirLazyParenateParameter;
-use husky_hir_lazy_expr::helpers::hir_lazy_body_with_expr_region;
-
 use super::*;
+use husky_hir_decl::{
+    decl::FunctionGnFugitiveHirDecl, parameter::parenate::lazy::HirLazyParenateParameter,
+};
+use husky_hir_lazy_expr::helpers::hir_lazy_body_with_expr_region;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct FunctionGnHirDefn {

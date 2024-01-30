@@ -4,7 +4,7 @@ use super::*;
 
 use husky_coword::Ident;
 use husky_entity_tree::{HasAttrPaths, HasTypeVariantPaths};
-use husky_hir_decl::{
+use husky_hir_decl::decl::{
     HasHirDecl, PropsFieldHirInitialization, PropsStructFieldHirDecl, TupleFieldHirDecl,
     TypeVariantHirDecl,
 };

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_hir_decl::AttrHirDecl;
+use husky_hir_decl::decl::AttrHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct AttrHirDefn {

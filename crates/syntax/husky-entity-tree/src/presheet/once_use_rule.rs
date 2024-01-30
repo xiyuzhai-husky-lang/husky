@@ -37,7 +37,7 @@ impl OnceUseRules {
     }
 
     #[cfg(test)]
-    pub(crate) fn check_done(&self, db: &::salsa::Db) {
+    pub(crate) fn check_done(&self, _db: &::salsa::Db) {
         for tracker in self.0.iter() {
             match tracker.state {
                 UseOneRuleState::Unresolved => {

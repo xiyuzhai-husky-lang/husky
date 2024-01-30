@@ -7,6 +7,7 @@ pub use self::trai::*;
 pub use self::ty::*;
 
 use super::*;
+use husky_hir_decl::decl::MajorItemHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]

@@ -1,5 +1,7 @@
 use super::*;
-use husky_hir_decl::{EnumTupleVariantField, EnumTupleVariantHirDecl, EnumUnitTypeVariantHirDecl};
+use husky_hir_decl::decl::{
+    EnumTupleVariantField, EnumTupleVariantHirDecl, EnumUnitTypeVariantHirDecl,
+};
 
 impl TranspileToRustWith for TypeVariantHirDefn {
     fn transpile_to_rust(self, _builder: &mut RustTranspilationBuilder) {

@@ -1,4 +1,5 @@
 pub(crate) use husky_ast::test_utils::*;
+use husky_vfs::ModulePath;
 
 use crate::{db::*, *};
 use husky_corgi_config::CorgiConfigJar;
@@ -23,7 +24,7 @@ use husky_toml_token::TomlTokenJar;
 
 #[salsa::db(
     CowordJar,
-    VfsJar,
+    husky_vfs::jar::VfsJar,
     husky_entity_path::jar::EntityPathJar,
     husky_token_data::db::TokenDataJar,
     TokenJar,
