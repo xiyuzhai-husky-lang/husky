@@ -148,10 +148,3 @@ impl TraitForTypeItemSynNode {
         )
     }
 }
-
-/// # getters
-impl TraitForTypeItemSynNode {
-    pub fn syn_node_path(&self) -> TraitForTypeItemSynNodePath {
-        self.syn_node_path
-    }
-}

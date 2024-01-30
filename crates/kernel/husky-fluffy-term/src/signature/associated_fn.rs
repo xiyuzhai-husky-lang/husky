@@ -22,6 +22,10 @@ impl AssociatedFnFluffySignature {
     pub fn path(&self) -> AssociatedItemPath {
         self.path
     }
+
+    pub fn instantiation(&self) -> &FluffyInstantiation {
+        &self.instantiation
+    }
 }
 
 pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(

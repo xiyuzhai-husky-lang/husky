@@ -38,7 +38,6 @@ use self::context::*;
 use self::submodule::*;
 #[cfg(test)]
 use self::tests::*;
-
 use husky_ast::*;
 use husky_coword::Ident;
 use husky_entity_path::*;
@@ -47,4 +46,3 @@ use husky_scope_expr::*;
 use husky_token_data::*;
 use husky_vfs::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
-use salsa::DebugWithDb;

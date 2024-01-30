@@ -1,9 +1,7 @@
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
-use husky_term_prelude::literal::{
-    TermLiteral,
-};
+use husky_term_prelude::literal::TermLiteral;
 use husky_token_data::{IntegerLikeLiteralData, LiteralData};
 
 #[salsa::debug_with_db]
@@ -133,8 +131,6 @@ impl<'a> HirEagerExprBuilder<'a> {
                     todo!()
                 }
             }
-            SynPatternExprData::TupleStruct { .. } => todo!(),
-            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
             SynPatternExprData::Props { name: _, fields: _ } => todo!(),
             SynPatternExprData::OneOf { ref options } => {
                 let hir_eager_options = options

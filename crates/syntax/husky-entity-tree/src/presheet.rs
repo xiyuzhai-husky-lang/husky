@@ -100,11 +100,6 @@ impl<'a> EntityTreePresheetMut<'a> {
     pub(crate) fn check_done(&self, db: &::salsa::Db) {
         self.once_use_rules.check_done(db)
     }
-
-    #[cfg(test)]
-    pub fn use_all_rules(&self) -> &UseAllRules {
-        &self.all_module_items_use_rules
-    }
 }
 
 impl<'a> AsVecMapEntry for EntityTreePresheetMut<'a> {

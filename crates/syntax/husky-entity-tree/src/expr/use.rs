@@ -108,15 +108,12 @@ pub(crate) fn parse_use_expr_root(
     token_stream: &mut TokenStream,
     use_expr_arena: &mut UseExprArena,
 ) -> Result<UseExprRoot, ()> {
-    UseExprParser {
-        token_stream,
-        use_expr_arena,
-    }
-    .parse_use_expr_root()
-    .map_err(|e| {
-        // alloc into an use expression, so that the error can be access later for diagnostics
-        use_expr_arena.alloc_one(UseExpr::Err(e));
-    })
+    UseExprParser::new(token_stream, use_expr_arena)
+        .parse_use_expr_root()
+        .map_err(|e| {
+            // alloc into an use expression, so that the error can be access later for diagnostics
+            use_expr_arena.alloc_one(UseExpr::Err(e));
+        })
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

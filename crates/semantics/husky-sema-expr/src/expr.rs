@@ -66,6 +66,7 @@ pub enum SemaExprData {
         path_expr_idx: SynPrincipalEntityPathExprIdx,
         path: PrincipalEntityPath,
         ty_path_disambiguation: TypePathDisambiguation,
+        /// only None if `path` is an ontology constructor
         instantiation: Option<FluffyInstantiation>,
     },
     AssociatedItem {

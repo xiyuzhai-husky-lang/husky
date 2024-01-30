@@ -185,14 +185,9 @@ impl HasSynNodePath for ItemPath {
 #[derive(Default)]
 pub(crate) struct ItemSynNodePathRegistry {
     next_disambiguators: VecPairMap<ItemPath, u8>,
-    errors: Vec<EntityTreeError>,
 }
 
 impl ItemSynNodePathRegistry {
-    pub(crate) fn finish_with_errors(self) -> Vec<EntityTreeError> {
-        self.errors
-    }
-
     fn issue_maybe_ambiguous_path<P: Copy + Into<ItemPath>>(
         &mut self,
         path: P,
@@ -236,7 +231,6 @@ impl<P> MaybeAmbiguousPath<P> {
 pub(crate) enum ItemSynNode {
     Submodule(SubmoduleSynNode),
     MajorItem(MajorItemSynNode),
-    AssociatedItem(AssociatedItemSynNode),
     TypeVariant(TypeVariantSynNode),
     ImplBlock(ImplBlockSynNode),
     Attr(AttrSynNode),
@@ -285,7 +279,6 @@ impl ItemSynNode {
         match self {
             ItemSynNode::Submodule(node) => node.syn_node_path.into(),
             ItemSynNode::MajorItem(node) => node.syn_node_path.into(),
-            ItemSynNode::AssociatedItem(node) => node.syn_node_path().into(),
             ItemSynNode::TypeVariant(node) => node.syn_node_path.into(),
             ItemSynNode::ImplBlock(node) => node.syn_node_path().into(),
             ItemSynNode::Attr(node) => node.syn_node_path().into(),

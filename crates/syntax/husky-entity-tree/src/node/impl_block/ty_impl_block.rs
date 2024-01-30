@@ -136,20 +136,8 @@ impl TypeImplBlockSynNode {
 
 /// # getters
 impl TypeImplBlockSynNode {
-    pub fn module_path(&self, db: &::salsa::Db) -> ModulePath {
-        self.syn_node_path.path(db).module_path(db)
-    }
-
     pub fn syn_node_path(&self) -> TypeImplBlockSynNodePath {
         self.syn_node_path
-    }
-
-    pub fn ty_path(self, db: &::salsa::Db) -> TypePath {
-        self.syn_node_path.path(db).ty_path(db)
-    }
-
-    pub(crate) fn ast_idx(&self) -> AstIdx {
-        self.ast_idx
     }
 
     pub fn items(&self) -> TypeItems {

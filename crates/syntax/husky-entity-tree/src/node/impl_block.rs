@@ -42,8 +42,6 @@ pub enum ImplBlockSynNodePathData {
     IllFormedImplBlock(IllFormedImplBlockSynNodePathData),
 }
 
-pub(crate) struct ImplBlockNodePathRegistry {}
-
 impl ImplBlockSynNodePath {
     pub fn path(self, db: &::salsa::Db) -> Option<ImplBlockPath> {
         Some(match (*self).path(db)? {
@@ -250,18 +248,6 @@ impl ImplBlockSynNode {
                 Err(ImplBlockIllForm::UnexpectedFugitivePath(fugitive_path))?
             }
         })
-    }
-
-    pub fn module_path(&self, db: &::salsa::Db) -> ModulePath {
-        self.syn_node_path().module_path(db)
-    }
-
-    pub(crate) fn ast_idx(&self) -> AstIdx {
-        match self {
-            ImplBlockSynNode::TypeImplBlock(data) => data.ast_idx(),
-            ImplBlockSynNode::TraitForTypeImplBlock(data) => data.ast_idx,
-            ImplBlockSynNode::IllFormedImplBlock(data) => data.ast_idx,
-        }
     }
 }
 

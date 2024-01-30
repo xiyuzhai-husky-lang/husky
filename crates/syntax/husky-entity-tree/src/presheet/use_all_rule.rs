@@ -39,10 +39,6 @@ impl UseAllRule {
         }
     }
 
-    pub(crate) fn parent_path(&self) -> ModulePath {
-        self.parent_module_path
-    }
-
     pub fn progress(&self) -> Result<usize, ()> {
         self.progress
     }
@@ -88,10 +84,6 @@ impl UseAllRule {
 
     pub(super) fn set_progress(&mut self, progress: usize) {
         self.progress = Ok(progress)
-    }
-
-    pub(super) fn mark_as_erroneous(&mut self) {
-        self.progress = Err(())
     }
 }
 

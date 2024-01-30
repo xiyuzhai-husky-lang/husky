@@ -6,7 +6,10 @@ pub use self::html::*;
 
 use crate::{symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
 use husky_ethereal_term::EtherealTerm;
-use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature, StaticDispatch};
+use husky_fluffy_term::{
+    dispatch::StaticDispatch,
+    signature::{FluffyFieldSignature, MethodFluffySignature},
+};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
     instantiation::HirInstantiation, place::HirPlace, ritchie::HirEagerContract, HirType,
@@ -306,8 +309,11 @@ impl ToHirEager for SemaExprIdx {
                             PrincipalEntityPath::TypeVariant(path) => {
                                 HirEagerExprData::TypeVariantConstructorCall {
                                     path,
-                                    // ad hoc
-                                    instantiation: HirInstantiation::new_empty(false),
+                                    instantiation: HirInstantiation::from_fluffy(
+                                        instantiation.as_ref().unwrap(),
+                                        db,
+                                        builder.fluffy_terms(),
+                                    ),
                                     item_groups,
                                 }
                             }
@@ -316,19 +322,20 @@ impl ToHirEager for SemaExprIdx {
                     SemaExprData::AssociatedItem {
                         ref static_dispatch,
                         ..
-                    } => {
-                        match static_dispatch {
-                            StaticDispatch::AssociatedFn(signature) => {
-                                HirEagerExprData::AssociatedFunctionFnCall {
-                                    path: signature.path(),
-                                    // ad hoc
-                                    instantiation: HirInstantiation::new_empty(true),
-                                    item_groups,
-                                }
+                    } => match static_dispatch {
+                        StaticDispatch::AssociatedFn(signature) => {
+                            HirEagerExprData::AssociatedFunctionFnCall {
+                                path: signature.path(),
+                                instantiation: HirInstantiation::from_fluffy(
+                                    signature.instantiation(),
+                                    db,
+                                    builder.fluffy_terms(),
+                                ),
+                                item_groups,
                             }
-                            StaticDispatch::AssociatedGn => unreachable!(),
                         }
-                    }
+                        StaticDispatch::AssociatedGn => unreachable!(),
+                    },
                     _ => todo!(),
                 }
             }

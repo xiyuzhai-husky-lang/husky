@@ -13,6 +13,7 @@ use husky_regional_token::IdentRegionalToken;
 use maybe_result::*;
 
 impl<'a> SemaExprEngine<'a> {
+    /// only returns None for Option<FluffyInstantiation> if this is an ontology constructor
     pub(super) fn calc_principal_item_path_expr_ty(
         &mut self,
         syn_expr_idx: SynExprIdx,
