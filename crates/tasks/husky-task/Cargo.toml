@@ -7,7 +7,6 @@ edition = "2021"
 [dependencies]
 smallvec.workspace = true
 # abstractions
-small-cell-stack = { path = "../../abstractions/small-cell-stack" }
 enum-class.workspace = true
 salsa.workspace = true
 ui = { workspace = true, features = ["egui"] }

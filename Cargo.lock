@@ -1187,7 +1187,7 @@ checksum = "4ea181bf566f71cb9a5d17a59e1871af638180a18fb0035c92ae62b705207123"
 dependencies = [
  "atty",
  "bitflags 1.3.2",
- "clap_derive 3.2.25",
+ "clap_derive",
  "clap_lex 0.2.4",
  "indexmap 1.9.3",
  "once_cell",
@@ -1203,7 +1203,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1e578d6ec4194633722ccf9544794b71b1385c3c027efe0c55db226fc880865c"
 dependencies = [
  "clap_builder",
- "clap_derive 4.4.7",
 ]
 
 [[package]]
@@ -1230,18 +1229,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
-]
-
-[[package]]
-name = "clap_derive"
-version = "4.4.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cf9804afaaf59a91e75b022a30fb7229a7901f60c755489cc61c9b423b836442"
-dependencies = [
- "heck",
- "proc-macro2",
- "quote",
- "syn 2.0.48",
 ]
 
 [[package]]
@@ -3923,24 +3910,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-compiler"
-version = "0.0.0"
-dependencies = [
- "clap 4.4.18",
- "husky-ast",
- "husky-coword",
- "husky-diagnostics",
- "husky-ethereal-signature",
- "husky-ethereal-term",
- "husky-io-utils",
- "husky-path-utils",
- "husky-print-utils",
- "lsp-types 0.95.0",
- "relative-path",
- "salsa",
-]
-
-[[package]]
 name = "husky-completion"
 version = "0.1.0"
 dependencies = [
@@ -5641,7 +5610,6 @@ dependencies = [
  "husky-vfs",
  "husky-visual-protocol",
  "salsa",
- "small-cell-stack",
  "smallvec",
  "ui",
 ]
@@ -8807,13 +8775,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dbff4acf519f630b3a3ddcfaea6c06b42174d9a44bc70c620e9ed1649d58b82a"
 dependencies = [
  "version_check",
-]
-
-[[package]]
-name = "small-cell-stack"
-version = "0.1.0"
-dependencies = [
- "smallvec",
 ]
 
 [[package]]

@@ -111,7 +111,7 @@ impl<T> CyclicSliceLeashed<T> {
         } else if self.start >= self.end {
             None
         } else {
-            Some(self.index_i32((self.end - 1)))
+            Some(self.index_i32(self.end - 1))
         }
     }
 

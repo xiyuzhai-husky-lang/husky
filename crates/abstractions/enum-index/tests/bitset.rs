@@ -6,7 +6,6 @@ use Animal::*;
 enum Animal {
     Cat,
     Dog,
-    Lizard,
 }
 
 fn set_eq(set: EnumBitSet<Animal>, animals: &[Animal]) {

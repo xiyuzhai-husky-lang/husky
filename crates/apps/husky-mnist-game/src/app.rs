@@ -2,13 +2,9 @@ pub mod channel;
 pub mod control;
 pub mod ui_cache;
 
-use self::{
-    channel::{MnistChannel, MnistChannels},
-    control::MnistControl,
-};
+use self::{channel::MnistChannels, control::MnistControl};
 use super::*;
 use crate::ui_cache::MnistUiCache;
-use egui::{SidePanel, TopBottomPanel, Widget};
 
 pub(crate) struct MnistApp {
     // backend
@@ -23,10 +19,6 @@ pub(crate) struct MnistApp {
 
 /// # getters
 impl MnistApp {
-    pub(crate) fn channels(&self) -> &MnistChannels {
-        &self.channels
-    }
-
     pub(crate) fn control_mut(&mut self) -> &mut MnistControl {
         &mut self.control
     }

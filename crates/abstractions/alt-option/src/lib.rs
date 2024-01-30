@@ -1,3 +1,16 @@
+//! rust version of Haskell Alternative monad
+//!
+//! ```
+//! struct Shop {}
+//!
+//! enum Food {}
+//!
+//! impl Shop {
+//!     fn food(&self) -> AltOption<Food> {
+//!         todo!("...")
+//!     }
+//! }
+//! ```
 #![feature(try_trait_v2)]
 use std::convert::Infallible;
 

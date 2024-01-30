@@ -1,22 +1,19 @@
 pub mod ugly;
 
-use husky_standard_value::JsonValue;
 pub use husky_standard_value::{
     frozen::ValueStands, value_conversion, FromValue, IntoValue, Value, ValueLeashTest,
 };
 
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
-use husky_task_interface::{
-    val_repr::{ValDomainReprInterface, ValRuntimeConstantInterface},
-    DevEvalContext,
-};
+use husky_task_interface::{val_repr::ValDomainReprInterface, DevEvalContext};
 use husky_value_protocol::presentation::EnumU8ValuePresenter;
-use smallvec::SmallVec;
 
-#[deprecated(note = "E should be LinkageImpl::Error")]
+// ad hoc
+pub type Error = ();
+
 pub type StandardLinkageImplValControlFlow<C = Value, B = Value> =
-    husky_task_interface::val_control_flow::ValControlFlow<C, B, ()>;
+    husky_task_interface::val_control_flow::ValControlFlow<C, B, Error>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LinkageImpl<Pedestal>
@@ -64,7 +61,7 @@ where
 {
     type Pedestal = Pedestal;
     type Value = Value;
-    type Error = ();
+    type Error = Error;
 
     fn eval(
         self,
