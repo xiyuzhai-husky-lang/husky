@@ -43,7 +43,7 @@ husky-linkage.workspace = true
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
 # syntax
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 # tasks
 husky-task-interface.workspace = true
 # utils
@@ -72,7 +72,7 @@ husky-sema-expr.workspace = true
 husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 husky-corgi-config-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true

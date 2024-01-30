@@ -1,6 +1,6 @@
 use super::*;
 use husky_defn_ast::{DefnAstArenaRef, DefnAstIdx, DefnAstIdxRange};
-use husky_entity_syn_tree::helpers::tokra_region::DefnTokraRegionData;
+use husky_entity_tree::helpers::tokra_region::DefnTokraRegionData;
 
 pub struct SynStmtContext<'a> {
     expr_context: SynExprContext<'a>,

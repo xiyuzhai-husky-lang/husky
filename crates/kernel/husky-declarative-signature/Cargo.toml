@@ -23,7 +23,7 @@ husky-declarative-term.workspace = true
 husky-token-data.workspace = true
 husky-regional-token.workspace = true
 # syntax
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-opr.workspace = true

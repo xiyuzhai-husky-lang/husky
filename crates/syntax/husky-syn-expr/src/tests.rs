@@ -4,7 +4,7 @@ use crate::*;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
-use husky_entity_syn_tree::*;
+use husky_entity_tree::*;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_term_prelude::TermPreludeJar;

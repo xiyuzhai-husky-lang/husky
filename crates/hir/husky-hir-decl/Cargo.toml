@@ -28,7 +28,7 @@ husky-term-prelude.workspace = true
 # semantics
 husky-sema-expr.workspace = true
 # syntax
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 # utils

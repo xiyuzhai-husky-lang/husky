@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name = "husky-entity-syn-tree"
+name = "husky-entity-tree"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
 license = "MIT OR Apache-2.0"
@@ -59,7 +59,7 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude", features = [
 # syntax
 husky-ast = { workspace = true, features = ["test_utils"] }
 # semantics
-husky-entity-syn-tree = { path = ".", features = ["test_utils"] }
+husky-entity-tree = { path = ".", features = ["test_utils"] }
 # toml
 husky-corgi-config-ast.workspace = true
 husky-manifest-ast.workspace = true

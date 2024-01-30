@@ -4,7 +4,7 @@ use self::db::DevComptimeDb;
 
 use husky_entity_kind::{FugitiveKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::{AssociatedItemPath, ItemPath, MajorItemPath};
-use husky_entity_syn_tree::helpers::ingredient::{HasIngredientPaths, IngredientPath};
+use husky_entity_tree::helpers::ingredient::{HasIngredientPaths, IngredientPath};
 use husky_linkage::linkage::Linkage;
 use husky_manifest::HasAllPackages;
 use husky_task::{

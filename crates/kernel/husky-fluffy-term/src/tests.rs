@@ -6,7 +6,7 @@ use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
-use husky_entity_syn_tree::EntitySynTreeJar;
+use husky_entity_tree::EntitySynTreeJar;
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;

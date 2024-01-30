@@ -43,7 +43,7 @@ husky-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 # semantics
 husky-manifest.workspace = true
 husky-sema-expr.workspace = true
@@ -76,7 +76,7 @@ husky-corgi-config.workspace = true
 husky-sema-expr.workspace = true
 # syntax
 husky-ast = { workspace = true, features = ["test_utils"] }
-husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree", features = [
+husky-entity-tree = { path = "../../syntax/husky-entity-tree", features = [
     "test_utils"
 ] }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl", features = [

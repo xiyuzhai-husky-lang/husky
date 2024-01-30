@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ast::{AstSheet, HasAstSheet};
-use husky_entity_syn_tree::SynNodeRegionPath;
+use husky_entity_tree::SynNodeRegionPath;
 use husky_fluffy_term::FluffyTermRegion;
 use husky_regional_token::{RegionalTokenIdxBase, RegionalTokenIdxRange, RegionalTokenStreamState};
 use husky_sema_expr::*;

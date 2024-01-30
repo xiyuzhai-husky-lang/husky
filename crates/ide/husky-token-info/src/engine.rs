@@ -6,7 +6,7 @@ use husky_syn_decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 
 use husky_ast::HasAstSheet;
-use husky_entity_syn_tree::{helpers::paths::module_item_syn_node_paths, ParentUseExprData};
+use husky_entity_tree::{helpers::paths::module_item_syn_node_paths, ParentUseExprData};
 use husky_sema_expr::{
     SemaExprData, SemaExprDb, SemaExprIdx, SemaExprRegionData, SemaHtmlArgumentExpr,
 };

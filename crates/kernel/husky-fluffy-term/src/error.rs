@@ -1,6 +1,6 @@
 use crate::*;
 use husky_declarative_term::DeclarativeTermSymbolTypeErrorKind;
-use husky_entity_syn_tree::EntitySynTreeError;
+use husky_entity_tree::EntitySynTreeError;
 use husky_ethereal_signature::EtherealSignatureError;
 use thiserror::Error;
 

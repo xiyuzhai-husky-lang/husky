@@ -35,7 +35,7 @@ impl Trace {
 
 impl ValItemTraceData {
     pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
-        use husky_entity_syn_tree::HasSynNodePath;
+        use husky_entity_tree::HasSynNodePath;
         let val_item_path = self.val_item_path;
         let token_idx_range = val_item_path
             .syn_node_path(db)

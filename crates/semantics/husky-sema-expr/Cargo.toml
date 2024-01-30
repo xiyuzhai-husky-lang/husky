@@ -36,7 +36,7 @@ husky-regional-token.workspace = true
 husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
 # syntax
 husky-opr.workspace = true
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
@@ -57,7 +57,7 @@ husky-token.workspace = true
 husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 husky-corgi-config-ast.workspace = true
 # kernel
 husky-declarative-term.workspace = true

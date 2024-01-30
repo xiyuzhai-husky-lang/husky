@@ -2,7 +2,7 @@ use crate::*;
 
 use husky_decl_ast::DeclAst;
 
-use husky_entity_syn_tree::{helpers::tokra_region::DeclTokraRegionData, *};
+use husky_entity_tree::{helpers::tokra_region::DeclTokraRegionData, *};
 use husky_print_utils::p;
 
 pub(crate) struct DeclParser<'a> {

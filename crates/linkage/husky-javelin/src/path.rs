@@ -26,7 +26,7 @@ impl std::ops::Deref for JavelinPath {
 #[test]
 fn javelin_item_path_deref_works() {
     use crate::*;
-    use husky_entity_syn_tree::helpers::paths::module_item_paths;
+    use husky_entity_tree::helpers::paths::module_item_paths;
 
     DB::ast_plain_test(
         |db, module_path| {

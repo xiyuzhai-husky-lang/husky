@@ -1,6 +1,6 @@
 use super::*;
 use husky_ast::Ast;
-use husky_entity_syn_tree::{
+use husky_entity_tree::{
     EntitySynTreeDb, EntitySynTreeError, ImplBlockIllForm, MajorPathExprError,
     OriginalEntityTreeError, OriginalMajorPathExprError,
 };

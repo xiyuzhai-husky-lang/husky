@@ -14,7 +14,7 @@ use husky_text_protocol::range::TextRange;
 use self::collect::*;
 use self::convert::*;
 use self::token::*;
-use husky_entity_syn_tree::EntityTreeResult;
+use husky_entity_tree::EntityTreeResult;
 use husky_token::*;
 
 use husky_token_info::*;

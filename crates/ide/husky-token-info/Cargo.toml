@@ -33,7 +33,7 @@ husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
 husky-ast.workspace = true
 husky-decl-ast.workspace = true
 husky-defn-ast.workspace = true
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true

@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_syn_tree::HasTypeVariantPaths;
+use husky_entity_tree::HasTypeVariantPaths;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = pub(super) new)]
 pub struct EnumHirDefn {

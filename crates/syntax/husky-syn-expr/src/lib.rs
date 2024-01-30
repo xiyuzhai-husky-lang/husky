@@ -33,7 +33,7 @@ use self::entity_path::*;
 use self::snippet::*;
 use husky_coword::*;
 use husky_entity_path::{EntityPath, MajorItemPath, PrincipalEntityPath};
-use husky_entity_syn_tree::*;
+use husky_entity_tree::*;
 use husky_regional_token::*;
 use husky_syn_opr::*;
 use husky_term_prelude::*;

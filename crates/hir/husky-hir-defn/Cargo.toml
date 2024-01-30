@@ -21,7 +21,7 @@ husky-ethereal-term.workspace = true
 husky-hir-ty.workspace = true
 # syntax
 husky-syn-defn.workspace = true
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 # fs
 husky-vfs.workspace = true
 # utils

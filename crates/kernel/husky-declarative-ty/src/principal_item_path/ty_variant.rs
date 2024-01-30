@@ -1,4 +1,4 @@
-use husky_entity_syn_tree::helpers::paths::module_item_paths;
+use husky_entity_tree::helpers::paths::module_item_paths;
 
 use super::*;
 
@@ -60,7 +60,7 @@ pub fn ty_variant_path_declarative_ty(
 fn ty_variant_path_declarative_ty_works() {
     DB::ast_expect_test_debug_with_db(
         |db, module_path: husky_vfs::ModulePath| {
-            use husky_entity_syn_tree::HasTypeVariantPaths;
+            use husky_entity_tree::HasTypeVariantPaths;
             module_item_paths(db, module_path)
                 .iter()
                 .filter_map(|&module_item_path| match module_item_path {

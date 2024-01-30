@@ -32,7 +32,7 @@ husky-javelin.workspace = true
 # semantics
 husky-manifest.workspace = true
 # syntax
-husky-entity-syn-tree.workspace = true
+husky-entity-tree.workspace = true
 # utils
 husky-print-utils.workspace = true
 

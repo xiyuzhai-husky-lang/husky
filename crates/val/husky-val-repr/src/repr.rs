@@ -228,7 +228,7 @@ pub(crate) fn val_item_val_reprs(
 ) -> Vec<(FugitivePath, ValRepr)> {
     use husky_entity_kind::FugitiveKind;
     use husky_entity_path::{ItemPath, MajorItemPath};
-    use husky_entity_syn_tree::helpers::paths::module_item_paths;
+    use husky_entity_tree::helpers::paths::module_item_paths;
 
     module_item_paths(db, module_path)
         .iter()

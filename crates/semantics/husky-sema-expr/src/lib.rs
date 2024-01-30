@@ -27,7 +27,7 @@ use either::*;
 use husky_declarative_signature::*;
 use husky_entity_kind::*;
 use husky_entity_path::*;
-use husky_entity_syn_tree::*;
+use husky_entity_tree::*;
 use husky_ethereal_term::*;
 use husky_fluffy_term::*;
 use husky_syn_defn::*;
