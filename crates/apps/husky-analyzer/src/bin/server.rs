@@ -7,8 +7,8 @@ use lsp_types::{
     request::GotoDefinition, GotoDefinitionResponse, InitializeParams, ServerCapabilities,
 };
 
-use error_utils::Result;
 use husky_analyzer::{event_loop, init_connection, utils::from_json};
+use husky_error_utils::Result;
 
 fn main() {
     if let Err(e) = try_main() {

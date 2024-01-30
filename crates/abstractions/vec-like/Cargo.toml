@@ -12,4 +12,4 @@ doctest = false
 thiserror.workspace = true
 smallvec.workspace = true
 serde.workspace = true
-wild-utils = { path = "../../utils/husky-wild-utils" }
+husky-wild-utils.workspace = true

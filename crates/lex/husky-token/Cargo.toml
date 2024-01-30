@@ -32,7 +32,7 @@ husky-term-prelude.workspace = true
 husky-opr.workspace = true
 # utils
 husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
-wild-utils = { path = "../../utils/husky-wild-utils" }
+husky-wild-utils.workspace = true
 husky-check-utils.workspace = true
 husky-print-utils.workspace = true
 husky-unicode-symbols.workspace = true

@@ -47,7 +47,7 @@ impl<'a> RequestDispatcher<'a> {
         };
         let snapshot = self.server.db.snapshot();
         // let result = panic::catch_unwind(move || {
-        //     let _pctx = error_utils::panic_context::enter(panic_context);
+        //     let _pctx = husky_error_utils::panic_context::enter(panic_context);
         //     f(snapshot, params)
         // });
         // ad hoc: avoid catch_unwind for debugging purposes
@@ -75,7 +75,7 @@ impl<'a> RequestDispatcher<'a> {
 
         let snapshot = self.server.db.snapshot();
         // match panic::catch_unwind(move || {
-        //     let _pctx = error_utils::panic_context::enter(panic_context);
+        //     let _pctx = husky_error_utils::panic_context::enter(panic_context);
         //     f(snapshot, params)
         // }) {
         //     Ok(control_signal) => self.control_signal = control_signal,
@@ -105,7 +105,7 @@ impl<'a> RequestDispatcher<'a> {
             let sender = self.server.event_loop_comm.sender.clone();
             move || {
                 // let result = panic::catch_unwind(move || {
-                //     let _pctx = error_utils::panic_context::enter(panic_context);
+                //     let _pctx = husky_error_utils::panic_context::enter(panic_context);
                 //     f(snapshot, params)
                 // });
                 let result = Ok(f(snapshot, params));

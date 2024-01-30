@@ -44,8 +44,8 @@ husky-task-interface.workspace = true
 # utils
 husky-check-utils.workspace = true
 husky-print-utils.workspace = true
-sync-utils = { path = "../../utils/husky-sync-utils" }
-wild-utils = { path = "../../utils/husky-wild-utils" }
+husky-sync-utils.workspace = true
+husky-wild-utils.workspace = true
 # vm
 husky-vm.workspace = true
 husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }

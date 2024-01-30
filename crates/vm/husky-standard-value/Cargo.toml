@@ -21,7 +21,7 @@ husky-visual-protocol.workspace = true
 husky-task-interface.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
-wild-utils = { path = "../../utils/husky-wild-utils" }
+husky-wild-utils.workspace = true
 husky-print-utils.workspace = true
 # vm
 husky-standard-value-macros.workspace = true

@@ -1,6 +1,3 @@
-// #![allow(unused, dead_code, warnings)]
-
-pub mod cli;
 mod convert;
 mod db;
 mod event_loop;
@@ -15,6 +12,5 @@ pub use crate::event_loop::event_loop;
 pub use crate::init_connection::init_connection;
 
 use db::AnalyzerDB;
-use error_utils::Result;
-
+use husky_error_utils::Result;
 use husky_print_utils::*;
