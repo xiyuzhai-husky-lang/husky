@@ -246,7 +246,11 @@ fn ty_ontology_path_declarative_ty_works() {
                 })
                 .collect::<Vec<_>>()
         },
-        &AstTestConfig::new("ty_ontology_path_declarative_ty"),
+        &AstTestConfig::new(
+            "ty_ontology_path_declarative_ty",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     );
 }
 

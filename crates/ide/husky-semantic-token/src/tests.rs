@@ -57,6 +57,10 @@ pub(crate) struct DB;
 fn semantic_tokens_works() {
     DB::ast_expect_test_debug(
         |db, module_path| SemanticTokenDb::semantic_tokens_ext(db, module_path, None),
-        &AstTestConfig::new("semantic_tokens"),
+        &AstTestConfig::new(
+            "semantic_tokens",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

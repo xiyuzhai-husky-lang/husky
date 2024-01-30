@@ -50,3 +50,12 @@ may be the feature flags the dependency introduces into other dependencies. Say 
 ## nudge the version of the dependency to be consolidated
 
 cargo update -p bson:0.11.1 --precise 0.10.0
+
+## macro trailing commas
+
+```
+($Name:ident { $($Variant:ident),* $(,)? }) => { 
+//                                 ^^^^^
+```
+
+https://stackoverflow.com/questions/43143327/how-to-allow-optional-trailing-commas-in-macros

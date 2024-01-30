@@ -1,7 +1,5 @@
 pub use husky_vfs::test_utils::*;
 
-
-
 /// will have more robustness tests based on token level information than `VfsTestUtils`
 pub trait TokenTestUtils: VfsTestUtils {
     /// only run to see whether the program will panic
@@ -91,22 +89,13 @@ impl<'a> std::ops::Deref for TokenTestConfig<'a> {
 }
 
 impl<'a> TokenTestConfig<'a> {
-    pub fn new(test_name: &'a str) -> Self {
-        Self {
-            vfs: VfsTestConfig::new(test_name),
-        }
-    }
-
-    pub fn with_vfs_test_domains_config(
-        mut self,
+    pub fn new(
+        test_name: &'a str,
+        expect_file_extension: FileExtensionConfig,
         test_domains_config: VfsTestDomainsConfig,
     ) -> Self {
-        self.vfs = self.vfs.with_vfs_test_domains_config(test_domains_config);
-        self
-    }
-
-    pub fn with_expect_file_extension(mut self, extension: &'a str) -> Self {
-        self.vfs = self.vfs.with_expect_file_extension(extension);
-        self
+        Self {
+            vfs: VfsTestConfig::new(test_name, expect_file_extension, test_domains_config),
+        }
     }
 }

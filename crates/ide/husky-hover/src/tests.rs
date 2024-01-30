@@ -72,6 +72,10 @@ fn hover_result_works() {
             }
             hover_results
         },
-        &AstTestConfig::new("hover_result"),
+        &AstTestConfig::new(
+            "hover_result",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

@@ -38,20 +38,6 @@ impl VfsTestDomain {
     }
 }
 
-impl<'a> VfsTestConfig<'a> {
-    pub fn with_vfs_test_domains_config(
-        mut self,
-        test_domains_config: VfsTestDomainsConfig,
-    ) -> Self {
-        self.test_domains_config = test_domains_config;
-        self
-    }
-
-    pub(super) fn test_domains(&self) -> Vec<VfsTestDomain> {
-        self.test_domains_config.test_domains()
-    }
-}
-
 pub enum VfsTestDomainsConfig {
     Full,
     ExcludeLibrary,

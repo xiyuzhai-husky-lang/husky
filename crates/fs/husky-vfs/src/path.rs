@@ -14,7 +14,6 @@ pub use self::virtual_path::*;
 
 use crate::*;
 
-
 #[salsa::tracked(jar = VfsJar)]
 pub(crate) fn module_virtual_path(
     db: &::salsa::Db,
@@ -129,6 +128,10 @@ fn resolve_module_path_works() {
                 .unwrap();
             assert_eq!(module_path, item_path_resolved)
         },
-        &VfsTestConfig::new("resolve-module-path"),
+        &VfsTestConfig::new(
+            "resolve-module-path",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

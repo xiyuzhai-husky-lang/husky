@@ -14,12 +14,6 @@ Ok(
                 TomlExpr::String(
                     "MIT OR Apache-2.0",
                 ),
-                TomlExpr::String(
-                    "0.1.0",
-                ),
-                TomlExpr::String(
-                    "0.1.0",
-                ),
             ],
         },
         section_sheet: TomlSectionSheet {
@@ -102,34 +96,7 @@ Ok(
                             ],
                         ),
                         kind: TomlSectionKind::Normal,
-                        entries: [
-                            TomlSectionEntry {
-                                line_group_idx: TomlLineGroupIdx(
-                                    6,
-                                ),
-                                key: Coword(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                                value: Some(
-                                    5,
-                                ),
-                            },
-                            TomlSectionEntry {
-                                line_group_idx: TomlLineGroupIdx(
-                                    7,
-                                ),
-                                key: Coword(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                                value: Some(
-                                    6,
-                                ),
-                            },
-                        ],
+                        entries: [],
                     },
                 ],
             },
@@ -184,22 +151,6 @@ Ok(
                 ],
                 kind: TomlSectionKind::Normal,
             },
-            TomlLineGroup::KeyValue(
-                Word(
-                    "malamute",
-                ),
-                Some(
-                    5,
-                ),
-            ),
-            TomlLineGroup::KeyValue(
-                Word(
-                    "mnist",
-                ),
-                Some(
-                    6,
-                ),
-            ),
         ],
         table: TomlTable {
             data: {

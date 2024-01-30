@@ -64,5 +64,12 @@ fn module_hir_decls(db: &::salsa::Db, module_path: ModulePath) -> Vec<HirDecl> {
 
 #[test]
 fn module_hir_decls_works() {
-    DB::ast_expect_test_debug_with_db(module_hir_decls, &AstTestConfig::new("module_hir_decls"));
+    DB::ast_expect_test_debug_with_db(
+        module_hir_decls,
+        &AstTestConfig::new(
+            "module_hir_decls",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
+    );
 }

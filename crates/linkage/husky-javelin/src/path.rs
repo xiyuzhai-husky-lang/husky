@@ -36,7 +36,11 @@ fn javelin_item_path_deref_works() {
                 }
             }
         },
-        &AstTestConfig::new("javelin_item_path_deref"),
+        &AstTestConfig::new(
+            "javelin_item_path_deref",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }
 

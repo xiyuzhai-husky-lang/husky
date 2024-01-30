@@ -89,7 +89,11 @@ fn syn_node_path_id_conversion_works() {
                 assert_eq!(syn_node_path.syn_node_path(db), syn_node_path);
             }
         },
-        &AstTestConfig::new("syn_node_path_id_conversion"),
+        &AstTestConfig::new(
+            "syn_node_path_id_conversion",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }
 

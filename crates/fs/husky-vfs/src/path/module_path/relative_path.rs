@@ -35,6 +35,10 @@ fn module_relative_stem(db: &::salsa::Db, module_path: ModulePath) -> RelativePa
 fn module_relative_path_works() {
     DB::vfs_expect_test_debug_with_db(
         |db, module_path| module_relative_path(db, module_path),
-        &VfsTestConfig::new("module_relative_path"),
+        &VfsTestConfig::new(
+            "module_relative_path",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

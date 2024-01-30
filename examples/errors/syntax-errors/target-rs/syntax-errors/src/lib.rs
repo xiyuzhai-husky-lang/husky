@@ -10,5 +10,3 @@ pub mod uses;
 pub use self::ast::*;
 pub use self::uses::*;
 
-use malamute::*;
-use mnist::*;

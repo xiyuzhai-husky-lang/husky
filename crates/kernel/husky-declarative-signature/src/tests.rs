@@ -53,7 +53,11 @@ fn module_declarative_signature_templates(
 fn module_declarative_signature_templates_works() {
     DB::ast_expect_test_debug_with_db(
         |db, module_path| module_declarative_signature_templates(db, module_path),
-        &AstTestConfig::new("module_declarative_signature"),
+        &AstTestConfig::new(
+            "module_declarative_signature",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }
 

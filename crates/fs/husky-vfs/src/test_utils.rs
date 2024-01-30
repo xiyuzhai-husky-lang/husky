@@ -1,10 +1,12 @@
 mod adversarial_test;
+pub mod config;
 pub mod db;
 mod domain;
 mod expect_test;
 mod unit;
 
 pub use self::adversarial_test::*;
+pub use self::config::*;
 pub use self::db::*;
 pub use self::domain::*;
 pub use self::unit::*;
@@ -116,29 +118,5 @@ where
         R: std::fmt::Display,
     {
         vfs_expect_test::<DB, _>(|db, u| format!("{}", &f(db, u)), config)
-    }
-}
-pub struct VfsTestConfig<'a> {
-    test_name: &'a str,
-    expect_file_extension: &'a str,
-    test_domains_config: VfsTestDomainsConfig,
-}
-
-impl<'a> VfsTestConfig<'a> {
-    pub fn new(test_name: &'a str) -> Self {
-        Self {
-            test_name,
-            expect_file_extension: "md",
-            test_domains_config: Default::default(),
-        }
-    }
-
-    pub fn with_expect_file_extension(mut self, expect_file_extension: &'a str) -> Self {
-        self.expect_file_extension = expect_file_extension;
-        self
-    }
-
-    pub fn expect_file_extension(&self) -> &str {
-        self.expect_file_extension
     }
 }

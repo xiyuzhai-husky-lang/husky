@@ -1,0 +1,15 @@
+[workspace]
+members = ["syntax-basics", "syntax-basics/linkages"]
+resolver = "2"
+
+[workspace.dependencies.ad-hoc-task-dependency]
+path = "../../../../registry/ad-hoc-task-dependency"
+
+[workspace.dependencies.husky-core]
+path = "../../../../library/core"
+
+[workspace.dependencies.syntax-basics]
+path = "syntax-basics"
+
+[workspace.dependencies.syntax-basics-linkages]
+path = "syntax-basics/linkages"

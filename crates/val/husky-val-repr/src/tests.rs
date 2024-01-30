@@ -1,4 +1,4 @@
-pub(crate) use husky_ast::test_utils::{AstTestConfig, AstTestUtils};
+pub(crate) use husky_ast::test_utils::*;
 pub(crate) use husky_vfs::ModulePath;
 
 use husky_corgi_config::CorgiConfigJar;

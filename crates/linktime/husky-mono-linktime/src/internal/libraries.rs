@@ -91,7 +91,10 @@ fn generate_linkage_storage_works() {
             MonoLinkageLibraries::generate(LinktimeTargetPath::new_package(package_path, db), db)
                 .unwrap();
         },
-        &VfsTestConfig::new("generate_linkage_storage")
-            .with_vfs_test_domains_config(VfsTestDomainsConfig::ExamplesOnly),
+        &VfsTestConfig::new(
+            "generate_linkage_storage",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::ExamplesOnly,
+        ),
     );
 }

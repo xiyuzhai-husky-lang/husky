@@ -21,6 +21,10 @@ pub(crate) struct DB;
 fn ast_sheet_works() {
     DB::token_expect_test_debug_with_db(
         |db, module_path: ModulePath| module_path.ast_sheet(db),
-        &TokenTestConfig::new("ast_sheet"),
+        &TokenTestConfig::new(
+            "ast_sheet",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     );
 }

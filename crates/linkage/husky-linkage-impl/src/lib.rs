@@ -33,7 +33,7 @@ pub trait IsFnLinkageImplSource<LinkageImpl: IsLinkageImpl, FnPointer> {
 
 #[macro_export]
 macro_rules! linkage_impls {
-    ($($linkage_impl: expr),*,) => {
+    ($($linkage_impl: expr),* $(,)?) => {
         #[no_mangle]
         pub extern "C" fn linkage_impls(jar_index: __TaskJarIndex) -> AnyLinkageImpls {
             __set_jar_index(jar_index);
@@ -43,7 +43,7 @@ macro_rules! linkage_impls {
                 ];
             AnyLinkageImpls::new(linkages)
         }
-    }
+    };
 }
 
 #[macro_export]

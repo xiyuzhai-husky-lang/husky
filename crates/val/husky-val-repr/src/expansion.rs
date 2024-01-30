@@ -790,6 +790,10 @@ fn val_item_val_repr_expansions_works() {
     use husky_ast::test_utils::AstTestUtils;
     DB::ast_expect_test_debug_with_db(
         val_item_val_repr_expansions,
-        &AstTestConfig::new("val_item_val_repr_expansions"),
+        &AstTestConfig::new(
+            "val_item_val_repr_expansions",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }

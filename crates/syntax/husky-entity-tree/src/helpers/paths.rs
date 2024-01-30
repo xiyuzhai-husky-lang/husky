@@ -131,7 +131,11 @@ pub fn module_submodule_item_paths(
 fn module_item_paths_works() {
     DB::ast_expect_test_debug_with_db(
         |db, module_path| module_item_paths(db, module_path),
-        &AstTestConfig::new("module_item_paths"),
+        &AstTestConfig::new(
+            "module_item_paths",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }
 
@@ -143,7 +147,11 @@ fn item_path_id_conversion_works() {
                 assert_eq!(item_path.item_path(db), item_path);
             }
         },
-        &AstTestConfig::new("item_path_id_conversion"),
+        &AstTestConfig::new(
+            "item_path_id_conversion",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }
 
@@ -189,6 +197,10 @@ pub fn collect_module_paths(
 fn crate_module_paths_works() {
     DB::vfs_expect_test_debug_with_db(
         |db, crate_path: CratePath| crate_module_paths(db, crate_path),
-        &VfsTestConfig::new("crate_module_paths"),
+        &VfsTestConfig::new(
+            "crate_module_paths",
+            FileExtensionConfig::Markdown,
+            VfsTestDomainsConfig::Full,
+        ),
     )
 }
