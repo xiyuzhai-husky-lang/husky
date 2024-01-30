@@ -98,6 +98,29 @@ pub enum TraitItemSynDecl {
     AssociatedVal(TraitAssociatedValSynDecl),
 }
 
+/// # constructor
+impl TraitItemSynDecl {
+    fn from_node_decl(
+        db: &::salsa::Db,
+        path: TraitItemPath,
+        syn_node_decl: TraitItemSynNodeDecl,
+    ) -> DeclResult<Self> {
+        Ok(match syn_node_decl {
+            TraitItemSynNodeDecl::AssociatedFn(syn_node_decl) => {
+                TraitAssociatedFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+            }
+            TraitItemSynNodeDecl::MethodFn(syn_node_decl) => {
+                TraitMethodFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+            }
+            TraitItemSynNodeDecl::AssociatedType(syn_node_decl) => {
+                TraitAssociatedTypeSynDecl::from_node_decl(path, syn_node_decl, db)?.into()
+            }
+            TraitItemSynNodeDecl::AssociatedVal(_) => todo!(),
+        })
+    }
+}
+
+/// # getters
 impl TraitItemSynDecl {
     pub fn path(self, db: &::salsa::Db) -> TraitItemPath {
         match self {
@@ -142,7 +165,16 @@ impl TraitItemSynDecl {
 impl HasSynDecl for TraitItemPath {
     type Decl = TraitItemSynDecl;
 
-    fn syn_decl(self, _db: &::salsa::Db) -> DeclResult<Self::Decl> {
-        todo!()
+    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+        trai_item_syn_decl(db, self)
     }
+}
+
+#[salsa::tracked(jar = SynDeclJar)]
+pub(crate) fn trai_item_syn_decl(
+    db: &::salsa::Db,
+    path: TraitItemPath,
+) -> DeclResult<TraitItemSynDecl> {
+    let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
+    TraitItemSynDecl::from_node_decl(db, path, syn_node_decl)
 }
