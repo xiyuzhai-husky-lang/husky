@@ -301,7 +301,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             let token: Pretoken = match integer_suffix {
                 "" => match self.buffer.parse::<i128>() {
                     Ok(i) => IntegerLikeLiteralData::UnspecifiedRegular(i).into(),
-                    Err(e) => return TokenDataError::ParseIntError.into(),
+                    Err(_e) => return TokenDataError::ParseIntError.into(),
                 },
                 "i8" => {
                     let Ok(i) = self.buffer.parse() else {

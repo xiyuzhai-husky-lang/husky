@@ -70,9 +70,9 @@ pub struct TraitAssociatedTypeSynDecl {
 
 impl TraitAssociatedTypeSynDecl {
     pub(super) fn from_node_decl(
-        path: TraitItemPath,
-        syn_node_decl: TraitAssociatedTypeSynNodeDecl,
-        db: &::salsa::Db,
+        _path: TraitItemPath,
+        _syn_node_decl: TraitAssociatedTypeSynNodeDecl,
+        _db: &::salsa::Db,
     ) -> DeclResult<Self> {
         todo!()
     }

@@ -24,7 +24,7 @@ impl MnistOpHistory {
     pub fn new(input: &Input, visual_synchrotron: &mut VisualSynchrotron) -> Self {
         let op_frames = (0..10)
             .into_iter()
-            .map(|t| MnistOpFrame::new(input, visual_synchrotron))
+            .map(|_t| MnistOpFrame::new(input, visual_synchrotron))
             .collect();
         Self { op_frames }
     }

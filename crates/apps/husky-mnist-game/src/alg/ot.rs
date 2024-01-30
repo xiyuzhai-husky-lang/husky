@@ -86,7 +86,7 @@ fn ot_works() {
     cost = &cost / *max_cost;
 
     // Compute the optimal transport matrix
-    let ot_matrix = EarthMovers::new(&mut source_weights, &mut target_weights, &mut cost)
+    let _ot_matrix = EarthMovers::new(&mut source_weights, &mut target_weights, &mut cost)
         .solve()
         .unwrap();
 }

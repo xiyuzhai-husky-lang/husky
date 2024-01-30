@@ -76,7 +76,7 @@ fn term_literal_size_works() {
 }
 
 impl From<()> for TermLiteral {
-    fn from(value: ()) -> Self {
+    fn from((): ()) -> Self {
         TermLiteral::Unit(())
     }
 }

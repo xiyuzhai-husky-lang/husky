@@ -174,7 +174,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedModInsideModuleItem => {
                 format!("unexpected submodule inside module item")
             }
-            OriginalAstError::SubmoduleFileNotFound { ident_token, error } => {
+            OriginalAstError::SubmoduleFileNotFound { ident_token: _, error: _ } => {
                 format!("submodule file not found")
             }
             OriginalAstError::UnexpectedTraitInsideImplBlock => todo!(),

@@ -15,7 +15,7 @@ pub use self::wordopr::*;
 
 use self::db::*;
 use husky_coword::*;
-use husky_term_prelude::*;
+
 #[cfg(feature = "protocol_support")]
 use husky_token_protocol::TokenClass;
 

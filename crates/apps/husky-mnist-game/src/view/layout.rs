@@ -21,7 +21,7 @@ impl MnistApp {
 
     fn layout_channels(&mut self, ctx: &egui::Context) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            let grid_size = ui.available_height().min((ui.available_width() * 1.0)) / 2.0;
+            let grid_size = ui.available_height().min(ui.available_width() * 1.0) / 2.0;
             egui::Grid::new("channels").num_columns(2).show(ui, |ui| {
                 let number_of_rows = 2;
                 let number_of_columns = 2;
@@ -34,11 +34,11 @@ impl MnistApp {
                                 let pedestal = self.control.pedestal();
                                 let op_time = self.control.op_time();
                                 let channel = &self.channels[i * number_of_columns + j];
-                                let set = channel.trace_selection().set();
+                                let _set = channel.trace_selection().set();
                                 // debug:
-                                use crate::trace::Trace;
-                                use husky_task_interface::val_repr::ValReprInterface;
-                                use husky_trace_protocol::id::TraceId;
+                                
+                                
+                                
                                 channel
                                     .figure(
                                         pedestal,

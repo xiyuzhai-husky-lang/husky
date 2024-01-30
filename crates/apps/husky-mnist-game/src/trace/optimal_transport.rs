@@ -76,7 +76,7 @@ impl Visualize for OptimalTransport {
         };
         let mut elements: Vec<Visual> = vec![];
         for i in 0..n {
-            let mut eff_weights = 0.0;
+            let _eff_weights = 0.0;
             let threshold = 0.001;
             let eff_weights: f64 = (0..m)
                 .into_iter()

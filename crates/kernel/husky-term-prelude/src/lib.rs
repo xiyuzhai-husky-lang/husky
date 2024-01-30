@@ -20,7 +20,7 @@ pub use self::item_path::*;
 pub use self::modifier::*;
 pub use self::universe::*;
 
-use crate::literal::float::{TermF32Literal, TermF64Literal};
+
 use husky_entity_path::*;
 
 #[salsa::jar]

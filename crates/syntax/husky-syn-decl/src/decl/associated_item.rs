@@ -9,7 +9,7 @@ pub use self::trai_item::*;
 pub use self::ty_item::*;
 
 use super::*;
-use husky_coword::Ident;
+
 use husky_entity_kind::TraitItemKind;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

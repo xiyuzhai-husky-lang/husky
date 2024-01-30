@@ -5,17 +5,11 @@ use crate::{
     ui_cache::MnistUiCache,
     MnistDb,
 };
-use egui::Frame;
+
 use husky_graphics2d_visual_protocol::figure::Graphics2dFigure;
 use husky_ml_task_interface::pedestal::MlPedestal;
 use husky_trace_protocol::figure::IsFigure;
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
-
-pub struct FigureView<'a> {
-    trace_selection: &'a TraceSelection,
-    db: &'a MnistDb,
-    ui_cache: &'a mut MnistUiCache,
-}
 
 pub type Figure = Graphics2dFigure<MlPedestal>;
 
@@ -32,7 +26,7 @@ impl MnistChannel {
             MlPedestal::Specific(input_id) => Figure::new_specific(
                 None,
                 &accompanyings_except_followed,
-                |val_repr_interface, visual_synchrotron| {
+                |val_repr_interface, _visual_synchrotron| {
                     let trace: Trace = val_repr_interface.into();
                     trace.visual(db, input_id, op_time)
                 },

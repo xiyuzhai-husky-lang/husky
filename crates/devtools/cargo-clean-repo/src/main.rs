@@ -47,7 +47,7 @@ pub fn clean_library_adversarials() {
     }
 }
 
-fn remove_folder_in_tests(ends_with: &str) {
+pub fn remove_folder_in_tests(ends_with: &str) {
     let collect_paths = find_paths(&PathBuf::from("tests"));
     for path in collect_paths {
         if path.ends_with(ends_with) {
@@ -56,7 +56,7 @@ fn remove_folder_in_tests(ends_with: &str) {
     }
 }
 
-fn restructure() {
+pub fn restructure() {
     fn corgi_toml(package_name: &str) -> String {
         format!(
             r#"[package]

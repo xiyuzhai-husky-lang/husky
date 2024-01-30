@@ -1,6 +1,6 @@
-use super::*;
+
 use crate::trace::{Trace, TraceSelection};
-use enum_index::bitset::EnumBitSet;
+
 
 pub struct TracesView<'a> {
     trace_selection: &'a mut TraceSelection,
@@ -18,7 +18,7 @@ impl<'a> egui::Widget for TracesView<'a> {
 
         ui.vertical(|ui| {
             let set = self.trace_selection.set_mut();
-            use husky_print_utils::p;
+            
             for trace in Trace::all() {
                 let mut selected = set.contains(trace);
                 let old_selected = selected;

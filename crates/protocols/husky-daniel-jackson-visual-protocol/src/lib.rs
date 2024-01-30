@@ -7,7 +7,7 @@ pub mod action;
 
 use husky_task_interface::{
     pedestal::IsPedestalFull,
-    val_repr::{ValDomainReprInterface, ValReprInterface},
+    val_repr::{ValReprInterface},
 };
 use husky_trace_protocol::{figure::IsFigure, id::TraceId};
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};

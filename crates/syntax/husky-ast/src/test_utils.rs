@@ -1,6 +1,6 @@
 pub use husky_token::test_utils::*;
 
-use salsa::Db;
+
 
 /// will have more robustness tests based on token level information than `TokenTestUtils`
 pub trait AstTestUtils: TokenTestUtils {
