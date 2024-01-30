@@ -101,13 +101,14 @@ impl HasSynNodePath for AttrItemPath {
     }
 }
 
-#[salsa::debug_with_db]
+// #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct AttrSynNode {
     syn_node_path: AttrSynNodePath,
     ast_idx: AstIdx,
 }
 
+/// # constructor
 impl AttrSynNode {
     pub(crate) fn new(
         parent_path: ItemSynNodePath,
@@ -124,5 +125,16 @@ impl AttrSynNode {
                 ast_idx,
             },
         )
+    }
+}
+
+/// # getters
+impl AttrSynNode {
+    pub(crate) fn syn_node_path(&self) -> AttrSynNodePath {
+        self.syn_node_path
+    }
+
+    pub(crate) fn ast_idx(&self) -> ArenaIdx<Ast> {
+        self.ast_idx
     }
 }

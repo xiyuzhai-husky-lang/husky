@@ -47,6 +47,22 @@ EntityTreePresheet {
                     ),
                 },
             ),
+            UseExpr::Err(
+                UseExprError::Original(
+                    OriginalUseExprError::InvalidSelfAsRoot {
+                        use_token: UseToken {
+                            token_idx: TokenIdx(
+                                7,
+                            ),
+                        },
+                        self_mod_token: SelfModToken {
+                            token_idx: TokenIdx(
+                                8,
+                            ),
+                        },
+                    },
+                ),
+            ),
         ],
     },
 }

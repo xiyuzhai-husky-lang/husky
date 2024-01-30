@@ -1692,7 +1692,7 @@ EntityTreeSheet {
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
-                variant: OnceUseRuleVariant::Leaf {
+                variant: OnceUseRuleVariant::IdentLeaf {
                     ident_token: IdentToken {
                         ident: `RawContour`,
                         token_idx: TokenIdx(

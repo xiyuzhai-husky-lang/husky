@@ -876,7 +876,7 @@ EntityTreePresheet {
     ),
     use_expr_arena: Arena {
         data: [
-            UseExpr::Leaf {
+            UseExpr::IdentLeaf {
                 ident_token: IdentToken {
                     ident: `is_one`,
                     token_idx: TokenIdx(
@@ -908,7 +908,7 @@ EntityTreePresheet {
                     ),
                 },
             ),
-            UseExpr::Leaf {
+            UseExpr::IdentLeaf {
                 ident_token: IdentToken {
                     ident: `is_six`,
                     token_idx: TokenIdx(
@@ -963,7 +963,7 @@ EntityTreePresheet {
                     ),
                 },
             ),
-            UseExpr::Leaf {
+            UseExpr::IdentLeaf {
                 ident_token: IdentToken {
                     ident: `is_zero`,
                     token_idx: TokenIdx(
@@ -1018,7 +1018,7 @@ EntityTreePresheet {
                     ),
                 },
             ),
-            UseExpr::Leaf {
+            UseExpr::IdentLeaf {
                 ident_token: IdentToken {
                     ident: `is_two`,
                     token_idx: TokenIdx(
@@ -1073,7 +1073,7 @@ EntityTreePresheet {
                     ),
                 },
             ),
-            UseExpr::Leaf {
+            UseExpr::IdentLeaf {
                 ident_token: IdentToken {
                     ident: `is_three`,
                     token_idx: TokenIdx(
@@ -1128,7 +1128,7 @@ EntityTreePresheet {
                     ),
                 },
             ),
-            UseExpr::Leaf {
+            UseExpr::IdentLeaf {
                 ident_token: IdentToken {
                     ident: `is_five`,
                     token_idx: TokenIdx(
@@ -1183,7 +1183,7 @@ EntityTreePresheet {
                     ),
                 },
             ),
-            UseExpr::Leaf {
+            UseExpr::IdentLeaf {
                 ident_token: IdentToken {
                     ident: `is_seven`,
                     token_idx: TokenIdx(
@@ -1238,7 +1238,7 @@ EntityTreePresheet {
                     ),
                 },
             ),
-            UseExpr::Leaf {
+            UseExpr::IdentLeaf {
                 ident_token: IdentToken {
                     ident: `is_eight`,
                     token_idx: TokenIdx(
@@ -1293,7 +1293,7 @@ EntityTreePresheet {
                     ),
                 },
             ),
-            UseExpr::Leaf {
+            UseExpr::IdentLeaf {
                 ident_token: IdentToken {
                     ident: `is_nine`,
                     token_idx: TokenIdx(

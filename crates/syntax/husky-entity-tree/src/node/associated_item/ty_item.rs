@@ -283,9 +283,13 @@ pub(crate) fn ty_item_paths_map(
             paths.update_value_or_insert(
                 ident,
                 |(ty_item_kind0, result)| match result {
-                    Ok(ref mut _same_name_paths) => match *ty_item_kind0 == ty_item_kind {
-                        true => todo!(),
-                        false => todo!(),
+                    Ok(ref mut same_name_paths) => match *ty_item_kind0 == ty_item_kind {
+                        true => same_name_paths.push(path),
+                        false => {
+                            *result =
+                                Err(OriginalEntityTreeError::SameNameTypeItemsButNotTheSameKind
+                                    .into())
+                        }
                     },
                     Err(_) => (),
                 },

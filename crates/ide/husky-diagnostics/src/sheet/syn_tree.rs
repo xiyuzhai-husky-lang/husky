@@ -49,6 +49,12 @@ impl Diagnose for OriginalEntityTreeError {
             OriginalEntityTreeError::CanOnlyUseParentSuperForModulePath => todo!(),
             OriginalEntityTreeError::NoSuperForCrateRoot { super_token } => todo!(),
             OriginalEntityTreeError::NoSubitemForFugitive => todo!(),
+            OriginalEntityTreeError::InvalidParentPath {
+                name_token,
+                principal_entity_path,
+            } => todo!(),
+            OriginalEntityTreeError::StandaloneSelf => todo!(),
+            OriginalEntityTreeError::SameNameTypeItemsButNotTheSameKind => todo!(),
         }
     }
 
@@ -82,6 +88,12 @@ impl Diagnose for OriginalEntityTreeError {
             OriginalEntityTreeError::CanOnlyUseParentSuperForModulePath => todo!(),
             OriginalEntityTreeError::NoSuperForCrateRoot { super_token } => todo!(),
             OriginalEntityTreeError::NoSubitemForFugitive => todo!(),
+            OriginalEntityTreeError::InvalidParentPath {
+                name_token,
+                principal_entity_path,
+            } => todo!(),
+            OriginalEntityTreeError::StandaloneSelf => todo!(),
+            OriginalEntityTreeError::SameNameTypeItemsButNotTheSameKind => todo!(),
         }
     }
 }
@@ -115,6 +127,7 @@ impl Diagnose for ImplBlockIllForm {
                         name_token,
                         module_path,
                     } => todo!(),
+                    OriginalMajorItemPathExprError::NoColonColonAfterMajorItemPath => todo!(),
                 },
                 MajorPathExprError::Derived(_) => todo!(),
             },
@@ -124,6 +137,7 @@ impl Diagnose for ImplBlockIllForm {
             }
             ImplBlockIllForm::ExpectedDeriveIdent(_) => todo!(),
             ImplBlockIllForm::UnexpectedFugitivePath(_) => todo!(),
+            ImplBlockIllForm::InvalidTypeSketch => todo!(),
         }
     }
 
@@ -159,6 +173,7 @@ impl Diagnose for ImplBlockIllForm {
                         name_token,
                         module_path,
                     } => todo!(),
+                    OriginalMajorItemPathExprError::NoColonColonAfterMajorItemPath => todo!(),
                 },
                 MajorPathExprError::Derived(_) => todo!(),
             },
@@ -166,6 +181,7 @@ impl Diagnose for ImplBlockIllForm {
             ImplBlockIllForm::ExpectTypePathAfterForKeyword => todo!(),
             ImplBlockIllForm::ExpectedDeriveIdent(_) => todo!(),
             ImplBlockIllForm::UnexpectedFugitivePath(_) => todo!(),
+            ImplBlockIllForm::InvalidTypeSketch => todo!(),
         }
     }
 }

@@ -134,8 +134,3 @@ impl<'a> TraitInUseItemsWithGivenIdent<'a> {
             )
     }
 }
-
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-fn trai_item_table(_db: &::salsa::Db, _traits: TraitOrderedSet) -> TraitInUseItemsTableImpl {
-    todo!()
-}

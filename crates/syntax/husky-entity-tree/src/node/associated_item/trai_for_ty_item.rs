@@ -119,6 +119,7 @@ pub(crate) struct TraitForTypeItemSynNode {
     is_generic: bool,
 }
 
+/// # constructor
 impl TraitForTypeItemSynNode {
     #[inline(always)]
     pub(crate) fn new(
@@ -145,5 +146,12 @@ impl TraitForTypeItemSynNode {
                 is_generic,
             },
         )
+    }
+}
+
+/// # getters
+impl TraitForTypeItemSynNode {
+    pub fn syn_node_path(&self) -> TraitForTypeItemSynNodePath {
+        self.syn_node_path
     }
 }

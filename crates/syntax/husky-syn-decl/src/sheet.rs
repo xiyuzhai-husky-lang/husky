@@ -48,16 +48,11 @@ pub fn syn_node_decl_sheet(db: &::salsa::Db, path: ModulePath) -> SynNodeDeclShe
                 }
             }
             ImplBlockSynNodePath::IllFormedImplBlock(impl_block_syn_node_path) => {
-                for _item_syn_node_path in impl_block_syn_node_path
-                    .item_syn_node_paths(db)
-                    .iter()
-                    .copied()
-                {
-                    todo!()
-                    // decls.push((
-                    //     item_syn_node_path.into(),
-                    //     item_syn_node_path.syn_node_decl(db).into(),
-                    // ))
+                for item_syn_node_path in impl_block_syn_node_path.item_syn_node_paths(db) {
+                    decls.push((
+                        item_syn_node_path.into(),
+                        item_syn_node_path.syn_node_decl(db).into(),
+                    ))
                 }
             }
         }

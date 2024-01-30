@@ -32,6 +32,14 @@ TokenSheetData {
                 PunctuationMapped::Star,
             ),
         ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                SelfValue,
+            ),
+        ),
     ],
     token_group_starts: [
         TokenGroupStart(
@@ -39,8 +47,14 @@ TokenSheetData {
                 1,
             ),
         ),
+        TokenGroupStart(
+            TokenIdx(
+                7,
+            ),
+        ),
     ],
     indents: [
+        0,
         0,
     ],
 }

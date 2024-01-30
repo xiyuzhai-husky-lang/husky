@@ -32473,7 +32473,7 @@ EntityTreeCrateBundle {
                         visibility: Scope::PubUnder(
                             `core::num`,
                         ),
-                        variant: OnceUseRuleVariant::Leaf {
+                        variant: OnceUseRuleVariant::IdentLeaf {
                             ident_token: IdentToken {
                                 ident: `Add`,
                                 token_idx: TokenIdx(

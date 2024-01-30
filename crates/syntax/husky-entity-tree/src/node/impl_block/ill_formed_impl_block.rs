@@ -15,15 +15,28 @@ pub struct IllFormedImplBlockSynNodePathData {
 }
 
 impl IllFormedImplBlockSynNodePath {
-    pub fn item_syn_node_paths(self, _db: &::salsa::Db) -> &[ItemSynNodePathId] {
-        // ad hoc
-        &[]
-    }
-
     pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a IllFormedImplBlockSynNode {
         let module_path = self.module_path(db);
         let item_tree_sheet = db.item_syn_tree_sheet(module_path);
         item_tree_sheet.ill_formed_impl_block_syn_node(db, self)
+    }
+
+    pub(crate) fn associated_items(
+        self,
+        db: &::salsa::Db,
+    ) -> &[(Ident, IllFormedItemSynNodePath, IllFormedItemSynNode)] {
+        // ill_formed_impl_block_items(db, self)
+        // ad hoc
+        &[]
+    }
+
+    pub fn item_syn_node_paths<'a>(
+        self,
+        db: &'a ::salsa::Db,
+    ) -> impl Iterator<Item = IllFormedItemSynNodePath> + 'a {
+        self.associated_items(db)
+            .iter()
+            .map(|&(_, syn_node_path, _)| syn_node_path)
     }
 }
 
@@ -107,6 +120,8 @@ pub enum ImplBlockIllForm {
     ExpectedDeriveIdent(TokenStreamState),
     #[error("UnexpectedFugitivePath")]
     UnexpectedFugitivePath(FugitivePath),
+    #[error("InvalidTypeSketch")]
+    InvalidTypeSketch,
 }
 
 impl OriginalError for ImplBlockIllForm {

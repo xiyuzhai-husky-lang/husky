@@ -223,16 +223,14 @@ impl ImplBlockSynNode {
                                         TypeSketch::DeriveAny,
                                     )
                                 } else {
-                                    todo!()
+                                    Err(ImplBlockIllForm::InvalidTypeSketch)?
                                 }
                             } else {
-                                use husky_print_utils::ep;
-                                ep!(module_path.debug(db), for_token);
-                                todo!()
+                                Err(ImplBlockIllForm::InvalidTypeSketch)?
                             }
                         }
                     };
-                match TraitForTypeImplBlockSynNode::new(
+                TraitForTypeImplBlockSynNode::new(
                     db,
                     registry,
                     module_path,
@@ -244,10 +242,8 @@ impl ImplBlockSynNode {
                     ty_path_expr,
                     ty_sketch,
                     items,
-                ) {
-                    Ok(node) => node.into(),
-                    Err(_) => todo!(),
-                }
+                )?
+                .into()
             }
             MajorItemPath::Fugitive(fugitive_path) => {
                 Err(ImplBlockIllForm::UnexpectedFugitivePath(fugitive_path))?
@@ -255,9 +251,8 @@ impl ImplBlockSynNode {
         })
     }
 
-    pub fn module_path(&self, _db: &::salsa::Db) -> ModulePath {
-        todo!()
-        // self.id(db).module_path
+    pub fn module_path(&self, db: &::salsa::Db) -> ModulePath {
+        self.syn_node_path().module_path(db)
     }
 
     pub(crate) fn ast_idx(&self) -> AstIdx {
@@ -269,9 +264,9 @@ impl ImplBlockSynNode {
     }
 }
 
-pub type ImplResult<T> = Result<T, ImplBlockIllForm>;
+pub type ImplBlockResult<T> = Result<T, ImplBlockIllForm>;
 
-fn ignore_template_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplResult<()> {
+fn ignore_template_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplBlockResult<()> {
     let mut layer = 1;
     while let Some(token) = token_stream.next() {
         match token {
@@ -292,7 +287,7 @@ fn ignore_template_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplRes
     }
 }
 
-fn ignore_util_for_is_eaten<'a>(token_stream: &mut TokenStream<'a>) -> ImplResult<TokenIdx> {
+fn ignore_util_for_is_eaten<'a>(token_stream: &mut TokenStream<'a>) -> ImplBlockResult<TokenIdx> {
     while let Some(token) = token_stream.next() {
         match token {
             TokenData::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {
@@ -302,18 +297,5 @@ fn ignore_util_for_is_eaten<'a>(token_stream: &mut TokenStream<'a>) -> ImplResul
             _ => continue,
         }
     }
-    todo!()
+    Err(ImplBlockIllForm::MissingForKeyword)
 }
-
-// #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-// pub(crate) fn ty_impl_blocks(
-//     db: &dyn EntityTreeDb,
-//     ty: TypePath,
-// ) -> EntityTreeBundleResult<Vec<TypeImplBlockNode>> {
-//     let crate_path = ty.module_path(db).crate_path(db);
-//     let item_tree_crate_bundle = db.item_tree_bundle(crate_path)?;
-//     Ok(item_tree_crate_bundle
-//         .all_ty_impl_block_syn_nodes()
-//         .filter_map(|impl_block| (impl_block.ty_path(db) == ty).then_some(impl_block))
-//         .collect())
-// }

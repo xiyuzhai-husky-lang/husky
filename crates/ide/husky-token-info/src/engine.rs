@@ -72,7 +72,7 @@ impl<'a> TokenInfoEngine<'a> {
                 rule.use_expr_idx(),
                 TokenInfoData::UseExprStar,
             ),
-            UseExpr::Leaf { ident_token } => self.sheet.add(
+            UseExpr::IdentLeaf { ident_token } => self.sheet.add(
                 ident_token.token_idx(),
                 rule.use_expr_idx(),
                 TokenInfoData::UseExpr {
@@ -93,7 +93,7 @@ impl<'a> TokenInfoEngine<'a> {
                 },
             ),
             UseExpr::Err(_) => (),
-            UseExpr::SelfOne { self_mod_token: _ } => todo!(),
+            UseExpr::SelfLeaf { self_mod_token: _ } => todo!(),
         }
     }
 

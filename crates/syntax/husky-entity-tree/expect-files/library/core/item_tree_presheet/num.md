@@ -841,7 +841,7 @@ EntityTreePresheet {
                     ),
                 },
             ),
-            UseExpr::Leaf {
+            UseExpr::IdentLeaf {
                 ident_token: IdentToken {
                     ident: `Add`,
                     token_idx: TokenIdx(
