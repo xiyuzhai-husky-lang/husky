@@ -20,7 +20,7 @@ pub enum JavelinTemplateArgument {
 impl JavelinTemplateArgument {
     pub(crate) fn from_hir_template_arguments(
         template_arguments: &[HirTemplateArgument],
-        javelin_instantiation: Option<&JavelinInstantiation>,
+        javelin_instantiation: &JavelinInstantiation,
         db: &::salsa::Db,
     ) -> JavelinTemplateArguments {
         template_arguments
@@ -33,7 +33,7 @@ impl JavelinTemplateArgument {
 
     pub(crate) fn from_hir(
         template_argument: HirTemplateArgument,
-        javelin_instantiation: Option<&JavelinInstantiation>,
+        javelin_instantiation: &JavelinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match template_argument {

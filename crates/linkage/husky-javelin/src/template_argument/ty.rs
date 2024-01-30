@@ -39,7 +39,7 @@ pub struct JavelinRitchieParameter {
 impl JavelinRitchieParameter {
     fn from_hir(
         param: HirRitchieParameter,
-        javelin_instantiation: Option<&JavelinInstantiation>,
+        javelin_instantiation: &JavelinInstantiation,
         db: &salsa::Db,
     ) -> Self {
         match param {
@@ -64,7 +64,7 @@ impl JavelinRitchieParameter {
 impl JavelinType {
     pub(crate) fn from_hir(
         hir_ty: HirType,
-        javelin_instantiation: Option<&JavelinInstantiation>,
+        javelin_instantiation: &JavelinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match hir_ty {
@@ -78,7 +78,7 @@ impl JavelinType {
                 ),
             )
             .into(),
-            HirType::Symbol(symbol) => javelin_instantiation.unwrap().resolve_ty(symbol),
+            HirType::Symbol(symbol) => javelin_instantiation.resolve_ty(symbol),
             HirType::TypeAssociatedType(_) => todo!(),
             HirType::TraitAssociatedType(_) => todo!(),
             HirType::Ritchie(hir_ty) => JavelinRitchieType::new(

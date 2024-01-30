@@ -70,7 +70,7 @@ impl ValkyrieRide {
                         path: javelin_item_path,
                         instantiation: JavelinInstantiation::from_hir(
                             hir_instantiation,
-                            Some(javelin_instantiation),
+                            javelin_instantiation,
                             db,
                         ),
                     },
@@ -79,13 +79,13 @@ impl ValkyrieRide {
             ValkyrieRide::VecConstructor { element_ty } => ValkyrieJavelin(Javelin::new(
                 db,
                 JavelinData::VecConstructor {
-                    element_ty: JavelinType::from_hir(element_ty, Some(javelin_instantiation), db),
+                    element_ty: JavelinType::from_hir(element_ty, javelin_instantiation, db),
                 },
             )),
             ValkyrieRide::TypeDefault { ty } => ValkyrieJavelin(Javelin::new(
                 db,
                 JavelinData::TypeDefault {
-                    ty: JavelinType::from_hir(ty, Some(javelin_instantiation), db),
+                    ty: JavelinType::from_hir(ty, javelin_instantiation, db),
                 },
             )),
         }
