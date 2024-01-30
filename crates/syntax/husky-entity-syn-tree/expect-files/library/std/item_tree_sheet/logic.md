@@ -9,7 +9,7 @@ EntitySynTreeSheet {
     impl_block_syn_node_table: [],
     once_use_rules: UseOneRules(
         [
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 1,
                 use_expr_idx: 3,
                 visibility: Scope::Pub,
@@ -37,7 +37,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 1,
                 use_expr_idx: 2,
                 visibility: Scope::Pub,
@@ -55,8 +55,15 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::UniversalPrelude {
+                            item_path: PrincipalEntityPath::Module(
+                                `core`,
+                            ),
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {

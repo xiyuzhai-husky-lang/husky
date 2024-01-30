@@ -1,4 +1,4 @@
-use husky_entity_syn_tree::EntitySynTreeResult;
+use husky_entity_syn_tree::EntityTreeResult;
 use husky_text_protocol::range::TextRange;
 
 use husky_token::{TokenDb, TokenGroupIdx};
@@ -35,7 +35,7 @@ impl<'a> HoverResultCalculator<'a> {
         db: &'a ::salsa::Db,
         module_path: ModulePath,
         token_idx: TokenIdx,
-    ) -> EntitySynTreeResult<Self> {
+    ) -> EntityTreeResult<Self> {
         let ranged_token_sheet = db.ranged_token_sheet(module_path);
         let token_sheet_data = db.token_sheet_data(module_path);
         let token_info_sheet = db.token_info_sheet(module_path)?;

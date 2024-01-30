@@ -249,7 +249,7 @@ pub trait HasItemPathsMap: Copy {
         Ident,
         (
             Self::ItemKind,
-            EntitySynTreeResult<SmallVec<[Self::ItemPath; 1]>>,
+            EntityTreeResult<SmallVec<[Self::ItemPath; 1]>>,
         ),
     )];
 }
@@ -264,10 +264,7 @@ impl HasItemPathsMap for TypePath {
         db: &'a ::salsa::Db,
     ) -> &'a [(
         Ident,
-        (
-            TypeItemKind,
-            EntitySynTreeResult<SmallVec<[TypeItemPath; 1]>>,
-        ),
+        (TypeItemKind, EntityTreeResult<SmallVec<[TypeItemPath; 1]>>),
     )] {
         ty_item_paths_map(db, self)
     }
@@ -277,14 +274,9 @@ impl HasItemPathsMap for TypePath {
 pub(crate) fn ty_item_paths_map(
     db: &::salsa::Db,
     path: TypePath,
-) -> IdentPairMap<(
-    TypeItemKind,
-    EntitySynTreeResult<SmallVec<[TypeItemPath; 1]>>,
-)> {
-    let mut paths: IdentPairMap<(
-        TypeItemKind,
-        EntitySynTreeResult<SmallVec<[TypeItemPath; 1]>>,
-    )> = Default::default();
+) -> IdentPairMap<(TypeItemKind, EntityTreeResult<SmallVec<[TypeItemPath; 1]>>)> {
+    let mut paths: IdentPairMap<(TypeItemKind, EntityTreeResult<SmallVec<[TypeItemPath; 1]>>)> =
+        Default::default();
     for (ident, syn_node_path) in path.item_syn_node_paths(db).iter().copied() {
         if let Some(path) = syn_node_path.path(db) {
             let ty_item_kind = path.item_kind(db);

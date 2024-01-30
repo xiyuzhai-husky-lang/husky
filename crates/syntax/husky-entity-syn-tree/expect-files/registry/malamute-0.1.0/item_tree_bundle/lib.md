@@ -246,7 +246,7 @@ EntitySynTreeCrateBundle {
                         ident: `Class`,
                         visibility: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`malamute::Class`, `Enum`),
                             ),
                         },
@@ -255,7 +255,7 @@ EntitySynTreeCrateBundle {
                         ident: `OneVsAll`,
                         visibility: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAll`, `Enum`),
                             ),
                         },
@@ -264,7 +264,7 @@ EntitySynTreeCrateBundle {
                         ident: `OneVsAllResult`,
                         visibility: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`malamute::OneVsAllResult`, `Enum`),
                             ),
                         },
@@ -273,7 +273,7 @@ EntitySynTreeCrateBundle {
                         ident: `narrow_down`,
                         visibility: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Fugitive(
+                            major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                             ),
                         },

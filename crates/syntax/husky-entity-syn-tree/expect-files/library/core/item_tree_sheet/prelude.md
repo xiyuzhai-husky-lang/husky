@@ -11,7 +11,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::bool`, `Extern`),
                             ),
                         },
@@ -32,7 +32,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::never`, `Extern`),
                             ),
                         },
@@ -53,7 +53,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::unit`, `Extern`),
                             ),
                         },
@@ -74,7 +74,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::Trait`, `Extern`),
                             ),
                         },
@@ -95,7 +95,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::Module`, `Extern`),
                             ),
                         },
@@ -116,7 +116,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::Lifetime`, `Extern`),
                             ),
                         },
@@ -137,7 +137,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::Place`, `Extern`),
                             ),
                         },
@@ -158,7 +158,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Trait(
+                            major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::default::Default`),
                             ),
                         },
@@ -179,7 +179,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::i8`, `Extern`),
                             ),
                         },
@@ -200,7 +200,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::i16`, `Extern`),
                             ),
                         },
@@ -221,7 +221,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::i32`, `Extern`),
                             ),
                         },
@@ -242,7 +242,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::i64`, `Extern`),
                             ),
                         },
@@ -263,7 +263,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::i128`, `Extern`),
                             ),
                         },
@@ -284,7 +284,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::isize`, `Extern`),
                             ),
                         },
@@ -305,7 +305,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::u8`, `Extern`),
                             ),
                         },
@@ -326,7 +326,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::u16`, `Extern`),
                             ),
                         },
@@ -347,7 +347,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::u32`, `Extern`),
                             ),
                         },
@@ -368,7 +368,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::u64`, `Extern`),
                             ),
                         },
@@ -389,7 +389,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::u128`, `Extern`),
                             ),
                         },
@@ -410,7 +410,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::usize`, `Extern`),
                             ),
                         },
@@ -431,7 +431,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
                             ),
                         },
@@ -452,7 +452,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::num::f64`, `Extern`),
                             ),
                         },
@@ -473,7 +473,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::raw_bits::r32`, `Extern`),
                             ),
                         },
@@ -494,7 +494,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Trait(
+                            major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
                             ),
                         },
@@ -515,7 +515,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Trait(
+                            major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::visual::Visualize`),
                             ),
                         },
@@ -536,7 +536,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::visual::Visual`, `Extern`),
                             ),
                         },
@@ -557,7 +557,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Trait(
+                            major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::marker::Copy`),
                             ),
                         },
@@ -578,7 +578,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Trait(
+                            major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::marker::Sized`),
                             ),
                         },
@@ -599,7 +599,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Trait(
+                            major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::clone::Clone`),
                             ),
                         },
@@ -620,7 +620,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),
                         },
@@ -767,7 +767,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Trait(
+                            major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::cmp::PartialEq`),
                             ),
                         },
@@ -788,7 +788,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Trait(
+                            major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::cmp::Eq`),
                             ),
                         },
@@ -809,7 +809,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Trait(
+                            major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::cmp::PartialOrd`),
                             ),
                         },
@@ -830,7 +830,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Trait(
+                            major_item_path: MajorItemPath::Trait(
                                 TraitPath(`core::cmp::Ord`),
                             ),
                         },
@@ -851,7 +851,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::slice::Slice`, `Extern`),
                             ),
                         },
@@ -872,7 +872,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::slice::CyclicSlice`, `Extern`),
                             ),
                         },
@@ -893,7 +893,7 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
+                            major_item_path: MajorItemPath::Type(
                                 TypePath(`core::vec::Vec`, `Extern`),
                             ),
                         },
@@ -913,7 +913,7 @@ EntitySynTreeSheet {
     impl_block_syn_node_table: [],
     once_use_rules: UseOneRules(
         [
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 1,
                 use_expr_idx: 3,
                 visibility: Scope::Pub,
@@ -938,7 +938,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 2,
                 use_expr_idx: 6,
                 visibility: Scope::Pub,
@@ -963,7 +963,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 3,
                 use_expr_idx: 9,
                 visibility: Scope::Pub,
@@ -988,7 +988,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 4,
                 use_expr_idx: 12,
                 visibility: Scope::Pub,
@@ -1013,7 +1013,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 5,
                 use_expr_idx: 15,
                 visibility: Scope::Pub,
@@ -1038,7 +1038,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 6,
                 use_expr_idx: 18,
                 visibility: Scope::Pub,
@@ -1063,7 +1063,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 7,
                 use_expr_idx: 21,
                 visibility: Scope::Pub,
@@ -1088,7 +1088,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 8,
                 use_expr_idx: 24,
                 visibility: Scope::Pub,
@@ -1113,7 +1113,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 9,
                 use_expr_idx: 27,
                 visibility: Scope::Pub,
@@ -1138,7 +1138,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 10,
                 use_expr_idx: 30,
                 visibility: Scope::Pub,
@@ -1163,7 +1163,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 11,
                 use_expr_idx: 33,
                 visibility: Scope::Pub,
@@ -1188,7 +1188,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 12,
                 use_expr_idx: 36,
                 visibility: Scope::Pub,
@@ -1213,7 +1213,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 1,
                 use_expr_idx: 2,
                 visibility: Scope::Pub,
@@ -1231,8 +1231,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1253,7 +1258,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 2,
                 use_expr_idx: 5,
                 visibility: Scope::Pub,
@@ -1271,8 +1276,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1293,7 +1303,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 3,
                 use_expr_idx: 8,
                 visibility: Scope::Pub,
@@ -1311,8 +1321,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1333,7 +1348,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 4,
                 use_expr_idx: 11,
                 visibility: Scope::Pub,
@@ -1351,8 +1366,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1373,7 +1393,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 5,
                 use_expr_idx: 14,
                 visibility: Scope::Pub,
@@ -1391,8 +1411,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1413,7 +1438,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 6,
                 use_expr_idx: 17,
                 visibility: Scope::Pub,
@@ -1431,8 +1456,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1453,7 +1483,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 7,
                 use_expr_idx: 20,
                 visibility: Scope::Pub,
@@ -1471,8 +1501,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1493,7 +1528,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 8,
                 use_expr_idx: 23,
                 visibility: Scope::Pub,
@@ -1511,8 +1546,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1533,7 +1573,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 9,
                 use_expr_idx: 26,
                 visibility: Scope::Pub,
@@ -1551,8 +1591,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1573,7 +1618,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 10,
                 use_expr_idx: 29,
                 visibility: Scope::Pub,
@@ -1591,8 +1636,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1613,7 +1663,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 11,
                 use_expr_idx: 32,
                 visibility: Scope::Pub,
@@ -1631,8 +1681,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {
@@ -1653,7 +1708,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            UseOneRule {
+            OnceUseRule {
                 ast_idx: 12,
                 use_expr_idx: 35,
                 visibility: Scope::Pub,
@@ -1671,8 +1726,13 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: Some(
-                    MajorEntityPath::Module(
-                        `core`,
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
                     ),
                 ),
                 state: UseOneRuleState::Resolved {

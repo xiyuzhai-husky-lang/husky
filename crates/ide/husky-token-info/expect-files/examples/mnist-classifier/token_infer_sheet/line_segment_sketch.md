@@ -146,7 +146,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 2,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             0,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -180,7 +180,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 4,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             1,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -214,7 +214,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 6,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             2,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -247,7 +247,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 9,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             3,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -268,7 +268,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 8,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             6,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -301,7 +301,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 12,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             4,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -322,7 +322,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 11,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             7,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -353,13 +353,13 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 10,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             8,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Type(
+                                    major_item_path: MajorItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                 },
@@ -376,7 +376,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 14,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             5,
                         ),
                         state: UseOneRuleState::Resolved {

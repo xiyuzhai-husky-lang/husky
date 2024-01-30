@@ -232,7 +232,7 @@ EntitySynTreeSheet {
                 ident: `MnistLabel`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`mnist::MnistLabel`, `Enum`),
                     ),
                 },
@@ -241,7 +241,7 @@ EntitySynTreeSheet {
                 ident: `BinaryImage28`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`mnist::BinaryImage28`, `Extern`),
                     ),
                 },
@@ -250,7 +250,7 @@ EntitySynTreeSheet {
                 ident: `BinaryGrid28`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`mnist::BinaryGrid28`, `Extern`),
                     ),
                 },
@@ -259,7 +259,7 @@ EntitySynTreeSheet {
                 ident: `input`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Fugitive(
+                    major_item_path: MajorItemPath::Fugitive(
                         FugitivePath(`mnist::input`, `Val`),
                     ),
                 },

@@ -76,7 +76,7 @@ EntitySynTreeSheet {
                     `std::ops`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Trait(
+                    major_item_path: MajorItemPath::Trait(
                         TraitPath(`std::ops::Add`),
                     ),
                 },

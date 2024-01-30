@@ -10,12 +10,12 @@ pub trait EntitySynTreeDb {
     fn module_symbol_context<'a>(
         &'a self,
         module_path: ModulePath,
-    ) -> EntitySynTreeResult<ModuleSymbolContext<'a>>;
+    ) -> EntityTreeResult<ModuleSymbolContext<'a>>;
     fn subitem_path(
         &self,
         parent: MajorEntityPath,
         identifier: Ident,
-    ) -> EntitySynTreeResult<SubitemPath>;
+    ) -> EntityTreeResult<SubitemPath>;
 }
 
 impl EntitySynTreeDb for ::salsa::Db {
@@ -42,7 +42,7 @@ impl EntitySynTreeDb for ::salsa::Db {
     fn module_symbol_context<'a>(
         &'a self,
         module_path: ModulePath,
-    ) -> EntitySynTreeResult<ModuleSymbolContext<'a>> {
+    ) -> EntityTreeResult<ModuleSymbolContext<'a>> {
         module_symbol_context(self, module_path)
     }
 
@@ -50,7 +50,7 @@ impl EntitySynTreeDb for ::salsa::Db {
         &self,
         parent: MajorEntityPath,
         identifier: Ident,
-    ) -> EntitySynTreeResult<SubitemPath> {
+    ) -> EntityTreeResult<SubitemPath> {
         subitem_path(self, parent, identifier)
     }
 }
@@ -59,6 +59,7 @@ impl EntitySynTreeDb for ::salsa::Db {
 pub struct EntitySynTreeJar(
     ItemSynNodePathId,
     UseSymbol,
+    ParentSuperSymbol,
     // module items
     trai_item_paths,
     ty_attrs,

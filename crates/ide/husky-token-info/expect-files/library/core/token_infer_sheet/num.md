@@ -9,7 +9,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 2,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             0,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -32,7 +32,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 5,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             1,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -53,7 +53,7 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 4,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             2,
                         ),
                         state: UseOneRuleState::Resolved {
@@ -84,13 +84,13 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 3,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             3,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
-                                    module_item_path: MajorItemPath::Trait(
+                                    major_item_path: MajorItemPath::Trait(
                                         TraitPath(`core::ops::Add`),
                                     ),
                                 },

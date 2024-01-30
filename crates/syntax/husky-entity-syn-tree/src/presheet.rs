@@ -174,7 +174,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                 else {
                     return;
                 };
-                if let Some(new_rule) = UseOneRule::new_root(
+                if let Some(new_rule) = OnceUseRule::new_root(
                     ast_idx,
                     use_expr_root,
                     visibility_expr,

@@ -305,7 +305,7 @@ EntitySynTreeCrateBundle {
             impl_block_syn_node_table: [],
             once_use_rules: UseOneRules(
                 [
-                    UseOneRule {
+                    OnceUseRule {
                         ast_idx: 1,
                         use_expr_idx: 3,
                         visibility: Scope::Pub,
@@ -333,7 +333,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    UseOneRule {
+                    OnceUseRule {
                         ast_idx: 1,
                         use_expr_idx: 2,
                         visibility: Scope::Pub,
@@ -351,8 +351,15 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: Some(
-                            MajorEntityPath::Module(
-                                `core`,
+                            (
+                                MajorEntityPath::Module(
+                                    `core`,
+                                ),
+                                EntitySymbol::UniversalPrelude {
+                                    item_path: PrincipalEntityPath::Module(
+                                        `core`,
+                                    ),
+                                },
                             ),
                         ),
                         state: UseOneRuleState::Resolved {
@@ -461,7 +468,7 @@ EntitySynTreeCrateBundle {
                             `std::ops`,
                         ),
                         symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Trait(
+                            major_item_path: MajorItemPath::Trait(
                                 TraitPath(`std::ops::Add`),
                             ),
                         },

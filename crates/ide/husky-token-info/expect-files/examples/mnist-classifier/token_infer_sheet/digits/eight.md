@@ -9,12 +9,12 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 2,
-                        rule_idx: UseOneRuleIdx(
+                        rule_idx: OnceUseRuleIdx(
                             0,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
-                                EntitySymbol::SuperModule {
+                                EntitySymbol::RootSuperModule {
                                     current_module_path: `mnist_classifier::digits::eight`,
                                     super_module_path: `mnist_classifier::digits`,
                                 },

@@ -6,7 +6,7 @@ use husky_syn_decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 
 use husky_ast::HasAstSheet;
-use husky_entity_syn_tree::{helpers::paths::module_item_syn_node_paths, ParentUseExpr};
+use husky_entity_syn_tree::{helpers::paths::module_item_syn_node_paths, ParentUseExprData};
 use husky_sema_expr::{
     SemaExprData, SemaExprDb, SemaExprIdx, SemaExprRegionData, SemaHtmlArgumentExpr,
 };
@@ -27,7 +27,7 @@ pub(crate) struct TokenInfoEngine<'a> {
 }
 
 impl<'a> TokenInfoEngine<'a> {
-    pub(crate) fn new(db: &'a ::salsa::Db, module_path: ModulePath) -> EntitySynTreeResult<Self> {
+    pub(crate) fn new(db: &'a ::salsa::Db, module_path: ModulePath) -> EntityTreeResult<Self> {
         let token_sheet_data = &db.token_sheet_data(module_path);
         Ok(Self {
             db,
@@ -41,13 +41,13 @@ impl<'a> TokenInfoEngine<'a> {
         })
     }
 
-    pub(crate) fn visit_all(mut self) -> EntitySynTreeResult<TokenInfoSheet> {
+    pub(crate) fn visit_all(mut self) -> EntityTreeResult<TokenInfoSheet> {
         self.visit_syn_nodes()?;
         self.visit_once_use_rules();
         Ok(self.sheet)
     }
 
-    fn visit_syn_nodes(&mut self) -> EntitySynTreeResult<()> {
+    fn visit_syn_nodes(&mut self) -> EntityTreeResult<()> {
         for syn_node_path in module_item_syn_node_paths(self.db, self.module_path)
             .iter()
             .copied()
@@ -63,7 +63,7 @@ impl<'a> TokenInfoEngine<'a> {
         }
     }
 
-    fn visit_once_use_rule(&mut self, rule: &UseOneRule, rule_idx: UseOneRuleIdx) {
+    fn visit_once_use_rule(&mut self, rule: &OnceUseRule, rule_idx: OnceUseRuleIdx) {
         let use_expr_idx = rule.use_expr_idx();
         let use_expr = &self.item_tree_presheet[use_expr_idx];
         match use_expr {
@@ -81,7 +81,7 @@ impl<'a> TokenInfoEngine<'a> {
                     state: rule.state(),
                 },
             ),
-            UseExpr::Parent(ParentUseExpr {
+            UseExpr::Parent(ParentUseExprData {
                 parent_name_token, ..
             }) => self.sheet.add(
                 parent_name_token.token_idx(),

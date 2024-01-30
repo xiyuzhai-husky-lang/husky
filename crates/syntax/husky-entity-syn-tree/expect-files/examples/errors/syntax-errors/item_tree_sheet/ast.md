@@ -70,7 +70,7 @@ EntitySynTreeSheet {
                     `syntax_errors::ast`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    module_item_path: MajorItemPath::Type(
+                    major_item_path: MajorItemPath::Type(
                         TypePath(`syntax_errors::ast::A`, `Struct`),
                     ),
                 },

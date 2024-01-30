@@ -14,7 +14,7 @@ pub(crate) fn subitem_path(
     db: &::salsa::Db,
     parent: MajorEntityPath,
     ident: Ident,
-) -> EntitySynTreeResult<SubitemPath> {
+) -> EntityTreeResult<SubitemPath> {
     match parent {
         MajorEntityPath::Module(module_path) => {
             match db
@@ -26,10 +26,10 @@ pub(crate) fn subitem_path(
                 None => Err(OriginalEntityTreeError::NoVisibleSubitem)?,
             }
         }
-        MajorEntityPath::MajorItem(module_item_path) => {
-            let crate_path = module_item_path.crate_path(db);
+        MajorEntityPath::MajorItem(major_item_path) => {
+            let crate_path = major_item_path.crate_path(db);
             let _item_tree_crate_bundle = db.item_syn_tree_bundle(crate_path);
-            match module_item_path {
+            match major_item_path {
                 MajorItemPath::Type(path) => {
                     if let Some((_, path)) = path.ty_variant_paths(db).get_entry(ident).copied() {
                         Ok(SubitemPath::Principal(path.into()))

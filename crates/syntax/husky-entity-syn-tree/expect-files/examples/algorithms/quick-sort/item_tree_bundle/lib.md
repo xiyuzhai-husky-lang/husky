@@ -328,7 +328,7 @@ EntitySynTreeCrateBundle {
                         ident: `quick_sort`,
                         visibility: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Fugitive(
+                            major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                             ),
                         },
@@ -339,7 +339,7 @@ EntitySynTreeCrateBundle {
                             `quick_sort`,
                         ),
                         symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Fugitive(
+                            major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                             ),
                         },
@@ -350,7 +350,7 @@ EntitySynTreeCrateBundle {
                             `quick_sort`,
                         ),
                         symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Fugitive(
+                            major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`quick_sort::partition`, `FunctionFn`),
                             ),
                         },
@@ -361,7 +361,7 @@ EntitySynTreeCrateBundle {
                             `quick_sort`,
                         ),
                         symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Fugitive(
+                            major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                             ),
                         },
@@ -372,7 +372,7 @@ EntitySynTreeCrateBundle {
                             `quick_sort`,
                         ),
                         symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Fugitive(
+                            major_item_path: MajorItemPath::Fugitive(
                                 FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                             ),
                         },

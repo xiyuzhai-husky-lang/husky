@@ -6,6 +6,12 @@ TokenSheetData {
         TokenData::Ident(
             `ast`,
         ),
+        TokenData::Keyword(
+            Keyword::Mod,
+        ),
+        TokenData::Ident(
+            `uses`,
+        ),
     ],
     token_group_starts: [
         TokenGroupStart(
@@ -13,8 +19,14 @@ TokenSheetData {
                 1,
             ),
         ),
+        TokenGroupStart(
+            TokenIdx(
+                3,
+            ),
+        ),
     ],
     indents: [
+        0,
         0,
     ],
 }
