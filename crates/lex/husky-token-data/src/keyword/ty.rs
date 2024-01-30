@@ -13,7 +13,7 @@ pub enum TypeEntityKeyword {
 }
 
 impl TypeEntityKeyword {
-    pub const fn code(self) -> &'static str {
+    pub fn code(self) -> &'static str {
         match self {
             TypeEntityKeyword::Extern => "extern",
             TypeEntityKeyword::Struct => "struct",

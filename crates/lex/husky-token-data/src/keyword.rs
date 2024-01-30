@@ -74,7 +74,7 @@ impl Keyword {
         }
     }
 
-    pub const fn code(self) -> &'static str {
+    pub fn code(self) -> &'static str {
         match self {
             Keyword::Fugitive(keyword) => keyword.code(),
             Keyword::TypeEntity(keyword) => keyword.code(),
@@ -84,9 +84,9 @@ impl Keyword {
             Keyword::Modifier(keyword) => keyword.code(),
             Keyword::Trait => "trait",
             Keyword::Impl => "impl",
-            Keyword::End(_) => todo!(),
-            Keyword::Connection(_) => todo!(),
-            Keyword::Pronoun(_) => todo!(),
+            Keyword::End(keyword) => keyword.code(),
+            Keyword::Connection(keyword) => keyword.code(),
+            Keyword::Pronoun(keyword) => keyword.code(),
             Keyword::Pub => "pub",
             Keyword::Const => "const",
             Keyword::Static => "static",

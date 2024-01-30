@@ -28,15 +28,15 @@ pub enum LiteralData {
 }
 
 impl LiteralData {
-    pub fn negative(self) -> Option<LiteralData> {
+    pub fn negative(self, db: &::salsa::Db) -> Option<LiteralData> {
         match self {
             LiteralData::Unit => None,
-            LiteralData::Integer(i) => Some(LiteralData::Integer(-i)),
-            LiteralData::Float(f) => Some(LiteralData::Float(-f)),
+            LiteralData::Integer(i) => Some(LiteralData::Integer(i.negative()?)),
+            LiteralData::Float(f) => Some(LiteralData::Float(f.negative(db))),
             LiteralData::Bool(_) => None,
             LiteralData::String(_) => None,
-            LiteralData::Char(_) => todo!(),
-            LiteralData::TupleIndex(_) => todo!(),
+            LiteralData::Char(_) => None,
+            LiteralData::TupleIndex(_) => None,
         }
     }
 }

@@ -1,5 +1,6 @@
 use super::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EntityKindKeywordGroup {
     /// todo: remove mod
@@ -19,13 +20,22 @@ pub enum EntityKindKeywordGroup {
     /// type defined as an alias or associated entity
     AliasOrAssociateType(TypeToken),
     Trait(TraitToken),
+    ConstExpr(ConstExprToken),
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct FugitiveFnToken {
     token_idx: TokenIdx,
 }
 
+#[salsa::debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ConstExprToken {
+    token_idx: TokenIdx,
+}
+
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ConstToken {
     token_idx: TokenIdx,
@@ -52,11 +62,13 @@ where
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct StaticToken {
     token_idx: TokenIdx,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum FormalEntityToken {
     Def(DefToken),
@@ -65,36 +77,43 @@ pub enum FormalEntityToken {
     Theorem(TheoremToken),
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct DefToken {
     token_idx: TokenIdx,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LemmaToken {
     token_idx: TokenIdx,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct PropositionToken {
     token_idx: TokenIdx,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TheoremToken {
     token_idx: TokenIdx,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct FunctionToken {
     token_idx: TokenIdx,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct MajorTypeToken {
     keyword: TypeEntityKeyword,
     token_idx: TokenIdx,
 }
+
 impl MajorTypeToken {
     pub fn type_kind(self) -> TypeKind {
         match self.keyword {
@@ -116,21 +135,25 @@ impl MajorTypeToken {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TypeToken {
     token_idx: TokenIdx,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TraitToken {
     token_idx: TokenIdx,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct MemoToken {
     token_idx: TokenIdx,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ValToken {
     token_idx: TokenIdx,
@@ -142,11 +165,13 @@ impl ValToken {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ModToken {
     token_idx: TokenIdx,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct GnToken {
     token_idx: TokenIdx,
@@ -172,12 +197,14 @@ where
         };
         match kw {
             Keyword::Fugitive(kw) => match kw {
-                FugitiveKeyword::Def => todo!(),
                 FugitiveKeyword::Fn => {
                     Ok(Some(EntityKindKeywordGroup::FugitiveFn(FugitiveFnToken {
                         token_idx,
                     })))
                 }
+                FugitiveKeyword::Def => Ok(Some(EntityKindKeywordGroup::FormalEntity(
+                    FormalEntityToken::Def(DefToken { token_idx }),
+                ))),
                 FugitiveKeyword::Theorem => Ok(Some(EntityKindKeywordGroup::FormalEntity(
                     FormalEntityToken::Theorem(TheoremToken { token_idx }),
                 ))),
@@ -194,7 +221,11 @@ where
                     Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx })))
                 }
                 FugitiveKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
-                FugitiveKeyword::Constexpr => todo!(),
+                FugitiveKeyword::Constexpr => {
+                    Ok(Some(EntityKindKeywordGroup::ConstExpr(ConstExprToken {
+                        token_idx,
+                    })))
+                }
             },
             Keyword::TypeEntity(keyword) => {
                 Ok(Some(EntityKindKeywordGroup::MajorType(MajorTypeToken {
@@ -202,14 +233,14 @@ where
                     token_idx,
                 })))
             }
-            Keyword::Stmt(_) => todo!(),
+            Keyword::Stmt(_) => Ok(None),
             Keyword::Mod => Ok(Some(EntityKindKeywordGroup::Submodule(ModToken {
                 token_idx,
             }))),
             Keyword::Trait => Ok(Some(EntityKindKeywordGroup::Trait(TraitToken {
                 token_idx,
             }))),
-            Keyword::Const => todo!(),
+            Keyword::Const => Ok(None),
             Keyword::Static => match token_stream.peek() {
                 Some(TokenData::Keyword(Keyword::Fugitive(FugitiveKeyword::Fn))) => {
                     token_stream.next();
@@ -220,7 +251,6 @@ where
                         },
                     )))
                 }
-                Some(TokenData::Keyword(Keyword::Const)) => todo!(),
                 _ => Ok(None),
             },
             _ => Ok(None),

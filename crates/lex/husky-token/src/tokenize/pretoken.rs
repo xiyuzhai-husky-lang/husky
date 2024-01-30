@@ -23,6 +23,7 @@ impl RangedPretoken {
     }
 }
 
+#[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) enum Pretoken {
     Certain(TokenData),
@@ -31,12 +32,6 @@ pub(crate) enum Pretoken {
     Ambiguous(AmbiguousPretoken),
     Comment,
     Err(TokenDataError),
-}
-
-impl From<AmbiguousPretoken> for Pretoken {
-    fn from(v: AmbiguousPretoken) -> Self {
-        Self::Ambiguous(v)
-    }
 }
 
 impl From<IntegerLikeLiteralData> for Pretoken {
@@ -69,12 +64,6 @@ impl AmbiguousPretoken {
             AmbiguousPretoken::SubOrMinus => "-",
             AmbiguousPretoken::For => "for",
         }
-    }
-}
-
-impl From<TokenData> for Pretoken {
-    fn from(kind: TokenData) -> Self {
-        Pretoken::Certain(kind)
     }
 }
 
@@ -202,10 +191,10 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
     /// assume a previous single quote has been taken
     fn next_char_or_lifetime_or_label(&mut self) -> Pretoken {
         let Some((fst, snd)) = self.char_iter.peek_two() else {
-            return Pretoken::Err(TokenDataError::NothingAfterSingleQuote);
+            return TokenDataError::NothingAfterSingleQuote.into();
         };
         match fst {
-            '\\' => todo!(),
+            '\\' => TokenDataError::NewLineAfterSingleQuote.into(),
             fst if is_char_valid_ident_first_char(fst) => match snd {
                 Some('\'') => {
                     self.char_iter.next();
@@ -312,23 +301,23 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             let token: Pretoken = match integer_suffix {
                 "" => match self.buffer.parse::<i128>() {
                     Ok(i) => IntegerLikeLiteralData::UnspecifiedRegular(i).into(),
-                    Err(_) => todo!(),
+                    Err(e) => return TokenDataError::ParseIntError.into(),
                 },
                 "i8" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Err(TokenDataError::ParseIntError);
+                        return TokenDataError::ParseIntError.into();
                     };
                     IntegerLikeLiteralData::I8(i).into()
                 }
                 "i16" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Err(TokenDataError::ParseIntError);
+                        return TokenDataError::ParseIntError.into();
                     };
                     IntegerLikeLiteralData::I16(i).into()
                 }
                 "i32" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Err(TokenDataError::ParseIntError);
+                        return TokenDataError::ParseIntError.into();
                     };
                     IntegerLikeLiteralData::I32(i).into()
                 }

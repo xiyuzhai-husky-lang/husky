@@ -26,10 +26,33 @@ pub enum IntegerLikeLiteralData {
     USize(usize),
 }
 
-impl Neg for IntegerLikeLiteralData {
-    type Output = Self;
-
-    fn neg(self) -> Self::Output {
-        todo!()
+impl IntegerLikeLiteralData {
+    pub fn negative(self) -> Option<Self> {
+        Some(match self {
+            IntegerLikeLiteralData::UnspecifiedRegular(i) => {
+                IntegerLikeLiteralData::UnspecifiedRegular(i)
+            }
+            IntegerLikeLiteralData::UnspecifiedLarge() => {
+                IntegerLikeLiteralData::UnspecifiedLarge()
+            }
+            IntegerLikeLiteralData::I8(i) => IntegerLikeLiteralData::I8(-i),
+            IntegerLikeLiteralData::I16(i) => IntegerLikeLiteralData::I16(-i),
+            IntegerLikeLiteralData::I32(i) => IntegerLikeLiteralData::I32(-i),
+            IntegerLikeLiteralData::I64(i) => IntegerLikeLiteralData::I64(-i),
+            IntegerLikeLiteralData::I128(i) => IntegerLikeLiteralData::I128(-i),
+            IntegerLikeLiteralData::ISize(i) => IntegerLikeLiteralData::ISize(-i),
+            IntegerLikeLiteralData::R8(_)
+            | IntegerLikeLiteralData::R16(_)
+            | IntegerLikeLiteralData::R32(_)
+            | IntegerLikeLiteralData::R64(_)
+            | IntegerLikeLiteralData::R128(_)
+            | IntegerLikeLiteralData::RSize(_)
+            | IntegerLikeLiteralData::U8(_)
+            | IntegerLikeLiteralData::U16(_)
+            | IntegerLikeLiteralData::U32(_)
+            | IntegerLikeLiteralData::U64(_)
+            | IntegerLikeLiteralData::U128(_)
+            | IntegerLikeLiteralData::USize(_) => return None,
+        })
     }
 }

@@ -31,6 +31,7 @@ impl IsAstChildren for FugitiveBody {
             EntityKindKeywordGroup::AliasOrAssociateType(_) => FugitiveKind::AliasType.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
             EntityKindKeywordGroup::Val(_) => FugitiveKind::Val.into(),
+            EntityKindKeywordGroup::ConstExpr(_) => todo!(),
         };
         Ok(EntityKind::MajorItem {
             module_item_kind,

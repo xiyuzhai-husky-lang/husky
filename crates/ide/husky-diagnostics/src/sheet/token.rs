@@ -47,6 +47,8 @@ impl Diagnose for (&TextRange, &TokenDataError) {
             TokenDataError::InvalidIdent => format!("Syntax Error: invalid identifier"),
             TokenDataError::NothingAfterSingleQuote => format!("Syntax Error: nothing after `'`"),
             TokenDataError::InvalidLabel => format!("Syntax Error: InvalidLabel"),
+            TokenDataError::NewLineAfterSingleQuote => todo!(),
+            TokenDataError::NoNegativeForLiteral(_) => todo!(),
         }
     }
 
