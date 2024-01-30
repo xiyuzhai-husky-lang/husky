@@ -162,27 +162,31 @@ impl<E> TranspileToRustWith<E> for (FugitivePath, &LinkageInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, instantiation) = self;
         path.transpile_to_rust(builder);
-        if !instantiation.is_empty() {
-            builder.bracketed_comma_list(
-                RustBracket::TurboFish,
-                instantiation.iter().map(|&(_, res)| match res {
-                    LinkageTermSymbolResolution::Explicit(arg) => arg,
-                    LinkageTermSymbolResolution::SelfLifetime => unreachable!(),
-                    LinkageTermSymbolResolution::SelfPlace(_) => unreachable!(),
-                }),
-            )
-        }
+        turbo_fish_instantiation(instantiation, builder);
+    }
+}
+
+fn turbo_fish_instantiation<E>(
+    instantiation: &LinkageInstantiation,
+    builder: &mut RustTranspilationBuilder<'_, '_, E>,
+) {
+    if !instantiation.is_empty() {
+        builder.bracketed_comma_list(
+            RustBracket::TurboFish,
+            instantiation.iter().map(|&(_, res)| match res {
+                LinkageTermSymbolResolution::Explicit(arg) => arg,
+                LinkageTermSymbolResolution::SelfLifetime => unreachable!(),
+                LinkageTermSymbolResolution::SelfPlace(_) => unreachable!(),
+            }),
+        )
     }
 }
 
 impl<E> TranspileToRustWith<E> for (TypeVariantPath, &LinkageInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, instantiation) = self;
-        if instantiation.is_empty() {
-            path.transpile_to_rust(builder)
-        } else {
-            todo!()
-        }
+        path.transpile_to_rust(builder);
+        turbo_fish_instantiation(instantiation, builder);
     }
 }
 

@@ -124,7 +124,52 @@
                         [],
                     ),
                 ),
-                rides: [],
+                rides: [
+                    ValkyrieRide::PathLeading {
+                        javelin_item_path: JavelinPath::TypeVariantConstructor(
+                            TypeVariantPath(
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `Some`,
+                                            index: U8(
+                                                0,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                    template_arguments: [],
+                                                    always_copyable: true,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: None,
+                        },
+                    },
+                ],
             },
         ),
     ),
@@ -141,7 +186,52 @@
                         [],
                     ),
                 ),
-                rides: [],
+                rides: [
+                    ValkyrieRide::PathLeading {
+                        javelin_item_path: JavelinPath::TypeVariantConstructor(
+                            TypeVariantPath(
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `Some`,
+                                            index: U8(
+                                                0,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                    template_arguments: [],
+                                                    always_copyable: true,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: None,
+                        },
+                    },
+                ],
             },
         ),
     ),
@@ -158,7 +248,52 @@
                         [],
                     ),
                 ),
-                rides: [],
+                rides: [
+                    ValkyrieRide::PathLeading {
+                        javelin_item_path: JavelinPath::TypeVariantConstructor(
+                            TypeVariantPath(
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            ident: `Some`,
+                                            index: U8(
+                                                0,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                    template_arguments: [],
+                                                    always_copyable: true,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: None,
+                        },
+                    },
+                ],
             },
         ),
     ),
