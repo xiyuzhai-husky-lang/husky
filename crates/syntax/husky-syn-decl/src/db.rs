@@ -52,7 +52,7 @@ pub struct SynDeclJar(
     trai_syn_node_decl,
     TraitSynDecl,
     trai_syn_decl,
-    // - form
+    // - fugitive
     fugitive_syn_node_decl,
     fugitive_syn_decl,
     ValFugitiveSynNodeDecl,
@@ -99,6 +99,7 @@ pub struct SynDeclJar(
     TypeMemoizedFieldSynDecl,
     // -- trait item
     trai_item_syn_node_decl,
+    trai_item_syn_decl,
     TraitAssociatedFnSynNodeDecl,
     TraitAssociatedFnSynDecl,
     TraitMethodFnSynNodeDecl,

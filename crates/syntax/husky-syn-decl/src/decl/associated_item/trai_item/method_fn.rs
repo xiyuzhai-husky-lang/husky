@@ -95,4 +95,42 @@ pub struct TraitMethodFnSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TraitMethodFnSynDecl {}
+impl TraitMethodFnSynDecl {
+    /// constructor
+    pub(super) fn from_node_decl(
+        db: &::salsa::Db,
+        path: TraitItemPath,
+        syn_node_decl: TraitMethodFnSynNodeDecl,
+    ) -> DeclResult<Self> {
+        let template_parameters = syn_node_decl
+            .template_parameter_decl_list(db)
+            .as_ref()?
+            .as_ref()
+            .map(|list| {
+                list.syn_template_parameter_obelisks()
+                    .iter()
+                    .map(Clone::clone)
+                    .collect()
+            })
+            .unwrap_or_default();
+        let parenate_parameter_decl_list =
+            syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
+        let self_value_parameter = *parenate_parameter_decl_list.self_value_parameter();
+        let parenate_parameters: ParenateSynParametersData = parenate_parameter_decl_list
+            .parenate_parameters()
+            .iter()
+            .map(Clone::clone)
+            .collect();
+        let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(TraitMethodFnSynDecl::new(
+            db,
+            path,
+            template_parameters,
+            self_value_parameter,
+            parenate_parameters,
+            return_ty,
+            syn_expr_region,
+        ))
+    }
+}

@@ -67,3 +67,13 @@ pub struct TraitAssociatedTypeSynDecl {
     pub template_parameters: TemplateSynParametersData,
     pub syn_expr_region: SynExprRegion,
 }
+
+impl TraitAssociatedTypeSynDecl {
+    pub(super) fn from_node_decl(
+        path: TraitItemPath,
+        syn_node_decl: TraitAssociatedTypeSynNodeDecl,
+        db: &::salsa::Db,
+    ) -> DeclResult<Self> {
+        todo!()
+    }
+}

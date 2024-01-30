@@ -117,6 +117,7 @@ impl From<TraitForTypeItemSynDecl> for SynDecl {
     }
 }
 
+/// # constructor
 impl TraitForTypeItemSynDecl {
     fn from_node_decl(
         db: &::salsa::Db,
@@ -136,7 +137,10 @@ impl TraitForTypeItemSynDecl {
             TraitForTypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
         })
     }
+}
 
+/// # getters
+impl TraitForTypeItemSynDecl {
     pub fn path(self, db: &::salsa::Db) -> TraitForTypeItemPath {
         match self {
             TraitForTypeItemSynDecl::AssociatedFn(decl) => decl.path(db),
