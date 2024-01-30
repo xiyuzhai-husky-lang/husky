@@ -2,8 +2,6 @@ use proc_macro2::Literal;
 use syn::punctuated::Punctuated;
 use syn::{Field, FieldsUnnamed, Ident, ItemStruct, Token};
 
-use crate::options::Options;
-
 // Source:
 //
 // #[salsa::jar]
@@ -13,12 +11,9 @@ pub(crate) fn jar(
     args: proc_macro::TokenStream,
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
-    let options = syn::parse_macro_input!(args as Args);
     let input = syn::parse_macro_input!(input as ItemStruct);
     jar_struct_and_friends(&input).into()
 }
-
-type Args = Options<Jar>;
 
 struct Jar;
 

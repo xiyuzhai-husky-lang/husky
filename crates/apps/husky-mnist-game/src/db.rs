@@ -1,10 +1,9 @@
 use self::op::history::{MnistOpHistory, OpTime};
 use super::*;
-use crate::op::frame::{MnistFramesToBe, MnistOpFrame};
+use crate::op::frame::MnistOpFrame;
 use crate::trace::input::Input;
 use husky_ml_task_interface::InputId;
 use mnist::dataset::MnistDataset;
-use shifted_unsigned_int::ShiftedU32;
 
 pub struct MnistDb {
     dataset: MnistDataset,

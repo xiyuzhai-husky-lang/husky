@@ -4,7 +4,7 @@ use self::{generic::GenericGraphics2dFigure, specific::SpecificGraphics2dFigure}
 use egui::{pos2, Color32, Rect, Ui, Vec2};
 use husky_task_interface::{
     pedestal::{IsPedestal, IsPedestalFull},
-    val_repr::{ValDomainReprInterface, ValReprInterface},
+    val_repr::{ValReprInterface},
 };
 use husky_trace_protocol::{
     figure::{FigureUi, FigureUiCache, IsFigure},

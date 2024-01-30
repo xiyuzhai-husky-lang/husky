@@ -61,7 +61,7 @@ fn load_mnist_inputs_and_labels() -> (Vec<BinaryImage28>, Vec<MnistLabel>) {
     }
     let file_content: Vec<u8> = match std::fs::read(dir.join("data/mnist-binary-images")) {
         Ok(file_content) => file_content,
-        Err(e) => {
+        Err(_e) => {
             println!(
                 "current dir = {:?}, dir = {dir:?}",
                 (std::env::current_dir())

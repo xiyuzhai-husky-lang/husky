@@ -111,7 +111,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         sema_expr_idx.ty(self.sema_expr_region_data.sema_expr_arena2())
     }
 
-    pub(crate) fn expr_term_hir_ty(&self, sema_expr_idx: SemaExprIdx) -> Option<HirType> {
+    pub(crate) fn expr_term_to_hir_ty(&self, sema_expr_idx: SemaExprIdx) -> Option<HirType> {
         HirType::from_ethereal(self.expr_term(sema_expr_idx), self.db)
     }
 

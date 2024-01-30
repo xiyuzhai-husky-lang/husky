@@ -51,6 +51,14 @@ use vec_like::{AsVecMapEntry, VecMap};
 #[derive(Debug, PartialEq, Eq)]
 pub enum SemaExprData {
     Literal(RegionalTokenIdx, LiteralData),
+    /// unit is basically a literal.
+    ///
+    /// However, due to the complexity of the language, it's not recognized in the lexing stage,
+    /// so we need to record it as the combination of two tokens, `(` and `)`.
+    Unit {
+        lpar_regional_token_idx: RegionalTokenIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
+    },
     PrincipalEntityPath {
         path_expr_idx: SynPrincipalEntityPathExprIdx,
         path: PrincipalEntityPath,
@@ -187,10 +195,6 @@ pub enum SemaExprData {
     At {
         at_regional_token_idx: RegionalTokenIdx,
         place_label_regional_token: Option<PlaceLabelRegionalToken>,
-    },
-    Unit {
-        lpar_regional_token_idx: RegionalTokenIdx,
-        rpar_regional_token_idx: RegionalTokenIdx,
     },
     Bracketed {
         lpar_regional_token_idx: RegionalTokenIdx,
