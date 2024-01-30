@@ -115,26 +115,6 @@ impl ExpectCoersion {
         }
     }
 
-    pub(crate) fn try_substitute_unresolved_fluffy_term<'a>(
-        &self,
-        terms: &'a FluffyTerms,
-    ) -> Result<Option<Expectation>, &'a HollowTermResolveError> {
-        todo!()
-        // match terms.try_reduce_fluffy_term(self.expected)? {
-        //     Some(destination) => Ok(Some(
-        //         ExpectImplicitlyConvertible {
-        //             expected: destination,
-        //         }
-        //         .into(),
-        //     )),
-        //     None => Ok(None),
-        // }
-    }
-
-    fn contract(self) -> TermContract {
-        self.contract
-    }
-
     fn ty_expected(self) -> FluffyTerm {
         self.ty_expected
     }

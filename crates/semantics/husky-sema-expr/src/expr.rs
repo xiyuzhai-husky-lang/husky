@@ -28,7 +28,10 @@ use husky_coword::{Ident, IdentMap};
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_ethereal_signature::TraitForTypeAssociatedTypeEtherealSignature;
 use husky_fluffy_term::{
-    dispatch::dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch,
+    dispatch::{
+        dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch, FluffyFieldDyanmicDispatch,
+        FluffyIndexDynamicDispatch, FluffyMethodDynamicDispatch, StaticDispatch,
+    },
     instantiation::FluffyInstantiation,
 };
 use husky_opr::*;

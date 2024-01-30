@@ -145,8 +145,8 @@ where
         &self,
         view_action: &TraceViewAction<TraceProtocol>,
     ) -> Option<TraceSynchrotronAction<TraceProtocol>> {
-        match view_action {
-            &TraceViewAction::ToggleExpansion { trace_id } => {
+        match *view_action {
+            TraceViewAction::ToggleExpansion { trace_id } => {
                 let trace_cache_entry = &self.trace_synchrotron()[trace_id];
                 if !trace_cache_entry.expanded() {
                     trace_cache_entry.subtrace_ids()?;
@@ -154,8 +154,7 @@ where
                 Some(TraceSynchrotronToggleExpansion::new(trace_id).into())
             }
             TraceViewAction::Marker { _marker } => todo!(),
-            TraceViewAction::ToggleExpansion { trace_id: _ } => todo!(),
-            &TraceViewAction::ToggleAssociatedTrace {
+            TraceViewAction::ToggleAssociatedTrace {
                 trace_id,
                 associated_trace_id,
             } => {
@@ -170,11 +169,7 @@ where
                     associated_trace_id,
                 })
             }
-            TraceViewAction::ToggleAssociatedTrace {
-                trace_id: _,
-                associated_trace_id: _,
-            } => todo!(),
-            &TraceViewAction::FollowTrace { trace_id } => {
+            TraceViewAction::FollowTrace { trace_id } => {
                 let trace_synchrotron = self.trace_synchrotron();
                 let accompanying_trace_ids = trace_synchrotron
                     .accompanying_trace_ids_except_followed()
@@ -187,8 +182,7 @@ where
                 }
                 Some(TraceSynchrotronAction::FollowTrace { trace_id })
             }
-            TraceViewAction::FollowTrace { trace_id: _ } => todo!(),
-            &TraceViewAction::ToggleAccompany { trace_id } => {
+            TraceViewAction::ToggleAccompany { trace_id } => {
                 {
                     // see if toggling accompany will affect figure
                     let trace_synchrotron = self.trace_synchrotron();
@@ -210,8 +204,7 @@ where
                 }
                 Some(TraceSynchrotronAction::ToggleAccompany { trace_id })
             }
-            TraceViewAction::ToggleAccompany { trace_id: _ } => todo!(),
-            &TraceViewAction::SetPedestal { pedestal } => {
+            TraceViewAction::SetPedestal { pedestal } => {
                 let trace_synchrotron = self.trace_synchrotron();
                 {
                     // see if setting pedestal will affect stalk

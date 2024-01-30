@@ -160,7 +160,7 @@ pub(crate) fn ty_impl_block_items(
     let impl_block_syn_node = syn_node_path.syn_node(db);
     let module_path = syn_node_path.module_path(db);
     let ast_sheet = module_path.ast_sheet(db);
-    let items = impl_block_syn_node.items;
+    let items = impl_block_syn_node.items();
     let mut registry = ItemSynNodePathRegistry::default();
     items
         .ast_idx_range()

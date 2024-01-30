@@ -1,3 +1,5 @@
+use husky_fluffy_term::dispatch::StaticDispatch;
+
 use super::*;
 
 #[salsa::tracked(jar = SemaExprJar)]

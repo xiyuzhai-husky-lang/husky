@@ -1,10 +1,4 @@
-use crate::{
-    channel::MnistChannel,
-    op::history::OpTime,
-    trace::{Trace, TraceSelection},
-    ui_cache::MnistUiCache,
-    MnistDb,
-};
+use crate::{channel::MnistChannel, op::history::OpTime, trace::Trace, MnistDb};
 
 use husky_graphics2d_visual_protocol::figure::Graphics2dFigure;
 use husky_ml_task_interface::pedestal::MlPedestal;
