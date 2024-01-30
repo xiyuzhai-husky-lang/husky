@@ -11,7 +11,6 @@ use husky_task_interface::{
     val_repr::{ValArgumentReprInterface, ValReprInterface},
     DevEvalContext, IsLinkageImpl,
 };
-use smallvec::smallvec;
 
 pub trait IsFnLinkageImplSource<LinkageImpl: IsLinkageImpl, FnPointer> {
     type FnOutput;

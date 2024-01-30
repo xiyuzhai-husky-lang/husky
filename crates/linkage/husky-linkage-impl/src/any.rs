@@ -1,7 +1,7 @@
 use colored::Colorize;
 
 use crate::IsLinkageImpl;
-use std::any::{Any, TypeId};
+use std::any::Any;
 
 pub struct AnyLinkageImpls {
     linkage_impls: Box<dyn Any>,
