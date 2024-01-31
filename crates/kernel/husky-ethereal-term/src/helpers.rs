@@ -59,6 +59,7 @@ impl EtherealTerm {
                 )?;
                 Ok(CurryEtherealTerm::new(
                     db,
+                    argument_ty.toolchain(db),
                     argument_ty.curry_kind(db),
                     argument_ty.variance(db),
                     None,

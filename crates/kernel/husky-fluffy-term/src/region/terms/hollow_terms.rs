@@ -147,6 +147,7 @@ impl HollowTerms {
                 }
             }
             HollowTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,
@@ -168,6 +169,7 @@ impl HollowTerms {
                             HollowTermResolveProgressBuf::ResolvedEthereal(
                                 CurryEtherealTerm::new(
                                     db,
+                                    toolchain,
                                     curry_kind,
                                     variance,
                                     parameter_rune,

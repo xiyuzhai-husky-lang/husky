@@ -13,7 +13,7 @@ use husky_term_prelude::literal::{
     },
     TermLiteral,
 };
-use husky_token_data::{IntegerLikeLiteralData, LiteralData};
+use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData};
 use husky_vfs::Toolchain;
 use salsa::DebugWithDb;
 
@@ -159,15 +159,6 @@ impl<'a> DeclarativeTermEngine<'a> {
                             ty_expr_idx,
                         } => {
                             let ty = self.infer_new_expr_term(*ty_expr_idx).map_err(Into::into);
-                            if ty.is_err() {
-                                p!(
-                                    ident_token.debug(self.db),
-                                    self.syn_expr_region_data.path().debug(self.db)
-                                );
-                                p!(self.syn_expr_region_data[*ty_expr_idx].debug(self.db));
-                                p!(self.expr_terms[*ty_expr_idx].debug(self.db));
-                                todo!()
-                            }
                             (
                                 ty,
                                 SymbolDeclarativeTerm::new_const(
@@ -181,7 +172,6 @@ impl<'a> DeclarativeTermEngine<'a> {
                         }
                         _ => todo!(),
                     };
-                    // let term_symbol = self.symbol_registry.new_symbol(db, ty);
                     self.symbol_declarative_term_region
                         .add_new_template_parameter_symbol_signature(
                             self.db,
@@ -359,74 +349,9 @@ impl<'a> DeclarativeTermEngine<'a> {
     fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> DeclarativeTermResult2<DeclarativeTerm> {
         let db = self.db;
         match self.syn_expr_region_data.expr_arena()[expr_idx] {
-            SynExprData::Literal(token_idx, literal) => match literal {
-                LiteralData::Unit => todo!(),
-                LiteralData::Char(_) => todo!(),
-                LiteralData::String(_) => todo!(),
-                LiteralData::Integer(literal) => match literal {
-                    IntegerLikeLiteralData::UnspecifiedRegular(i) => Ok(DeclarativeTerm::Literal(
-                        UnresolvedTermLiteral::RegularInteger(i).into(),
-                    )),
-                    IntegerLikeLiteralData::UnspecifiedLarge() => todo!(),
-                    IntegerLikeLiteralData::I8(i) => {
-                        Ok(DeclarativeTerm::Literal(TermLiteral::I8(i).into()))
-                    }
-                    IntegerLikeLiteralData::I16(i) => {
-                        Ok(DeclarativeTerm::Literal(TermLiteral::I16(i).into()))
-                    }
-                    IntegerLikeLiteralData::I32(i) => {
-                        Ok(DeclarativeTerm::Literal(TermLiteral::I32(i).into()))
-                    }
-                    IntegerLikeLiteralData::I64(i) => Ok(DeclarativeTerm::Literal(
-                        TermLiteral::I64(TermI64Literal::new(db, i)).into(),
-                    )),
-                    IntegerLikeLiteralData::I128(r) => Ok(DeclarativeTerm::Literal(
-                        TermLiteral::I128(TermI128Literal::new(db, r)).into(),
-                    )),
-                    IntegerLikeLiteralData::ISize(i) => Ok(DeclarativeTerm::Literal(
-                        TermLiteral::ISize(TermISizeLiteral::new(db, i as i64)).into(),
-                    )),
-                    IntegerLikeLiteralData::R8(r) => {
-                        Ok(DeclarativeTerm::Literal(TermLiteral::R8(r).into()))
-                    }
-                    IntegerLikeLiteralData::R16(r) => {
-                        Ok(DeclarativeTerm::Literal(TermLiteral::R16(r).into()))
-                    }
-                    IntegerLikeLiteralData::R32(r) => {
-                        Ok(DeclarativeTerm::Literal(TermLiteral::R32(r).into()))
-                    }
-                    IntegerLikeLiteralData::R64(r) => Ok(DeclarativeTerm::Literal(
-                        TermLiteral::R64(TermR64Literal::new(db, r)).into(),
-                    )),
-                    IntegerLikeLiteralData::R128(r) => Ok(DeclarativeTerm::Literal(
-                        TermLiteral::R128(TermR128Literal::new(db, r)).into(),
-                    )),
-                    IntegerLikeLiteralData::RSize(r) => Ok(DeclarativeTerm::Literal(
-                        TermLiteral::RSize(TermRSizeLiteral::new(db, r as u64)).into(),
-                    )),
-                    IntegerLikeLiteralData::U8(u) => {
-                        Ok(DeclarativeTerm::Literal(TermLiteral::U8(u).into()))
-                    }
-                    IntegerLikeLiteralData::U16(u) => {
-                        Ok(DeclarativeTerm::Literal(TermLiteral::U16(u).into()))
-                    }
-                    IntegerLikeLiteralData::U32(u) => {
-                        Ok(DeclarativeTerm::Literal(TermLiteral::U32(u).into()))
-                    }
-                    IntegerLikeLiteralData::U64(u) => Ok(DeclarativeTerm::Literal(
-                        TermLiteral::U64(TermU64Literal::new(db, u)).into(),
-                    )),
-                    IntegerLikeLiteralData::U128(u) => Ok(DeclarativeTerm::Literal(
-                        TermLiteral::U128(TermU128Literal::new(db, u)).into(),
-                    )),
-                    IntegerLikeLiteralData::USize(u) => Ok(DeclarativeTerm::Literal(
-                        TermLiteral::USize(TermUSizeLiteral::new(db, u as u64)).into(),
-                    )),
-                },
-                LiteralData::Float(_) => todo!(),
-                LiteralData::TupleIndex(_) => todo!(),
-                LiteralData::Bool(_) => todo!(),
-            },
+            SynExprData::Literal(token_idx, literal) => {
+                Ok(DeclarativeTerm::from_literal_token_data(literal, db))
+            }
             SynExprData::PrincipalEntityPath { opt_path, .. } => match opt_path {
                 Some(path) => Ok(DeclarativeTerm::EntityPath(match path {
                     PrincipalEntityPath::Module(_) => todo!(),

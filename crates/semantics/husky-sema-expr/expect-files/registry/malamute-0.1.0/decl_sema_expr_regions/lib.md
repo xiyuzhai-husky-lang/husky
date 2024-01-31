@@ -228,7 +228,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 2,
                                         },
@@ -297,7 +297,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -320,7 +320,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -461,7 +461,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 2,
                                         },
@@ -530,7 +530,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -553,7 +553,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -733,7 +733,7 @@
                                     RegionalTokenIdx(
                                         26,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             5,
                                         ),
@@ -1020,7 +1020,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 1,
                                         },
@@ -1085,7 +1085,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 1,
                                         },
@@ -1127,7 +1127,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 8,
                                         },
@@ -1146,7 +1146,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 4,
                                         },
@@ -1165,7 +1165,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 9,
                                         },
@@ -1283,7 +1283,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -1306,7 +1306,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -1317,7 +1317,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -1338,7 +1338,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -1349,7 +1349,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -1370,7 +1370,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -1457,7 +1457,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Rune(
-                                                                            EtherealTermRune(
+                                                                            RuneEtherealTerm(
                                                                                 Id {
                                                                                     value: 1,
                                                                                 },
@@ -1493,8 +1493,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -1579,7 +1579,7 @@
                                             place: None,
                                             base: Ethereal(
                                                 Symbol(
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -1610,7 +1610,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -1631,7 +1631,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -2016,7 +2016,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 2,
                                         },
@@ -2058,7 +2058,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 2,
                                         },
@@ -2100,7 +2100,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 4,
                                         },
@@ -2119,7 +2119,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 3,
                                         },
@@ -2138,7 +2138,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -2207,7 +2207,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -2230,7 +2230,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -2295,7 +2295,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Rune(
-                                                                            EtherealTermRune(
+                                                                            RuneEtherealTerm(
                                                                                 Id {
                                                                                     value: 1,
                                                                                 },
@@ -2331,8 +2331,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -2417,7 +2417,7 @@
                                             place: None,
                                             base: Ethereal(
                                                 Symbol(
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 2,
                                                         },
@@ -2448,7 +2448,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -2469,7 +2469,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -2636,7 +2636,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -2705,7 +2705,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -2726,7 +2726,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -3252,7 +3252,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 1,
                                         },
@@ -3317,7 +3317,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 10,
                                         },
@@ -3336,7 +3336,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 1,
                                         },
@@ -3355,7 +3355,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 13,
                                         },
@@ -3374,7 +3374,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 4,
                                         },
@@ -3393,7 +3393,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 16,
                                         },
@@ -3435,7 +3435,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 1,
                                         },
@@ -3454,7 +3454,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 1,
                                         },
@@ -3523,7 +3523,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -3546,7 +3546,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -3612,8 +3612,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -3696,8 +3696,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -3782,7 +3782,7 @@
                                             place: None,
                                             base: Ethereal(
                                                 Rune(
-                                                    EtherealTermRune(
+                                                    RuneEtherealTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -3888,8 +3888,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -3919,7 +3919,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -3940,7 +3940,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -4183,7 +4183,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -4204,7 +4204,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -4681,7 +4681,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 1,
                                         },
@@ -4723,7 +4723,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 12,
                                         },
@@ -4742,7 +4742,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 4,
                                         },
@@ -4761,7 +4761,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 15,
                                         },
@@ -4803,7 +4803,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 1,
                                         },
@@ -4822,7 +4822,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 17,
                                         },
@@ -4864,7 +4864,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 18,
                                         },
@@ -4984,7 +4984,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Rune(
-                                                                            EtherealTermRune(
+                                                                            RuneEtherealTerm(
                                                                                 Id {
                                                                                     value: 1,
                                                                                 },
@@ -5020,8 +5020,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -5106,7 +5106,7 @@
                                             place: None,
                                             base: Ethereal(
                                                 Symbol(
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -5137,7 +5137,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -5158,7 +5158,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -5224,8 +5224,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -5337,7 +5337,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -5358,7 +5358,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -5959,7 +5959,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 2,
                                         },
@@ -6024,7 +6024,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 19,
                                         },
@@ -6043,7 +6043,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 2,
                                         },
@@ -6062,7 +6062,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 21,
                                         },
@@ -6081,7 +6081,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 3,
                                         },
@@ -6100,7 +6100,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 23,
                                         },
@@ -6119,7 +6119,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 2,
                                         },
@@ -6161,7 +6161,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 4,
                                         },
@@ -6180,7 +6180,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 3,
                                         },
@@ -6199,7 +6199,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -6268,7 +6268,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -6291,7 +6291,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -6357,8 +6357,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -6441,8 +6441,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -6527,7 +6527,7 @@
                                             place: None,
                                             base: Ethereal(
                                                 Rune(
-                                                    EtherealTermRune(
+                                                    RuneEtherealTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -6612,7 +6612,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Rune(
-                                                                            EtherealTermRune(
+                                                                            RuneEtherealTerm(
                                                                                 Id {
                                                                                     value: 1,
                                                                                 },
@@ -6648,8 +6648,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -6734,7 +6734,7 @@
                                             place: None,
                                             base: Ethereal(
                                                 Symbol(
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 2,
                                                         },
@@ -6765,7 +6765,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -6786,7 +6786,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -7029,7 +7029,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -7050,7 +7050,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -7527,7 +7527,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 2,
                                         },
@@ -7569,7 +7569,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 6,
                                         },
@@ -7588,7 +7588,7 @@
                             place: None,
                             base: Ethereal(
                                 Symbol(
-                                    EtherealTermSymbol(
+                                    SymbolEtherealTerm(
                                         Id {
                                             value: 3,
                                         },
@@ -7607,7 +7607,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 7,
                                         },
@@ -7649,7 +7649,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -7668,7 +7668,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 24,
                                         },
@@ -7710,7 +7710,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 25,
                                         },
@@ -7830,7 +7830,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Rune(
-                                                                            EtherealTermRune(
+                                                                            RuneEtherealTerm(
                                                                                 Id {
                                                                                     value: 1,
                                                                                 },
@@ -7866,8 +7866,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -7952,7 +7952,7 @@
                                             place: None,
                                             base: Ethereal(
                                                 Symbol(
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 2,
                                                         },
@@ -7983,7 +7983,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -8004,7 +8004,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -8070,8 +8070,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -8183,7 +8183,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -8204,7 +8204,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),

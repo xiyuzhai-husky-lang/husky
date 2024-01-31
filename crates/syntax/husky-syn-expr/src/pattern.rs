@@ -20,7 +20,7 @@ pub enum SynPatternExprData {
     /// example: `1`
     Literal {
         regional_token_idx: RegionalTokenIdx,
-        literal: LiteralData,
+        literal: LiteralTokenData,
     },
     /// example: `a`
     Ident {

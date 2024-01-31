@@ -49,6 +49,7 @@ fn list_like_index_signature(
             Right(_) => todo!(),
         },
         FluffyTermData::Curry {
+            toolchain,
             curry_kind,
             variance,
             parameter_rune,

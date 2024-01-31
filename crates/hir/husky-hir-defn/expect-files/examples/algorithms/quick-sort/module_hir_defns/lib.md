@@ -2923,7 +2923,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 TermLiteral::String(
-                                                    StringLiteralData {
+                                                    StringLiteralTokenData {
                                                         data: "beach",
                                                     },
                                                 ),
@@ -2934,7 +2934,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 TermLiteral::String(
-                                                    StringLiteralData {
+                                                    StringLiteralTokenData {
                                                         data: "hotel",
                                                     },
                                                 ),
@@ -2945,7 +2945,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 TermLiteral::String(
-                                                    StringLiteralData {
+                                                    StringLiteralTokenData {
                                                         data: "airplane",
                                                     },
                                                 ),
@@ -2956,7 +2956,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 TermLiteral::String(
-                                                    StringLiteralData {
+                                                    StringLiteralTokenData {
                                                         data: "car",
                                                     },
                                                 ),
@@ -2967,7 +2967,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 TermLiteral::String(
-                                                    StringLiteralData {
+                                                    StringLiteralTokenData {
                                                         data: "house",
                                                     },
                                                 ),
@@ -2978,7 +2978,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 TermLiteral::String(
-                                                    StringLiteralData {
+                                                    StringLiteralTokenData {
                                                         data: "art",
                                                     },
                                                 ),

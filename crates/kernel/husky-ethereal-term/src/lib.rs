@@ -21,7 +21,7 @@ mod ty;
 pub use self::db::*;
 pub use self::error::*;
 pub use self::menu::*;
-pub use self::rewrite::*;
+pub use self::rewrite::substitute::*;
 pub use self::template_parameter::*;
 pub use self::term::*;
 pub use self::ty::*;
@@ -73,11 +73,11 @@ pub struct EtherealTermJar(
     // ty as trait associated item
     TypeAsTraitItemEtherealTerm,
     // trait constraint
-    EtherealTermTraitConstraint,
+    TraitConstraintEtherealTerm,
     term_menu,
     // other
-    ethereal_term_from_declarative_term_explicit_application_or_ritchie_call,
-    ethereal_term_from_declarative_term_list,
+    ethereal_term_from_application_or_ritchie_call_declarative_term,
+    ethereal_term_from_list_declarative_term,
     ethereal_term_from_declarative_term_wrapper,
     // // trai
     // trai_side_trai_for_ty_impl_blocks_aux,

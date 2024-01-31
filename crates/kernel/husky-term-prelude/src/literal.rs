@@ -11,6 +11,8 @@ use ordered_float::OrderedFloat;
 pub enum TermLiteral {
     /// unit literal
     Unit(()),
+    // todo: /// char literal
+    // Char(char),
     /// boolean literal
     Bool(bool),
     /// 8-bit integer literal
@@ -56,13 +58,13 @@ pub enum TermLiteral {
     /// 64-bit float literal
     F64(TermF64Literal),
     /// string literal
-    String(StringLiteralData),
+    String(StringLiteralTokenData),
     /// static lifetime
     StaticLifetime,
 }
 
 #[salsa::tracked(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct StringLiteralData {
+pub struct StringLiteralTokenData {
     #[return_ref]
     pub data: String,
 }

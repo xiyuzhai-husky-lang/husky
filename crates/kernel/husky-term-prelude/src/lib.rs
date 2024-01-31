@@ -20,7 +20,6 @@ pub use self::item_path::*;
 pub use self::modifier::*;
 pub use self::universe::*;
 
-
 use husky_entity_path::*;
 
 #[salsa::jar]
@@ -40,7 +39,7 @@ pub struct TermPreludeJar(
     crate::literal::float::TermF32Literal,
     crate::literal::float::TermF64Literal,
     crate::literal::TermNatLiteral,
-    crate::literal::StringLiteralData,
+    crate::literal::StringLiteralTokenData,
 );
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

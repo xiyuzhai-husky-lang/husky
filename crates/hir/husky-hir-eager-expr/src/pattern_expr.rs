@@ -2,7 +2,7 @@ use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
 use husky_term_prelude::literal::TermLiteral;
-use husky_token_data::{IntegerLikeLiteralData, LiteralData};
+use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData};
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -69,11 +69,11 @@ impl<'a> HirEagerExprBuilder<'a> {
         match self.syn_expr_region_data()[syn_pattern_expr_idx] {
             SynPatternExprData::Literal { literal, .. } => {
                 HirEagerPatternExpr::Literal(match literal {
-                    LiteralData::Unit => TermLiteral::Unit(()),
-                    LiteralData::Char(_) => todo!(),
-                    LiteralData::String(_) => todo!(),
-                    LiteralData::Integer(literal) => match literal {
-                        IntegerLikeLiteralData::UnspecifiedRegular(value) => {
+                    LiteralTokenData::Unit => TermLiteral::Unit(()),
+                    LiteralTokenData::Char(_) => todo!(),
+                    LiteralTokenData::String(_) => todo!(),
+                    LiteralTokenData::Integer(literal) => match literal {
+                        IntegerLikeLiteralTokenData::UnspecifiedRegular(value) => {
                             let EtherealTerm::EntityPath(ItemPathTerm::TypeOntology(path)) =
                                 self.syn_pattern_expr_ty(syn_pattern_expr_idx)
                             else {
@@ -86,29 +86,29 @@ impl<'a> HirEagerExprBuilder<'a> {
                             };
                             TermLiteral::from_unspecified_int(path, value, db)
                         }
-                        IntegerLikeLiteralData::UnspecifiedLarge() => todo!(),
-                        IntegerLikeLiteralData::I8(_) => todo!(),
-                        IntegerLikeLiteralData::I16(_) => todo!(),
-                        IntegerLikeLiteralData::I32(_) => todo!(),
-                        IntegerLikeLiteralData::I64(_) => todo!(),
-                        IntegerLikeLiteralData::I128(_) => todo!(),
-                        IntegerLikeLiteralData::ISize(_) => todo!(),
-                        IntegerLikeLiteralData::R8(_) => todo!(),
-                        IntegerLikeLiteralData::R16(_) => todo!(),
-                        IntegerLikeLiteralData::R32(_) => todo!(),
-                        IntegerLikeLiteralData::R64(_) => todo!(),
-                        IntegerLikeLiteralData::R128(_) => todo!(),
-                        IntegerLikeLiteralData::RSize(_) => todo!(),
-                        IntegerLikeLiteralData::U8(_) => todo!(),
-                        IntegerLikeLiteralData::U16(_) => todo!(),
-                        IntegerLikeLiteralData::U32(_) => todo!(),
-                        IntegerLikeLiteralData::U64(_) => todo!(),
-                        IntegerLikeLiteralData::U128(_) => todo!(),
-                        IntegerLikeLiteralData::USize(_) => todo!(),
+                        IntegerLikeLiteralTokenData::UnspecifiedLarge() => todo!(),
+                        IntegerLikeLiteralTokenData::I8(_) => todo!(),
+                        IntegerLikeLiteralTokenData::I16(_) => todo!(),
+                        IntegerLikeLiteralTokenData::I32(_) => todo!(),
+                        IntegerLikeLiteralTokenData::I64(_) => todo!(),
+                        IntegerLikeLiteralTokenData::I128(_) => todo!(),
+                        IntegerLikeLiteralTokenData::ISize(_) => todo!(),
+                        IntegerLikeLiteralTokenData::R8(_) => todo!(),
+                        IntegerLikeLiteralTokenData::R16(_) => todo!(),
+                        IntegerLikeLiteralTokenData::R32(_) => todo!(),
+                        IntegerLikeLiteralTokenData::R64(_) => todo!(),
+                        IntegerLikeLiteralTokenData::R128(_) => todo!(),
+                        IntegerLikeLiteralTokenData::RSize(_) => todo!(),
+                        IntegerLikeLiteralTokenData::U8(_) => todo!(),
+                        IntegerLikeLiteralTokenData::U16(_) => todo!(),
+                        IntegerLikeLiteralTokenData::U32(_) => todo!(),
+                        IntegerLikeLiteralTokenData::U64(_) => todo!(),
+                        IntegerLikeLiteralTokenData::U128(_) => todo!(),
+                        IntegerLikeLiteralTokenData::USize(_) => todo!(),
                     },
-                    LiteralData::Float(_) => todo!(),
-                    LiteralData::TupleIndex(_) => todo!(),
-                    LiteralData::Bool(_) => todo!(),
+                    LiteralTokenData::Float(_) => todo!(),
+                    LiteralTokenData::TupleIndex(_) => todo!(),
+                    LiteralTokenData::Bool(_) => todo!(),
                 })
             }
             SynPatternExprData::Ident {

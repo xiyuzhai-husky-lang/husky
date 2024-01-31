@@ -99,8 +99,8 @@
                                 },
                                 ty: Ok(
                                     Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
+                                        CategoryTerm {
+                                            universe: UniverseTerm(
                                                 1,
                                             ),
                                         },

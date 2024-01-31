@@ -57,6 +57,7 @@ impl ExpectFluffyTerm for ExpectConditionType {
                 _ => todo!(),
             },
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

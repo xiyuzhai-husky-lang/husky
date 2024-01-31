@@ -40,8 +40,15 @@ impl AbstractionEtherealTerm {
 }
 
 impl AbstractionEtherealTerm {
-    fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm {
-        todo!()
+    pub fn substitute(self, substitution: EtherealTermSubstitution, db: &::salsa::Db) -> Self {
+        let old_x = self.x(db);
+        let new_x = old_x.substitute_intact(substitution, db);
+        let old_m = self.m(db);
+        let new_m = old_m.substitute(substitution, db);
+        if old_x == new_x && old_m == new_m {
+            return self;
+        }
+        Self::new(db, new_x, new_m)
     }
 }
 

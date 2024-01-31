@@ -1,4 +1,4 @@
-use husky_term_prelude::literal::StringLiteralData;
+use husky_term_prelude::literal::StringLiteralTokenData;
 use ordered_float::NotNan;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -27,5 +27,5 @@ pub enum HirLiteral {
     RSize(usize),
     F32(NotNan<f32>),
     F64(NotNan<f64>),
-    StringLiteral(StringLiteralData),
+    StringLiteral(StringLiteralTokenData),
 }

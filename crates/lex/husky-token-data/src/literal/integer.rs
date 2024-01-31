@@ -1,8 +1,6 @@
-
-
 /// integer-like means it looks like an integer
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum IntegerLikeLiteralData {
+pub enum IntegerLikeLiteralTokenData {
     /// unspecified but within i128
     UnspecifiedRegular(i128),
     UnspecifiedLarge(),
@@ -26,33 +24,33 @@ pub enum IntegerLikeLiteralData {
     USize(usize),
 }
 
-impl IntegerLikeLiteralData {
+impl IntegerLikeLiteralTokenData {
     pub fn negative(self) -> Option<Self> {
         Some(match self {
-            IntegerLikeLiteralData::UnspecifiedRegular(i) => {
-                IntegerLikeLiteralData::UnspecifiedRegular(i)
+            IntegerLikeLiteralTokenData::UnspecifiedRegular(i) => {
+                IntegerLikeLiteralTokenData::UnspecifiedRegular(i)
             }
-            IntegerLikeLiteralData::UnspecifiedLarge() => {
-                IntegerLikeLiteralData::UnspecifiedLarge()
+            IntegerLikeLiteralTokenData::UnspecifiedLarge() => {
+                IntegerLikeLiteralTokenData::UnspecifiedLarge()
             }
-            IntegerLikeLiteralData::I8(i) => IntegerLikeLiteralData::I8(-i),
-            IntegerLikeLiteralData::I16(i) => IntegerLikeLiteralData::I16(-i),
-            IntegerLikeLiteralData::I32(i) => IntegerLikeLiteralData::I32(-i),
-            IntegerLikeLiteralData::I64(i) => IntegerLikeLiteralData::I64(-i),
-            IntegerLikeLiteralData::I128(i) => IntegerLikeLiteralData::I128(-i),
-            IntegerLikeLiteralData::ISize(i) => IntegerLikeLiteralData::ISize(-i),
-            IntegerLikeLiteralData::R8(_)
-            | IntegerLikeLiteralData::R16(_)
-            | IntegerLikeLiteralData::R32(_)
-            | IntegerLikeLiteralData::R64(_)
-            | IntegerLikeLiteralData::R128(_)
-            | IntegerLikeLiteralData::RSize(_)
-            | IntegerLikeLiteralData::U8(_)
-            | IntegerLikeLiteralData::U16(_)
-            | IntegerLikeLiteralData::U32(_)
-            | IntegerLikeLiteralData::U64(_)
-            | IntegerLikeLiteralData::U128(_)
-            | IntegerLikeLiteralData::USize(_) => return None,
+            IntegerLikeLiteralTokenData::I8(i) => IntegerLikeLiteralTokenData::I8(-i),
+            IntegerLikeLiteralTokenData::I16(i) => IntegerLikeLiteralTokenData::I16(-i),
+            IntegerLikeLiteralTokenData::I32(i) => IntegerLikeLiteralTokenData::I32(-i),
+            IntegerLikeLiteralTokenData::I64(i) => IntegerLikeLiteralTokenData::I64(-i),
+            IntegerLikeLiteralTokenData::I128(i) => IntegerLikeLiteralTokenData::I128(-i),
+            IntegerLikeLiteralTokenData::ISize(i) => IntegerLikeLiteralTokenData::ISize(-i),
+            IntegerLikeLiteralTokenData::R8(_)
+            | IntegerLikeLiteralTokenData::R16(_)
+            | IntegerLikeLiteralTokenData::R32(_)
+            | IntegerLikeLiteralTokenData::R64(_)
+            | IntegerLikeLiteralTokenData::R128(_)
+            | IntegerLikeLiteralTokenData::RSize(_)
+            | IntegerLikeLiteralTokenData::U8(_)
+            | IntegerLikeLiteralTokenData::U16(_)
+            | IntegerLikeLiteralTokenData::U32(_)
+            | IntegerLikeLiteralTokenData::U64(_)
+            | IntegerLikeLiteralTokenData::U128(_)
+            | IntegerLikeLiteralTokenData::USize(_) => return None,
         })
     }
 }

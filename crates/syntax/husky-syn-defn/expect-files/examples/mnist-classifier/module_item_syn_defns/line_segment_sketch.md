@@ -3104,7 +3104,7 @@
                                     RegionalTokenIdx(
                                         18,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -3366,7 +3366,7 @@
                                     RegionalTokenIdx(
                                         61,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -3605,7 +3605,7 @@
                                     RegionalTokenIdx(
                                         98,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -3684,7 +3684,7 @@
                                     RegionalTokenIdx(
                                         111,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -3759,7 +3759,7 @@
                                     RegionalTokenIdx(
                                         120,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -4120,7 +4120,7 @@
                                     RegionalTokenIdx(
                                         177,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -4213,7 +4213,7 @@
                                     RegionalTokenIdx(
                                         190,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -4308,7 +4308,7 @@
                                     RegionalTokenIdx(
                                         207,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -6193,7 +6193,7 @@
                                     RegionalTokenIdx(
                                         18,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -6445,7 +6445,7 @@
                                     RegionalTokenIdx(
                                         57,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -6719,7 +6719,7 @@
                                     RegionalTokenIdx(
                                         99,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -6793,7 +6793,7 @@
                                     RegionalTokenIdx(
                                         116,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -7167,7 +7167,7 @@
                                     RegionalTokenIdx(
                                         173,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -7260,7 +7260,7 @@
                                     RegionalTokenIdx(
                                         186,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -7353,7 +7353,7 @@
                                     RegionalTokenIdx(
                                         199,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -7438,7 +7438,7 @@
                                     RegionalTokenIdx(
                                         215,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -7493,7 +7493,7 @@
                                     RegionalTokenIdx(
                                         224,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -9378,7 +9378,7 @@
                                     RegionalTokenIdx(
                                         15,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -9388,7 +9388,7 @@
                                     RegionalTokenIdx(
                                         20,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -9639,7 +9639,7 @@
                                     RegionalTokenIdx(
                                         64,
                                     ),
-                                    LiteralData::Bool(
+                                    LiteralTokenData::Bool(
                                         True,
                                     ),
                                 ),
@@ -9677,7 +9677,7 @@
                                     RegionalTokenIdx(
                                         72,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -9849,7 +9849,7 @@
                                     RegionalTokenIdx(
                                         107,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -9908,7 +9908,7 @@
                                     RegionalTokenIdx(
                                         116,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -10187,7 +10187,7 @@
                                     RegionalTokenIdx(
                                         158,
                                     ),
-                                    LiteralData::Bool(
+                                    LiteralTokenData::Bool(
                                         False,
                                     ),
                                 ),
@@ -10430,7 +10430,7 @@
                                     RegionalTokenIdx(
                                         195,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -10681,7 +10681,7 @@
                                     RegionalTokenIdx(
                                         247,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -10740,7 +10740,7 @@
                                     RegionalTokenIdx(
                                         256,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -10839,7 +10839,7 @@
                                     RegionalTokenIdx(
                                         269,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -10918,7 +10918,7 @@
                                     RegionalTokenIdx(
                                         278,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -11323,7 +11323,7 @@
                                     RegionalTokenIdx(
                                         339,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -11816,7 +11816,7 @@
                                     RegionalTokenIdx(
                                         432,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -15056,7 +15056,7 @@
                                     RegionalTokenIdx(
                                         17,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -16696,7 +16696,7 @@
                                     RegionalTokenIdx(
                                         8,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),

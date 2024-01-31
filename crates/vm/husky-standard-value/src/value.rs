@@ -9,7 +9,7 @@ use crate::{
 use husky_decl_macro_utils::*;
 use husky_task_interface::{val_control_flow::ValControlFlow, value::IsValue};
 #[cfg(feature = "constant")]
-use husky_term_prelude::literal::StringLiteralData;
+use husky_term_prelude::literal::StringLiteralTokenData;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, EnumU8ValuePresenter, ValuePresentation,
     ValuePresenterCache,
@@ -79,8 +79,8 @@ unsafe impl Send for Value {}
 pub struct StringLiteralId(NonZeroU32);
 
 #[cfg(feature = "constant")]
-impl From<StringLiteralData> for StringLiteralId {
-    fn from(lit: StringLiteralData) -> Self {
+impl From<StringLiteralTokenData> for StringLiteralId {
+    fn from(lit: StringLiteralTokenData) -> Self {
         unsafe { std::mem::transmute(lit) }
     }
 }

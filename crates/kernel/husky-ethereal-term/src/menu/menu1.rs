@@ -19,7 +19,7 @@ impl std::ops::Deref for TermMenu1 {
 }
 
 impl TermMenu1 {
-    pub fn new(db: &::salsa::Db, _toolchain: Toolchain, menu0: TermMenu0) -> Self {
+    pub fn new(db: &::salsa::Db, toolchain: Toolchain, menu0: TermMenu0) -> Self {
         // todo!()
         Self {
             static_ref_ty: ApplicationEtherealTerm::new(
@@ -31,6 +31,7 @@ impl TermMenu1 {
             .into(),
             explicit_invariant_ty0_to_trai_ty: CurryEtherealTerm::new(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Invariant,
                 None,
@@ -39,6 +40,7 @@ impl TermMenu1 {
             ),
             explicit_covariant_ty0_to_ty0: CurryEtherealTerm::new(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Covariant,
                 None,
@@ -47,6 +49,7 @@ impl TermMenu1 {
             ),
             explicit_contravariant_ty0_to_ty0: CurryEtherealTerm::new(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Contravariant,
                 None,
@@ -55,6 +58,7 @@ impl TermMenu1 {
             ),
             explicit_invariant_ty0_to_ty0: CurryEtherealTerm::new(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Invariant,
                 None,

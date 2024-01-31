@@ -1208,7 +1208,7 @@
                                     RegionalTokenIdx(
                                         18,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -1534,7 +1534,7 @@
                                     RegionalTokenIdx(
                                         30,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -1675,7 +1675,7 @@
                                     RegionalTokenIdx(
                                         36,
                                     ),
-                                    LiteralData::Bool(
+                                    LiteralTokenData::Bool(
                                         False,
                                     ),
                                 ),
@@ -1710,7 +1710,7 @@
                                     RegionalTokenIdx(
                                         38,
                                     ),
-                                    LiteralData::Bool(
+                                    LiteralTokenData::Bool(
                                         False,
                                     ),
                                 ),
@@ -1764,7 +1764,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 7,
                                                         },
@@ -1781,7 +1781,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 8,
                                                         },
@@ -2130,7 +2130,7 @@
                             ),
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 41,
                                         },
@@ -2148,7 +2148,7 @@
                             ),
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 41,
                                         },
@@ -3441,7 +3441,7 @@
                                     RegionalTokenIdx(
                                         10,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -3700,7 +3700,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -4102,7 +4102,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },

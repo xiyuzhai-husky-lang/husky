@@ -179,7 +179,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Float(
+            LiteralTokenData::Float(
                 Unspecified(
                     UnspecifiedFloatLiteral(
                         Id {
@@ -369,7 +369,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Float(
+            LiteralTokenData::Float(
                 Unspecified(
                     UnspecifiedFloatLiteral(
                         Id {
@@ -559,7 +559,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Float(
+            LiteralTokenData::Float(
                 Unspecified(
                     UnspecifiedFloatLiteral(
                         Id {

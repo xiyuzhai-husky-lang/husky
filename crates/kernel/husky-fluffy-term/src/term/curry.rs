@@ -1,9 +1,12 @@
+use husky_vfs::Toolchain;
+
 use super::*;
 
 impl FluffyTerm {
     pub(crate) fn new_curry(
         db: &::salsa::Db,
         terms: &mut FluffyTerms,
+        toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
         parameter_rune: Option<FluffyTermRune>,
@@ -16,6 +19,7 @@ impl FluffyTerm {
         match merger.data_kind() {
             FluffyTermDataKind::Ethereal => CurryEtherealTerm::new(
                 db,
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune.map(|v| v.resolve_as_ethereal(terms).unwrap().rune()),
@@ -31,6 +35,7 @@ impl FluffyTerm {
             FluffyTermDataKind::Hollow => terms
                 .hollow_terms_mut()
                 .alloc_new(HollowTermData::Curry {
+                    toolchain,
                     curry_kind,
                     variance,
                     parameter_rune,

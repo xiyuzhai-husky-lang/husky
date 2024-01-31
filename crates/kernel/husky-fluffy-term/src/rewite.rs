@@ -37,6 +37,7 @@ impl ImplicitParameterSubstitution {
     ) -> (FluffyTerm, ImplicitParameterSubstitutions) {
         match expectee.data_inner(db, terms) {
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind: CurryKind::Implicit,
                 variance,
                 parameter_rune,
@@ -121,6 +122,7 @@ impl FluffyTerm {
                 FluffyTerm::new_ty_ontology(db, terms, path, refined_ty_path, arguments)
             }
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,
@@ -135,6 +137,7 @@ impl FluffyTerm {
                 FluffyTerm::new_curry(
                     db,
                     terms,
+                    toolchain,
                     curry_kind,
                     variance,
                     parameter_rune,

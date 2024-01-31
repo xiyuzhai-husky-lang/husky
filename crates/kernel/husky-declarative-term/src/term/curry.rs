@@ -1,7 +1,9 @@
 use crate::*;
 
 /// representing declarative_term `X -> Y` or dependent form `(a: X) -> Y(a)`
-#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar, constructor = new_inner)]
+///
+/// refraining from using `new_inner` except in conversion from ethereal term back to declarative term
+#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar, constructor = pub new_inner)]
 pub struct CurryDeclarativeTerm {
     pub toolchain: Toolchain,
     pub curry_kind: CurryKind,
@@ -136,17 +138,13 @@ impl salsa::DisplayWithDb for CurryDeclarativeTerm {
 }
 
 impl DeclarativeTermRewriteCopy for CurryDeclarativeTerm {
-    fn substitute_copy(
-        self,
-        db: &::salsa::Db,
-        substituation: &DeclarativeTermSubstitution,
-    ) -> Self {
+    fn substitute_copy(self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self {
         let old_parameter_variable = self.parameter_rune(db);
-        let parameter_rune = old_parameter_variable.map(|v| v.substitute_copy(db, substituation));
+        let parameter_rune = old_parameter_variable.map(|v| v.substitute_copy(db, substitution));
         let old_parameter_ty = self.parameter_ty(db);
-        let parameter_ty = old_parameter_ty.substitute_copy(db, substituation);
+        let parameter_ty = old_parameter_ty.substitute_copy(db, substitution);
         let old_return_ty = self.return_ty(db);
-        let return_ty = old_return_ty.substitute_copy(db, substituation);
+        let return_ty = old_return_ty.substitute_copy(db, substitution);
         if old_parameter_variable == parameter_rune
             && old_parameter_ty == parameter_ty
             && old_return_ty == return_ty

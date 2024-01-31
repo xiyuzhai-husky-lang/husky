@@ -12,31 +12,31 @@ pub use self::integer::*;
 pub use self::tuple_index::*;
 
 use crate::*;
-use husky_term_prelude::literal::StringLiteralData;
+use husky_term_prelude::literal::StringLiteralTokenData;
 
 /// follows mainly from <https://doc.rust-lang.org/reference/tokens.html#literals/>
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub enum LiteralData {
+pub enum LiteralTokenData {
     Unit,
-    Char(CharLiteralData),
-    String(StringLiteralData),
-    Integer(IntegerLikeLiteralData),
-    Float(FloatLiteralData),
-    TupleIndex(TupleIndexLiteralData),
-    Bool(BoolLiteralData),
+    Char(CharLiteralTokenData),
+    String(StringLiteralTokenData),
+    Integer(IntegerLikeLiteralTokenData),
+    Float(FloatLiteralTokenData),
+    TupleIndex(TupleIndexLiteralTokenData),
+    Bool(BoolLiteralTokenData),
 }
 
-impl LiteralData {
-    pub fn negative(self, db: &::salsa::Db) -> Option<LiteralData> {
+impl LiteralTokenData {
+    pub fn negative(self, db: &::salsa::Db) -> Option<LiteralTokenData> {
         match self {
-            LiteralData::Unit => None,
-            LiteralData::Integer(i) => Some(LiteralData::Integer(i.negative()?)),
-            LiteralData::Float(f) => Some(LiteralData::Float(f.negative(db))),
-            LiteralData::Bool(_) => None,
-            LiteralData::String(_) => None,
-            LiteralData::Char(_) => None,
-            LiteralData::TupleIndex(_) => None,
+            LiteralTokenData::Unit => None,
+            LiteralTokenData::Integer(i) => Some(LiteralTokenData::Integer(i.negative()?)),
+            LiteralTokenData::Float(f) => Some(LiteralTokenData::Float(f.negative(db))),
+            LiteralTokenData::Bool(_) => None,
+            LiteralTokenData::String(_) => None,
+            LiteralTokenData::Char(_) => None,
+            LiteralTokenData::TupleIndex(_) => None,
         }
     }
 }

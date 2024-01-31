@@ -519,7 +519,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 391;\n\ntoken_line_group_idx = 54\n\ntoken = TokenData::Literal(\n    LiteralData::String(\n        StringLiteralData {\n            data: \"std::ops::Sub\",\n        },\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 391;\n\ntoken_line_group_idx = 54\n\ntoken = TokenData::Literal(\n    LiteralTokenData::String(\n        StringLiteralTokenData {\n            data: \"std::ops::Sub\",\n        },\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(

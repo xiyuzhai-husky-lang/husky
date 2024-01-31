@@ -117,7 +117,7 @@ impl DeclarativeTermRewriteCopy for RitchieDeclarativeTerm {
     fn substitute_copy(
         self,
         _db: &::salsa::Db,
-        _substituation: &DeclarativeTermSubstitution,
+        substitution: &DeclarativeTermSubstitution,
     ) -> Self {
         todo!()
     }

@@ -1,3 +1,5 @@
+use husky_vfs::Toolchain;
+
 use super::*;
 
 #[salsa::debug_with_db]
@@ -9,6 +11,7 @@ pub enum HollowTermData {
         arguments: SmallVec<[FluffyTerm; 2]>,
     },
     Curry {
+        toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
         parameter_rune: Option<FluffyTermRune>,
@@ -89,12 +92,14 @@ impl HollowTerm {
                 ty_ethereal_term: None,
             },
             HollowTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,
                 parameter_ty,
                 return_ty,
             } => FluffyTermData::Curry {
+                toolchain: *toolchain,
                 curry_kind: *curry_kind,
                 variance: *variance,
                 parameter_rune: *parameter_rune,
@@ -156,6 +161,7 @@ impl HollowTerm {
                 ty_ethereal_term: None,
             },
             HollowTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

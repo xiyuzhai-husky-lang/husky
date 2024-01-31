@@ -290,6 +290,7 @@ impl FluffyLifetime {
                 ty_ethereal_term,
             } => todo!(),
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

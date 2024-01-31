@@ -18,7 +18,7 @@ impl std::ops::Deref for TermMenu2 {
 }
 
 impl TermMenu2 {
-    pub(crate) fn new(db: &::salsa::Db, _toolchain: Toolchain, menu1: TermMenu1) -> Self {
+    pub(crate) fn new(db: &::salsa::Db, toolchain: Toolchain, menu1: TermMenu1) -> Self {
         TermMenu2 {
             static_str_ref: ApplicationEtherealTerm::new(
                 db,
@@ -29,6 +29,7 @@ impl TermMenu2 {
             .into(),
             ex_co_lifetime_to_ex_co_ty0_to_ty0: CurryEtherealTerm::new(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Covariant,
                 None,
@@ -37,6 +38,7 @@ impl TermMenu2 {
             ),
             ex_co_lifetime_to_ex_ct_ty0_to_ty0: CurryEtherealTerm::new(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Covariant,
                 None,
@@ -45,6 +47,7 @@ impl TermMenu2 {
             ),
             ex_co_lifetime_to_ex_inv_ty0_to_ty0: CurryEtherealTerm::new(
                 db,
+                toolchain,
                 CurryKind::Explicit,
                 Variance::Covariant,
                 None,

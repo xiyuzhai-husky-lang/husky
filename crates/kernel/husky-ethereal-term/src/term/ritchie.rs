@@ -251,7 +251,7 @@ impl EtherealRitchieParameter {
 }
 
 impl RitchieEtherealTerm {
-    fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm {
+    fn substitute(self, _db: &::salsa::Db, substitution: EtherealTermSubstitution) -> EtherealTerm {
         todo!()
     }
 }

@@ -48,6 +48,7 @@ impl ExpectFluffyTerm for ExpectIntType {
                 _ => todo!(),
             },
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

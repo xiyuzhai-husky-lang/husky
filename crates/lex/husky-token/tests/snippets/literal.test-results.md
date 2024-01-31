@@ -14,8 +14,8 @@ output
 TokenSheetData {
     tokens: [
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "haha",
                 },
             ),
@@ -48,8 +48,8 @@ output
 TokenSheetData {
     tokens: [
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "\n",
                 },
             ),
@@ -82,8 +82,8 @@ output
 TokenSheetData {
     tokens: [
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "\t",
                 },
             ),
@@ -116,8 +116,8 @@ output
 TokenSheetData {
     tokens: [
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "\\",
                 },
             ),
@@ -150,8 +150,8 @@ output
 TokenSheetData {
     tokens: [
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "\"",
                 },
             ),
@@ -184,8 +184,8 @@ output
 TokenSheetData {
     tokens: [
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "\r",
                 },
             ),

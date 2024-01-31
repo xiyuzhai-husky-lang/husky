@@ -318,19 +318,22 @@ impl salsa::DisplayWithDb for ApplicationEtherealTerm {
 }
 
 impl ApplicationEtherealTerm {
-    fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm
+    pub(super) fn substitute(
+        self,
+        substitution: EtherealTermSubstitution,
+        db: &::salsa::Db,
+    ) -> EtherealTerm
     where
         Self: Copy,
     {
-        todo!()
-        // let old_m = self.function(db);
-        // let m = old_m.substitute(db, substituation);
-        // let old_n = self.argument(db);
-        // let n = old_n.substitute(db, substituation);
-        // if old_m == m && old_n == n {
-        //     return self;
-        // }
-        // EtherealTermApplication::new(db, m, n, self.shift(db))
+        let old_m = self.function(db);
+        let m = old_m.substitute(substitution, db);
+        let old_n = self.argument(db);
+        let n = old_n.substitute(substitution, db);
+        if old_m == m && old_n == n {
+            return self.into();
+        }
+        ApplicationEtherealTerm::new_inner(db, m, n, self.shift(db)).reduce(db)
     }
 }
 

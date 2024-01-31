@@ -68,8 +68,8 @@ pub(crate) fn reserved_cowords(_db: &::salsa::Db) -> VecPairMap<&'static str, Pr
             PronounKeyword::SelfValue,
             PronounKeyword::Super,
             EndKeyword::With,
-            BoolLiteralData::True,
-            BoolLiteralData::False,
+            BoolLiteralTokenData::True,
+            BoolLiteralTokenData::False,
         ]
         .into_iter(),
     )

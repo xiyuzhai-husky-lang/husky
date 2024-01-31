@@ -757,7 +757,7 @@ SynDeclSheet {
                                                 RegionalTokenIdx(
                                                     26,
                                                 ),
-                                                LiteralData::Integer(
+                                                LiteralTokenData::Integer(
                                                     UnspecifiedRegular(
                                                         5,
                                                     ),

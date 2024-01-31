@@ -16,6 +16,7 @@ impl HasFluffyTraitMethodDispatch for SolidTerm {
                 arguments,
             } => todo!(),
             SolidTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,
