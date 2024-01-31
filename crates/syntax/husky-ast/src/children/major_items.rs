@@ -22,7 +22,7 @@ impl IsAstChildren for MajorItems {
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
             EntityKindKeywordGroup::AliasOrAssociateType(_) => FugitiveKind::AliasType.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
-            EntityKindKeywordGroup::ConstExpr(_) => todo!(),
+            EntityKindKeywordGroup::ConstExpr(_) => MajorItemKind::ConstExpr,
         };
         Ok(EntityKind::MajorItem {
             module_item_kind,

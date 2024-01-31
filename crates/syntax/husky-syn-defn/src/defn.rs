@@ -33,6 +33,7 @@ pub fn item_syn_node_defn(
                         TypeItemKind::AssociatedType => AllowSelfValue::False,
                         TypeItemKind::MemoizedField => AllowSelfValue::True,
                         TypeItemKind::AssociatedFormal => todo!(),
+                        TypeItemKind::AssociatedConstExpr => AllowSelfValue::False,
                     }
                 }
                 AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
@@ -44,6 +45,7 @@ pub fn item_syn_node_defn(
                         TraitItemKind::AssociatedFunctionFn => AllowSelfValue::False,
                         TraitItemKind::AssociatedFunctionGn => AllowSelfValue::False,
                         TraitItemKind::AssociatedFormal => todo!(),
+                        TraitItemKind::AssociatedConstExpr => AllowSelfValue::False,
                     }
                 }
                 AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
@@ -55,6 +57,7 @@ pub fn item_syn_node_defn(
                         TraitItemKind::AssociatedFunctionFn => AllowSelfValue::False,
                         TraitItemKind::AssociatedFunctionGn => AllowSelfValue::False,
                         TraitItemKind::AssociatedFormal => todo!(),
+                        TraitItemKind::AssociatedConstExpr => AllowSelfValue::False,
                     }
                 }
                 AssociatedItemSynNodePath::IllFormedItem(_) => todo!(),
