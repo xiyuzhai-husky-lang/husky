@@ -1,25 +1,25 @@
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-pub struct TermUniverse(u8);
+pub struct UniverseTerm(u8);
 
-impl From<u8> for TermUniverse {
+impl From<u8> for UniverseTerm {
     fn from(value: u8) -> Self {
-        TermUniverse::new(value)
+        UniverseTerm::new(value)
     }
 }
 
 const UNIVERSE_MAX: u8 = 100;
 
-impl TermUniverse {
+impl UniverseTerm {
     pub const fn new(i: u8) -> Self {
         assert!(i < UNIVERSE_MAX);
-        TermUniverse(i)
+        UniverseTerm(i)
     }
 
     #[inline(always)]
-    pub fn from_(_db: &::salsa::Db, _term: TermUniverse) -> Self {
-        TermUniverse::new(_term.raw())
+    pub fn from_(_db: &::salsa::Db, _term: UniverseTerm) -> Self {
+        UniverseTerm::new(_term.raw())
     }
 
     pub fn raw(self) -> u8 {
@@ -30,11 +30,11 @@ impl TermUniverse {
         if !(self.0 < UNIVERSE_MAX) {
             return Err(TermPreludeError::UniverseOverflow);
         }
-        Ok(TermUniverse(self.0 + 1))
+        Ok(UniverseTerm(self.0 + 1))
     }
 }
 
-impl std::fmt::Display for TermUniverse {
+impl std::fmt::Display for UniverseTerm {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         std::fmt::Display::fmt(&self.0, f)
     }

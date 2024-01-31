@@ -152,7 +152,7 @@ pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationEntry>;
 pub enum ExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
     Coersion(ExpectCoersionOutcome),
-    EqsSort(TermUniverse),
+    EqsSort(UniverseTerm),
     Subtype(ExpectSubtypeOutcome),
     EqsFunctionCallType(ExpectEqsFunctionTypeOutcome),
     EqsRitchieCallType(ExpectEqsRitchieTypeOutcome),

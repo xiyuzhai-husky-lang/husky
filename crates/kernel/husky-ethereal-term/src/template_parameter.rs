@@ -55,7 +55,7 @@ impl std::ops::Deref for EtherealTemplateParameters {
 #[salsa::debug_with_db]
 pub struct EtherealTemplateParameter {
     annotated_variance: Option<Variance>,
-    symbol: EtherealTermSymbol,
+    symbol: SymbolEtherealTerm,
     traits: Vec<EtherealTerm>,
 }
 
@@ -66,7 +66,7 @@ impl EtherealTemplateParameter {
     ) -> EtherealTermResult<Self> {
         Ok(Self {
             annotated_variance: declarative_generic_paramter.annotated_variance(),
-            symbol: EtherealTermSymbol::from_declarative(
+            symbol: SymbolEtherealTerm::from_declarative(
                 db,
                 declarative_generic_paramter.symbol(),
             )?,
@@ -78,7 +78,7 @@ impl EtherealTemplateParameter {
         })
     }
 
-    pub fn symbol(&self) -> EtherealTermSymbol {
+    pub fn symbol(&self) -> SymbolEtherealTerm {
         self.symbol
     }
 

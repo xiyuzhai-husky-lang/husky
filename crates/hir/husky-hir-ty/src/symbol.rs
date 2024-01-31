@@ -10,7 +10,7 @@ pub use self::ty::*;
 
 use crate::*;
 use husky_ethereal_term::{
-    EtherealTemplateSymbolAttrs, EtherealTermSymbol, EtherealTermSymbolIndexImpl,
+    EtherealTemplateSymbolAttrs, EtherealTermSymbolIndexImpl, SymbolEtherealTerm,
 };
 use husky_term_prelude::template_symbol_class::TermTemplateSymbolClass;
 
@@ -54,7 +54,7 @@ impl HirTemplateSymbolAttrs {
 }
 
 impl HirTemplateSymbol {
-    pub fn from_ethereal(symbol: EtherealTermSymbol, db: &::salsa::Db) -> Option<Self> {
+    pub fn from_ethereal(symbol: SymbolEtherealTerm, db: &::salsa::Db) -> Option<Self> {
         hir_template_symbol_from_ethereal(db, symbol)
     }
 }
@@ -62,7 +62,7 @@ impl HirTemplateSymbol {
 #[salsa::tracked(jar = HirTypeJar)]
 fn hir_template_symbol_from_ethereal(
     db: &::salsa::Db,
-    symbol: EtherealTermSymbol,
+    symbol: SymbolEtherealTerm,
 ) -> Option<HirTemplateSymbol> {
     match symbol.index(db).inner() {
         EtherealTermSymbolIndexImpl::ExplicitLifetime {

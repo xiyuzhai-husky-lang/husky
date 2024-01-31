@@ -2,31 +2,31 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ExpectEqsCategory {
-    pub(crate) smallest_universe: TermUniverse,
+    pub(crate) smallest_universe: UniverseTerm,
 }
 
 impl ExpectEqsCategory {
     pub const ANY_SORT: Self = Self {
-        smallest_universe: TermUniverse::new(0),
+        smallest_universe: UniverseTerm::new(0),
     };
 
     #[inline(always)]
     pub fn new_any_sort() -> Self {
         Self {
-            smallest_universe: TermUniverse::new(0),
+            smallest_universe: UniverseTerm::new(0),
         }
     }
 
     #[inline(always)]
     pub fn new_expect_eqs_ty_kind() -> Self {
         Self {
-            smallest_universe: TermUniverse::new(1),
+            smallest_universe: UniverseTerm::new(1),
         }
     }
 }
 
 impl ExpectFluffyTerm for ExpectEqsCategory {
-    type Outcome = TermUniverse;
+    type Outcome = UniverseTerm;
 
     #[inline(always)]
     fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {

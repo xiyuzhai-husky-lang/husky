@@ -4,11 +4,11 @@ use vec_like::VecSet;
 #[salsa::tracked(db = EtherealTermDb, jar = EtherealTermJar)]
 pub struct EtherealTermSymbols {
     #[return_ref]
-    pub(crate) data: VecSet<EtherealTermSymbol>,
+    pub(crate) data: VecSet<SymbolEtherealTerm>,
 }
 
 impl EtherealTermSymbols {
-    pub(crate) fn contains(self, db: &::salsa::Db, symbol: EtherealTermSymbol) -> bool {
+    pub(crate) fn contains(self, db: &::salsa::Db, symbol: SymbolEtherealTerm) -> bool {
         self.data(db).has(symbol)
     }
 
@@ -25,7 +25,7 @@ impl EtherealTermSymbols {
 
     fn remove(
         symbols: impl Into<Option<Self>>,
-        _symbol: impl Into<Option<EtherealTermSymbol>>,
+        _symbol: impl Into<Option<SymbolEtherealTerm>>,
     ) -> Option<Self> {
         let _symbols = symbols.into()?;
         todo!()
@@ -57,7 +57,7 @@ impl EtherealTerm {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_curry_symbols(
     db: &::salsa::Db,
-    term: EtherealTermCurry,
+    term: CurryEtherealTerm,
 ) -> Option<EtherealTermSymbols> {
     let parameter_ty_symbols = term.parameter_ty(db).symbols(db);
     let return_ty_symbols = term.return_ty(db).symbols(db);
@@ -67,7 +67,7 @@ pub(crate) fn term_curry_symbols(
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_ritchie_symbols(
     db: &::salsa::Db,
-    term: EtherealTermRitchie,
+    term: RitchieEtherealTerm,
 ) -> Option<EtherealTermSymbols> {
     let mut symbols: Option<EtherealTermSymbols> = None;
     for parameter_ty in term.parameter_contracted_tys(db) {
@@ -79,7 +79,7 @@ pub(crate) fn term_ritchie_symbols(
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_application_symbols(
     db: &::salsa::Db,
-    term: EtherealTermApplication,
+    term: ApplicationEtherealTerm,
 ) -> Option<EtherealTermSymbols> {
     EtherealTermSymbols::merge(term.function(db).symbols(db), term.argument(db).symbols(db))
 }

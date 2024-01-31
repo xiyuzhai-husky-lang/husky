@@ -27,7 +27,7 @@ impl EtherealTerm {
 #[salsa::tracked(jar = EtherealTermJar)]
 fn ethereal_term_application_final_destination(
     _db: &::salsa::Db,
-    _term_application: EtherealTermApplication,
+    _term_application: ApplicationEtherealTerm,
 ) -> FinalDestination {
     todo!()
 }
@@ -35,7 +35,7 @@ fn ethereal_term_application_final_destination(
 #[salsa::tracked(jar = EtherealTermJar)]
 fn ethereal_term_curry_final_destination(
     _db: &::salsa::Db,
-    _term_curry: EtherealTermCurry,
+    _term_curry: CurryEtherealTerm,
 ) -> FinalDestination {
     todo!()
 }

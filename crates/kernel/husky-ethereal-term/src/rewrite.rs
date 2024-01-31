@@ -1,12 +1,12 @@
 use super::*;
 
 pub struct TermSubstitution {
-    src: EtherealTermSymbol,
+    src: SymbolEtherealTerm,
     dst: EtherealTerm,
 }
 
 impl TermSubstitution {
-    pub fn src(&self) -> EtherealTermSymbol {
+    pub fn src(&self) -> SymbolEtherealTerm {
         self.src
     }
 

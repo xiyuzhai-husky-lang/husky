@@ -120,7 +120,7 @@ impl DeclarativeTerm {
             }
             DeclarativeTerm::ApplicationOrRitchieCall(_) => todo!(),
             DeclarativeTerm::AssociatedItem(_) => todo!(),
-            DeclarativeTerm::TypeAsTraitAssociatedItem(_) => todo!(),
+            DeclarativeTerm::TypeAsTraitItem(_) => todo!(),
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
@@ -189,7 +189,7 @@ impl DeclarativeTerm {
             .into(),
             DeclarativeTerm::ApplicationOrRitchieCall(_) => todo!(),
             DeclarativeTerm::AssociatedItem(_) => todo!(),
-            DeclarativeTerm::TypeAsTraitAssociatedItem(_) => todo!(),
+            DeclarativeTerm::TypeAsTraitItem(_) => todo!(),
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),

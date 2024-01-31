@@ -10,7 +10,7 @@ pub struct PropsStructTypeEtherealSignatureTemplate {
     pub template_parameters: EtherealTemplateParameters,
     #[return_ref]
     pub fields: SmallVec<[PropsFieldEtherealSignatureTemplate; 4]>,
-    pub instance_constructor_ritchie_ty: EtherealTermRitchie,
+    pub instance_constructor_ritchie_ty: RitchieEtherealTerm,
 }
 
 impl HasPropsFieldEtherealSignature for PropsStructTypeEtherealSignatureTemplate {
@@ -53,7 +53,7 @@ impl PropsStructTypeEtherealSignatureTemplate {
             })
             .collect::<EtherealSignatureResult<_>>()?;
         let instance_constructor_ritchie_ty =
-            EtherealTermRitchie::from_declarative(db, tmpl.instance_constructor_ritchie_ty(db))?;
+            RitchieEtherealTerm::from_declarative(db, tmpl.instance_constructor_ritchie_ty(db))?;
         Ok(Self::new(
             db,
             path,

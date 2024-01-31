@@ -15,7 +15,7 @@ impl FluffyTerm {
             argument.base_resolved(engine),
         ) {
             (FluffyTermBase::Ethereal(function), FluffyTermBase::Ethereal(argument)) => {
-                Ok(EtherealTermApplication::new(db, function, argument)?.into())
+                Ok(ApplicationEtherealTerm::new(db, function, argument)?.into())
             }
             (
                 FluffyTermBase::Ethereal(_) | FluffyTermBase::Solid(_),

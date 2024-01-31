@@ -51,10 +51,10 @@ pub(crate) struct SemaExprEngine<'a> {
     return_ty: Option<EtherealTerm>,
     pub(crate) unveiler: Unveiler,
     self_ty: Option<EtherealTerm>,
-    self_value: Option<EtherealTermSymbol>,
+    self_value: Option<SymbolEtherealTerm>,
     self_value_ty: Option<FluffyTerm>,
-    self_lifetime: Option<EtherealTermSymbol>,
-    self_place: Option<EtherealTermSymbol>,
+    self_lifetime: Option<SymbolEtherealTerm>,
+    self_place: Option<SymbolEtherealTerm>,
     trai_in_use_items_table: TraitInUseItemsTable<'a>,
 }
 
@@ -124,18 +124,18 @@ impl<'a> SemaExprEngine<'a> {
         let self_value = declarative_term_region
             .term_symbol_region()
             .self_value()
-            .map(|self_value| EtherealTermSymbol::from_declarative(db, self_value).ok())
+            .map(|self_value| SymbolEtherealTerm::from_declarative(db, self_value).ok())
             .flatten();
         let mut stack_location_registry = Default::default();
         let self_lifetime = declarative_term_region
             .term_symbol_region()
             .self_lifetime()
-            .map(|self_lifetime| EtherealTermSymbol::from_declarative(db, self_lifetime).ok())
+            .map(|self_lifetime| SymbolEtherealTerm::from_declarative(db, self_lifetime).ok())
             .flatten();
         let self_place = declarative_term_region
             .term_symbol_region()
             .self_place()
-            .map(|self_place| EtherealTermSymbol::from_declarative(db, self_place).ok())
+            .map(|self_place| SymbolEtherealTerm::from_declarative(db, self_place).ok())
             .flatten();
         let self_value_ty = calc_self_value_ty(
             syn_expr_region_data,
@@ -301,7 +301,7 @@ impl<'a> SemaExprEngine<'a> {
 fn calc_self_value_ty(
     syn_expr_region_data: &SynExprRegionData,
     self_ty: Option<EtherealTerm>,
-    self_place: Option<EtherealTermSymbol>,
+    self_place: Option<SymbolEtherealTerm>,
     db: &salsa::Db,
     registry: &mut StackLocationRegistry,
 ) -> Option<FluffyTerm> {

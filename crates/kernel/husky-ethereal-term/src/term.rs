@@ -33,18 +33,19 @@ pub enum EtherealTerm {
     ///
     /// literal: 1,1.0, true, false; variable, itemPath
     Literal(TermLiteral),
-    Symbol(EtherealTermSymbol),
-    Rune(EtherealTermRune),
+    Symbol(SymbolEtherealTerm),
+    /// the name `rune` is to be distinguishable from runtime variable
+    Rune(RuneEtherealTerm),
     EntityPath(ItemPathTerm),
-    Category(TermCategory),
-    Universe(TermUniverse),
+    Category(CategoryTerm),
+    Universe(UniverseTerm),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
-    Curry(EtherealTermCurry),
+    Curry(CurryEtherealTerm),
     /// in memory of Dennis M.Ritchie
     /// a type or trait
-    Ritchie(EtherealTermRitchie),
+    Ritchie(RitchieEtherealTerm),
     /// lambda x => expr
-    Abstraction(EtherealTermAbstraction),
+    Abstraction(AbstractionEtherealTerm),
 
     /// in husky, application is generalized to include composition as a special case;
     ///
@@ -59,9 +60,9 @@ pub enum EtherealTerm {
     /// then apply function to the result,
     ///
     /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-    Application(EtherealTermApplication),
+    Application(ApplicationEtherealTerm),
     /// (<type> as <trait>)::<ident>
-    TypeAsTraitItem(EtherealTermTypeAsTraitItem),
+    TypeAsTraitItem(TypeAsTraitItemEtherealTerm),
     /// <type> : <trait>
     TraitConstraint(EtherealTermTraitConstraint),
 }
@@ -95,10 +96,10 @@ impl EtherealTerm {
                 EtherealTerm::from_literal_declarative_term(db, literal, ty_expectation)?
             }
             DeclarativeTerm::Symbol(declarative_term) => {
-                EtherealTermSymbol::from_declarative(db, declarative_term)?.into()
+                SymbolEtherealTerm::from_declarative(db, declarative_term)?.into()
             }
             DeclarativeTerm::Rune(declarative_term) => {
-                EtherealTermRune::from_declarative(db, declarative_term)?.into()
+                RuneEtherealTerm::from_declarative(db, declarative_term)?.into()
             }
             DeclarativeTerm::EntityPath(declarative_term) => match declarative_term {
                 ItemPathDeclarativeTerm::Fugitive(path) => ItemPathTerm::Fugitive(path).into(),
@@ -128,18 +129,18 @@ impl EtherealTerm {
             DeclarativeTerm::Category(declarative_term) => declarative_term.into(),
             DeclarativeTerm::Universe(declarative_term) => declarative_term.into(),
             DeclarativeTerm::Curry(declarative_term) => {
-                EtherealTermCurry::from_declarative(db, declarative_term)?.into()
+                CurryEtherealTerm::from_declarative(db, declarative_term)?.into()
             }
             DeclarativeTerm::Ritchie(declarative_term) => {
-                EtherealTermRitchie::from_declarative(db, declarative_term)?.into()
+                RitchieEtherealTerm::from_declarative(db, declarative_term)?.into()
             }
             DeclarativeTerm::Abstraction(declarative_term) => {
-                EtherealTermAbstraction::from_declarative(db, declarative_term, ty_expectation)?
+                AbstractionEtherealTerm::from_declarative(db, declarative_term, ty_expectation)?
                     .into()
             }
             DeclarativeTerm::Application(declarative_term) => {
                 // todo: implicit arguments
-                EtherealTermApplication::from_declarative(db, declarative_term, ty_expectation)?
+                ApplicationEtherealTerm::from_declarative(db, declarative_term, ty_expectation)?
             }
             DeclarativeTerm::ApplicationOrRitchieCall(declarative_term) => {
                 ethereal_term_from_declarative_term_explicit_application_or_ritchie_call(
@@ -152,8 +153,8 @@ impl EtherealTerm {
                 todo!()
                 // EtherealTermSubitem::from_declarative(db, declarative_term, ty_expectation)?
             }
-            DeclarativeTerm::TypeAsTraitAssociatedItem(declarative_term) => {
-                EtherealTermTypeAsTraitItem::from_declarative(db, declarative_term, ty_expectation)?
+            DeclarativeTerm::TypeAsTraitItem(declarative_term) => {
+                TypeAsTraitItemEtherealTerm::from_declarative(db, declarative_term, ty_expectation)?
                     .into()
             }
             DeclarativeTerm::TraitConstraint(declarative_term) => {
@@ -295,7 +296,7 @@ pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchi
             DeclarativeTerm::Application(_) => todo!(),
             DeclarativeTerm::ApplicationOrRitchieCall(_) => todo!(),
             DeclarativeTerm::AssociatedItem(_) => todo!(),
-            DeclarativeTerm::TypeAsTraitAssociatedItem(_) => todo!(),
+            DeclarativeTerm::TypeAsTraitItem(_) => todo!(),
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
@@ -318,7 +319,7 @@ pub(crate) fn ethereal_term_from_declarative_term_list(
             let items = declarative_term_list.items(db);
             match items.len() {
                 0 => Ok(term_menu.list_ty_ontology()),
-                1 => Ok(EtherealTermApplication::new_reduced(
+                1 => Ok(ApplicationEtherealTerm::new_reduced(
                     db,
                     term_menu.array_ty_ontology(),
                     EtherealTerm::from_declarative(
@@ -362,7 +363,7 @@ pub(crate) fn ethereal_term_from_declarative_term_wrapper(
                     todo!()
                 };
                 let leash_ty_ontology = db.ethereal_term_menu(toolchain).leash_ty_ontology();
-                Ok(EtherealTermApplication::new_reduced(
+                Ok(ApplicationEtherealTerm::new_reduced(
                     db,
                     leash_ty_ontology,
                     inner_ty,

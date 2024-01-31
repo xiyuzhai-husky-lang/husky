@@ -6,10 +6,10 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct DeclarativeTermMenu0 {
-    universe0: TermUniverse,
-    universe1: TermUniverse,
-    prop: TermCategory,
-    ty0: TermCategory,
+    universe0: UniverseTerm,
+    universe1: UniverseTerm,
+    prop: CategoryTerm,
+    ty0: CategoryTerm,
     static_lifetime: LiteralDeclarativeTerm,
     unit: DeclarativeTerm,
     never: DeclarativeTerm,
@@ -69,14 +69,14 @@ impl DeclarativeTermMenu0 {
         // let universe1 = db.it_term(DeclarativeTermAtom::new_universe(1).into());
         let _vfs_path_menu = db.vfs_path_menu(toolchain);
         let item_path_menu = item_path_menu(db, toolchain);
-        let universe0 = TermUniverse::new(0);
-        let universe1 = TermUniverse::new(1);
+        let universe0 = UniverseTerm::new(0);
+        let universe1 = UniverseTerm::new(1);
         DeclarativeTermMenu0 {
             static_lifetime: TermLiteral::StaticLifetime.into(),
             universe0,
             universe1,
-            prop: TermCategory::new(universe0),
-            ty0: TermCategory::new(universe1),
+            prop: CategoryTerm::new(universe0),
+            ty0: CategoryTerm::new(universe1),
             core_ops_add: DeclarativeTerm::EntityPath(item_path_menu.add_trai_path().into()),
             // start here
             // DeclarativeTerm::Entity(item_path_menu.core_ops_())
@@ -134,21 +134,21 @@ impl DeclarativeTermMenu0 {
         }
     }
 
-    pub fn universe0(&self) -> TermUniverse {
+    pub fn universe0(&self) -> UniverseTerm {
         self.universe0
     }
 
-    pub fn universe1(&self) -> TermUniverse {
+    pub fn universe1(&self) -> UniverseTerm {
         self.universe1
     }
 
     /// `Prop`
-    pub fn prop(&self) -> TermCategory {
+    pub fn prop(&self) -> CategoryTerm {
         self.prop
     }
 
     /// `Type`
-    pub fn ty0(&self) -> TermCategory {
+    pub fn ty0(&self) -> CategoryTerm {
         self.ty0
     }
 

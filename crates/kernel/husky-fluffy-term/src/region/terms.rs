@@ -32,7 +32,7 @@ impl FluffyTerms {
     pub(crate) fn new_hole_from_template_parameter_symbol(
         &mut self,
         hole_source: HoleSource,
-        template_parameter_symbol: EtherealTermSymbol,
+        template_parameter_symbol: SymbolEtherealTerm,
         db: &::salsa::Db,
     ) -> HollowTerm {
         let hole_kind = match template_parameter_symbol.ty(db) {

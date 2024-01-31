@@ -6,11 +6,11 @@ use super::*;
 
 /// representing term `X -> Y` or dependent form `(a: X) -> Y(a)`
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar)]
-pub struct EtherealTermCurry {
+pub struct CurryEtherealTerm {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_rune: Option<EtherealTermRune>,
+    pub parameter_rune: Option<RuneEtherealTerm>,
     /// X
     pub parameter_ty: EtherealTerm,
     /// Y
@@ -20,12 +20,12 @@ pub struct EtherealTermCurry {
 #[test]
 fn term_curry_size_works() {
     assert_eq!(
-        std::mem::size_of::<EtherealTermCurry>(),
+        std::mem::size_of::<CurryEtherealTerm>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl EtherealTermCurry {
+impl CurryEtherealTerm {
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
         declarative_term_curry: CurryDeclarativeTerm,
@@ -69,14 +69,14 @@ impl EtherealTermCurry {
 pub(crate) fn term_curry_from_declarative(
     db: &::salsa::Db,
     declarative_term_curry: CurryDeclarativeTerm,
-) -> EtherealTermResult<EtherealTermCurry> {
+) -> EtherealTermResult<CurryEtherealTerm> {
     let t = |declarative_ty| EtherealTerm::ty_from_declarative(db, declarative_ty);
-    Ok(EtherealTermCurry::new(
+    Ok(CurryEtherealTerm::new(
         db,
         declarative_term_curry.curry_kind(db),
         declarative_term_curry.variance(db),
         match declarative_term_curry.parameter_rune(db) {
-            Some(parameter_rune) => Some(EtherealTermRune::from_declarative(db, parameter_rune)?),
+            Some(parameter_rune) => Some(RuneEtherealTerm::from_declarative(db, parameter_rune)?),
             None => None,
         },
         t(declarative_term_curry.parameter_ty(db))?,
@@ -84,7 +84,7 @@ pub(crate) fn term_curry_from_declarative(
     ))
 }
 
-impl salsa::DisplayWithDb for EtherealTermCurry {
+impl salsa::DisplayWithDb for CurryEtherealTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

@@ -10,7 +10,7 @@ pub struct TupleStructTypeEtherealSignatureTemplate {
     pub template_parameters: EtherealTemplateParameters,
     #[return_ref]
     pub fields: SmallVec<[TupleFieldEtherealSignatureTemplate; 2]>,
-    pub instance_constructor_ritchie_ty: EtherealTermRitchie,
+    pub instance_constructor_ritchie_ty: RitchieEtherealTerm,
 }
 
 impl TupleStructTypeEtherealSignatureTemplate {
@@ -33,7 +33,7 @@ impl TupleStructTypeEtherealSignatureTemplate {
             })
             .collect::<EtherealSignatureResult<_>>()?;
         let instance_constructor_ritchie_ty =
-            EtherealTermRitchie::from_declarative(db, tmpl.instance_constructor_ritchie_ty(db))?;
+            RitchieEtherealTerm::from_declarative(db, tmpl.instance_constructor_ritchie_ty(db))?;
         Ok(Self::new(
             db,
             path,

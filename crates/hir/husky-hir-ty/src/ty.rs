@@ -8,7 +8,7 @@ use husky_ethereal_signature::{
     helpers::trai_for_ty::is_ty_term_always_copyable, HasEtherealSignatureTemplate,
 };
 use husky_ethereal_term::{
-    EtherealTerm, EtherealTermApplication, EtherealTermRitchie, EtherealTermSymbolIndexImpl,
+    ApplicationEtherealTerm, EtherealTerm, EtherealTermSymbolIndexImpl, RitchieEtherealTerm,
     TermFunctionReduced,
 };
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
@@ -114,7 +114,7 @@ impl HirType {
 #[salsa::tracked(jar = HirTypeJar)]
 pub(crate) fn hir_ty_from_ethereal_term_application(
     db: &::salsa::Db,
-    term_application: EtherealTermApplication,
+    term_application: ApplicationEtherealTerm,
 ) -> HirType {
     let application_expansion = term_application.application_expansion(db);
     match application_expansion.function() {

@@ -4,10 +4,10 @@ use crate::*;
 pub struct TermMenu1 {
     parent: TermMenu0,
     static_ref_ty: EtherealTerm,
-    explicit_invariant_ty0_to_trai_ty: EtherealTermCurry,
-    explicit_covariant_ty0_to_ty0: EtherealTermCurry,
-    explicit_contravariant_ty0_to_ty0: EtherealTermCurry,
-    explicit_invariant_ty0_to_ty0: EtherealTermCurry,
+    explicit_invariant_ty0_to_trai_ty: CurryEtherealTerm,
+    explicit_covariant_ty0_to_ty0: CurryEtherealTerm,
+    explicit_contravariant_ty0_to_ty0: CurryEtherealTerm,
+    explicit_invariant_ty0_to_ty0: CurryEtherealTerm,
 }
 
 impl std::ops::Deref for TermMenu1 {
@@ -22,14 +22,14 @@ impl TermMenu1 {
     pub fn new(db: &::salsa::Db, _toolchain: Toolchain, menu0: TermMenu0) -> Self {
         // todo!()
         Self {
-            static_ref_ty: EtherealTermApplication::new(
+            static_ref_ty: ApplicationEtherealTerm::new(
                 db,
                 menu0.ref_ty_path().into(),
                 menu0.static_lifetime().into(),
             )
             .unwrap()
             .into(),
-            explicit_invariant_ty0_to_trai_ty: EtherealTermCurry::new(
+            explicit_invariant_ty0_to_trai_ty: CurryEtherealTerm::new(
                 db,
                 CurryKind::Explicit,
                 Variance::Invariant,
@@ -37,7 +37,7 @@ impl TermMenu1 {
                 menu0.ty0().into(),
                 menu0.trai_ty_ontology().into(),
             ),
-            explicit_covariant_ty0_to_ty0: EtherealTermCurry::new(
+            explicit_covariant_ty0_to_ty0: CurryEtherealTerm::new(
                 db,
                 CurryKind::Explicit,
                 Variance::Covariant,
@@ -45,7 +45,7 @@ impl TermMenu1 {
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
-            explicit_contravariant_ty0_to_ty0: EtherealTermCurry::new(
+            explicit_contravariant_ty0_to_ty0: CurryEtherealTerm::new(
                 db,
                 CurryKind::Explicit,
                 Variance::Contravariant,
@@ -53,7 +53,7 @@ impl TermMenu1 {
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
-            explicit_invariant_ty0_to_ty0: EtherealTermCurry::new(
+            explicit_invariant_ty0_to_ty0: CurryEtherealTerm::new(
                 db,
                 CurryKind::Explicit,
                 Variance::Invariant,
@@ -69,19 +69,19 @@ impl TermMenu1 {
         self.static_ref_ty
     }
 
-    pub fn ex_inv_ty0_to_trai_ty(&self) -> EtherealTermCurry {
+    pub fn ex_inv_ty0_to_trai_ty(&self) -> CurryEtherealTerm {
         self.explicit_invariant_ty0_to_trai_ty
     }
 
-    pub fn ex_co_ty0_to_ty0(&self) -> EtherealTermCurry {
+    pub fn ex_co_ty0_to_ty0(&self) -> CurryEtherealTerm {
         self.explicit_covariant_ty0_to_ty0
     }
 
-    pub fn explicit_contravariant_ty0_to_ty0(&self) -> EtherealTermCurry {
+    pub fn explicit_contravariant_ty0_to_ty0(&self) -> CurryEtherealTerm {
         self.explicit_contravariant_ty0_to_ty0
     }
 
-    pub fn ex_inv_ty0_to_ty0(&self) -> EtherealTermCurry {
+    pub fn ex_inv_ty0_to_ty0(&self) -> CurryEtherealTerm {
         self.explicit_invariant_ty0_to_ty0
     }
 }

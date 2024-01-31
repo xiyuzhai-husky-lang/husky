@@ -22,7 +22,7 @@ use std::fmt::Debug;
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = new_inner)]
-pub struct EtherealTermApplication {
+pub struct ApplicationEtherealTerm {
     pub function: EtherealTerm,
     pub argument: EtherealTerm,
     pub shift: u8,
@@ -31,12 +31,12 @@ pub struct EtherealTermApplication {
 #[test]
 fn term_application_size_works() {
     assert_eq!(
-        std::mem::size_of::<EtherealTermApplication>(),
+        std::mem::size_of::<ApplicationEtherealTerm>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl EtherealTermApplication {
+impl ApplicationEtherealTerm {
     //// this constructor guarantees that the result is reduced and first-order valid
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     pub fn new(
@@ -153,7 +153,7 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
         todo!()
     }
     let shift = argument_ty_curry_parameter_count - function_parameter_ty_curry_parameter_count;
-    Ok(EtherealTermApplication::new_reduced(
+    Ok(ApplicationEtherealTerm::new_reduced(
         db, function, argument, shift,
     ))
 }
@@ -161,7 +161,7 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_application_declarative_ty(
     db: &::salsa::Db,
-    term_application: EtherealTermApplication,
+    term_application: ApplicationEtherealTerm,
 ) -> EtherealTermResult<DeclarativeTerm> {
     let function = term_application.function(db);
     let argument = term_application.argument(db);
@@ -307,7 +307,7 @@ impl EtherealTerm {
     }
 }
 
-impl salsa::DisplayWithDb for EtherealTermApplication {
+impl salsa::DisplayWithDb for ApplicationEtherealTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -317,7 +317,7 @@ impl salsa::DisplayWithDb for EtherealTermApplication {
     }
 }
 
-impl EtherealTermApplication {
+impl ApplicationEtherealTerm {
     fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm
     where
         Self: Copy,
@@ -334,13 +334,13 @@ impl EtherealTermApplication {
     }
 }
 
-impl std::fmt::Display for EtherealTermApplication {
+impl std::fmt::Display for ApplicationEtherealTerm {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl EtherealInstantiate for EtherealTermApplication {
+impl EtherealInstantiate for ApplicationEtherealTerm {
     type Output = EtherealTerm;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {

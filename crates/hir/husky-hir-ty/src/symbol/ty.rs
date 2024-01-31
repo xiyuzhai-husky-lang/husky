@@ -16,7 +16,7 @@ pub enum HirTypeSymbol {
 }
 
 impl HirTypeSymbol {
-    pub(crate) fn from_ethereal(symbol: EtherealTermSymbol, db: &::salsa::Db) -> Option<Self> {
+    pub(crate) fn from_ethereal(symbol: SymbolEtherealTerm, db: &::salsa::Db) -> Option<Self> {
         Some(match symbol.index(db).inner() {
             EtherealTermSymbolIndexImpl::ExplicitLifetime {
                 attrs: _,

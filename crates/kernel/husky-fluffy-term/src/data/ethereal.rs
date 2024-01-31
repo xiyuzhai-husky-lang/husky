@@ -74,7 +74,7 @@ impl TermRitchieFluffyData {
 #[salsa::tracked(jar = FluffyTermJar, return_ref)]
 pub(crate) fn term_ritchie_fluffy_data(
     db: &::salsa::Db,
-    term: EtherealTermRitchie,
+    term: RitchieEtherealTerm,
 ) -> TermRitchieFluffyData {
     TermRitchieFluffyData {
         ritchie_kind: term.ritchie_kind(db),
@@ -104,7 +104,7 @@ pub(crate) enum TermApplicationFluffyData {
 #[salsa::tracked(jar = FluffyTermJar, return_ref)]
 pub(crate) fn term_application_fluffy_data(
     db: &::salsa::Db,
-    term: EtherealTermApplication,
+    term: ApplicationEtherealTerm,
 ) -> TermApplicationFluffyData {
     let expansion = term.application_expansion(db);
     match expansion.function() {

@@ -2,20 +2,20 @@ use super::*;
 use husky_declarative_term::term::abstraction::AbstractionDeclarativeTerm;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar)]
-pub struct EtherealTermAbstraction {
-    x: EtherealTermRune,
+pub struct AbstractionEtherealTerm {
+    x: RuneEtherealTerm,
     m: EtherealTerm,
 }
 
 #[test]
 fn term_abstraction_size_works() {
     assert_eq!(
-        std::mem::size_of::<EtherealTermAbstraction>(),
+        std::mem::size_of::<AbstractionEtherealTerm>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl EtherealTermAbstraction {
+impl AbstractionEtherealTerm {
     pub(crate) fn from_declarative(
         _db: &::salsa::Db,
         _precise_term: AbstractionDeclarativeTerm,
@@ -39,13 +39,13 @@ impl EtherealTermAbstraction {
     }
 }
 
-impl EtherealTermAbstraction {
+impl AbstractionEtherealTerm {
     fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm {
         todo!()
     }
 }
 
-impl salsa::DisplayWithDb for EtherealTermAbstraction {
+impl salsa::DisplayWithDb for AbstractionEtherealTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

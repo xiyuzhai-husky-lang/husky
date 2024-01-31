@@ -6,14 +6,14 @@ use vec_like::SmallVecPairMap;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FluffyInstantiation {
     env: FluffyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<EtherealTermSymbol, FluffyTermSymbolResolution, 4>,
+    symbol_map: SmallVecPairMap<SymbolEtherealTerm, FluffyTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 
-impl std::ops::Index<EtherealTermSymbol> for FluffyInstantiation {
+impl std::ops::Index<SymbolEtherealTerm> for FluffyInstantiation {
     type Output = FluffyTermSymbolResolution;
 
-    fn index(&self, index: EtherealTermSymbol) -> &Self::Output {
+    fn index(&self, index: SymbolEtherealTerm) -> &Self::Output {
         &self.symbol_map[index].1
     }
 }
@@ -86,7 +86,7 @@ impl FluffyInstantiation {
         }
     }
 
-    pub fn symbol_map(&self) -> &[(EtherealTermSymbol, FluffyTermSymbolResolution)] {
+    pub fn symbol_map(&self) -> &[(SymbolEtherealTerm, FluffyTermSymbolResolution)] {
         self.symbol_map.as_ref()
     }
 
@@ -97,8 +97,8 @@ impl FluffyInstantiation {
     pub fn symbol_map_splitted(
         &self,
     ) -> (
-        &[(EtherealTermSymbol, FluffyTermSymbolResolution)],
-        Option<&[(EtherealTermSymbol, FluffyTermSymbolResolution)]>,
+        &[(SymbolEtherealTerm, FluffyTermSymbolResolution)],
+        Option<&[(SymbolEtherealTerm, FluffyTermSymbolResolution)]>,
     ) {
         let symbol_map: &[_] = self.symbol_map.as_ref();
         match self.separator {
@@ -159,14 +159,14 @@ pub(crate) trait FluffyInstantiateRef {
 
 pub struct FluffyInstantiationBuilder {
     env: FluffyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<FluffyTermSymbolResolution>, 4>,
+    symbol_map: SmallVecPairMap<SymbolEtherealTerm, Option<FluffyTermSymbolResolution>, 4>,
     separator: Option<u8>,
 }
 
-impl std::ops::Index<EtherealTermSymbol> for FluffyInstantiationBuilder {
+impl std::ops::Index<SymbolEtherealTerm> for FluffyInstantiationBuilder {
     type Output = Option<FluffyTermSymbolResolution>;
 
-    fn index(&self, index: EtherealTermSymbol) -> &Self::Output {
+    fn index(&self, index: SymbolEtherealTerm) -> &Self::Output {
         &self.symbol_map[index].1
     }
 }
@@ -304,7 +304,7 @@ impl FluffyInstantiate for EtherealTerm {
     }
 }
 
-impl FluffyInstantiate for EtherealTermApplication {
+impl FluffyInstantiate for ApplicationEtherealTerm {
     type Target = FluffyTerm;
 
     fn instantiate(
@@ -365,7 +365,7 @@ impl FluffyInstantiate for EtherealTermApplication {
     }
 }
 
-impl FluffyInstantiate for EtherealTermRitchie {
+impl FluffyInstantiate for RitchieEtherealTerm {
     type Target = FluffyTerm;
 
     fn instantiate(

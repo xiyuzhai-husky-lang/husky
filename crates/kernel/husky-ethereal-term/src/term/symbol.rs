@@ -9,7 +9,7 @@ use super::*;
 use thiserror::Error;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = pub new_inner)]
-pub struct EtherealTermSymbol {
+pub struct SymbolEtherealTerm {
     pub toolchain: Toolchain,
     pub ty: EtherealTerm,
     /// this is the index for all symbols with the same type
@@ -21,12 +21,12 @@ pub struct EtherealTermSymbol {
 #[test]
 fn term_symbol_size_works() {
     assert_eq!(
-        std::mem::size_of::<EtherealTermSymbol>(),
+        std::mem::size_of::<SymbolEtherealTerm>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl EtherealTermSymbol {
+impl SymbolEtherealTerm {
     #[inline(always)]
     pub fn from_declarative(
         db: &::salsa::Db,
@@ -62,7 +62,7 @@ pub enum TermSymbolTypeErrorKind {
 }
 pub type TermSymbolTypeResult<T> = Result<T, TermSymbolTypeErrorKind>;
 
-impl salsa::DisplayWithDb for EtherealTermSymbol {
+impl salsa::DisplayWithDb for SymbolEtherealTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -73,12 +73,12 @@ impl salsa::DisplayWithDb for EtherealTermSymbol {
     }
 }
 
-impl EtherealInstantiate for EtherealTermSymbol {
+impl EtherealInstantiate for SymbolEtherealTerm {
     type Output = EtherealTerm;
 
     fn instantiate(self, _db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         /// it's assumed that all symbols will be replaced by its map
         /// otherwise it's illegal
-        instantiation.symbol_mapped(self)
+        instantiation.symbol_instantiation(self)
     }
 }
