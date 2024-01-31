@@ -1,12 +1,12 @@
 use crate::*;
 
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct DeclarativeTermTraitConstraint {
+pub struct TraitConstraintDeclarativeTerm {
     ty: DeclarativeTerm,
     trai: DeclarativeTerm,
 }
 
-impl DeclarativeTermTraitConstraint {
+impl TraitConstraintDeclarativeTerm {
     pub(crate) fn show_with_db_fmt(
         self,
         _f: &mut std::fmt::Formatter<'_>,
@@ -17,7 +17,7 @@ impl DeclarativeTermTraitConstraint {
     }
 }
 
-impl DeclarativeTermRewriteCopy for DeclarativeTermTraitConstraint {
+impl DeclarativeTermRewriteCopy for TraitConstraintDeclarativeTerm {
     fn substitute_copy(
         self,
         _db: &::salsa::Db,

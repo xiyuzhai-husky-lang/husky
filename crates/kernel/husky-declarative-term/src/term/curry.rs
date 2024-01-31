@@ -2,19 +2,19 @@ use crate::*;
 
 /// representing declarative_term `X -> Y` or dependent form `(a: X) -> Y(a)`
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar, constructor = new_inner)]
-pub struct DeclarativeTermCurry {
+pub struct CurryDeclarativeTerm {
     pub toolchain: Toolchain,
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_rune: Option<DeclarativeTermRune>,
+    pub parameter_rune: Option<RuneDeclarativeTerm>,
     /// X
     pub parameter_ty: DeclarativeTerm,
     /// Y
     pub return_ty: DeclarativeTerm,
 }
 
-impl DeclarativeTermCurry {
+impl CurryDeclarativeTerm {
     /// create a new term curry by converting a symbol to variable
     /// this is the only way to create a new term curry
     /// so that cache hit is maximized
@@ -24,12 +24,12 @@ impl DeclarativeTermCurry {
         curry_kind: CurryKind,
         variance: Variance,
         // to be converted to variable
-        parameter_symbol: DeclarativeTermSymbol,
+        parameter_symbol: SymbolDeclarativeTerm,
         parameter_ty: DeclarativeTerm,
         return_ty: DeclarativeTerm,
     ) -> Self {
         let (return_ty, parameter_rune) = return_ty.create_rune(db, parameter_symbol);
-        DeclarativeTermCurry::new_inner(
+        CurryDeclarativeTerm::new_inner(
             db,
             toolchain,
             curry_kind,
@@ -48,7 +48,7 @@ impl DeclarativeTermCurry {
         parameter_ty: DeclarativeTerm,
         return_ty: DeclarativeTerm,
     ) -> Self {
-        DeclarativeTermCurry::new_inner(
+        CurryDeclarativeTerm::new_inner(
             db,
             toolchain,
             curry_kind,
@@ -62,10 +62,10 @@ impl DeclarativeTermCurry {
     pub(super) fn substitute_symbol_with_variable(
         self,
         db: &::salsa::Db,
-        symbol: DeclarativeTermSymbol,
-        variable: DeclarativeTermRune,
+        symbol: SymbolDeclarativeTerm,
+        variable: RuneDeclarativeTerm,
     ) -> Self {
-        DeclarativeTermCurry::new_inner(
+        CurryDeclarativeTerm::new_inner(
             db,
             symbol.toolchain(db),
             self.curry_kind(db),
@@ -121,11 +121,11 @@ impl DeclarativeTermCurry {
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
-pub(crate) fn curry_parameter_count(db: &::salsa::Db, term: DeclarativeTermCurry) -> u8 {
+pub(crate) fn curry_parameter_count(db: &::salsa::Db, term: CurryDeclarativeTerm) -> u8 {
     term.return_ty(db).curry_parameter_count(db) + 1
 }
 
-impl salsa::DisplayWithDb for DeclarativeTermCurry {
+impl salsa::DisplayWithDb for CurryDeclarativeTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -135,7 +135,7 @@ impl salsa::DisplayWithDb for DeclarativeTermCurry {
     }
 }
 
-impl DeclarativeTermRewriteCopy for DeclarativeTermCurry {
+impl DeclarativeTermRewriteCopy for CurryDeclarativeTerm {
     fn substitute_copy(
         self,
         db: &::salsa::Db,

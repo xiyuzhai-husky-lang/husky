@@ -22,12 +22,12 @@ pub fn declarative_term_declarative_ty(
             RitchieKind::Trait(_) => declarative_term_menu.trai_ty(),
         }),
         DeclarativeTerm::Abstraction(_) => todo!(),
-        DeclarativeTerm::ExplicitApplication(declarative_term) => {
+        DeclarativeTerm::Application(declarative_term) => {
             application_declarative_term_declarative_ty(db, declarative_term)
         }
-        DeclarativeTerm::ExplicitApplicationOrRitchieCall(_declarative_ty) => todo!(),
-        DeclarativeTerm::Subitem(_) => todo!(),
-        DeclarativeTerm::AsTraitSubitem(_) => todo!(),
+        DeclarativeTerm::ApplicationOrRitchieCall(_declarative_ty) => todo!(),
+        DeclarativeTerm::AssociatedItem(_) => todo!(),
+        DeclarativeTerm::TypeAsTraitAssociatedItem(_) => todo!(),
         DeclarativeTerm::TraitConstraint(_) => todo!(),
         DeclarativeTerm::LeashOrBitNot(_) => todo!(),
         DeclarativeTerm::List(_) => todo!(),
@@ -38,7 +38,7 @@ pub fn declarative_term_declarative_ty(
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub(crate) fn application_declarative_term_declarative_ty(
     _db: &::salsa::Db,
-    _declarative_term: DeclarativeTermExplicitApplication,
+    _declarative_term: ApplicationDeclarativeTerm,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     Err(OriginalDeclarativeTypeError::Todo.into())
 }

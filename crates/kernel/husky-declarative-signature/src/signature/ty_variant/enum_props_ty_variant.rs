@@ -5,7 +5,7 @@ pub struct EnumPropsVariantDeclarativeSignatureTemplate {
     pub parent_ty_template: EnumTypeDeclarativeSignatureTemplate,
     pub field_tys: SmallVec<[EnumPropsVariantFieldDeclarativeSignatureTemplate; 4]>,
     pub return_ty: DeclarativeTerm,
-    pub instance_constructor_ty: DeclarativeTermRitchie,
+    pub instance_constructor_ty: RitchieDeclarativeTerm,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -39,7 +39,7 @@ impl EnumPropsVariantDeclarativeSignatureTemplate {
             .collect::<DeclarativeSignatureResult<SmallVec<_>>>()?;
         // todo: GADT can override return_ty
         let return_ty = parent_ty_template.self_ty(db);
-        let instance_constructor_ty = DeclarativeTermRitchie::new(
+        let instance_constructor_ty = RitchieDeclarativeTerm::new(
             db,
             RitchieTypeKind::Fn.into(),
             fields

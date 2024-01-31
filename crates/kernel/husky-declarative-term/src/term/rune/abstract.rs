@@ -26,12 +26,12 @@ impl DeclarativeTerm {
     pub(in crate::term) fn create_rune(
         self,
         db: &::salsa::Db,
-        symbol: DeclarativeTermSymbol,
-    ) -> (Self, Option<DeclarativeTermRune>) {
+        symbol: SymbolDeclarativeTerm,
+    ) -> (Self, Option<RuneDeclarativeTerm>) {
         let Some(idx) = self.new_variable_idx(db, symbol) else {
             return (self, None);
         };
-        let variable = DeclarativeTermRune::new(symbol.ty(db), idx, db);
+        let variable = RuneDeclarativeTerm::new(symbol.ty(db), idx, db);
         (
             self.substitute_symbol_with_variable(db, symbol, variable),
             Some(variable),
@@ -45,7 +45,7 @@ impl DeclarativeTerm {
     /// returns the variable idx if turning this symbol into variable
     /// returns None if symbol is not present
     #[inline(always)]
-    fn new_variable_idx(self, db: &::salsa::Db, symbol: DeclarativeTermSymbol) -> Option<u8> {
+    fn new_variable_idx(self, db: &::salsa::Db, symbol: SymbolDeclarativeTerm) -> Option<u8> {
         self.new_variable_idx_with_ty_family(db, symbol, symbol.ty_family(db))
     }
 
@@ -54,7 +54,7 @@ impl DeclarativeTerm {
     fn new_variable_idx_with_ty_family(
         self,
         db: &::salsa::Db,
-        symbol: DeclarativeTermSymbol,
+        symbol: SymbolDeclarativeTerm,
         symbol_ty_family: DeclarativeTermFamily,
     ) -> Option<u8> {
         self.contains_symbol(db, symbol).then(|| {
@@ -66,7 +66,7 @@ impl DeclarativeTerm {
     fn new_variable_disambiguator_if_symbol_is_present(
         self,
         db: &::salsa::Db,
-        symbol: DeclarativeTermSymbol,
+        symbol: SymbolDeclarativeTerm,
         symbol_ty_family: DeclarativeTermFamily,
     ) -> u8 {
         let mut disambiguator = match self {
@@ -114,13 +114,13 @@ impl DeclarativeTerm {
                     }
                 }
             }
-            DeclarativeTerm::ExplicitApplication(term) => {
+            DeclarativeTerm::Application(term) => {
                 t(term.function(db));
                 t(term.argument(db))
             }
-            DeclarativeTerm::ExplicitApplicationOrRitchieCall(_) => todo!(),
-            DeclarativeTerm::Subitem(_) => todo!(),
-            DeclarativeTerm::AsTraitSubitem(_) => todo!(),
+            DeclarativeTerm::ApplicationOrRitchieCall(_) => todo!(),
+            DeclarativeTerm::AssociatedItem(_) => todo!(),
+            DeclarativeTerm::TypeAsTraitAssociatedItem(_) => todo!(),
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
@@ -140,8 +140,8 @@ impl DeclarativeTerm {
     pub(in crate::term) fn substitute_symbol_with_variable(
         self,
         db: &::salsa::Db,
-        symbol: DeclarativeTermSymbol,
-        variable: DeclarativeTermRune,
+        symbol: SymbolDeclarativeTerm,
+        variable: RuneDeclarativeTerm,
     ) -> Self {
         if !self.contains_symbol(db, symbol) {
             return self;
@@ -152,7 +152,7 @@ impl DeclarativeTerm {
             DeclarativeTerm::Curry(term) => term
                 .substitute_symbol_with_variable(db, symbol, variable)
                 .into(),
-            DeclarativeTerm::Ritchie(term) => DeclarativeTermRitchie::new(
+            DeclarativeTerm::Ritchie(term) => RitchieDeclarativeTerm::new(
                 db,
                 term.ritchie_kind(db),
                 term.params(db)
@@ -171,7 +171,7 @@ impl DeclarativeTerm {
                 let x = term.x(db);
                 // should be equal by the choice of variable idx and the fact that m contains the symbol
                 debug_assert_ne!(x, variable);
-                DeclarativeTermAbstraction::new(
+                AbstractionDeclarativeTerm::new(
                     db,
                     x,
                     term.m(db)
@@ -179,7 +179,7 @@ impl DeclarativeTerm {
                 )
                 .into()
             }
-            DeclarativeTerm::ExplicitApplication(term) => DeclarativeTermExplicitApplication::new(
+            DeclarativeTerm::Application(term) => ApplicationDeclarativeTerm::new(
                 db,
                 term.function(db)
                     .substitute_symbol_with_variable(db, symbol, variable),
@@ -187,9 +187,9 @@ impl DeclarativeTerm {
                     .substitute_symbol_with_variable(db, symbol, variable),
             )
             .into(),
-            DeclarativeTerm::ExplicitApplicationOrRitchieCall(_) => todo!(),
-            DeclarativeTerm::Subitem(_) => todo!(),
-            DeclarativeTerm::AsTraitSubitem(_) => todo!(),
+            DeclarativeTerm::ApplicationOrRitchieCall(_) => todo!(),
+            DeclarativeTerm::AssociatedItem(_) => todo!(),
+            DeclarativeTerm::TypeAsTraitAssociatedItem(_) => todo!(),
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),

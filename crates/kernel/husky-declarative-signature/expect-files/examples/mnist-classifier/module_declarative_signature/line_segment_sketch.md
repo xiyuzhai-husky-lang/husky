@@ -107,7 +107,7 @@
                                     has_initialization: true,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                            instance_constructor_ritchie_ty: RitchieDeclarativeTerm {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -154,7 +154,7 @@
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: DeclarativeTermRitchie {
+                            instance_constructor_ritchie_ty: RitchieDeclarativeTerm {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),

@@ -16,7 +16,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: DeclarativeTermSymbol(
+                                        symbol: SymbolDeclarativeTerm(
                                             Id {
                                                 value: 4,
                                             },
@@ -57,7 +57,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: DeclarativeTermSymbol(
+                                    symbol: SymbolDeclarativeTerm(
                                         Id {
                                             value: 10,
                                         },
@@ -89,7 +89,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: DeclarativeTermSymbol(
+                                            symbol: SymbolDeclarativeTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -135,7 +135,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: DeclarativeTermSymbol(
+                                            symbol: SymbolDeclarativeTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -151,7 +151,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: DeclarativeTermSymbol(
+                                        symbol: SymbolDeclarativeTerm(
                                             Id {
                                                 value: 1,
                                             },
@@ -198,7 +198,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: DeclarativeTermSymbol(
+                                            symbol: SymbolDeclarativeTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -214,7 +214,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: DeclarativeTermSymbol(
+                                        symbol: SymbolDeclarativeTerm(
                                             Id {
                                                 value: 2,
                                             },
@@ -254,7 +254,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: DeclarativeTermSymbol(
+                                            symbol: SymbolDeclarativeTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -270,7 +270,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: DeclarativeTermSymbol(
+                                        symbol: SymbolDeclarativeTerm(
                                             Id {
                                                 value: 2,
                                             },
@@ -310,7 +310,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: DeclarativeTermSymbol(
+                                            symbol: SymbolDeclarativeTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -326,7 +326,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: DeclarativeTermSymbol(
+                                        symbol: SymbolDeclarativeTerm(
                                             Id {
                                                 value: 1,
                                             },
@@ -366,7 +366,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: DeclarativeTermSymbol(
+                                            symbol: SymbolDeclarativeTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -412,7 +412,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: DeclarativeTermSymbol(
+                                            symbol: SymbolDeclarativeTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -471,7 +471,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            symbol: DeclarativeTermSymbol(
+                                            symbol: SymbolDeclarativeTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -487,7 +487,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: DeclarativeTermSymbol(
+                                        symbol: SymbolDeclarativeTerm(
                                             Id {
                                                 value: 1,
                                             },

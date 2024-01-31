@@ -5,17 +5,17 @@ use crate::*;
 impl DeclarativeTerm {
     #[inline(always)]
     pub fn apply(self, db: &::salsa::Db, argument: impl Into<DeclarativeTerm>) -> Self {
-        DeclarativeTermExplicitApplication::new(db, self, argument.into()).into()
+        ApplicationDeclarativeTerm::new(db, self, argument.into()).into()
     }
 
     pub fn family(self, db: &::salsa::Db) -> DeclarativeTermFamily {
         match self {
-            DeclarativeTerm::EntityPath(DeclarativeTermEntityPath::Type(path)) => {
+            DeclarativeTerm::EntityPath(EntityPathDeclarativeTerm::Type(path)) => {
                 DeclarativeTermFamily::TypePath(path)
             }
             DeclarativeTerm::Category(_) => DeclarativeTermFamily::Sort,
-            DeclarativeTerm::ExplicitApplication(term) => term.function(db).family(db),
-            DeclarativeTerm::ExplicitApplicationOrRitchieCall(term) => term.function(db).family(db),
+            DeclarativeTerm::Application(term) => term.function(db).family(db),
+            DeclarativeTerm::ApplicationOrRitchieCall(term) => term.function(db).family(db),
             DeclarativeTerm::LeashOrBitNot(toolchain) => {
                 DeclarativeTermFamily::TypePath(item_path_menu(db, toolchain).leash_ty_path())
             }
@@ -29,12 +29,12 @@ impl DeclarativeTerm {
         db: &::salsa::Db,
     ) -> DeclarativeTermResult<TermTypeExpectation> {
         match self {
-            DeclarativeTerm::EntityPath(DeclarativeTermEntityPath::Type(path)) => Ok(
+            DeclarativeTerm::EntityPath(EntityPathDeclarativeTerm::Type(path)) => Ok(
                 TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path),
             ),
             DeclarativeTerm::Category(_) => Ok(TermTypeExpectation::FinalDestinationEqsSort),
             DeclarativeTerm::Curry(slf) => slf.return_ty(db).ty_final_destination_expectation(db),
-            DeclarativeTerm::ExplicitApplication(slf) => {
+            DeclarativeTerm::Application(slf) => {
                 slf.function(db).ty_final_destination_expectation(db)
             }
             _ => Ok(TermTypeExpectation::Any),
@@ -55,7 +55,7 @@ pub enum DeclarativeTermFamily {
     Other,
 }
 
-impl DeclarativeTermSymbol {
+impl SymbolDeclarativeTerm {
     pub(crate) fn ty_family(self, db: &::salsa::Db) -> DeclarativeTermFamily {
         self.ty(db)
             .ok()
@@ -64,7 +64,7 @@ impl DeclarativeTermSymbol {
     }
 }
 
-impl DeclarativeTermRune {
+impl RuneDeclarativeTerm {
     pub(crate) fn ty_family(self, db: &::salsa::Db) -> DeclarativeTermFamily {
         self.ty(db)
             .ok()

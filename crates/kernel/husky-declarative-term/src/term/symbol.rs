@@ -13,7 +13,7 @@ use vec_like::VecSet;
 
 /// symbols are defined in a top-down manner through generics
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct DeclarativeTermSymbol {
+pub struct SymbolDeclarativeTerm {
     pub toolchain: Toolchain,
     pub ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     /// this is the index for all symbols with the same type
@@ -22,7 +22,7 @@ pub struct DeclarativeTermSymbol {
     pub index: DeclarativeTermSymbolIndex,
 }
 
-impl DeclarativeTermSymbol {
+impl SymbolDeclarativeTerm {
     pub(crate) const AD_HOD_IDX_START: u8 = u8::MAX / 2;
 
     #[inline(always)]
@@ -32,7 +32,7 @@ impl DeclarativeTermSymbol {
         registry: &mut TermSymbolRegistry,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
-        DeclarativeTermSymbol::new(
+        SymbolDeclarativeTerm::new(
             db,
             toolchain,
             Ok(DeclarativeTerm::TYPE),
@@ -48,7 +48,7 @@ impl DeclarativeTermSymbol {
         _self_ty_term: DeclarativeTerm,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
-        DeclarativeTermSymbol::new(
+        SymbolDeclarativeTerm::new(
             db,
             toolchain,
             Ok(DeclarativeTerm::TYPE),
@@ -110,7 +110,7 @@ impl DeclarativeTermSymbol {
         let ty = Ok(menu.ty0().into());
         (
             ty,
-            DeclarativeTermSymbol::new(db, toolchain, ty, registry.issue_ty_index(attrs, variance)),
+            SymbolDeclarativeTerm::new(db, toolchain, ty, registry.issue_ty_index(attrs, variance)),
         )
     }
 
@@ -190,7 +190,7 @@ pub enum DeclarativeTermSymbolTypeErrorKind {
 
 pub type DeclarativeTermSymbolTypeResult<T> = Result<T, DeclarativeTermSymbolTypeErrorKind>;
 
-impl salsa::DisplayWithDb for DeclarativeTermSymbol {
+impl salsa::DisplayWithDb for SymbolDeclarativeTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

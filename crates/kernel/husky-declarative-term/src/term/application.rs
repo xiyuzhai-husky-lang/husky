@@ -15,12 +15,12 @@ use std::fmt::Debug;
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct DeclarativeTermExplicitApplication {
+pub struct ApplicationDeclarativeTerm {
     pub function: DeclarativeTerm,
     pub argument: DeclarativeTerm,
 }
 
-impl DeclarativeTermExplicitApplication {
+impl ApplicationDeclarativeTerm {
     #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
@@ -34,7 +34,7 @@ impl DeclarativeTermExplicitApplication {
     }
 }
 
-impl salsa::DisplayWithDb for DeclarativeTermExplicitApplication {
+impl salsa::DisplayWithDb for ApplicationDeclarativeTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -44,7 +44,7 @@ impl salsa::DisplayWithDb for DeclarativeTermExplicitApplication {
     }
 }
 
-impl DeclarativeTermRewriteCopy for DeclarativeTermExplicitApplication {
+impl DeclarativeTermRewriteCopy for ApplicationDeclarativeTerm {
     fn substitute_copy(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self
     where
         Self: Copy,
@@ -56,11 +56,11 @@ impl DeclarativeTermRewriteCopy for DeclarativeTermExplicitApplication {
         if old_m == m && old_n == n {
             return self;
         }
-        DeclarativeTermExplicitApplication::new(db, m, n)
+        ApplicationDeclarativeTerm::new(db, m, n)
     }
 }
 
-impl std::fmt::Display for DeclarativeTermExplicitApplication {
+impl std::fmt::Display for ApplicationDeclarativeTerm {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }

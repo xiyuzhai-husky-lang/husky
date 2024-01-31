@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct DeclarativeTemplateParameter {
     annotated_variance: Option<Variance>,
-    symbol: DeclarativeTermSymbol,
+    symbol: SymbolDeclarativeTerm,
     annotated_traits: Vec<DeclarativeTerm>,
 }
 
@@ -71,7 +71,7 @@ impl DeclarativeTemplateParameter {
         }
     }
 
-    fn new_implicit(symbol: DeclarativeTermSymbol) -> Self {
+    fn new_implicit(symbol: SymbolDeclarativeTerm) -> Self {
         DeclarativeTemplateParameter {
             symbol: symbol,
             annotated_variance: None,
@@ -79,7 +79,7 @@ impl DeclarativeTemplateParameter {
         }
     }
 
-    pub fn symbol(&self) -> DeclarativeTermSymbol {
+    pub fn symbol(&self) -> SymbolDeclarativeTerm {
         self.symbol
     }
 

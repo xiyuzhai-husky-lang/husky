@@ -11,7 +11,7 @@ use smallvec::SmallVec;
 
 /// representing declarative_term `x -> y`
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct DeclarativeTermRitchie {
+pub struct RitchieDeclarativeTerm {
     pub ritchie_kind: RitchieKind,
     #[return_ref]
     pub params: SmallVec<[DeclarativeRitchieParameter; 2]>,
@@ -19,7 +19,7 @@ pub struct DeclarativeTermRitchie {
     // ty: DeclarativeTerm,
 }
 
-impl DeclarativeTermRitchie {
+impl RitchieDeclarativeTerm {
     #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
@@ -40,7 +40,7 @@ impl DeclarativeTermRitchie {
     }
 }
 
-impl salsa::DisplayWithDb for DeclarativeTermRitchie {
+impl salsa::DisplayWithDb for RitchieDeclarativeTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -113,7 +113,7 @@ impl salsa::DisplayWithDb for DeclarativeRitchieParameter {
     }
 }
 
-impl DeclarativeTermRewriteCopy for DeclarativeTermRitchie {
+impl DeclarativeTermRewriteCopy for RitchieDeclarativeTerm {
     fn substitute_copy(
         self,
         _db: &::salsa::Db,

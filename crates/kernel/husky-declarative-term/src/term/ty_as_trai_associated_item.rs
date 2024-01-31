@@ -2,12 +2,13 @@ use crate::*;
 use husky_coword::Ident;
 
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct DeclarativeTermSubitem {
+pub struct TypeAsTraitAssociatedItemDeclarativeTerm {
     parent: DeclarativeTerm,
+    trai: DeclarativeTerm,
     ident: Ident,
 }
 
-impl DeclarativeTermSubitem {
+impl TypeAsTraitAssociatedItemDeclarativeTerm {
     #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
@@ -19,18 +20,19 @@ impl DeclarativeTermSubitem {
     }
 }
 
-impl DeclarativeTermRewriteCopy for DeclarativeTermSubitem {
-    fn substitute_copy(
-        self,
-        db: &::salsa::Db,
-        substituation: &DeclarativeTermSubstitution,
-    ) -> Self {
+impl DeclarativeTermRewriteCopy for TypeAsTraitAssociatedItemDeclarativeTerm {
+    fn substitute_copy(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self
+    where
+        Self: Copy,
+    {
         let old_parent = self.parent(db);
         let parent = old_parent.substitute_copy(db, substituation);
-        if old_parent == parent {
+        let old_trai = self.trai(db);
+        let trai = old_trai.substitute_copy(db, substituation);
+        if old_parent == parent && old_trai == trai {
             return self;
         }
         let ident = self.ident(db);
-        DeclarativeTermSubitem::new(db, parent, ident)
+        Self::new(db, parent, trai, ident)
     }
 }

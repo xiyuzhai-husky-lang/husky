@@ -30,7 +30,7 @@ impl EtherealTermSymbol {
     #[inline(always)]
     pub fn from_declarative(
         db: &::salsa::Db,
-        declarative_term_symbol: DeclarativeTermSymbol,
+        declarative_term_symbol: SymbolDeclarativeTerm,
     ) -> EtherealTermResult<Self> {
         let ty = declarative_term_symbol.ty(db)?;
         let ty = EtherealTerm::ty_from_declarative(db, ty)?;

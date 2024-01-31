@@ -14,7 +14,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: DeclarativeTermSymbol(
+                                        symbol: SymbolDeclarativeTerm(
                                             Id {
                                                 value: 3,
                                             },
@@ -25,7 +25,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: DeclarativeTermSymbol(
+                                        symbol: SymbolDeclarativeTerm(
                                             Id {
                                                 value: 4,
                                             },

@@ -6,22 +6,22 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum DeclarativeTermEntityPath {
+pub enum EntityPathDeclarativeTerm {
     Fugitive(FugitivePath),
     Trait(TraitPath),
     Type(TypePath),
     TypeVariant(TypeVariantPath),
 }
 
-impl From<TermEntityPath> for DeclarativeTermEntityPath {
+impl From<TermEntityPath> for EntityPathDeclarativeTerm {
     fn from(path: TermEntityPath) -> Self {
         match path {
-            TermEntityPath::Fugitive(path) => DeclarativeTermEntityPath::Fugitive(path),
-            TermEntityPath::Trait(path) => DeclarativeTermEntityPath::Trait(path),
+            TermEntityPath::Fugitive(path) => EntityPathDeclarativeTerm::Fugitive(path),
+            TermEntityPath::Trait(path) => EntityPathDeclarativeTerm::Trait(path),
             TermEntityPath::TypeOntology(path) | TermEntityPath::TypeInstance(path) => {
-                DeclarativeTermEntityPath::Type(path)
+                EntityPathDeclarativeTerm::Type(path)
             }
-            TermEntityPath::TypeVariant(path) => DeclarativeTermEntityPath::TypeVariant(path),
+            TermEntityPath::TypeVariant(path) => EntityPathDeclarativeTerm::TypeVariant(path),
         }
     }
 }
@@ -32,13 +32,13 @@ impl From<TermEntityPath> for DeclarativeTerm {
     }
 }
 
-impl DeclarativeTermEntityPath {
+impl EntityPathDeclarativeTerm {
     pub fn ty_path(self) -> Option<TypePath> {
         match self {
-            DeclarativeTermEntityPath::Type(path) => Some(path),
-            DeclarativeTermEntityPath::Fugitive(_)
-            | DeclarativeTermEntityPath::Trait(_)
-            | DeclarativeTermEntityPath::TypeVariant(_) => None,
+            EntityPathDeclarativeTerm::Type(path) => Some(path),
+            EntityPathDeclarativeTerm::Fugitive(_)
+            | EntityPathDeclarativeTerm::Trait(_)
+            | EntityPathDeclarativeTerm::TypeVariant(_) => None,
         }
     }
 }
@@ -60,7 +60,7 @@ impl From<TypePath> for DeclarativeTerm {
     }
 }
 
-impl DeclarativeTermEntityPath {
+impl EntityPathDeclarativeTerm {
     #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
@@ -69,10 +69,10 @@ impl DeclarativeTermEntityPath {
         _ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         match self {
-            DeclarativeTermEntityPath::Fugitive(path) => path.display_with_db_fmt(f, db),
-            DeclarativeTermEntityPath::Trait(path) => path.display_with_db_fmt(f, db),
-            DeclarativeTermEntityPath::Type(path) => path.display_with_db_fmt(f, db),
-            DeclarativeTermEntityPath::TypeVariant(path) => path.display_with_db_fmt(f, db),
+            EntityPathDeclarativeTerm::Fugitive(path) => path.display_with_db_fmt(f, db),
+            EntityPathDeclarativeTerm::Trait(path) => path.display_with_db_fmt(f, db),
+            EntityPathDeclarativeTerm::Type(path) => path.display_with_db_fmt(f, db),
+            EntityPathDeclarativeTerm::TypeVariant(path) => path.display_with_db_fmt(f, db),
         }
     }
 }

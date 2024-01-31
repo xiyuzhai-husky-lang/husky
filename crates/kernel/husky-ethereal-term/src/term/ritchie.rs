@@ -93,7 +93,7 @@ impl EtherealTermRitchie {
     #[inline(always)]
     pub fn from_declarative(
         db: &::salsa::Db,
-        declarative_term_ritchie: DeclarativeTermRitchie,
+        declarative_term_ritchie: RitchieDeclarativeTerm,
     ) -> EtherealTermResult<Self> {
         ethereal_term_ritchie_from_declarative_term_ritchie(db, declarative_term_ritchie)
     }
@@ -121,7 +121,7 @@ impl EtherealTermRitchie {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
     db: &::salsa::Db,
-    declarative_term_ritchie: DeclarativeTermRitchie,
+    declarative_term_ritchie: RitchieDeclarativeTerm,
 ) -> EtherealTermResult<EtherealTermRitchie> {
     EtherealTermRitchie::new_unchecked2(
         db,

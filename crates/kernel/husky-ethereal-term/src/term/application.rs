@@ -79,7 +79,7 @@ impl EtherealTermApplication {
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
-        declarative_term_application: DeclarativeTermExplicitApplication,
+        declarative_term_application: ApplicationDeclarativeTerm,
         term_ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<EtherealTerm> {
         // todo: implicit arguments
@@ -110,7 +110,7 @@ impl EtherealTermApplication {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_application(
     db: &::salsa::Db,
-    declarative_term_application: DeclarativeTermExplicitApplication,
+    declarative_term_application: ApplicationDeclarativeTerm,
     declarative_ty_expectation: TermTypeExpectation,
 ) -> EtherealTermResult<EtherealTerm> {
     // todo: implicit arguments
@@ -161,7 +161,7 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn parameter_ty_declarative_term_curry_to_argument_ty_expectation(
     _db: &::salsa::Db,
-    _declarative_term_curry: DeclarativeTermCurry,
+    _declarative_term_curry: CurryDeclarativeTerm,
 ) -> TermTypeExpectation {
     todo!()
 }
@@ -207,8 +207,8 @@ pub(crate) fn ethereal_term_application_declarative_ty(
 /// function_ty.parameter_rune(db) matches Some
 pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     db: &::salsa::Db,
-    function_ty: DeclarativeTermCurry,
-    function_ty_parameter_variable: DeclarativeTermRune,
+    function_ty: CurryDeclarativeTerm,
+    function_ty_parameter_variable: RuneDeclarativeTerm,
     argument: DeclarativeTerm,
     argument_ty: RawType,
     shift: u8,
@@ -237,14 +237,14 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
                     // this is possible because we expect in the recursion process
                     // shift never appears twice
                     let new_parameter_symbol = unsafe {
-                        DeclarativeTermSymbol::new_ad_hoc(
+                        SymbolDeclarativeTerm::new_ad_hoc(
                             db,
                             argument_ty.toolchain(db),
                             new_parameter_ty,
                             shift,
                         )
                     };
-                    Ok(DeclarativeTermCurry::new_dependent(
+                    Ok(CurryDeclarativeTerm::new_dependent(
                         db,
                         argument_ty.toolchain(db),
                         argument_ty.curry_kind(db),
@@ -256,7 +256,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
                             function_ty,
                             function_ty_parameter_variable,
                             // corresponds to `arg b` in the example
-                            DeclarativeTermExplicitApplication::new(
+                            ApplicationDeclarativeTerm::new(
                                 db,
                                 argument,
                                 new_parameter_symbol.into(),
@@ -283,7 +283,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
 /// function_ty.parameter_rune(db) is None
 pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
     db: &::salsa::Db,
-    function_ty: DeclarativeTermCurry,
+    function_ty: CurryDeclarativeTerm,
     argument_ty: RawType,
     shift: u8,
 ) -> EtherealTermResult<DeclarativeTerm> {
@@ -292,7 +292,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
         0 => Ok(function_ty.return_ty(db)),
         shift => match argument_ty {
             RawType::Declarative(DeclarativeTerm::Curry(argument_ty)) => {
-                Ok(DeclarativeTermCurry::new_nondependent(
+                Ok(CurryDeclarativeTerm::new_nondependent(
                     db,
                     argument_ty.toolchain(db),
                     argument_ty.curry_kind(db),

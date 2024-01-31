@@ -1,37 +1,34 @@
 mod abstraction;
-mod as_trai_subitem;
+mod application;
+mod application_or_ritchie_call;
+mod associated_item;
 mod constraint;
 mod curry;
-mod explicit_application;
-mod explicit_application_or_ritchie_call;
 mod item_path;
 mod list;
 mod literal;
 mod ritchie;
 mod rune;
-mod subitem;
 mod symbol;
+mod ty_as_trai_associated_item;
 mod wrapper;
 
-use salsa::DisplayWithDb;
-
 pub use self::abstraction::*;
-pub use self::as_trai_subitem::*;
+pub use self::application::*;
+pub use self::application_or_ritchie_call::*;
+pub use self::associated_item::*;
 pub use self::constraint::*;
 pub use self::curry::*;
-pub use self::explicit_application::*;
-pub use self::explicit_application_or_ritchie_call::*;
 pub use self::item_path::*;
 pub use self::list::*;
 pub use self::literal::*;
 pub use self::ritchie::*;
 pub use self::rune::*;
-pub use self::subitem::*;
 pub use self::symbol::*;
+pub use self::ty_as_trai_associated_item::*;
 pub use self::wrapper::*;
 
 use crate::*;
-use std::fmt::Debug;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
@@ -39,20 +36,20 @@ pub enum DeclarativeTerm {
     /// atoms
     ///
     /// literal: 1,1.0, true, false; variable, itemPath
-    Literal(DeclarativeTermLiteral),
-    Symbol(DeclarativeTermSymbol),
+    Literal(LiteralDeclarativeTerm),
+    Symbol(SymbolDeclarativeTerm),
     /// variables are those appearing in lambda expression
     /// variables are derived from symbols
-    Rune(DeclarativeTermRune),
-    EntityPath(DeclarativeTermEntityPath),
+    Rune(RuneDeclarativeTerm),
+    EntityPath(EntityPathDeclarativeTerm),
     Category(TermCategory),
     Universe(TermUniverse),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
-    Curry(DeclarativeTermCurry),
+    Curry(CurryDeclarativeTerm),
     /// in memory of Dennis M.Ritchie
-    Ritchie(DeclarativeTermRitchie),
+    Ritchie(RitchieDeclarativeTerm),
     /// lambda x => expr
-    Abstraction(DeclarativeTermAbstraction),
+    Abstraction(AbstractionDeclarativeTerm),
     /// in husky, application is generalized to include composition as a special case;
     ///
     /// when shift is `0`, this is the normal application;
@@ -66,22 +63,22 @@ pub enum DeclarativeTerm {
     /// then apply function to the result,
     ///
     /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-    ExplicitApplication(DeclarativeTermExplicitApplication),
-    ExplicitApplicationOrRitchieCall(DeclarativeTermExplicitApplicationOrRitchieCall),
+    Application(ApplicationDeclarativeTerm),
+    ApplicationOrRitchieCall(ApplicationOrRitchieCallDeclarativeTerm),
     /// ::<ident>
-    Subitem(DeclarativeTermSubitem),
+    AssociatedItem(AssociatedItemDeclarativeTerm),
     /// (<type> as <trait>)::<ident>
-    AsTraitSubitem(DeclarativeTermAsTraitSubitem),
+    TypeAsTraitAssociatedItem(TypeAsTraitAssociatedItemDeclarativeTerm),
     /// <type> : <trait>
-    TraitConstraint(DeclarativeTermTraitConstraint),
+    TraitConstraint(TraitConstraintDeclarativeTerm),
     /// `~`
     LeashOrBitNot(Toolchain),
-    Wrapper(DeclarativeTermWrapper),
+    Wrapper(WrapperDeclarativeTerm),
     /// can be interpreted as
     /// - a normal list of terms
     /// - List functor
     /// - Array functor
-    List(DeclarativeTermList),
+    List(ListDeclarativeTerm),
 }
 
 impl salsa::DebugWithDb for DeclarativeTerm {
@@ -95,7 +92,7 @@ impl salsa::DebugWithDb for DeclarativeTerm {
     }
 }
 
-impl DisplayWithDb for DeclarativeTerm {
+impl salsa::DisplayWithDb for DeclarativeTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -129,12 +126,10 @@ impl DeclarativeTerm {
             DeclarativeTerm::Curry(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::Ritchie(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::Abstraction(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::ExplicitApplication(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::ExplicitApplicationOrRitchieCall(term) => {
-                term.show_with_db_fmt(f, db, ctx)
-            }
-            DeclarativeTerm::Subitem(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::AsTraitSubitem(term) => term.show_with_db_fmt(f, db, ctx),
+            DeclarativeTerm::Application(term) => term.show_with_db_fmt(f, db, ctx),
+            DeclarativeTerm::ApplicationOrRitchieCall(term) => term.show_with_db_fmt(f, db, ctx),
+            DeclarativeTerm::AssociatedItem(term) => term.show_with_db_fmt(f, db, ctx),
+            DeclarativeTerm::TypeAsTraitAssociatedItem(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::LeashOrBitNot(_) => f.write_str("~"),
             DeclarativeTerm::List(term) => term.show_with_db_fmt(f, db, ctx),

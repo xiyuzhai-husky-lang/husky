@@ -13,7 +13,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: DeclarativeTermSymbol(
+                                    symbol: SymbolDeclarativeTerm(
                                         Id {
                                             value: 5,
                                         },

@@ -17,7 +17,7 @@ fn term_abstraction_size_works() {
 impl EtherealTermAbstraction {
     pub(crate) fn from_declarative(
         _db: &::salsa::Db,
-        _precise_term: DeclarativeTermAbstraction,
+        _precise_term: AbstractionDeclarativeTerm,
         _term_ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<Self> {
         todo!()

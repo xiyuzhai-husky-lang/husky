@@ -13,7 +13,7 @@ pub struct TraitForTypeImplBlockDeclarativeSignatureTemplate {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DeclarativeSelfType {
     Path(DeclarativeTerm),
-    DerivedAny(DeclarativeTermSymbol),
+    DerivedAny(SymbolDeclarativeTerm),
 }
 
 impl DeclarativeSelfType {

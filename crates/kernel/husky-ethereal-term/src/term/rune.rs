@@ -12,7 +12,7 @@ impl EtherealTermRune {
     #[inline(always)]
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
-        variable: DeclarativeTermRune,
+        variable: RuneDeclarativeTerm,
     ) -> EtherealTermResult<Self> {
         let ty = variable.ty(db)?;
         let ty = EtherealTerm::ty_from_declarative(db, ty)?;

@@ -37,12 +37,12 @@ impl DeclarativeTermRewriteCopy for DeclarativeTerm {
             | DeclarativeTerm::LeashOrBitNot(_) => self,
             DeclarativeTerm::Curry(term) => term.substitute_copy(db, substitution).into(),
             DeclarativeTerm::Abstraction(term) => term.substitute_copy(db, substitution).into(),
-            DeclarativeTerm::ExplicitApplication(term) => {
+            DeclarativeTerm::Application(term) => term.substitute_copy(db, substitution).into(),
+            DeclarativeTerm::ApplicationOrRitchieCall(_term) => todo!(),
+            DeclarativeTerm::AssociatedItem(term) => term.substitute_copy(db, substitution).into(),
+            DeclarativeTerm::TypeAsTraitAssociatedItem(term) => {
                 term.substitute_copy(db, substitution).into()
             }
-            DeclarativeTerm::ExplicitApplicationOrRitchieCall(_term) => todo!(),
-            DeclarativeTerm::Subitem(term) => term.substitute_copy(db, substitution).into(),
-            DeclarativeTerm::AsTraitSubitem(term) => term.substitute_copy(db, substitution).into(),
             DeclarativeTerm::TraitConstraint(term) => term.substitute_copy(db, substitution).into(),
             DeclarativeTerm::Ritchie(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
