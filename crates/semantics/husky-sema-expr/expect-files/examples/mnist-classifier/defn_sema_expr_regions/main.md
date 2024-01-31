@@ -134,7 +134,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
@@ -158,7 +158,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
@@ -310,7 +310,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
@@ -334,7 +334,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
@@ -486,7 +486,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
@@ -510,7 +510,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
@@ -662,7 +662,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
@@ -686,7 +686,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
@@ -838,7 +838,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
@@ -862,7 +862,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
@@ -1014,7 +1014,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
@@ -1038,7 +1038,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
@@ -1190,7 +1190,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
@@ -1214,7 +1214,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
@@ -1366,7 +1366,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
@@ -1390,7 +1390,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },
@@ -1542,7 +1542,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Comptime,
                                                                 },
@@ -1566,7 +1566,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Runtime,
                                                                 },

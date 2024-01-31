@@ -10,7 +10,7 @@ pub use self::ty::*;
 
 use crate::*;
 use husky_ethereal_term::{
-    EtherealTemplateSymbolAttrs, EtherealTermSymbol, EtherealTermSymbolIndexInner,
+    EtherealTemplateSymbolAttrs, EtherealTermSymbol, EtherealTermSymbolIndexImpl,
 };
 use husky_term_prelude::template_symbol_class::TermTemplateSymbolClass;
 
@@ -65,7 +65,7 @@ fn hir_template_symbol_from_ethereal(
     symbol: EtherealTermSymbol,
 ) -> Option<HirTemplateSymbol> {
     match symbol.index(db).inner() {
-        EtherealTermSymbolIndexInner::ExplicitLifetime {
+        EtherealTermSymbolIndexImpl::ExplicitLifetime {
             attrs,
             variance,
             disambiguator,
@@ -77,7 +77,7 @@ fn hir_template_symbol_from_ethereal(
             }
             .into(),
         ),
-        EtherealTermSymbolIndexInner::ExplicitPlace {
+        EtherealTermSymbolIndexImpl::ExplicitPlace {
             attrs,
             variance,
             disambiguator,
@@ -89,7 +89,7 @@ fn hir_template_symbol_from_ethereal(
             }
             .into(),
         ),
-        EtherealTermSymbolIndexInner::Type {
+        EtherealTermSymbolIndexImpl::Type {
             attrs,
             variance,
             disambiguator,
@@ -101,8 +101,8 @@ fn hir_template_symbol_from_ethereal(
             }
             .into(),
         ),
-        EtherealTermSymbolIndexInner::Prop { disambiguator: _ } => todo!(),
-        EtherealTermSymbolIndexInner::ConstPathLeading {
+        EtherealTermSymbolIndexImpl::Prop { disambiguator: _ } => todo!(),
+        EtherealTermSymbolIndexImpl::ConstPathLeading {
             attrs,
             disambiguator,
             ty_path,
@@ -118,7 +118,7 @@ fn hir_template_symbol_from_ethereal(
             )
             .into(),
         ),
-        EtherealTermSymbolIndexInner::ConstOther {
+        EtherealTermSymbolIndexImpl::ConstOther {
             attrs,
             disambiguator,
         } => Some(
@@ -132,14 +132,14 @@ fn hir_template_symbol_from_ethereal(
             )
             .into(),
         ),
-        EtherealTermSymbolIndexInner::EphemPathLeading {
+        EtherealTermSymbolIndexImpl::EphemPathLeading {
             disambiguator: _,
             ty_path: _,
         } => None,
-        EtherealTermSymbolIndexInner::EphemOther { disambiguator: _ } => None,
-        EtherealTermSymbolIndexInner::SelfType => Some(HirTypeSymbol::SelfType.into()),
-        EtherealTermSymbolIndexInner::SelfValue => todo!(),
-        EtherealTermSymbolIndexInner::SelfLifetime => Some(HirTypeSymbol::SelfLifetime.into()),
-        EtherealTermSymbolIndexInner::SelfPlace => Some(HirTypeSymbol::SelfPlace.into()),
+        EtherealTermSymbolIndexImpl::EphemOther { disambiguator: _ } => None,
+        EtherealTermSymbolIndexImpl::SelfType => Some(HirTypeSymbol::SelfType.into()),
+        EtherealTermSymbolIndexImpl::SelfValue => todo!(),
+        EtherealTermSymbolIndexImpl::SelfLifetime => Some(HirTypeSymbol::SelfLifetime.into()),
+        EtherealTermSymbolIndexImpl::SelfPlace => Some(HirTypeSymbol::SelfPlace.into()),
     }
 }

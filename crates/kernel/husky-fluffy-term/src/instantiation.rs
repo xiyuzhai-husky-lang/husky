@@ -188,10 +188,10 @@ impl FluffyInstantiationBuilder {
                     (
                         symbol,
                         match symbol.index(db).inner() {
-                            EtherealTermSymbolIndexInner::SelfLifetime => {
+                            EtherealTermSymbolIndexImpl::SelfLifetime => {
                                 Some(FluffyTermSymbolResolution::SelfLifetime)
                             }
-                            EtherealTermSymbolIndexInner::SelfPlace => Some(match env {
+                            EtherealTermSymbolIndexImpl::SelfPlace => Some(match env {
                                 FluffyInstantiationEnvironment::AssociatedFn => todo!(),
                                 FluffyInstantiationEnvironment::MethodFn { self_place } => {
                                     FluffyTermSymbolResolution::SelfPlace(self_place)

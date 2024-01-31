@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_ethereal_term::{
-    EtherealTerm, EtherealTermApplication, EtherealTermSymbolIndexInner, TermFunctionReduced,
+    EtherealTerm, EtherealTermApplication, EtherealTermSymbolIndexImpl, TermFunctionReduced,
 };
 use husky_term_prelude::TermEntityPath;
 
@@ -59,27 +59,27 @@ fn hir_trai_from_ethereal_term_application(
                 application_expansion.arguments(db).iter().copied(),
             )
             .filter_map(|(param, arg)| match param.symbol().index(db).inner() {
-                EtherealTermSymbolIndexInner::ExplicitLifetime {
+                EtherealTermSymbolIndexImpl::ExplicitLifetime {
                     attrs: _,
                     variance: _,
                     disambiguator: _,
                 } => todo!(),
-                EtherealTermSymbolIndexInner::ExplicitPlace {
+                EtherealTermSymbolIndexImpl::ExplicitPlace {
                     attrs: _,
                     variance: _,
                     disambiguator: _,
                 } => todo!(),
-                EtherealTermSymbolIndexInner::Type { attrs, .. } => (!attrs.phantom())
+                EtherealTermSymbolIndexImpl::Type { attrs, .. } => (!attrs.phantom())
                     .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db).unwrap())),
-                EtherealTermSymbolIndexInner::Prop { .. } => None,
-                EtherealTermSymbolIndexInner::ConstPathLeading { .. }
-                | EtherealTermSymbolIndexInner::ConstOther { .. } => todo!(),
-                EtherealTermSymbolIndexInner::EphemPathLeading { .. }
-                | EtherealTermSymbolIndexInner::EphemOther { .. }
-                | EtherealTermSymbolIndexInner::SelfType
-                | EtherealTermSymbolIndexInner::SelfValue
-                | EtherealTermSymbolIndexInner::SelfLifetime
-                | EtherealTermSymbolIndexInner::SelfPlace => unreachable!(),
+                EtherealTermSymbolIndexImpl::Prop { .. } => None,
+                EtherealTermSymbolIndexImpl::ConstPathLeading { .. }
+                | EtherealTermSymbolIndexImpl::ConstOther { .. } => todo!(),
+                EtherealTermSymbolIndexImpl::EphemPathLeading { .. }
+                | EtherealTermSymbolIndexImpl::EphemOther { .. }
+                | EtherealTermSymbolIndexImpl::SelfType
+                | EtherealTermSymbolIndexImpl::SelfValue
+                | EtherealTermSymbolIndexImpl::SelfLifetime
+                | EtherealTermSymbolIndexImpl::SelfPlace => unreachable!(),
             })
             .collect();
             HirTrait::new(db, trai_path, template_arguments).into()

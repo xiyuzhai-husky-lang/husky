@@ -2985,7 +2985,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Phantom,
                                                                 },
@@ -3009,7 +3009,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Phantom,
                                                                 },
@@ -4860,7 +4860,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Phantom,
                                                                 },
@@ -4884,7 +4884,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Phantom,
                                                                 },
@@ -6136,7 +6136,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Phantom,
                                                                 },
@@ -6160,7 +6160,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Phantom,
                                                                 },
@@ -7021,7 +7021,7 @@
                                                         },
                                                         ty: EtherealTerm(`Type`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::Type {
+                                                            EtherealTermSymbolIndexImpl::Type {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Phantom,
                                                                 },
@@ -7045,7 +7045,7 @@
                                                         },
                                                         ty: EtherealTerm(`t`),
                                                         index: EtherealTermSymbolIndex(
-                                                            EtherealTermSymbolIndexInner::ConstOther {
+                                                            EtherealTermSymbolIndexImpl::ConstOther {
                                                                 attrs: EtherealTemplateSymbolAttrs {
                                                                     class: Phantom,
                                                                 },

@@ -30,79 +30,79 @@ pub enum EtherealTemplateSymbolAttr {
 /// wrapper so such the construction is private
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct EtherealTermSymbolIndex(EtherealTermSymbolIndexInner);
+pub struct EtherealTermSymbolIndex(EtherealTermSymbolIndexImpl);
 
 impl EtherealTermSymbolIndex {
     pub(super) fn from_declarative(index: DeclarativeTermSymbolIndex) -> Self {
         EtherealTermSymbolIndex(match index.inner() {
-            DeclarativeTermSymbolIndexInner::ExplicitLifetime {
+            DeclarativeTermSymbolIndexImpl::ExplicitLifetime {
                 attrs,
                 variance,
                 disambiguator,
-            } => EtherealTermSymbolIndexInner::ExplicitLifetime {
+            } => EtherealTermSymbolIndexImpl::ExplicitLifetime {
                 attrs: EtherealTemplateSymbolAttrs::from_declarative(attrs),
                 variance,
                 disambiguator,
             },
-            DeclarativeTermSymbolIndexInner::ExplicitPlace {
+            DeclarativeTermSymbolIndexImpl::ExplicitPlace {
                 attrs,
                 variance,
                 disambiguator,
-            } => EtherealTermSymbolIndexInner::ExplicitPlace {
+            } => EtherealTermSymbolIndexImpl::ExplicitPlace {
                 attrs: EtherealTemplateSymbolAttrs::from_declarative(attrs),
                 variance,
                 disambiguator,
             },
-            DeclarativeTermSymbolIndexInner::Type {
+            DeclarativeTermSymbolIndexImpl::Type {
                 attrs,
                 variance,
                 disambiguator,
-            } => EtherealTermSymbolIndexInner::Type {
+            } => EtherealTermSymbolIndexImpl::Type {
                 attrs: EtherealTemplateSymbolAttrs::from_declarative(attrs),
                 variance,
                 disambiguator,
             },
-            DeclarativeTermSymbolIndexInner::Prop { disambiguator: _ } => todo!(),
-            DeclarativeTermSymbolIndexInner::ConstPathLeading {
+            DeclarativeTermSymbolIndexImpl::Prop { disambiguator } => todo!(),
+            DeclarativeTermSymbolIndexImpl::ConstPathLeading {
                 attrs,
                 disambiguator,
                 ty_path,
-            } => EtherealTermSymbolIndexInner::ConstPathLeading {
+            } => EtherealTermSymbolIndexImpl::ConstPathLeading {
                 attrs: EtherealTemplateSymbolAttrs::from_declarative(attrs),
                 disambiguator,
                 ty_path,
             },
-            DeclarativeTermSymbolIndexInner::ConstOther {
+            DeclarativeTermSymbolIndexImpl::ConstOther {
                 attrs,
                 disambiguator,
-            } => EtherealTermSymbolIndexInner::ConstOther {
+            } => EtherealTermSymbolIndexImpl::ConstOther {
                 attrs: EtherealTemplateSymbolAttrs::from_declarative(attrs),
                 disambiguator,
             },
-            DeclarativeTermSymbolIndexInner::ConstErr {
-                attrs: _,
-                disambiguator: _,
+            DeclarativeTermSymbolIndexImpl::ConstErr {
+                attrs,
+                disambiguator,
             } => todo!(),
-            DeclarativeTermSymbolIndexInner::EphemPathLeading {
+            DeclarativeTermSymbolIndexImpl::EphemPathLeading {
                 disambiguator,
                 ty_path,
-            } => EtherealTermSymbolIndexInner::EphemPathLeading {
+            } => EtherealTermSymbolIndexImpl::EphemPathLeading {
                 disambiguator,
                 ty_path,
             },
-            DeclarativeTermSymbolIndexInner::EphemOther { disambiguator: _ } => todo!(),
-            DeclarativeTermSymbolIndexInner::EphemErr { disambiguator: _ } => todo!(),
-            DeclarativeTermSymbolIndexInner::SelfType => EtherealTermSymbolIndexInner::SelfType,
-            DeclarativeTermSymbolIndexInner::SelfValue => EtherealTermSymbolIndexInner::SelfValue,
-            DeclarativeTermSymbolIndexInner::SelfLifetime => {
-                EtherealTermSymbolIndexInner::SelfLifetime
+            DeclarativeTermSymbolIndexImpl::EphemOther { disambiguator } => todo!(),
+            DeclarativeTermSymbolIndexImpl::EphemErr { disambiguator } => todo!(),
+            DeclarativeTermSymbolIndexImpl::SelfType => EtherealTermSymbolIndexImpl::SelfType,
+            DeclarativeTermSymbolIndexImpl::SelfValue => EtherealTermSymbolIndexImpl::SelfValue,
+            DeclarativeTermSymbolIndexImpl::SelfLifetime => {
+                EtherealTermSymbolIndexImpl::SelfLifetime
             }
-            DeclarativeTermSymbolIndexInner::SelfPlace => EtherealTermSymbolIndexInner::SelfPlace,
-            DeclarativeTermSymbolIndexInner::AdHoc { disambiguator: _ } => unreachable!(),
+            DeclarativeTermSymbolIndexImpl::SelfPlace => EtherealTermSymbolIndexImpl::SelfPlace,
+            DeclarativeTermSymbolIndexImpl::AdHoc { disambiguator } => unreachable!(),
         })
     }
 
-    pub fn inner(self) -> EtherealTermSymbolIndexInner {
+    pub fn inner(self) -> EtherealTermSymbolIndexImpl {
         self.0
     }
 }
@@ -112,61 +112,79 @@ impl Into<DeclarativeTermSymbolIndex> for EtherealTermSymbolIndex {
     fn into(self) -> DeclarativeTermSymbolIndex {
         unsafe {
             DeclarativeTermSymbolIndex::new(match self.inner() {
-                EtherealTermSymbolIndexInner::ExplicitLifetime {
+                EtherealTermSymbolIndexImpl::ExplicitLifetime {
                     attrs,
                     variance,
                     disambiguator,
-                } => DeclarativeTermSymbolIndexInner::ExplicitLifetime {
+                } => DeclarativeTermSymbolIndexImpl::ExplicitLifetime {
                     attrs: attrs.into(),
                     variance,
                     disambiguator,
                 },
-                EtherealTermSymbolIndexInner::ExplicitPlace {
+                EtherealTermSymbolIndexImpl::ExplicitPlace {
                     attrs,
                     variance,
                     disambiguator,
-                } => DeclarativeTermSymbolIndexInner::ExplicitPlace {
+                } => DeclarativeTermSymbolIndexImpl::ExplicitPlace {
                     attrs: attrs.into(),
                     variance,
                     disambiguator,
                 },
-                EtherealTermSymbolIndexInner::Type {
+                EtherealTermSymbolIndexImpl::Type {
                     attrs,
                     variance,
                     disambiguator,
-                } => DeclarativeTermSymbolIndexInner::Type {
+                } => DeclarativeTermSymbolIndexImpl::Type {
                     attrs: attrs.into(),
                     variance,
                     disambiguator,
                 },
-                EtherealTermSymbolIndexInner::Prop { disambiguator: _ } => todo!(),
-                EtherealTermSymbolIndexInner::ConstPathLeading {
-                    attrs: _,
-                    disambiguator: _,
-                    ty_path: _,
-                } => todo!(),
-                EtherealTermSymbolIndexInner::ConstOther {
-                    attrs: _,
-                    disambiguator: _,
-                } => todo!(),
-                EtherealTermSymbolIndexInner::EphemPathLeading {
-                    disambiguator: _,
-                    ty_path: _,
-                } => todo!(),
-                EtherealTermSymbolIndexInner::EphemOther { disambiguator: _ } => todo!(),
-                EtherealTermSymbolIndexInner::SelfType => todo!(),
-                EtherealTermSymbolIndexInner::SelfValue => todo!(),
-                EtherealTermSymbolIndexInner::SelfLifetime => todo!(),
-                EtherealTermSymbolIndexInner::SelfPlace => todo!(),
+                EtherealTermSymbolIndexImpl::Prop { disambiguator } => {
+                    DeclarativeTermSymbolIndexImpl::Prop { disambiguator }
+                }
+                EtherealTermSymbolIndexImpl::ConstPathLeading {
+                    attrs,
+                    disambiguator,
+                    ty_path,
+                } => DeclarativeTermSymbolIndexImpl::ConstPathLeading {
+                    attrs: attrs.into(),
+                    disambiguator,
+                    ty_path,
+                },
+                EtherealTermSymbolIndexImpl::ConstOther {
+                    attrs,
+                    disambiguator,
+                } => DeclarativeTermSymbolIndexImpl::ConstOther {
+                    attrs: attrs.into(),
+                    disambiguator,
+                },
+                EtherealTermSymbolIndexImpl::EphemPathLeading {
+                    disambiguator,
+                    ty_path,
+                } => DeclarativeTermSymbolIndexImpl::EphemPathLeading {
+                    disambiguator,
+                    ty_path,
+                },
+                EtherealTermSymbolIndexImpl::EphemOther { disambiguator } => {
+                    DeclarativeTermSymbolIndexImpl::EphemOther { disambiguator }
+                }
+                EtherealTermSymbolIndexImpl::SelfType => DeclarativeTermSymbolIndexImpl::SelfType,
+                EtherealTermSymbolIndexImpl::SelfValue => DeclarativeTermSymbolIndexImpl::SelfValue,
+                EtherealTermSymbolIndexImpl::SelfLifetime => {
+                    DeclarativeTermSymbolIndexImpl::SelfLifetime
+                }
+                EtherealTermSymbolIndexImpl::SelfPlace => DeclarativeTermSymbolIndexImpl::SelfPlace,
             })
         }
     }
 }
 
+// todo: write tests for conversion between declarative and ethereal term symbol index
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[repr(u8)]
-pub enum EtherealTermSymbolIndexInner {
+pub enum EtherealTermSymbolIndexImpl {
     ExplicitLifetime {
         attrs: EtherealTemplateSymbolAttrs,
         variance: Option<Variance>,
