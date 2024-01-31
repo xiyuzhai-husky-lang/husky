@@ -3,7 +3,7 @@ use smallvec::ToSmallVec;
 
 use super::*;
 
-// #[salsa::tracked(jar = DeclarativeTypeJar)]
+#[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn fugitive_path_declarative_ty(
     db: &::salsa::Db,
     path: FugitivePath,

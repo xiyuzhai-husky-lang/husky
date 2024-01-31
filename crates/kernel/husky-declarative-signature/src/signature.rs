@@ -1,13 +1,13 @@
 mod associated_item;
 mod attr;
 mod impl_block;
-mod module_item;
+mod major_item;
 mod ty_variant;
 
 pub use self::associated_item::*;
 pub use self::attr::*;
 pub use self::impl_block::*;
-pub use self::module_item::*;
+pub use self::major_item::*;
 pub use self::ty_variant::*;
 
 use crate::*;
@@ -15,7 +15,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum SignatureTemplate {
+pub enum DeclarativeSignatureTemplate {
     Submodule,
     MajorItem(MajorItemDeclarativeSignatureTemplate),
     ImplBlock(ImplBlockDeclarativeSignatureTemplate),
@@ -34,14 +34,14 @@ pub trait HasDeclarativeSignatureTemplate: Copy {
 }
 
 impl HasDeclarativeSignatureTemplate for ItemPath {
-    type DeclarativeSignatureTemplate = SignatureTemplate;
+    type DeclarativeSignatureTemplate = DeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
         self,
         db: &::salsa::Db,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         Ok(match self {
-            ItemPath::Submodule(_, _) => SignatureTemplate::Submodule,
+            ItemPath::Submodule(_, _) => DeclarativeSignatureTemplate::Submodule,
             ItemPath::MajorItem(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::AssociatedItem(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::TypeVariant(_, path) => path.declarative_signature_template(db)?.into(),

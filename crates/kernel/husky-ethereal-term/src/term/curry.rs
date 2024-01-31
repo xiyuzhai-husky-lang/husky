@@ -47,7 +47,7 @@ impl EtherealTermCurry {
         f.write_str(self.variance(db).as_str())?;
         if let Some(parameter_rune) = parameter_rune {
             ctx.fmt_with_variable(db, parameter_rune, |ctx| {
-                ctx.fmt_variable(db, parameter_rune, f);
+                ctx.fmt_variable(db, parameter_rune, f)?;
                 f.write_str(": ")?;
                 self.parameter_ty(db).show_with_db_fmt(f, db, ctx)?;
                 f.write_str(") -> ")?;

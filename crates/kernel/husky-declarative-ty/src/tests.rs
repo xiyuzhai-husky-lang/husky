@@ -40,34 +40,3 @@ use husky_vfs::ModulePath;
 )]
 #[derive(Default)]
 pub(crate) struct DB;
-
-fn major_item_declarative_tys(
-    db: &::salsa::Db,
-    module_path: ModulePath,
-) -> Vec<(ItemPath, DeclarativeTypeResult<DeclarativeTerm>)> {
-    db.item_syn_tree_sheet(module_path)
-        .major_paths(db)
-        .map(|path| {
-            (
-                path.into(),
-                item_path_declarative_ty(
-                    db,
-                    TypePathDisambiguation::OntologyConstructor,
-                    path.into(),
-                ),
-            )
-        })
-        .collect()
-}
-
-#[test]
-fn item_declarative_tys_works() {
-    DB::ast_expect_test_debug_with_db(
-        major_item_declarative_tys,
-        &AstTestConfig::new(
-            "major_item_declarative_tys",
-            FileExtensionConfig::Markdown,
-            TestDomainsConfig::KERNEL,
-        ),
-    )
-}

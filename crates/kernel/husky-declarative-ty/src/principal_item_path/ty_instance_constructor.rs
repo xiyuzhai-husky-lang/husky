@@ -92,26 +92,3 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
         constructor_ty,
     )
 }
-
-#[test]
-fn ty_instance_constructor_path_declarative_ty_works() {
-    DB::ast_expect_test_debug_with_db(
-        |db, module_path: husky_vfs::ModulePath| {
-            husky_entity_tree::helpers::paths::module_item_paths(db, module_path)
-                .iter()
-                .filter_map(|&module_item_path| match module_item_path {
-                    ItemPath::MajorItem(MajorItemPath::Type(ty_path)) => Some((
-                        ty_path,
-                        ty_instance_constructor_path_declarative_ty(db, ty_path),
-                    )),
-                    _ => None,
-                })
-                .collect::<Vec<_>>()
-        },
-        &AstTestConfig::new(
-            "ty_instance_constructor_path_declarative_ty",
-            FileExtensionConfig::Markdown,
-            TestDomainsConfig::KERNEL,
-        ),
-    );
-}

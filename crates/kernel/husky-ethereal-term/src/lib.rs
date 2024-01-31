@@ -18,7 +18,6 @@ mod term;
 mod tests;
 mod ty;
 
-pub use self::context::*;
 pub use self::db::*;
 pub use self::error::*;
 pub use self::menu::*;
@@ -27,6 +26,7 @@ pub use self::template_parameter::*;
 pub use self::term::*;
 pub use self::ty::*;
 
+use self::context::*;
 use either::*;
 use husky_coword::Ident;
 use husky_declarative_signature::*;
