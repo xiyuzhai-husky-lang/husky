@@ -81,21 +81,37 @@ impl<'a> DeclParser<'a> {
         let state = parser.save_state();
         match parser.next() {
             Some(TokenData::Punctuation(Punctuation::LPAR)) => {
-                let field_comma_list = parser.try_parse();
+                let fields = parser.try_parse();
                 let rpar = parser.try_parse();
                 TypeTupleVariantSynNodeDecl::new(
                     db,
                     syn_node_path,
                     state.next_regional_token_idx(),
-                    field_comma_list,
+                    fields,
                     rpar,
                     parser.finish(),
                 )
                 .into()
             }
-            Some(TokenData::Punctuation(Punctuation::LCURL)) => todo!(),
+            Some(TokenData::Punctuation(Punctuation::LCURL)) => {
+                let field_comma_list = parser.try_parse();
+                let rcurl = parser.try_parse();
+                TypePropsVariantSynNodeDecl::new(
+                    db,
+                    syn_node_path,
+                    state.next_regional_token_idx(),
+                    field_comma_list,
+                    rcurl,
+                    parser.finish(),
+                )
+                .into()
+            }
             None => UnitTypeVariantSynNodeDecl::new(db, syn_node_path, parser.finish()).into(),
-            _ => todo!(),
+            other => {
+                use husky_print_utils::p;
+                p!(other);
+                todo!()
+            }
         }
     }
 }

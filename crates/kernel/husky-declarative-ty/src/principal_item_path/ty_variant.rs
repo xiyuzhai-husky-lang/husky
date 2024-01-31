@@ -11,12 +11,43 @@ pub fn ty_variant_path_declarative_ty(
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     // todo: GADT
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
-    let signature_template = match path.declarative_signature_template(db) {
-        Ok(signature) => signature,
+    let tmpl = match path.declarative_signature_template(db) {
+        Ok(tmpl) => tmpl,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
-    match signature_template {
-        TypeVariantDeclarativeSignatureTemplate::Props(_) => todo!(),
+    match tmpl {
+        TypeVariantDeclarativeSignatureTemplate::Props(tmpl) => {
+            let Ok(parent_ty_template_parameter_variances) =
+                ty_path_variances(db, path.parent_ty_path(db))
+            else {
+                todo!()
+            };
+            // todo: variant implicit parameters
+            curry_from_template_parameters(
+                db,
+                path.toolchain(db),
+                CurryKind::Implicit,
+                parent_ty_template_parameter_variances,
+                tmpl.parent_ty_template(db).template_parameters(db),
+                tmpl.instance_constructor_ty(db),
+            )
+        }
+        TypeVariantDeclarativeSignatureTemplate::Tuple(tmpl) => {
+            let Ok(parent_ty_template_parameter_variances) =
+                ty_path_variances(db, path.parent_ty_path(db))
+            else {
+                todo!()
+            };
+            // todo: variant implicit parameters
+            curry_from_template_parameters(
+                db,
+                path.toolchain(db),
+                CurryKind::Implicit,
+                parent_ty_template_parameter_variances,
+                tmpl.parent_ty_template(db).template_parameters(db),
+                tmpl.instance_constructor_ty(db),
+            )
+        }
         TypeVariantDeclarativeSignatureTemplate::Unit(signature_template) => {
             let Ok(parent_ty_template_parameter_variances) =
                 ty_path_variances(db, path.parent_ty_path(db))
@@ -33,24 +64,6 @@ pub fn ty_variant_path_declarative_ty(
                     .parent_ty_template(db)
                     .template_parameters(db),
                 signature_template.self_ty(db),
-            )
-        }
-        TypeVariantDeclarativeSignatureTemplate::Tuple(signature_template) => {
-            let Ok(parent_ty_template_parameter_variances) =
-                ty_path_variances(db, path.parent_ty_path(db))
-            else {
-                todo!()
-            };
-            // todo: variant implicit parameters
-            curry_from_template_parameters(
-                db,
-                path.toolchain(db),
-                CurryKind::Implicit,
-                parent_ty_template_parameter_variances,
-                signature_template
-                    .parent_ty_template(db)
-                    .template_parameters(db),
-                signature_template.instance_constructor_ty(db),
             )
         }
     }

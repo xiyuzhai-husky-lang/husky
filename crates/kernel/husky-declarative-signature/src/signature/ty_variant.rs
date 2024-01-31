@@ -50,7 +50,14 @@ pub(crate) fn ty_variant_syn_declarative_signature_template(
         match path.parent_ty_path(db).declarative_signature_template(db)? {
             TypeDeclarativeSignatureTemplate::Enum(parent_ty_template) => {
                 match path.syn_decl(db)? {
-                    TypeVariantSynDecl::Props(_) => todo!(),
+                    TypeVariantSynDecl::Props(decl) => {
+                        EnumPropsVariantDeclarativeSignatureTemplate::from_decl(
+                            db,
+                            parent_ty_template,
+                            decl,
+                        )?
+                        .into()
+                    }
                     TypeVariantSynDecl::Unit(decl) => {
                         EnumUnitTypeVariantDeclarativeSignatureTemplate::from_decl(
                             db,

@@ -87,9 +87,8 @@ pub fn syn_decl_sheet(db: &::salsa::Db, path: ModulePath) -> SynDeclSheet {
     let item_tree_sheet = db.item_syn_tree_sheet(path);
     let mut decls: Vec<(ItemPath, SynDecl)> = Default::default();
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
-        if let Some(path) = syn_node_path.path(db)
-            && let Ok(decl) = path.syn_decl(db)
-        {
+        if let Some(path) = syn_node_path.path(db) {
+            let Ok(decl) = path.syn_decl(db) else { todo!() };
             decls.push((path, decl))
         }
     }

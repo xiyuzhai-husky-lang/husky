@@ -5,7 +5,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 6,
+                        value: 7,
                     },
                 ),
             ),

@@ -55,9 +55,9 @@ impl TranspileToRustWith for EnumHirDefn {
 impl TranspileToRustWith for TypeVariantHirDecl {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         match self {
-            TypeVariantHirDecl::Props(_hir_decl) => todo!(),
-            TypeVariantHirDecl::Unit(hir_decl) => hir_decl.transpile_to_rust(builder),
+            TypeVariantHirDecl::Props(hir_decl) => hir_decl.transpile_to_rust(builder),
             TypeVariantHirDecl::Tuple(hir_decl) => hir_decl.transpile_to_rust(builder),
+            TypeVariantHirDecl::Unit(hir_decl) => hir_decl.transpile_to_rust(builder),
         }
     }
 }

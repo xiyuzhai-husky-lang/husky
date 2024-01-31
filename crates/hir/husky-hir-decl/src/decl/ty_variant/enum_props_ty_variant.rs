@@ -10,8 +10,8 @@ pub struct EnumPropsVariantHirDecl {
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct EnumPropsVariantField {
     ident: Ident,
     ty: HirType,
@@ -37,8 +37,12 @@ impl EnumPropsVariantField {
     fn from_syn(field: &PropsFieldSyndicate, builder: &HirDeclBuilder) -> Self {
         Self {
             ident: field.ident(),
-            ty: builder.hir_ty(field.ty_syn_expr_idx()).unwrap(),
+            ty: builder.hir_ty(field.ty()).unwrap(),
         }
+    }
+
+    pub fn ident(&self) -> Ident {
+        self.ident
     }
 
     pub fn ty(self) -> HirType {

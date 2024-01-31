@@ -151,7 +151,7 @@ SynDeclSheet {
                                             6,
                                         ),
                                     ),
-                                    ty_syn_expr_idx: 4,
+                                    ty: 4,
                                     initialization: None,
                                     variable: 1,
                                 },
@@ -169,7 +169,7 @@ SynDeclSheet {
                                             12,
                                         ),
                                     ),
-                                    ty_syn_expr_idx: 5,
+                                    ty: 5,
                                     initialization: Some(
                                         Bind {
                                             colon_eq_token: ColonEqRegionalToken(
@@ -196,7 +196,7 @@ SynDeclSheet {
                                             27,
                                         ),
                                     ),
-                                    ty_syn_expr_idx: 10,
+                                    ty: 10,
                                     initialization: Some(
                                         Bind {
                                             colon_eq_token: ColonEqRegionalToken(
@@ -697,7 +697,7 @@ SynDeclSheet {
                                             6,
                                         ),
                                     ),
-                                    ty_syn_expr_idx: 2,
+                                    ty: 2,
                                     initialization: None,
                                     variable: 1,
                                 },
@@ -715,7 +715,7 @@ SynDeclSheet {
                                             11,
                                         ),
                                     ),
-                                    ty_syn_expr_idx: 5,
+                                    ty: 5,
                                     initialization: None,
                                     variable: 2,
                                 },

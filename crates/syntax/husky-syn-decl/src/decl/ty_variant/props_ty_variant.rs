@@ -7,8 +7,7 @@ use parsec::{PunctuatedSmallList, TryParseFromStream};
 pub struct TypePropsVariantSynNodeDecl {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
-    #[return_ref]
-    lcurl: SynNodeDeclResult<TypePropsVariantLeftCurlyBrace>,
+    lcurl_token_idx: RegionalTokenIdx,
     #[return_ref]
     fields: SynNodeDeclResult<
         PunctuatedSmallList<PropsFieldSyndicate, CommaRegionalToken, SynNodeDeclError, true, 4>,
