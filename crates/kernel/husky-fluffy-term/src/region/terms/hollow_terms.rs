@@ -166,7 +166,7 @@ impl HollowTerms {
                         let return_ty = return_ty.resolve_as_ethereal(self).unwrap();
                         self.entries[idx].resolve_progress =
                             HollowTermResolveProgressBuf::ResolvedEthereal(
-                                EtherealTermCurry::new(
+                                CurryEtherealTerm::new(
                                     db,
                                     curry_kind,
                                     variance,
@@ -246,7 +246,7 @@ impl HollowTerms {
                         _ => unreachable!(),
                     };
                     self.entries[idx].resolve_progress =
-                        match EtherealTermRitchie::new(db, ritchie_kind, params, return_ty) {
+                        match RitchieEtherealTerm::new(db, ritchie_kind, params, return_ty) {
                             Ok(term) => HollowTermResolveProgressBuf::ResolvedEthereal(term.into()),
                             Err(_) => todo!(),
                         }

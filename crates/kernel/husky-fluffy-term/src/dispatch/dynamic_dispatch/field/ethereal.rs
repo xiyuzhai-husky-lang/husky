@@ -33,7 +33,7 @@ pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch(
 
 pub(crate) fn ethereal_term_application_ty_field_dispatch(
     db: &::salsa::Db,
-    ty_term: EtherealTermApplication,
+    ty_term: ApplicationEtherealTerm,
     ident: Ident,
     indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {

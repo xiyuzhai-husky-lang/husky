@@ -78,38 +78,38 @@ impl From<ItemPathTerm> for FluffyTerm {
     }
 }
 
-impl From<EtherealTermApplication> for FluffyTerm {
-    fn from(value: EtherealTermApplication) -> Self {
+impl From<ApplicationEtherealTerm> for FluffyTerm {
+    fn from(value: ApplicationEtherealTerm) -> Self {
         Into::<EtherealTerm>::into(value).into()
     }
 }
 
-impl From<EtherealTermCurry> for FluffyTerm {
-    fn from(value: EtherealTermCurry) -> Self {
+impl From<CurryEtherealTerm> for FluffyTerm {
+    fn from(value: CurryEtherealTerm) -> Self {
         Into::<EtherealTerm>::into(value).into()
     }
 }
 
-impl From<TermCategory> for FluffyTerm {
-    fn from(value: TermCategory) -> Self {
+impl From<CategoryTerm> for FluffyTerm {
+    fn from(value: CategoryTerm) -> Self {
         Into::<EtherealTerm>::into(value).into()
     }
 }
 
-impl From<EtherealTermSymbol> for FluffyTerm {
-    fn from(value: EtherealTermSymbol) -> Self {
+impl From<SymbolEtherealTerm> for FluffyTerm {
+    fn from(value: SymbolEtherealTerm) -> Self {
         Into::<EtherealTerm>::into(value).into()
     }
 }
 
-impl From<EtherealTermRune> for FluffyTerm {
-    fn from(value: EtherealTermRune) -> Self {
+impl From<RuneEtherealTerm> for FluffyTerm {
+    fn from(value: RuneEtherealTerm) -> Self {
         Into::<EtherealTerm>::into(value).into()
     }
 }
 
-impl From<EtherealTermRitchie> for FluffyTerm {
-    fn from(value: EtherealTermRitchie) -> Self {
+impl From<RitchieEtherealTerm> for FluffyTerm {
+    fn from(value: RitchieEtherealTerm) -> Self {
         Into::<EtherealTerm>::into(value).into()
     }
 }

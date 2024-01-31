@@ -57,7 +57,7 @@ impl EtherealTerm {
                     argument_ty.return_ty(db),
                     shift - 1,
                 )?;
-                Ok(EtherealTermCurry::new(
+                Ok(CurryEtherealTerm::new(
                     db,
                     argument_ty.curry_kind(db),
                     argument_ty.variance(db),
@@ -78,13 +78,13 @@ impl EtherealTerm {
     ) -> EtherealTermResult<Self> {
         let mut term: Self = ItemPathTerm::TypeOntology(path).into();
         for argument in arguments {
-            term = EtherealTermApplication::new(db, term, argument)?
+            term = ApplicationEtherealTerm::new(db, term, argument)?
         }
         Ok(term)
     }
 }
 
-impl EtherealTermRune {
+impl RuneEtherealTerm {
     fn toolchain(self, db: &::salsa::Db) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }
@@ -93,7 +93,7 @@ impl EtherealTermRune {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_curry_toolchain(
     db: &::salsa::Db,
-    term: EtherealTermCurry,
+    term: CurryEtherealTerm,
 ) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
     if let Some(parameter_rune) = term.parameter_rune(db) {
@@ -107,7 +107,7 @@ pub(crate) fn ethereal_term_curry_toolchain(
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_application_toolchain(
     db: &::salsa::Db,
-    term: EtherealTermApplication,
+    term: ApplicationEtherealTerm,
 ) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
     merger.accept(term.function(db).toolchain(db));
@@ -118,7 +118,7 @@ pub(crate) fn ethereal_term_application_toolchain(
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_ritchie_toolchain(
     db: &::salsa::Db,
-    term: EtherealTermRitchie,
+    term: RitchieEtherealTerm,
 ) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
     for parameter_contracted_ty in term.parameter_contracted_tys(db) {

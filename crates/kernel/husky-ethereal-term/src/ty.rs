@@ -154,7 +154,7 @@ impl EtherealTerm {
                 RawType::Declarative(parameter_ty_cat.max(return_ty_cat).into())
             }
             EtherealTerm::Ritchie(_) => {
-                DeclarativeTerm::Category(TermCategory::new(1.into())).into()
+                DeclarativeTerm::Category(CategoryTerm::new(1.into())).into()
             }
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(term) => RawType::Declarative(term.declarative_ty(db)?),

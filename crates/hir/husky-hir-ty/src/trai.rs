@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_ethereal_term::{
-    EtherealTerm, EtherealTermApplication, EtherealTermSymbolIndexImpl, TermFunctionReduced,
+    ApplicationEtherealTerm, EtherealTerm, EtherealTermSymbolIndexImpl, TermFunctionReduced,
 };
 use husky_term_prelude::ItemPathTerm;
 
@@ -43,7 +43,7 @@ impl HirTrait {
 #[salsa::tracked(jar = HirTypeJar)]
 fn hir_trai_from_ethereal_term_application(
     db: &::salsa::Db,
-    trai_term: EtherealTermApplication,
+    trai_term: ApplicationEtherealTerm,
 ) -> HirTrait {
     let application_expansion = trai_term.application_expansion(db);
     match application_expansion.function() {

@@ -45,7 +45,7 @@ fn ethereal_ty_ontology_path_ty_method_dispatch(
 fn ethereal_term_application_ty_method_dispatch(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
-    ty_term: EtherealTermApplication,
+    ty_term: ApplicationEtherealTerm,
     ident_token: IdentRegionalToken,
     indirections: FluffyIndirections,
 ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {

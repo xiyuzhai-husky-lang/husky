@@ -2,26 +2,26 @@ use super::*;
 
 /// `Sort u` for some universe `u`
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-pub struct TermCategory {
-    universe: TermUniverse,
+pub struct CategoryTerm {
+    universe: UniverseTerm,
 }
 
-impl TermCategory {
-    pub const fn new(universe: TermUniverse) -> Self {
+impl CategoryTerm {
+    pub const fn new(universe: UniverseTerm) -> Self {
         Self { universe }
     }
 
-    pub fn from_(db: &::salsa::Db, _term: TermCategory) -> Self {
-        TermCategory::new(TermUniverse::from_(db, _term.universe()))
+    pub fn from_(db: &::salsa::Db, _term: CategoryTerm) -> Self {
+        CategoryTerm::new(UniverseTerm::from_(db, _term.universe()))
     }
 
-    pub fn ty(self) -> TermPreludeResult<TermCategory> {
+    pub fn ty(self) -> TermPreludeResult<CategoryTerm> {
         Ok(Self {
             universe: self.universe.next()?,
         })
     }
 
-    pub fn universe(&self) -> TermUniverse {
+    pub fn universe(&self) -> UniverseTerm {
         self.universe
     }
 
@@ -34,7 +34,7 @@ impl TermCategory {
     }
 }
 
-impl std::fmt::Display for TermCategory {
+impl std::fmt::Display for CategoryTerm {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.universe.raw() {
             0 => f.write_str("Prop"),

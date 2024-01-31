@@ -4,6 +4,7 @@ mod context;
 mod db;
 mod error;
 pub mod helpers;
+pub mod instantiation;
 mod menu;
 mod rewrite;
 pub mod term;
@@ -38,7 +39,7 @@ pub struct DeclarativeTermJar(
     crate::term::application::ApplicationDeclarativeTerm,
     crate::term::application_or_ritchie_call::ApplicationOrRitchieCallDeclarativeTerm,
     crate::term::associated_item::AssociatedItemDeclarativeTerm,
-    crate::term::ty_as_trai_associated_item::TypeAsTraitAssociatedItemDeclarativeTerm,
+    crate::term::ty_as_trai_item::TypeAsTraitItemDeclarativeTerm,
     crate::term::constraint::TraitConstraintDeclarativeTerm,
     crate::term::list::ListDeclarativeTerm,
     declarative_term_menu,

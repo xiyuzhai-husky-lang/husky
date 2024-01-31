@@ -1,14 +1,14 @@
 use super::*;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = new_inner)]
-pub struct EtherealTermRune {
+pub struct RuneEtherealTerm {
     pub ty: EtherealTerm,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub idx: RuneIndex,
 }
 
-impl EtherealTermRune {
+impl RuneEtherealTerm {
     #[inline(always)]
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
@@ -32,7 +32,7 @@ impl EtherealTermRune {
 
 impl EtherealTerm {
     #[track_caller]
-    pub fn rune(self) -> EtherealTermRune {
+    pub fn rune(self) -> RuneEtherealTerm {
         match self {
             EtherealTerm::Rune(slf) => slf,
             _ => unreachable!(),

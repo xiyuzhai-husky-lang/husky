@@ -2,7 +2,7 @@ use super::*;
 use husky_coword::Ident;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar)]
-pub struct EtherealTermTypeAsTraitItem {
+pub struct TypeAsTraitItemEtherealTerm {
     parent: EtherealTerm,
     trai: EtherealTerm,
     ident: Ident,
@@ -11,15 +11,15 @@ pub struct EtherealTermTypeAsTraitItem {
 #[test]
 fn term_as_trai_subitem_size_works() {
     assert_eq!(
-        std::mem::size_of::<EtherealTermTypeAsTraitItem>(),
+        std::mem::size_of::<TypeAsTraitItemEtherealTerm>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl EtherealTermTypeAsTraitItem {
+impl TypeAsTraitItemEtherealTerm {
     pub(crate) fn from_declarative(
         _db: &::salsa::Db,
-        _valid_term: TypeAsTraitAssociatedItemDeclarativeTerm,
+        _valid_term: TypeAsTraitItemDeclarativeTerm,
         _term_ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<Self> {
         todo!()
@@ -36,7 +36,7 @@ impl EtherealTermTypeAsTraitItem {
     }
 }
 
-impl EtherealTermTypeAsTraitItem {
+impl TypeAsTraitItemEtherealTerm {
     fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm
     where
         Self: Copy,

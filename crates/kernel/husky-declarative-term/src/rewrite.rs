@@ -40,9 +40,7 @@ impl DeclarativeTermRewriteCopy for DeclarativeTerm {
             DeclarativeTerm::Application(term) => term.substitute_copy(db, substitution).into(),
             DeclarativeTerm::ApplicationOrRitchieCall(_term) => todo!(),
             DeclarativeTerm::AssociatedItem(term) => term.substitute_copy(db, substitution).into(),
-            DeclarativeTerm::TypeAsTraitAssociatedItem(term) => {
-                term.substitute_copy(db, substitution).into()
-            }
+            DeclarativeTerm::TypeAsTraitItem(term) => term.substitute_copy(db, substitution).into(),
             DeclarativeTerm::TraitConstraint(term) => term.substitute_copy(db, substitution).into(),
             DeclarativeTerm::Ritchie(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),

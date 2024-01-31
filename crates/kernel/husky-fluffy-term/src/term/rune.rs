@@ -49,8 +49,8 @@ impl FluffyTermRune {
     }
 }
 
-impl From<EtherealTermRune> for FluffyTermRune {
-    fn from(value: EtherealTermRune) -> Self {
+impl From<RuneEtherealTerm> for FluffyTermRune {
+    fn from(value: RuneEtherealTerm) -> Self {
         FluffyTermRune(value.into())
     }
 }

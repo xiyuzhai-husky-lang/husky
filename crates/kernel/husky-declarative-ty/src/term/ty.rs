@@ -27,7 +27,7 @@ pub fn declarative_term_declarative_ty(
         }
         DeclarativeTerm::ApplicationOrRitchieCall(_declarative_ty) => todo!(),
         DeclarativeTerm::AssociatedItem(_) => todo!(),
-        DeclarativeTerm::TypeAsTraitAssociatedItem(_) => todo!(),
+        DeclarativeTerm::TypeAsTraitItem(_) => todo!(),
         DeclarativeTerm::TraitConstraint(_) => todo!(),
         DeclarativeTerm::LeashOrBitNot(_) => todo!(),
         DeclarativeTerm::List(_) => todo!(),

@@ -42,10 +42,10 @@ impl DeclarativeTerm {
     }
 
     pub const PROP: DeclarativeTerm =
-        DeclarativeTerm::Category(TermCategory::new(TermUniverse::new(0)));
+        DeclarativeTerm::Category(CategoryTerm::new(UniverseTerm::new(0)));
 
     pub const TYPE: DeclarativeTerm =
-        DeclarativeTerm::Category(TermCategory::new(TermUniverse::new(1)));
+        DeclarativeTerm::Category(CategoryTerm::new(UniverseTerm::new(1)));
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

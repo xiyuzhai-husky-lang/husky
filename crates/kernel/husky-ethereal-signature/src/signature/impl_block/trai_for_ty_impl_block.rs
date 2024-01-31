@@ -22,7 +22,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EtherealSelfTypeInTraitImpl {
     PathLeading(EtherealTerm),
-    DeriveAny(EtherealTermSymbol),
+    DeriveAny(SymbolEtherealTerm),
 }
 
 impl EtherealSelfTypeInTraitImpl {
@@ -60,7 +60,7 @@ impl EtherealSelfTypeInTraitImpl {
                 )?)
             }
             DeclarativeSelfType::DerivedAny(declarative_term_symbol) => {
-                EtherealSelfTypeInTraitImpl::DeriveAny(EtherealTermSymbol::from_declarative(
+                EtherealSelfTypeInTraitImpl::DeriveAny(SymbolEtherealTerm::from_declarative(
                     db,
                     declarative_term_symbol,
                 )?)
@@ -68,7 +68,7 @@ impl EtherealSelfTypeInTraitImpl {
         })
     }
 
-    pub fn parameter_symbol(self) -> Option<EtherealTermSymbol> {
+    pub fn parameter_symbol(self) -> Option<SymbolEtherealTerm> {
         match self {
             EtherealSelfTypeInTraitImpl::PathLeading(_) => None,
             EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => Some(symbol),

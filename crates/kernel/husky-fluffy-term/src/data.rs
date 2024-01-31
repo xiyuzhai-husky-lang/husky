@@ -27,17 +27,17 @@ pub enum FluffyTermData<'a> {
         parameter_rune: Option<FluffyTermRune>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
-        ty_ethereal_term: Option<EtherealTermCurry>,
+        ty_ethereal_term: Option<CurryEtherealTerm>,
     },
     Hole(HoleKind, Hole),
-    Category(TermCategory),
+    Category(CategoryTerm),
     Ritchie {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: &'a [FluffyRitchieParameter],
         return_ty: FluffyTerm,
     },
     Symbol {
-        term: EtherealTermSymbol,
+        term: SymbolEtherealTerm,
         ty: FluffyTerm,
     },
     Rune {
@@ -149,20 +149,20 @@ pub enum FluffyBaseTypeData<'a> {
         parameter_rune: Option<FluffyTermRune>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
-        ty_ethereal_term: Option<EtherealTermCurry>,
+        ty_ethereal_term: Option<CurryEtherealTerm>,
     },
     Hole(HoleKind, Hole),
-    Category(TermCategory),
+    Category(CategoryTerm),
     Ritchie {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: &'a [FluffyRitchieParameter],
         return_ty: FluffyTerm,
     },
     Symbol {
-        symbol: EtherealTermSymbol,
+        symbol: SymbolEtherealTerm,
     },
     Rune {
-        rune: EtherealTermRune,
+        rune: RuneEtherealTerm,
     },
 }
 

@@ -203,7 +203,7 @@ impl<'a> SemaExprEngine<'a> {
             {
                 Some(current_syn_symbol_signature) => {
                     match current_syn_symbol_signature.term_symbol() {
-                        Some(declarative_term_symbol) => Ok(EtherealTermSymbol::from_declarative(
+                        Some(declarative_term_symbol) => Ok(SymbolEtherealTerm::from_declarative(
                             self.db,
                             declarative_term_symbol,
                         )?
@@ -314,7 +314,7 @@ impl<'a> SemaExprEngine<'a> {
                         None => todo!(),
                     },
                 };
-                EtherealTermApplication::new(
+                ApplicationEtherealTerm::new(
                     self.db,
                     self.eth_term_menu().at_ty_ontology(),
                     place.into(),

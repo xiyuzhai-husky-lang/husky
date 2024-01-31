@@ -10,7 +10,7 @@ pub mod literal;
 pub mod ritchie;
 pub mod rune;
 pub mod symbol;
-pub mod ty_as_trai_associated_item;
+pub mod ty_as_trai_item;
 pub mod wrapper;
 
 pub use self::application::*;
@@ -24,7 +24,7 @@ pub use self::literal::*;
 pub use self::ritchie::*;
 pub use self::rune::*;
 pub use self::symbol::*;
-pub use self::ty_as_trai_associated_item::*;
+pub use self::ty_as_trai_item::*;
 pub use self::wrapper::*;
 
 use self::abstraction::*;
@@ -42,8 +42,8 @@ pub enum DeclarativeTerm {
     /// variables are derived from symbols
     Rune(RuneDeclarativeTerm),
     EntityPath(ItemPathDeclarativeTerm),
-    Category(TermCategory),
-    Universe(TermUniverse),
+    Category(CategoryTerm),
+    Universe(UniverseTerm),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Curry(CurryDeclarativeTerm),
     /// in memory of Dennis M.Ritchie
@@ -68,7 +68,7 @@ pub enum DeclarativeTerm {
     /// ::<ident>
     AssociatedItem(AssociatedItemDeclarativeTerm),
     /// (<type> as <trait>)::<ident>
-    TypeAsTraitAssociatedItem(TypeAsTraitAssociatedItemDeclarativeTerm),
+    TypeAsTraitItem(TypeAsTraitItemDeclarativeTerm),
     /// <type> : <trait>
     TraitConstraint(TraitConstraintDeclarativeTerm),
     /// `~`
@@ -129,7 +129,7 @@ impl DeclarativeTerm {
             DeclarativeTerm::Application(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::ApplicationOrRitchieCall(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::AssociatedItem(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::TypeAsTraitAssociatedItem(term) => term.show_with_db_fmt(f, db, ctx),
+            DeclarativeTerm::TypeAsTraitItem(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::LeashOrBitNot(_) => f.write_str("~"),
             DeclarativeTerm::List(term) => term.show_with_db_fmt(f, db, ctx),

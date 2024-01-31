@@ -25,7 +25,7 @@ impl EtherealTerm {
     }
 }
 
-impl EtherealTermApplication {
+impl ApplicationEtherealTerm {
     pub fn application_expansion(self, db: &::salsa::Db) -> ApplicationExpansion {
         application_expansion_salsa(db, self)
     }
@@ -34,7 +34,7 @@ impl EtherealTermApplication {
 #[salsa::tracked(jar= EtherealTermJar)]
 pub(crate) fn application_expansion_salsa(
     db: &::salsa::Db,
-    term: EtherealTermApplication,
+    term: ApplicationEtherealTerm,
 ) -> ApplicationExpansion {
     let function = term.function(db);
     let argument = term.argument(db);

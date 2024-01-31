@@ -208,7 +208,7 @@ pub enum FluffyPlace {
     /// always immutable
     Leashed,
     Todo,
-    EtherealSymbol(EtherealTermSymbol),
+    EtherealSymbol(SymbolEtherealTerm),
 }
 
 impl FluffyPlace {
