@@ -125,7 +125,7 @@ impl DebugWithDb for Ident {
 
 /// only use in this module
 #[salsa::tracked(jar = CowordJar)]
-pub(crate) fn ident_to_name(db: &::salsa::Db, ident: Ident) -> Kebab {
+pub fn ident_to_name(db: &::salsa::Db, ident: Ident) -> Kebab {
     let ident_data = ident.data(db);
     if !ident_data.contains("_") {
         return unsafe { Kebab::from_coword_unchecked(ident.0) };

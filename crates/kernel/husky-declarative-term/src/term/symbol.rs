@@ -23,8 +23,6 @@ pub struct SymbolDeclarativeTerm {
 }
 
 impl SymbolDeclarativeTerm {
-    pub(crate) const AD_HOD_IDX_START: u8 = u8::MAX / 2;
-
     #[inline(always)]
     pub fn new_self_ty(
         db: &::salsa::Db,

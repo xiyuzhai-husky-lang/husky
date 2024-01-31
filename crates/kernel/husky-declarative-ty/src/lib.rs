@@ -13,9 +13,9 @@ pub use self::db::*;
 pub use self::error::*;
 pub use self::field::*;
 pub use self::method::*;
-pub use self::principal_item_path::*;
 pub use self::term::*;
 
+use self::principal_item_path::*;
 #[cfg(test)]
 use self::tests::*;
 use self::variance::*;

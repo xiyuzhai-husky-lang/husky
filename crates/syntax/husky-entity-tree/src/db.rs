@@ -86,7 +86,7 @@ pub struct EntityTreeJar(
     submodules,
     all_modules_within_crate,
     // prelude
-    crate_specific_prelude,
+    crate_specific_symbol_context,
     none_core_crate_universal_prelude,
     // helpers
     crate::helpers::ty_side_trai_for_ty_impl_block_paths_map,

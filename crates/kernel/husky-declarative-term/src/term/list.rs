@@ -14,7 +14,7 @@ impl ListDeclarativeTerm {
         db: &::salsa::Db,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
-        f.write_str("[");
+        f.write_str("[")?;
         let items = self.items(db);
         for (i, item) in items.iter().enumerate() {
             item.show_with_db_fmt(f, db, ctx)?;
