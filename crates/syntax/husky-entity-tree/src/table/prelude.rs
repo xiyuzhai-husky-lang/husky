@@ -10,7 +10,7 @@ pub struct CratePrelude<'a> {
 
 impl<'a> CratePrelude<'a> {
     pub(crate) fn new(db: &'a ::salsa::Db, crate_path: CratePath) -> PreludeResult<Self> {
-        let crate_specific_symbol_context = crate_specific_prelude(db, crate_path)
+        let crate_specific_symbol_context = crate_specific_symbol_context(db, crate_path)
             .as_ref()
             .map(|table| table.as_ref())
             .map_err(|e| e.clone())?;
@@ -81,7 +81,7 @@ pub(crate) fn none_core_crate_universal_prelude(
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-fn crate_specific_prelude(
+fn crate_specific_symbol_context(
     db: &::salsa::Db,
     crate_path: CratePath,
 ) -> PreludeResult<EntitySymbolTable> {

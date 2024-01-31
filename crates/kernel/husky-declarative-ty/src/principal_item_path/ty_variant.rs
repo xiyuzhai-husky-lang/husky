@@ -1,7 +1,6 @@
 use super::*;
 
 // todo: this should return a template
-#[deprecated(note = "it's better to use signature directly instead of invoking this function")]
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_variant_path_declarative_ty(
     db: &::salsa::Db,

@@ -1,6 +1,5 @@
 use super::*;
 
-#[deprecated(note = "use template instead")]
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_instance_constructor_path_declarative_ty(
     db: &::salsa::Db,

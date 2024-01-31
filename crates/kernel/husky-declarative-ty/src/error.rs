@@ -38,7 +38,6 @@ pub enum OriginalDeclarativeTypeError {
     #[error("todo")]
     Todo,
     #[error("todo")]
-    #[deprecated]
     ExternTypeHasNoConstructor,
 }
 

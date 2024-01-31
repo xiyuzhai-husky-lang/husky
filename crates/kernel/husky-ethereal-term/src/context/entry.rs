@@ -35,7 +35,7 @@ impl TermSymbolShowEntry {
                     5 => f.write_str("'f"),
                     idx => f.write_fmt(format_args!("'a{}", idx)),
                 },
-                TermSymbolShowKind::Binding => match self.idx {
+                TermSymbolShowKind::Place => match self.idx {
                     0 => f.write_str("'α"),
                     1 => f.write_str("'β"),
                     2 => f.write_str("'γ"),
@@ -93,7 +93,7 @@ impl AsVecMapEntry for TermSymbolShowEntry {
 #[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
 pub(crate) enum TermSymbolShowKind {
     Lifetime,
-    Binding,
+    Place,
     Prop,
     Type,
     Kind,

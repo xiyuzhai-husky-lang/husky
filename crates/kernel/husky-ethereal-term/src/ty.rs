@@ -1,5 +1,9 @@
 use crate::*;
-use husky_declarative_ty::{principal_item_path::ty_variant::ty_variant_path_declarative_ty, *};
+use husky_declarative_ty::principal_item_path::{
+    fugitive_path_declarative_ty, trai_path_declarative_ty,
+    ty_instance_constructor_path_declarative_ty, ty_ontology_path_declarative_ty,
+    ty_variant::ty_variant_path_declarative_ty,
+};
 use husky_vfs::Toolchain;
 
 pub trait HasType: Copy {

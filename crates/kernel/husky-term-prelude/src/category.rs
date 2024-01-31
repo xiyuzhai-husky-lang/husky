@@ -25,7 +25,7 @@ impl CategoryTerm {
         self.universe
     }
 
-    pub(crate) fn show_with_db_fmt(
+    pub fn show_with_db_fmt(
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
@@ -40,7 +40,7 @@ impl std::fmt::Display for CategoryTerm {
             0 => f.write_str("Prop"),
             1 => f.write_str("Type"),
             u => {
-                f.write_str("Type ");
+                f.write_str("Type ")?;
                 std::fmt::Display::fmt(&(u - 1), f)
             }
         }

@@ -45,7 +45,7 @@ pub enum DerivedVarianceError {
     TypeItemNotFound,
 }
 
-pub(crate) fn item_variances(db: &::salsa::Db, path: ItemPath) -> VarianceResultRef<&[Variance]> {
+pub fn item_variances(db: &::salsa::Db, path: ItemPath) -> VarianceResultRef<&[Variance]> {
     match path {
         ItemPath::Submodule(_, _) => Ok(&[]),
         ItemPath::MajorItem(path) => match path {
