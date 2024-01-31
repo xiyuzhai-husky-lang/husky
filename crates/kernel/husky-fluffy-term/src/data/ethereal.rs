@@ -39,8 +39,7 @@ pub(super) fn ethereal_term_data<'a>(
         EtherealTerm::Ritchie(term) => term_ritchie_fluffy_data(db, term).as_ref(),
         EtherealTerm::Abstraction(_) => todo!(),
         EtherealTerm::Application(term) => term_application_fluffy_data(db, term).as_ref(),
-        EtherealTerm::Subitem(_) => todo!(),
-        EtherealTerm::AsTraitSubitem(_) => todo!(),
+        EtherealTerm::TypeAsTraitItem(_) => todo!(),
         EtherealTerm::TraitConstraint(_) => todo!(),
     }
 }
@@ -192,8 +191,7 @@ pub(super) fn ethereal_term_fluffy_base_ty_data<'a>(
         EtherealTerm::Ritchie(term) => term_ritchie_fluffy_data(db, term).as_ref2(),
         EtherealTerm::Abstraction(_) => todo!(),
         EtherealTerm::Application(term) => term_application_fluffy_data(db, term).as_ref2(),
-        EtherealTerm::Subitem(_) => todo!(),
-        EtherealTerm::AsTraitSubitem(_) => todo!(),
+        EtherealTerm::TypeAsTraitItem(_) => todo!(),
         EtherealTerm::TraitConstraint(_) => todo!(),
     }
 }

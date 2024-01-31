@@ -255,8 +255,7 @@ fn unveil_impl_block_signature_templates(
             ty_ontology_application_unveil_impl_block_signature_templates(db, path)
                 .just_ok_as_ref2()
         }
-        EtherealTerm::Subitem(_) => todo!(),
-        EtherealTerm::AsTraitSubitem(_) => todo!(),
+        EtherealTerm::TypeAsTraitItem(_) => todo!(),
         EtherealTerm::TraitConstraint(_) => todo!(),
     }
 }

@@ -41,7 +41,7 @@ impl<'a> SemaExprEngine<'a> {
             SynBinaryOpr::ShortCircuitLogic(opr) => {
                 self.calc_binary_short_circuit_logic_expr_ty(lopd, opr, ropd)
             }
-            SynBinaryOpr::Assign => self.calc_binary_assign_expr_ty(expr_idx, lopd, ropd),
+            SynBinaryOpr::AssignOrDefEq => self.calc_binary_assign_expr_ty(expr_idx, lopd, ropd),
             SynBinaryOpr::AssignClosed(opr) => {
                 self.calc_binary_assign_closed_expr_ty(expr_idx, lopd, opr, ropd)
             }

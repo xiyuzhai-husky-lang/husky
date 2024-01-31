@@ -2,26 +2,26 @@ use super::*;
 use husky_coword::Ident;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar)]
-pub struct EtherealTermSubitem {
+pub struct EtherealTermTypeAsTraitItem {
     parent: EtherealTerm,
+    trai: EtherealTerm,
     ident: Ident,
 }
 
 #[test]
-fn term_subitem_size_works() {
+fn term_as_trai_subitem_size_works() {
     assert_eq!(
-        std::mem::size_of::<EtherealTermSubitem>(),
+        std::mem::size_of::<EtherealTermTypeAsTraitItem>(),
         std::mem::size_of::<u32>()
     );
 }
 
-impl EtherealTermSubitem {
-    #[inline(always)]
+impl EtherealTermTypeAsTraitItem {
     pub(crate) fn from_declarative(
         _db: &::salsa::Db,
-        _valid_term: DeclarativeTermSubitem,
+        _valid_term: DeclarativeTermAsTraitSubitem,
         _term_ty_expectation: TermTypeExpectation,
-    ) -> EtherealTermResult<EtherealTerm> {
+    ) -> EtherealTermResult<Self> {
         todo!()
     }
 
@@ -34,15 +34,22 @@ impl EtherealTermSubitem {
     ) -> std::fmt::Result {
         todo!()
     }
+}
 
-    pub fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm {
+impl EtherealTermTypeAsTraitItem {
+    fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm
+    where
+        Self: Copy,
+    {
         todo!()
         // let old_parent = self.parent(db);
         // let parent = old_parent.substitute(db, substituation);
-        // if old_parent == parent {
-        //     return self.into();
+        // let old_trai = self.trai(db);
+        // let trai = old_trai.substitute(db, substituation);
+        // if old_parent == parent && old_trai == trai {
+        //     return self;
         // }
         // let ident = self.ident(db);
-        // EtherealTermSubitem::new(db, parent, ident)
+        // EtherealTermAsTraitSubitem::new(db, parent, trai, ident)
     }
 }

@@ -1,24 +1,22 @@
 mod abstraction;
 mod application;
-mod as_trai_item;
 mod constraint;
 mod curry;
-mod item;
 mod ritchie;
 mod rune;
 mod symbol;
+mod ty_as_trai_item;
 
 use std::fmt::Debug;
 
 pub use self::abstraction::*;
 pub use self::application::*;
-pub use self::as_trai_item::*;
 pub use self::constraint::*;
 pub use self::curry::*;
-pub use self::item::*;
 pub use self::ritchie::*;
 pub use self::rune::*;
 pub use self::symbol::*;
+pub use self::ty_as_trai_item::*;
 
 use crate::instantiation::*;
 use crate::*;
@@ -42,6 +40,7 @@ pub enum EtherealTerm {
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Curry(EtherealTermCurry),
     /// in memory of Dennis M.Ritchie
+    /// a type or trait
     Ritchie(EtherealTermRitchie),
     /// lambda x => expr
     Abstraction(EtherealTermAbstraction),
@@ -60,10 +59,8 @@ pub enum EtherealTerm {
     ///
     /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
     Application(EtherealTermApplication),
-    /// ::<ident>
-    Subitem(EtherealTermSubitem),
     /// (<type> as <trait>)::<ident>
-    AsTraitSubitem(EtherealTermAsTraitSubitem),
+    TypeAsTraitItem(EtherealTermTypeAsTraitItem),
     /// <type> : <trait>
     TraitConstraint(EtherealTermTraitConstraint),
 }
@@ -260,10 +257,11 @@ impl EtherealTerm {
                 )?
             }
             DeclarativeTerm::Subitem(declarative_term) => {
-                EtherealTermSubitem::from_declarative(db, declarative_term, ty_expectation)?
+                todo!()
+                // EtherealTermSubitem::from_declarative(db, declarative_term, ty_expectation)?
             }
             DeclarativeTerm::AsTraitSubitem(declarative_term) => {
-                EtherealTermAsTraitSubitem::from_declarative(db, declarative_term, ty_expectation)?
+                EtherealTermTypeAsTraitItem::from_declarative(db, declarative_term, ty_expectation)?
                     .into()
             }
             DeclarativeTerm::TraitConstraint(declarative_term) => {
@@ -316,8 +314,7 @@ impl EtherealTerm {
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(_) => todo!(),
-            EtherealTerm::Subitem(_) => todo!(),
-            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }
@@ -345,8 +342,7 @@ impl EtherealTerm {
             EtherealTerm::Ritchie(term) => term.reduce(db).into(),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(term) => term.reduce(db),
-            EtherealTerm::Subitem(_) => todo!(),
-            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }
@@ -545,8 +541,7 @@ impl EtherealTerm {
             EtherealTerm::Ritchie(term) => term.show_with_db_fmt(f, db, ctx),
             EtherealTerm::Abstraction(term) => term.show_with_db_fmt(f, db, ctx),
             EtherealTerm::Application(term) => term.show_with_db_fmt(f, db, ctx),
-            EtherealTerm::Subitem(term) => term.show_with_db_fmt(f, db, ctx),
-            EtherealTerm::AsTraitSubitem(term) => term.show_with_db_fmt(f, db, ctx),
+            EtherealTerm::TypeAsTraitItem(term) => term.show_with_db_fmt(f, db, ctx),
             EtherealTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
         }
     }
@@ -557,18 +552,17 @@ impl EtherealInstantiate for EtherealTerm {
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         match self {
-            EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(term) => term.instantiate(db, instantiation),
-            EtherealTerm::Rune(_) => todo!(),
-            EtherealTerm::EntityPath(_) => self,
-            EtherealTerm::Category(_) => self,
-            EtherealTerm::Universe(_) => todo!(),
+            EtherealTerm::Literal(_)
+            | EtherealTerm::Rune(_)
+            | EtherealTerm::EntityPath(_)
+            | EtherealTerm::Category(_)
+            | EtherealTerm::Universe(_) => self,
+            EtherealTerm::Symbol(slf) => slf.instantiate(db, instantiation),
             EtherealTerm::Curry(_) => todo!(),
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(term) => term.instantiate(db, instantiation),
-            EtherealTerm::Subitem(_) => todo!(),
-            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::Application(slf) => slf.instantiate(db, instantiation),
+            EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }

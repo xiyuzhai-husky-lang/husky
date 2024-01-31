@@ -104,8 +104,7 @@ fn curry_destination(db: &::salsa::Db, term: EtherealTerm) -> EtherealTerm {
         EtherealTerm::Ritchie(_) => todo!(),
         EtherealTerm::Abstraction(_) => todo!(),
         EtherealTerm::Application(_) => term,
-        EtherealTerm::Subitem(_) => todo!(),
-        EtherealTerm::AsTraitSubitem(_) => todo!(),
+        EtherealTerm::TypeAsTraitItem(_) => todo!(),
         EtherealTerm::TraitConstraint(_) => todo!(),
     }
 }

@@ -144,8 +144,7 @@ impl EtherealInstantiationBuilder {
                 }
                 JustOk(())
             }
-            EtherealTerm::Subitem(_) => todo!(),
-            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }

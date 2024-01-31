@@ -35,9 +35,3 @@ impl salsa::DisplayWithDb for DeclarativeTermLiteral {
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
-
-impl std::fmt::Display for DeclarativeTermLiteral {
-    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
-    }
-}

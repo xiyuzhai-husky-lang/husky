@@ -495,7 +495,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     SynBinaryOpr::Shift(_) => todo!(),
                     SynBinaryOpr::Comparison(_) => todo!(),
                     SynBinaryOpr::ShortCircuitLogic(_) => todo!(),
-                    SynBinaryOpr::Assign => todo!(),
+                    SynBinaryOpr::AssignOrDefEq => todo!(),
                     SynBinaryOpr::AssignClosed(_) => todo!(),
                     SynBinaryOpr::AssignShift(_) => todo!(),
                     SynBinaryOpr::ScopeResolution => todo!(),

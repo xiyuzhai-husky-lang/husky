@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 # abstractions
 enum-class.workspace = true
+salsa.workspace = true
 # lex
 husky-text-protocol.workspace = true
 # kernel

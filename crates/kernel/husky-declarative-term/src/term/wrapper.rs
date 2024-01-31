@@ -11,12 +11,12 @@ pub struct DeclarativeTermWrapper {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum DeclarativeTermWrapperKind {
-    ValType,
+    ValReturnType,
 }
 
 impl DeclarativeTerm {
     pub fn leashed_ty(self, db: &::salsa::Db) -> Self {
-        DeclarativeTermWrapper::new(db, DeclarativeTermWrapperKind::ValType, self).into()
+        DeclarativeTermWrapper::new(db, DeclarativeTermWrapperKind::ValReturnType, self).into()
     }
 }
 
@@ -29,7 +29,7 @@ impl DeclarativeTermWrapper {
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         match self.kind(db) {
-            DeclarativeTermWrapperKind::ValType => f.write_str("{val_type} ")?,
+            DeclarativeTermWrapperKind::ValReturnType => f.write_str("{val_type} ")?,
         }
         self.inner_ty(db).show_with_db_fmt(f, db, ctx)
     }

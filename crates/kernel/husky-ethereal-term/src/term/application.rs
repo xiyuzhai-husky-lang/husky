@@ -50,7 +50,7 @@ impl EtherealTermApplication {
                     let parameter_ty = function_declarative_ty.parameter_ty(db);
                     (
                         parameter_ty.curry_parameter_count(db),
-                        parameter_ty.ty_expectation(db)?,
+                        parameter_ty.ty_final_destination_expectation(db)?,
                     )
                 }
                 _ => return Err(todo!()),
@@ -141,7 +141,7 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
                 let parameter_ty = function_ty.parameter_ty(db);
                 (
                     parameter_ty.curry_parameter_count(db),
-                    parameter_ty.ty_expectation(db)?,
+                    parameter_ty.ty_final_destination_expectation(db)?,
                 )
             }
             _ => Err(EtherealTermError::ExpectedCurryForApplicationFunctionType)?,

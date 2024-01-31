@@ -27,7 +27,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Bra(
-                    Curl,
+                    Bracket::Curl,
                 ),
             ),
         ),
@@ -45,7 +45,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Ket(
-                    Curl,
+                    Bracket::Curl,
                 ),
             ),
         ),
@@ -60,7 +60,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Bra(
-                    Curl,
+                    Bracket::Curl,
                 ),
             ),
         ),
@@ -94,7 +94,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Ket(
-                    Curl,
+                    Bracket::Curl,
                 ),
             ),
         ),
@@ -109,7 +109,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Bra(
-                    Par,
+                    Bracket::Par,
                 ),
             ),
         ),
@@ -119,7 +119,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Ket(
-                    Par,
+                    Bracket::Par,
                 ),
             ),
         ),
@@ -134,7 +134,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Bra(
-                    Par,
+                    Bracket::Par,
                 ),
             ),
         ),
@@ -152,7 +152,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Ket(
-                    Par,
+                    Bracket::Par,
                 ),
             ),
         ),

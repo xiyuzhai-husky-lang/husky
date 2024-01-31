@@ -67,8 +67,7 @@ impl HirTemplateArgument {
             EtherealTerm::Application(application) => {
                 hir_ty_from_ethereal_term_application(db, application).into()
             }
-            EtherealTerm::Subitem(_) => todo!(),
-            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         })
     }

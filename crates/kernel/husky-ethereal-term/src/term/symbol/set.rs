@@ -48,8 +48,7 @@ impl EtherealTerm {
             EtherealTerm::Ritchie(term) => term_ritchie_symbols(db, term),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(term) => term_application_symbols(db, term),
-            EtherealTerm::Subitem(_) => todo!(),
-            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }

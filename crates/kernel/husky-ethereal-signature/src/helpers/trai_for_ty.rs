@@ -97,8 +97,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
             },
             RitchieKind::Trait(_) => todo!(),
         },
-        EtherealTerm::Subitem(_) => todo!(),
-        EtherealTerm::AsTraitSubitem(_) => todo!(),
+        EtherealTerm::TypeAsTraitItem(_) => todo!(),
         _ => (),
     }
     let application_expansion = ty_term.application_expansion(db);
