@@ -242,29 +242,6 @@ impl EtherealTerm {
     }
 }
 
-/// # rewrite
-impl EtherealTerm {
-    pub fn substitute(self, substitution: EtherealTermSubstitution, db: &::salsa::Db) -> Self {
-        match self {
-            EtherealTerm::Symbol(symbol) => todo!(),
-            EtherealTerm::Rune(rune) => match rune == substitution.src() {
-                true => substitution.dst(),
-                false => rune.substitute(substitution, db),
-            },
-            EtherealTerm::Literal(_)
-            | EtherealTerm::EntityPath(_)
-            | EtherealTerm::Category(_)
-            | EtherealTerm::Universe(_) => self,
-            EtherealTerm::Curry(term) => term.substitute(substitution, db).into(),
-            EtherealTerm::Abstraction(term) => term.substitute(substitution, db).into(),
-            EtherealTerm::Application(term) => term.substitute(substitution, db),
-            EtherealTerm::TypeAsTraitItem(term) => term.substitute(substitution, db).into(),
-            EtherealTerm::TraitConstraint(term) => term.substitute(substitution, db).into(),
-            EtherealTerm::Ritchie(_) => todo!(),
-        }
-    }
-}
-
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_from_application_or_ritchie_call_declarative_term(
     db: &::salsa::Db,
@@ -442,23 +419,44 @@ impl EtherealTerm {
     }
 }
 
-impl EtherealInstantiate for EtherealTerm {
+/// # rewrite
+
+impl EtherealTerm {
+    pub fn substitute(self, substitution: EtherealTermSubstitution, db: &::salsa::Db) -> Self {
+        match self {
+            EtherealTerm::Literal(_)
+            | EtherealTerm::EntityPath(_)
+            | EtherealTerm::Category(_)
+            | EtherealTerm::Universe(_) => self,
+            EtherealTerm::Symbol(symbol) => todo!(),
+            EtherealTerm::Rune(slf) => slf.substitute(substitution, db),
+            EtherealTerm::Curry(slf) => slf.substitute(substitution, db).into(),
+            EtherealTerm::Abstraction(slf) => slf.substitute(substitution, db).into(),
+            EtherealTerm::Application(slf) => slf.substitute(substitution, db),
+            EtherealTerm::TypeAsTraitItem(slf) => slf.substitute(substitution, db).into(),
+            EtherealTerm::TraitConstraint(slf) => slf.substitute(substitution, db).into(),
+            EtherealTerm::Ritchie(slf) => slf.substitute(substitution, db).into(),
+        }
+    }
+}
+
+impl EtherealTermInstantiate for EtherealTerm {
     type Output = EtherealTerm;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
         match self {
             EtherealTerm::Literal(_)
-            | EtherealTerm::Rune(_)
             | EtherealTerm::EntityPath(_)
             | EtherealTerm::Category(_)
             | EtherealTerm::Universe(_) => self,
             EtherealTerm::Symbol(slf) => slf.instantiate(db, instantiation),
-            EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(_) => todo!(),
-            EtherealTerm::Abstraction(_) => todo!(),
+            EtherealTerm::Rune(slf) => slf.instantiate(db, instantiation).into(),
+            EtherealTerm::Curry(slf) => slf.instantiate(db, instantiation).into(),
+            EtherealTerm::Ritchie(slf) => slf.instantiate(db, instantiation).into(),
+            EtherealTerm::Abstraction(slf) => slf.instantiate(db, instantiation).into(),
             EtherealTerm::Application(slf) => slf.instantiate(db, instantiation),
-            EtherealTerm::TypeAsTraitItem(_) => todo!(),
-            EtherealTerm::TraitConstraint(_) => todo!(),
+            EtherealTerm::TypeAsTraitItem(slf) => slf.instantiate(db, instantiation).into(),
+            EtherealTerm::TraitConstraint(slf) => slf.instantiate(db, instantiation).into(),
         }
     }
 }

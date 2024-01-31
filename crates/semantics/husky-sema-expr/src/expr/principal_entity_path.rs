@@ -4,7 +4,7 @@ use husky_ethereal_signature::{
     FugitiveEtherealSignatureTemplate, HasEtherealSignatureTemplate,
     TypeVariantEtherealSignatureTemplate,
 };
-use husky_ethereal_term::instantiation::EtherealInstantiate;
+use husky_ethereal_term::instantiation::EtherealTermInstantiate;
 use husky_fluffy_term::instantiation::{
     FluffyInstantiate, FluffyInstantiation, FluffyInstantiationEnvironment,
     FluffyTermSymbolResolution,

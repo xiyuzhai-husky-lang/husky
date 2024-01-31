@@ -44,7 +44,7 @@ pub enum FluffyTermData<'a> {
     },
     Rune {
         ty: FluffyTerm,
-        idx: RuneIndex,
+        index: RuneIndex,
     },
     TypeVariant {
         path: TypeVariantPath,
@@ -131,7 +131,9 @@ impl<'a> FluffyTermData<'a> {
                 RitchieKind::Trait(_) => todo!(),
             },
             FluffyTermData::Symbol { term, ty } => format!("symbol({})", ty.show(db, terms)),
-            FluffyTermData::Rune { ty, idx } => format!("rune({idx}, {})", ty.show(db, terms)),
+            FluffyTermData::Rune { ty, index: idx } => {
+                format!("rune({idx}, {})", ty.show(db, terms))
+            }
             FluffyTermData::TypeVariant { path } => format!("{:?}", path.debug(db)),
         }
     }

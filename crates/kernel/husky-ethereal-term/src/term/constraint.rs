@@ -34,6 +34,8 @@ impl TraitConstraintEtherealTerm {
     }
 }
 
+/// # rewrite
+
 impl TraitConstraintEtherealTerm {
     pub fn substitute(self, substitution: EtherealTermSubstitution, db: &::salsa::Db) -> Self {
         let old_ty = self.ty(db);
@@ -44,5 +46,17 @@ impl TraitConstraintEtherealTerm {
             return self;
         }
         Self::new(db, new_ty, new_trai)
+    }
+}
+
+impl EtherealTermInstantiate for TraitConstraintEtherealTerm {
+    type Output = Self;
+
+    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+        Self::new(
+            db,
+            self.ty(db).instantiate(db, instantiation),
+            self.trai(db).instantiate(db, instantiation),
+        )
     }
 }

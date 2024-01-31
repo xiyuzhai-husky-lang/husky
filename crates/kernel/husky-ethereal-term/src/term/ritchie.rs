@@ -155,7 +155,7 @@ impl EtherealRitchieParameter {
     }
 }
 
-impl EtherealInstantiate for EtherealRitchieParameter {
+impl EtherealTermInstantiate for EtherealRitchieParameter {
     type Output = Self;
 
     fn instantiate(
@@ -233,14 +233,6 @@ impl salsa::DisplayWithDb for EtherealRitchieParameter {
 }
 
 impl EtherealRitchieParameter {
-    // pub fn new(contract: Contract, ty: EtherealTerm) -> Self {
-    //     Self { contract, ty }
-    // }
-
-    // pub fn contract(&self) -> Contract {
-    //     self.contract
-    // }
-
     pub fn ty(&self) -> EtherealTerm {
         match self {
             EtherealRitchieParameter::Regular(param) => param.ty(),
@@ -250,8 +242,43 @@ impl EtherealRitchieParameter {
     }
 }
 
+/// # rewrite
+
 impl RitchieEtherealTerm {
-    fn substitute(self, _db: &::salsa::Db, substitution: EtherealTermSubstitution) -> EtherealTerm {
+    pub(super) fn substitute(
+        self,
+        substitution: EtherealTermSubstitution,
+        db: &::salsa::Db,
+    ) -> RitchieEtherealTerm {
+        Self::new_inner(
+            db,
+            self.ritchie_kind(db),
+            self.parameter_contracted_tys(db)
+                .substitute(substitution, db)
+                .collect(),
+            self.return_ty(db).substitute(substitution, db),
+        )
+    }
+}
+
+impl<'a> EtherealTermSubstitute<'a> for EtherealRitchieParameter {
+    type Output = EtherealRitchieParameter;
+
+    fn substitute(self, substitution: EtherealTermSubstitution, db: &'a salsa::Db) -> Self::Output {
         todo!()
+    }
+}
+
+impl EtherealTermInstantiate for RitchieEtherealTerm {
+    type Output = Self;
+
+    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+        Self::new_inner(
+            db,
+            self.ritchie_kind(db),
+            self.parameter_contracted_tys(db)
+                .instantiate(db, instantiation),
+            self.return_ty(db).instantiate(db, instantiation),
+        )
     }
 }

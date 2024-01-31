@@ -39,7 +39,7 @@ impl EtherealRitchieRegularParameter {
     }
 }
 
-impl EtherealInstantiate for EtherealRitchieRegularParameter {
+impl EtherealTermInstantiate for EtherealRitchieRegularParameter {
     type Output = Self;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self {
