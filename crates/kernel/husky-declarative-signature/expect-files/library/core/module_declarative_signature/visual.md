@@ -13,7 +13,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: DeclarativeTermSymbol(
+                                    symbol: SymbolDeclarativeTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -68,7 +68,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: DeclarativeTermSymbol(
+                                    symbol: SymbolDeclarativeTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -79,7 +79,7 @@
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
                         self_ty: DeclarativeSelfType::DerivedAny(
-                            DeclarativeTermSymbol {
+                            SymbolDeclarativeTerm {
                                 toolchain: Toolchain {
                                     data: ToolchainData::Local {
                                         library_path: VirtualPath {

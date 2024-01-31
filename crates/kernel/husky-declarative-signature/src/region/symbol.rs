@@ -10,16 +10,16 @@ pub struct SymbolDeclarativeTermRegion {
     symbol_registry: TermSymbolRegistry,
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,
     self_ty: Option<DeclarativeTerm>,
-    self_value: Option<DeclarativeTermSymbol>,
-    self_lifetime: Option<DeclarativeTermSymbol>,
-    self_place: Option<DeclarativeTermSymbol>,
-    implicit_template_parameter_symbols: SmallVec<[DeclarativeTermSymbol; 1]>,
+    self_value: Option<SymbolDeclarativeTerm>,
+    self_lifetime: Option<SymbolDeclarativeTerm>,
+    self_place: Option<SymbolDeclarativeTerm>,
+    implicit_template_parameter_symbols: SmallVec<[SymbolDeclarativeTerm; 1]>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SymbolSignature {
     kind: SymbolSignatureKind,
-    term_symbol: Option<DeclarativeTermSymbol>,
+    term_symbol: Option<SymbolDeclarativeTerm>,
     modifier: SymbolModifier,
     ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
 }
@@ -36,7 +36,7 @@ impl SymbolSignature {
         self.kind
     }
 
-    pub fn term_symbol(self) -> Option<DeclarativeTermSymbol> {
+    pub fn term_symbol(self) -> Option<SymbolDeclarativeTerm> {
         self.term_symbol
     }
 
@@ -50,15 +50,15 @@ impl SymbolSignature {
 }
 
 impl SymbolDeclarativeTermRegion {
-    pub fn self_lifetime(&self) -> Option<DeclarativeTermSymbol> {
+    pub fn self_lifetime(&self) -> Option<SymbolDeclarativeTerm> {
         self.self_lifetime
     }
 
-    pub fn self_place(&self) -> Option<DeclarativeTermSymbol> {
+    pub fn self_place(&self) -> Option<SymbolDeclarativeTerm> {
         self.self_place
     }
 
-    pub fn implicit_template_parameter_symbols(&self) -> &[DeclarativeTermSymbol] {
+    pub fn implicit_template_parameter_symbols(&self) -> &[SymbolDeclarativeTerm] {
         &self.implicit_template_parameter_symbols
     }
 
@@ -72,7 +72,7 @@ impl SymbolDeclarativeTermRegion {
         db: &::salsa::Db,
         idx: CurrentSynSymbolIdx,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
-        term_symbol: DeclarativeTermSymbol,
+        term_symbol: SymbolDeclarativeTerm,
     ) {
         self.add_new_current_syn_symbol_signature(
             db,
@@ -217,7 +217,7 @@ impl SymbolDeclarativeTermRegion {
         }
         if symbol_region.allow_self_value().to_bool() && self.self_value.is_none() {
             self.self_value = Some(
-                DeclarativeTermSymbol::new_self_value(
+                SymbolDeclarativeTerm::new_self_value(
                     db,
                     toolchain,
                     &mut self.symbol_registry,
@@ -231,8 +231,8 @@ impl SymbolDeclarativeTermRegion {
         &mut self,
         toolchain: Toolchain,
         db: &::salsa::Db,
-    ) -> DeclarativeTermSymbol {
-        let symbol = DeclarativeTermSymbol::new_self_ty(db, toolchain, &mut self.symbol_registry);
+    ) -> SymbolDeclarativeTerm {
+        let symbol = SymbolDeclarativeTerm::new_self_ty(db, toolchain, &mut self.symbol_registry);
         self.implicit_template_parameter_symbols.push(symbol);
         symbol
     }
@@ -248,7 +248,7 @@ impl SymbolDeclarativeTermRegion {
     ///
     /// then self type term is `Animal T`
     fn ty_defn_self_ty_term(&self, db: &::salsa::Db, ty_path: TypePath) -> DeclarativeTerm {
-        let mut self_ty: DeclarativeTerm = DeclarativeTermEntityPath::Type(ty_path.into()).into();
+        let mut self_ty: DeclarativeTerm = EntityPathDeclarativeTerm::Type(ty_path.into()).into();
         for current_syn_symbol_signature in self
             .symbol_signatures
             .current_syn_symbol_map()
@@ -278,7 +278,7 @@ impl SymbolDeclarativeTermRegion {
         self.self_ty = self_ty
     }
 
-    pub fn self_value(&self) -> Option<DeclarativeTermSymbol> {
+    pub fn self_value(&self) -> Option<SymbolDeclarativeTerm> {
         self.self_value
     }
 

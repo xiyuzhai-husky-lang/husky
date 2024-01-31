@@ -92,8 +92,8 @@ impl EtherealTerm {
         Ok(match declarative_term {
             DeclarativeTerm::Literal(literal) => {
                 match literal {
-                    DeclarativeTermLiteral::Resolved(literal) => literal.into(),
-                    DeclarativeTermLiteral::Unresolved(literal) => match literal {
+                    LiteralDeclarativeTerm::Resolved(literal) => literal.into(),
+                    LiteralDeclarativeTerm::Unresolved(literal) => match literal {
                         UnresolvedTermLiteral::RegularInteger(i) => match ty_expectation {
                             TermTypeExpectation::FinalDestinationEqsSort => todo!(),
                             TermTypeExpectation::FinalDestinationEqsNonSortTypePath(ty_path) => {
@@ -209,9 +209,9 @@ impl EtherealTerm {
                 EtherealTermRune::from_declarative(db, declarative_term)?.into()
             }
             DeclarativeTerm::EntityPath(declarative_term) => match declarative_term {
-                DeclarativeTermEntityPath::Fugitive(path) => TermEntityPath::Fugitive(path).into(),
-                DeclarativeTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),
-                DeclarativeTermEntityPath::Type(path) => match ty_expectation {
+                EntityPathDeclarativeTerm::Fugitive(path) => TermEntityPath::Fugitive(path).into(),
+                EntityPathDeclarativeTerm::Trait(path) => TermEntityPath::Trait(path).into(),
+                EntityPathDeclarativeTerm::Type(path) => match ty_expectation {
                     TermTypeExpectation::FinalDestinationEqsSort => {
                         TermEntityPath::TypeOntology(path).into()
                     }
@@ -229,7 +229,7 @@ impl EtherealTerm {
                     }
                     TermTypeExpectation::Any => TermEntityPath::TypeInstance(path).into(),
                 },
-                DeclarativeTermEntityPath::TypeVariant(path) => {
+                EntityPathDeclarativeTerm::TypeVariant(path) => {
                     TermEntityPath::TypeVariant(path).into()
                 }
             },
@@ -245,22 +245,22 @@ impl EtherealTerm {
                 EtherealTermAbstraction::from_declarative(db, declarative_term, ty_expectation)?
                     .into()
             }
-            DeclarativeTerm::ExplicitApplication(declarative_term) => {
+            DeclarativeTerm::Application(declarative_term) => {
                 // todo: implicit arguments
                 EtherealTermApplication::from_declarative(db, declarative_term, ty_expectation)?
             }
-            DeclarativeTerm::ExplicitApplicationOrRitchieCall(declarative_term) => {
+            DeclarativeTerm::ApplicationOrRitchieCall(declarative_term) => {
                 ethereal_term_from_declarative_term_explicit_application_or_ritchie_call(
                     db,
                     declarative_term,
                     ty_expectation,
                 )?
             }
-            DeclarativeTerm::Subitem(declarative_term) => {
+            DeclarativeTerm::AssociatedItem(declarative_term) => {
                 todo!()
                 // EtherealTermSubitem::from_declarative(db, declarative_term, ty_expectation)?
             }
-            DeclarativeTerm::AsTraitSubitem(declarative_term) => {
+            DeclarativeTerm::TypeAsTraitAssociatedItem(declarative_term) => {
                 EtherealTermTypeAsTraitItem::from_declarative(db, declarative_term, ty_expectation)?
                     .into()
             }
@@ -293,15 +293,15 @@ impl EtherealTerm {
 
     pub(crate) fn into_declarative(self, db: &::salsa::Db) -> DeclarativeTerm {
         match self {
-            EtherealTerm::Literal(lit) => DeclarativeTermLiteral::Resolved(lit).into(),
-            EtherealTerm::Symbol(s) => DeclarativeTermSymbol::new(
+            EtherealTerm::Literal(lit) => LiteralDeclarativeTerm::Resolved(lit).into(),
+            EtherealTerm::Symbol(s) => SymbolDeclarativeTerm::new(
                 db,
                 s.toolchain(db),
                 Ok(s.ty(db).into_declarative(db)),
                 s.index(db).into(),
             )
             .into(),
-            EtherealTerm::Rune(v) => DeclarativeTermRune::new(
+            EtherealTerm::Rune(v) => RuneDeclarativeTerm::new(
                 Ok(v.ty(db).into_declarative(db)),
                 v.idx(db).disambiguator(),
                 db,
@@ -373,7 +373,7 @@ impl EtherealTerm {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchie_call(
     db: &::salsa::Db,
-    declarative_term: DeclarativeTermExplicitApplicationOrRitchieCall,
+    declarative_term: ApplicationOrRitchieCallDeclarativeTerm,
     term_ty_expectation: TermTypeExpectation,
 ) -> EtherealTermResult<EtherealTerm> {
     let function =
@@ -408,10 +408,10 @@ pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchi
             }
             DeclarativeTerm::Ritchie(_) => todo!(),
             DeclarativeTerm::Abstraction(_) => todo!(),
-            DeclarativeTerm::ExplicitApplication(_) => todo!(),
-            DeclarativeTerm::ExplicitApplicationOrRitchieCall(_) => todo!(),
-            DeclarativeTerm::Subitem(_) => todo!(),
-            DeclarativeTerm::AsTraitSubitem(_) => todo!(),
+            DeclarativeTerm::Application(_) => todo!(),
+            DeclarativeTerm::ApplicationOrRitchieCall(_) => todo!(),
+            DeclarativeTerm::AssociatedItem(_) => todo!(),
+            DeclarativeTerm::TypeAsTraitAssociatedItem(_) => todo!(),
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
@@ -424,7 +424,7 @@ pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchi
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_list(
     db: &::salsa::Db,
-    declarative_term_list: DeclarativeTermList,
+    declarative_term_list: ListDeclarativeTerm,
     term_ty_expectation: TermTypeExpectation,
 ) -> EtherealTermResult<EtherealTerm> {
     match term_ty_expectation {
@@ -467,7 +467,7 @@ pub(crate) fn ethereal_term_from_declarative_term_list(
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_wrapper(
     db: &::salsa::Db,
-    declarative_term_wrapper: DeclarativeTermWrapper,
+    declarative_term_wrapper: WrapperDeclarativeTerm,
 ) -> EtherealTermResult<EtherealTerm> {
     let inner_ty = EtherealTerm::ty_from_declarative(db, declarative_term_wrapper.inner_ty(db))?;
     match inner_ty.application_expansion(db).function() {

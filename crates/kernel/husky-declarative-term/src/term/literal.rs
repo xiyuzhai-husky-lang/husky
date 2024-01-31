@@ -4,7 +4,7 @@ use husky_term_prelude::literal::TermLiteral;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
-pub enum DeclarativeTermLiteral {
+pub enum LiteralDeclarativeTerm {
     Resolved(TermLiteral),
     Unresolved(UnresolvedTermLiteral),
 }
@@ -15,7 +15,7 @@ pub enum UnresolvedTermLiteral {
     RegularInteger(i128),
 }
 
-impl DeclarativeTermLiteral {
+impl LiteralDeclarativeTerm {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -26,7 +26,7 @@ impl DeclarativeTermLiteral {
     }
 }
 
-impl salsa::DisplayWithDb for DeclarativeTermLiteral {
+impl salsa::DisplayWithDb for LiteralDeclarativeTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

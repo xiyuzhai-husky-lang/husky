@@ -28,7 +28,7 @@ fn term_curry_size_works() {
 impl EtherealTermCurry {
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
-        declarative_term_curry: DeclarativeTermCurry,
+        declarative_term_curry: CurryDeclarativeTerm,
     ) -> EtherealTermResult<Self> {
         term_curry_from_declarative(db, declarative_term_curry)
     }
@@ -68,7 +68,7 @@ impl EtherealTermCurry {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_curry_from_declarative(
     db: &::salsa::Db,
-    declarative_term_curry: DeclarativeTermCurry,
+    declarative_term_curry: CurryDeclarativeTerm,
 ) -> EtherealTermResult<EtherealTermCurry> {
     let t = |declarative_ty| EtherealTerm::ty_from_declarative(db, declarative_ty);
     Ok(EtherealTermCurry::new(

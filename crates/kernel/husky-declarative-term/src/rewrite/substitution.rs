@@ -1,16 +1,16 @@
 use super::*;
 
 pub struct DeclarativeTermSubstitution {
-    src: DeclarativeTermRune,
+    src: RuneDeclarativeTerm,
     dst: DeclarativeTerm,
 }
 
 impl DeclarativeTermSubstitution {
-    pub fn new(src: DeclarativeTermRune, dst: DeclarativeTerm) -> Self {
+    pub fn new(src: RuneDeclarativeTerm, dst: DeclarativeTerm) -> Self {
         Self { src, dst }
     }
 
-    pub(crate) fn src(&self) -> DeclarativeTermRune {
+    pub(crate) fn src(&self) -> RuneDeclarativeTerm {
         self.src
     }
 

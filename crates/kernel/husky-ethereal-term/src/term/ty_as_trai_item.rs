@@ -19,7 +19,7 @@ fn term_as_trai_subitem_size_works() {
 impl EtherealTermTypeAsTraitItem {
     pub(crate) fn from_declarative(
         _db: &::salsa::Db,
-        _valid_term: DeclarativeTermAsTraitSubitem,
+        _valid_term: TypeAsTraitAssociatedItemDeclarativeTerm,
         _term_ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<Self> {
         todo!()

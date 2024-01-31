@@ -5,7 +5,7 @@ fn application_expansion_aux(
     declarative_term: DeclarativeTerm,
 ) -> ApplicationExpansion {
     match declarative_term {
-        DeclarativeTerm::ExplicitApplication(declarative_term) => {
+        DeclarativeTerm::Application(declarative_term) => {
             application_expansion_salsa(db, declarative_term)
         }
         _ => ApplicationExpansion {
@@ -18,7 +18,7 @@ fn application_expansion_aux(
 #[salsa::tracked(jar=DeclarativeTypeJar)]
 pub(crate) fn application_expansion_salsa(
     db: &::salsa::Db,
-    declarative_term: DeclarativeTermExplicitApplication,
+    declarative_term: ApplicationDeclarativeTerm,
 ) -> ApplicationExpansion {
     let function = declarative_term.function(db);
     let argument = declarative_term.argument(db);

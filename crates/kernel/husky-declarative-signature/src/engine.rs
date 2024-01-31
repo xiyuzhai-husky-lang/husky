@@ -125,7 +125,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     let variance = annotated_variance_token.map(|vt| vt.into());
                     let (ty, term_symbol) = match template_parameter_variant {
                         CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
-                            DeclarativeTermSymbol::new_lifetime(
+                            SymbolDeclarativeTerm::new_lifetime(
                                 self.db,
                                 self.toolchain,
                                 self.declarative_term_menu,
@@ -135,7 +135,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                             )
                         }
                         CurrentTemplateParameterSynSymbolVariant::Place { label_token } => {
-                            DeclarativeTermSymbol::new_place(
+                            SymbolDeclarativeTerm::new_place(
                                 self.db,
                                 self.toolchain,
                                 self.declarative_term_menu,
@@ -145,7 +145,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                             )
                         }
                         CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => {
-                            DeclarativeTermSymbol::new_ty(
+                            SymbolDeclarativeTerm::new_ty(
                                 self.db,
                                 self.toolchain,
                                 self.declarative_term_menu,
@@ -170,7 +170,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                             }
                             (
                                 ty,
-                                DeclarativeTermSymbol::new_const(
+                                SymbolDeclarativeTerm::new_const(
                                     self.db,
                                     self.toolchain,
                                     attrs,
@@ -213,7 +213,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 }
                 SyndicateTypeConstraint::VariadicParenateParameter { ty } => {
                     let ty = self.infer_new_expr_term(*ty).map_err(|_| todo!());
-                    let symbol = DeclarativeTermSymbol::new_ephem(
+                    let symbol = SymbolDeclarativeTerm::new_ephem(
                         self.db,
                         self.toolchain,
                         ty,
@@ -431,12 +431,12 @@ impl<'a> DeclarativeTermEngine<'a> {
                 Some(path) => Ok(DeclarativeTerm::EntityPath(match path {
                     PrincipalEntityPath::Module(_) => todo!(),
                     PrincipalEntityPath::MajorItem(path) => match path {
-                        MajorItemPath::Type(path) => DeclarativeTermEntityPath::Type(path),
+                        MajorItemPath::Type(path) => EntityPathDeclarativeTerm::Type(path),
                         MajorItemPath::Trait(path) => path.into(),
                         MajorItemPath::Fugitive(path) => path.into(),
                     },
                     PrincipalEntityPath::TypeVariant(path) => {
-                        DeclarativeTermEntityPath::TypeVariant(path)
+                        EntityPathDeclarativeTerm::TypeVariant(path)
                     }
                 })),
                 None => Err(DerivedDeclarativeTermError2::InvalidEntityPath.into()),
@@ -499,7 +499,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     SynBinaryOpr::AssignClosed(_) => todo!(),
                     SynBinaryOpr::AssignShift(_) => todo!(),
                     SynBinaryOpr::ScopeResolution => todo!(),
-                    SynBinaryOpr::CurryType => Ok(DeclarativeTermCurry::new_nondependent(
+                    SynBinaryOpr::CurryType => Ok(CurryDeclarativeTerm::new_nondependent(
                         self.db,
                         self.toolchain,
                         CurryKind::Explicit, // ad hoc
@@ -530,7 +530,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     SynPrefixOpr::Ref => todo!(),
                     SynPrefixOpr::Option => self.declarative_term_menu.option_ty_path(),
                 };
-                Ok(DeclarativeTermExplicitApplication::new(self.db, tmpl, opd).into())
+                Ok(ApplicationDeclarativeTerm::new(self.db, tmpl, opd).into())
             }
             SynExprData::Suffix { .. } => todo!(),
             SynExprData::Field { .. } => todo!(),
@@ -584,7 +584,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     .into_iter()
                     .map(|item| self.infer_new_expr_term(item.syn_expr_idx()))
                     .collect::<DeclarativeTermResult2<_>>()?;
-                Ok(DeclarativeTermExplicitApplicationOrRitchieCall::new(
+                Ok(ApplicationOrRitchieCallDeclarativeTerm::new(
                     function,
                     template_arguments,
                     items,
@@ -603,7 +603,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 let Ok(function) = self.infer_new_expr_term(function) else {
                     Err(DerivedDeclarativeTermError2::CannotInferFunctionDeclarativeTermInApplication)?
                 };
-                Ok(DeclarativeTermExplicitApplication::new(self.db, function, argument).into())
+                Ok(ApplicationDeclarativeTerm::new(self.db, function, argument).into())
             }
             SynExprData::NewTuple { ref items, .. } => {
                 p!(self.syn_expr_region_data.path().debug(self.db));
@@ -615,7 +615,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     .iter()
                     .map(|item| self.infer_new_expr_term(item.syn_expr_idx()))
                     .collect::<DeclarativeTermResult2<Vec<_>>>()?;
-                Ok(DeclarativeTermList::new(
+                Ok(ListDeclarativeTerm::new(
                     self.db,
                     self.syn_expr_region_data.path().toolchain(self.db),
                     items,
@@ -636,7 +636,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             } => match place_label_regional_token {
                 Some(_) => todo!(),
                 None => match self.symbol_declarative_term_region.self_place() {
-                    Some(place) => Ok(DeclarativeTermExplicitApplication::new(
+                    Some(place) => Ok(ApplicationDeclarativeTerm::new(
                         self.db,
                         self.declarative_term_menu.at_ty_path(),
                         place.into(),
@@ -676,7 +676,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     None => self.declarative_term_menu.unit(),
                 };
                 Ok(
-                    DeclarativeTermRitchie::new(self.db, ritchie_kind, parameter_tys, return_ty)
+                    RitchieDeclarativeTerm::new(self.db, ritchie_kind, parameter_tys, return_ty)
                         .into(),
                 )
             }

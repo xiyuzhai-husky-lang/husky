@@ -14,7 +14,7 @@ impl DeclarativeTermShowContext {
     pub(crate) fn fmt_symbol(
         &mut self,
         db: &::salsa::Db,
-        symbol: DeclarativeTermSymbol,
+        symbol: SymbolDeclarativeTerm,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if let Some(entry) = self.entries.get_entry(symbol) {
@@ -30,7 +30,7 @@ impl DeclarativeTermShowContext {
     pub(crate) fn fmt_with_symbol(
         &mut self,
         db: &::salsa::Db,
-        symbol: DeclarativeTermSymbol,
+        symbol: SymbolDeclarativeTerm,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         self.with_symbol(db, symbol);
@@ -42,7 +42,7 @@ impl DeclarativeTermShowContext {
     pub(crate) fn fmt_variable(
         &mut self,
         db: &::salsa::Db,
-        variable: DeclarativeTermRune,
+        variable: RuneDeclarativeTerm,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         // ad hoc
@@ -52,7 +52,7 @@ impl DeclarativeTermShowContext {
     pub(crate) fn fmt_with_variable(
         &mut self,
         _db: &::salsa::Db,
-        _variable: DeclarativeTermRune,
+        _variable: RuneDeclarativeTerm,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         // ad hoc

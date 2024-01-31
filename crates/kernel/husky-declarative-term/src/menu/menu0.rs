@@ -10,7 +10,7 @@ pub struct DeclarativeTermMenu0 {
     universe1: TermUniverse,
     prop: TermCategory,
     ty0: TermCategory,
-    static_lifetime: DeclarativeTermLiteral,
+    static_lifetime: LiteralDeclarativeTerm,
     unit: DeclarativeTerm,
     never: DeclarativeTerm,
     // core::ops::Add	The addition operator +.
@@ -46,7 +46,7 @@ pub struct DeclarativeTermMenu0 {
     str_ty_path: DeclarativeTerm,
     ref_ty_path: DeclarativeTerm,
     at_ty_path: DeclarativeTerm,
-    leash_ty_path: DeclarativeTermEntityPath,
+    leash_ty_path: EntityPathDeclarativeTerm,
     vec_ty: DeclarativeTerm,
     i8: DeclarativeTerm,
     i16: DeclarativeTerm,
@@ -109,28 +109,28 @@ impl DeclarativeTermMenu0 {
             ),
             core_ops_neg: DeclarativeTerm::EntityPath(item_path_menu.neg_trai_path().into()),
             core_ops_not: DeclarativeTerm::EntityPath(item_path_menu.not_trai_path().into()),
-            option_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.option_ty_path()).into(),
-            slice_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.slice_ty_path()).into(),
-            str_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.str_ty_path()).into(),
+            option_ty_path: EntityPathDeclarativeTerm::Type(item_path_menu.option_ty_path()).into(),
+            slice_ty_path: EntityPathDeclarativeTerm::Type(item_path_menu.slice_ty_path()).into(),
+            str_ty_path: EntityPathDeclarativeTerm::Type(item_path_menu.str_ty_path()).into(),
             ref_ty_path: item_path_menu.ref_ty_path().into(),
             at_ty_path: item_path_menu.at_ty_path().into(),
-            vec_ty: DeclarativeTermEntityPath::Type(item_path_menu.vec_ty_path()).into(),
-            unit: DeclarativeTermEntityPath::Type(item_path_menu.unit_ty_path()).into(),
-            never: DeclarativeTermEntityPath::Type(item_path_menu.never_ty_path()).into(),
-            bool: DeclarativeTermEntityPath::Type(item_path_menu.bool_ty_path()).into(),
-            trai_ty: DeclarativeTermEntityPath::Type(item_path_menu.trai_ty_path()).into(),
+            vec_ty: EntityPathDeclarativeTerm::Type(item_path_menu.vec_ty_path()).into(),
+            unit: EntityPathDeclarativeTerm::Type(item_path_menu.unit_ty_path()).into(),
+            never: EntityPathDeclarativeTerm::Type(item_path_menu.never_ty_path()).into(),
+            bool: EntityPathDeclarativeTerm::Type(item_path_menu.bool_ty_path()).into(),
+            trai_ty: EntityPathDeclarativeTerm::Type(item_path_menu.trai_ty_path()).into(),
             leash_ty_path: item_path_menu.leash_ty_path().into(),
-            lifetime_ty: DeclarativeTermEntityPath::Type(item_path_menu.lifetime_ty_path()).into(),
-            place_ty: DeclarativeTermEntityPath::Type(item_path_menu.place_ty_path()).into(),
-            module: DeclarativeTermEntityPath::Type(item_path_menu.module_ty_path()).into(),
-            i8: DeclarativeTermEntityPath::Type(item_path_menu.i8_ty_path()).into(),
-            i16: DeclarativeTermEntityPath::Type(item_path_menu.i16_ty_path()).into(),
-            i32: DeclarativeTermEntityPath::Type(item_path_menu.i32_ty_path()).into(),
-            i64: DeclarativeTermEntityPath::Type(item_path_menu.i64_ty_path()).into(),
-            f32: DeclarativeTermEntityPath::Type(item_path_menu.f32_ty_path()).into(),
-            f64: DeclarativeTermEntityPath::Type(item_path_menu.f64_ty_path()).into(),
-            r32: DeclarativeTermEntityPath::Type(item_path_menu.r32_ty_path()).into(),
-            r64: DeclarativeTermEntityPath::Type(item_path_menu.r64_ty_path()).into(),
+            lifetime_ty: EntityPathDeclarativeTerm::Type(item_path_menu.lifetime_ty_path()).into(),
+            place_ty: EntityPathDeclarativeTerm::Type(item_path_menu.place_ty_path()).into(),
+            module: EntityPathDeclarativeTerm::Type(item_path_menu.module_ty_path()).into(),
+            i8: EntityPathDeclarativeTerm::Type(item_path_menu.i8_ty_path()).into(),
+            i16: EntityPathDeclarativeTerm::Type(item_path_menu.i16_ty_path()).into(),
+            i32: EntityPathDeclarativeTerm::Type(item_path_menu.i32_ty_path()).into(),
+            i64: EntityPathDeclarativeTerm::Type(item_path_menu.i64_ty_path()).into(),
+            f32: EntityPathDeclarativeTerm::Type(item_path_menu.f32_ty_path()).into(),
+            f64: EntityPathDeclarativeTerm::Type(item_path_menu.f64_ty_path()).into(),
+            r32: EntityPathDeclarativeTerm::Type(item_path_menu.r32_ty_path()).into(),
+            r64: EntityPathDeclarativeTerm::Type(item_path_menu.r64_ty_path()).into(),
         }
     }
 
@@ -241,7 +241,7 @@ impl DeclarativeTermMenu0 {
         self.ref_ty_path
     }
 
-    pub fn leash_ty_path(&self) -> DeclarativeTermEntityPath {
+    pub fn leash_ty_path(&self) -> EntityPathDeclarativeTerm {
         self.leash_ty_path
     }
 

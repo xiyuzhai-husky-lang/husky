@@ -122,8 +122,7 @@ fn construct_self_ty(
     let mut self_ty: DeclarativeTerm = path.into();
     for template_parameter in template_parameters {
         self_ty =
-            DeclarativeTermExplicitApplication::new(db, self_ty, template_parameter.symbol().into())
-                .into()
+            ApplicationDeclarativeTerm::new(db, self_ty, template_parameter.symbol().into()).into()
     }
     self_ty
 }

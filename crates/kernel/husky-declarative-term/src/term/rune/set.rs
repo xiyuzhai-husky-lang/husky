@@ -10,12 +10,12 @@ use vec_like::VecSet;
 pub struct DeclarativeTermRunes {
     /// unaccounted means the variable is not declared within this term
     #[return_ref]
-    pub unaccounted_variables: VecSet<DeclarativeTermRune>,
+    pub unaccounted_variables: VecSet<RuneDeclarativeTerm>,
 }
 
 impl DeclarativeTermRunes {
     #[inline(always)]
-    pub(crate) fn contains(self, db: &::salsa::Db, variable: DeclarativeTermRune) -> bool {
+    pub(crate) fn contains(self, db: &::salsa::Db, variable: RuneDeclarativeTerm) -> bool {
         self.unaccounted_variables(db).has(variable)
     }
 
@@ -34,14 +34,14 @@ impl DeclarativeTermRunes {
     #[inline(always)]
     fn remove(
         variables: impl Into<Option<Self>>,
-        _variable: impl Into<Option<DeclarativeTermRune>>,
+        _variable: impl Into<Option<RuneDeclarativeTerm>>,
     ) -> Option<Self> {
         let _variables = variables.into()?;
         todo!()
     }
 }
 impl DeclarativeTerm {
-    pub fn contains_variable(self, db: &::salsa::Db, variable: DeclarativeTermRune) -> bool {
+    pub fn contains_variable(self, db: &::salsa::Db, variable: RuneDeclarativeTerm) -> bool {
         self.variables(db)
             .map(|declarative_term_variables| declarative_term_variables.contains(db, variable))
             .unwrap_or_default()
@@ -56,9 +56,9 @@ impl DeclarativeTerm {
             )),
             DeclarativeTerm::Symbol(_symbol) => None,
             DeclarativeTerm::EntityPath(path) => match path {
-                DeclarativeTermEntityPath::Fugitive(_) => todo!(),
-                DeclarativeTermEntityPath::Trait(_) | DeclarativeTermEntityPath::Type(_) => None,
-                DeclarativeTermEntityPath::TypeVariant(_) => todo!(),
+                EntityPathDeclarativeTerm::Fugitive(_) => todo!(),
+                EntityPathDeclarativeTerm::Trait(_) | EntityPathDeclarativeTerm::Type(_) => None,
+                EntityPathDeclarativeTerm::TypeVariant(_) => todo!(),
             },
             DeclarativeTerm::Category(_) => None,
             DeclarativeTerm::Universe(_) => None,
@@ -69,12 +69,12 @@ impl DeclarativeTerm {
                 declarative_term_ritchie_variables(db, declarative_term)
             }
             DeclarativeTerm::Abstraction(_) => todo!(),
-            DeclarativeTerm::ExplicitApplication(declarative_term) => {
+            DeclarativeTerm::Application(declarative_term) => {
                 declarative_term_application_variables(db, declarative_term)
             }
-            DeclarativeTerm::ExplicitApplicationOrRitchieCall(_declarative_ty) => todo!(),
-            DeclarativeTerm::Subitem(_) => todo!(),
-            DeclarativeTerm::AsTraitSubitem(_) => todo!(),
+            DeclarativeTerm::ApplicationOrRitchieCall(_declarative_ty) => todo!(),
+            DeclarativeTerm::AssociatedItem(_) => todo!(),
+            DeclarativeTerm::TypeAsTraitAssociatedItem(_) => todo!(),
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
@@ -86,7 +86,7 @@ impl DeclarativeTerm {
 #[salsa::tracked(jar = DeclarativeTermJar)]
 pub(crate) fn declarative_term_curry_placeholders(
     db: &::salsa::Db,
-    term: DeclarativeTermCurry,
+    term: CurryDeclarativeTerm,
 ) -> Option<DeclarativeTermRunes> {
     let parameter_ty_variables = term.parameter_ty(db).variables(db);
     let return_ty_variables = term.return_ty(db).variables(db);
@@ -99,7 +99,7 @@ pub(crate) fn declarative_term_curry_placeholders(
 #[salsa::tracked(jar = DeclarativeTermJar)]
 pub(crate) fn declarative_term_ritchie_variables(
     db: &::salsa::Db,
-    term: DeclarativeTermRitchie,
+    term: RitchieDeclarativeTerm,
 ) -> Option<DeclarativeTermRunes> {
     let mut variables: Option<DeclarativeTermRunes> = None;
     for param in term.params(db) {
@@ -111,7 +111,7 @@ pub(crate) fn declarative_term_ritchie_variables(
 #[salsa::tracked(jar = DeclarativeTermJar)]
 pub(crate) fn declarative_term_application_variables(
     db: &::salsa::Db,
-    term: DeclarativeTermExplicitApplication,
+    term: ApplicationDeclarativeTerm,
 ) -> Option<DeclarativeTermRunes> {
     DeclarativeTermRunes::merge(
         term.function(db).variables(db),

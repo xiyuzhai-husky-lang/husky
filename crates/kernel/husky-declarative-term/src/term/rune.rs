@@ -10,7 +10,7 @@ use super::*;
 /// variables are externalized symbols, derived from symbols, and defined in a bottom-up manner
 ///
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar, constructor = new_inner)]
-pub struct DeclarativeTermRune {
+pub struct RuneDeclarativeTerm {
     pub ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     /// this is the index to disambiguate it from all other symbols with the same type
     /// so that we have better cache hits
@@ -40,7 +40,7 @@ impl std::fmt::Display for RuneIndex {
     }
 }
 
-impl DeclarativeTermRune {
+impl RuneDeclarativeTerm {
     pub fn new(
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
         disambiguator: u8,
@@ -71,7 +71,7 @@ impl DeclarativeTermRune {
     }
 }
 
-impl DeclarativeTermRewriteCopy for DeclarativeTermRune {
+impl DeclarativeTermRewriteCopy for RuneDeclarativeTerm {
     fn substitute_copy(
         self,
         _db: &::salsa::Db,

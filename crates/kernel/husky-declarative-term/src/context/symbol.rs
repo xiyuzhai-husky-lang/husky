@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, Hash, PartialEq, Eq)]
 pub(crate) struct DeclarativeTermSymbolShowEntry {
-    symbol: DeclarativeTermSymbol,
+    symbol: SymbolDeclarativeTerm,
     show_kind: DeclarativeTermSymbolShowKind,
     idx: u8,
     /// number of lambdas using this symbol
@@ -75,7 +75,7 @@ impl DeclarativeTermSymbolShowEntry {
 }
 
 impl AsVecMapEntry for DeclarativeTermSymbolShowEntry {
-    type K = DeclarativeTermSymbol;
+    type K = SymbolDeclarativeTerm;
 
     fn key(&self) -> Self::K
     where
@@ -103,7 +103,7 @@ impl DeclarativeTermShowContext {
     pub(super) fn new_external_entry(
         &self,
         db: &::salsa::Db,
-        symbol: DeclarativeTermSymbol,
+        symbol: SymbolDeclarativeTerm,
         external_symbol_ident: Option<Ident>,
     ) -> DeclarativeTermSymbolShowEntry {
         self.new_entry(db, symbol, 0, external_symbol_ident)
@@ -112,7 +112,7 @@ impl DeclarativeTermShowContext {
     pub(super) fn new_internal_entry(
         &self,
         db: &::salsa::Db,
-        symbol: DeclarativeTermSymbol,
+        symbol: SymbolDeclarativeTerm,
     ) -> DeclarativeTermSymbolShowEntry {
         self.new_entry(db, symbol, 1, None)
     }
@@ -120,7 +120,7 @@ impl DeclarativeTermShowContext {
     fn new_entry(
         &self,
         db: &::salsa::Db,
-        symbol: DeclarativeTermSymbol,
+        symbol: SymbolDeclarativeTerm,
         level: u8,
         external_symbol_ident: Option<Ident>,
     ) -> DeclarativeTermSymbolShowEntry {
@@ -150,7 +150,7 @@ impl DeclarativeTermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn with_symbol(&mut self, db: &::salsa::Db, symbol: DeclarativeTermSymbol) {
+    pub(super) fn with_symbol(&mut self, db: &::salsa::Db, symbol: SymbolDeclarativeTerm) {
         if let Some(entry) = self.entries.get_entry_mut(symbol) {
             entry.level += 1
         } else {
@@ -159,25 +159,25 @@ impl DeclarativeTermShowContext {
         }
     }
 
-    pub(super) fn without_symbol(&mut self, symbol: DeclarativeTermSymbol) {
+    pub(super) fn without_symbol(&mut self, symbol: SymbolDeclarativeTerm) {
         self.entries.get_entry_mut(symbol).unwrap().level -= 1
     }
 }
 
 fn symbol_show_kind(
-    symbol: DeclarativeTermSymbol,
+    symbol: SymbolDeclarativeTerm,
     db: &::salsa::Db,
 ) -> DeclarativeTermSymbolShowKind {
     let Ok(ty) = symbol.ty(db) else {
         return DeclarativeTermSymbolShowKind::Other;
     };
     match ty {
-        DeclarativeTerm::EntityPath(DeclarativeTermEntityPath::Type(ty))
+        DeclarativeTerm::EntityPath(EntityPathDeclarativeTerm::Type(ty))
             if ty.eqs_lifetime_ty_path(db) =>
         {
             DeclarativeTermSymbolShowKind::Lifetime
         }
-        DeclarativeTerm::EntityPath(DeclarativeTermEntityPath::Type(ty))
+        DeclarativeTerm::EntityPath(EntityPathDeclarativeTerm::Type(ty))
             if ty.eqs_place_ty_path(db) =>
         {
             DeclarativeTermSymbolShowKind::Place

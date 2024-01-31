@@ -2,7 +2,7 @@ use super::*;
 use std::fmt::Debug;
 
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar, constructor = new_inner)]
-pub struct DeclarativeTermExplicitApplicationOrRitchieCall {
+pub struct ApplicationOrRitchieCallDeclarativeTerm {
     pub function: DeclarativeTerm,
     #[return_ref]
     pub generic_arguments: Vec<DeclarativeTerm>,
@@ -11,7 +11,7 @@ pub struct DeclarativeTermExplicitApplicationOrRitchieCall {
     pub extra_comma: bool,
 }
 
-impl DeclarativeTermExplicitApplicationOrRitchieCall {
+impl ApplicationOrRitchieCallDeclarativeTerm {
     pub fn new(
         function: DeclarativeTerm,
         template_arguments: Vec<DeclarativeTerm>,

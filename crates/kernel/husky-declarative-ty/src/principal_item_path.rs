@@ -18,13 +18,13 @@ use utils::*;
 #[inline(always)]
 pub fn declarative_term_item_path_declarative_ty(
     _db: &::salsa::Db,
-    path: DeclarativeTermEntityPath,
+    path: EntityPathDeclarativeTerm,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     match path {
-        DeclarativeTermEntityPath::Fugitive(_) => todo!(),
-        DeclarativeTermEntityPath::Trait(_) => todo!(),
-        DeclarativeTermEntityPath::Type(_) => todo!(),
-        DeclarativeTermEntityPath::TypeVariant(_) => todo!(),
+        EntityPathDeclarativeTerm::Fugitive(_) => todo!(),
+        EntityPathDeclarativeTerm::Trait(_) => todo!(),
+        EntityPathDeclarativeTerm::Type(_) => todo!(),
+        EntityPathDeclarativeTerm::TypeVariant(_) => todo!(),
     }
 }
 
