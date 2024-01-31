@@ -85,26 +85,3 @@ impl FluffyTerm {
         }
     }
 }
-
-fn curry_destination(db: &::salsa::Db, term: EtherealTerm) -> EtherealTerm {
-    match term {
-        EtherealTerm::Literal(_) => todo!(),
-        EtherealTerm::Symbol(_) => todo!(),
-        EtherealTerm::Rune(_) => todo!(),
-        EtherealTerm::EntityPath(path) => match path {
-            TermEntityPath::Fugitive(_) => todo!(),
-            TermEntityPath::Trait(_)
-            | TermEntityPath::TypeOntology(_)
-            | TermEntityPath::TypeInstance(_) => term,
-            TermEntityPath::TypeVariant(_) => todo!(),
-        },
-        EtherealTerm::Category(_) => term,
-        EtherealTerm::Universe(_) => todo!(),
-        EtherealTerm::Curry(_) => todo!(),
-        EtherealTerm::Ritchie(_) => todo!(),
-        EtherealTerm::Abstraction(_) => todo!(),
-        EtherealTerm::Application(_) => term,
-        EtherealTerm::TypeAsTraitItem(_) => todo!(),
-        EtherealTerm::TraitConstraint(_) => todo!(),
-    }
-}

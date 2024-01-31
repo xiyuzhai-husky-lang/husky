@@ -38,9 +38,6 @@ impl salsa::DisplayWithDb for DeclarativeTermAbstraction {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        // use std::fmt::Write;
-        // f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);
-        // todo!()
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
