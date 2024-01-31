@@ -5,7 +5,7 @@ pub struct RuneEtherealTerm {
     pub ty: EtherealTerm,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
-    pub idx: RuneIndex,
+    pub index: RuneIndex,
 }
 
 impl RuneEtherealTerm {
@@ -41,6 +41,7 @@ impl EtherealTerm {
 }
 
 /// # rewrite
+
 impl RuneEtherealTerm {
     pub fn substitute(
         self,
@@ -58,7 +59,21 @@ impl RuneEtherealTerm {
         substitution: EtherealTermSubstitution,
         db: &salsa::Db,
     ) -> RuneEtherealTerm {
-        Self::new_inner(db, self.ty(db).substitute(substitution, db), self.idx(db))
+        Self::new_inner(db, self.ty(db).substitute(substitution, db), self.index(db))
+    }
+}
+
+impl EtherealTermInstantiate for RuneEtherealTerm {
+    type Output = Self;
+
+    fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+        // it's assumed that all symbols will be replaced by its map
+        // otherwise it's illegal
+        Self::new_inner(
+            db,
+            self.ty(db).instantiate(db, instantiation),
+            self.index(db),
+        )
     }
 }
 
@@ -67,7 +82,7 @@ impl RuneEtherealTerm {
     pub(super) fn into_declarative(self, db: &salsa::Db) -> RuneDeclarativeTerm {
         RuneDeclarativeTerm::new(
             Ok(self.ty(db).into_declarative(db)),
-            self.idx(db).disambiguator(),
+            self.index(db).disambiguator(),
             db,
         )
     }

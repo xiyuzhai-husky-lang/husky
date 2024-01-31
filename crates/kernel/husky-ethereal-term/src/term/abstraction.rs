@@ -39,6 +39,8 @@ impl AbstractionEtherealTerm {
     }
 }
 
+/// # rewrite
+
 impl AbstractionEtherealTerm {
     pub fn substitute(self, substitution: EtherealTermSubstitution, db: &::salsa::Db) -> Self {
         let old_x = self.x(db);
@@ -49,6 +51,18 @@ impl AbstractionEtherealTerm {
             return self;
         }
         Self::new(db, new_x, new_m)
+    }
+}
+
+impl EtherealTermInstantiate for AbstractionEtherealTerm {
+    type Output = AbstractionEtherealTerm;
+
+    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+        Self::new(
+            db,
+            self.x(db).instantiate(db, instantiation),
+            self.m(db).instantiate(db, instantiation),
+        )
     }
 }
 

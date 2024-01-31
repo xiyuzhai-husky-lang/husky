@@ -63,6 +63,7 @@ impl CurryEtherealTerm {
 }
 
 /// # rewrite
+
 impl CurryEtherealTerm {
     pub fn substitute(self, substitution: EtherealTermSubstitution, db: &::salsa::Db) -> Self {
         let parameter_rune = self.parameter_rune(db);
@@ -77,6 +78,22 @@ impl CurryEtherealTerm {
             parameter_rune.map(|rune| rune.substitute_intact(substitution, db)),
             self.parameter_ty(db),
             self.return_ty(db),
+        )
+    }
+}
+
+impl EtherealTermInstantiate for CurryEtherealTerm {
+    type Output = Self;
+
+    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+        Self::new(
+            db,
+            self.toolchain(db),
+            self.curry_kind(db),
+            self.variance(db),
+            self.parameter_rune(db).instantiate(db, instantiation),
+            self.parameter_ty(db).instantiate(db, instantiation),
+            self.return_ty(db).instantiate(db, instantiation),
         )
     }
 }

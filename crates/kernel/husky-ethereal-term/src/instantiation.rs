@@ -45,10 +45,35 @@ impl EtherealInstantiation {
     }
 }
 
-pub trait EtherealInstantiate: Copy {
+pub trait EtherealTermInstantiate: Copy {
     type Output;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output;
+}
+
+impl<T> EtherealTermInstantiate for Option<T>
+where
+    T: EtherealTermInstantiate,
+{
+    type Output = Option<T::Output>;
+
+    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+        self.map(|slf| slf.instantiate(db, instantiation))
+    }
+}
+
+impl<T> EtherealTermInstantiate for &[T]
+where
+    T: EtherealTermInstantiate,
+{
+    type Output = Vec<T::Output>;
+
+    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+        self.iter()
+            .copied()
+            .map(|elem| elem.instantiate(db, instantiation))
+            .collect()
+    }
 }
 
 pub trait EtherealTermInstantiateRef {

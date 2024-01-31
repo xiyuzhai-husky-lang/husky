@@ -343,7 +343,7 @@ impl std::fmt::Display for ApplicationEtherealTerm {
     }
 }
 
-impl EtherealInstantiate for ApplicationEtherealTerm {
+impl EtherealTermInstantiate for ApplicationEtherealTerm {
     type Output = EtherealTerm;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {

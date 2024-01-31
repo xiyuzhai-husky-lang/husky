@@ -36,6 +36,8 @@ impl TypeAsTraitItemEtherealTerm {
     }
 }
 
+/// # rewrite
+
 impl TypeAsTraitItemEtherealTerm {
     pub fn substitute(
         self,
@@ -55,5 +57,18 @@ impl TypeAsTraitItemEtherealTerm {
         // }
         // let ident = self.ident(db);
         // EtherealTermAsTraitSubitem::new(db, parent, trai, ident)
+    }
+}
+
+impl EtherealTermInstantiate for TypeAsTraitItemEtherealTerm {
+    type Output = Self;
+
+    fn instantiate(self, db: &salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
+        Self::new(
+            db,
+            self.parent(db).instantiate(db, instantiation),
+            self.trai(db).instantiate(db, instantiation),
+            self.ident(db),
+        )
     }
 }

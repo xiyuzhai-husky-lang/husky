@@ -34,7 +34,7 @@ impl EtherealSelfTypeInTraitImpl {
     }
 }
 
-impl EtherealInstantiate for EtherealSelfTypeInTraitImpl {
+impl EtherealTermInstantiate for EtherealSelfTypeInTraitImpl {
     type Output = EtherealTerm;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EtherealInstantiation) -> Self::Output {
