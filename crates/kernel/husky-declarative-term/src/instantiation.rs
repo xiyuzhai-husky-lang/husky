@@ -11,6 +11,8 @@
 //! So the type `A` is interpreted as a dependent type, with the dependent variable being called a `rune`.
 //! Then we need to determine the implicit argument for constructing the ethereal term corresponding to `A(1i32)`.
 //! This is when declarative instantiation kicks in.
+//!
+//! It's actually only useful for calculating the type of application ethereal term.
 
 use crate::*;
 use vec_like::SmallVecPairMap;
