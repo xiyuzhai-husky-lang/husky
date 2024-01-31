@@ -10,7 +10,7 @@ use husky_term_prelude::literal::{
     int::{TermI128Literal, TermI64Literal, TermISizeLiteral, TermUSizeLiteral},
     TermLiteral,
 };
-use husky_token_data::{BoolLiteralData, FloatLiteralData};
+use husky_token_data::{BoolLiteralTokenData, FloatLiteralTokenData};
 
 use super::*;
 
@@ -64,11 +64,11 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprData::Literal(regional_token_idx, lit) => {
                 Ok(
                     EtherealTerm::Literal(match *lit {
-                        LiteralData::Unit => TermLiteral::Unit(()),
-                        LiteralData::Char(_) => todo!(),
-                        LiteralData::String(val) => TermLiteral::String(val),
-                        LiteralData::Integer(ilit) => match ilit {
-                            IntegerLikeLiteralData::UnspecifiedRegular(val) => {
+                        LiteralTokenData::Unit => TermLiteral::Unit(()),
+                        LiteralTokenData::Char(_) => todo!(),
+                        LiteralTokenData::String(val) => TermLiteral::String(val),
+                        LiteralTokenData::Integer(ilit) => match ilit {
+                            IntegerLikeLiteralTokenData::UnspecifiedRegular(val) => {
                                 // todo: what if place is not none?
                                 let ty = sema_expr_idx
                                     .ok_ty(&self.sema_expr_arena)
@@ -89,35 +89,35 @@ impl<'a> SemaExprEngine<'a> {
                                     }
                                 }
                             }
-                            IntegerLikeLiteralData::UnspecifiedLarge() => todo!(),
-                            IntegerLikeLiteralData::I8(val) => TermLiteral::I8(val),
-                            IntegerLikeLiteralData::I16(val) => TermLiteral::I16(val),
-                            IntegerLikeLiteralData::I32(val) => TermLiteral::I32(val),
-                            IntegerLikeLiteralData::I64(val) => {
+                            IntegerLikeLiteralTokenData::UnspecifiedLarge() => todo!(),
+                            IntegerLikeLiteralTokenData::I8(val) => TermLiteral::I8(val),
+                            IntegerLikeLiteralTokenData::I16(val) => TermLiteral::I16(val),
+                            IntegerLikeLiteralTokenData::I32(val) => TermLiteral::I32(val),
+                            IntegerLikeLiteralTokenData::I64(val) => {
                                 TermLiteral::I64(TermI64Literal::new(self.db, val))
                             }
-                            IntegerLikeLiteralData::I128(val) => {
+                            IntegerLikeLiteralTokenData::I128(val) => {
                                 TermLiteral::I128(TermI128Literal::new(self.db, val))
                             }
-                            IntegerLikeLiteralData::ISize(val) => {
+                            IntegerLikeLiteralTokenData::ISize(val) => {
                                 TermLiteral::ISize(TermISizeLiteral::new(self.db, val as i64))
                             }
-                            IntegerLikeLiteralData::R8(val) => TermLiteral::R8(val),
-                            IntegerLikeLiteralData::R16(val) => TermLiteral::R16(val),
-                            IntegerLikeLiteralData::R32(val) => TermLiteral::R32(val),
-                            IntegerLikeLiteralData::R64(val) => TermLiteral::R64(todo!()),
-                            IntegerLikeLiteralData::R128(val) => TermLiteral::R128(todo!()),
-                            IntegerLikeLiteralData::RSize(val) => TermLiteral::RSize(todo!()),
-                            IntegerLikeLiteralData::U8(val) => TermLiteral::U8(val),
-                            IntegerLikeLiteralData::U16(val) => TermLiteral::U16(val),
-                            IntegerLikeLiteralData::U32(val) => TermLiteral::U32(val),
-                            IntegerLikeLiteralData::U64(val) => TermLiteral::U64(todo!()),
-                            IntegerLikeLiteralData::U128(val) => TermLiteral::U128(todo!()),
-                            IntegerLikeLiteralData::USize(val) => TermLiteral::USize(todo!()),
+                            IntegerLikeLiteralTokenData::R8(val) => TermLiteral::R8(val),
+                            IntegerLikeLiteralTokenData::R16(val) => TermLiteral::R16(val),
+                            IntegerLikeLiteralTokenData::R32(val) => TermLiteral::R32(val),
+                            IntegerLikeLiteralTokenData::R64(val) => TermLiteral::R64(todo!()),
+                            IntegerLikeLiteralTokenData::R128(val) => TermLiteral::R128(todo!()),
+                            IntegerLikeLiteralTokenData::RSize(val) => TermLiteral::RSize(todo!()),
+                            IntegerLikeLiteralTokenData::U8(val) => TermLiteral::U8(val),
+                            IntegerLikeLiteralTokenData::U16(val) => TermLiteral::U16(val),
+                            IntegerLikeLiteralTokenData::U32(val) => TermLiteral::U32(val),
+                            IntegerLikeLiteralTokenData::U64(val) => TermLiteral::U64(todo!()),
+                            IntegerLikeLiteralTokenData::U128(val) => TermLiteral::U128(todo!()),
+                            IntegerLikeLiteralTokenData::USize(val) => TermLiteral::USize(todo!()),
                         },
-                        LiteralData::Float(lit) => {
+                        LiteralTokenData::Float(lit) => {
                             match lit {
-                                FloatLiteralData::Unspecified(lit) => {
+                                FloatLiteralTokenData::Unspecified(lit) => {
                                     let ty = sema_expr_idx
                                         .ok_ty(&self.sema_expr_arena)
                                         .ok_or(DerivedExprTermError::LiteralTypeNotInferred)?;
@@ -156,14 +156,14 @@ impl<'a> SemaExprEngine<'a> {
                                         _ => Err(DerivedExprTermError::LiteralTypeNotResolved)?,
                                     }
                                 }
-                                FloatLiteralData::F32(val) => TermLiteral::F32(val),
-                                FloatLiteralData::F64(val) => TermLiteral::F64(val),
+                                FloatLiteralTokenData::F32(val) => TermLiteral::F32(val),
+                                FloatLiteralTokenData::F64(val) => TermLiteral::F64(val),
                             }
                         }
-                        LiteralData::TupleIndex(_) => todo!(),
-                        LiteralData::Bool(val) => match val {
-                            BoolLiteralData::True => TermLiteral::Bool(true),
-                            BoolLiteralData::False => TermLiteral::Bool(false),
+                        LiteralTokenData::TupleIndex(_) => todo!(),
+                        LiteralTokenData::Bool(val) => match val {
+                            BoolLiteralTokenData::True => TermLiteral::Bool(true),
+                            BoolLiteralTokenData::False => TermLiteral::Bool(false),
                         },
                     })
                     .into(),

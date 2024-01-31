@@ -5,20 +5,19 @@ pub use self::substitution::*;
 use crate::*;
 
 pub trait DeclarativeTermRewrite: Sized {
-    fn substitute(&self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self;
+    fn substitute(&self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self;
 }
 
 pub trait DeclarativeTermRewriteCopy: Copy {
-    fn substitute_copy(self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution)
-        -> Self;
+    fn substitute_copy(self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self;
 }
 
 impl<T> DeclarativeTermRewrite for T
 where
     T: DeclarativeTermRewriteCopy,
 {
-    fn substitute(&self, db: &::salsa::Db, substituation: &DeclarativeTermSubstitution) -> Self {
-        self.substitute_copy(db, substituation)
+    fn substitute(&self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self {
+        self.substitute_copy(db, substitution)
     }
 }
 

@@ -892,7 +892,7 @@
                                     RegionalTokenIdx(
                                         28,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -1043,7 +1043,7 @@
                                     RegionalTokenIdx(
                                         56,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {

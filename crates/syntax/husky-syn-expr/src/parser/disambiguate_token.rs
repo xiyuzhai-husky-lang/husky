@@ -418,7 +418,7 @@ where
 
 #[derive(Debug)]
 pub(crate) enum DisambiguatedTokenData {
-    Literal(RegionalTokenIdx, LiteralData),
+    Literal(RegionalTokenIdx, LiteralTokenData),
     IdentifiableEntityPath(IdentifiableEntityPathExpr),
     InheritedSynSymbol {
         ident: Ident,

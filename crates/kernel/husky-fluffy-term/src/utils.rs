@@ -63,6 +63,7 @@ impl FluffyTerm {
                 ty_ethereal_term,
             } => 0,
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

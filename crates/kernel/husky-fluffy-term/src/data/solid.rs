@@ -11,6 +11,7 @@ pub enum SolidTermData {
         arguments: SmallVec<[FluffyTerm; 2]>,
     },
     Curry {
+        toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
         parameter_rune: Option<SolidTerm>,
@@ -39,12 +40,14 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
                 ty_ethereal_term: None,
             },
             SolidTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,
                 parameter_ty,
                 return_ty,
             } => FluffyTermData::Curry {
+                toolchain: *toolchain,
                 curry_kind: *curry_kind,
                 variance: *variance,
                 parameter_rune: todo!(),
@@ -76,6 +79,7 @@ impl<'a> Into<FluffyBaseTypeData<'a>> for &'a SolidTermData {
                 ty_ethereal_term: None,
             },
             SolidTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

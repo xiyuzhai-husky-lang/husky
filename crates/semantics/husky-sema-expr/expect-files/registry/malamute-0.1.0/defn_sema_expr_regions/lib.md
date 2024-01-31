@@ -111,7 +111,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -128,7 +128,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 2,
                                                         },
@@ -725,7 +725,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 4,
                                                         },
@@ -742,7 +742,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 6,
                                                         },
@@ -813,7 +813,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 4,
                                                         },
@@ -1061,7 +1061,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 4,
                                                         },
@@ -1078,7 +1078,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 6,
                                                         },
@@ -1440,7 +1440,7 @@
                             ),
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 13,
                                         },
@@ -1464,7 +1464,7 @@
                             ),
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 13,
                                         },
@@ -2671,7 +2671,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 4,
                                                         },
@@ -2688,7 +2688,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 6,
                                                         },
@@ -2759,7 +2759,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -2776,7 +2776,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 2,
                                                         },
@@ -2916,7 +2916,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 4,
                                                         },
@@ -2933,7 +2933,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 6,
                                                         },
@@ -3004,7 +3004,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -3021,7 +3021,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 2,
                                                         },
@@ -3161,7 +3161,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 4,
                                                         },
@@ -3178,7 +3178,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 6,
                                                         },
@@ -3598,7 +3598,7 @@
                             ),
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 24,
                                         },
@@ -3622,7 +3622,7 @@
                             ),
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 24,
                                         },
@@ -3646,7 +3646,7 @@
                             ),
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 24,
                                         },

@@ -23,7 +23,7 @@ use husky_syn_decl::{
     AssociatedItemSynNodeDecl, HasSynNodeDecl, ItemSynNodeDecl, TraitForTypeItemSynNodeDecl,
     TraitItemSynNodeDecl, TypeItemSynNodeDecl,
 };
-use husky_token_data::{IntegerLikeLiteralData, LiteralData, TokenData};
+use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData, TokenData};
 use husky_vfs::Toolchain;
 use husky_vfs::VfsPathMenu;
 use vec_like::VecPairMap;

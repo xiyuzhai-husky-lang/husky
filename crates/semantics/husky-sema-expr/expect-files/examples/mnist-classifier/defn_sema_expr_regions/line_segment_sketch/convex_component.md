@@ -301,7 +301,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 3,
                                                                 },
@@ -311,7 +311,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Application(
-                                                                            EtherealTermApplication(
+                                                                            ApplicationEtherealTerm(
                                                                                 Id {
                                                                                     value: 50,
                                                                                 },

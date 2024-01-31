@@ -28,7 +28,7 @@ pub enum TokenData {
     Label(Label),
     Punctuation(Punctuation),
     WordOpr(WordOpr),
-    Literal(LiteralData),
+    Literal(LiteralTokenData),
     Error(TokenDataError),
 }
 

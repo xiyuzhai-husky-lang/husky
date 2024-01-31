@@ -148,7 +148,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     0,
                 ),
@@ -179,7 +179,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     1,
                 ),
@@ -434,7 +434,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     1,
                 ),
@@ -478,7 +478,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     1,
                 ),
@@ -682,7 +682,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     1,
                 ),
@@ -715,7 +715,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Bool(
+            LiteralTokenData::Bool(
                 True,
             ),
         ),
@@ -737,7 +737,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     1,
                 ),
@@ -817,7 +817,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     1,
                 ),
@@ -836,7 +836,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     1,
                 ),
@@ -860,7 +860,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     0,
                 ),
@@ -944,7 +944,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     1,
                 ),
@@ -1172,7 +1172,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     4,
                 ),
@@ -1184,7 +1184,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     65,
                 ),
@@ -1196,7 +1196,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     2,
                 ),
@@ -1213,7 +1213,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     31,
                 ),
@@ -1225,7 +1225,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     0,
                 ),
@@ -1237,7 +1237,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     99,
                 ),
@@ -1249,7 +1249,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     2,
                 ),
@@ -1261,7 +1261,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     83,
                 ),
@@ -1273,7 +1273,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     782,
                 ),
@@ -1285,7 +1285,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     1,
                 ),
@@ -1359,8 +1359,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "beach",
                 },
             ),
@@ -1371,8 +1371,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "hotel",
                 },
             ),
@@ -1383,8 +1383,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "airplane",
                 },
             ),
@@ -1395,8 +1395,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "car",
                 },
             ),
@@ -1407,8 +1407,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "house",
                 },
             ),
@@ -1419,8 +1419,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "art",
                 },
             ),

@@ -29,6 +29,7 @@ pub(super) fn ethereal_term_data<'a>(
         EtherealTerm::Category(term) => FluffyTermData::Category(term),
         EtherealTerm::Universe(_) => todo!(),
         EtherealTerm::Curry(term) => FluffyTermData::Curry {
+            toolchain: term.toolchain(db),
             curry_kind: term.curry_kind(db),
             variance: term.variance(db),
             parameter_rune: term.parameter_rune(db).map(Into::into),

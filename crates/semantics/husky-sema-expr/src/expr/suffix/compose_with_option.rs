@@ -29,6 +29,7 @@ impl<'a> SemaExprEngine<'a> {
                 ty_ethereal_term,
             } => todo!(),
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

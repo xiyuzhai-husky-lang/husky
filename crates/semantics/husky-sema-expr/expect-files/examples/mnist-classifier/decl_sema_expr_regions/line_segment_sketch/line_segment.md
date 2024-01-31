@@ -273,7 +273,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -294,7 +294,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -305,7 +305,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -326,7 +326,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -513,7 +513,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -534,7 +534,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -703,7 +703,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -724,7 +724,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -977,7 +977,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -998,7 +998,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -1009,7 +1009,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -1030,7 +1030,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),

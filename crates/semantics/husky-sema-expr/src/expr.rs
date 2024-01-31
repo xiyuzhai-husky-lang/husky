@@ -45,7 +45,7 @@ use husky_syn_expr::{
 };
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr, SynSuffixOpr};
 use husky_term_prelude::RitchieKind;
-use husky_token_data::{IntegerLikeLiteralData, LiteralData, TokenData};
+use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData, TokenData};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use smallvec::SmallVec;
 use vec_like::{AsVecMapEntry, VecMap};
@@ -53,7 +53,7 @@ use vec_like::{AsVecMapEntry, VecMap};
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum SemaExprData {
-    Literal(RegionalTokenIdx, LiteralData),
+    Literal(RegionalTokenIdx, LiteralTokenData),
     /// unit is basically a literal.
     ///
     /// However, due to the complexity of the language, it's not recognized in the lexing stage,
@@ -1025,6 +1025,7 @@ impl<'a> SemaExprEngine<'a> {
                                     _ => todo!(),
                                 },
                                 FluffyTermData::Curry {
+                                    toolchain,
                                     curry_kind,
                                     variance,
                                     parameter_rune,

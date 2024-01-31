@@ -170,7 +170,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -180,7 +180,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Symbol(
-                                                                            EtherealTermSymbol(
+                                                                            SymbolEtherealTerm(
                                                                                 Id {
                                                                                     value: 1,
                                                                                 },
@@ -243,7 +243,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -348,7 +348,7 @@
                                     RegionalTokenIdx(
                                         13,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -467,7 +467,7 @@
                                     RegionalTokenIdx(
                                         18,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -1420,7 +1420,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             0,
                                         ),
                                     },
@@ -1441,7 +1441,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -1873,7 +1873,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -2230,7 +2230,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -2433,7 +2433,7 @@
                                     RegionalTokenIdx(
                                         25,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -2663,7 +2663,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 1,
                                                         },
@@ -2817,7 +2817,7 @@
                                     RegionalTokenIdx(
                                         33,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -5180,7 +5180,7 @@
                                     RegionalTokenIdx(
                                         13,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -5311,7 +5311,7 @@
                                     RegionalTokenIdx(
                                         20,
                                     ),
-                                    LiteralData::Bool(
+                                    LiteralTokenData::Bool(
                                         True,
                                     ),
                                 ),
@@ -5395,7 +5395,7 @@
                                     RegionalTokenIdx(
                                         24,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -6037,7 +6037,7 @@
                                     RegionalTokenIdx(
                                         40,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -6168,7 +6168,7 @@
                                     RegionalTokenIdx(
                                         43,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -6299,7 +6299,7 @@
                                     RegionalTokenIdx(
                                         47,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -6986,7 +6986,7 @@
                                     RegionalTokenIdx(
                                         63,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -7604,7 +7604,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -7614,7 +7614,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Symbol(
-                                                                            EtherealTermSymbol(
+                                                                            SymbolEtherealTerm(
                                                                                 Id {
                                                                                     value: 1,
                                                                                 },
@@ -7625,7 +7625,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 2,
                                                                 },
@@ -8126,7 +8126,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -8136,7 +8136,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Symbol(
-                                                                            EtherealTermSymbol(
+                                                                            SymbolEtherealTerm(
                                                                                 Id {
                                                                                     value: 1,
                                                                                 },
@@ -8147,7 +8147,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 2,
                                                                 },
@@ -9494,7 +9494,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             0,
                                         ),
                                     },
@@ -9515,7 +9515,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -9877,7 +9877,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             0,
                                         ),
                                     },
@@ -9898,7 +9898,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -10516,7 +10516,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             0,
                                         ),
                                     },
@@ -10537,7 +10537,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -11085,7 +11085,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             0,
                                         ),
                                     },
@@ -11106,7 +11106,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -11192,7 +11192,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             0,
                                         ),
                                     },
@@ -11213,7 +11213,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -11369,7 +11369,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             0,
                                         ),
                                     },
@@ -11390,7 +11390,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -11476,7 +11476,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             0,
                                         ),
                                     },
@@ -11497,7 +11497,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -11885,7 +11885,7 @@
                                     RegionalTokenIdx(
                                         10,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             4,
                                         ),
@@ -11922,7 +11922,7 @@
                                     RegionalTokenIdx(
                                         12,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             65,
                                         ),
@@ -11959,7 +11959,7 @@
                                     RegionalTokenIdx(
                                         14,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             2,
                                         ),
@@ -11996,7 +11996,7 @@
                                     RegionalTokenIdx(
                                         17,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             31,
                                         ),
@@ -12077,7 +12077,7 @@
                                     RegionalTokenIdx(
                                         19,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -12114,7 +12114,7 @@
                                     RegionalTokenIdx(
                                         21,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             99,
                                         ),
@@ -12151,7 +12151,7 @@
                                     RegionalTokenIdx(
                                         23,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             2,
                                         ),
@@ -12188,7 +12188,7 @@
                                     RegionalTokenIdx(
                                         25,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             83,
                                         ),
@@ -12225,7 +12225,7 @@
                                     RegionalTokenIdx(
                                         27,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             782,
                                         ),
@@ -12262,7 +12262,7 @@
                                     RegionalTokenIdx(
                                         29,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -12542,7 +12542,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -12562,7 +12562,7 @@
                                     place: None,
                                     base: Ethereal(
                                         Application(
-                                            EtherealTermApplication(
+                                            ApplicationEtherealTerm(
                                                 Id {
                                                     value: 5,
                                                 },
@@ -12631,7 +12631,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 5,
                                         },
@@ -12938,8 +12938,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -12967,7 +12967,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -12988,7 +12988,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -13562,8 +13562,8 @@
                                     RegionalTokenIdx(
                                         6,
                                     ),
-                                    LiteralData::String(
-                                        StringLiteralData {
+                                    LiteralTokenData::String(
+                                        StringLiteralTokenData {
                                             data: "beach",
                                         },
                                     ),
@@ -13599,8 +13599,8 @@
                                     RegionalTokenIdx(
                                         8,
                                     ),
-                                    LiteralData::String(
-                                        StringLiteralData {
+                                    LiteralTokenData::String(
+                                        StringLiteralTokenData {
                                             data: "hotel",
                                         },
                                     ),
@@ -13636,8 +13636,8 @@
                                     RegionalTokenIdx(
                                         10,
                                     ),
-                                    LiteralData::String(
-                                        StringLiteralData {
+                                    LiteralTokenData::String(
+                                        StringLiteralTokenData {
                                             data: "airplane",
                                         },
                                     ),
@@ -13673,8 +13673,8 @@
                                     RegionalTokenIdx(
                                         12,
                                     ),
-                                    LiteralData::String(
-                                        StringLiteralData {
+                                    LiteralTokenData::String(
+                                        StringLiteralTokenData {
                                             data: "car",
                                         },
                                     ),
@@ -13710,8 +13710,8 @@
                                     RegionalTokenIdx(
                                         14,
                                     ),
-                                    LiteralData::String(
-                                        StringLiteralData {
+                                    LiteralTokenData::String(
+                                        StringLiteralTokenData {
                                             data: "house",
                                         },
                                     ),
@@ -13747,8 +13747,8 @@
                                     RegionalTokenIdx(
                                         16,
                                     ),
-                                    LiteralData::String(
-                                        StringLiteralData {
+                                    LiteralTokenData::String(
+                                        StringLiteralTokenData {
                                             data: "art",
                                         },
                                     ),
@@ -13971,7 +13971,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 6,
                                         },
@@ -13991,7 +13991,7 @@
                                     place: None,
                                     base: Ethereal(
                                         Application(
-                                            EtherealTermApplication(
+                                            ApplicationEtherealTerm(
                                                 Id {
                                                     value: 6,
                                                 },
@@ -14015,7 +14015,7 @@
                             base: Ethereal(
                                 Literal(
                                     String(
-                                        StringLiteralData(
+                                        StringLiteralTokenData(
                                             Id {
                                                 value: 1,
                                             },
@@ -14036,7 +14036,7 @@
                             base: Ethereal(
                                 Literal(
                                     String(
-                                        StringLiteralData(
+                                        StringLiteralTokenData(
                                             Id {
                                                 value: 2,
                                             },
@@ -14057,7 +14057,7 @@
                             base: Ethereal(
                                 Literal(
                                     String(
-                                        StringLiteralData(
+                                        StringLiteralTokenData(
                                             Id {
                                                 value: 3,
                                             },
@@ -14078,7 +14078,7 @@
                             base: Ethereal(
                                 Literal(
                                     String(
-                                        StringLiteralData(
+                                        StringLiteralTokenData(
                                             Id {
                                                 value: 4,
                                             },
@@ -14099,7 +14099,7 @@
                             base: Ethereal(
                                 Literal(
                                     String(
-                                        StringLiteralData(
+                                        StringLiteralTokenData(
                                             Id {
                                                 value: 5,
                                             },
@@ -14120,7 +14120,7 @@
                             base: Ethereal(
                                 Literal(
                                     String(
-                                        StringLiteralData(
+                                        StringLiteralTokenData(
                                             Id {
                                                 value: 6,
                                             },

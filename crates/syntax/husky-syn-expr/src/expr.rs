@@ -10,7 +10,7 @@ use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum SynExprData {
-    Literal(RegionalTokenIdx, LiteralData),
+    Literal(RegionalTokenIdx, LiteralTokenData),
     PrincipalEntityPath {
         path_expr_idx: SynPrincipalEntityPathExprIdx,
         opt_path: Option<PrincipalEntityPath>,

@@ -549,7 +549,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 378;\n\ntoken_line_group_idx = 43\n\ntoken = TokenData::Literal(\n    LiteralData::Float(\n        Unspecified(\n            UnspecifiedFloatLiteral(\n                Id {\n                    value: 74,\n                },\n            ),\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 378;\n\ntoken_line_group_idx = 43\n\ntoken = TokenData::Literal(\n    LiteralTokenData::Float(\n        Unspecified(\n            UnspecifiedFloatLiteral(\n                Id {\n                    value: 74,\n                },\n            ),\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(

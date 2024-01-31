@@ -10,6 +10,7 @@ use crate::*;
 use husky_declarative_term::term::RuneIndex;
 use husky_ethereal_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
 use husky_term_prelude::literal::TermLiteral;
+use husky_vfs::Toolchain;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -22,6 +23,7 @@ pub enum FluffyTermData<'a> {
         ty_ethereal_term: Option<EtherealTerm>,
     },
     Curry {
+        toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
         parameter_rune: Option<FluffyTermRune>,
@@ -74,6 +76,7 @@ impl<'a> FluffyTermData<'a> {
                 }
             },
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

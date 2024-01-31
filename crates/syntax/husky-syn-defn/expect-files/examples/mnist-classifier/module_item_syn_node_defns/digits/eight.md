@@ -661,7 +661,7 @@
                                     RegionalTokenIdx(
                                         18,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -736,7 +736,7 @@
                                     RegionalTokenIdx(
                                         30,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -777,7 +777,7 @@
                                     RegionalTokenIdx(
                                         36,
                                     ),
-                                    LiteralData::Bool(
+                                    LiteralTokenData::Bool(
                                         False,
                                     ),
                                 ),
@@ -785,7 +785,7 @@
                                     RegionalTokenIdx(
                                         38,
                                     ),
-                                    LiteralData::Bool(
+                                    LiteralTokenData::Bool(
                                         False,
                                     ),
                                 ),
@@ -1528,7 +1528,7 @@
                                     RegionalTokenIdx(
                                         10,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {

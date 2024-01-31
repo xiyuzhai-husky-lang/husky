@@ -51,6 +51,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 smallvec![],
             ),
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

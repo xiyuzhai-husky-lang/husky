@@ -69,7 +69,7 @@
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 7,
                                                         },
@@ -86,7 +86,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EtherealTermSymbol(
+                                                    SymbolEtherealTerm(
                                                         Id {
                                                             value: 8,
                                                         },

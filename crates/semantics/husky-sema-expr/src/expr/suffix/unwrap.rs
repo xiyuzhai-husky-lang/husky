@@ -48,6 +48,7 @@ impl<'a> SemaExprEngine<'a> {
                 _ => return (todo!(), Err(OriginalSemaExprTypeError::CannotUnwrap.into())),
             },
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

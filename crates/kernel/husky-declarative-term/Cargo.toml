@@ -18,6 +18,8 @@ husky-vfs.workspace = true
 husky-coword.workspace = true
 husky-entity-path.workspace = true
 husky-term-prelude.workspace = true
+# lex
+husky-token-data.workspace = true
 # syntax
 husky-entity-tree.workspace = true
 # utils

@@ -21,8 +21,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::Add",
                 },
             ),

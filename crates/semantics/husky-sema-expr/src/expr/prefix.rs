@@ -37,6 +37,7 @@ impl<'a> SemaExprEngine<'a> {
                         _ => todo!(),
                     },
                     FluffyTermData::Curry {
+                        toolchain,
                         curry_kind,
                         variance,
                         parameter_rune,
@@ -171,6 +172,7 @@ impl<'a> SemaExprEngine<'a> {
                 Right(_) => todo!(),
             },
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

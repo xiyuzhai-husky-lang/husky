@@ -39,3 +39,36 @@ impl EtherealTerm {
         }
     }
 }
+
+/// # rewrite
+impl RuneEtherealTerm {
+    pub fn substitute(
+        self,
+        substitution: EtherealTermSubstitution,
+        db: &salsa::Db,
+    ) -> EtherealTerm {
+        if self == substitution.src() {
+            return substitution.dst();
+        }
+        self.substitute_intact(substitution, db).into()
+    }
+
+    pub fn substitute_intact(
+        self,
+        substitution: EtherealTermSubstitution,
+        db: &salsa::Db,
+    ) -> RuneEtherealTerm {
+        Self::new_inner(db, self.ty(db).substitute(substitution, db), self.idx(db))
+    }
+}
+
+/// back to declarative
+impl RuneEtherealTerm {
+    pub(super) fn into_declarative(self, db: &salsa::Db) -> RuneDeclarativeTerm {
+        RuneDeclarativeTerm::new(
+            Ok(self.ty(db).into_declarative(db)),
+            self.idx(db).disambiguator(),
+            db,
+        )
+    }
+}

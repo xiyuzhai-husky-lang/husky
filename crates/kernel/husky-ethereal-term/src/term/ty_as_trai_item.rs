@@ -37,15 +37,19 @@ impl TypeAsTraitItemEtherealTerm {
 }
 
 impl TypeAsTraitItemEtherealTerm {
-    fn substitute(self, _db: &::salsa::Db, _substituation: &TermSubstitution) -> EtherealTerm
+    pub fn substitute(
+        self,
+        substitution: EtherealTermSubstitution,
+        _db: &::salsa::Db,
+    ) -> EtherealTerm
     where
         Self: Copy,
     {
         todo!()
         // let old_parent = self.parent(db);
-        // let parent = old_parent.substitute(db, substituation);
+        // let parent = old_parent.substitute(substitution, db, );
         // let old_trai = self.trai(db);
-        // let trai = old_trai.substitute(db, substituation);
+        // let trai = old_trai.substitute(substitution, db, );
         // if old_parent == parent && old_trai == trai {
         //     return self;
         // }

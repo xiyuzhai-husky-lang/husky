@@ -198,7 +198,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     2,
                 ),
@@ -244,7 +244,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     4,
                 ),
@@ -282,7 +282,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     0,
                 ),
@@ -327,7 +327,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     1,
                 ),
@@ -372,7 +372,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Integer(
+            LiteralTokenData::Integer(
                 UnspecifiedRegular(
                     2,
                 ),
@@ -443,7 +443,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Float(
+            LiteralTokenData::Float(
                 Unspecified(
                     UnspecifiedFloatLiteral(
                         Id {
@@ -543,7 +543,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Bool(
+            LiteralTokenData::Bool(
                 True,
             ),
         ),
@@ -568,7 +568,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Float(
+            LiteralTokenData::Float(
                 Unspecified(
                     UnspecifiedFloatLiteral(
                         Id {
@@ -595,7 +595,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Float(
+            LiteralTokenData::Float(
                 Unspecified(
                     UnspecifiedFloatLiteral(
                         Id {
@@ -746,7 +746,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Float(
+            LiteralTokenData::Float(
                 Unspecified(
                     UnspecifiedFloatLiteral(
                         Id {
@@ -778,7 +778,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Float(
+            LiteralTokenData::Float(
                 Unspecified(
                     UnspecifiedFloatLiteral(
                         Id {
@@ -820,7 +820,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Float(
+            LiteralTokenData::Float(
                 Unspecified(
                     UnspecifiedFloatLiteral(
                         Id {
@@ -965,7 +965,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Float(
+            LiteralTokenData::Float(
                 Unspecified(
                     UnspecifiedFloatLiteral(
                         Id {
@@ -1152,7 +1152,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Float(
+            LiteralTokenData::Float(
                 Unspecified(
                     UnspecifiedFloatLiteral(
                         Id {
@@ -1339,7 +1339,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::Float(
+            LiteralTokenData::Float(
                 Unspecified(
                     UnspecifiedFloatLiteral(
                         Id {

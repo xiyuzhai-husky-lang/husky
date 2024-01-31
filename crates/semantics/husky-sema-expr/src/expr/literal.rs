@@ -1,6 +1,6 @@
 use super::*;
 use husky_regional_token::RegionalTokenIdx;
-use husky_token_data::FloatLiteralData;
+use husky_token_data::FloatLiteralTokenData;
 
 impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_literal_expr_ty(
@@ -22,12 +22,12 @@ impl<'a> SemaExprEngine<'a> {
         let literal_token: TokenData = self.token_data(literal_token_idx);
         match literal_token {
             TokenData::Literal(literal) => match literal {
-                LiteralData::Unit => todo!(),
-                LiteralData::Char(_) => todo!(),
-                LiteralData::String(_) => Ok(self.term_menu().static_str_ref().into()),
-                LiteralData::Integer(integer_literal) => match integer_literal {
-                    IntegerLikeLiteralData::UnspecifiedRegular(_)
-                    | IntegerLikeLiteralData::UnspecifiedLarge() => {
+                LiteralTokenData::Unit => todo!(),
+                LiteralTokenData::Char(_) => todo!(),
+                LiteralTokenData::String(_) => Ok(self.term_menu().static_str_ref().into()),
+                LiteralTokenData::Integer(integer_literal) => match integer_literal {
+                    IntegerLikeLiteralTokenData::UnspecifiedRegular(_)
+                    | IntegerLikeLiteralTokenData::UnspecifiedLarge() => {
                         // match in the order of most frequent to least frequent
                         Ok(match expectation
                             .destination()
@@ -69,39 +69,63 @@ impl<'a> SemaExprEngine<'a> {
                         }
                         .into())
                     }
-                    IntegerLikeLiteralData::I8(_) => Ok(self.term_menu().i8_ty_ontology().into()),
-                    IntegerLikeLiteralData::I16(_) => Ok(self.term_menu().i16_ty_ontology().into()),
-                    IntegerLikeLiteralData::I32(_) => Ok(self.term_menu().i32_ty_ontology().into()),
-                    IntegerLikeLiteralData::I64(_) => Ok(self.term_menu().i64_ty_ontology().into()),
-                    IntegerLikeLiteralData::I128(_) => {
+                    IntegerLikeLiteralTokenData::I8(_) => {
+                        Ok(self.term_menu().i8_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralTokenData::I16(_) => {
+                        Ok(self.term_menu().i16_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralTokenData::I32(_) => {
+                        Ok(self.term_menu().i32_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralTokenData::I64(_) => {
+                        Ok(self.term_menu().i64_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralTokenData::I128(_) => {
                         Ok(self.term_menu().i128_ty_ontology().into())
                     }
-                    IntegerLikeLiteralData::ISize(_) => {
+                    IntegerLikeLiteralTokenData::ISize(_) => {
                         Ok(self.term_menu().isize_ty_ontology().into())
                     }
-                    IntegerLikeLiteralData::R8(_) => Ok(self.term_menu().r8_ty_ontology().into()),
-                    IntegerLikeLiteralData::R16(_) => Ok(self.term_menu().r16_ty_ontology().into()),
-                    IntegerLikeLiteralData::R32(_) => Ok(self.term_menu().r32_ty_ontology().into()),
-                    IntegerLikeLiteralData::R64(_) => Ok(self.term_menu().r64_ty_ontology().into()),
-                    IntegerLikeLiteralData::R128(_) => {
+                    IntegerLikeLiteralTokenData::R8(_) => {
+                        Ok(self.term_menu().r8_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralTokenData::R16(_) => {
+                        Ok(self.term_menu().r16_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralTokenData::R32(_) => {
+                        Ok(self.term_menu().r32_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralTokenData::R64(_) => {
+                        Ok(self.term_menu().r64_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralTokenData::R128(_) => {
                         Ok(self.term_menu().r128_ty_ontology().into())
                     }
-                    IntegerLikeLiteralData::RSize(_) => {
+                    IntegerLikeLiteralTokenData::RSize(_) => {
                         Ok(self.term_menu().rsize_ty_ontology().into())
                     }
-                    IntegerLikeLiteralData::U8(_) => Ok(self.term_menu().u8_ty_ontology().into()),
-                    IntegerLikeLiteralData::U16(_) => Ok(self.term_menu().u16_ty_ontology().into()),
-                    IntegerLikeLiteralData::U32(_) => Ok(self.term_menu().u32_ty_ontology().into()),
-                    IntegerLikeLiteralData::U64(_) => Ok(self.term_menu().u64_ty_ontology().into()),
-                    IntegerLikeLiteralData::U128(_) => {
+                    IntegerLikeLiteralTokenData::U8(_) => {
+                        Ok(self.term_menu().u8_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralTokenData::U16(_) => {
+                        Ok(self.term_menu().u16_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralTokenData::U32(_) => {
+                        Ok(self.term_menu().u32_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralTokenData::U64(_) => {
+                        Ok(self.term_menu().u64_ty_ontology().into())
+                    }
+                    IntegerLikeLiteralTokenData::U128(_) => {
                         Ok(self.term_menu().u128_ty_ontology().into())
                     }
-                    IntegerLikeLiteralData::USize(_) => {
+                    IntegerLikeLiteralTokenData::USize(_) => {
                         Ok(self.term_menu().usize_ty_ontology().into())
                     }
                 },
-                LiteralData::Float(float_literal) => match float_literal {
-                    FloatLiteralData::Unspecified(_) => {
+                LiteralTokenData::Float(float_literal) => match float_literal {
+                    FloatLiteralTokenData::Unspecified(_) => {
                         match expectation
                             .destination()
                             .map(|destination| destination.data(self))
@@ -129,11 +153,11 @@ impl<'a> SemaExprEngine<'a> {
                             }
                         }
                     }
-                    FloatLiteralData::F32(_) => todo!(),
-                    FloatLiteralData::F64(_) => todo!(),
+                    FloatLiteralTokenData::F32(_) => todo!(),
+                    FloatLiteralTokenData::F64(_) => todo!(),
                 },
-                LiteralData::TupleIndex(_) => todo!(),
-                LiteralData::Bool(_) => Ok(self.term_menu().bool_ty_ontology().into()),
+                LiteralTokenData::TupleIndex(_) => todo!(),
+                LiteralTokenData::Bool(_) => Ok(self.term_menu().bool_ty_ontology().into()),
             },
             _ => unreachable!(),
         }

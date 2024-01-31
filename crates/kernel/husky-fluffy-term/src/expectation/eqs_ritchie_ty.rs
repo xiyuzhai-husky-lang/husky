@@ -50,6 +50,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
                 ..
             } => todo!(),
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

@@ -150,7 +150,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -525,7 +525,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -535,7 +535,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Ritchie(
-                                                                            EtherealTermRitchie(
+                                                                            RitchieEtherealTerm(
                                                                                 Id {
                                                                                     value: 10,
                                                                                 },
@@ -1041,7 +1041,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -1051,7 +1051,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Application(
-                                                                            EtherealTermApplication(
+                                                                            ApplicationEtherealTerm(
                                                                                 Id {
                                                                                     value: 45,
                                                                                 },
@@ -1062,7 +1062,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 4,
                                                                 },
@@ -1219,7 +1219,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -1229,7 +1229,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Application(
-                                                                            EtherealTermApplication(
+                                                                            ApplicationEtherealTerm(
                                                                                 Id {
                                                                                     value: 58,
                                                                                 },
@@ -1240,7 +1240,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 4,
                                                                 },
@@ -1866,7 +1866,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 60,
                                         },
@@ -1882,7 +1882,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 59,
                                         },
@@ -1906,7 +1906,7 @@
                             ),
                             base: Ethereal(
                                 Ritchie(
-                                    EtherealTermRitchie(
+                                    RitchieEtherealTerm(
                                         Id {
                                             value: 10,
                                         },
@@ -1926,7 +1926,7 @@
                                     place: None,
                                     base: Ethereal(
                                         Application(
-                                            EtherealTermApplication(
+                                            ApplicationEtherealTerm(
                                                 Id {
                                                     value: 60,
                                                 },
@@ -1944,7 +1944,7 @@
                                     place: None,
                                     base: Ethereal(
                                         Application(
-                                            EtherealTermApplication(
+                                            ApplicationEtherealTerm(
                                                 Id {
                                                     value: 59,
                                                 },
@@ -1970,7 +1970,7 @@
                                     ),
                                     base: Ethereal(
                                         Ritchie(
-                                            EtherealTermRitchie(
+                                            RitchieEtherealTerm(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -2039,7 +2039,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 45,
                                         },
@@ -2058,7 +2058,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 58,
                                         },
@@ -2077,7 +2077,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 59,
                                         },
@@ -2313,8 +2313,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -2379,8 +2379,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -2408,7 +2408,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -2429,7 +2429,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -3204,7 +3204,7 @@
                                     RegionalTokenIdx(
                                         7,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -3385,7 +3385,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -3395,7 +3395,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Application(
-                                                                            EtherealTermApplication(
+                                                                            ApplicationEtherealTerm(
                                                                                 Id {
                                                                                     value: 45,
                                                                                 },
@@ -4492,7 +4492,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -4513,7 +4513,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -5128,7 +5128,7 @@
                                     RegionalTokenIdx(
                                         7,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -5309,7 +5309,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -5319,7 +5319,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Application(
-                                                                            EtherealTermApplication(
+                                                                            ApplicationEtherealTerm(
                                                                                 Id {
                                                                                     value: 45,
                                                                                 },
@@ -6416,7 +6416,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -6437,7 +6437,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -7052,7 +7052,7 @@
                                     RegionalTokenIdx(
                                         7,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -7233,7 +7233,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -7243,7 +7243,7 @@
                                                                     place: None,
                                                                     base: Ethereal(
                                                                         Application(
-                                                                            EtherealTermApplication(
+                                                                            ApplicationEtherealTerm(
                                                                                 Id {
                                                                                     value: 45,
                                                                                 },
@@ -8425,7 +8425,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -8446,7 +8446,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),

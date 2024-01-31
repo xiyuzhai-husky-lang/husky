@@ -43,8 +43,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::Add",
                 },
             ),
@@ -186,8 +186,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::AddAssign",
                 },
             ),
@@ -329,8 +329,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::BitAnd",
                 },
             ),
@@ -472,8 +472,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::BitAndAssign",
                 },
             ),
@@ -595,8 +595,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::BitOr",
                 },
             ),
@@ -738,8 +738,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::BitOrAssign",
                 },
             ),
@@ -861,8 +861,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::BitXor",
                 },
             ),
@@ -1004,8 +1004,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::BitXorAssign",
                 },
             ),
@@ -1127,8 +1127,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::Div",
                 },
             ),
@@ -1270,8 +1270,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::DivAssign",
                 },
             ),
@@ -1420,8 +1420,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::Mul",
                 },
             ),
@@ -1563,8 +1563,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::MulAssign",
                 },
             ),
@@ -1686,8 +1686,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::Neg",
                 },
             ),
@@ -1810,8 +1810,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::Not",
                 },
             ),
@@ -1934,8 +1934,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "std::ops::Sub",
                 },
             ),

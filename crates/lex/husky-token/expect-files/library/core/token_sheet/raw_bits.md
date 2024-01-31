@@ -43,8 +43,8 @@ TokenSheetData {
             ),
         ),
         TokenData::Literal(
-            LiteralData::String(
-                StringLiteralData {
+            LiteralTokenData::String(
+                StringLiteralTokenData {
                     data: "u32",
                 },
             ),

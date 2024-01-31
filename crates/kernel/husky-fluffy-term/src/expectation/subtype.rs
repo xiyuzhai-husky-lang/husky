@@ -150,6 +150,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                   // }),
             },
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,
@@ -237,6 +238,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     ty_ethereal_term,
                 } => todo!(),
                 FluffyTermData::Curry {
+                    toolchain,
                     curry_kind,
                     variance,
                     parameter_rune,

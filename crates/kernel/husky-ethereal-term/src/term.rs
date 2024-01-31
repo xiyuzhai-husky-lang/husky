@@ -64,7 +64,7 @@ pub enum EtherealTerm {
     /// (<type> as <trait>)::<ident>
     TypeAsTraitItem(TypeAsTraitItemEtherealTerm),
     /// <type> : <trait>
-    TraitConstraint(EtherealTermTraitConstraint),
+    TraitConstraint(TraitConstraintEtherealTerm),
 }
 
 impl EtherealTerm {
@@ -143,7 +143,7 @@ impl EtherealTerm {
                 ApplicationEtherealTerm::from_declarative(db, declarative_term, ty_expectation)?
             }
             DeclarativeTerm::ApplicationOrRitchieCall(declarative_term) => {
-                ethereal_term_from_declarative_term_explicit_application_or_ritchie_call(
+                ethereal_term_from_application_or_ritchie_call_declarative_term(
                     db,
                     declarative_term,
                     ty_expectation,
@@ -158,7 +158,7 @@ impl EtherealTerm {
                     .into()
             }
             DeclarativeTerm::TraitConstraint(declarative_term) => {
-                EtherealTermTraitConstraint::from_declarative(db, declarative_term, ty_expectation)?
+                TraitConstraintEtherealTerm::from_declarative(db, declarative_term, ty_expectation)?
                     .into()
             }
             DeclarativeTerm::LeashOrBitNot(toolchain) => match ty_expectation {
@@ -176,7 +176,7 @@ impl EtherealTerm {
                 TermTypeExpectation::Any => todo!(),
             },
             DeclarativeTerm::List(declarative_term_list) => {
-                ethereal_term_from_declarative_term_list(db, declarative_term_list, ty_expectation)?
+                ethereal_term_from_list_declarative_term(db, declarative_term_list, ty_expectation)?
             }
             DeclarativeTerm::Wrapper(declarative_term_wrapper) => {
                 ethereal_term_from_declarative_term_wrapper(db, declarative_term_wrapper)?
@@ -186,24 +186,29 @@ impl EtherealTerm {
 
     pub(crate) fn into_declarative(self, db: &::salsa::Db) -> DeclarativeTerm {
         match self {
-            EtherealTerm::Literal(lit) => LiteralDeclarativeTerm::Resolved(lit).into(),
-            EtherealTerm::Symbol(s) => SymbolDeclarativeTerm::new(
+            EtherealTerm::Literal(slf) => LiteralDeclarativeTerm::Resolved(slf).into(),
+            EtherealTerm::Symbol(slf) => SymbolDeclarativeTerm::new(
                 db,
-                s.toolchain(db),
-                Ok(s.ty(db).into_declarative(db)),
-                s.index(db).into(),
+                slf.toolchain(db),
+                Ok(slf.ty(db).into_declarative(db)),
+                slf.index(db).into(),
             )
             .into(),
-            EtherealTerm::Rune(v) => RuneDeclarativeTerm::new(
-                Ok(v.ty(db).into_declarative(db)),
-                v.idx(db).disambiguator(),
+            EtherealTerm::Rune(slf) => slf.into_declarative(db).into(),
+            EtherealTerm::EntityPath(slf) => slf.into(),
+            EtherealTerm::Category(slf) => DeclarativeTerm::Category(slf),
+            EtherealTerm::Universe(slf) => slf.into(),
+            EtherealTerm::Curry(slf) => CurryDeclarativeTerm::new_inner(
                 db,
+                slf.toolchain(db),
+                slf.curry_kind(db),
+                slf.variance(db),
+                slf.parameter_rune(db)
+                    .map(|rune| rune.into_declarative(db).into()),
+                slf.parameter_ty(db).into_declarative(db),
+                slf.return_ty(db).into_declarative(db),
             )
             .into(),
-            EtherealTerm::EntityPath(path) => path.into(),
-            EtherealTerm::Category(cat) => DeclarativeTerm::Category(cat),
-            EtherealTerm::Universe(u) => u.into(),
-            EtherealTerm::Curry(_) => todo!(),
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(_) => todo!(),
@@ -235,28 +240,33 @@ impl EtherealTerm {
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }
+}
 
-    pub fn substitute(self, _db: &::salsa::Db, _substitution: &TermSubstitution) -> Self {
-        todo!()
-        // match self {
-        //     EtherealTerm::Symbol(symbol) => match symbol == substitution.src() {
-        //         true => substitution.dst(),
-        //         false => self,
-        //     },
-        //     EtherealTerm::Literal(_) | EtherealTerm::EntityPath(_) | EtherealTerm::Category(_) | EtherealTerm::Universe(_) => self,
-        //     EtherealTerm::Curry(term) => term.substitute(db, substitution).into(),
-        //     EtherealTerm::Abstraction(term) => term.substitute(db, substitution).into(),
-        //     EtherealTerm::Application(term) => term.substitute(db, substitution).into(),
-        //     EtherealTerm::Subitem(term) => term.substitute(db, substitution).into(),
-        //     EtherealTerm::AsTraitSubitem(term) => term.substitute(db, substitution).into(),
-        //     EtherealTerm::TraitConstraint(term) => term.substitute(db, substitution).into(),
-        //     EtherealTerm::Ritchie(_) => todo!(),
-        // }
+/// # rewrite
+impl EtherealTerm {
+    pub fn substitute(self, substitution: EtherealTermSubstitution, db: &::salsa::Db) -> Self {
+        match self {
+            EtherealTerm::Symbol(symbol) => todo!(),
+            EtherealTerm::Rune(rune) => match rune == substitution.src() {
+                true => substitution.dst(),
+                false => rune.substitute(substitution, db),
+            },
+            EtherealTerm::Literal(_)
+            | EtherealTerm::EntityPath(_)
+            | EtherealTerm::Category(_)
+            | EtherealTerm::Universe(_) => self,
+            EtherealTerm::Curry(term) => term.substitute(substitution, db).into(),
+            EtherealTerm::Abstraction(term) => term.substitute(substitution, db).into(),
+            EtherealTerm::Application(term) => term.substitute(substitution, db),
+            EtherealTerm::TypeAsTraitItem(term) => term.substitute(substitution, db).into(),
+            EtherealTerm::TraitConstraint(term) => term.substitute(substitution, db).into(),
+            EtherealTerm::Ritchie(_) => todo!(),
+        }
     }
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchie_call(
+pub(crate) fn ethereal_term_from_application_or_ritchie_call_declarative_term(
     db: &::salsa::Db,
     declarative_term: ApplicationOrRitchieCallDeclarativeTerm,
     term_ty_expectation: TermTypeExpectation,
@@ -307,16 +317,16 @@ pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchi
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn ethereal_term_from_declarative_term_list(
+pub(crate) fn ethereal_term_from_list_declarative_term(
     db: &::salsa::Db,
-    declarative_term_list: ListDeclarativeTerm,
+    list: ListDeclarativeTerm,
     term_ty_expectation: TermTypeExpectation,
 ) -> EtherealTermResult<EtherealTerm> {
     match term_ty_expectation {
         TermTypeExpectation::FinalDestinationEqsSort => {
-            let toolchain = declarative_term_list.toolchain(db);
+            let toolchain = list.toolchain(db);
             let term_menu = db.ethereal_term_menu(toolchain);
-            let items = declarative_term_list.items(db);
+            let items = list.items(db);
             match items.len() {
                 0 => Ok(term_menu.list_ty_ontology()),
                 1 => Ok(ApplicationEtherealTerm::new_reduced(
@@ -352,9 +362,9 @@ pub(crate) fn ethereal_term_from_declarative_term_list(
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_wrapper(
     db: &::salsa::Db,
-    declarative_term_wrapper: WrapperDeclarativeTerm,
+    wrapper: WrapperDeclarativeTerm,
 ) -> EtherealTermResult<EtherealTerm> {
-    let inner_ty = EtherealTerm::ty_from_declarative(db, declarative_term_wrapper.inner_ty(db))?;
+    let inner_ty = EtherealTerm::ty_from_declarative(db, wrapper.inner_ty(db))?;
     match inner_ty.application_expansion(db).function() {
         TermFunctionReduced::TypeOntology(ty_path) => match ty_path.refine(db) {
             Left(PreludeTypePath::Num(_)) | Left(PreludeTypePath::Indirection(_)) => Ok(inner_ty),

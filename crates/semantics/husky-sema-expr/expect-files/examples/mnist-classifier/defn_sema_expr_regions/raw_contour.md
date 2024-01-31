@@ -148,7 +148,7 @@
                                     RegionalTokenIdx(
                                         7,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -375,7 +375,7 @@
                                     RegionalTokenIdx(
                                         11,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         R32(
                                             3,
                                         ),
@@ -1275,7 +1275,7 @@
                                     RegionalTokenIdx(
                                         7,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         R32(
                                             1,
                                         ),
@@ -1942,7 +1942,7 @@
                                     RegionalTokenIdx(
                                         7,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -2169,7 +2169,7 @@
                                     RegionalTokenIdx(
                                         11,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         R32(
                                             1,
                                         ),
@@ -7548,7 +7548,7 @@
                                     RegionalTokenIdx(
                                         24,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             2,
                                         ),
@@ -7883,7 +7883,7 @@
                                     RegionalTokenIdx(
                                         43,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -8766,7 +8766,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             0,
                                         ),
                                     },
@@ -8787,7 +8787,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -8798,7 +8798,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             0,
                                         ),
                                     },
@@ -8819,7 +8819,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -8905,7 +8905,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             0,
                                         ),
                                     },
@@ -8926,7 +8926,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -9236,7 +9236,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             0,
                                         ),
                                     },
@@ -9257,7 +9257,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -15620,7 +15620,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -15786,7 +15786,7 @@
                                     RegionalTokenIdx(
                                         16,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             2,
                                         ),
@@ -16051,7 +16051,7 @@
                                     RegionalTokenIdx(
                                         25,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -16652,7 +16652,7 @@
                                     RegionalTokenIdx(
                                         39,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -17133,7 +17133,7 @@
                                     RegionalTokenIdx(
                                         51,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -19140,7 +19140,7 @@
                                                 place: None,
                                                 base: Ethereal(
                                                     Ritchie(
-                                                        EtherealTermRitchie(
+                                                        RitchieEtherealTerm(
                                                             Id {
                                                                 value: 41,
                                                             },
@@ -19221,7 +19221,7 @@
                                     RegionalTokenIdx(
                                         21,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -19262,7 +19262,7 @@
                                     RegionalTokenIdx(
                                         25,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             29,
                                         ),
@@ -19537,7 +19537,7 @@
                                     RegionalTokenIdx(
                                         36,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -19999,7 +19999,7 @@
                                     RegionalTokenIdx(
                                         52,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -20150,7 +20150,7 @@
                                     RegionalTokenIdx(
                                         58,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -21331,7 +21331,7 @@
                                     RegionalTokenIdx(
                                         87,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -21372,7 +21372,7 @@
                                     RegionalTokenIdx(
                                         91,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             29,
                                         ),
@@ -22326,7 +22326,7 @@
                                     RegionalTokenIdx(
                                         136,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -23217,7 +23217,7 @@
                                     RegionalTokenIdx(
                                         176,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -23258,7 +23258,7 @@
                                     RegionalTokenIdx(
                                         181,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -23299,7 +23299,7 @@
                                     RegionalTokenIdx(
                                         186,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -23340,7 +23340,7 @@
                                     RegionalTokenIdx(
                                         192,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -23421,7 +23421,7 @@
                                     RegionalTokenIdx(
                                         198,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -23502,7 +23502,7 @@
                                     RegionalTokenIdx(
                                         204,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -25220,7 +25220,7 @@
                                     RegionalTokenIdx(
                                         257,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         R32(
                                             1,
                                         ),
@@ -25657,7 +25657,7 @@
                                     RegionalTokenIdx(
                                         269,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -25836,7 +25836,7 @@
                                     RegionalTokenIdx(
                                         274,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -26060,7 +26060,7 @@
                                     RegionalTokenIdx(
                                         278,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -26244,7 +26244,7 @@
                                     RegionalTokenIdx(
                                         283,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -26468,7 +26468,7 @@
                                     RegionalTokenIdx(
                                         287,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -26711,7 +26711,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -26736,7 +26736,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 5,
                                                                 },
@@ -27182,7 +27182,7 @@
                                                 place: None,
                                                 base: Ethereal(
                                                     Ritchie(
-                                                        EtherealTermRitchie(
+                                                        RitchieEtherealTerm(
                                                             Id {
                                                                 value: 24,
                                                             },
@@ -27507,7 +27507,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -27532,7 +27532,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 4,
                                                                 },
@@ -27663,7 +27663,7 @@
                                     RegionalTokenIdx(
                                         316,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -27840,7 +27840,7 @@
                                     RegionalTokenIdx(
                                         320,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -28017,7 +28017,7 @@
                                     RegionalTokenIdx(
                                         325,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -28196,7 +28196,7 @@
                                     RegionalTokenIdx(
                                         329,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -28380,7 +28380,7 @@
                                     RegionalTokenIdx(
                                         333,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -28623,7 +28623,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -28648,7 +28648,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 5,
                                                                 },
@@ -28845,7 +28845,7 @@
                                                 place: None,
                                                 base: Ethereal(
                                                     Ritchie(
-                                                        EtherealTermRitchie(
+                                                        RitchieEtherealTerm(
                                                             Id {
                                                                 value: 24,
                                                             },
@@ -29491,7 +29491,7 @@
                                     RegionalTokenIdx(
                                         360,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -29670,7 +29670,7 @@
                                     RegionalTokenIdx(
                                         364,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -29854,7 +29854,7 @@
                                     RegionalTokenIdx(
                                         368,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -30038,7 +30038,7 @@
                                     RegionalTokenIdx(
                                         372,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -30281,7 +30281,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -30306,7 +30306,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 5,
                                                                 },
@@ -30503,7 +30503,7 @@
                                                 place: None,
                                                 base: Ethereal(
                                                     Ritchie(
-                                                        EtherealTermRitchie(
+                                                        RitchieEtherealTerm(
                                                             Id {
                                                                 value: 24,
                                                             },
@@ -30851,7 +30851,7 @@
                                     RegionalTokenIdx(
                                         392,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -31028,7 +31028,7 @@
                                     RegionalTokenIdx(
                                         396,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -31288,7 +31288,7 @@
                                                 place: None,
                                                 base: Ethereal(
                                                     Ritchie(
-                                                        EtherealTermRitchie(
+                                                        RitchieEtherealTerm(
                                                             Id {
                                                                 value: 24,
                                                             },
@@ -31613,7 +31613,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -31638,7 +31638,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 4,
                                                                 },
@@ -32067,7 +32067,7 @@
                                     RegionalTokenIdx(
                                         420,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -32600,7 +32600,7 @@
                                     RegionalTokenIdx(
                                         439,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -33096,7 +33096,7 @@
                                     RegionalTokenIdx(
                                         451,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -33390,7 +33390,7 @@
                                     RegionalTokenIdx(
                                         462,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -34090,7 +34090,7 @@
                                     RegionalTokenIdx(
                                         483,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -34313,7 +34313,7 @@
                                     RegionalTokenIdx(
                                         493,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -34632,7 +34632,7 @@
                                     RegionalTokenIdx(
                                         501,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -34896,7 +34896,7 @@
                                     RegionalTokenIdx(
                                         509,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -35075,7 +35075,7 @@
                                     RegionalTokenIdx(
                                         513,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -35259,7 +35259,7 @@
                                     RegionalTokenIdx(
                                         517,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -35500,7 +35500,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -35525,7 +35525,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 4,
                                                                 },
@@ -35940,7 +35940,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -35965,7 +35965,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 4,
                                                                 },
@@ -38596,7 +38596,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 39,
                                         },
@@ -38732,7 +38732,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 25,
                                         },
@@ -39168,7 +39168,7 @@
                                     place: None,
                                     base: Ethereal(
                                         Application(
-                                            EtherealTermApplication(
+                                            ApplicationEtherealTerm(
                                                 Id {
                                                     value: 39,
                                                 },
@@ -39316,7 +39316,7 @@
                                     place: None,
                                     base: Ethereal(
                                         Application(
-                                            EtherealTermApplication(
+                                            ApplicationEtherealTerm(
                                                 Id {
                                                     value: 25,
                                                 },
@@ -39721,7 +39721,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 39,
                                         },
@@ -39786,7 +39786,7 @@
                             place: None,
                             base: Ethereal(
                                 Application(
-                                    EtherealTermApplication(
+                                    ApplicationEtherealTerm(
                                         Id {
                                             value: 25,
                                         },
@@ -41727,8 +41727,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -41756,7 +41756,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -41777,7 +41777,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -43544,8 +43544,8 @@
                                             place: None,
                                             base: Ethereal(
                                                 Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
+                                                    CategoryTerm {
+                                                        universe: UniverseTerm(
                                                             1,
                                                         ),
                                                     },
@@ -43573,7 +43573,7 @@
                             FluffyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
                                     ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
+                                        smallest_universe: UniverseTerm(
                                             1,
                                         ),
                                     },
@@ -43594,7 +43594,7 @@
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
-                                                TermUniverse(
+                                                UniverseTerm(
                                                     1,
                                                 ),
                                             ),
@@ -53873,7 +53873,7 @@
                                                             place: None,
                                                             base: Ethereal(
                                                                 Application(
-                                                                    EtherealTermApplication(
+                                                                    ApplicationEtherealTerm(
                                                                         Id {
                                                                             value: 23,
                                                                         },
@@ -53925,7 +53925,7 @@
                                                 place: None,
                                                 base: Ethereal(
                                                     Ritchie(
-                                                        EtherealTermRitchie(
+                                                        RitchieEtherealTerm(
                                                             Id {
                                                                 value: 22,
                                                             },
@@ -54002,7 +54002,7 @@
                                     RegionalTokenIdx(
                                         7,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -54640,7 +54640,7 @@
                                     RegionalTokenIdx(
                                         8,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -55290,7 +55290,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -60774,7 +60774,7 @@
                                     RegionalTokenIdx(
                                         7,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -61721,7 +61721,7 @@
                                     RegionalTokenIdx(
                                         5,
                                     ),
-                                    LiteralData::Float(
+                                    LiteralTokenData::Float(
                                         Unspecified(
                                             UnspecifiedFloatLiteral(
                                                 Id {
@@ -61766,7 +61766,7 @@
                                     RegionalTokenIdx(
                                         7,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -61947,7 +61947,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -62210,7 +62210,7 @@
                                     RegionalTokenIdx(
                                         28,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -63676,7 +63676,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },
@@ -63744,7 +63744,7 @@
                                     RegionalTokenIdx(
                                         83,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             1,
                                         ),
@@ -63984,7 +63984,7 @@
                                     RegionalTokenIdx(
                                         92,
                                     ),
-                                    LiteralData::Integer(
+                                    LiteralTokenData::Integer(
                                         UnspecifiedRegular(
                                             0,
                                         ),
@@ -67972,7 +67972,7 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EtherealTermSymbol(
+                                                            SymbolEtherealTerm(
                                                                 Id {
                                                                     value: 1,
                                                                 },

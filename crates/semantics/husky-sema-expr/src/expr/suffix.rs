@@ -84,6 +84,7 @@ impl<'a> SemaExprEngine<'a> {
                 _ => todo!(),
             },
             FluffyTermData::Curry {
+                toolchain,
                 curry_kind,
                 variance,
                 parameter_rune,

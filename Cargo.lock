@@ -4055,6 +4055,7 @@ dependencies = [
  "husky-print-utils",
  "husky-term-prelude",
  "husky-token",
+ "husky-token-data",
  "husky-unicode-symbols",
  "husky-vfs",
  "ordered-float 4.2.0",
