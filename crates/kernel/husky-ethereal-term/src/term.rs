@@ -2,6 +2,7 @@ mod abstraction;
 mod application;
 mod constraint;
 mod curry;
+mod literal;
 mod ritchie;
 mod rune;
 mod symbol;
@@ -22,7 +23,7 @@ use crate::instantiation::*;
 use crate::*;
 use husky_coword::Ident;
 use husky_declarative_term::term::DeclarativeTerm;
-use husky_term_prelude::literal::{int::TermUSizeLiteral, TermLiteral};
+use husky_term_prelude::literal::TermLiteral;
 use salsa::{DebugWithDb, DisplayWithDb};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -91,116 +92,7 @@ impl EtherealTerm {
     ) -> EtherealTermResult<Self> {
         Ok(match declarative_term {
             DeclarativeTerm::Literal(literal) => {
-                match literal {
-                    LiteralDeclarativeTerm::Resolved(literal) => literal.into(),
-                    LiteralDeclarativeTerm::Unresolved(literal) => match literal {
-                        UnresolvedTermLiteral::RegularInteger(i) => match ty_expectation {
-                            TermTypeExpectation::FinalDestinationEqsSort => todo!(),
-                            TermTypeExpectation::FinalDestinationEqsNonSortTypePath(ty_path) => {
-                                match ty_path.prelude_ty_path(db) {
-                                    Some(prelude_ty_path) => match prelude_ty_path {
-                                        PreludeTypePath::Num(num_ty_path) => match num_ty_path {
-                                            PreludeNumTypePath::Int(int_ty_path) => {
-                                                match int_ty_path {
-                                                    PreludeIntTypePath::I8 => match i.try_into() {
-                                                        Ok::<i8, _>(i) => TermLiteral::I8(i).into(),
-                                                        Err(_) => todo!(),
-                                                    },
-                                                    PreludeIntTypePath::I16 => match i.try_into() {
-                                                        Ok::<i16, _>(i) => {
-                                                            TermLiteral::I16(i).into()
-                                                        }
-                                                        Err(_) => todo!(),
-                                                    },
-                                                    PreludeIntTypePath::I32 => match i.try_into() {
-                                                        Ok::<i32, _>(i) => {
-                                                            TermLiteral::I32(i).into()
-                                                        }
-                                                        Err(_) => todo!(),
-                                                    },
-                                                    PreludeIntTypePath::I64 => match i.try_into() {
-                                                        Ok::<i64, _>(_i) => {
-                                                            todo!()
-                                                            // TermLiteral::I64(i).into()
-                                                        }
-                                                        Err(_) => todo!(),
-                                                    },
-                                                    PreludeIntTypePath::I128 => {
-                                                        match i.try_into() {
-                                                            Ok::<i128, _>(_i) => {
-                                                                todo!()
-                                                                // TermLiteral::I128(i).into()
-                                                            }
-                                                            Err(_) => todo!(),
-                                                        }
-                                                    }
-                                                    PreludeIntTypePath::ISize => match i.try_into()
-                                                    {
-                                                        Ok::<isize, _>(_i) => {
-                                                            todo!()
-                                                            // TermLiteral::ISize(i).into()
-                                                        }
-                                                        Err(_) => todo!(),
-                                                    },
-                                                    PreludeIntTypePath::U8 => match i.try_into() {
-                                                        Ok::<u8, _>(i) => TermLiteral::U8(i).into(),
-                                                        Err(_) => todo!(),
-                                                    },
-                                                    PreludeIntTypePath::U16 => match i.try_into() {
-                                                        Ok::<u16, _>(i) => {
-                                                            TermLiteral::U16(i).into()
-                                                        }
-                                                        Err(_) => todo!(), // Or handle the error as appropriate
-                                                    },
-                                                    PreludeIntTypePath::U32 => match i.try_into() {
-                                                        Ok::<u32, _>(i) => {
-                                                            TermLiteral::U32(i).into()
-                                                        }
-                                                        Err(_) => todo!(), // Or handle the error as appropriate
-                                                    },
-                                                    PreludeIntTypePath::U64 => match i.try_into() {
-                                                        Ok::<u64, _>(_i) => {
-                                                            TermLiteral::U64(todo!()).into()
-                                                        }
-                                                        Err(_) => todo!(), // Or handle the error as appropriate
-                                                    },
-                                                    PreludeIntTypePath::U128 => {
-                                                        match i.try_into() {
-                                                            Ok::<u128, _>(_i) => {
-                                                                TermLiteral::U128(todo!()).into()
-                                                            }
-                                                            Err(_) => todo!(), // Or handle the error as appropriate
-                                                        }
-                                                    }
-                                                    PreludeIntTypePath::USize => match i.try_into()
-                                                    {
-                                                        // use u64 for the sake of cross compilation
-                                                        Ok::<u64, _>(i) => TermLiteral::USize(
-                                                            TermUSizeLiteral::new(db, i),
-                                                        )
-                                                        .into(),
-                                                        Err(_) => todo!(), // Or handle the error as appropriate
-                                                    },
-                                                    PreludeIntTypePath::R8 => todo!(),
-                                                    PreludeIntTypePath::R16 => todo!(),
-                                                    PreludeIntTypePath::R32 => todo!(),
-                                                    PreludeIntTypePath::R64 => todo!(),
-                                                    PreludeIntTypePath::R128 => todo!(),
-                                                    PreludeIntTypePath::RSize => todo!(),
-                                                }
-                                            }
-                                            PreludeNumTypePath::Float(_) => todo!(),
-                                        },
-                                        _ => todo!(),
-                                    },
-                                    None => todo!(),
-                                }
-                            }
-                            TermTypeExpectation::Any => todo!(),
-                        },
-                    },
-                }
-                //  TermLiteral::from_declarative(db, declarative_term, ty_expectation)?.into()
+                EtherealTerm::from_literal_declarative_term(db, literal, ty_expectation)?
             }
             DeclarativeTerm::Symbol(declarative_term) => {
                 EtherealTermSymbol::from_declarative(db, declarative_term)?.into()
@@ -309,7 +201,7 @@ impl EtherealTerm {
             .into(),
             EtherealTerm::EntityPath(path) => path.into(),
             EtherealTerm::Category(cat) => DeclarativeTerm::Category(cat),
-            EtherealTerm::Universe(_) => todo!(),
+            EtherealTerm::Universe(u) => u.into(),
             EtherealTerm::Curry(_) => todo!(),
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
@@ -317,10 +209,6 @@ impl EtherealTerm {
             EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
-    }
-
-    pub fn from_raw_inner(_db: &::salsa::Db, _valid_term: DeclarativeTerm) -> Self {
-        todo!()
     }
 
     fn reduce(self, db: &::salsa::Db) -> Self {
@@ -345,10 +233,6 @@ impl EtherealTerm {
             EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
-    }
-
-    pub(crate) fn is_reduced(self, db: &::salsa::Db) -> bool {
-        self.reduce(db) == self
     }
 
     pub fn substitute(self, _db: &::salsa::Db, _substitution: &TermSubstitution) -> Self {

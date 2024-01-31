@@ -86,7 +86,7 @@ impl SynForBetweenRange {
             BinaryComparisonOpr::Leq => todo!("invalid form",),
             // ill-formed: $initial_bound < $frame_var
             BinaryComparisonOpr::Less => todo!("invalid form",),
-            _ => return todo!("expect comparison"),
+            _ => todo!("expect comparison"),
         };
         Self {
             initial_boundary: SynForBetweenLoopBoundary {
