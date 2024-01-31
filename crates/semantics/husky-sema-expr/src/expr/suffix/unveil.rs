@@ -238,13 +238,13 @@ fn unveil_impl_block_signature_templates(
         }
         EtherealTerm::Rune(_) => todo!(),
         EtherealTerm::EntityPath(path) => match path {
-            TermEntityPath::Fugitive(_) => todo!(),
-            TermEntityPath::Trait(_) => todo!(),
-            TermEntityPath::TypeOntology(path) => {
+            ItemPathTerm::Fugitive(_) => todo!(),
+            ItemPathTerm::Trait(_) => todo!(),
+            ItemPathTerm::TypeOntology(path) => {
                 ty_ontology_path_unveil_impl_block_signature_templates(db, path).just_ok_as_ref2()
             }
-            TermEntityPath::TypeInstance(_) => todo!(),
-            TermEntityPath::TypeVariant(_) => todo!(),
+            ItemPathTerm::TypeInstance(_) => todo!(),
+            ItemPathTerm::TypeVariant(_) => todo!(),
         },
         EtherealTerm::Category(_) => todo!(),
         EtherealTerm::Universe(_) => todo!(),
@@ -269,7 +269,7 @@ fn ty_ontology_path_unveil_impl_block_signature_templates(
         db,
         ty_path,
         &[],
-        EtherealTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)),
+        EtherealTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)),
     )
 }
 

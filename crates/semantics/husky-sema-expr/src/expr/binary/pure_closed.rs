@@ -32,7 +32,7 @@ impl<'a> SemaExprEngine<'a> {
                 ty_path,
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
-            } => Ok(TermEntityPath::TypeOntology(ty_path).into()),
+            } => Ok(ItemPathTerm::TypeOntology(ty_path).into()),
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,

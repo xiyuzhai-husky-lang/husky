@@ -248,7 +248,7 @@ impl SymbolDeclarativeTermRegion {
     ///
     /// then self type term is `Animal T`
     fn ty_defn_self_ty_term(&self, db: &::salsa::Db, ty_path: TypePath) -> DeclarativeTerm {
-        let mut self_ty: DeclarativeTerm = EntityPathDeclarativeTerm::Type(ty_path.into()).into();
+        let mut self_ty: DeclarativeTerm = ItemPathDeclarativeTerm::Type(ty_path.into()).into();
         for current_syn_symbol_signature in self
             .symbol_signatures
             .current_syn_symbol_map()

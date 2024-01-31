@@ -11,7 +11,7 @@ impl HasFluffyTypeMethodDispatch for EtherealTerm {
     ) -> FluffyTermMaybeResult<FluffyMethodDynamicDispatch> {
         // todo: check scope
         match self {
-            EtherealTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
+            EtherealTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
                 ethereal_ty_ontology_path_ty_method_dispatch(
                     engine,
                     expr_idx,

@@ -13,7 +13,7 @@ use husky_ethereal_term::{
 };
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 
-use husky_term_prelude::TermEntityPath;
+use husky_term_prelude::ItemPathTerm;
 
 /// this is much simpler than that in Term, right?
 #[salsa::debug_with_db]
@@ -41,13 +41,13 @@ impl HirType {
                 HirTypeSymbol::from_ethereal(symbol, db).map(Into::into)
             }
             EtherealTerm::EntityPath(path) => match path {
-                TermEntityPath::Fugitive(_) => todo!(),
-                TermEntityPath::Trait(_) => todo!(),
-                TermEntityPath::TypeOntology(ty_path) => {
+                ItemPathTerm::Fugitive(_) => todo!(),
+                ItemPathTerm::Trait(_) => todo!(),
+                ItemPathTerm::TypeOntology(ty_path) => {
                     Some(HirTypePathLeading::new(db, ty_path, smallvec![], always_copyable).into())
                 }
-                TermEntityPath::TypeInstance(_) => todo!(),
-                TermEntityPath::TypeVariant(_) => todo!(),
+                ItemPathTerm::TypeInstance(_) => todo!(),
+                ItemPathTerm::TypeVariant(_) => todo!(),
             },
             EtherealTerm::Ritchie(term_ritchie) => {
                 Some(HirRitchieType::from_ethereal(term_ritchie, db).into())

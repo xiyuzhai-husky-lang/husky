@@ -15,7 +15,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Submodule,
+            DeclarativeSignatureTemplate::Submodule,
         ),
     ),
     (
@@ -34,7 +34,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Submodule,
+            DeclarativeSignatureTemplate::Submodule,
         ),
     ),
     (
@@ -53,7 +53,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Submodule,
+            DeclarativeSignatureTemplate::Submodule,
         ),
     ),
 ]

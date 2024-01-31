@@ -35,7 +35,7 @@ pub enum EtherealTerm {
     Literal(TermLiteral),
     Symbol(EtherealTermSymbol),
     Rune(EtherealTermRune),
-    EntityPath(TermEntityPath),
+    EntityPath(ItemPathTerm),
     Category(TermCategory),
     Universe(TermUniverse),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
@@ -101,15 +101,15 @@ impl EtherealTerm {
                 EtherealTermRune::from_declarative(db, declarative_term)?.into()
             }
             DeclarativeTerm::EntityPath(declarative_term) => match declarative_term {
-                EntityPathDeclarativeTerm::Fugitive(path) => TermEntityPath::Fugitive(path).into(),
-                EntityPathDeclarativeTerm::Trait(path) => TermEntityPath::Trait(path).into(),
-                EntityPathDeclarativeTerm::Type(path) => match ty_expectation {
+                ItemPathDeclarativeTerm::Fugitive(path) => ItemPathTerm::Fugitive(path).into(),
+                ItemPathDeclarativeTerm::Trait(path) => ItemPathTerm::Trait(path).into(),
+                ItemPathDeclarativeTerm::Type(path) => match ty_expectation {
                     TermTypeExpectation::FinalDestinationEqsSort => {
-                        TermEntityPath::TypeOntology(path).into()
+                        ItemPathTerm::TypeOntology(path).into()
                     }
                     TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected) => {
                         if path_expected == path {
-                            TermEntityPath::TypeInstance(path).into()
+                            ItemPathTerm::TypeInstance(path).into()
                         } else {
                             return Err(
                                 EtherealTermError::ExpectFinalDestinationEqsNonSortTypePath {
@@ -119,10 +119,10 @@ impl EtherealTerm {
                             );
                         }
                     }
-                    TermTypeExpectation::Any => TermEntityPath::TypeInstance(path).into(),
+                    TermTypeExpectation::Any => ItemPathTerm::TypeInstance(path).into(),
                 },
-                EntityPathDeclarativeTerm::TypeVariant(path) => {
-                    TermEntityPath::TypeVariant(path).into()
+                ItemPathDeclarativeTerm::TypeVariant(path) => {
+                    ItemPathTerm::TypeVariant(path).into()
                 }
             },
             DeclarativeTerm::Category(declarative_term) => declarative_term.into(),
@@ -217,14 +217,14 @@ impl EtherealTerm {
             | EtherealTerm::Symbol(_)
             | EtherealTerm::Rune(_)
             | EtherealTerm::EntityPath(
-                TermEntityPath::Trait(_)
-                | TermEntityPath::TypeOntology(_)
-                | TermEntityPath::TypeInstance(_)
-                | TermEntityPath::TypeVariant(_),
+                ItemPathTerm::Trait(_)
+                | ItemPathTerm::TypeOntology(_)
+                | ItemPathTerm::TypeInstance(_)
+                | ItemPathTerm::TypeVariant(_),
             )
             | EtherealTerm::Category(_)
             | EtherealTerm::Universe(_) => self,
-            EtherealTerm::EntityPath(TermEntityPath::Fugitive(_)) => todo!(),
+            EtherealTerm::EntityPath(ItemPathTerm::Fugitive(_)) => todo!(),
             // ad hoc
             EtherealTerm::Curry(_) => self,
             EtherealTerm::Ritchie(term) => term.reduce(db).into(),

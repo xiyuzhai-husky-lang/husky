@@ -15,16 +15,16 @@ pub(super) fn ethereal_term_data<'a>(
             idx: term.idx(db),
         },
         EtherealTerm::EntityPath(path) => match path {
-            TermEntityPath::Fugitive(_) => todo!(),
-            TermEntityPath::Trait(_) => todo!(),
-            TermEntityPath::TypeOntology(ty_path) => FluffyTermData::TypeOntology {
+            ItemPathTerm::Fugitive(_) => todo!(),
+            ItemPathTerm::Trait(_) => todo!(),
+            ItemPathTerm::TypeOntology(ty_path) => FluffyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path: ty_path.refine(db),
                 ty_arguments: &[],
                 ty_ethereal_term: Some(path.into()),
             },
-            TermEntityPath::TypeInstance(_) => todo!(),
-            TermEntityPath::TypeVariant(path) => FluffyTermData::TypeVariant { path },
+            ItemPathTerm::TypeInstance(_) => todo!(),
+            ItemPathTerm::TypeVariant(path) => FluffyTermData::TypeVariant { path },
         },
         EtherealTerm::Category(term) => FluffyTermData::Category(term),
         EtherealTerm::Universe(_) => todo!(),
@@ -167,16 +167,16 @@ pub(super) fn ethereal_term_fluffy_base_ty_data<'a>(
         EtherealTerm::Symbol(symbol) => FluffyBaseTypeData::Symbol { symbol },
         EtherealTerm::Rune(rune) => FluffyBaseTypeData::Rune { rune },
         EtherealTerm::EntityPath(path) => match path {
-            TermEntityPath::Fugitive(_) => todo!(),
-            TermEntityPath::Trait(_) => todo!(),
-            TermEntityPath::TypeOntology(ty_path) => FluffyBaseTypeData::TypeOntology {
+            ItemPathTerm::Fugitive(_) => todo!(),
+            ItemPathTerm::Trait(_) => todo!(),
+            ItemPathTerm::TypeOntology(ty_path) => FluffyBaseTypeData::TypeOntology {
                 ty_path,
                 refined_ty_path: ty_path.refine(db),
                 ty_arguments: &[],
                 ty_ethereal_term: Some(path.into()),
             },
-            TermEntityPath::TypeInstance(_) => todo!(),
-            TermEntityPath::TypeVariant(path) => unreachable!(),
+            ItemPathTerm::TypeInstance(_) => todo!(),
+            ItemPathTerm::TypeVariant(path) => unreachable!(),
         },
         EtherealTerm::Category(term) => FluffyBaseTypeData::Category(term),
         EtherealTerm::Universe(_) => todo!(),

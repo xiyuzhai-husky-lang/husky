@@ -431,12 +431,12 @@ impl<'a> DeclarativeTermEngine<'a> {
                 Some(path) => Ok(DeclarativeTerm::EntityPath(match path {
                     PrincipalEntityPath::Module(_) => todo!(),
                     PrincipalEntityPath::MajorItem(path) => match path {
-                        MajorItemPath::Type(path) => EntityPathDeclarativeTerm::Type(path),
+                        MajorItemPath::Type(path) => ItemPathDeclarativeTerm::Type(path),
                         MajorItemPath::Trait(path) => path.into(),
                         MajorItemPath::Fugitive(path) => path.into(),
                     },
                     PrincipalEntityPath::TypeVariant(path) => {
-                        EntityPathDeclarativeTerm::TypeVariant(path)
+                        ItemPathDeclarativeTerm::TypeVariant(path)
                     }
                 })),
                 None => Err(DerivedDeclarativeTermError2::InvalidEntityPath.into()),

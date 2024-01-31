@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -38,7 +38,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -57,7 +57,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -100,7 +100,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -136,7 +136,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -172,7 +172,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -208,7 +208,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {

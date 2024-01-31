@@ -22,7 +22,7 @@ impl<Expectation: ExpectFluffyTerm> BranchTypeMerger<Expectation> {
             Some(new_block_ty)
                 if new_block_ty.base_resolved(engine)
                     == FluffyTermBase::Ethereal(EtherealTerm::EntityPath(
-                        TermEntityPath::TypeOntology(engine.item_path_menu.never_ty_path()),
+                        ItemPathTerm::TypeOntology(engine.item_path_menu.never_ty_path()),
                     )) =>
             {
                 ()

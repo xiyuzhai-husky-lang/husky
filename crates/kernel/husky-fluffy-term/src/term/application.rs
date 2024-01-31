@@ -69,7 +69,7 @@ impl FluffyTerm {
         arguments: SmallVec<[FluffyTerm; 2]>,
     ) -> Self {
         if arguments.len() == 0 {
-            TermEntityPath::TypeOntology(path).into()
+            ItemPathTerm::TypeOntology(path).into()
         } else {
             let mut merger = FluffyTermDataKindMerger::new(fluffy_terms);
             merger.accept(arguments.iter().copied());

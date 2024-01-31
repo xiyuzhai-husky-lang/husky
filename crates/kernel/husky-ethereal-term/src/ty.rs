@@ -124,17 +124,17 @@ impl EtherealTerm {
                 RawType::Declarative(variable.ty(db).into_declarative(db))
             }
             EtherealTerm::EntityPath(path) => match path {
-                TermEntityPath::Fugitive(_) => todo!(),
-                TermEntityPath::Trait(path) => {
+                ItemPathTerm::Fugitive(_) => todo!(),
+                ItemPathTerm::Trait(path) => {
                     RawType::Declarative(trai_path_declarative_ty(db, path)?)
                 }
-                TermEntityPath::TypeOntology(path) => {
+                ItemPathTerm::TypeOntology(path) => {
                     RawType::Declarative(ty_ontology_path_declarative_ty(db, path)?)
                 }
-                TermEntityPath::TypeInstance(path) => {
+                ItemPathTerm::TypeInstance(path) => {
                     RawType::Declarative(ty_instance_constructor_path_declarative_ty(db, path)?)
                 }
-                TermEntityPath::TypeVariant(path) => {
+                ItemPathTerm::TypeVariant(path) => {
                     RawType::Declarative(ty_variant_path_declarative_ty(db, path)?)
                 }
             },

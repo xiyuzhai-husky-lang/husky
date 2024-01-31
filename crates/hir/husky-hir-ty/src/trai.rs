@@ -3,7 +3,7 @@ use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_ethereal_term::{
     EtherealTerm, EtherealTermApplication, EtherealTermSymbolIndexImpl, TermFunctionReduced,
 };
-use husky_term_prelude::TermEntityPath;
+use husky_term_prelude::ItemPathTerm;
 
 #[salsa::interned(jar = HirTypeJar)]
 pub struct HirTrait {
@@ -20,11 +20,11 @@ impl HirTrait {
             EtherealTerm::Symbol(_) => todo!(),
             EtherealTerm::Rune(_) => todo!(),
             EtherealTerm::EntityPath(path) => match path {
-                TermEntityPath::Fugitive(_) => todo!(),
-                TermEntityPath::Trait(trai_path) => Self::new(db, trai_path, smallvec![]),
-                TermEntityPath::TypeOntology(_) => todo!(),
-                TermEntityPath::TypeInstance(_) => todo!(),
-                TermEntityPath::TypeVariant(_) => todo!(),
+                ItemPathTerm::Fugitive(_) => todo!(),
+                ItemPathTerm::Trait(trai_path) => Self::new(db, trai_path, smallvec![]),
+                ItemPathTerm::TypeOntology(_) => todo!(),
+                ItemPathTerm::TypeInstance(_) => todo!(),
+                ItemPathTerm::TypeVariant(_) => todo!(),
             },
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),

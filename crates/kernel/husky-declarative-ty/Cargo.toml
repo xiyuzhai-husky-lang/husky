@@ -13,10 +13,9 @@ vec-like.workspace = true
 propagate.workspace = true
 # fs
 husky-vfs = { workspace = true, features = ["test_utils"] }
-# infer
-husky-declarative-signature.workspace = true
 # kernel
 husky-term-prelude.workspace = true
+husky-declarative-signature.workspace = true
 husky-declarative-term.workspace = true
 husky-entity-path.workspace = true
 husky-entity-kind.workspace = true

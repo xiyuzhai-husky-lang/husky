@@ -5,17 +5,17 @@ impl EtherealTerm {
         match self {
             EtherealTerm::Application(term) => term.application_expansion(db),
             EtherealTerm::EntityPath(path) => match path {
-                TermEntityPath::Fugitive(_) => todo!(),
-                TermEntityPath::Trait(path) => ApplicationExpansion {
+                ItemPathTerm::Fugitive(_) => todo!(),
+                ItemPathTerm::Trait(path) => ApplicationExpansion {
                     function: TermFunctionReduced::Trait(path),
                     arguments: None,
                 },
-                TermEntityPath::TypeOntology(path) => ApplicationExpansion {
+                ItemPathTerm::TypeOntology(path) => ApplicationExpansion {
                     function: TermFunctionReduced::TypeOntology(path),
                     arguments: None,
                 },
-                TermEntityPath::TypeInstance(_) => todo!(),
-                TermEntityPath::TypeVariant(_) => todo!(),
+                ItemPathTerm::TypeInstance(_) => todo!(),
+                ItemPathTerm::TypeVariant(_) => todo!(),
             },
             _ => ApplicationExpansion {
                 function: TermFunctionReduced::Other(self),

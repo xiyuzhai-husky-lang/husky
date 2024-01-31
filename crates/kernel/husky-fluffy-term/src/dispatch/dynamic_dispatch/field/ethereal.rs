@@ -12,7 +12,7 @@ pub(super) fn ethereal_ty_field_dispatch(
 ) -> FluffyTermMaybeResult<FluffyFieldDyanmicDispatch> {
     // divide into cases for memoization
     match ty_term {
-        EtherealTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
+        EtherealTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
             ethereal_ty_ontology_path_ty_field_dispatch(db, ty_path, ident, indirections)
         }
         EtherealTerm::Application(ty_term) => {
