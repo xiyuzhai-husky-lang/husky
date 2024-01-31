@@ -159,20 +159,6 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn parameter_ty_declarative_term_curry_to_argument_ty_expectation(
-    _db: &::salsa::Db,
-    _declarative_term_curry: CurryDeclarativeTerm,
-) -> TermTypeExpectation {
-    todo!()
-}
-#[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn parameter_ty_declarative_term_application_to_argument_ty_expectation(
-    _db: &::salsa::Db,
-) -> TermTypeExpectation {
-    todo!()
-}
-
-#[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn ethereal_term_application_declarative_ty(
     db: &::salsa::Db,
     term_application: EtherealTermApplication,
