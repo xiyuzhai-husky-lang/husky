@@ -19,7 +19,7 @@ impl TraitDeclarativeSignatureTemplate {
                 .symbol()
                 .index(db)
                 .inner(),
-            DeclarativeTermSymbolIndexInner::SelfType
+            DeclarativeTermSymbolIndexImpl::SelfType
         ));
         &template_parameters[..template_parameters.len() - 1]
     }

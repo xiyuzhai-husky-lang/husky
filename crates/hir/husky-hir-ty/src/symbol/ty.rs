@@ -18,17 +18,17 @@ pub enum HirTypeSymbol {
 impl HirTypeSymbol {
     pub(crate) fn from_ethereal(symbol: EtherealTermSymbol, db: &::salsa::Db) -> Option<Self> {
         Some(match symbol.index(db).inner() {
-            EtherealTermSymbolIndexInner::ExplicitLifetime {
+            EtherealTermSymbolIndexImpl::ExplicitLifetime {
                 attrs: _,
                 variance: _,
                 disambiguator: _,
             } => todo!(),
-            EtherealTermSymbolIndexInner::ExplicitPlace {
+            EtherealTermSymbolIndexImpl::ExplicitPlace {
                 attrs: _,
                 variance: _,
                 disambiguator: _,
             } => todo!(),
-            EtherealTermSymbolIndexInner::Type {
+            EtherealTermSymbolIndexImpl::Type {
                 attrs,
                 variance,
                 disambiguator,
@@ -37,29 +37,29 @@ impl HirTypeSymbol {
                 variance,
                 disambiguator,
             },
-            EtherealTermSymbolIndexInner::Prop { disambiguator: _ } => {
+            EtherealTermSymbolIndexImpl::Prop { disambiguator: _ } => {
                 todo!()
             }
-            EtherealTermSymbolIndexInner::ConstPathLeading {
+            EtherealTermSymbolIndexImpl::ConstPathLeading {
                 attrs: _,
                 disambiguator: _,
                 ty_path: _,
             } => todo!(),
-            EtherealTermSymbolIndexInner::ConstOther {
+            EtherealTermSymbolIndexImpl::ConstOther {
                 attrs: _,
                 disambiguator: _,
             } => todo!(),
-            EtherealTermSymbolIndexInner::EphemPathLeading {
+            EtherealTermSymbolIndexImpl::EphemPathLeading {
                 disambiguator: _,
                 ty_path: _,
             } => todo!(),
-            EtherealTermSymbolIndexInner::EphemOther { disambiguator: _ } => {
+            EtherealTermSymbolIndexImpl::EphemOther { disambiguator: _ } => {
                 todo!()
             }
-            EtherealTermSymbolIndexInner::SelfType => HirTypeSymbol::SelfType,
-            EtherealTermSymbolIndexInner::SelfValue => todo!(),
-            EtherealTermSymbolIndexInner::SelfLifetime => todo!(),
-            EtherealTermSymbolIndexInner::SelfPlace => todo!(),
+            EtherealTermSymbolIndexImpl::SelfType => HirTypeSymbol::SelfType,
+            EtherealTermSymbolIndexImpl::SelfValue => todo!(),
+            EtherealTermSymbolIndexImpl::SelfLifetime => todo!(),
+            EtherealTermSymbolIndexImpl::SelfPlace => todo!(),
         })
     }
 }

@@ -8,7 +8,7 @@ use husky_ethereal_signature::{
     helpers::trai_for_ty::is_ty_term_always_copyable, HasEtherealSignatureTemplate,
 };
 use husky_ethereal_term::{
-    EtherealTerm, EtherealTermApplication, EtherealTermRitchie, EtherealTermSymbolIndexInner,
+    EtherealTerm, EtherealTermApplication, EtherealTermRitchie, EtherealTermSymbolIndexImpl,
     TermFunctionReduced,
 };
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
@@ -129,20 +129,20 @@ pub(crate) fn hir_ty_from_ethereal_term_application(
             )
             .filter_map(|(param, arg)| {
                 match param.symbol().index(db).inner() {
-                    EtherealTermSymbolIndexInner::ExplicitLifetime { attrs, .. }
-                    | EtherealTermSymbolIndexInner::ExplicitPlace { attrs, .. }
-                    | EtherealTermSymbolIndexInner::Type { attrs, .. }
-                    | EtherealTermSymbolIndexInner::ConstOther { attrs, .. }
-                    | EtherealTermSymbolIndexInner::ConstPathLeading { attrs, .. } => {
+                    EtherealTermSymbolIndexImpl::ExplicitLifetime { attrs, .. }
+                    | EtherealTermSymbolIndexImpl::ExplicitPlace { attrs, .. }
+                    | EtherealTermSymbolIndexImpl::Type { attrs, .. }
+                    | EtherealTermSymbolIndexImpl::ConstOther { attrs, .. }
+                    | EtherealTermSymbolIndexImpl::ConstPathLeading { attrs, .. } => {
                         !attrs.phantom()
                     }
-                    EtherealTermSymbolIndexInner::Prop { .. } => false,
-                    EtherealTermSymbolIndexInner::EphemPathLeading { .. }
-                    | EtherealTermSymbolIndexInner::EphemOther { .. }
-                    | EtherealTermSymbolIndexInner::SelfType
-                    | EtherealTermSymbolIndexInner::SelfValue
-                    | EtherealTermSymbolIndexInner::SelfLifetime
-                    | EtherealTermSymbolIndexInner::SelfPlace => unreachable!(),
+                    EtherealTermSymbolIndexImpl::Prop { .. } => false,
+                    EtherealTermSymbolIndexImpl::EphemPathLeading { .. }
+                    | EtherealTermSymbolIndexImpl::EphemOther { .. }
+                    | EtherealTermSymbolIndexImpl::SelfType
+                    | EtherealTermSymbolIndexImpl::SelfValue
+                    | EtherealTermSymbolIndexImpl::SelfLifetime
+                    | EtherealTermSymbolIndexImpl::SelfPlace => unreachable!(),
                 }
                 .then_some(arg)
             })

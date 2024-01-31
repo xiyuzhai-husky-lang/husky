@@ -45,31 +45,31 @@ pub enum DeclarativeTemplateSymbolAttr {
 
 /// wrapper so such the construction is private
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner);
+pub struct DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl);
 
 impl DeclarativeTermSymbolIndex {
-    pub const SELF_TYPE: Self = Self(DeclarativeTermSymbolIndexInner::SelfType);
-    pub const SELF_VALUE: Self = Self(DeclarativeTermSymbolIndexInner::SelfValue);
-    pub const SELF_LIFETIME: Self = Self(DeclarativeTermSymbolIndexInner::SelfLifetime);
-    pub const SELF_PLACE: Self = Self(DeclarativeTermSymbolIndexInner::SelfPlace);
+    pub const SELF_TYPE: Self = Self(DeclarativeTermSymbolIndexImpl::SelfType);
+    pub const SELF_VALUE: Self = Self(DeclarativeTermSymbolIndexImpl::SelfValue);
+    pub const SELF_LIFETIME: Self = Self(DeclarativeTermSymbolIndexImpl::SelfLifetime);
+    pub const SELF_PLACE: Self = Self(DeclarativeTermSymbolIndexImpl::SelfPlace);
 
     /// only use this in husky-ethereal-term
-    pub unsafe fn new(inner: DeclarativeTermSymbolIndexInner) -> Self {
+    pub unsafe fn new(inner: DeclarativeTermSymbolIndexImpl) -> Self {
         Self(inner)
     }
 
     pub unsafe fn new_ad_hoc(disambiguator: u8) -> Self {
-        Self(DeclarativeTermSymbolIndexInner::AdHoc { disambiguator })
+        Self(DeclarativeTermSymbolIndexImpl::AdHoc { disambiguator })
     }
 
-    pub fn inner(self) -> DeclarativeTermSymbolIndexInner {
+    pub fn inner(self) -> DeclarativeTermSymbolIndexImpl {
         self.0
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[repr(u8)]
-pub enum DeclarativeTermSymbolIndexInner {
+pub enum DeclarativeTermSymbolIndexImpl {
     ExplicitLifetime {
         attrs: DeclarativeTemplateSymbolAttrs,
         variance: Option<Variance>,
@@ -148,13 +148,13 @@ impl TermSymbolRegistry {
     pub fn issue_self_ty_index(&mut self) -> DeclarativeTermSymbolIndex {
         assert!(!self.self_ty_issued);
         self.self_ty_issued = true;
-        DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::SelfType)
+        DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::SelfType)
     }
 
     pub fn issue_self_value_index(&mut self) -> DeclarativeTermSymbolIndex {
         assert!(!self.self_value_issued);
         self.self_value_issued = true;
-        DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::SelfValue)
+        DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::SelfValue)
     }
 
     pub fn issue_ty_index(
@@ -166,7 +166,7 @@ impl TermSymbolRegistry {
             .cache
             .iter_mut()
             .filter_map(|index| match index.0 {
-                DeclarativeTermSymbolIndexInner::Type {
+                DeclarativeTermSymbolIndexImpl::Type {
                     attrs: attrs1,
                     variance: variance1,
                     ref mut disambiguator,
@@ -177,14 +177,14 @@ impl TermSymbolRegistry {
         {
             Some(latest_disambiguator) => {
                 *latest_disambiguator += 1;
-                DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::Type {
+                DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::Type {
                     attrs,
                     variance,
                     disambiguator: *latest_disambiguator,
                 })
             }
             None => {
-                let index = DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::Type {
+                let index = DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::Type {
                     attrs,
                     variance,
                     disambiguator: 0,
@@ -204,7 +204,7 @@ impl TermSymbolRegistry {
             .cache
             .iter_mut()
             .filter_map(|index| match index.0 {
-                DeclarativeTermSymbolIndexInner::ExplicitLifetime {
+                DeclarativeTermSymbolIndexImpl::ExplicitLifetime {
                     attrs: attrs1,
                     variance: variance1,
                     ref mut disambiguator,
@@ -215,7 +215,7 @@ impl TermSymbolRegistry {
         {
             Some(latest_disambiguator) => {
                 *latest_disambiguator += 1;
-                DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ExplicitLifetime {
+                DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::ExplicitLifetime {
                     attrs,
                     variance,
                     disambiguator: *latest_disambiguator,
@@ -223,7 +223,7 @@ impl TermSymbolRegistry {
             }
             None => {
                 let index =
-                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ExplicitLifetime {
+                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::ExplicitLifetime {
                         attrs,
                         variance,
                         disambiguator: 0,
@@ -243,7 +243,7 @@ impl TermSymbolRegistry {
             .cache
             .iter_mut()
             .filter_map(|index| match index.0 {
-                DeclarativeTermSymbolIndexInner::ExplicitPlace {
+                DeclarativeTermSymbolIndexImpl::ExplicitPlace {
                     attrs: attrs1,
                     variance: variance1,
                     ref mut disambiguator,
@@ -254,7 +254,7 @@ impl TermSymbolRegistry {
         {
             Some(latest_disambiguator) => {
                 *latest_disambiguator += 1;
-                DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ExplicitPlace {
+                DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::ExplicitPlace {
                     attrs,
                     variance,
                     disambiguator: *latest_disambiguator,
@@ -262,7 +262,7 @@ impl TermSymbolRegistry {
             }
             None => {
                 let index =
-                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ExplicitPlace {
+                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::ExplicitPlace {
                         attrs,
                         variance,
                         disambiguator: 0,
@@ -282,7 +282,7 @@ impl TermSymbolRegistry {
             .cache
             .iter_mut()
             .filter_map(|index| match index.inner() {
-                DeclarativeTermSymbolIndexInner::ConstPathLeading {
+                DeclarativeTermSymbolIndexImpl::ConstPathLeading {
                     attrs: attrs1,
                     disambiguator,
                     ty_path: ty_path1,
@@ -294,7 +294,7 @@ impl TermSymbolRegistry {
             Some(_latest_disambiguator) => todo!(),
             None => {
                 let index =
-                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ConstPathLeading {
+                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::ConstPathLeading {
                         attrs,
                         disambiguator: 0,
                         ty_path,
@@ -313,7 +313,7 @@ impl TermSymbolRegistry {
             .cache
             .iter_mut()
             .filter_map(|index| match index.inner() {
-                DeclarativeTermSymbolIndexInner::ConstOther {
+                DeclarativeTermSymbolIndexImpl::ConstOther {
                     attrs: attrs1,
                     disambiguator,
                 } if attrs1 == attrs => Some(disambiguator),
@@ -324,7 +324,7 @@ impl TermSymbolRegistry {
             Some(_latest_disambiguator) => todo!(),
             None => {
                 let index =
-                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ConstOther {
+                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::ConstOther {
                         attrs,
                         disambiguator: 0,
                     });
@@ -342,7 +342,7 @@ impl TermSymbolRegistry {
             .cache
             .iter_mut()
             .filter_map(|index| match index.inner() {
-                DeclarativeTermSymbolIndexInner::ConstErr {
+                DeclarativeTermSymbolIndexImpl::ConstErr {
                     attrs: attrs1,
                     disambiguator,
                 } if attrs1 == attrs => Some(disambiguator),
@@ -352,7 +352,7 @@ impl TermSymbolRegistry {
         {
             Some(_latest_disambiguator) => todo!(),
             None => {
-                let index = DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ConstErr {
+                let index = DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::ConstErr {
                     attrs,
                     disambiguator: 0,
                 });
@@ -371,7 +371,7 @@ impl TermSymbolRegistry {
             .cache
             .iter_mut()
             .filter_map(|index| match index.inner() {
-                DeclarativeTermSymbolIndexInner::EphemPathLeading {
+                DeclarativeTermSymbolIndexImpl::EphemPathLeading {
                     // attrs: attrs1,
                     disambiguator,
                     ty_path: ty_path1,
@@ -384,7 +384,7 @@ impl TermSymbolRegistry {
             Some(_latest_disambiguator) => todo!(),
             None => {
                 let index =
-                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::EphemPathLeading {
+                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::EphemPathLeading {
                         // attrs,
                         disambiguator: 0,
                         ty_path,
@@ -403,7 +403,7 @@ impl TermSymbolRegistry {
             .cache
             .iter_mut()
             .filter_map(|index| match index.inner() {
-                DeclarativeTermSymbolIndexInner::EphemOther {
+                DeclarativeTermSymbolIndexImpl::EphemOther {
                     // attrs: attrs1,
                     disambiguator,
                 }
@@ -416,7 +416,7 @@ impl TermSymbolRegistry {
             Some(_latest_disambiguator) => todo!(),
             None => {
                 let index =
-                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::EphemOther {
+                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::EphemOther {
                         // attrs,
                         disambiguator: 0,
                     });
