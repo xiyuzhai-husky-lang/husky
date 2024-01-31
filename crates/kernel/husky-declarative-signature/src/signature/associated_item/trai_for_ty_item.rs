@@ -46,7 +46,7 @@ pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
             TraitForTypeMethodFnDeclarativeSignatureTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitForTypeItemSynDecl::AssociatedType(decl) => {
-            TraitForTypeAssociatedTypeDeclarativeSignatureTemplate::from_decl(db, decl)
+            TraitForTypeAssociatedTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)
                 .map(Into::into)
         }
         TraitForTypeItemSynDecl::AssociatedVal(decl) => {

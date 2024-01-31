@@ -45,9 +45,11 @@ impl TypeItemDeclarativeSignatureTemplate {
             TypeItemDeclarativeSignatureTemplate::MethodFn(signature) => {
                 signature.template_parameters(db)
             }
-            TypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
-            TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
-            TypeItemDeclarativeSignatureTemplate::MemoizedField(_) => todo!(),
+            TypeItemDeclarativeSignatureTemplate::AssociatedType(signature) => {
+                signature.template_parameters(db)
+            }
+            TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => &[],
+            TypeItemDeclarativeSignatureTemplate::MemoizedField(_) => &[],
         }
     }
 }

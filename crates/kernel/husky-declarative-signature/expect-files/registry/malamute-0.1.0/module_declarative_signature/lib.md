@@ -346,6 +346,28 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
                         TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
+                            path: TraitForTypeItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TraitForTypeItem(
+                                            TraitForTypeItemPathData {
+                                                impl_block: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `malamute`,
+                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`malamute::Class`, `Enum`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                                ident: `Output`,
+                                                item_kind: AssociatedType,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
@@ -491,6 +513,28 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
                         TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
+                            path: TraitForTypeItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TraitForTypeItem(
+                                            TraitForTypeItemPathData {
+                                                impl_block: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `malamute`,
+                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                                ident: `Output`,
+                                                item_kind: AssociatedType,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
