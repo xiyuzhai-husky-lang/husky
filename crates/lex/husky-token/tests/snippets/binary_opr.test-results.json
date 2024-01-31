@@ -1,7 +1,7 @@
 [
   {
     "input": "+",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Closed(\n                        Add,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    SynBinaryOpr::Closed(\n                        BinaryClosedOpr::Add,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "-",
@@ -13,11 +13,11 @@
   },
   {
     "input": "/",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Closed(\n                        Div,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    SynBinaryOpr::Closed(\n                        BinaryClosedOpr::Div,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "**",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Closed(\n                        Power,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    SynBinaryOpr::Closed(\n                        BinaryClosedOpr::Power,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "|",
@@ -29,15 +29,15 @@
   },
   {
     "input": "&&",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    ShortCircuitLogic(\n                        And,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    SynBinaryOpr::ShortCircuitLogic(\n                        BinaryShortcuitLogicOpr::And,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "==",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Comparison(\n                        Eq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    SynBinaryOpr::Comparison(\n                        BinaryComparisonOpr::Eq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "!=",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Comparison(\n                        Neq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    SynBinaryOpr::Comparison(\n                        BinaryComparisonOpr::Neq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": ">",
@@ -45,7 +45,7 @@
   },
   {
     "input": ">=",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Comparison(\n                        Geq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    SynBinaryOpr::Comparison(\n                        BinaryComparisonOpr::Geq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "<",
@@ -53,6 +53,6 @@
   },
   {
     "input": "<=",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    Comparison(\n                        Leq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Punctuation(\n            Punctuation(\n                PunctuationMapped::Binary(\n                    SynBinaryOpr::Comparison(\n                        BinaryComparisonOpr::Leq,\n                    ),\n                ),\n            ),\n        ),\n    ],\n    token_group_starts: [\n        TokenGroupStart(\n            TokenIdx(\n                1,\n            ),\n        ),\n    ],\n    indents: [\n        0,\n    ],\n}"
   }
 ]

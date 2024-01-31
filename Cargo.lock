@@ -5169,6 +5169,7 @@ dependencies = [
  "husky-coword",
  "husky-print-utils",
  "husky-text-protocol",
+ "salsa",
 ]
 
 [[package]]
@@ -5591,6 +5592,7 @@ dependencies = [
  "husky-opr",
  "husky-print-utils",
  "husky-text-protocol",
+ "salsa",
 ]
 
 [[package]]

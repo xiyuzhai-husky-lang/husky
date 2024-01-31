@@ -52,8 +52,7 @@ impl FluffyTerms {
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(_) => todo!(),
-            EtherealTerm::Subitem(_) => todo!(),
-            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         };
         self.hollow_terms.alloc_new(HollowTermData::Hole {

@@ -249,7 +249,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 248;\n\ntoken_line_group_idx = 25\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 248;\n\ntoken_line_group_idx = 25\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Bracket::Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
@@ -309,7 +309,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 310;\n\ntoken_line_group_idx = 29\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 310;\n\ntoken_line_group_idx = 29\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Bracket::Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(

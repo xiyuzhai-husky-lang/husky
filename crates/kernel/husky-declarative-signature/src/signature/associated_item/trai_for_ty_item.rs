@@ -57,12 +57,18 @@ pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
 }
 
 impl TraitForTypeItemDeclarativeSignatureTemplate {
-    pub fn template_parameters(self, _db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
+    pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(_) => todo!(),
-            TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),
-            TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
-            TraitForTypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
+            TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(tmpl) => {
+                tmpl.template_parameters(db)
+            }
+            TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(tmpl) => {
+                tmpl.template_parameters(db)
+            }
+            TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(tmpl) => {
+                tmpl.template_parameters(db)
+            }
+            TraitForTypeItemDeclarativeSignatureTemplate::AssociatedVal(tmpl) => &[],
         }
     }
 }

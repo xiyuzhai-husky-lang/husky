@@ -283,7 +283,7 @@ where
                     },
                     None => DisambiguatedTokenData::SynBinaryOpr(
                         regional_token_idx,
-                        SynBinaryOpr::Assign,
+                        SynBinaryOpr::AssignOrDefEq,
                     ),
                 },
                 PunctuationMapped::ForAll => todo!(),

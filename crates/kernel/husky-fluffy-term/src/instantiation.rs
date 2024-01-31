@@ -251,8 +251,7 @@ impl FluffyInstantiationBuilder {
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(_) => todo!(),
-            EtherealTerm::Subitem(_) => todo!(),
-            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }
@@ -299,8 +298,7 @@ impl FluffyInstantiate for EtherealTerm {
             EtherealTerm::Ritchie(term) => term.instantiate(engine, expr_idx, instantiation),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(term) => term.instantiate(engine, expr_idx, instantiation),
-            EtherealTerm::Subitem(_) => todo!(),
-            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }

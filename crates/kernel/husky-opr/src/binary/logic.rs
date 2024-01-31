@@ -1,5 +1,6 @@
 use crate::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum BinaryShortcuitLogicOpr {
     And,

@@ -43,21 +43,6 @@ impl MethodFnFluffySignature {
     }
 }
 
-// impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFnFluffySignature {
-//     fn from(sig: &TraitForTypeMethodFnEtherealSignature) -> Self {
-//         MethodFnFluffySignature {
-//             path: sig.path().into(),
-//             parenate_parameters: sig
-//                 .parenate_parameters()
-//                 .iter()
-//                 .map(|&param| param.into())
-//                 .collect(),
-//             return_ty: sig.return_ty().into(),
-//             instantiation: todo!(),
-//         }
-//     }
-// }
-
 impl MethodFnFluffySignature {
     pub fn nonself_parameter_contracted_tys(&self) -> &[FluffyRitchieParameter] {
         &self.parenate_parameters

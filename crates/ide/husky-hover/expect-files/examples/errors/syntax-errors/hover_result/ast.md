@@ -129,7 +129,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 4;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Curl,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 4;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Bracket::Curl,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
@@ -159,7 +159,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Curl,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Bracket::Curl,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(

@@ -17,14 +17,14 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Bra(
-                    Curl,
+                    Bracket::Curl,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Ket(
-                    Curl,
+                    Bracket::Curl,
                 ),
             ),
         ),

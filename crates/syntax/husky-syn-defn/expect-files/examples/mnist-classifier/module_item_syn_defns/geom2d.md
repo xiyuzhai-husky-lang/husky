@@ -505,8 +505,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 2,
-                                    opr: Closed(
-                                        Sub,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         5,
@@ -534,7 +534,7 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 5,
-                                    opr: As,
+                                    opr: SynBinaryOpr::As,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         8,
                                     ),
@@ -562,8 +562,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 8,
-                                    opr: Closed(
-                                        Sub,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         13,
@@ -591,7 +591,7 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 11,
-                                    opr: As,
+                                    opr: SynBinaryOpr::As,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
@@ -1517,8 +1517,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 4,
-                                    opr: Closed(
-                                        Sub,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         6,
@@ -1566,8 +1566,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 9,
-                                    opr: Closed(
-                                        Sub,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         14,
@@ -1998,8 +1998,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 3,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         5,
@@ -2008,8 +2008,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 7,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         13,
@@ -2018,8 +2018,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 9,
-                                    opr: Closed(
-                                        Add,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Add,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         9,
@@ -3368,8 +3368,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 4,
-                                    opr: Closed(
-                                        Sub,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         6,
@@ -3417,8 +3417,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 9,
-                                    opr: Closed(
-                                        Sub,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         14,
@@ -3849,8 +3849,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 3,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         5,
@@ -3859,8 +3859,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 7,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         13,
@@ -3869,8 +3869,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 9,
-                                    opr: Closed(
-                                        Add,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Add,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         9,
@@ -4378,8 +4378,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 3,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         4,
@@ -4388,8 +4388,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 7,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         12,
@@ -4398,8 +4398,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 9,
-                                    opr: Closed(
-                                        Add,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Add,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         8,
@@ -4888,8 +4888,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 3,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         4,
@@ -4898,8 +4898,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 7,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         12,
@@ -4908,8 +4908,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 9,
-                                    opr: Closed(
-                                        Sub,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         8,
@@ -5362,8 +5362,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 3,
-                                    opr: Closed(
-                                        Div,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Div,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         8,
@@ -5444,8 +5444,8 @@
                                 ),
                                 SynExprData::Binary {
                                     lopd: 9,
-                                    opr: Closed(
-                                        Add,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Add,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         22,
@@ -5468,8 +5468,8 @@
                                 ),
                                 SynExprData::Binary {
                                     lopd: 11,
-                                    opr: Comparison(
-                                        Less,
+                                    opr: SynBinaryOpr::Comparison(
+                                        BinaryComparisonOpr::Less,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         24,
@@ -5570,7 +5570,7 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 20,
-                                    opr: As,
+                                    opr: SynBinaryOpr::As,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         45,
                                     ),
@@ -5617,8 +5617,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 24,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         48,
@@ -5641,8 +5641,8 @@
                                 ),
                                 SynExprData::Binary {
                                     lopd: 26,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         54,
@@ -5665,8 +5665,8 @@
                                 ),
                                 SynExprData::Binary {
                                     lopd: 28,
-                                    opr: Closed(
-                                        Div,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Div,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         56,
@@ -6873,8 +6873,8 @@
                                 ),
                                 SynExprData::Binary {
                                     lopd: 3,
-                                    opr: Comparison(
-                                        Greater,
+                                    opr: SynBinaryOpr::Comparison(
+                                        BinaryComparisonOpr::Greater,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         11,
@@ -6937,8 +6937,8 @@
                                 ),
                                 SynExprData::Binary {
                                     lopd: 8,
-                                    opr: Comparison(
-                                        Greater,
+                                    opr: SynBinaryOpr::Comparison(
+                                        BinaryComparisonOpr::Greater,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         23,
@@ -6982,8 +6982,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 13,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         38,
@@ -7026,8 +7026,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 16,
-                                    opr: Closed(
-                                        Div,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Div,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         35,
@@ -7108,8 +7108,8 @@
                                 ),
                                 SynExprData::Binary {
                                     lopd: 22,
-                                    opr: Closed(
-                                        Add,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Add,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         49,
@@ -7132,8 +7132,8 @@
                                 ),
                                 SynExprData::Binary {
                                     lopd: 24,
-                                    opr: Comparison(
-                                        Less,
+                                    opr: SynBinaryOpr::Comparison(
+                                        BinaryComparisonOpr::Less,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         51,
@@ -7237,7 +7237,7 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 33,
-                                    opr: As,
+                                    opr: SynBinaryOpr::As,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         74,
                                     ),
@@ -7284,8 +7284,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 37,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         77,
@@ -7318,8 +7318,8 @@
                                 ),
                                 SynExprData::Binary {
                                     lopd: 40,
-                                    opr: Closed(
-                                        Mul,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Mul,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         84,
@@ -7342,8 +7342,8 @@
                                 ),
                                 SynExprData::Binary {
                                     lopd: 42,
-                                    opr: Closed(
-                                        Div,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Div,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         86,
@@ -8281,8 +8281,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 3,
-                                    opr: Comparison(
-                                        Greater,
+                                    opr: SynBinaryOpr::Comparison(
+                                        BinaryComparisonOpr::Greater,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         5,
@@ -8325,8 +8325,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 8,
-                                    opr: Closed(
-                                        Sub,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         15,
@@ -8374,8 +8374,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 13,
-                                    opr: Closed(
-                                        Sub,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         26,
@@ -8403,8 +8403,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 16,
-                                    opr: Closed(
-                                        Div,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Div,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         31,
@@ -8452,8 +8452,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 21,
-                                    opr: Closed(
-                                        Sub,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         40,
@@ -8481,8 +8481,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 24,
-                                    opr: Closed(
-                                        Div,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Div,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         45,
@@ -9255,8 +9255,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 3,
-                                    opr: Closed(
-                                        Sub,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         7,
@@ -9292,8 +9292,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 7,
-                                    opr: Closed(
-                                        Sub,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         13,
@@ -9321,8 +9321,8 @@
                                 },
                                 SynExprData::Binary {
                                     lopd: 10,
-                                    opr: Closed(
-                                        Div,
+                                    opr: SynBinaryOpr::Closed(
+                                        BinaryClosedOpr::Div,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         18,

@@ -74,10 +74,8 @@ pub struct EtherealTermJar(
     reduce_term_application,
     // - application expansion
     EtherealApplicationArguments,
-    // subitem
-    EtherealTermSubitem,
-    // as trait subitem
-    EtherealTermAsTraitSubitem,
+    // ty as trait associated item
+    EtherealTermTypeAsTraitItem,
     // trait constraint
     EtherealTermTraitConstraint,
     term_menu,

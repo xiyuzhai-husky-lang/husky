@@ -34,8 +34,7 @@ impl HirTrait {
             EtherealTerm::Application(trai_term) => {
                 hir_trai_from_ethereal_term_application(db, trai_term)
             }
-            EtherealTerm::Subitem(_) => todo!(),
-            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }

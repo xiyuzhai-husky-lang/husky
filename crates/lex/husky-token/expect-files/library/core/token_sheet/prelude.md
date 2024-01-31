@@ -14,7 +14,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -24,7 +24,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -47,7 +47,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -57,7 +57,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -80,7 +80,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -90,7 +90,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -113,7 +113,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -123,7 +123,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -146,7 +146,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -156,7 +156,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -179,7 +179,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -189,7 +189,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -212,7 +212,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -222,7 +222,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -245,7 +245,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -255,7 +255,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -278,7 +278,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -288,7 +288,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -311,7 +311,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -321,7 +321,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -344,7 +344,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -354,7 +354,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -377,7 +377,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),
@@ -387,7 +387,7 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ScopeResolution,
+                    SynBinaryOpr::ScopeResolution,
                 ),
             ),
         ),

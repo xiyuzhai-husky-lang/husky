@@ -1,5 +1,6 @@
 use crate::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum BinaryComparisonOpr {
     Eq,
@@ -29,17 +30,6 @@ impl BinaryComparisonOpr {
             BinaryComparisonOpr::Leq => " <= ",
             BinaryComparisonOpr::Eq => " == ",
             BinaryComparisonOpr::Neq => " != ",
-        }
-    }
-
-    pub fn rust_trait_name(self) -> &'static str {
-        match self {
-            BinaryComparisonOpr::Eq => todo!(),
-            BinaryComparisonOpr::Neq => "ne",
-            BinaryComparisonOpr::Geq => todo!(),
-            BinaryComparisonOpr::Greater => todo!(),
-            BinaryComparisonOpr::Leq => todo!(),
-            BinaryComparisonOpr::Less => todo!(),
         }
     }
 }

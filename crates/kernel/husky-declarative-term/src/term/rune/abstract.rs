@@ -124,7 +124,13 @@ impl DeclarativeTerm {
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
-            _ => (),
+            DeclarativeTerm::Literal(_)
+            | DeclarativeTerm::Symbol(_)
+            | DeclarativeTerm::Rune(_)
+            | DeclarativeTerm::EntityPath(_)
+            | DeclarativeTerm::Category(_)
+            | DeclarativeTerm::Universe(_) => (),
+            DeclarativeTerm::Wrapper(_) => todo!(),
         }
         disambiguator
     }

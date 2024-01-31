@@ -16,8 +16,8 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    Closed(
-                        Add,
+                    SynBinaryOpr::Closed(
+                        BinaryClosedOpr::Add,
                     ),
                 ),
             ),
@@ -116,8 +116,8 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    Closed(
-                        Div,
+                    SynBinaryOpr::Closed(
+                        BinaryClosedOpr::Div,
                     ),
                 ),
             ),
@@ -152,8 +152,8 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    Closed(
-                        Power,
+                    SynBinaryOpr::Closed(
+                        BinaryClosedOpr::Power,
                     ),
                 ),
             ),
@@ -252,8 +252,8 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    ShortCircuitLogic(
-                        And,
+                    SynBinaryOpr::ShortCircuitLogic(
+                        BinaryShortcuitLogicOpr::And,
                     ),
                 ),
             ),
@@ -288,8 +288,8 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    Comparison(
-                        Eq,
+                    SynBinaryOpr::Comparison(
+                        BinaryComparisonOpr::Eq,
                     ),
                 ),
             ),
@@ -324,8 +324,8 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    Comparison(
-                        Neq,
+                    SynBinaryOpr::Comparison(
+                        BinaryComparisonOpr::Neq,
                     ),
                 ),
             ),
@@ -392,8 +392,8 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    Comparison(
-                        Geq,
+                    SynBinaryOpr::Comparison(
+                        BinaryComparisonOpr::Geq,
                     ),
                 ),
             ),
@@ -460,8 +460,8 @@ TokenSheetData {
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Binary(
-                    Comparison(
-                        Leq,
+                    SynBinaryOpr::Comparison(
+                        BinaryComparisonOpr::Leq,
                     ),
                 ),
             ),

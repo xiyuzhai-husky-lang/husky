@@ -1,11 +1,12 @@
 use crate::*;
 use husky_opr::precedence::{HasPrecedence, Precedence};
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum SynBinaryOpr {
     Closed(BinaryClosedOpr),
     Shift(BinaryShiftOpr),
-    Assign,
+    AssignOrDefEq,
     AssignClosed(BinaryClosedOpr),
     AssignShift(BinaryShiftOpr),
     Comparison(BinaryComparisonOpr),
@@ -28,7 +29,7 @@ impl SynBinaryOpr {
         match self {
             SynBinaryOpr::Closed(opr) => opr.husky_code(),
             SynBinaryOpr::Shift(opr) => opr.husky_code(),
-            SynBinaryOpr::Assign => "=",
+            SynBinaryOpr::AssignOrDefEq => "=",
             SynBinaryOpr::AssignClosed(opr) => match opr {
                 BinaryClosedOpr::Add => "+=",
                 BinaryClosedOpr::BitAnd => "&=",
@@ -60,7 +61,7 @@ impl SynBinaryOpr {
             SynBinaryOpr::Shift(opr) => opr.spaced_husky_code(),
             SynBinaryOpr::Comparison(opr) => opr.spaced_husky_code(),
             SynBinaryOpr::ShortCircuitLogic(opr) => opr.spaced_husky_code(),
-            SynBinaryOpr::Assign => " = ",
+            SynBinaryOpr::AssignOrDefEq => " = ",
             SynBinaryOpr::AssignClosed(opr) => match opr {
                 BinaryClosedOpr::Add => " += ",
                 BinaryClosedOpr::BitAnd => " &= ",
@@ -93,9 +94,9 @@ impl HasPrecedence for SynBinaryOpr {
                 BinaryShiftOpr::Shl | BinaryShiftOpr::Shr => Precedence::Shift,
             },
             SynBinaryOpr::Comparison(opr) => opr.precedence(),
-            SynBinaryOpr::Assign | SynBinaryOpr::AssignClosed(_) | SynBinaryOpr::AssignShift(_) => {
-                Precedence::Assign
-            }
+            SynBinaryOpr::AssignOrDefEq
+            | SynBinaryOpr::AssignClosed(_)
+            | SynBinaryOpr::AssignShift(_) => Precedence::Assign,
             SynBinaryOpr::ScopeResolution => Precedence::ScopeResolution,
             SynBinaryOpr::CurryType => Precedence::Curry,
             SynBinaryOpr::As => Precedence::As,

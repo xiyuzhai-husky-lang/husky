@@ -55,8 +55,7 @@ impl HirType {
             EtherealTerm::Application(term_application) => {
                 Some(hir_ty_from_ethereal_term_application(db, term_application))
             }
-            EtherealTerm::Subitem(_) => todo!(),
-            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::TypeAsTraitItem(_) => todo!(),
             _ => unreachable!("it should be guaranteed that the term is a valid HirType"),
         }
     }
