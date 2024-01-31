@@ -1,4 +1,4 @@
-use husky_declarative_term::DeclarativeTermSymbolTypeErrorKind;
+use husky_declarative_term::term::DeclarativeTermSymbolTypeErrorKind;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]

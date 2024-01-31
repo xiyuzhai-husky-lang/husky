@@ -27,12 +27,10 @@ pub use self::template_parameter::*;
 pub use self::term::*;
 pub use self::ty::*;
 
-// use self::template::*;
-
 use either::*;
 use husky_coword::Ident;
 use husky_declarative_signature::*;
-use husky_declarative_term::*;
+use husky_declarative_term::{term::*, *};
 use husky_entity_path::*;
 use husky_print_utils::p;
 use husky_term_prelude::*;

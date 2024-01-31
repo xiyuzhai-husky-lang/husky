@@ -1,4 +1,5 @@
 use crate::*;
+use husky_declarative_term::term::DeclarativeTermSymbolTypeErrorKind;
 use husky_syn_decl::DeclError;
 use thiserror::Error;
 

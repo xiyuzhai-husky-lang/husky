@@ -21,7 +21,7 @@ pub use self::ty_as_trai_item::*;
 use crate::instantiation::*;
 use crate::*;
 use husky_coword::Ident;
-use husky_declarative_term::DeclarativeTerm;
+use husky_declarative_term::term::DeclarativeTerm;
 use husky_term_prelude::literal::{int::TermUSizeLiteral, TermLiteral};
 use salsa::{DebugWithDb, DisplayWithDb};
 

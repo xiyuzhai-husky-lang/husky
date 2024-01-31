@@ -1,5 +1,5 @@
 use crate::*;
-use husky_declarative_term::DeclarativeTermSymbolTypeErrorKind;
+use husky_declarative_term::term::DeclarativeTermSymbolTypeErrorKind;
 use husky_entity_tree::EntityTreeError;
 use husky_ethereal_signature::EtherealSignatureError;
 use thiserror::Error;
