@@ -37,6 +37,8 @@ pub enum TokenClass {
     Ident,
     Label,
     Error,
+    ConstExprEntity,
+    FormalEntity,
 }
 
 impl TokenClass {
@@ -59,6 +61,8 @@ impl TokenClass {
             TokenClass::TypeVariantEntity => "type variant entity token",
             TokenClass::MethodEntity => "method entity token",
             TokenClass::MemoizedFieldEntity => "memoized field entity token",
+            TokenClass::FormalEntity => "formal entity token",
+            TokenClass::ConstExprEntity => "constant expression entity token",
             TokenClass::ImplicitParameter => "implicit parameter token",
             TokenClass::Method => "method token",
             TokenClass::Literal => "literal value token",
@@ -111,8 +115,9 @@ impl From<EntityClass> for TokenClass {
             EntityClass::AssociatedType => TokenClass::TypeEntity,
             EntityClass::ImplBlock => unreachable!(),
             EntityClass::Attr => unreachable!(),
-            EntityClass::Formal => todo!(),
-            EntityClass::AssociatedFormal => todo!(),
+            EntityClass::Formal => TokenClass::FormalEntity,
+            EntityClass::AssociatedFormal => TokenClass::FormalEntity,
+            EntityClass::ConstExpr => TokenClass::ConstExprEntity,
         }
     }
 }

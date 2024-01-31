@@ -426,6 +426,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         db,
                     ),
                     TypeItemKind::AssociatedFormal => todo!(),
+                    TypeItemKind::AssociatedConstExpr => todo!(),
                 },
                 JavelinPath::TraitItem(_) => todo!(),
                 JavelinPath::TraitForTypeItem(path) => match path.item_kind(db) {
@@ -488,6 +489,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     }
                     TraitItemKind::AssociatedFunctionGn => todo!(),
                     TraitItemKind::AssociatedFormal => todo!(),
+                    TraitItemKind::AssociatedConstExpr => todo!(),
                 },
                 JavelinPath::TypeConstructor(path) => match path.ty_kind(db) {
                     TypeKind::Enum => {
