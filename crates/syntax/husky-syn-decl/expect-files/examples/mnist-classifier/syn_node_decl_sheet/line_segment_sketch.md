@@ -278,7 +278,7 @@ SynNodeDeclSheet {
                                                     6,
                                                 ),
                                             ),
-                                            ty_syn_expr_idx: 4,
+                                            ty: 4,
                                             initialization: None,
                                             variable: 1,
                                         },
@@ -296,7 +296,7 @@ SynNodeDeclSheet {
                                                     12,
                                                 ),
                                             ),
-                                            ty_syn_expr_idx: 5,
+                                            ty: 5,
                                             initialization: Some(
                                                 Bind {
                                                     colon_eq_token: ColonEqRegionalToken(
@@ -323,7 +323,7 @@ SynNodeDeclSheet {
                                                     27,
                                                 ),
                                             ),
-                                            ty_syn_expr_idx: 10,
+                                            ty: 10,
                                             initialization: Some(
                                                 Bind {
                                                     colon_eq_token: ColonEqRegionalToken(
@@ -891,7 +891,7 @@ SynNodeDeclSheet {
                                                     6,
                                                 ),
                                             ),
-                                            ty_syn_expr_idx: 2,
+                                            ty: 2,
                                             initialization: None,
                                             variable: 1,
                                         },
@@ -909,7 +909,7 @@ SynNodeDeclSheet {
                                                     11,
                                                 ),
                                             ),
-                                            ty_syn_expr_idx: 5,
+                                            ty: 5,
                                             initialization: None,
                                             variable: 2,
                                         },

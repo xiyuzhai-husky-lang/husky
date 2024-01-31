@@ -55,7 +55,7 @@ impl PropsStructFieldHirDecl {
     fn from_syn(field: &PropsFieldSyndicate, builder: &HirDeclBuilder) -> Self {
         Self {
             ident: field.ident(),
-            ty: builder.hir_ty(field.ty_syn_expr_idx()).unwrap(),
+            ty: builder.hir_ty(field.ty()).unwrap(),
             initialization: field.initialization().map(|initialization| {
                 PropsFieldHirInitialization::from_syn(initialization, builder)
             }),

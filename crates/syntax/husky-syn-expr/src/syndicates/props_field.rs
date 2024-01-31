@@ -9,7 +9,7 @@ pub struct PropsFieldSyndicate {
     visibility: Option<FieldVisibilityExpr>,
     ident_token: IdentRegionalToken,
     colon: ColonRegionalToken,
-    ty_syn_expr_idx: SynExprIdx,
+    ty: SynExprIdx,
     initialization: Option<PropsFieldSynInitialization>,
     variable: CurrentSynSymbolIdx,
 }
@@ -32,8 +32,8 @@ impl PropsFieldSyndicate {
         self.colon
     }
 
-    pub fn ty_syn_expr_idx(&self) -> SynExprIdx {
-        self.ty_syn_expr_idx
+    pub fn ty(&self) -> SynExprIdx {
+        self.ty
     }
 
     pub fn initialization(&self) -> Option<PropsFieldSynInitialization> {
@@ -93,7 +93,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
             visibility,
             ident_token,
             colon,
-            ty_syn_expr_idx,
+            ty: ty_syn_expr_idx,
             initialization,
             variable,
         }))

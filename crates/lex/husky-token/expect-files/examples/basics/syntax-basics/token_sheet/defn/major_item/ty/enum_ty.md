@@ -10,9 +10,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
-                    Curl,
-                ),
+                PunctuationMapped::Vertical,
             ),
         ),
         TokenData::Ident(
@@ -20,7 +18,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Comma,
+                PunctuationMapped::Vertical,
             ),
         ),
         TokenData::Ident(
@@ -53,7 +51,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Comma,
+                PunctuationMapped::Vertical,
             ),
         ),
         TokenData::Ident(
@@ -102,7 +100,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Comma,
+                PunctuationMapped::Vertical,
             ),
         ),
         TokenData::Ident(
@@ -127,7 +125,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Comma,
+                PunctuationMapped::Vertical,
             ),
         ),
         TokenData::Ident(
@@ -158,18 +156,6 @@ TokenSheetData {
                 ),
             ),
         ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Comma,
-            ),
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Ket(
-                    Curl,
-                ),
-            ),
-        ),
     ],
     token_group_starts: [
         TokenGroupStart(
@@ -177,8 +163,38 @@ TokenSheetData {
                 1,
             ),
         ),
+        TokenGroupStart(
+            TokenIdx(
+                3,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                5,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                12,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                23,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                28,
+            ),
+        ),
     ],
     indents: [
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
     ],
 }

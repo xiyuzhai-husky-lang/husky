@@ -1,27 +1,43 @@
 AstSheet {
     ast_arena: Arena {
         data: [
-            Ast::Err {
+            Ast::Identifiable {
                 token_group_idx: TokenGroupIdx(
                     0,
                 ),
-                error: AstError::Original(
-                    OriginalAstError::SubmoduleFileNotFound {
-                        ident_token: IdentToken {
-                            ident: `submodule_name`,
-                            token_idx: TokenIdx(
-                                2,
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `syntax_basics::ast`,
+                    ),
+                },
+                item_kind: Module,
+                ident_token: IdentToken {
+                    ident: `submodule_name`,
+                    token_idx: TokenIdx(
+                        2,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        3,
+                    ),
+                    drained: true,
+                },
+                block: DefnBlock::Submodule {
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `syntax_basics::ast::submodule_name`,
+                                    ),
+                                },
                             ),
                         },
-                        error: VfsError::FileNotExists(
-                            VirtualPath {
-                                _data: VirtualPathBuf(
-                                    "../../../examples/basics/syntax-basics/src/ast/submodule_name.hsy",
-                                ),
-                            },
-                        ),
-                    },
-                ),
+                    ),
+                },
             },
         ],
     },

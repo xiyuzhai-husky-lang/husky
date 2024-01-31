@@ -54,12 +54,14 @@ fn ty_variant_hir_decl(db: &::salsa::Db, path: TypeVariantPath) -> Option<TypeVa
         _ => unreachable!(),
     }
     Some(match path.syn_decl(db).expect("no errors for hir stage") {
-        TypeVariantSynDecl::Props(_) => todo!(),
-        TypeVariantSynDecl::Unit(syn_decl) => {
-            EnumUnitTypeVariantHirDecl::from_syn(path, syn_decl, db).into()
+        TypeVariantSynDecl::Props(syn_decl) => {
+            EnumPropsVariantHirDecl::from_syn(path, syn_decl, db).into()
         }
         TypeVariantSynDecl::Tuple(syn_decl) => {
             EnumTupleVariantHirDecl::from_syn(path, syn_decl, db).into()
+        }
+        TypeVariantSynDecl::Unit(syn_decl) => {
+            EnumUnitTypeVariantHirDecl::from_syn(path, syn_decl, db).into()
         }
     })
 }

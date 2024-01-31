@@ -1,6 +1,7 @@
 [
     `syntax_basics`,
     `syntax_basics::ast`,
+    `syntax_basics::ast::submodule_name`,
     `syntax_basics::uses`,
     `syntax_basics::defn`,
     `syntax_basics::defn::major_item`,
