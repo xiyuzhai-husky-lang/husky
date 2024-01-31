@@ -1,10 +1,16 @@
 use husky_corgi_config::CorgiConfigError;
 use husky_manifest_ast::ManifestAstError;
-use husky_vfs::error::VfsError;
+use husky_vfs::{error::VfsError, PackagePath};
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum ManifestError {}
+pub enum ManifestError {
+    #[error("CyclicDependendencies")]
+    CyclicDependendencies {
+        package_path: PackagePath,
+        cyclic_dependent_package_paths: Vec<PackagePath>,
+    },
+}
 
 pub type ManifestResult<T> = Result<T, ManifestError>;
 pub type ManifestResultRef<'a, T> = Result<T, &'a ManifestError>;

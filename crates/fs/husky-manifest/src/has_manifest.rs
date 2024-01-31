@@ -19,6 +19,8 @@ impl HasPackageManifest for PackagePath {
     fn dependencies(self, db: &::salsa::Db) -> ManifestResultRef<&[PackageDependency]> {
         // is this necessary for keeping things as lazy as possible?
         package_dependencies(db, self)
+            .as_ref()
+            .map(|section| section.data(db) as &[_])
     }
 
     /// includes package_path itself
