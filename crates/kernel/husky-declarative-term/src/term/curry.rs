@@ -16,7 +16,7 @@ pub struct CurryDeclarativeTerm {
 
 impl CurryDeclarativeTerm {
     /// create a new term curry by converting a symbol to variable
-    /// this is the only way to create a new term curry
+    /// this is the only way to create a new dependent curry declarative term
     /// so that cache hit is maximized
     pub fn new_dependent(
         db: &::salsa::Db,
