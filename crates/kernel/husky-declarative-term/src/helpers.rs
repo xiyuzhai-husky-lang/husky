@@ -10,7 +10,7 @@ impl DeclarativeTerm {
 
     pub fn family(self, db: &::salsa::Db) -> DeclarativeTermFamily {
         match self {
-            DeclarativeTerm::EntityPath(EntityPathDeclarativeTerm::Type(path)) => {
+            DeclarativeTerm::EntityPath(ItemPathDeclarativeTerm::Type(path)) => {
                 DeclarativeTermFamily::TypePath(path)
             }
             DeclarativeTerm::Category(_) => DeclarativeTermFamily::Sort,
@@ -29,7 +29,7 @@ impl DeclarativeTerm {
         db: &::salsa::Db,
     ) -> DeclarativeTermResult<TermTypeExpectation> {
         match self {
-            DeclarativeTerm::EntityPath(EntityPathDeclarativeTerm::Type(path)) => Ok(
+            DeclarativeTerm::EntityPath(ItemPathDeclarativeTerm::Type(path)) => Ok(
                 TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path),
             ),
             DeclarativeTerm::Category(_) => Ok(TermTypeExpectation::FinalDestinationEqsSort),

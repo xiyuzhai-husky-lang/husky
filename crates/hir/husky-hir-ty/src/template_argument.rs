@@ -2,7 +2,7 @@ use crate::{path_leading::HirTypePathLeading, ritchie::HirRitchieType, *};
 use husky_ethereal_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
-use husky_term_prelude::TermEntityPath;
+use husky_term_prelude::ItemPathTerm;
 
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
@@ -45,17 +45,17 @@ impl HirTemplateArgument {
             EtherealTerm::Symbol(symbol) => HirTemplateSymbol::from_ethereal(symbol, db)?.into(),
             EtherealTerm::Rune(_) => todo!(),
             EtherealTerm::EntityPath(path) => match path {
-                TermEntityPath::Fugitive(_path) => todo!(),
-                TermEntityPath::Trait(_) => todo!(),
-                TermEntityPath::TypeOntology(ty_path) => {
+                ItemPathTerm::Fugitive(_path) => todo!(),
+                ItemPathTerm::Trait(_) => todo!(),
+                ItemPathTerm::TypeOntology(ty_path) => {
                     let always_copyable = is_ty_term_always_copyable(argument, db).unwrap()?;
                     HirTemplateArgument::Type(
                         HirTypePathLeading::new(db, ty_path, Default::default(), always_copyable)
                             .into(),
                     )
                 }
-                TermEntityPath::TypeInstance(_) => todo!(),
-                TermEntityPath::TypeVariant(path) => HirTemplateArgument::Constant(path.into()),
+                ItemPathTerm::TypeInstance(_) => todo!(),
+                ItemPathTerm::TypeVariant(path) => HirTemplateArgument::Constant(path.into()),
             },
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),

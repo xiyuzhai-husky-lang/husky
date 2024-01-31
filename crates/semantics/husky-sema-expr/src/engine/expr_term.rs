@@ -123,7 +123,7 @@ impl<'a> SemaExprEngine<'a> {
                                         .ok_or(DerivedExprTermError::LiteralTypeNotInferred)?;
                                     match ty.base_resolved(self) {
                                         FluffyTermBase::Ethereal(EtherealTerm::EntityPath(
-                                            TermEntityPath::TypeOntology(ty_path),
+                                            ItemPathTerm::TypeOntology(ty_path),
                                         )) => {
                                             match ty_path.prelude_ty_path(self.db) {
                                                 Some(prelude_ty_path) => {
@@ -391,22 +391,18 @@ impl<'a> SemaExprEngine<'a> {
             PrincipalEntityPath::Module(_) => todo!(),
             PrincipalEntityPath::MajorItem(path) => match path {
                 MajorItemPath::Type(path) => match ty_path_disambiguation {
-                    TypePathDisambiguation::OntologyConstructor => {
-                        TermEntityPath::TypeOntology(path)
-                    }
-                    TypePathDisambiguation::InstanceConstructor => {
-                        TermEntityPath::TypeInstance(path)
-                    }
+                    TypePathDisambiguation::OntologyConstructor => ItemPathTerm::TypeOntology(path),
+                    TypePathDisambiguation::InstanceConstructor => ItemPathTerm::TypeInstance(path),
                 }
                 .into(),
-                MajorItemPath::Trait(trai_path) => TermEntityPath::Trait(trai_path).into(),
+                MajorItemPath::Trait(trai_path) => ItemPathTerm::Trait(trai_path).into(),
                 MajorItemPath::Fugitive(fugitive_path) => {
-                    TermEntityPath::Fugitive(fugitive_path).into()
+                    ItemPathTerm::Fugitive(fugitive_path).into()
                 }
             },
             // todo: generics
             PrincipalEntityPath::TypeVariant(ty_variant_path) => {
-                TermEntityPath::TypeVariant(ty_variant_path).into()
+                ItemPathTerm::TypeVariant(ty_variant_path).into()
             }
         };
         if let Some(instantiation) = instantiation

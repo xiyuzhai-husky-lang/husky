@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -46,7 +46,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -66,7 +66,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -86,7 +86,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -106,7 +106,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -126,7 +126,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -146,7 +146,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -166,7 +166,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -186,7 +186,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -206,7 +206,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -226,7 +226,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -246,7 +246,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -266,7 +266,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
@@ -298,7 +298,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -317,7 +317,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -353,7 +353,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -405,7 +405,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -448,7 +448,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -496,7 +496,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -515,7 +515,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -551,7 +551,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -603,7 +603,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -646,7 +646,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -694,7 +694,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -713,7 +713,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -749,7 +749,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -792,7 +792,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -844,7 +844,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -887,7 +887,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -935,7 +935,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -954,7 +954,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -999,7 +999,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1042,7 +1042,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -1090,7 +1090,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1109,7 +1109,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -1154,7 +1154,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1197,7 +1197,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -1245,7 +1245,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1264,7 +1264,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -1309,7 +1309,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1352,7 +1352,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -1400,7 +1400,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1419,7 +1419,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -1464,7 +1464,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1507,7 +1507,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -1555,7 +1555,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1574,7 +1574,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -1619,7 +1619,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1662,7 +1662,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -1710,7 +1710,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1729,7 +1729,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -1774,7 +1774,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1817,7 +1817,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -1865,7 +1865,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1884,7 +1884,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -1929,7 +1929,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -1972,7 +1972,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -2020,7 +2020,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -2039,7 +2039,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -2084,7 +2084,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -2127,7 +2127,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -2175,7 +2175,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -2194,7 +2194,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -2239,7 +2239,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -2282,7 +2282,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -2330,7 +2330,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -2349,7 +2349,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -2385,7 +2385,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -2421,7 +2421,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -2464,7 +2464,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -2507,7 +2507,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -2543,7 +2543,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -2579,7 +2579,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -2615,7 +2615,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -2660,7 +2660,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -2703,7 +2703,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
@@ -2751,7 +2751,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -2770,7 +2770,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -2806,7 +2806,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
@@ -2851,7 +2851,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
@@ -2894,7 +2894,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::AssociatedItem(
+            DeclarativeSignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {

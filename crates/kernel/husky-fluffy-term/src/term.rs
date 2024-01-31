@@ -72,8 +72,8 @@ impl From<TermLiteral> for FluffyTerm {
     }
 }
 
-impl From<TermEntityPath> for FluffyTerm {
-    fn from(value: TermEntityPath) -> Self {
+impl From<ItemPathTerm> for FluffyTerm {
+    fn from(value: ItemPathTerm) -> Self {
         Into::<EtherealTerm>::into(value).into()
     }
 }

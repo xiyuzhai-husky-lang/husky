@@ -167,7 +167,7 @@ impl TermShowContext {
 
 fn symbol_show_kind(symbol: EtherealTermSymbol, db: &::salsa::Db) -> TermSymbolShowKind {
     match symbol.ty(db) {
-        EtherealTerm::EntityPath(TermEntityPath::TypeOntology(path))
+        EtherealTerm::EntityPath(ItemPathTerm::TypeOntology(path))
             if path.eqs_lifetime_ty_path(db) =>
         {
             TermSymbolShowKind::Lifetime

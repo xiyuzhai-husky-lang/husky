@@ -6,7 +6,7 @@ use salsa::DisplayWithDb;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
-pub enum TermEntityPath {
+pub enum ItemPathTerm {
     Fugitive(FugitivePath),
     Trait(TraitPath),
     TypeOntology(TypePath),
@@ -17,56 +17,56 @@ pub enum TermEntityPath {
 #[test]
 fn term_item_path_size_works() {
     assert_eq!(
-        std::mem::size_of::<TermEntityPath>(),
+        std::mem::size_of::<ItemPathTerm>(),
         std::mem::size_of::<usize>()
     );
 }
 
-impl TermEntityPath {
+impl ItemPathTerm {
     pub fn ty_ontology(self) -> Option<TypePath> {
         match self {
-            TermEntityPath::TypeOntology(path) => Some(path),
-            TermEntityPath::Fugitive(_)
-            | TermEntityPath::Trait(_)
-            | TermEntityPath::TypeInstance(_)
-            | TermEntityPath::TypeVariant(_) => None,
+            ItemPathTerm::TypeOntology(path) => Some(path),
+            ItemPathTerm::Fugitive(_)
+            | ItemPathTerm::Trait(_)
+            | ItemPathTerm::TypeInstance(_)
+            | ItemPathTerm::TypeVariant(_) => None,
         }
     }
 
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         match self {
-            TermEntityPath::Fugitive(path) => path.toolchain(db),
-            TermEntityPath::Trait(path) => path.toolchain(db),
-            TermEntityPath::TypeOntology(path) => path.toolchain(db),
-            TermEntityPath::TypeInstance(path) => path.toolchain(db),
-            TermEntityPath::TypeVariant(path) => path.toolchain(db),
+            ItemPathTerm::Fugitive(path) => path.toolchain(db),
+            ItemPathTerm::Trait(path) => path.toolchain(db),
+            ItemPathTerm::TypeOntology(path) => path.toolchain(db),
+            ItemPathTerm::TypeInstance(path) => path.toolchain(db),
+            ItemPathTerm::TypeVariant(path) => path.toolchain(db),
         }
     }
 
     pub fn ident(self, db: &::salsa::Db) -> Ident {
         match self {
-            TermEntityPath::Fugitive(path) => path.ident(db),
-            TermEntityPath::Trait(path) => path.ident(db),
-            TermEntityPath::TypeOntology(path) => path.ident(db),
-            TermEntityPath::TypeInstance(path) => path.ident(db),
-            TermEntityPath::TypeVariant(path) => path.ident(db),
+            ItemPathTerm::Fugitive(path) => path.ident(db),
+            ItemPathTerm::Trait(path) => path.ident(db),
+            ItemPathTerm::TypeOntology(path) => path.ident(db),
+            ItemPathTerm::TypeInstance(path) => path.ident(db),
+            ItemPathTerm::TypeVariant(path) => path.ident(db),
         }
     }
 }
 
-impl From<FugitivePath> for TermEntityPath {
+impl From<FugitivePath> for ItemPathTerm {
     fn from(value: FugitivePath) -> Self {
-        TermEntityPath::Fugitive(value)
+        ItemPathTerm::Fugitive(value)
     }
 }
 
-impl From<TraitPath> for TermEntityPath {
+impl From<TraitPath> for ItemPathTerm {
     fn from(value: TraitPath) -> Self {
-        TermEntityPath::Trait(value)
+        ItemPathTerm::Trait(value)
     }
 }
 
-impl TermEntityPath {
+impl ItemPathTerm {
     pub fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -76,34 +76,34 @@ impl TermEntityPath {
     }
 }
 
-impl DisplayWithDb for TermEntityPath {
+impl DisplayWithDb for ItemPathTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         match self {
-            TermEntityPath::Fugitive(path) => {
+            ItemPathTerm::Fugitive(path) => {
                 f.write_str("Form(")?;
                 path.display_with_db_fmt(f, db)?;
                 f.write_str(")")
             }
-            TermEntityPath::Trait(path) => {
+            ItemPathTerm::Trait(path) => {
                 f.write_str("Trait(")?;
                 path.display_with_db_fmt(f, db)?;
                 f.write_str(")")
             }
-            TermEntityPath::TypeOntology(path) => {
+            ItemPathTerm::TypeOntology(path) => {
                 f.write_str("TypeOntology(")?;
                 path.display_with_db_fmt(f, db)?;
                 f.write_str(")")
             }
-            TermEntityPath::TypeInstance(path) => {
+            ItemPathTerm::TypeInstance(path) => {
                 f.write_str("TypeConstructor(")?;
                 path.display_with_db_fmt(f, db)?;
                 f.write_str(")")
             }
-            TermEntityPath::TypeVariant(path) => {
+            ItemPathTerm::TypeVariant(path) => {
                 f.write_str("TypeVariant(")?;
                 path.display_with_db_fmt(f, db)?;
                 f.write_str(")")

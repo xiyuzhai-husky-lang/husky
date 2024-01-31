@@ -41,7 +41,7 @@ pub enum DeclarativeTerm {
     /// variables are those appearing in lambda expression
     /// variables are derived from symbols
     Rune(RuneDeclarativeTerm),
-    EntityPath(EntityPathDeclarativeTerm),
+    EntityPath(ItemPathDeclarativeTerm),
     Category(TermCategory),
     Universe(TermUniverse),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)

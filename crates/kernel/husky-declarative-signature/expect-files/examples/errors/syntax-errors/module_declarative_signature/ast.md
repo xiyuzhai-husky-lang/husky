@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructTypeDeclarativeSignatureTemplate {
@@ -47,7 +47,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::ImplBlock(
+            DeclarativeSignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {

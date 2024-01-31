@@ -20,7 +20,7 @@ impl<'a> SemaExprEngine<'a> {
             MajorItemPath::Type(path) => {
                 // ad hoc
                 // should consider type template arguments
-                TermEntityPath::TypeOntology(path).into()
+                ItemPathTerm::TypeOntology(path).into()
             }
             MajorItemPath::Trait(_) => todo!(),
             MajorItemPath::Fugitive(_) => todo!(),

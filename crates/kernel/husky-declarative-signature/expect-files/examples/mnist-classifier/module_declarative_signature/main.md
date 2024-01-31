@@ -15,7 +15,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Submodule,
+            DeclarativeSignatureTemplate::Submodule,
         ),
     ),
     (
@@ -34,7 +34,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Submodule,
+            DeclarativeSignatureTemplate::Submodule,
         ),
     ),
     (
@@ -53,7 +53,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Submodule,
+            DeclarativeSignatureTemplate::Submodule,
         ),
     ),
     (
@@ -72,7 +72,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Submodule,
+            DeclarativeSignatureTemplate::Submodule,
         ),
     ),
     (
@@ -91,7 +91,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Submodule,
+            DeclarativeSignatureTemplate::Submodule,
         ),
     ),
     (
@@ -110,7 +110,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Submodule,
+            DeclarativeSignatureTemplate::Submodule,
         ),
     ),
     (
@@ -129,7 +129,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Submodule,
+            DeclarativeSignatureTemplate::Submodule,
         ),
     ),
     (
@@ -139,7 +139,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
                         ValFugitiveDeclarativeSignatureTemplate {

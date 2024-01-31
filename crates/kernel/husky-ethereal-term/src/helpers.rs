@@ -76,7 +76,7 @@ impl EtherealTerm {
         path: TypePath,
         arguments: impl Iterator<Item = EtherealTerm>,
     ) -> EtherealTermResult<Self> {
-        let mut term: Self = TermEntityPath::TypeOntology(path).into();
+        let mut term: Self = ItemPathTerm::TypeOntology(path).into();
         for argument in arguments {
             term = EtherealTermApplication::new(db, term, argument)?
         }

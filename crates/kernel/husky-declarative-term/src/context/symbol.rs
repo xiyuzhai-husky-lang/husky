@@ -172,12 +172,12 @@ fn symbol_show_kind(
         return DeclarativeTermSymbolShowKind::Other;
     };
     match ty {
-        DeclarativeTerm::EntityPath(EntityPathDeclarativeTerm::Type(ty))
+        DeclarativeTerm::EntityPath(ItemPathDeclarativeTerm::Type(ty))
             if ty.eqs_lifetime_ty_path(db) =>
         {
             DeclarativeTermSymbolShowKind::Lifetime
         }
-        DeclarativeTerm::EntityPath(EntityPathDeclarativeTerm::Type(ty))
+        DeclarativeTerm::EntityPath(ItemPathDeclarativeTerm::Type(ty))
             if ty.eqs_place_ty_path(db) =>
         {
             DeclarativeTermSymbolShowKind::Place

@@ -13,13 +13,13 @@ use crate::*;
 #[inline(always)]
 pub fn declarative_term_item_path_declarative_ty(
     _db: &::salsa::Db,
-    path: EntityPathDeclarativeTerm,
+    path: ItemPathDeclarativeTerm,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     match path {
-        EntityPathDeclarativeTerm::Fugitive(_) => todo!(),
-        EntityPathDeclarativeTerm::Trait(_) => todo!(),
-        EntityPathDeclarativeTerm::Type(_) => todo!(),
-        EntityPathDeclarativeTerm::TypeVariant(_) => todo!(),
+        ItemPathDeclarativeTerm::Fugitive(_) => todo!(),
+        ItemPathDeclarativeTerm::Trait(_) => todo!(),
+        ItemPathDeclarativeTerm::Type(_) => todo!(),
+        ItemPathDeclarativeTerm::TypeVariant(_) => todo!(),
     }
 }
 

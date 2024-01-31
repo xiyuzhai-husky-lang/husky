@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::MajorItem(
+            DeclarativeSignatureTemplate::MajorItem(
                 MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Enum(
                         EnumTypeDeclarativeSignatureTemplate {

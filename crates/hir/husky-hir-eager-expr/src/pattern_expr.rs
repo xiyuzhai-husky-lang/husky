@@ -74,7 +74,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                     LiteralData::String(_) => todo!(),
                     LiteralData::Integer(literal) => match literal {
                         IntegerLikeLiteralData::UnspecifiedRegular(value) => {
-                            let EtherealTerm::EntityPath(TermEntityPath::TypeOntology(path)) =
+                            let EtherealTerm::EntityPath(ItemPathTerm::TypeOntology(path)) =
                                 self.syn_pattern_expr_ty(syn_pattern_expr_idx)
                             else {
                                 unreachable!()

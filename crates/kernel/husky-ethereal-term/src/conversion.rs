@@ -14,7 +14,7 @@ impl EtherealTerm {
                 Ok(false)
             }
             Right(other_ty) => match self {
-                EtherealTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
+                EtherealTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
                     Ok(ty_path.prelude_ty_path(db) == Some(other_ty))
                 }
                 _ => {
