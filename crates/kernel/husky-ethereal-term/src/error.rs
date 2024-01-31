@@ -1,5 +1,6 @@
 use crate::*;
 use husky_declarative_signature::DeclarativeSignatureError;
+use husky_declarative_term::term::DeclarativeTermSymbolTypeErrorKind;
 use husky_declarative_ty::DeclarativeTypeError;
 use husky_entity_path::{EntityPathError, ItemPath};
 use husky_entity_tree::EntityTreeError;

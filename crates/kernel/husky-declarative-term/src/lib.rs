@@ -6,15 +6,15 @@ mod error;
 pub mod helpers;
 mod menu;
 mod rewrite;
-mod term;
+pub mod term;
 
 pub use self::db::*;
 pub use self::error::*;
 pub use self::menu::*;
 pub use self::rewrite::*;
-pub use self::term::*;
 
 use self::context::*;
+use self::term::*;
 use husky_coword::*;
 use husky_term_prelude::*;
 use husky_vfs::Toolchain;
@@ -34,13 +34,13 @@ pub struct DeclarativeTermJar(
     CurryDeclarativeTerm,
     curry_parameter_count,
     RitchieDeclarativeTerm,
-    AbstractionDeclarativeTerm,
-    ApplicationDeclarativeTerm,
-    ApplicationOrRitchieCallDeclarativeTerm,
-    AssociatedItemDeclarativeTerm,
-    TypeAsTraitAssociatedItemDeclarativeTerm,
-    TraitConstraintDeclarativeTerm,
-    ListDeclarativeTerm,
+    crate::term::abstraction::AbstractionDeclarativeTerm,
+    crate::term::application::ApplicationDeclarativeTerm,
+    crate::term::application_or_ritchie_call::ApplicationOrRitchieCallDeclarativeTerm,
+    crate::term::associated_item::AssociatedItemDeclarativeTerm,
+    crate::term::ty_as_trai_associated_item::TypeAsTraitAssociatedItemDeclarativeTerm,
+    crate::term::constraint::TraitConstraintDeclarativeTerm,
+    crate::term::list::ListDeclarativeTerm,
     declarative_term_menu,
     WrapperDeclarativeTerm,
 );

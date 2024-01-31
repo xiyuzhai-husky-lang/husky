@@ -1,4 +1,5 @@
 use super::*;
+use husky_declarative_term::term::abstraction::AbstractionDeclarativeTerm;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar)]
 pub struct EtherealTermAbstraction {

@@ -7,7 +7,7 @@ pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
 use crate::*;
-use husky_declarative_term::RuneIndex;
+use husky_declarative_term::term::RuneIndex;
 use husky_ethereal_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
 use husky_term_prelude::literal::TermLiteral;
 

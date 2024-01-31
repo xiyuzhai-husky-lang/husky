@@ -1,19 +1,18 @@
-mod abstraction;
-mod application;
-mod application_or_ritchie_call;
-mod associated_item;
-mod constraint;
-mod curry;
-mod item_path;
-mod list;
-mod literal;
-mod ritchie;
-mod rune;
-mod symbol;
-mod ty_as_trai_associated_item;
-mod wrapper;
+pub mod abstraction;
+pub mod application;
+pub mod application_or_ritchie_call;
+pub mod associated_item;
+pub mod constraint;
+pub mod curry;
+pub mod item_path;
+pub mod list;
+pub mod literal;
+pub mod ritchie;
+pub mod rune;
+pub mod symbol;
+pub mod ty_as_trai_associated_item;
+pub mod wrapper;
 
-pub use self::abstraction::*;
 pub use self::application::*;
 pub use self::application_or_ritchie_call::*;
 pub use self::associated_item::*;
@@ -28,10 +27,11 @@ pub use self::symbol::*;
 pub use self::ty_as_trai_associated_item::*;
 pub use self::wrapper::*;
 
+use self::abstraction::*;
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DeclarativeTerm {
     /// atoms
     ///
