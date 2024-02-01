@@ -7,7 +7,7 @@ pub enum FluffyTermResolveAction {
         expectee: FluffyTerm,
         expectation: Expectation,
     },
-    #[deprecated(note = "use AddHoleConstraint instead")]
+    #[deprecated(note = "use AddHoleConstraint instead unless necessary")]
     FillHole { hole: Hole, term: FluffyTerm },
     AddHoleConstraint {
         hole: Hole,
