@@ -18,7 +18,7 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
         let db = engine.db();
         let application_expansion = self.application_expansion(db);
         let arguments = application_expansion.arguments(db);
-        let mut matches_map: SmallVecPairMap<
+        let mut esbuilders_per_trai: SmallVecPairMap<
             TraitPath,
             SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]>,
             2,
@@ -32,10 +32,10 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
             let builders =
                 trai_path_for_ty_term_impl_block_ethereal_signature_builders(db, trai_path, self)?;
             if !builders.is_empty() {
-                unsafe { matches_map.insert_new_unchecked((trai_path, builders)) }
+                unsafe { esbuilders_per_trai.insert_new_unchecked((trai_path, builders)) }
             }
         }
-        match matches_map.len() {
+        match esbuilders_per_trai.len() {
             0 => match ty_path.refine(db) {
                 Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
                     match prelude_indirection_ty_path {
@@ -63,7 +63,7 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
                 }
             },
             1 => {
-                let (trai_path, ref matches) = matches_map.data()[0];
+                let (trai_path, ref matches) = esbuilders_per_trai.data()[0];
                 match matches.len() {
                     0 => unreachable!(),
                     1 => {
