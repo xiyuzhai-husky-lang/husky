@@ -1788,6 +1788,43 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::MajorItem {
+                                            major_item_path: MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 1,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core`,
+                                ),
+                                ast_idx: 20,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `Default`,
                         visibility: Scope::PubUnder(
                             `core`,
@@ -3167,7 +3204,7 @@ EntityTreeCrateBundle {
                             `core`,
                         ),
                         progress: Ok(
-                            39,
+                            40,
                         ),
                     },
                 ],
@@ -4192,6 +4229,57 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::array`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::array`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `Default`,
                         visibility: Scope::PubUnder(
                             `core::array`,
@@ -5992,7 +6080,7 @@ EntityTreeCrateBundle {
                             `core::array`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -6381,6 +6469,60 @@ EntityTreeCrateBundle {
                         ident: `Place`,
                         visibility: Scope::Pub,
                     },
+                    ItemNodeEntry {
+                        node: ItemSynNode::MajorItem(
+                            MajorItemSynNode {
+                                syn_node_path: MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::basic::Universe`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 12,
+                                ident_token: IdentToken {
+                                    ident: `Universe`,
+                                    token_idx: TokenIdx(
+                                        74,
+                                    ),
+                                },
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::basic::Universe`, `Extern`),
+                                    variants: None,
+                                },
+                            },
+                        ),
+                        syn_node_path: ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Universe`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        ident: `Universe`,
+                        visibility: Scope::Pub,
+                    },
                 ],
             },
             item_symbol_table: EntitySymbolTable(
@@ -6445,6 +6587,15 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
                                 TypePath(`core::basic::Place`, `Extern`),
+                            ),
+                        },
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::Pub,
+                        symbol: EntitySymbol::MajorItem {
+                            major_item_path: MajorItemPath::Type(
+                                TypePath(`core::basic::Universe`, `Extern`),
                             ),
                         },
                     },
@@ -7395,6 +7546,57 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::basic`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::basic`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `Default`,
                         visibility: Scope::PubUnder(
                             `core::basic`,
@@ -9195,7 +9397,7 @@ EntityTreeCrateBundle {
                             `core::basic`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -10215,6 +10417,57 @@ EntityTreeCrateBundle {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::basic::Place`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::clone`,
+                                ),
+                                ast_idx: 3,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::clone`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -12107,7 +12360,7 @@ EntityTreeCrateBundle {
                             `core::clone`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -13321,6 +13574,57 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::cmp`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::cmp`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `Default`,
                         visibility: Scope::PubUnder(
                             `core::cmp`,
@@ -15121,7 +15425,7 @@ EntityTreeCrateBundle {
                             `core::cmp`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -16152,6 +16456,57 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::default`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::default`,
+                                ),
+                                ast_idx: 2,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `Default`,
                         visibility: Scope::PubUnder(
                             `core::default`,
@@ -17952,7 +18307,7 @@ EntityTreeCrateBundle {
                             `core::default`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -18977,6 +19332,57 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::fmt`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::fmt`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `Default`,
                         visibility: Scope::PubUnder(
                             `core::fmt`,
@@ -20777,7 +21183,7 @@ EntityTreeCrateBundle {
                             `core::fmt`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -21871,6 +22277,57 @@ EntityTreeCrateBundle {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::basic::Place`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::marker`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::marker`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -23755,7 +24212,7 @@ EntityTreeCrateBundle {
                             `core::marker`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -24958,6 +25415,57 @@ EntityTreeCrateBundle {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::basic::Place`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::mem`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::mem`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -26832,7 +27340,7 @@ EntityTreeCrateBundle {
                             `core::mem`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -28690,6 +29198,57 @@ EntityTreeCrateBundle {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::basic::Place`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::num`,
+                                ),
+                                ast_idx: 41,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::num`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -32524,7 +33083,7 @@ EntityTreeCrateBundle {
                             `core::num`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -34728,6 +35287,57 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::ops`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::ops`,
+                                ),
+                                ast_idx: 31,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `Default`,
                         visibility: Scope::PubUnder(
                             `core::ops`,
@@ -36528,7 +37138,7 @@ EntityTreeCrateBundle {
                             `core::ops`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -37630,6 +38240,57 @@ EntityTreeCrateBundle {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::basic::Place`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::option`,
+                                ),
+                                ast_idx: 3,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::option`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -39494,7 +40155,7 @@ EntityTreeCrateBundle {
                             `core::option`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -39647,6 +40308,27 @@ EntityTreeCrateBundle {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::basic::Place`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::Pub,
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::MajorItem {
+                                    major_item_path: MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
+                                    ),
+                                },
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -41267,7 +41949,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 1,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            65,
+                            67,
                         ),
                     },
                     UseAllRule {
@@ -41277,7 +41959,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 4,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            59,
+                            60,
                         ),
                     },
                     UseAllRule {
@@ -41287,7 +41969,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 7,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            73,
+                            74,
                         ),
                     },
                     UseAllRule {
@@ -41297,7 +41979,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 10,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            59,
+                            60,
                         ),
                     },
                     UseAllRule {
@@ -41307,7 +41989,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 13,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            59,
+                            60,
                         ),
                     },
                     UseAllRule {
@@ -41317,7 +41999,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 16,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            60,
+                            61,
                         ),
                     },
                     UseAllRule {
@@ -41327,7 +42009,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 19,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            60,
+                            61,
                         ),
                     },
                     UseAllRule {
@@ -41337,7 +42019,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 22,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            59,
+                            60,
                         ),
                     },
                     UseAllRule {
@@ -41347,7 +42029,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 25,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            61,
+                            62,
                         ),
                     },
                     UseAllRule {
@@ -41357,7 +42039,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 28,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            62,
+                            63,
                         ),
                     },
                     UseAllRule {
@@ -41367,7 +42049,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 31,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            60,
+                            61,
                         ),
                     },
                     UseAllRule {
@@ -41377,7 +42059,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 34,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            59,
+                            60,
                         ),
                     },
                 ],
@@ -42391,6 +43073,57 @@ EntityTreeCrateBundle {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::basic::Place`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::raw_bits`,
+                                ),
+                                ast_idx: 6,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::raw_bits`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -44269,7 +45002,7 @@ EntityTreeCrateBundle {
                             `core::raw_bits`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -45371,6 +46104,57 @@ EntityTreeCrateBundle {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::basic::Place`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::result`,
+                                ),
+                                ast_idx: 5,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::result`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -47306,7 +48090,7 @@ EntityTreeCrateBundle {
                             `core::result`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -48320,6 +49104,57 @@ EntityTreeCrateBundle {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::basic::Place`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::vec`,
+                                ),
+                                ast_idx: 9,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::vec`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -50198,7 +51033,7 @@ EntityTreeCrateBundle {
                             `core::vec`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -51275,6 +52110,57 @@ EntityTreeCrateBundle {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::basic::Place`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::slice`,
+                                ),
+                                ast_idx: 9,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::slice`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -53289,7 +54175,7 @@ EntityTreeCrateBundle {
                             `core::slice`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -54366,6 +55252,57 @@ EntityTreeCrateBundle {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::basic::Place`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::str`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::str`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -56177,7 +57114,7 @@ EntityTreeCrateBundle {
                             `core::str`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],
@@ -57260,6 +58197,57 @@ EntityTreeCrateBundle {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::basic::Place`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::visual`,
+                                ),
+                                ast_idx: 3,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `Universe`,
+                        visibility: Scope::PubUnder(
+                            `core::visual`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::MajorItem {
+                                                    major_item_path: MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::basic::Universe`, `Extern`),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 1,
+                                                use_expr_idx: 1,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 20,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -59152,7 +60140,7 @@ EntityTreeCrateBundle {
                             `core::visual`,
                         ),
                         progress: Ok(
-                            58,
+                            59,
                         ),
                     },
                 ],

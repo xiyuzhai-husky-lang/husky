@@ -34,4 +34,9 @@
             value: 8,
         },
     ),
+    HirDefnDependencies(
+        Id {
+            value: 9,
+        },
+    ),
 ]

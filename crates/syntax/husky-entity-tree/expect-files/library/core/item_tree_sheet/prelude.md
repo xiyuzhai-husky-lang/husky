@@ -153,6 +153,27 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `Universe`,
+                visibility: Scope::Pub,
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::MajorItem {
+                            major_item_path: MajorItemPath::Type(
+                                TypePath(`core::basic::Universe`, `Extern`),
+                            ),
+                        },
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::basic::Universe`, `Extern`),
+                            ),
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 1,
+                        use_expr_idx: 1,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `Default`,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::Use(
@@ -1764,7 +1785,7 @@ EntityTreeSheet {
                 use_expr_idx: 1,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    65,
+                    67,
                 ),
             },
             UseAllRule {
@@ -1774,7 +1795,7 @@ EntityTreeSheet {
                 use_expr_idx: 4,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    59,
+                    60,
                 ),
             },
             UseAllRule {
@@ -1784,7 +1805,7 @@ EntityTreeSheet {
                 use_expr_idx: 7,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    73,
+                    74,
                 ),
             },
             UseAllRule {
@@ -1794,7 +1815,7 @@ EntityTreeSheet {
                 use_expr_idx: 10,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    59,
+                    60,
                 ),
             },
             UseAllRule {
@@ -1804,7 +1825,7 @@ EntityTreeSheet {
                 use_expr_idx: 13,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    59,
+                    60,
                 ),
             },
             UseAllRule {
@@ -1814,7 +1835,7 @@ EntityTreeSheet {
                 use_expr_idx: 16,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    61,
                 ),
             },
             UseAllRule {
@@ -1824,7 +1845,7 @@ EntityTreeSheet {
                 use_expr_idx: 19,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    61,
                 ),
             },
             UseAllRule {
@@ -1834,7 +1855,7 @@ EntityTreeSheet {
                 use_expr_idx: 22,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    59,
+                    60,
                 ),
             },
             UseAllRule {
@@ -1844,7 +1865,7 @@ EntityTreeSheet {
                 use_expr_idx: 25,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    61,
+                    62,
                 ),
             },
             UseAllRule {
@@ -1854,7 +1875,7 @@ EntityTreeSheet {
                 use_expr_idx: 28,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    62,
+                    63,
                 ),
             },
             UseAllRule {
@@ -1864,7 +1885,7 @@ EntityTreeSheet {
                 use_expr_idx: 31,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    61,
                 ),
             },
             UseAllRule {
@@ -1874,7 +1895,7 @@ EntityTreeSheet {
                 use_expr_idx: 34,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    59,
+                    60,
                 ),
             },
         ],

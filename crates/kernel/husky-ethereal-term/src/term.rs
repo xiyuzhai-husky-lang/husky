@@ -233,9 +233,9 @@ impl EtherealTerm {
             EtherealTerm::EntityPath(ItemPathTerm::Fugitive(_)) => todo!(),
             // ad hoc
             EtherealTerm::Curry(_) => self,
-            EtherealTerm::Ritchie(term) => term.reduce(db).into(),
+            EtherealTerm::Ritchie(slf) => slf.reduce(db).into(),
             EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(term) => term.reduce(db),
+            EtherealTerm::Application(slf) => slf.reduce(db),
             EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }

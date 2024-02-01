@@ -27,4 +27,8 @@
         TypePath(`core::basic::Place`, `Extern`),
         [],
     ),
+    (
+        TypePath(`core::basic::Universe`, `Extern`),
+        [],
+    ),
 ]

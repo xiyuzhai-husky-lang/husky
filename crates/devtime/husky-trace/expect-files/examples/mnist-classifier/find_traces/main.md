@@ -25489,7 +25489,7 @@
                     val_item_path: FugitivePath(
                         ItemPathId(
                             Id {
-                                value: 274,
+                                value: 275,
                             },
                         ),
                     ),
@@ -26704,7 +26704,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 373,
+                                            value: 374,
                                         },
                                     ),
                                 ),
@@ -26730,7 +26730,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 373,
+                                        value: 374,
                                     },
                                 ),
                             ),
@@ -27596,7 +27596,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 373,
+                                            value: 374,
                                         },
                                     ),
                                 ),
@@ -27622,7 +27622,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 373,
+                                        value: 374,
                                     },
                                 ),
                             ),

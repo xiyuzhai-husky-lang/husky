@@ -96,8 +96,8 @@ impl HasTypeGivenToolchain for EtherealTerm {
 }
 
 #[salsa::debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum RawType {
     Prelude(PreludeTypePath),
     Declarative(DeclarativeTerm),
@@ -120,15 +120,11 @@ impl EtherealTerm {
 
     pub fn raw_ty(self, db: &::salsa::Db) -> EtherealTermResult<RawType> {
         Ok(match self {
-            EtherealTerm::Literal(literal) => RawType::Prelude(literal.ty()),
-            EtherealTerm::Symbol(symbol) => {
-                RawType::Declarative(symbol.ty(db).into_declarative(db))
-            }
-            EtherealTerm::Rune(variable) => {
-                RawType::Declarative(variable.ty(db).into_declarative(db))
-            }
-            EtherealTerm::EntityPath(path) => match path {
-                ItemPathTerm::Fugitive(_) => todo!(),
+            EtherealTerm::Literal(slf) => RawType::Prelude(slf.ty()),
+            EtherealTerm::Symbol(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
+            EtherealTerm::Rune(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
+            EtherealTerm::EntityPath(slf) => match slf {
+                ItemPathTerm::Fugitive(path) => todo!(),
                 ItemPathTerm::Trait(path) => {
                     RawType::Declarative(trai_path_declarative_ty(db, path)?)
                 }
@@ -142,21 +138,9 @@ impl EtherealTerm {
                     RawType::Declarative(ty_variant_path_declarative_ty(db, path)?)
                 }
             },
-            EtherealTerm::Category(cat) => RawType::Declarative(cat.ty()?.into()),
-            EtherealTerm::Universe(_) => todo!(),
-            EtherealTerm::Curry(curry) => {
-                let Ok(RawType::Declarative(DeclarativeTerm::Category(parameter_ty_cat))) =
-                    curry.parameter_ty(db).raw_ty(db)
-                else {
-                    unreachable!()
-                };
-                let Ok(RawType::Declarative(DeclarativeTerm::Category(return_ty_cat))) =
-                    curry.return_ty(db).raw_ty(db)
-                else {
-                    unreachable!()
-                };
-                RawType::Declarative(parameter_ty_cat.max(return_ty_cat).into())
-            }
+            EtherealTerm::Category(slf) => RawType::Declarative(slf.ty()?.into()),
+            EtherealTerm::Universe(_) => RawType::Prelude(PreludeTypePath::UNIVERSE),
+            EtherealTerm::Curry(slf) => slf.raw_ty(db),
             EtherealTerm::Ritchie(_) => {
                 DeclarativeTerm::Category(CategoryTerm::new(1.into())).into()
             }
@@ -165,5 +149,21 @@ impl EtherealTerm {
             EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         })
+    }
+}
+
+impl CurryEtherealTerm {
+    fn raw_ty(self, db: &salsa::Db) -> RawType {
+        let Ok(RawType::Declarative(DeclarativeTerm::Category(parameter_ty_cat))) =
+            self.parameter_ty(db).raw_ty(db)
+        else {
+            unreachable!()
+        };
+        let Ok(RawType::Declarative(DeclarativeTerm::Category(return_ty_cat))) =
+            self.return_ty(db).raw_ty(db)
+        else {
+            unreachable!()
+        };
+        RawType::Declarative(parameter_ty_cat.max(return_ty_cat).into())
     }
 }

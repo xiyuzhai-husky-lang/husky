@@ -93,7 +93,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 143,
+                            value: 144,
                         },
                     ),
                 ),
@@ -115,7 +115,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 146,
+                            value: 147,
                         },
                     ),
                 ),
@@ -137,7 +137,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 144,
+                            value: 145,
                         },
                     ),
                 ),
@@ -159,7 +159,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 147,
+                            value: 148,
                         },
                     ),
                 ),
@@ -181,7 +181,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 148,
+                            value: 149,
                         },
                     ),
                 ),
@@ -203,7 +203,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 145,
+                            value: 146,
                         },
                     ),
                 ),
@@ -225,7 +225,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 149,
+                            value: 150,
                         },
                     ),
                 ),
@@ -247,7 +247,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 150,
+                            value: 151,
                         },
                     ),
                 ),

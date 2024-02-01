@@ -151,6 +151,7 @@ pub enum PreludeTypePath {
     Str,
     Option,
     Result,
+    Universe,
 }
 
 impl PreludeTypePath {
@@ -166,6 +167,7 @@ impl PreludeTypePath {
         PreludeTypePath::Container(PreludeContainerTypePath::CyclicSlice);
     pub const LIFETIME: Self = PreludeTypePath::Lifetime;
     pub const PLACE: Self = PreludeTypePath::Place;
+    pub const UNIVERSE: Self = PreludeTypePath::Universe;
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -304,6 +306,7 @@ fn prelude_ty_path(db: &::salsa::Db, path: TypePath) -> Option<PreludeTypePath> 
         path if path == menu.str_ty_path() => PreludeTypePath::Str.into(),
         path if path == menu.option_ty_path() => PreludeTypePath::Option.into(),
         path if path == menu.result_ty_path() => PreludeTypePath::Result.into(),
+        path if path == menu.universe_ty_path() => PreludeTypePath::UNIVERSE.into(),
         _ => return None,
     })
 }

@@ -296,4 +296,25 @@
         ),
         None,
     ),
+    (
+        ItemSynNodePath::MajorItem(
+            MajorItemSynNodePath::Type(
+                TypeSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::basic::Universe`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
 ]

@@ -20,3 +20,6 @@ pub extern Lifetime;
 
 // todo: move this to another module
 pub extern Place;
+
+// todo: move this to another module
+pub extern Universe;

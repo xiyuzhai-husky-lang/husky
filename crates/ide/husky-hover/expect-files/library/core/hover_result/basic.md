@@ -719,4 +719,34 @@
             },
         ),
     ),
+    (
+        TokenIdx(
+            73,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "Other\ntoken_idx = 72;\n\ntoken_line_group_idx = 11\n\ntoken = TokenData::Keyword(\n    Keyword::TypeEntity(\n        Extern,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 24,
+                                character: 4,
+                            },
+                            end: Position {
+                                line: 24,
+                                character: 10,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
 ]

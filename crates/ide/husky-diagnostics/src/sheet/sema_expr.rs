@@ -199,7 +199,7 @@ impl Diagnose for OriginalSemaExprTypeError {
             OriginalSemaExprTypeError::NoConstructor => {
                 format!("Type Error: no constructor")
             }
-            OriginalSemaExprTypeError::NoBitOprForInteger => {
+            OriginalSemaExprTypeError::BitOperationOnlyWorksForRawBitsOrCustom => {
                 format!("Type Error: no bit opr for integer")
             }
         }
