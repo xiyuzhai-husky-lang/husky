@@ -133,6 +133,7 @@ impl Trace {
 
     fn from_fugitive_path(fugitive_path: FugitivePath, db: &::salsa::Db) -> Option<Self> {
         match fugitive_path.fugitive_kind(db) {
+            FugitiveKind::Const => todo!(),
             FugitiveKind::Val => Some(Trace::from_val_item_path(fugitive_path, db).into()),
             FugitiveKind::FunctionFn
             | FugitiveKind::FunctionGn

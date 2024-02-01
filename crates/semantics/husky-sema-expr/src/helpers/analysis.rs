@@ -14,7 +14,8 @@ pub fn sema_expr_region_contains_gn(db: &::salsa::Db, sema_expr_region: SemaExpr
                 FugitiveKind::FunctionFn
                 | FugitiveKind::AliasType
                 | FugitiveKind::Val
-                | FugitiveKind::Formal => (),
+                | FugitiveKind::Formal
+                | FugitiveKind::Const => (),
             },
             SemaExprData::AssociatedItem {
                 static_dispatch: StaticDispatch::AssociatedGn,

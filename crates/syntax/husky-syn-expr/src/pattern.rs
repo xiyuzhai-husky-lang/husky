@@ -155,6 +155,7 @@ where
                                         ),
                                         FugitiveKind::AliasType => todo!(),
                                         FugitiveKind::Formal => todo!(),
+                                        FugitiveKind::Const => todo!(),
                                     },
                                 },
                                 PrincipalEntityPath::TypeVariant(path) => {

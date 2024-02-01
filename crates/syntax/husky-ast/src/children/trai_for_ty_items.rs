@@ -32,7 +32,7 @@ impl IsAstChildren for TraitForTypeItems {
             EntityKindKeywordGroup::AliasOrAssociateType(_) => TraitItemKind::AssociatedType,
             EntityKindKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
             EntityKindKeywordGroup::Val(_) => TraitItemKind::AssociatedVal,
-            EntityKindKeywordGroup::ConstExpr(_) => todo!(),
+            EntityKindKeywordGroup::Const(_) => todo!(),
         };
         Ok(EntityKind::AssociatedItem {
             associated_item_kind: AssociatedItemKind::TraitForTypeItem(trait_item_kind),

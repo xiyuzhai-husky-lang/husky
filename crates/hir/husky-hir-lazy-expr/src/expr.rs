@@ -295,6 +295,7 @@ impl ToHirLazy for SemaExprIdx {
                                         FugitiveKind::AliasType
                                         | FugitiveKind::Val
                                         | FugitiveKind::Formal => unreachable!(),
+                                        FugitiveKind::Const => todo!(),
                                     }
                                 }
                             },

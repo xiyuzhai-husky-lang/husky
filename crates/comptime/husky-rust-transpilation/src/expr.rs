@@ -152,7 +152,7 @@ impl HirEagerExprSite {
                     PrincipalEntityPath::Module(_) => unreachable!(),
                     PrincipalEntityPath::MajorItem(MajorItemPath::Fugitive(path)) => {
                         match path.fugitive_kind(db) {
-                            FugitiveKind::FunctionFn => (),
+                            FugitiveKind::FunctionFn | FugitiveKind::Const => (),
                             FugitiveKind::Val => builder.bracketed(RustBracket::Par, |_| ()),
                             FugitiveKind::FunctionGn
                             | FugitiveKind::AliasType

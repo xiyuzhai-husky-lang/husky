@@ -119,7 +119,7 @@ where
                                         connection: _,
                                     } => match module_item_kind {
                                         MajorItemKind::Fugitive(FugitiveKind::Val)
-                                        | MajorItemKind::ConstExpr => {
+                                        | MajorItemKind::Const => {
                                             DisambiguatedTokenData::SynBinaryOpr(
                                                 regional_token_idx,
                                                 BinaryComparisonOpr::Less.into(),

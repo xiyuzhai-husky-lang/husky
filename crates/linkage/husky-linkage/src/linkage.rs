@@ -380,6 +380,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             }
                         )]
                     }
+                    FugitiveKind::Const => todo!(),
                     FugitiveKind::AliasType | FugitiveKind::Formal => unreachable!(),
                 },
                 JavelinPath::TypeItem(path) => match path.item_kind(db) {
@@ -426,7 +427,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         db,
                     ),
                     TypeItemKind::AssociatedFormal => todo!(),
-                    TypeItemKind::AssociatedConstExpr => todo!(),
+                    TypeItemKind::AssociatedConst => todo!(),
                 },
                 JavelinPath::TraitItem(_) => todo!(),
                 JavelinPath::TraitForTypeItem(path) => match path.item_kind(db) {
@@ -489,7 +490,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     }
                     TraitItemKind::AssociatedFunctionGn => todo!(),
                     TraitItemKind::AssociatedFormal => todo!(),
-                    TraitItemKind::AssociatedConstExpr => todo!(),
+                    TraitItemKind::AssociatedConst => todo!(),
                 },
                 JavelinPath::TypeConstructor(path) => match path.ty_kind(db) {
                     TypeKind::Enum => {
