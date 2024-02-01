@@ -16,13 +16,13 @@ impl IsAstChildren for MajorItems {
             EntityKindKeywordGroup::StaticFn(_, _) => {
                 Err(OriginalAstError::UnexpectedStaticFnOutsideImplBlock)?
             }
+            EntityKindKeywordGroup::Const(_) => FugitiveKind::Const.into(),
             EntityKindKeywordGroup::Val(_) => FugitiveKind::Val.into(),
             EntityKindKeywordGroup::Gn(_) => FugitiveKind::FunctionGn.into(),
             EntityKindKeywordGroup::FormalEntity(_) => FugitiveKind::Formal.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
             EntityKindKeywordGroup::AliasOrAssociateType(_) => FugitiveKind::AliasType.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
-            EntityKindKeywordGroup::Const(_) => MajorItemKind::Const,
         };
         Ok(EntityKind::MajorItem {
             module_item_kind,

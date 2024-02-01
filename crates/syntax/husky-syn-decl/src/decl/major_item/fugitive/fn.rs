@@ -18,6 +18,7 @@ pub struct FnSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
+/// # getters
 impl FnSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(

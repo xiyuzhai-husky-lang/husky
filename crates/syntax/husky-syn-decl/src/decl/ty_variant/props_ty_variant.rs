@@ -1,5 +1,5 @@
 use super::*;
-use husky_regional_token::{CommaRegionalToken, LcurlRegionalToken, RcurlRegionalToken};
+use husky_regional_token::{CommaRegionalToken, RcurlRegionalToken};
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 // todo: GADT
@@ -17,22 +17,6 @@ pub struct TypePropsVariantSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-/// we delegate a struct for this for better error message
-/// regular struct is the fallback case, but the lang user might want to mean other things
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TypePropsVariantLeftCurlyBrace(LcurlRegionalToken);
-
-impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TypePropsVariantLeftCurlyBrace {
-    type Error = SynNodeDeclError;
-
-    fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
-        let lcurl = sp.try_parse_expected(
-            OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct,
-        )?;
-        Ok(Self(lcurl))
-    }
-}
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TypePropsVariantRcurlRegionalToken(RcurlRegionalToken);
 
@@ -45,6 +29,19 @@ impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TypePropsVariantRcurlRegi
         // maybe sp.skip_exprs_until_next_right_curly_brace
         let rcurl = sp.try_parse_expected(OriginalSynNodeDeclError::ExpectedRcurl)?;
         Ok(Self(rcurl))
+    }
+}
+
+/// # getters
+impl TypePropsVariantSynNodeDecl {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
+        SmallVec::from_iter(
+            self.fields(db)
+                .as_ref()
+                .err()
+                .into_iter()
+                .chain(self.rcurl(db).as_ref().err().into_iter()),
+        )
     }
 }
 
