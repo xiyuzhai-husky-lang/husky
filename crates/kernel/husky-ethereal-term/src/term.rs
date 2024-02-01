@@ -251,45 +251,27 @@ pub(crate) fn ethereal_term_from_application_or_ritchie_call_declarative_term(
     let function =
         EtherealTerm::from_declarative(db, declarative_term.function(db), term_ty_expectation)?;
     match function.raw_ty(db)? {
-        RawType::Declarative(declarative_ty) => match declarative_ty {
-            DeclarativeTerm::Literal(_) => todo!(),
-            DeclarativeTerm::Symbol(_) => todo!(),
-            DeclarativeTerm::Rune(_) => todo!(),
-            DeclarativeTerm::EntityPath(_) => todo!(),
-            DeclarativeTerm::Category(_) => {
-                p!(declarative_term.debug(db), function.debug(db));
-                todo!()
-            }
-            DeclarativeTerm::Universe(_) => todo!(),
-            DeclarativeTerm::Curry(curry) => {
-                let items = declarative_term.items(db);
-                let argument = match items.len() {
-                    0 => db
-                        .declarative_term_menu(curry.toolchain(db))
-                        .unwrap()
-                        .unit(),
-                    1 => items[0],
-                    _ => todo!(),
-                };
-                term_uncheck_from_declarative_term_application_aux(
-                    db,
-                    function,
-                    argument,
-                    term_ty_expectation,
-                )
-            }
-            DeclarativeTerm::Ritchie(_) => todo!(),
-            DeclarativeTerm::Abstraction(_) => todo!(),
-            DeclarativeTerm::Application(_) => todo!(),
-            DeclarativeTerm::ApplicationOrRitchieCall(_) => todo!(),
-            DeclarativeTerm::AssociatedItem(_) => todo!(),
-            DeclarativeTerm::TypeAsTraitItem(_) => todo!(),
-            DeclarativeTerm::TraitConstraint(_) => todo!(),
-            DeclarativeTerm::LeashOrBitNot(_) => todo!(),
-            DeclarativeTerm::List(_) => todo!(),
-            DeclarativeTerm::Wrapper(_) => todo!(),
-        },
-        RawType::Prelude(_) => todo!(),
+        RawType::Declarative(DeclarativeTerm::Curry(curry)) => {
+            let items = declarative_term.items(db);
+            let argument = match items.len() {
+                0 => db
+                    .declarative_term_menu(curry.toolchain(db))
+                    .unwrap()
+                    .unit(),
+                1 => items[0],
+                _ => todo!(),
+            };
+            term_uncheck_from_declarative_term_application_aux(
+                db,
+                function,
+                argument,
+                term_ty_expectation,
+            )
+        }
+        RawType::Declarative(DeclarativeTerm::Ritchie(ritchie)) => {
+            todo!()
+        }
+        _ => todo!(),
     }
 }
 

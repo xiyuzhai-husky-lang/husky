@@ -1,5 +1,6 @@
 use crate::*;
 use husky_declarative_signature::DeclarativeSignatureError;
+use husky_ethereal_term::instantiation::error::EtherealTermInstantiationError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
@@ -7,6 +8,8 @@ use thiserror::Error;
 pub enum EtherealSignatureError {
     #[error("term error")]
     TermError(EtherealTermError),
+    #[error("term error")]
+    TermInstantiationError(EtherealTermInstantiationError),
     #[error("DerivedFromDeclarative")]
     DerivedFromDeclarativeSignature(DeclarativeSignatureError),
     #[error("NoSuchItem")]
@@ -35,6 +38,12 @@ impl From<DeclarativeSignatureError> for EtherealSignatureError {
 impl From<EtherealTermError> for EtherealSignatureError {
     fn from(e: EtherealTermError) -> Self {
         EtherealSignatureError::TermError(e)
+    }
+}
+
+impl From<EtherealTermInstantiationError> for EtherealSignatureError {
+    fn from(e: EtherealTermInstantiationError) -> Self {
+        EtherealSignatureError::TermInstantiationError(e)
     }
 }
 

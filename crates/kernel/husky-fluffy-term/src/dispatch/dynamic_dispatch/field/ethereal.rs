@@ -75,7 +75,7 @@ fn ethereal_ty_field_dispatch_aux<'a>(
         _ => (),
     }
     if let Some(regular_field_ethereal_signature) = ty_path
-        .regular_field_ethereal_signature(db, arguments, ident)
+        .props_field_ethereal_signature(db, arguments, ident)
         .into_result_option()?
     {
         return JustOk(FluffyFieldDyanmicDispatch {

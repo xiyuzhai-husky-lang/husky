@@ -2,21 +2,21 @@ use super::*;
 use vec_like::VecSet;
 
 /// unlike DeclarativeTermSymbols
-/// Some(DeclarativeTermRunes { unaccounted_variables: Default::default() })
+/// Some(DeclarativeTermRunes { unaccounted_runes: Default::default() })
 /// means different from None
 ///
-/// the former implies that variables exists, but all accounted
+/// the former implies that runes exists, but all accounted
 #[salsa::tracked(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub struct DeclarativeTermRunes {
-    /// unaccounted means the variable is not declared within this term
+    /// unaccounted means the rune is not declared within this term
     #[return_ref]
-    pub unaccounted_variables: VecSet<RuneDeclarativeTerm>,
+    pub unaccounted_runes: VecSet<RuneDeclarativeTerm>,
 }
 
 impl DeclarativeTermRunes {
     #[inline(always)]
-    pub(crate) fn contains(self, db: &::salsa::Db, variable: RuneDeclarativeTerm) -> bool {
-        self.unaccounted_variables(db).has(variable)
+    pub(crate) fn contains(self, db: &::salsa::Db, rune: RuneDeclarativeTerm) -> bool {
+        self.unaccounted_runes(db).has(rune)
     }
 
     #[inline(always)]
@@ -33,26 +33,26 @@ impl DeclarativeTermRunes {
 
     #[inline(always)]
     fn remove(
-        variables: impl Into<Option<Self>>,
-        _variable: impl Into<Option<RuneDeclarativeTerm>>,
+        runes: impl Into<Option<Self>>,
+        _rune: impl Into<Option<RuneDeclarativeTerm>>,
     ) -> Option<Self> {
-        let _variables = variables.into()?;
+        let _runes = runes.into()?;
         todo!()
     }
 }
 impl DeclarativeTerm {
-    pub fn contains_variable(self, db: &::salsa::Db, variable: RuneDeclarativeTerm) -> bool {
-        self.variables(db)
-            .map(|declarative_term_variables| declarative_term_variables.contains(db, variable))
+    pub fn contains_rune(self, db: &::salsa::Db, rune: RuneDeclarativeTerm) -> bool {
+        self.runes(db)
+            .map(|declarative_term_runes| declarative_term_runes.contains(db, rune))
             .unwrap_or_default()
     }
 
-    pub(crate) fn variables(self, db: &::salsa::Db) -> Option<DeclarativeTermRunes> {
+    pub(crate) fn runes(self, db: &::salsa::Db) -> Option<DeclarativeTermRunes> {
         match self {
             DeclarativeTerm::Literal(_) => todo!(),
-            DeclarativeTerm::Rune(variable) => Some(DeclarativeTermRunes::new(
+            DeclarativeTerm::Rune(rune) => Some(DeclarativeTermRunes::new(
                 db,
-                VecSet::new_one_elem_set(variable),
+                VecSet::new_one_elem_set(rune),
             )),
             DeclarativeTerm::Symbol(_symbol) => None,
             DeclarativeTerm::EntityPath(path) => match path {
@@ -66,11 +66,11 @@ impl DeclarativeTerm {
                 declarative_term_curry_placeholders(db, declarative_term)
             }
             DeclarativeTerm::Ritchie(declarative_term) => {
-                declarative_term_ritchie_variables(db, declarative_term)
+                declarative_term_ritchie_runes(db, declarative_term)
             }
             DeclarativeTerm::Abstraction(_) => todo!(),
             DeclarativeTerm::Application(declarative_term) => {
-                declarative_term_application_variables(db, declarative_term)
+                declarative_term_application_runes(db, declarative_term)
             }
             DeclarativeTerm::ApplicationOrRitchieCall(_declarative_ty) => todo!(),
             DeclarativeTerm::AssociatedItem(_) => todo!(),
@@ -88,33 +88,30 @@ pub(crate) fn declarative_term_curry_placeholders(
     db: &::salsa::Db,
     term: CurryDeclarativeTerm,
 ) -> Option<DeclarativeTermRunes> {
-    let parameter_ty_variables = term.parameter_ty(db).variables(db);
-    let return_ty_variables = term.return_ty(db).variables(db);
+    let parameter_ty_runes = term.parameter_ty(db).runes(db);
+    let return_ty_runes = term.return_ty(db).runes(db);
     DeclarativeTermRunes::merge(
-        parameter_ty_variables,
-        DeclarativeTermRunes::remove(return_ty_variables, term.parameter_rune(db)),
+        parameter_ty_runes,
+        DeclarativeTermRunes::remove(return_ty_runes, term.parameter_rune(db)),
     )
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
-pub(crate) fn declarative_term_ritchie_variables(
+pub(crate) fn declarative_term_ritchie_runes(
     db: &::salsa::Db,
     term: RitchieDeclarativeTerm,
 ) -> Option<DeclarativeTermRunes> {
-    let mut variables: Option<DeclarativeTermRunes> = None;
+    let mut runes: Option<DeclarativeTermRunes> = None;
     for param in term.params(db) {
-        variables = DeclarativeTermRunes::merge(variables, param.ty().variables(db))
+        runes = DeclarativeTermRunes::merge(runes, param.ty().runes(db))
     }
-    DeclarativeTermRunes::merge(variables, term.return_ty(db).variables(db))
+    DeclarativeTermRunes::merge(runes, term.return_ty(db).runes(db))
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
-pub(crate) fn declarative_term_application_variables(
+pub(crate) fn declarative_term_application_runes(
     db: &::salsa::Db,
     term: ApplicationDeclarativeTerm,
 ) -> Option<DeclarativeTermRunes> {
-    DeclarativeTermRunes::merge(
-        term.function(db).variables(db),
-        term.argument(db).variables(db),
-    )
+    DeclarativeTermRunes::merge(term.function(db).runes(db), term.argument(db).runes(db))
 }

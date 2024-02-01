@@ -1,3 +1,6 @@
+pub mod error;
+
+use self::error::*;
 use crate::*;
 use maybe_result::*;
 use vec_like::SmallVecPairMap;
@@ -112,7 +115,7 @@ impl EtherealInstantiationBuilder {
         src: EtherealTerm,
         dst_arguments: &[EtherealTerm],
         db: &::salsa::Db,
-    ) -> EtherealTermMaybeResult<()> {
+    ) -> EtherealTermInstantiationMaybeResult<()> {
         let src_application_expansion = src.application_expansion(db);
         if src_application_expansion.arguments(db).len() != dst_arguments.len() {
             todo!()
@@ -133,20 +136,12 @@ impl EtherealInstantiationBuilder {
         src: EtherealTerm,
         dst: EtherealTerm,
         db: &::salsa::Db,
-    ) -> EtherealTermMaybeResult<()> {
+    ) -> EtherealTermInstantiationMaybeResult<()> {
         if src == dst {
             return JustOk(());
         }
         match src {
-            EtherealTerm::Literal(_) => todo!(),
             EtherealTerm::Symbol(symbol) => self.try_add_symbol_rule(symbol, dst),
-            EtherealTerm::Rune(_) => todo!(),
-            EtherealTerm::EntityPath(_) => todo!(),
-            EtherealTerm::Category(_) => todo!(),
-            EtherealTerm::Universe(_) => todo!(),
-            EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(_) => todo!(),
-            EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(_) => {
                 let src_application_expansion = src.application_expansion(db);
                 let dst_application_expansion = dst.application_expansion(db);
@@ -169,6 +164,14 @@ impl EtherealInstantiationBuilder {
                 }
                 JustOk(())
             }
+            EtherealTerm::Literal(_)
+            | EtherealTerm::Rune(_)
+            | EtherealTerm::EntityPath(_)
+            | EtherealTerm::Category(_)
+            | EtherealTerm::Universe(_) => JustErr(EtherealTermInstantiationError::MisMatch),
+            EtherealTerm::Curry(_) => todo!(),
+            EtherealTerm::Ritchie(_) => todo!(),
+            EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::TypeAsTraitItem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
@@ -178,7 +181,7 @@ impl EtherealInstantiationBuilder {
         &mut self,
         symbol: SymbolEtherealTerm,
         dst: EtherealTerm,
-    ) -> EtherealTermMaybeResult<()> {
+    ) -> EtherealTermInstantiationMaybeResult<()> {
         if let Some((_, opt_dst0)) = self.symbol_map.get_entry_mut(symbol) {
             match opt_dst0 {
                 Some(dst0) => {
