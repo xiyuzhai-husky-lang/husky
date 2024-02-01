@@ -19155,6 +19155,22 @@
                                                     0,
                                                 ),
                                             },
+                                            self_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 273,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
                                         },
                                     ),
                                 },
@@ -27197,6 +27213,22 @@
                                                     0,
                                                 ),
                                             },
+                                            self_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 30,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
                                         },
                                     ),
                                 },
@@ -28860,6 +28892,22 @@
                                                     0,
                                                 ),
                                             },
+                                            self_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 30,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
                                         },
                                     ),
                                 },
@@ -30518,6 +30566,22 @@
                                                     0,
                                                 ),
                                             },
+                                            self_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 30,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
                                         },
                                     ),
                                 },
@@ -31301,6 +31365,22 @@
                                                 symbol_map: [],
                                                 separator: Some(
                                                     0,
+                                                ),
+                                            },
+                                            self_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 30,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         },
@@ -53938,6 +54018,22 @@
                                                 symbol_map: [],
                                                 separator: Some(
                                                     0,
+                                                ),
+                                            },
+                                            self_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 41,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
                                                 ),
                                             },
                                         },

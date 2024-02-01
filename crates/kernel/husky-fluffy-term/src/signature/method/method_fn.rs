@@ -117,7 +117,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
         todo!()
     }
-    let mut instantiation_builder = FluffyInstantiationBuilder::new_associated(
+    let mut instantiation_builder = FluffyTermInstantiationBuilder::new_associated(
         FluffyInstantiationEnvironment::MethodFn { self_place },
         template
             .path(db)

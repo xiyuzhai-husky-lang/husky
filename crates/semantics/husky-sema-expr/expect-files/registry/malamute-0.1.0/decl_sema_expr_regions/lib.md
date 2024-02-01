@@ -1452,7 +1452,7 @@
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: Some(
-                                                            FluffyTermRune(
+                                                            RuneFluffyTerm(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -2290,7 +2290,7 @@
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: Some(
-                                                            FluffyTermRune(
+                                                            RuneFluffyTerm(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -4979,7 +4979,7 @@
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: Some(
-                                                            FluffyTermRune(
+                                                            RuneFluffyTerm(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -6607,7 +6607,7 @@
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: Some(
-                                                            FluffyTermRune(
+                                                            RuneFluffyTerm(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(
@@ -7825,7 +7825,7 @@
                                                     variant: ExpectEqsFunctionTypeOutcomeData::Curry {
                                                         variance: Independent,
                                                         parameter_rune: Some(
-                                                            FluffyTermRune(
+                                                            RuneFluffyTerm(
                                                                 FluffyTerm {
                                                                     place: None,
                                                                     base: Ethereal(

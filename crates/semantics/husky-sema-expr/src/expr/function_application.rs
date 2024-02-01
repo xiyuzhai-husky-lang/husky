@@ -69,7 +69,7 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         syn_expr_idx: SynExprIdx,
         variance: Variance,
-        parameter_rune: Option<FluffyTermRune>,
+        parameter_rune: Option<RuneFluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         argument_syn_expr_idx: SynExprIdx,

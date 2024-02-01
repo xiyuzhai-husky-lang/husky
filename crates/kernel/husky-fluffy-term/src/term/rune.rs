@@ -1,9 +1,9 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyTermRune(FluffyTerm);
+pub struct RuneFluffyTerm(FluffyTerm);
 
-impl std::ops::Deref for FluffyTermRune {
+impl std::ops::Deref for RuneFluffyTerm {
     type Target = FluffyTerm;
 
     fn deref(&self) -> &Self::Target {
@@ -11,13 +11,13 @@ impl std::ops::Deref for FluffyTermRune {
     }
 }
 
-impl FluffyTermRune {
+impl RuneFluffyTerm {
     pub(crate) fn rewrite_inner(
         self,
         db: &::salsa::Db,
         terms: &mut FluffyTerms,
         src: HoleSource,
-        substitution_rules: &[ImplicitParameterSubstitution],
+        substitution_rules: &[FluffyTermSubstitution],
     ) -> Self {
         let slf = (*self).rewrite_inner(db, terms, src, substitution_rules);
         match slf.base_ty_data_inner(db, terms) {
@@ -49,8 +49,8 @@ impl FluffyTermRune {
     }
 }
 
-impl From<RuneEtherealTerm> for FluffyTermRune {
+impl From<RuneEtherealTerm> for RuneFluffyTerm {
     fn from(value: RuneEtherealTerm) -> Self {
-        FluffyTermRune(value.into())
+        RuneFluffyTerm(value.into())
     }
 }

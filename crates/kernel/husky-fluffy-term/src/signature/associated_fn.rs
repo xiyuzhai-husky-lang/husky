@@ -8,6 +8,7 @@ pub struct AssociatedFnFluffySignature {
     return_ty: FluffyTerm,
     ty: FluffyTerm,
     instantiation: FluffyInstantiation,
+    self_ty: FluffyTerm,
 }
 
 impl AssociatedFnFluffySignature {
@@ -26,6 +27,10 @@ impl AssociatedFnFluffySignature {
     pub fn instantiation(&self) -> &FluffyInstantiation {
         &self.instantiation
     }
+
+    pub fn self_ty(&self) -> FluffyTerm {
+        self.self_ty
+    }
 }
 
 pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
@@ -40,7 +45,7 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
         todo!()
     }
-    let mut instantiation_builder = FluffyInstantiationBuilder::new_associated(
+    let mut instantiation_builder = FluffyTermInstantiationBuilder::new_associated(
         FluffyInstantiationEnvironment::AssociatedFn,
         template
             .path(db)
@@ -75,6 +80,9 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
             .instantiate(engine, expr_idx, &instantiation),
         ty: template
             .ty(db)
+            .instantiate(engine, expr_idx, &instantiation),
+        self_ty: template
+            .self_ty(db)
             .instantiate(engine, expr_idx, &instantiation),
         instantiation,
     })

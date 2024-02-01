@@ -1,17 +1,16 @@
 use crate::*;
 
-#[deprecated(note = "use instantiation instead")]
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct ImplicitParameterSubstitution {
-    rune: FluffyTermRune,
+pub struct FluffyTermSubstitution {
+    rune: RuneFluffyTerm,
     substitute: FluffyTerm,
 }
 
-pub type ImplicitParameterSubstitutions = SmallVec<[ImplicitParameterSubstitution; 2]>;
+pub type ImplicitParameterSubstitutions = SmallVec<[FluffyTermSubstitution; 2]>;
 
-impl ImplicitParameterSubstitution {
-    fn new(rune: FluffyTermRune, substitute: impl Into<FluffyTerm>) -> Self {
+impl FluffyTermSubstitution {
+    fn new(rune: RuneFluffyTerm, substitute: impl Into<FluffyTerm>) -> Self {
         Self {
             rune,
             substitute: substitute.into(),
@@ -52,10 +51,8 @@ impl ImplicitParameterSubstitution {
                     HoleSource::Expectation(idx),
                     parameter_rune,
                 );
-                template_parameter_substitutions.push(ImplicitParameterSubstitution::new(
-                    parameter_rune,
-                    implicit_symbol,
-                ));
+                template_parameter_substitutions
+                    .push(FluffyTermSubstitution::new(parameter_rune, implicit_symbol));
                 let expectee = return_ty.rewrite_inner(
                     db,
                     terms,
@@ -74,14 +71,14 @@ impl FluffyTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         src: HoleSource,
-        rune: FluffyTermRune,
+        rune: RuneFluffyTerm,
         substitute: FluffyTerm,
     ) -> Self {
         self.rewrite_inner(
             engine.db(),
             engine.fluffy_terms_mut(),
             src,
-            &[ImplicitParameterSubstitution::new(rune, substitute)],
+            &[FluffyTermSubstitution::new(rune, substitute)],
         )
     }
 
@@ -90,7 +87,7 @@ impl FluffyTerm {
         db: &::salsa::Db,
         terms: &mut FluffyTerms,
         src: HoleSource,
-        substitution_rules: &[ImplicitParameterSubstitution],
+        substitution_rules: &[FluffyTermSubstitution],
     ) -> Self {
         if substitution_rules.len() == 0 {
             return self;
@@ -103,7 +100,7 @@ impl FluffyTerm {
         db: &::salsa::Db,
         terms: &mut FluffyTerms,
         src: HoleSource,
-        substitution_rules: &[ImplicitParameterSubstitution],
+        substitution_rules: &[FluffyTermSubstitution],
     ) -> FluffyTerm {
         assert!(substitution_rules.len() > 0);
         match self.data_inner(db, terms) {

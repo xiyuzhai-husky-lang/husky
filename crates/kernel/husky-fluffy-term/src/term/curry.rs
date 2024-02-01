@@ -9,7 +9,7 @@ impl FluffyTerm {
         toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_rune: Option<FluffyTermRune>,
+        parameter_rune: Option<RuneFluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
     ) -> Self {
