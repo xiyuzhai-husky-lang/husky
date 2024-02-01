@@ -24,7 +24,7 @@ use crate::*;
 use husky_coword::Ident;
 use husky_declarative_term::term::DeclarativeTerm;
 use husky_term_prelude::literal::TermLiteral;
-use salsa::{DebugWithDb, DisplayWithDb};
+use salsa::DisplayWithDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
