@@ -19,5 +19,5 @@ pub enum EntityClass {
     Attr,
     Formal,
     AssociatedFormal,
-    ConstExpr,
+    Const,
 }

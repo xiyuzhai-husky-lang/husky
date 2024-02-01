@@ -96,7 +96,7 @@ impl<'a> DeclParser<'a> {
             TypeItemKind::AssociatedType => todo!(),
             TypeItemKind::AssociatedFunctionGn => todo!(),
             TypeItemKind::AssociatedFormal => todo!(),
-            TypeItemKind::AssociatedConstExpr => todo!(),
+            TypeItemKind::AssociatedConst => todo!(),
         }
     }
 }

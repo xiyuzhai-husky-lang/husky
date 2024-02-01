@@ -20,18 +20,12 @@ pub enum EntityKindKeywordGroup {
     /// type defined as an alias or associated entity
     AliasOrAssociateType(TypeToken),
     Trait(TraitToken),
-    ConstExpr(ConstExprToken),
+    Const(ConstToken),
 }
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct FugitiveFnToken {
-    token_idx: TokenIdx,
-}
-
-#[salsa::debug_with_db]
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ConstExprToken {
     token_idx: TokenIdx,
 }
 
@@ -221,11 +215,6 @@ where
                     Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx })))
                 }
                 FugitiveKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
-                FugitiveKeyword::Constexpr => {
-                    Ok(Some(EntityKindKeywordGroup::ConstExpr(ConstExprToken {
-                        token_idx,
-                    })))
-                }
             },
             Keyword::TypeEntity(keyword) => {
                 Ok(Some(EntityKindKeywordGroup::MajorType(MajorTypeToken {
@@ -240,7 +229,9 @@ where
             Keyword::Trait => Ok(Some(EntityKindKeywordGroup::Trait(TraitToken {
                 token_idx,
             }))),
-            Keyword::Const => Ok(None),
+            Keyword::Const => Ok(Some(EntityKindKeywordGroup::Const(ConstToken {
+                token_idx,
+            }))),
             Keyword::Static => match token_stream.peek() {
                 Some(TokenData::Keyword(Keyword::Fugitive(FugitiveKeyword::Fn))) => {
                     token_stream.next();

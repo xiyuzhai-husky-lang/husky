@@ -9,7 +9,6 @@ pub enum FugitiveKeyword {
     Proposition,
     Type,
     Val,
-    Constexpr,
     Gn,
 }
 
@@ -23,7 +22,6 @@ impl FugitiveKeyword {
             FugitiveKeyword::Proposition => "proposition",
             FugitiveKeyword::Type => "type",
             FugitiveKeyword::Val => "val",
-            FugitiveKeyword::Constexpr => "constexpr",
             FugitiveKeyword::Gn => "gn",
         }
     }

@@ -371,6 +371,7 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     MajorItemPath::Fugitive(path) => match path.fugitive_kind(self.db) {
                         FugitiveKind::FunctionFn => todo!(),
                         FugitiveKind::FunctionGn => todo!(),
+                        FugitiveKind::Const => todo!(),
                         FugitiveKind::Val => return ValRepr::new_val_item(path, self.db),
                         FugitiveKind::AliasType | FugitiveKind::Formal => unreachable!(),
                     },

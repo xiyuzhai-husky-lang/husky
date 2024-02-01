@@ -75,6 +75,7 @@ impl<'a> DeclParser<'a> {
             }
             FugitiveKind::FunctionGn => self.parse_gn_node_decl(syn_node_path).into(),
             FugitiveKind::Formal => todo!(),
+            FugitiveKind::Const => todo!(),
         }
     }
 }

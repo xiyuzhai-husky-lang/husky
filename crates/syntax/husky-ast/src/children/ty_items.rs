@@ -33,7 +33,7 @@ impl IsAstChildren for TypeItems {
                 Err(OriginalAstError::UnexpectedTraitInsideImplBlock)?
             }
             EntityKindKeywordGroup::Val(_) => TypeItemKind::MemoizedField,
-            EntityKindKeywordGroup::ConstExpr(_) => TypeItemKind::AssociatedConstExpr,
+            EntityKindKeywordGroup::Const(_) => TypeItemKind::AssociatedConst,
         };
         Ok(EntityKind::AssociatedItem {
             associated_item_kind: AssociatedItemKind::TypeItem(ty_item_kind),

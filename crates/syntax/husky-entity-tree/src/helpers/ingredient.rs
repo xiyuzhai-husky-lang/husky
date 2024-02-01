@@ -55,9 +55,10 @@ impl IngredientPath {
                     FugitiveKind::AliasType => false,
                     FugitiveKind::Val => true,
                     FugitiveKind::Formal => false,
+                    FugitiveKind::Const => false,
                 },
                 MajorItemKind::Trait => false,
-                MajorItemKind::ConstExpr => false,
+                MajorItemKind::Const => false,
             },
             EntityKind::AssociatedItem {
                 associated_item_kind,

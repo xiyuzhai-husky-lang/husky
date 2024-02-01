@@ -175,7 +175,7 @@ pub(crate) fn ty_item_ethereal_signature_templates_map(
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
                             .map(TypeItemEtherealSignatureTemplates::MemoizedField),
                         TypeItemKind::AssociatedFormal => todo!(),
-                        TypeItemKind::AssociatedConstExpr => todo!(),
+                        TypeItemKind::AssociatedConst => todo!(),
                     },
                     Err(_e) => Err(EtherealSignatureError::EntityTreeError),
                 };

@@ -19,6 +19,7 @@ pub enum FugitiveKind {
     AliasType,
     Val,
     Formal,
+    Const,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -51,9 +52,10 @@ impl EntityKind {
                     FugitiveKind::AliasType => EntityClass::AliasType,
                     FugitiveKind::Val => EntityClass::Val,
                     FugitiveKind::Formal => EntityClass::Formal,
+                    FugitiveKind::Const => EntityClass::Const,
                 },
                 MajorItemKind::Trait => EntityClass::Trait,
-                MajorItemKind::ConstExpr => EntityClass::ConstExpr,
+                MajorItemKind::Const => EntityClass::Const,
             },
             EntityKind::AssociatedItem {
                 associated_item_kind,
@@ -75,7 +77,7 @@ pub enum MajorItemKind {
     Type(TypeKind),
     Fugitive(FugitiveKind),
     Trait,
-    ConstExpr,
+    Const,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -94,7 +96,7 @@ pub enum TypeItemKind {
     MemoizedField,
     AssociatedFunctionGn,
     AssociatedFormal,
-    AssociatedConstExpr,
+    AssociatedConst,
 }
 
 impl Into<EntityClass> for TypeItemKind {
@@ -107,7 +109,7 @@ impl Into<EntityClass> for TypeItemKind {
             TypeItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
             TypeItemKind::AssociatedFunctionGn => EntityClass::AssociatedFunctionGn,
             TypeItemKind::AssociatedFormal => EntityClass::AssociatedFormal,
-            TypeItemKind::AssociatedConstExpr => EntityClass::ConstExpr,
+            TypeItemKind::AssociatedConst => EntityClass::Const,
         }
     }
 }
@@ -121,7 +123,7 @@ pub enum TraitItemKind {
     AssociatedFunctionFn,
     AssociatedFunctionGn,
     AssociatedFormal,
-    AssociatedConstExpr,
+    AssociatedConst,
 }
 
 impl Into<EntityClass> for TraitItemKind {
@@ -134,7 +136,7 @@ impl Into<EntityClass> for TraitItemKind {
             TraitItemKind::AssociatedFunctionFn => EntityClass::AssociatedFunctionFn,
             TraitItemKind::AssociatedFunctionGn => EntityClass::AssociatedFunctionGn,
             TraitItemKind::AssociatedFormal => EntityClass::AssociatedFormal,
-            TraitItemKind::AssociatedConstExpr => EntityClass::ConstExpr,
+            TraitItemKind::AssociatedConst => EntityClass::Const,
         }
     }
 }
