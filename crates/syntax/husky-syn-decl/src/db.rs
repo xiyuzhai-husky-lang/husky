@@ -77,7 +77,7 @@ pub struct SynDeclJar(
     // - variant
     ty_variant_syn_node_decl,
     ty_variant_syn_decl,
-    UnitTypeVariantSynNodeDecl,
+    TypeUnitVariantSynNodeDecl,
     UnitTypeVariantSynDecl,
     TypePropsVariantSynNodeDecl,
     TypePropsVariantSynDecl,

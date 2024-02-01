@@ -14,7 +14,7 @@ use husky_token_data::Punctuation;
 #[enum_class::from_variants]
 pub enum TypeVariantSynNodeDecl {
     Props(TypePropsVariantSynNodeDecl),
-    Unit(UnitTypeVariantSynNodeDecl),
+    Unit(TypeUnitVariantSynNodeDecl),
     Tuple(TypeTupleVariantSynNodeDecl),
 }
 
@@ -34,11 +34,11 @@ impl TypeVariantSynNodeDecl {
         }
     }
 
-    pub fn errors(self, _db: &::salsa::Db) -> SynNodeDeclErrorRefs {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
-            TypeVariantSynNodeDecl::Props(_) => todo!(),
-            TypeVariantSynNodeDecl::Unit(_) => todo!(),
-            TypeVariantSynNodeDecl::Tuple(_) => todo!(),
+            TypeVariantSynNodeDecl::Unit(slf) => slf.errors(db),
+            TypeVariantSynNodeDecl::Props(slf) => slf.errors(db),
+            TypeVariantSynNodeDecl::Tuple(slf) => slf.errors(db),
         }
     }
 }
@@ -106,7 +106,7 @@ impl<'a> DeclParser<'a> {
                 )
                 .into()
             }
-            None => UnitTypeVariantSynNodeDecl::new(db, syn_node_path, parser.finish()).into(),
+            None => TypeUnitVariantSynNodeDecl::new(db, syn_node_path, parser.finish()).into(),
             other => {
                 use husky_print_utils::p;
                 p!(other);

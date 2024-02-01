@@ -55,7 +55,6 @@ impl EntityKind {
                     FugitiveKind::Const => EntityClass::Const,
                 },
                 MajorItemKind::Trait => EntityClass::Trait,
-                MajorItemKind::Const => EntityClass::Const,
             },
             EntityKind::AssociatedItem {
                 associated_item_kind,
@@ -77,7 +76,6 @@ pub enum MajorItemKind {
     Type(TypeKind),
     Fugitive(FugitiveKind),
     Trait,
-    Const,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

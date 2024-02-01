@@ -79,7 +79,6 @@ impl<'a> AstParser<'a> {
                         path: TraitPath::new(self.module_path, ident, connection, self.db).into(),
                         items: self.try_parse_option()?,
                     },
-                    MajorItemKind::Const => todo!(),
                 }
             }
             EntityKind::AssociatedItem { .. } => DefnBlock::AssociatedItem {

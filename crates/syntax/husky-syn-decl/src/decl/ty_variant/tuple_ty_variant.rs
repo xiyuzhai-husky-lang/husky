@@ -34,6 +34,19 @@ impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TypeTupleVariantRparRegio
     }
 }
 
+/// # getters
+impl TypeTupleVariantSynNodeDecl {
+    pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
+        SmallVec::from_iter(
+            self.field_comma_list(db)
+                .as_ref()
+                .err()
+                .into_iter()
+                .chain(self.rpar(db).as_ref().err().into_iter()),
+        )
+    }
+}
+
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TypeTupleVariantSynDecl {
     #[id]
