@@ -35,10 +35,7 @@ pub(crate) fn ty_impl_block_syn_declarative_signature_template(
         declarative_term_menu,
     );
     let self_ty_expr = decl.self_ty_expr(db);
-    let ty = match declarative_term_region.expr_term(self_ty_expr.expr()) {
-        Ok(ty) => ty,
-        Err(_) => todo!(),
-    };
+    let ty = declarative_term_region.expr_term(self_ty_expr.expr())?;
     Ok(TypeImplBlockDeclarativeSignatureTemplate::new(
         db,
         template_parameters,

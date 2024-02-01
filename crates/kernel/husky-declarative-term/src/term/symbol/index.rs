@@ -367,7 +367,7 @@ impl TermSymbolRegistry {
         // attrs: TemplateParameterAttrs,
         ty_path: TypePath,
     ) -> DeclarativeTermSymbolIndex {
-        match self
+        let disambiguator = match self
             .cache
             .iter_mut()
             .filter_map(|index| match index.inner() {
@@ -381,25 +381,23 @@ impl TermSymbolRegistry {
             })
             .next()
         {
-            Some(_latest_disambiguator) => todo!(),
-            None => {
-                let index =
-                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::EphemPathLeading {
-                        // attrs,
-                        disambiguator: 0,
-                        ty_path,
-                    });
-                self.cache.push(index);
-                index
-            }
-        }
+            Some(latest_disambiguator) => latest_disambiguator + 1,
+            None => 0,
+        };
+        let index = DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::EphemPathLeading {
+            // attrs,
+            disambiguator,
+            ty_path,
+        });
+        self.cache.push(index);
+        index
     }
 
     pub fn issue_ephem_other_index(
         &mut self,
         // attrs: TemplateParameterAttrs
     ) -> DeclarativeTermSymbolIndex {
-        match self
+        let disambiguator = match self
             .cache
             .iter_mut()
             .filter_map(|index| match index.inner() {
@@ -413,16 +411,14 @@ impl TermSymbolRegistry {
             })
             .next()
         {
-            Some(_latest_disambiguator) => todo!(),
-            None => {
-                let index =
-                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::EphemOther {
-                        // attrs,
-                        disambiguator: 0,
-                    });
-                self.cache.push(index);
-                index
-            }
-        }
+            Some(latest_disambiguator) => latest_disambiguator + 1,
+            None => 0,
+        };
+        let index = DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexImpl::EphemOther {
+            // attrs,
+            disambiguator,
+        });
+        self.cache.push(index);
+        index
     }
 }

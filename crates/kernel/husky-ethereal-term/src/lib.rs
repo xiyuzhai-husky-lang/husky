@@ -90,6 +90,6 @@ pub struct EtherealTermJar(
     helpers::ethereal_term_curry_toolchain,
     helpers::ethereal_term_application_toolchain,
     helpers::ethereal_term_ritchie_toolchain,
-    helpers::final_destination::ethereal_term_application_final_destination,
-    helpers::final_destination::ethereal_term_curry_final_destination,
+    helpers::final_destination::application_ethereal_term_final_destination,
+    helpers::final_destination::curry_ethereal_term_final_destination,
 );

@@ -180,7 +180,7 @@ pub enum PropsFieldEtherealSignature {
 }
 
 pub trait HasPropsFieldEtherealSignature: Copy {
-    fn regular_field_ethereal_signature(
+    fn props_field_ethereal_signature(
         self,
         db: &::salsa::Db,
         arguments: &[EtherealTerm],
@@ -189,35 +189,35 @@ pub trait HasPropsFieldEtherealSignature: Copy {
 }
 
 impl HasPropsFieldEtherealSignature for TypePath {
-    fn regular_field_ethereal_signature(
+    fn props_field_ethereal_signature(
         self,
         db: &::salsa::Db,
         arguments: &[EtherealTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {
         self.ethereal_signature_template(db)?
-            .regular_field_ethereal_signature(db, arguments, ident)
+            .props_field_ethereal_signature(db, arguments, ident)
     }
 }
 
 impl HasPropsFieldEtherealSignature for TypeEtherealSignatureTemplate {
-    fn regular_field_ethereal_signature(
+    fn props_field_ethereal_signature(
         self,
         db: &::salsa::Db,
         arguments: &[EtherealTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {
         match self {
-            TypeEtherealSignatureTemplate::Enum(_ethereal_signature_template) => Nothing,
+            TypeEtherealSignatureTemplate::Enum(_)
+            | TypeEtherealSignatureTemplate::Inductive(_)
+            | TypeEtherealSignatureTemplate::UnitStruct(_)
+            | TypeEtherealSignatureTemplate::TupleStruct(_)
+            | TypeEtherealSignatureTemplate::Extern(_) => Nothing,
             TypeEtherealSignatureTemplate::PropsStruct(ethereal_signature_template) => {
-                ethereal_signature_template.regular_field_ethereal_signature(db, arguments, ident)
+                ethereal_signature_template.props_field_ethereal_signature(db, arguments, ident)
             }
-            TypeEtherealSignatureTemplate::UnitStruct(_) => todo!(),
-            TypeEtherealSignatureTemplate::TupleStruct(_) => todo!(),
             TypeEtherealSignatureTemplate::Record(_) => todo!(),
-            TypeEtherealSignatureTemplate::Inductive(_) => todo!(),
             TypeEtherealSignatureTemplate::Structure(_) => todo!(),
-            TypeEtherealSignatureTemplate::Extern(_) => Nothing,
             TypeEtherealSignatureTemplate::Union(_) => todo!(),
         }
     }

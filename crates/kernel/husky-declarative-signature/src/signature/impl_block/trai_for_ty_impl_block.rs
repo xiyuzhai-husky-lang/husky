@@ -53,10 +53,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_declarative_signature_template(
         declarative_term_menu,
     );
     let trai_expr = decl.trai_expr(db);
-    let trai = match declarative_term_region.expr_term(trai_expr.syn_expr_idx()) {
-        Ok(trai) => trai,
-        Err(_) => todo!(),
-    };
+    let trai = declarative_term_region.expr_term(trai_expr.syn_expr_idx())?;
     let self_ty_term = declarative_term_region
         .term_symbol_region()
         .self_ty()

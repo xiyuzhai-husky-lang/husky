@@ -160,7 +160,10 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
                 }
             }
             EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => {
-                instantiation.try_add_symbol_rule(symbol, target_ty_term)?;
+                match instantiation.try_add_symbol_rule(symbol, target_ty_term) {
+                    JustOk(_) => (),
+                    JustErr(_) | Nothing => unreachable!(),
+                };
                 JustOk(TraitForTypeImplBlockEtherealSignatureBuilder::new(
                     db,
                     self,

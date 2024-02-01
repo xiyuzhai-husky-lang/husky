@@ -14,7 +14,7 @@ pub struct PropsStructTypeEtherealSignatureTemplate {
 }
 
 impl HasPropsFieldEtherealSignature for PropsStructTypeEtherealSignatureTemplate {
-    fn regular_field_ethereal_signature(
+    fn props_field_ethereal_signature(
         self,
         db: &::salsa::Db,
         arguments: &[EtherealTerm],
