@@ -15,7 +15,6 @@ pub fn ty_path_field_declarative_ty(
             .fields(db)
             .iter()
             .find_map(|field| (field.ident() == ident).then_some(field.ty())),
-        TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Enum(_)
         | TypeDeclarativeSignatureTemplate::UnitStruct(_)

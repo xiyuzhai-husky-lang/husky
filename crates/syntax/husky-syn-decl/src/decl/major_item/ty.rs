@@ -29,7 +29,6 @@ pub enum TypeSynNodeDecl {
     PropsStruct(PropsStructTypeSynNodeDecl),
     UnitStruct(UnitStructTypeSynNodeDecl),
     TupleStruct(TupleStructTypeSynNodeDecl),
-    Record(RecordTypeSynNodeDecl),
     Inductive(InductiveTypeSynNodeDecl),
     Structure(StructureTypeSynNodeDecl),
     Extern(ExternTypeSynNodeDecl),
@@ -41,7 +40,6 @@ impl TypeSynNodeDecl {
         match self {
             TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.syn_node_path(db),
             TypeSynNodeDecl::Inductive(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeSynNodeDecl::Record(syn_node_decl) => syn_node_decl.syn_node_path(db),
             TypeSynNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.syn_node_path(db),
             TypeSynNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.syn_node_path(db),
             TypeSynNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.syn_node_path(db),
@@ -57,7 +55,6 @@ impl TypeSynNodeDecl {
             TypeSynNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TypeSynNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TypeSynNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.syn_expr_region(db),
-            TypeSynNodeDecl::Record(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TypeSynNodeDecl::Inductive(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TypeSynNodeDecl::Structure(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TypeSynNodeDecl::Extern(syn_node_decl) => syn_node_decl.syn_expr_region(db),
@@ -71,7 +68,6 @@ impl TypeSynNodeDecl {
             TypeSynNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.errors(db),
             TypeSynNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.errors(db),
             TypeSynNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.errors(db),
-            TypeSynNodeDecl::Record(syn_node_decl) => syn_node_decl.errors(db),
             TypeSynNodeDecl::Inductive(syn_node_decl) => syn_node_decl.errors(db),
             TypeSynNodeDecl::Structure(syn_node_decl) => syn_node_decl.errors(db),
             TypeSynNodeDecl::Extern(syn_node_decl) => syn_node_decl.errors(db),
@@ -161,7 +157,6 @@ pub enum TypeSynDecl {
     PropsStruct(PropsStructTypeSynDecl),
     UnitStruct(UnitStructTypeSynDecl),
     TupleStruct(TupleStructTypeSynDecl),
-    Record(RecordTypeSynDecl),
     Inductive(InductiveTypeSynDecl),
     Structure(StructureTypeSynDecl),
     Extern(ExternTypeSynDecl),
@@ -173,7 +168,6 @@ impl TypeSynDecl {
         match self {
             TypeSynDecl::Enum(decl) => decl.path(db),
             TypeSynDecl::Inductive(decl) => decl.path(db),
-            TypeSynDecl::Record(decl) => decl.path(db),
             TypeSynDecl::UnitStruct(decl) => decl.path(db),
             TypeSynDecl::PropsStruct(decl) => decl.path(db),
             TypeSynDecl::TupleStruct(decl) => decl.path(db),
@@ -189,7 +183,6 @@ impl TypeSynDecl {
             TypeSynDecl::UnitStruct(decl) => decl.template_parameters(db),
             TypeSynDecl::TupleStruct(decl) => decl.template_parameters(db),
             TypeSynDecl::PropsStruct(decl) => decl.template_parameters(db),
-            TypeSynDecl::Record(decl) => decl.template_parameters(db),
             TypeSynDecl::Inductive(decl) => decl.template_parameters(db),
             TypeSynDecl::Structure(decl) => decl.template_parameters(db),
             TypeSynDecl::Extern(decl) => decl.template_parameters(db),
@@ -203,7 +196,6 @@ impl TypeSynDecl {
             TypeSynDecl::UnitStruct(decl) => decl.syn_expr_region(db),
             TypeSynDecl::TupleStruct(decl) => decl.syn_expr_region(db),
             TypeSynDecl::PropsStruct(decl) => decl.syn_expr_region(db),
-            TypeSynDecl::Record(decl) => decl.syn_expr_region(db),
             TypeSynDecl::Inductive(decl) => decl.syn_expr_region(db),
             TypeSynDecl::Structure(decl) => decl.syn_expr_region(db),
             TypeSynDecl::Extern(decl) => decl.syn_expr_region(db),
@@ -229,9 +221,6 @@ impl TypeSynDecl {
             }
             TypeSynNodeDecl::TupleStruct(syn_node_decl) => {
                 TupleStructTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
-            }
-            TypeSynNodeDecl::Record(syn_node_decl) => {
-                RecordTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::Inductive(syn_node_decl) => {
                 InductiveTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
@@ -265,7 +254,6 @@ pub(crate) fn ty_decl(db: &::salsa::Db, path: TypePath) -> DeclResult<TypeSynDec
 
 #[test]
 fn ty_decl_works() {
-    
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();

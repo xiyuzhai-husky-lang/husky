@@ -2,7 +2,6 @@ mod r#enum;
 mod r#extern;
 mod inductive;
 mod props_struct;
-mod record;
 mod structure;
 mod tuple_struct;
 mod union;
@@ -12,7 +11,6 @@ pub use self::inductive::*;
 pub use self::props_struct::*;
 pub use self::r#enum::*;
 pub use self::r#extern::*;
-pub use self::record::*;
 pub use self::structure::*;
 pub use self::tuple_struct::*;
 pub use self::union::*;
@@ -27,7 +25,6 @@ pub enum TypeDeclarativeSignature {
     PropsStruct(PropsStructDeclarativeSignature),
     UnitStruct(UnitStructTypeDeclarativeSignature),
     TupleStruct(TupleStructTypeDeclarativeSignature),
-    Record(RecordTypeDeclarativeSignature),
     Inductive(InductiveTypeDeclarativeSignature),
     Structure(StructureTypeDeclarativeSignature),
     Extern(ExternTypeDeclarativeSignature),
@@ -42,7 +39,6 @@ pub enum TypeDeclarativeSignatureTemplate {
     PropsStruct(PropsStructTypeDeclarativeSignatureTemplate),
     UnitStruct(UnitStructTypeDeclarativeSignatureTemplate),
     TupleStruct(TupleStructTypeDeclarativeSignatureTemplate),
-    Record(RecordTypeDeclarativeSignatureTemplate),
     Inductive(InductiveTypeDeclarativeSignatureTemplate),
     Structure(StructureTypeDeclarativeSignatureTemplate),
     Extern(ExternTypeDeclarativeSignatureTemplate),
@@ -56,7 +52,6 @@ impl TypeDeclarativeSignatureTemplate {
             TypeDeclarativeSignatureTemplate::UnitStruct(decl) => decl.template_parameters(db),
             TypeDeclarativeSignatureTemplate::TupleStruct(decl) => decl.template_parameters(db),
             TypeDeclarativeSignatureTemplate::PropsStruct(decl) => decl.template_parameters(db),
-            TypeDeclarativeSignatureTemplate::Record(decl) => decl.template_parameters(db),
             TypeDeclarativeSignatureTemplate::Inductive(decl) => decl.template_parameters(db),
             TypeDeclarativeSignatureTemplate::Structure(decl) => decl.template_parameters(db),
             TypeDeclarativeSignatureTemplate::Extern(decl) => decl.template_parameters(db),
@@ -95,9 +90,6 @@ pub(crate) fn ty_declarative_signature_template(
         }
         TypeSynDecl::TupleStruct(decl) => {
             TupleStructTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
-        }
-        TypeSynDecl::Record(decl) => {
-            RecordTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
         TypeSynDecl::Inductive(decl) => {
             InductiveTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()

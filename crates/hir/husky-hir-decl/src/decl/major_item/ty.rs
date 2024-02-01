@@ -91,9 +91,6 @@ fn ty_hir_decl(db: &::salsa::Db, path: TypePath) -> Option<TypeHirDecl> {
         TypeSynDecl::TupleStruct(syn_decl) => {
             Some(TupleStructTypeHirDecl::from_syn(path, syn_decl, db).into())
         }
-        TypeSynDecl::Record(syn_decl) => {
-            Some(RecordTypeHirDecl::from_syn(path, syn_decl, db).into())
-        }
         TypeSynDecl::Inductive(_syn_decl) => None,
         TypeSynDecl::Structure(_syn_decl) => None,
         TypeSynDecl::Extern(syn_decl) => {

@@ -23,7 +23,6 @@ pub struct DeclarativeSignatureJar(
     UnitStructTypeDeclarativeSignatureTemplate,
     TupleStructTypeDeclarativeSignatureTemplate,
     PropsStructTypeDeclarativeSignatureTemplate,
-    RecordTypeDeclarativeSignatureTemplate,
     InductiveTypeDeclarativeSignatureTemplate,
     StructureTypeDeclarativeSignatureTemplate,
     ExternTypeDeclarativeSignatureTemplate,
