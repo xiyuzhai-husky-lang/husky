@@ -1,6 +1,3 @@
-pub mod error;
-
-use self::error::*;
 use crate::*;
 use maybe_result::*;
 use vec_like::SmallVecPairMap;
@@ -107,15 +104,17 @@ impl EtherealInstantiationBuilder {
         }
     }
 
-    /// JustOk(()) means rule is added and everything is compatible
-    /// Nothing means something is incompatible
-    /// JustErr(_) means something is wrong
+    /// `JustOk(())` means rule is added and everything is compatible.
+    ///
+    /// `Nothing` means something is incompatible.
+    ///
+    /// `JustErr(e)` means something is wrong.
     pub fn try_add_rules_from_application(
         &mut self,
         src: EtherealTerm,
         dst_arguments: &[EtherealTerm],
         db: &::salsa::Db,
-    ) -> EtherealTermInstantiationMaybeResult<()> {
+    ) -> EtherealTermMaybeResult<()> {
         let src_application_expansion = src.application_expansion(db);
         if src_application_expansion.arguments(db).len() != dst_arguments.len() {
             todo!()
@@ -128,15 +127,17 @@ impl EtherealInstantiationBuilder {
         JustOk(())
     }
 
-    /// JustOk(()) means rule is added and everything is compatible
-    /// Nothing means something is incompatible
-    /// JustErr(_) means something is wrong
+    /// `JustOk(())` means rule is added and everything is compatible.
+    ///
+    /// `Nothing` means something is incompatible.
+    ///
+    /// `JustErr(e)` means something is wrong.
     pub fn try_add_rule(
         &mut self,
         src: EtherealTerm,
         dst: EtherealTerm,
         db: &::salsa::Db,
-    ) -> EtherealTermInstantiationMaybeResult<()> {
+    ) -> EtherealTermMaybeResult<()> {
         if src == dst {
             return JustOk(());
         }
@@ -168,7 +169,7 @@ impl EtherealInstantiationBuilder {
             | EtherealTerm::Rune(_)
             | EtherealTerm::EntityPath(_)
             | EtherealTerm::Category(_)
-            | EtherealTerm::Universe(_) => JustErr(EtherealTermInstantiationError::MisMatch),
+            | EtherealTerm::Universe(_) => Nothing,
             EtherealTerm::Curry(_) => todo!(),
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
@@ -181,7 +182,7 @@ impl EtherealInstantiationBuilder {
         &mut self,
         symbol: SymbolEtherealTerm,
         dst: EtherealTerm,
-    ) -> EtherealTermInstantiationMaybeResult<()> {
+    ) -> EtherealTermMaybeResult<()> {
         if let Some((_, opt_dst0)) = self.symbol_map.get_entry_mut(symbol) {
             match opt_dst0 {
                 Some(dst0) => {
