@@ -48,7 +48,7 @@ pub fn trai_path_for_ty_path_impl_block_ethereal_signature_templates<'a>(
             .unwrap_or(&[]),
     })
 }
-
+/// given a trait path and a ty term, find all the implementation blocks and return their ethereal signature builders
 pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builders<'a>(
     db: &'a ::salsa::Db,
     trai_path: TraitPath,

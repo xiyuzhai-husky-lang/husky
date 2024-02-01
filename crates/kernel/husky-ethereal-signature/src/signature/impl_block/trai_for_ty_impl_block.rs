@@ -132,6 +132,7 @@ pub struct TraitForTypeImplBlockEtherealSignatureBuilder {
 }
 
 impl TraitForTypeImplBlockEtherealSignatureTemplate {
+    /// try to give a partial instantiation such that `self_ty` is equal to `target_ty`
     /// returns `Nothing` when template matching failed
     #[inline(always)]
     pub fn instantiate_ty(
@@ -145,24 +146,20 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
             .empty_instantiation_builder(true);
         match self.self_ty_refined(db) {
             EtherealSelfTypeInTraitImpl::PathLeading(self_ty_term) => {
-                match instantiation.try_add_rules_from_application(
+                instantiation.try_add_rules_from_application(
                     self_ty_term,
                     target_ty_arguments,
                     db,
-                ) {
-                    JustOk(_) => JustOk(TraitForTypeImplBlockEtherealSignatureBuilder::new(
-                        db,
-                        self,
-                        instantiation,
-                    )),
-                    JustErr(_) => todo!(),
-                    Nothing => todo!(),
-                }
+                )?;
+                JustOk(TraitForTypeImplBlockEtherealSignatureBuilder::new(
+                    db,
+                    self,
+                    instantiation,
+                ))
             }
             EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => {
-                match instantiation.try_add_symbol_rule(symbol, target_ty_term) {
-                    JustOk(_) => (),
-                    JustErr(_) | Nothing => unreachable!(),
+                let JustOk(()) = instantiation.try_add_symbol_rule(symbol, target_ty_term) else {
+                    unreachable!("this can't go wrong because instantiation was empty")
                 };
                 JustOk(TraitForTypeImplBlockEtherealSignatureBuilder::new(
                     db,
