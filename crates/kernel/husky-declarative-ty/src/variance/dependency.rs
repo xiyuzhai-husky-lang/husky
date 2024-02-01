@@ -69,7 +69,6 @@ pub(crate) fn declarative_ty_item_variance_crate_dependencies(
         TypeDeclarativeSignatureTemplate::PropsStruct(_) => todo!(),
         TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
         TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Extern(_) => (),

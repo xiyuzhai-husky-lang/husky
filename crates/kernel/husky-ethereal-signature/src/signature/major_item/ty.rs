@@ -2,7 +2,6 @@ mod r#enum;
 mod r#extern;
 mod inductive;
 mod props_struct;
-mod record;
 mod structure;
 mod tuple_struct;
 mod union;
@@ -12,7 +11,6 @@ pub use self::inductive::*;
 pub use self::props_struct::*;
 pub use self::r#enum::*;
 pub use self::r#extern::*;
-pub use self::record::*;
 pub use self::structure::*;
 pub use self::tuple_struct::*;
 pub use self::union::*;
@@ -33,7 +31,6 @@ pub enum TypeEtherealSignatureTemplate {
     PropsStruct(PropsStructTypeEtherealSignatureTemplate),
     UnitStruct(UnitStructTypeEtherealSignatureTemplate),
     TupleStruct(TupleStructTypeEtherealSignatureTemplate),
-    Record(RecordTypeEtherealSignatureTemplate),
     Inductive(InductiveTypeEtherealSignatureTemplate),
     Structure(StructureTypeEtherealSignatureTemplate),
     Extern(ExternTypeEtherealSignatureTemplate),
@@ -51,7 +48,6 @@ impl TypeEtherealSignatureTemplate {
             TypeEtherealSignatureTemplate::TupleStruct(template) => {
                 template.template_parameters(db)
             }
-            TypeEtherealSignatureTemplate::Record(template) => template.template_parameters(db),
             TypeEtherealSignatureTemplate::Inductive(template) => template.template_parameters(db),
             TypeEtherealSignatureTemplate::Structure(template) => template.template_parameters(db),
             TypeEtherealSignatureTemplate::Extern(template) => template.template_parameters(db),
@@ -71,11 +67,10 @@ impl TypeEtherealSignatureTemplate {
             TypeEtherealSignatureTemplate::TupleStruct(slf) => {
                 Some(slf.instance_constructor_ty(db).into())
             }
-            TypeEtherealSignatureTemplate::Record(_) => todo!(),
-            TypeEtherealSignatureTemplate::Inductive(_) => todo!(),
+            TypeEtherealSignatureTemplate::Inductive(_) => None,
             TypeEtherealSignatureTemplate::Structure(_) => todo!(),
-            TypeEtherealSignatureTemplate::Extern(_) => todo!(),
-            TypeEtherealSignatureTemplate::Union(_) => todo!(),
+            TypeEtherealSignatureTemplate::Extern(_) => None,
+            TypeEtherealSignatureTemplate::Union(_) => None,
         }
     }
 }
@@ -123,14 +118,6 @@ fn ty_ethereal_signature_template(
         }
         TypeDeclarativeSignatureTemplate::TupleStruct(declarative_signature_template) => {
             TupleStructTypeEtherealSignatureTemplate::from_declarative(
-                db,
-                path,
-                declarative_signature_template,
-            )?
-            .into()
-        }
-        TypeDeclarativeSignatureTemplate::Record(declarative_signature_template) => {
-            RecordTypeEtherealSignatureTemplate::from_declarative(
                 db,
                 path,
                 declarative_signature_template,
@@ -216,7 +203,6 @@ impl HasPropsFieldEtherealSignature for TypeEtherealSignatureTemplate {
             TypeEtherealSignatureTemplate::PropsStruct(ethereal_signature_template) => {
                 ethereal_signature_template.props_field_ethereal_signature(db, arguments, ident)
             }
-            TypeEtherealSignatureTemplate::Record(_) => todo!(),
             TypeEtherealSignatureTemplate::Structure(_) => todo!(),
             TypeEtherealSignatureTemplate::Union(_) => todo!(),
         }

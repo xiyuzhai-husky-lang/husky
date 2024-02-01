@@ -26,7 +26,6 @@ pub fn ty_instance_constructor_path_declarative_ty(
         TypeDeclarativeSignatureTemplate::TupleStruct(signature) => Ok(
             tuple_struct_ty_constructor_path_declarative_ty(db, path, variances, signature)?,
         ),
-        TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Inductive(_) => {
             Err(OriginalDeclarativeTypeError::InductiveTypeHasNoConstructor)?
         }

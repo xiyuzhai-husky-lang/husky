@@ -37,7 +37,6 @@ pub struct EtherealSignatureJar(
     EnumTypeEtherealSignatureTemplate,
     ExternTypeEtherealSignatureTemplate,
     InductiveTypeEtherealSignatureTemplate,
-    RecordTypeEtherealSignatureTemplate,
     PropsStructTypeEtherealSignatureTemplate,
     StructureTypeEtherealSignatureTemplate,
     TupleStructTypeEtherealSignatureTemplate,

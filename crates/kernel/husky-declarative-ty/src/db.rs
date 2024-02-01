@@ -21,6 +21,5 @@ pub struct DeclarativeTypeJar(
     EtherealApplicationArguments,
     ty_path_ty_method_declarative_ty,
     ty_path_field_declarative_ty,
-    application_declarative_term_declarative_ty,
     crate::principal_item_path::ty_variant::ty_variant_path_declarative_ty,
 );

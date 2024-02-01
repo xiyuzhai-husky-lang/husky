@@ -10,12 +10,7 @@ impl ExpectCoersion {
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
-        let expected_base_ty_data = self.ty_expected.base_ty_data_inner(db, terms) else {
-            unreachable!(
-                "place should be merged with contract already, self.ty_expected = {}",
-                self.ty_expected.show(db, terms)
-            )
-        };
+        let expected_base_ty_data = self.ty_expected.base_ty_data_inner(db, terms);
         match expected_base_ty_data {
             FluffyBaseTypeData::TypeOntology {
                 ty_path,
