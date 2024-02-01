@@ -303,6 +303,22 @@ TokenSheetData {
                 PunctuationMapped::Semicolon,
             ),
         ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Extern,
+            ),
+        ),
+        TokenData::Ident(
+            `Universe`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
+            ),
+        ),
     ],
     token_group_starts: [
         TokenGroupStart(
@@ -360,8 +376,14 @@ TokenSheetData {
                 68,
             ),
         ),
+        TokenGroupStart(
+            TokenIdx(
+                72,
+            ),
+        ),
     ],
     indents: [
+        0,
         0,
         0,
         0,

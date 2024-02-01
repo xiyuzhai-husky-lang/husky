@@ -203,185 +203,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 263,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: Some(
-                                2,
-                            ),
-                        },
-                    },
-                    ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
-                                            TraitForTypeItemPathData {
-                                                impl_block: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                                ident: `unveil`,
-                                                item_kind: AssociatedFunctionFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    HirTemplateSymbol::Type(
-                                        HirTypeSymbol::Type {
-                                            attrs: HirTemplateSymbolAttrs {
-                                                class: Comptime,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    HirTermSymbolResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                    template_arguments: [],
-                                                    always_copyable: false,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                                (
-                                    HirTemplateSymbol::Const(
-                                        HirConstSymbol {
-                                            ty: HirType::Symbol(
-                                                HirTypeSymbol::Type {
-                                                    attrs: HirTemplateSymbolAttrs {
-                                                        class: Comptime,
-                                                    },
-                                                    variance: None,
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                            index: HirConstSymbolIndex::Other {
-                                                attrs: HirTemplateSymbolAttrs {
-                                                    class: Runtime,
-                                                },
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    HirTermSymbolResolution::Explicit(
-                                        HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 268,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: Some(
-                                2,
-                            ),
-                        },
-                    },
-                    ValkyrieRide::PathLeading {
-                        javelin_item_path: JavelinPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TraitForTypeItem(
-                                            TraitForTypeItemPathData {
-                                                impl_block: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                                ident: `unveil`,
-                                                item_kind: AssociatedFunctionFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    HirTemplateSymbol::Type(
-                                        HirTypeSymbol::Type {
-                                            attrs: HirTemplateSymbolAttrs {
-                                                class: Comptime,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    HirTermSymbolResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                    template_arguments: [],
-                                                    always_copyable: false,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                                (
-                                    HirTemplateSymbol::Const(
-                                        HirConstSymbol {
-                                            ty: HirType::Symbol(
-                                                HirTypeSymbol::Type {
-                                                    attrs: HirTemplateSymbolAttrs {
-                                                        class: Comptime,
-                                                    },
-                                                    variance: None,
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                            index: HirConstSymbolIndex::Other {
-                                                attrs: HirTemplateSymbolAttrs {
-                                                    class: Runtime,
-                                                },
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    HirTermSymbolResolution::Explicit(
-                                        HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 262,
+                                                            value: 264,
                                                         },
                                                     ),
                                                 ),
@@ -559,7 +381,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 270,
+                                                            value: 263,
                                                         },
                                                     ),
                                                 ),
@@ -648,7 +470,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 265,
+                                                            value: 270,
                                                         },
                                                     ),
                                                 ),
@@ -826,7 +648,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 267,
+                                                            value: 266,
                                                         },
                                                     ),
                                                 ),
@@ -915,7 +737,185 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 264,
+                                                            value: 272,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                2,
+                            ),
+                        },
+                    },
+                    ValkyrieRide::PathLeading {
+                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                            TraitForTypeItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TraitForTypeItem(
+                                            TraitForTypeItemPathData {
+                                                impl_block: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `malamute`,
+                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`malamute::Class`, `Enum`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                                ident: `unveil`,
+                                                item_kind: AssociatedFunctionFn,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                (
+                                    HirTemplateSymbol::Const(
+                                        HirConstSymbol {
+                                            ty: HirType::Symbol(
+                                                HirTypeSymbol::Type {
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            index: HirConstSymbolIndex::Other {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Runtime,
+                                                },
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Constant(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 268,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                2,
+                            ),
+                        },
+                    },
+                    ValkyrieRide::PathLeading {
+                        javelin_item_path: JavelinPath::TraitForTypeItem(
+                            TraitForTypeItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TraitForTypeItem(
+                                            TraitForTypeItemPathData {
+                                                impl_block: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `malamute`,
+                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`malamute::Class`, `Enum`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                                ident: `unveil`,
+                                                item_kind: AssociatedFunctionFn,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateSymbol::Type(
+                                        HirTypeSymbol::Type {
+                                            attrs: HirTemplateSymbolAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                (
+                                    HirTemplateSymbol::Const(
+                                        HirConstSymbol {
+                                            ty: HirType::Symbol(
+                                                HirTypeSymbol::Type {
+                                                    attrs: HirTemplateSymbolAttrs {
+                                                        class: Comptime,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            index: HirConstSymbolIndex::Other {
+                                                attrs: HirTemplateSymbolAttrs {
+                                                    class: Runtime,
+                                                },
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    HirTermSymbolResolution::Explicit(
+                                        HirTemplateArgument::Constant(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 265,
                                                         },
                                                     ),
                                                 ),

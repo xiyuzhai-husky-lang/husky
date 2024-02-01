@@ -571,6 +571,40 @@ Ok(
                 },
             ),
             None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Universe`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        MajorItem {
+                            module_item_kind: Type(
+                                Extern,
+                            ),
+                            connection: Connected,
+                        },
+                    ),
+                },
+            ),
+            None,
         ],
     },
 )

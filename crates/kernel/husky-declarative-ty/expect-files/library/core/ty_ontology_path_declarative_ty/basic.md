@@ -41,4 +41,10 @@
             DeclarativeTerm(`Type`),
         ),
     ),
+    (
+        TypePath(`core::basic::Universe`, `Extern`),
+        Ok(
+            DeclarativeTerm(`Type`),
+        ),
+    ),
 ]

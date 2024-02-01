@@ -59,6 +59,7 @@ pub struct ItemPathMenu {
     ref_ty_path: TypePath,
     ref_mut_ty_path: TypePath,
     at_ty_path: TypePath,
+    universe_ty_path: TypePath,
     vec_ty_path: TypePath,
     array_ty_path: TypePath,
     leash_ty_path: TypePath,
@@ -352,6 +353,13 @@ impl ItemPathMenu {
             TypeKind::Extern,
             db,
         );
+        let universe_ty_path = TypePath::new(
+            core_basic,
+            Ident::from_ref(db, "Universe").unwrap(),
+            MajorItemConnection::Connected,
+            TypeKind::Extern,
+            db,
+        );
         let vec_ty_path = TypePath::new(
             core_vec,
             Ident::from_ref(db, "Vec").unwrap(),
@@ -581,6 +589,7 @@ impl ItemPathMenu {
             ref_mut_ty_path,
             leash_ty_path,
             at_ty_path,
+            universe_ty_path,
             visual_ty_path,
             vec_ty_path,
             array_ty_path,
@@ -755,6 +764,10 @@ impl ItemPathMenu {
 
     pub fn result_ty_path(&self) -> TypePath {
         self.result_ty_path
+    }
+
+    pub fn universe_ty_path(&self) -> TypePath {
+        self.universe_ty_path
     }
 
     pub fn vec_ty_path(&self) -> TypePath {

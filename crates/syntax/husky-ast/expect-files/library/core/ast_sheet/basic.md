@@ -297,14 +297,52 @@ AstSheet {
                     variants: None,
                 },
             },
+            Ast::Identifiable {
+                token_group_idx: TokenGroupIdx(
+                    11,
+                ),
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                72,
+                            ),
+                        },
+                    },
+                    visibility: Scope::Pub,
+                },
+                item_kind: MajorItem {
+                    module_item_kind: Type(
+                        Extern,
+                    ),
+                    connection: Connected,
+                },
+                ident_token: IdentToken {
+                    ident: `Universe`,
+                    token_idx: TokenIdx(
+                        74,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        75,
+                    ),
+                    drained: false,
+                },
+                block: DefnBlock::Type {
+                    path: TypePath(`core::basic::Universe`, `Extern`),
+                    variants: None,
+                },
+            },
         ],
     },
     top_level_asts: ArenaIdxRange(
-        1..12,
+        1..13,
     ),
     siblings: [
         ArenaIdxRange(
-            1..12,
+            1..13,
         ),
     ],
 }

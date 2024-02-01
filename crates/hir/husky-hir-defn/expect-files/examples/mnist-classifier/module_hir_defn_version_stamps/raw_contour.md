@@ -247,7 +247,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 283,
+                            value: 284,
                         },
                     ),
                 ),
@@ -269,7 +269,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 424,
+                            value: 425,
                         },
                     ),
                 ),
@@ -291,7 +291,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 284,
+                            value: 285,
                         },
                     ),
                 ),
@@ -313,7 +313,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 369,
+                            value: 370,
                         },
                     ),
                 ),
@@ -335,7 +335,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 370,
+                            value: 371,
                         },
                     ),
                 ),
@@ -357,7 +357,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 371,
+                            value: 372,
                         },
                     ),
                 ),
@@ -379,7 +379,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 372,
+                            value: 373,
                         },
                     ),
                 ),
@@ -401,7 +401,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 373,
+                            value: 374,
                         },
                     ),
                 ),

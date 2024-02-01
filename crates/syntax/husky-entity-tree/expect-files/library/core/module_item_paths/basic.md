@@ -34,4 +34,9 @@
             TypePath(`core::basic::Place`, `Extern`),
         ),
     ),
+    ItemPath::MajorItem(
+        MajorItemPath::Type(
+            TypePath(`core::basic::Universe`, `Extern`),
+        ),
+    ),
 ]

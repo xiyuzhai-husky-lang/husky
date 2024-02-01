@@ -623,7 +623,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 79,
+                                                    value: 80,
                                                 },
                                             ),
                                         ),
@@ -1535,7 +1535,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 65,
+                                                    value: 66,
                                                 },
                                             ),
                                         ),
@@ -2054,7 +2054,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 79,
+                                                    value: 80,
                                                 },
                                             ),
                                         ),
@@ -2966,7 +2966,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 65,
+                                                    value: 66,
                                                 },
                                             ),
                                         ),

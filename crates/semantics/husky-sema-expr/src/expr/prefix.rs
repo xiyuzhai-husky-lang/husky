@@ -122,75 +122,21 @@ impl<'a> SemaExprEngine<'a> {
     ) -> SemaExprTypeResult<FluffyTerm> {
         let opd_ty = opd_ty.ok_or(DerivedSemaExprTypeError::BitNotOperandTypeNotInferred)?;
         match opd_ty.data(self) {
-            FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                ty_path,
-                refined_ty_path,
-                ty_arguments,
+                refined_ty_path: Left(prelude_ty_path),
                 ..
-            } => match refined_ty_path {
-                Left(prelude_ty_path) => match prelude_ty_path {
-                    PreludeTypePath::Basic(_) => todo!(),
-                    PreludeTypePath::Num(num_ty_path) => match num_ty_path {
-                        PreludeNumTypePath::Int(int_ty_path) => match int_ty_path {
-                            PreludeIntTypePath::I8
-                            | PreludeIntTypePath::I16
-                            | PreludeIntTypePath::I32
-                            | PreludeIntTypePath::I64
-                            | PreludeIntTypePath::I128
-                            | PreludeIntTypePath::ISize
-                            | PreludeIntTypePath::U8
-                            | PreludeIntTypePath::U16
-                            | PreludeIntTypePath::U32
-                            | PreludeIntTypePath::U64
-                            | PreludeIntTypePath::U128
-                            | PreludeIntTypePath::USize => {
-                                Err(OriginalSemaExprTypeError::NoBitOprForInteger)?
-                            }
-                            raw_bit_ty_path @ (PreludeIntTypePath::R8
-                            | PreludeIntTypePath::R16
-                            | PreludeIntTypePath::R32
-                            | PreludeIntTypePath::R64
-                            | PreludeIntTypePath::R128
-                            | PreludeIntTypePath::RSize) => Ok(opd_ty),
-                        },
-                        PreludeNumTypePath::Float(_) => todo!(),
-                    },
-                    PreludeTypePath::Indirection(_) => todo!(),
-                    PreludeTypePath::Nat => todo!(),
-                    PreludeTypePath::Lifetime => todo!(),
-                    PreludeTypePath::Place => todo!(),
-                    PreludeTypePath::Module => todo!(),
-                    PreludeTypePath::Trait => todo!(),
-                    PreludeTypePath::List => todo!(),
-                    PreludeTypePath::Container(_) => todo!(),
-                    PreludeTypePath::StringLiteral => todo!(),
-                    PreludeTypePath::Str => todo!(),
-                    PreludeTypePath::Option => todo!(),
-                    PreludeTypePath::Result => todo!(),
-                },
-                Right(_) => todo!(),
+            } => match prelude_ty_path {
+                PreludeTypePath::Num(PreludeNumTypePath::Int(
+                    PreludeIntTypePath::R8
+                    | PreludeIntTypePath::R16
+                    | PreludeIntTypePath::R32
+                    | PreludeIntTypePath::R64
+                    | PreludeIntTypePath::R128
+                    | PreludeIntTypePath::RSize,
+                )) => Ok(opd_ty),
+                _ => Err(OriginalSemaExprTypeError::BitOperationOnlyWorksForRawBitsOrCustom)?,
             },
-            FluffyTermData::Curry {
-                toolchain,
-                curry_kind,
-                variance,
-                parameter_rune,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
-                ritchie_kind,
-                parameter_contracted_tys,
-                return_ty,
-                ..
-            } => todo!(),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Rune { .. } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+            _ => todo!(),
         }
     }
 }

@@ -1860,6 +1860,57 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `Universe`,
+                visibility: Scope::PubUnder(
+                    `core::num`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::MajorItem {
+                                            major_item_path: MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`core::basic::Universe`, `Extern`),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 1,
+                                        use_expr_idx: 1,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::basic::Universe`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core`,
+                                ),
+                                ast_idx: 20,
+                                use_expr_idx: 1,
+                            },
+                        ),
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::basic::Universe`, `Extern`),
+                            ),
+                        ),
+                        visibility: Scope::PubUnder(
+                            `core::num`,
+                        ),
+                        ast_idx: 41,
+                        use_expr_idx: 1,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `Default`,
                 visibility: Scope::PubUnder(
                     `core::num`,
@@ -5683,7 +5734,7 @@ EntityTreeSheet {
                     `core::num`,
                 ),
                 progress: Ok(
-                    58,
+                    59,
                 ),
             },
         ],

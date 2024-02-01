@@ -2039,7 +2039,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 75,
+                                                    value: 76,
                                                 },
                                             ),
                                         ),
@@ -3275,7 +3275,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 67,
+                                                    value: 68,
                                                 },
                                             ),
                                         ),
@@ -4784,7 +4784,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 98,
+                                                    value: 99,
                                                 },
                                             ),
                                         ),
@@ -5982,7 +5982,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 67,
+                                                    value: 68,
                                                 },
                                             ),
                                         ),
@@ -7630,7 +7630,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 98,
+                                                    value: 99,
                                                 },
                                             ),
                                         ),

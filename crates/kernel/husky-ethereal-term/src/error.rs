@@ -24,6 +24,8 @@ pub enum EtherealTermError {
     NoDeclForEntityPath { item_path: ItemPath },
     #[error("EntityPathError")]
     EntityPathError,
+    #[error("DeclarativeTermError")]
+    DeclarativeTermError(#[from] DeclarativeTermError),
     #[error("DeclarativeTypeError")]
     DeclarativeTypeError(#[from] DeclarativeTypeError),
     #[error("ExpectationNotMatchedForCurry")]
@@ -67,24 +69,6 @@ impl From<EntityPathError> for EtherealTermError {
 impl From<&EntityPathError> for EtherealTermError {
     fn from(_value: &EntityPathError) -> Self {
         EtherealTermError::EntityPathError
-    }
-}
-
-impl From<EntityTreeError> for EtherealTermError {
-    fn from(_value: EntityTreeError) -> Self {
-        todo!()
-    }
-}
-
-impl From<&SynNodeDeclError> for EtherealTermError {
-    fn from(_value: &SynNodeDeclError) -> Self {
-        todo!()
-    }
-}
-
-impl From<DeclarativeTermError> for EtherealTermError {
-    fn from(_value: DeclarativeTermError) -> Self {
-        todo!()
     }
 }
 

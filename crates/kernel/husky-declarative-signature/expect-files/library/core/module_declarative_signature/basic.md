@@ -139,4 +139,24 @@
             ),
         ),
     ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::basic::Universe`, `Extern`),
+            ),
+        ),
+        Ok(
+            DeclarativeSignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Extern(
+                        ExternTypeDeclarativeSignatureTemplate {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
 ]

@@ -380,6 +380,60 @@ EntityTreePresheet {
                 ident: `Place`,
                 visibility: Scope::Pub,
             },
+            ItemNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Type(
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::basic::Universe`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 12,
+                        ident_token: IdentToken {
+                            ident: `Universe`,
+                            token_idx: TokenIdx(
+                                74,
+                            ),
+                        },
+                        block: DefnBlock::Type {
+                            path: TypePath(`core::basic::Universe`, `Extern`),
+                            variants: None,
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
+                        TypeSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::basic::Universe`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                ident: `Universe`,
+                visibility: Scope::Pub,
+            },
         ],
     },
     once_use_rules: OnceUseRules(
