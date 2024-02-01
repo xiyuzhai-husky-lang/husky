@@ -123,7 +123,7 @@ pub enum ExpectEqsFunctionTypeOutcomeData {
     },
     Curry {
         variance: Variance,
-        parameter_rune: Option<FluffyTermRune>,
+        parameter_rune: Option<RuneFluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
     },

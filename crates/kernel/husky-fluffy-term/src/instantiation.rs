@@ -157,13 +157,13 @@ pub(crate) trait FluffyInstantiateRef {
     ) -> Self::Target;
 }
 
-pub struct FluffyInstantiationBuilder {
+pub struct FluffyTermInstantiationBuilder {
     env: FluffyInstantiationEnvironment,
     symbol_map: SmallVecPairMap<SymbolEtherealTerm, Option<FluffyTermSymbolResolution>, 4>,
     separator: Option<u8>,
 }
 
-impl std::ops::Index<SymbolEtherealTerm> for FluffyInstantiationBuilder {
+impl std::ops::Index<SymbolEtherealTerm> for FluffyTermInstantiationBuilder {
     type Output = Option<FluffyTermSymbolResolution>;
 
     fn index(&self, index: SymbolEtherealTerm) -> &Self::Output {
@@ -171,7 +171,7 @@ impl std::ops::Index<SymbolEtherealTerm> for FluffyInstantiationBuilder {
     }
 }
 
-impl FluffyInstantiationBuilder {
+impl FluffyTermInstantiationBuilder {
     pub fn new_associated(
         env: FluffyInstantiationEnvironment,
         impl_block_template_parameters: &[EtherealTemplateParameter],
@@ -232,6 +232,7 @@ impl FluffyInstantiationBuilder {
                         FluffyTermSymbolResolution::Explicit(dst0) => {
                             if dst != dst0 {
                                 todo!()
+                                // return JustErr(FluffyTermError);
                             } else {
                                 return JustOk(());
                             }

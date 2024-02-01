@@ -17,7 +17,7 @@ impl FluffyTerm {
     pub fn static_dispatch(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: SynExprIdx,
+        syn_expr_idx: SynExprIdx,
         ident: Ident,
         all_available_traits: &[()],
     ) -> FluffyTermMaybeResult<StaticDispatch> {
@@ -27,25 +27,54 @@ impl FluffyTerm {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 ty_path,
-                refined_ty_path,
                 ty_arguments,
-                ty_ethereal_term,
+                ..
             } => match ty_path.ty_item_ethereal_signature_templates(db, ident) {
                 JustOk(templates) => match templates {
                     TypeItemEtherealSignatureTemplates::AssociatedFn(templates) => {
-                        let ty_arguments: SmallVec<[_; 2]> = ty_arguments.to_smallvec();
-                        for template in templates.iter().copied() {
-                            if let JustOk(signature) = ty_associated_fn_fluffy_signature(
-                                engine,
-                                expr_idx,
-                                template,
-                                &ty_arguments,
-                                /* ad hoc */ &[],
-                            ) {
+                        let dst_ty_arguments: SmallVec<[_; 2]> = ty_arguments.to_smallvec();
+                        let signatures: Vec<_> = templates
+                            .iter()
+                            .copied()
+                            .filter_map(|template| {
+                                ty_associated_fn_fluffy_signature(
+                                    engine,
+                                    syn_expr_idx,
+                                    template,
+                                    &dst_ty_arguments,
+                                    /* ad hoc */ &[],
+                                )
+                                .ok()
+                            })
+                            .collect();
+                        match signatures.len() {
+                            0 => Nothing,
+                            1 => {
+                                let mut signatures = signatures;
+                                let signature = signatures.pop().unwrap();
+                                let FluffyBaseTypeData::TypeOntology {
+                                    ty_arguments: src_ty_arguments,
+                                    ..
+                                } = signature.self_ty().base_ty_data(engine)
+                                else {
+                                    unreachable!()
+                                };
+                                let src_ty_arguments: SmallVec<[_; 2]> =
+                                    src_ty_arguments.to_smallvec();
+                                debug_assert_eq!(src_ty_arguments.len(), dst_ty_arguments.len());
+                                for (&src_ty_argument, &dst_ty_argument) in
+                                    std::iter::zip(&src_ty_arguments, &dst_ty_arguments)
+                                {
+                                    engine.add_expectation(
+                                        ExpectationSource::new_expr(syn_expr_idx),
+                                        src_ty_argument,
+                                        ExpectSubtype::new(dst_ty_argument),
+                                    );
+                                }
                                 return JustOk(signature.into());
                             }
+                            _ => todo!(),
                         }
-                        Nothing
                     }
                     TypeItemEtherealSignatureTemplates::MethodFn(_) => todo!(),
                     TypeItemEtherealSignatureTemplates::MethodFunction(_) => todo!(),
@@ -54,15 +83,7 @@ impl FluffyTerm {
                 JustErr(_) => todo!(),
                 Nothing => todo!(),
             },
-            FluffyTermData::Curry {
-                toolchain,
-                curry_kind,
-                variance,
-                parameter_rune,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => todo!(),
+            FluffyTermData::Curry { .. } => todo!(),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie {

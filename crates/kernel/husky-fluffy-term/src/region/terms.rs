@@ -68,7 +68,7 @@ impl FluffyTerms {
         &mut self,
         db: &::salsa::Db,
         hole_source: HoleSource,
-        parameter_rune: FluffyTermRune,
+        parameter_rune: RuneFluffyTerm,
     ) -> HollowTerm {
         let hole_kind = match parameter_rune.data_inner(db, self) {
             FluffyTermData::Rune { ty, .. } => match ty.data_inner(db, self) {

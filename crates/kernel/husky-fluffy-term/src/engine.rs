@@ -37,7 +37,7 @@ pub trait FluffyTermEngine<'a>: Sized {
     fn synthesize_function_application_expr_ty(
         &mut self,
         variance: Variance,
-        parameter_rune: Option<FluffyTermRune>,
+        parameter_rune: Option<RuneFluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         argument_ty: FluffyTerm,
@@ -121,3 +121,8 @@ pub trait FluffyTermEngine<'a>: Sized {
 }
 
 pub trait FluffyTermEngineMut<'a>: FluffyTermEngine<'a> {}
+
+struct A {
+    x: i32,
+    y: i32,
+}

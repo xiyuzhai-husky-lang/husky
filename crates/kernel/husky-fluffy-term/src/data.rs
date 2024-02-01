@@ -26,7 +26,7 @@ pub enum FluffyTermData<'a> {
         toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_rune: Option<FluffyTermRune>,
+        parameter_rune: Option<RuneFluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         ty_ethereal_term: Option<CurryEtherealTerm>,
@@ -151,7 +151,7 @@ pub enum FluffyBaseTypeData<'a> {
     Curry {
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_rune: Option<FluffyTermRune>,
+        parameter_rune: Option<RuneFluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         ty_ethereal_term: Option<CurryEtherealTerm>,

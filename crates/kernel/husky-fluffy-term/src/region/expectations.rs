@@ -223,8 +223,9 @@ impl FluffyTermRegion {
         db: &::salsa::Db,
     ) -> (FluffyTermExpectationIdx, FluffyTerm) {
         let idx = unsafe { self.expectations.arena.next_idx() };
+        // todo: remove this
         let (expectee, implicit_parameter_substitutions) =
-            ImplicitParameterSubstitution::from_expectee(expectee, db, &mut self.terms, idx);
+            FluffyTermSubstitution::from_expectee(expectee, db, &mut self.terms, idx);
         (
             self.expectations
                 .alloc_expectation(FluffyTermExpectationEntry {
