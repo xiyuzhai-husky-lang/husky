@@ -1,3 +1,11 @@
+use husky_eth_term::term::{
+    curry::EthCurry,
+    ritchie::{
+        EthRitchie, EthRitchieRegularParameter, EtherealRitchieKeyedParameter,
+        EtherealRitchieVariadicParameter,
+    },
+};
+
 use super::*;
 
 // `Default` is derived because we never inherited hollow terms

@@ -1,4 +1,5 @@
 use super::*;
+use husky_eth_term::term::ritchie::EtherealRitchieVariadicParameter;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

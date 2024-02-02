@@ -1,5 +1,5 @@
 use husky_coword::Ident;
-use husky_eth_term::EthTerm;
+use husky_eth_term::term::EthTerm;
 
 use crate::*;
 

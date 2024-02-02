@@ -1,4 +1,5 @@
 use husky_eth_signature::{HasPropsFieldEtherealSignature, HasTypeMemoizedFieldEtherealSignature};
+use husky_eth_term::term::application::{EthApplication, TermFunctionReduced};
 
 use super::*;
 

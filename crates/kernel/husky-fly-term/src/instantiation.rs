@@ -1,5 +1,12 @@
 use super::*;
-use husky_eth_term::instantiation::EtherealInstantiation;
+use husky_eth_term::{
+    instantiation::EtherealInstantiation,
+    term::{
+        application::{EthApplication, TermFunctionReduced},
+        ritchie::EthRitchie,
+        symbol::{EthSymbol, EthTermSymbolIndexImpl},
+    },
+};
 use vec_like::SmallVecPairMap;
 
 #[salsa::debug_with_db]

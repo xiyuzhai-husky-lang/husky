@@ -1,3 +1,4 @@
+#![allow(internal_features)]
 #![feature(str_internals)]
 pub mod change;
 pub mod char_iter;

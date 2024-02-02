@@ -1,4 +1,5 @@
 use super::*;
+use husky_eth_term::term::EthTerm;
 
 pub(crate) struct BranchTypeMerger<Expectation: ExpectFlyTerm> {
     /// this is true if the type of one of the branches cannot be inferred

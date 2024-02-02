@@ -1,4 +1,5 @@
 use super::*;
+use crate::term::rune::EthRune;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

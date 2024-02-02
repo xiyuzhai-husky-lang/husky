@@ -1,6 +1,7 @@
 use super::*;
-
-use husky_eth_term::{EthRitchieRegularParameter, EtherealRitchieParameter};
+use husky_eth_term::term::ritchie::{
+    EthRitchie, EthRitchieRegularParameter, EtherealRitchieParameter,
+};
 use husky_fly_term::FlyRitchieRegularParameter;
 use husky_term_prelude::{TermContract, TypeRitchieKind};
 

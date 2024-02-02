@@ -5,7 +5,7 @@ pub use self::call_list::*;
 pub use self::html::*;
 
 use crate::{symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
-use husky_eth_term::EthTerm;
+use husky_eth_term::term::EthTerm;
 use husky_fly_term::{
     dispatch::StaticDispatch,
     signature::{FlyFieldSignature, MethodFlySignature},

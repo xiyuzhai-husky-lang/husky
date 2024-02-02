@@ -1,3 +1,4 @@
+use husky_eth_term::term::EthTerm;
 use husky_print_utils::p;
 use vec_like::VecPairMap;
 

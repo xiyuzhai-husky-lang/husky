@@ -12,6 +12,6 @@ pub use self::signature::*;
 
 use husky_coword::*;
 use husky_entity_path::*;
-use husky_eth_term::{instantiation::*, *};
+use husky_eth_term::{instantiation::*, term::EthTerm, *};
 use maybe_result::*;
 use smallvec::*;

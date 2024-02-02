@@ -1,6 +1,12 @@
 pub mod final_destination;
 pub mod toolchain;
 
+use self::term::{
+    application::{EthApplication, TermFunctionReduced},
+    curry::EthCurry,
+    ritchie::EthRitchie,
+    rune::EthRune,
+};
 use crate::*;
 
 impl EthTerm {

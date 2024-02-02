@@ -1,30 +1,25 @@
 pub mod abstraction;
 pub mod application;
-pub mod constraint;
 pub mod curry;
 pub mod literal;
 pub mod ritchie;
 pub mod rune;
 pub mod symbol;
+pub mod trai_constraint;
 pub mod ty_as_trai_item;
 
-use std::fmt::Debug;
-
-pub use self::abstraction::*;
-pub use self::application::*;
-pub use self::constraint::*;
-pub use self::curry::*;
-pub use self::ritchie::*;
-pub use self::rune::*;
-pub use self::symbol::*;
-pub use self::ty_as_trai_item::*;
-
-use crate::instantiation::*;
-use crate::*;
+use self::{
+    abstraction::EthAbstraction, application::EthApplication, curry::EthCurry, ritchie::EthRitchie,
+    rune::EthRune, symbol::EthSymbol, trai_constraint::EthTraitConstraint,
+    ty_as_trai_item::EthTypeAsTraitItem,
+};
+use crate::{instantiation::*, term::application::TermFunctionReduced};
+use crate::{term::application::term_uncheck_from_declarative_term_application_aux, *};
 use husky_coword::Ident;
 use husky_dec_term::term::DecTerm;
 use husky_term_prelude::literal::Literal;
 use salsa::DisplayWithDb;
+use std::fmt::Debug;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]

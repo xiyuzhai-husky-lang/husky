@@ -13,7 +13,7 @@ pub mod instantiation;
 mod menu;
 mod rewrite;
 mod template_parameter;
-mod term;
+pub mod term;
 #[cfg(test)]
 mod tests;
 mod ty;
@@ -23,10 +23,10 @@ pub use self::error::*;
 pub use self::menu::*;
 pub use self::rewrite::substitute::*;
 pub use self::template_parameter::*;
-pub use self::term::*;
 pub use self::ty::*;
 
 use self::context::*;
+use self::term::EthTerm;
 use either::*;
 use husky_coword::Ident;
 use husky_dec_signature::*;
@@ -40,37 +40,37 @@ use smallvec::*;
 #[salsa::jar]
 pub struct EthTermJar(
     // symbol
-    EthSymbol,
+    crate::term::symbol::EthSymbol,
     // rune
-    EthRune,
+    crate::term::rune::EthRune,
     // curry
-    EthCurry,
-    term_curry_from_declarative,
+    crate::term::curry::EthCurry,
+    crate::term::curry::term_curry_from_declarative,
     crate::term::curry::curry_parameter_count,
     // curry_parameter_count,
     // ritchie
-    EthRitchie,
-    ethereal_term_ritchie_from_declarative_term_ritchie,
+    crate::term::ritchie::EthRitchie,
+    crate::term::ritchie::ethereal_term_ritchie_from_declarative_term_ritchie,
     // abstraction
-    EthAbstraction,
+    crate::term::abstraction::EthAbstraction,
     // application
-    EthApplication,
-    application_expansion_salsa,
-    ethereal_term_from_declarative_term_application,
-    ethereal_term_application_declarative_ty,
+    crate::term::application::EthApplication,
+    crate::term::application::application_expansion_salsa,
+    crate::term::application::ethereal_term_from_declarative_term_application,
+    crate::term::application::ethereal_term_application_declarative_ty,
     // - application reduction
     crate::term::application::reduction::reduce_term_application,
     // - application expansion
-    EtherealApplicationArguments,
-    // ty as trait associated item
-    EthTypeAsTraitItem,
+    crate::term::application::EtherealApplicationArguments,
+    // ty as trait item
+    crate::term::ty_as_trai_item::EthTypeAsTraitItem,
     // trait constraint
-    EthTraitConstraint,
+    crate::term::trai_constraint::EthTraitConstraint,
     term_menu,
     // other
-    ethereal_term_from_application_or_ritchie_call_declarative_term,
-    ethereal_term_from_list_declarative_term,
-    ethereal_term_from_declarative_term_wrapper,
+    crate::term::ethereal_term_from_application_or_ritchie_call_declarative_term,
+    crate::term::ethereal_term_from_list_declarative_term,
+    crate::term::ethereal_term_from_declarative_term_wrapper,
     // // trai
     // trai_side_trai_for_ty_impl_blocks_aux,
     // ty_side_trai_for_ty_impl_blocks_aux,
@@ -79,9 +79,9 @@ pub struct EthTermJar(
     // TemplateParameters,
     // ty_path_template_parameters,
     // utils
-    helpers::ethereal_term_curry_toolchain,
-    helpers::ethereal_term_application_toolchain,
-    helpers::ethereal_term_ritchie_toolchain,
-    helpers::final_destination::application_ethereal_term_final_destination,
-    helpers::final_destination::curry_ethereal_term_final_destination,
+    crate::helpers::ethereal_term_curry_toolchain,
+    crate::helpers::ethereal_term_application_toolchain,
+    crate::helpers::ethereal_term_ritchie_toolchain,
+    crate::helpers::final_destination::application_ethereal_term_final_destination,
+    crate::helpers::final_destination::curry_ethereal_term_final_destination,
 );

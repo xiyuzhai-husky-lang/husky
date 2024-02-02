@@ -2,6 +2,7 @@ mod explicit_application;
 mod list;
 mod prefix;
 
+use husky_eth_term::term::{application::EthApplication, symbol::EthSymbol, EthTerm};
 use husky_fly_term::{
     instantiation::FlyInstantiation, signature::binary_opr::SemaBinaryOprFlySignature,
 };
@@ -72,7 +73,7 @@ impl<'a> SemaExprEngine<'a> {
                                 // todo: what if place is not none?
                                 let ty = sema_expr_idx
                                     .ok_ty(&self.sema_expr_arena)
-                                    .ok_or(DerivedExprTermError::LiteralTypeNotInferred)?;
+                                    .ok_or(DerivedSemaExprTermError::LiteralTypeNotInferred)?;
                                 let base_ty = ty.base_ty_data(self);
                                 match base_ty {
                                     FlyBaseTypeData::TypeOntology {
@@ -85,7 +86,7 @@ impl<'a> SemaExprEngine<'a> {
                                         ty_ethereal_term,
                                     } => Literal::from_unspecified_int(int_ty_path, val, self.db),
                                     _ => {
-                                        Err(DerivedExprTermError::LiteralTypeNotResolved)?
+                                        Err(DerivedSemaExprTermError::LiteralTypeNotResolved)?
                                     }
                                 }
                             }
@@ -120,7 +121,7 @@ impl<'a> SemaExprEngine<'a> {
                                 FloatLiteralTokenData::Unspecified(lit) => {
                                     let ty = sema_expr_idx
                                         .ok_ty(&self.sema_expr_arena)
-                                        .ok_or(DerivedExprTermError::LiteralTypeNotInferred)?;
+                                        .ok_or(DerivedSemaExprTermError::LiteralTypeNotInferred)?;
                                     match ty.base_resolved(self) {
                                         FlyTermBase::Eth(EthTerm::EntityPath(
                                             ItemPathTerm::TypeOntology(ty_path),
@@ -153,7 +154,7 @@ impl<'a> SemaExprEngine<'a> {
                                                 None => todo!(),
                                             }
                                         }
-                                        _ => Err(DerivedExprTermError::LiteralTypeNotResolved)?,
+                                        _ => Err(DerivedSemaExprTermError::LiteralTypeNotResolved)?,
                                     }
                                 }
                                 FloatLiteralTokenData::F32(val) => Literal::F32(val),
@@ -221,14 +222,7 @@ impl<'a> SemaExprEngine<'a> {
             } => todo!(),
             SemaExprData::SelfType(regional_token_idx) => match self.self_ty {
                 Some(self_ty_term) => Ok(self_ty_term.into()),
-                None => {
-                    p!(self
-                        .declarative_term_region
-                        .term_symbol_region()
-                        .debug(self.db));
-                    p!(self.path(), regional_token_idx);
-                    todo!()
-                }
+                None => Err(DerivedSemaExprTermError::SelfTypeTermNotInferred.into()),
             },
             SemaExprData::SelfValue(_) => todo!(),
             SemaExprData::Binary { dispatch, .. } => match dispatch.signature() {
@@ -400,6 +394,7 @@ impl<'a> SemaExprEngine<'a> {
         if let Some(instantiation) = instantiation
             && !instantiation.is_empty()
         {
+            use husky_print_utils::p;
             p!(path.debug(self.db));
             todo!()
         }

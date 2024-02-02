@@ -1,6 +1,10 @@
 use crate::*;
 use husky_eth_signature::HasEthTemplate;
-use husky_eth_term::{EthApplication, EthTerm, EthTermSymbolIndexImpl, TermFunctionReduced};
+use husky_eth_term::term::{
+    application::{EthApplication, TermFunctionReduced},
+    symbol::EthTermSymbolIndexImpl,
+    EthTerm,
+};
 use husky_term_prelude::ItemPathTerm;
 
 #[salsa::interned(jar = HirTypeJar)]

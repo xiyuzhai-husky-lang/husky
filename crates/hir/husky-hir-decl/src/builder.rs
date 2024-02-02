@@ -1,4 +1,4 @@
-use husky_eth_term::EthTerm;
+use husky_eth_term::term::EthTerm;
 use husky_fly_term::FlyTermBase;
 use husky_hir_eager_expr::{HirEagerExprIdx, HirEagerPatternExprIdx};
 use husky_hir_expr::{
@@ -37,10 +37,6 @@ impl<'a> HirDeclBuilder<'a> {
             hir_expr_region,
             hir_expr_source_map,
         }
-    }
-
-    pub(crate) fn hir_ty_menu(&self) -> &HirTypeMenu {
-        self.hir_ty_menu
     }
 
     pub(crate) fn return_ty_before_eq(

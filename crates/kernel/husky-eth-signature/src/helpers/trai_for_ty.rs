@@ -5,6 +5,7 @@ use husky_entity_tree::{
     helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
     helpers::ty_side_trai_for_ty_impl_block_paths_map,
 };
+use husky_eth_term::term::application::TermFunctionReduced;
 use husky_term_prelude::{RitchieKind, TypeRitchieKind};
 
 pub struct TraitForTypeImplBlockEthTemplates<'a> {

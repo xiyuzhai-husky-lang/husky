@@ -1,6 +1,6 @@
 use crate::{path_leading::HirTypePathLeading, ritchie::HirRitchieType, *};
 use husky_eth_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
-use husky_eth_term::EthTerm;
+use husky_eth_term::term::EthTerm;
 use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
 use husky_term_prelude::ItemPathTerm;
 

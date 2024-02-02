@@ -1,4 +1,5 @@
 use crate::*;
+use husky_eth_term::term::EthTerm;
 use husky_fly_term::FlyTermBase;
 use husky_hir_ty::trai::HirTrait;
 
@@ -34,7 +35,7 @@ pub enum HirTemplateParameterData {
 }
 
 impl HirTemplateParameter {
-    pub fn from_syn(
+    pub(crate) fn from_syn(
         syndicate: &TemplateSynParameterData,
         builder: &HirDeclBuilder,
     ) -> Option<Self> {
@@ -114,7 +115,10 @@ impl HirTemplateParameter {
 pub struct HirTemplateParameters(SmallVec<[HirTemplateParameter; 2]>);
 
 impl HirTemplateParameters {
-    pub fn from_syn(syndicates: &[TemplateSynParameterData], builder: &HirDeclBuilder) -> Self {
+    pub(crate) fn from_syn(
+        syndicates: &[TemplateSynParameterData],
+        builder: &HirDeclBuilder,
+    ) -> Self {
         HirTemplateParameters(
             syndicates
                 .iter()

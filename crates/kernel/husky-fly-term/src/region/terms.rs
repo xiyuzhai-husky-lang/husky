@@ -5,6 +5,7 @@ pub use self::hol_terms::*;
 pub use self::sol_terms::*;
 
 use super::*;
+use husky_eth_term::term::symbol::EthSymbol;
 
 // `Default` is not implemented because we might need to initialize `solid_terms` from the parent
 #[salsa::debug_with_db]

@@ -1,3 +1,8 @@
+use husky_eth_term::term::{
+    application::{EthApplication, TermFunctionReduced},
+    ritchie::EthRitchie,
+};
+
 use super::*;
 
 pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FlyTermData<'a> {

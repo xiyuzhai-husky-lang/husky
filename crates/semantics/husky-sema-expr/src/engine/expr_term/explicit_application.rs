@@ -9,11 +9,11 @@ impl<'a> SemaExprEngine<'a> {
         // todo: implicit arguments
         let function = self
             .infer_expr_term(function)
-            .ok_or(DerivedExprTermError::ExplicitApplicationFunctionTermNotInferred)?;
+            .ok_or(DerivedSemaExprTermError::ExplicitApplicationFunctionTermNotInferred)?;
         let argument = self
             .infer_expr_term(argument)
-            .ok_or(DerivedExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
+            .ok_or(DerivedSemaExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
         FlyTerm::new_application(self, function, argument)
-            .map_err(|e| DerivedExprTermError::ExplicitApplicationTerm(e).into())
+            .map_err(|e| DerivedSemaExprTermError::ExplicitApplicationTerm(e).into())
     }
 }

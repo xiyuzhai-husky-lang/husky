@@ -5,7 +5,7 @@ use crate::{
     },
     *,
 };
-use husky_eth_term::EthTerm;
+use husky_eth_term::term::EthTerm;
 use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
 use husky_hir_ty::HirType;
 use husky_sema_expr::{
@@ -16,7 +16,6 @@ use husky_syn_expr::{
     CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprRegionData, SynExprRootKind,
     SynPatternExprIdx, SynPatternExprMap, SynPatternExprRootKind, SynSymbolMap,
 };
-use salsa::DebugWithDb;
 
 pub(crate) struct HirEagerExprBuilder<'a> {
     db: &'a ::salsa::Db,
@@ -166,6 +165,8 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     #[cfg(test)]
     pub(crate) fn path(&self) -> String {
+        use salsa::DebugWithDb;
+
         format!("{:?}", self.syn_expr_region_data.path().debug(self.db))
     }
 

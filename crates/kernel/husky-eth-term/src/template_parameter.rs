@@ -1,5 +1,5 @@
 /// this module is for instantiation to use
-use crate::{instantiation::*, *};
+use crate::{instantiation::*, term::symbol::EthSymbol, *};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db]

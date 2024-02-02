@@ -1,5 +1,7 @@
 use vec_like::AsVecMapEntry;
 
+use self::term::EthTerm;
+
 use super::*;
 
 #[derive(Debug, Hash, PartialEq, Eq)]

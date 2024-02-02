@@ -1,3 +1,5 @@
+use husky_eth_term::term::application::{EthApplication, TermFunctionReduced};
+
 use super::*;
 use crate::signature::method::method_fn::ty_method_fluffy_signature;
 

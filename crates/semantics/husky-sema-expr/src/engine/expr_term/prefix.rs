@@ -10,7 +10,7 @@ impl<'a> SemaExprEngine<'a> {
         opd: SemaExprIdx,
     ) -> SemaExprTermResult<FlyTerm> {
         let Some(opd_term) = self.infer_expr_term(opd) else {
-            return Err(DerivedExprTermError::PrefixOprTermNotInferred.into());
+            return Err(DerivedSemaExprTermError::PrefixOprTermNotInferred.into());
         };
         match opr {
             SemaPrefixOpr::Minus => todo!(),
@@ -25,7 +25,7 @@ impl<'a> SemaExprEngine<'a> {
             SemaPrefixOpr::Option => {
                 Ok(
                     FlyTerm::new_application(self, self.term_menu.option_ty_ontology(), opd_term)
-                        .map_err(|e| DerivedExprTermError::OptionApplicationTerm(e))?
+                        .map_err(|e| DerivedSemaExprTermError::OptionApplicationTerm(e))?
                         .into(),
                 )
             }

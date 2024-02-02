@@ -45,7 +45,7 @@ impl EthCurry {
         f.write_str(self.variance(db).as_str())?;
         if let Some(parameter_rune) = parameter_rune {
             ctx.fmt_with_variable(db, parameter_rune, |ctx| {
-                ctx.fmt_variable(db, parameter_rune, f)?;
+                ctx.fmt_rune(db, parameter_rune, f)?;
                 f.write_str(": ")?;
                 self.parameter_ty(db)
                     .display_fmt_with_db_and_ctx(f, db, ctx)?;

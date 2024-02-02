@@ -1,7 +1,5 @@
 use super::*;
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
-
-use husky_hir_defn::HasHirDefn;
 use husky_hir_eager_expr::{
     HirEagerExprData, HirEagerExprIdx, HirEagerExprRegion, HirEagerExprSourceMap,
     HirEagerExprSourceMapData,
