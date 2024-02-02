@@ -4,9 +4,9 @@ use super::*;
 #[salsa::debug_with_db]
 pub enum SemaExprTermError {
     #[error("original expr term error: {0}")]
-    Original(#[from] OriginalExprTermError),
+    Original(#[from] OriginalSemaExprTermError),
     #[error("derived expr term error: {0}")]
-    Derived(#[from] DerivedExprTermError),
+    Derived(#[from] DerivedSemaExprTermError),
 }
 
 impl From<EthTermError> for SemaExprTermError {
@@ -29,20 +29,20 @@ impl From<&SemaExprTypeError> for SemaExprTermError {
 
 impl From<&SemaExprDataError> for SemaExprTermError {
     fn from(value: &SemaExprDataError) -> Self {
-        DerivedExprTermError::ExprError.into()
+        DerivedSemaExprTermError::ExprError.into()
     }
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
-pub enum OriginalExprTermError {
+pub enum OriginalSemaExprTermError {
     #[error("todo")]
     Todo,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db]
-pub enum DerivedExprTermError {
+pub enum DerivedSemaExprTermError {
     #[error("expr error")]
     ExprError,
     #[error("todo")]
@@ -71,6 +71,8 @@ pub enum DerivedExprTermError {
     LiteralTypeNotResolved,
     #[error("TypeInfoNotInferred")]
     LiteralTypeNotInferred,
+    #[error("SelfTypeTermNotInferred")]
+    SelfTypeTermNotInferred,
 }
 
 pub type SemaExprTermResult<T> = Result<T, SemaExprTermError>;

@@ -23,7 +23,7 @@ impl EthRune {
         db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
-        ctx.fmt_variable(db, self, f)
+        ctx.fmt_rune(db, self, f)
     }
 }
 

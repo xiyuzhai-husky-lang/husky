@@ -1,3 +1,4 @@
+use self::term::{application::EthApplication, curry::EthCurry};
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]

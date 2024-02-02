@@ -37,7 +37,7 @@ use alt_option::*;
 use either::*;
 use husky_dec_signature::*;
 use husky_entity_path::*;
-use husky_eth_term::*;
+use husky_eth_term::{term::EthTerm, *};
 use husky_print_utils::p;
 use husky_syn_expr::*;
 use husky_term_prelude::*;

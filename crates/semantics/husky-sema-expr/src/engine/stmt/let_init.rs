@@ -30,6 +30,7 @@ impl<'a> SemaExprEngine<'a> {
                     )
                 }
                 Err(e) => {
+                    use husky_print_utils::p;
                     p!(e.debug(self.db()));
                     todo!()
                 }

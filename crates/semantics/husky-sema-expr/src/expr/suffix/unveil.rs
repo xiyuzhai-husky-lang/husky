@@ -6,6 +6,10 @@ use husky_eth_signature::{
     TraitForTypeImplBlockEthTemplate, TraitForTypeImplBlockEtherealSignature,
     TraitForTypeImplBlockEtherealSignatureBuilder,
 };
+use husky_eth_term::term::{
+    application::{EthApplication, TermFunctionReduced},
+    EthTerm,
+};
 use maybe_result::*;
 use vec_like::VecMapGetEntry;
 
@@ -229,32 +233,17 @@ fn unveil_impl_block_signature_templates(
     term: EthTerm,
 ) -> EtherealSignatureMaybeResult<&[TraitForTypeImplBlockEtherealSignatureBuilder]> {
     match term {
-        EthTerm::Literal(_) => todo!(),
-        EthTerm::Symbol(_) => {
-            // ad hoc
-            Nothing
+        EthTerm::Symbol(_) => Nothing, // ad hoc
+        EthTerm::Rune(_) => Nothing,   // ad hoc
+        EthTerm::EntityPath(ItemPathTerm::TypeOntology(path)) => {
+            ty_ontology_path_unveil_impl_block_signature_templates(db, path).just_ok_as_ref2()
         }
-        EthTerm::Rune(_) => todo!(),
-        EthTerm::EntityPath(path) => match path {
-            ItemPathTerm::Fugitive(_) => todo!(),
-            ItemPathTerm::Trait(_) => todo!(),
-            ItemPathTerm::TypeOntology(path) => {
-                ty_ontology_path_unveil_impl_block_signature_templates(db, path).just_ok_as_ref2()
-            }
-            ItemPathTerm::TypeInstance(_) => todo!(),
-            ItemPathTerm::TypeVariant(_) => todo!(),
-        },
-        EthTerm::Category(_) => todo!(),
-        EthTerm::Universe(_) => todo!(),
-        EthTerm::Curry(_) => todo!(),
-        EthTerm::Ritchie(_) => todo!(),
-        EthTerm::Abstraction(_) => todo!(),
         EthTerm::Application(path) => {
             ty_ontology_application_unveil_impl_block_signature_templates(db, path)
                 .just_ok_as_ref2()
         }
         EthTerm::TypeAsTraitItem(_) => todo!(),
-        EthTerm::TraitConstraint(_) => todo!(),
+        _ => Nothing,
     }
 }
 

@@ -111,6 +111,6 @@ pub fn new_same_line(i: u32, start: u32, end: u32) -> TextRange {
 }
 
 pub struct RangeInfo<T> {
-    t: T,
-    range: TextRange,
+    pub t: T,
+    pub range: TextRange,
 }

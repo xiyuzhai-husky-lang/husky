@@ -1,4 +1,5 @@
 use super::*;
+use husky_eth_term::term::application::EthApplication;
 
 impl FlyTerm {
     #[inline(always)]

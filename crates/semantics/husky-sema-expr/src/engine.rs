@@ -16,7 +16,7 @@ use self::symbol::*;
 use crate::*;
 use husky_entity_tree::helpers::TraitInUseItemsTable;
 use husky_eth_signature::HasEthTemplate;
-use husky_print_utils::p;
+use husky_eth_term::term::{symbol::EthSymbol, EthTerm};
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
 use husky_stack_location::StackLocationRegistry;
 use husky_syn_decl::{

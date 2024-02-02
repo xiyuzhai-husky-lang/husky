@@ -1,8 +1,8 @@
 mod entry;
 
+use self::term::symbol::EthSymbol;
+use self::{entry::*, term::rune::EthRune};
 use crate::*;
-use entry::*;
-
 use vec_like::VecMap;
 
 #[derive(Default)]
@@ -27,7 +27,7 @@ impl TermShowContext {
         }
     }
 
-    pub(crate) fn fmt_variable(
+    pub(crate) fn fmt_rune(
         &mut self,
         _db: &::salsa::Db,
         _rune: EthRune,

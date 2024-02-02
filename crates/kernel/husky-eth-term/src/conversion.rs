@@ -1,3 +1,4 @@
+use self::term::EthTerm;
 use crate::*;
 
 impl EthTerm {

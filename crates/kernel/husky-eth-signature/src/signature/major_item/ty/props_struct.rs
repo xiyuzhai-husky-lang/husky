@@ -1,5 +1,6 @@
 use super::*;
 use husky_dec_signature::{PropsStructFieldDecTemplate, PropsStructTypeDecTemplate};
+use husky_eth_term::term::ritchie::EthRitchie;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct PropsStructTypeEthTemplate {

@@ -1,4 +1,5 @@
 use super::*;
+use husky_eth_term::term::symbol::EthSymbol;
 
 impl<'a> SemaExprEngine<'a> {
     pub(super) fn infer_current_parameter_symbols(&mut self) {

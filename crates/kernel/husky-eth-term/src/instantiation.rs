@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{term::symbol::EthSymbol, *};
 use maybe_result::*;
 use vec_like::SmallVecPairMap;
 

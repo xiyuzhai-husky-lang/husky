@@ -1,10 +1,9 @@
 use husky_eth_signature::helpers::trai_for_ty::trai_path_for_ty_term_impl_block_ethereal_signature_builders;
 
-use vec_like::SmallVecPairMap;
-
-use crate::method_fn::MethodFnFlySignature;
-
 use super::*;
+use crate::method_fn::MethodFnFlySignature;
+use husky_eth_term::term::application::TermFunctionReduced;
+use vec_like::SmallVecPairMap;
 
 impl HasFlyTraitMethodDispatch for EthTerm {
     fn trai_method_dispatch_aux(

@@ -9,6 +9,7 @@ pub(crate) use self::solid::*;
 use crate::*;
 use husky_dec_term::term::RuneIndex;
 use husky_eth_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
+use husky_eth_term::term::{curry::EthCurry, rune::EthRune, symbol::EthSymbol};
 use husky_term_prelude::literal::Literal;
 use husky_vfs::Toolchain;
 

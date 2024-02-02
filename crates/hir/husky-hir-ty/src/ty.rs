@@ -5,11 +5,12 @@ use self::{path_leading::HirTypePathLeading, ritchie::HirRitchieType};
 use crate::*;
 use either::*;
 use husky_eth_signature::{helpers::trai_for_ty::is_ty_term_always_copyable, HasEthTemplate};
-use husky_eth_term::{
-    EthApplication, EthRitchie, EthTerm, EthTermSymbolIndexImpl, TermFunctionReduced,
+use husky_eth_term::term::{
+    application::{EthApplication, TermFunctionReduced},
+    symbol::EthTermSymbolIndexImpl,
+    EthTerm,
 };
 use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
-
 use husky_term_prelude::ItemPathTerm;
 
 /// this is much simpler than that in Term, right?

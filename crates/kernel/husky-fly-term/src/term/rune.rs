@@ -1,3 +1,5 @@
+use husky_eth_term::term::rune::EthRune;
+
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

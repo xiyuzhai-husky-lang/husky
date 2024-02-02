@@ -1,4 +1,5 @@
 use super::*;
+use husky_eth_term::term::ritchie::EthRitchieRegularParameter;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TypeMethodFnEthTemplate {

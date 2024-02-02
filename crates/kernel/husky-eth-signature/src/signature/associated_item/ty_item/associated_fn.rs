@@ -1,4 +1,5 @@
 use super::*;
+use husky_eth_term::term::ritchie::EthRitchie;
 use husky_term_prelude::TypeRitchieKind;
 
 #[salsa::tracked(db = EtherealSignatureDb, jar = EtherealSignatureJar)]

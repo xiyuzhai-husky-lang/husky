@@ -2,7 +2,7 @@ mod exec;
 mod query;
 
 use husky_coword::Ident;
-use husky_eth_term::EthTerm;
+use husky_eth_term::term::EthTerm;
 use husky_print_utils::ps;
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;

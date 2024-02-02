@@ -27,6 +27,7 @@ use crate::*;
 use husky_coword::{Ident, IdentMap};
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_eth_signature::TraitForTypeAssociatedTypeEtherealSignature;
+use husky_eth_term::term::EthTerm;
 use husky_fly_term::{
     dispatch::{
         dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch, FlyFieldDyanmicDispatch,

@@ -95,8 +95,6 @@ pub(crate) fn ty_hir_defn(db: &::salsa::Db, path: TypePath) -> Option<TypeHirDef
         TypeHirDecl::PropsStruct(hir_decl) => PropsStructHirDefn::new(db, path, hir_decl).into(),
         TypeHirDecl::TupleStruct(hir_decl) => TupleStructHirDefn::new(db, path, hir_decl).into(),
         TypeHirDecl::UnitStruct(hir_decl) => UnitStructHirDefn::new(db, path, hir_decl).into(),
-        TypeHirDecl::Record(_hir_decl) => todo!(),
-        // RecordTypeHirDefn::new(db, path, hir_decl).into(),
         TypeHirDecl::Extern(hir_decl) => ExternHirDefn::new(db, path, hir_decl).into(),
         TypeHirDecl::Union(hir_decl) => UnionHirDefn::new(db, path, hir_decl).into(),
     })

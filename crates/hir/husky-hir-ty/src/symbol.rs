@@ -9,7 +9,7 @@ pub use self::r#const::*;
 pub use self::ty::*;
 
 use crate::*;
-use husky_eth_term::{EthSymbol, EthTemplateSymbolAttrs, EthTermSymbolIndexImpl};
+use husky_eth_term::term::symbol::{EthSymbol, EthTemplateSymbolAttrs, EthTermSymbolIndexImpl};
 use husky_term_prelude::template_symbol_class::TermTemplateSymbolClass;
 
 #[enum_class::from_variants]

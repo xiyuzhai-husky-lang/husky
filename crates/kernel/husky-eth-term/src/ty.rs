@@ -1,3 +1,4 @@
+use self::term::curry::EthCurry;
 use crate::*;
 use husky_dec_ty::principal_item_path::{
     fugitive_path_declarative_ty, trai_path_declarative_ty,

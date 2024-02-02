@@ -12,6 +12,10 @@ pub use self::rune::*;
 pub use self::symbol_ty::*;
 
 use crate::*;
+use husky_eth_term::term::{
+    application::EthApplication, curry::EthCurry, ritchie::EthRitchie, rune::EthRune,
+    symbol::EthSymbol,
+};
 use husky_term_prelude::literal::Literal;
 
 #[salsa::debug_with_db]

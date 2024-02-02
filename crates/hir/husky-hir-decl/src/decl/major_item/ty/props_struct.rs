@@ -1,5 +1,4 @@
 use super::*;
-use husky_print_utils::p;
 use husky_syn_decl::PropsStructTypeSynDecl;
 use husky_syn_expr::{PropsFieldSynInitialization, PropsFieldSyndicate};
 

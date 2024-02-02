@@ -1,7 +1,8 @@
 use super::*;
 use husky_fly_term::*;
 use husky_sema_expr::{
-    OriginalExprTermError, OriginalSemaExprDataError, OriginalSemaExprTypeError, SemaExprTermError,
+    OriginalSemaExprDataError, OriginalSemaExprTermError, OriginalSemaExprTypeError,
+    SemaExprTermError,
 };
 use husky_syn_decl::HasSynNodeDecl;
 use husky_syn_defn::module_item_syn_node_defns;
@@ -66,7 +67,7 @@ fn collect_expr_ty_diagnostics(
     }
 }
 
-impl Diagnose for OriginalExprTermError {
+impl Diagnose for OriginalSemaExprTermError {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, _db: &RegionDiagnosticsContext) -> String {

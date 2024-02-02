@@ -1,3 +1,4 @@
+use husky_eth_term::term::symbol::EthSymbol;
 use husky_stack_location::StackLocationIdx;
 use thiserror::Error;
 

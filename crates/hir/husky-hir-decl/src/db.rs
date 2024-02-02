@@ -29,7 +29,6 @@ pub struct HirDeclJar(
     crate::decl::ty_hir_decl,
     crate::decl::EnumTypeHirDecl,
     crate::decl::ExternTypeHirDecl,
-    crate::decl::RecordTypeHirDecl,
     crate::decl::PropsStructTypeHirDecl,
     crate::decl::TupleStructTypeHirDecl,
     crate::decl::UnionHirDecl,
