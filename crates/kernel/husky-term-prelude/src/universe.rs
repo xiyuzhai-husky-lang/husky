@@ -12,6 +12,9 @@ impl From<u8> for UniverseTerm {
 const UNIVERSE_MAX: u8 = 100;
 
 impl UniverseTerm {
+    pub const PROP_UNIVERSE: Self = UniverseTerm(0);
+    pub const TYPE_UNIVERSE: Self = UniverseTerm(1);
+
     pub const fn new(i: u8) -> Self {
         assert!(i < UNIVERSE_MAX);
         UniverseTerm(i)

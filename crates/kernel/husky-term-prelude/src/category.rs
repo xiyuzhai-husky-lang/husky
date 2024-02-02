@@ -7,6 +7,13 @@ pub struct CategoryTerm {
 }
 
 impl CategoryTerm {
+    pub const PROP: Self = CategoryTerm {
+        universe: UniverseTerm::PROP_UNIVERSE,
+    };
+    pub const TYPE: Self = CategoryTerm {
+        universe: UniverseTerm::TYPE_UNIVERSE,
+    };
+
     pub const fn new(universe: UniverseTerm) -> Self {
         Self { universe }
     }
@@ -25,7 +32,7 @@ impl CategoryTerm {
         self.universe
     }
 
-    pub fn show_with_db_fmt(
+    pub fn display_fmt_with_db_and_ctx(
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,

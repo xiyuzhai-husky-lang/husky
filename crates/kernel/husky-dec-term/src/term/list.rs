@@ -8,7 +8,7 @@ pub struct ListDecTerm {
 }
 
 impl ListDecTerm {
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -17,7 +17,7 @@ impl ListDecTerm {
         f.write_str("[")?;
         let items = self.items(db);
         for (i, item) in items.iter().enumerate() {
-            item.show_with_db_fmt(f, db, ctx)?;
+            item.display_fmt_with_db_and_ctx(f, db, ctx)?;
             if i < items.len() {
                 f.write_str(", ")?
             }

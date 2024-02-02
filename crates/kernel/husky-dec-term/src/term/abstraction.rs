@@ -12,7 +12,7 @@ impl AbstractionDecTerm {
     }
 
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
@@ -25,15 +25,5 @@ impl AbstractionDecTerm {
 impl DecTermRewriteCopy for AbstractionDecTerm {
     fn substitute_copy(self, _db: &::salsa::Db, _substitution: &DecTermSubstitution) -> Self {
         todo!()
-    }
-}
-
-impl salsa::DisplayWithDb for AbstractionDecTerm {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }

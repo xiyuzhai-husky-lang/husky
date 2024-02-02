@@ -224,7 +224,7 @@ impl ModulePath {
 }
 
 impl salsa::DisplayWithDb for ModulePath {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -234,7 +234,7 @@ impl salsa::DisplayWithDb for ModulePath {
 }
 
 impl salsa::DisplayWithDb for SubmodulePath {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,

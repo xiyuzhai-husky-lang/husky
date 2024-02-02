@@ -74,7 +74,7 @@ impl DecTerm {
                 if let Some(rune) = curry.parameter_rune(db)
                     && curry.return_ty(db).contains_symbol(db, symbol) =>
             {
-                rune.idx(db).disambiguator() + 1
+                rune.index(db).disambiguator() + 1
             }
             _ => 0,
         };
@@ -108,7 +108,7 @@ impl DecTerm {
                 let m = term.m(db);
                 t(m);
                 if x.ty_family(db) == symbol_ty_family && m.contains_symbol(db, symbol) {
-                    let x_disambiguator = x.idx(db).disambiguator;
+                    let x_disambiguator = x.index(db).disambiguator;
                     if x_disambiguator > disambiguator {
                         disambiguator = x_disambiguator
                     }

@@ -2,19 +2,19 @@
     (
         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
         Ok(
-            DecTerm(`Type`),
+            "DecTermFmtTodo",
         ),
     ),
     (
         TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
         Ok(
-            DecTerm(`Type`),
+            "DecTermFmtTodo",
         ),
     ),
     (
         TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
         Ok(
-            DecTerm(`Type`),
+            "DecTermFmtTodo",
         ),
     ),
 ]

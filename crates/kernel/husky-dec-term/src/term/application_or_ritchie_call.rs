@@ -23,13 +23,13 @@ impl ApplicationOrRitchieCallDecTerm {
     }
 
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
-        self.function(db).show_with_db_fmt(f, db, ctx)?;
+        self.function(db).display_fmt_with_db_and_ctx(f, db, ctx)?;
         let generic_arguments = self.generic_arguments(db);
         if generic_arguments.len() > 0 {
             todo!()
@@ -38,7 +38,7 @@ impl ApplicationOrRitchieCallDecTerm {
         let items = self.items(db);
         let extra_comma = self.extra_comma(db);
         for (i, parameter_ty) in items.iter().enumerate() {
-            parameter_ty.show_with_db_fmt(f, db, ctx)?;
+            parameter_ty.display_fmt_with_db_and_ctx(f, db, ctx)?;
             if i < items.len() {
                 f.write_str(", ")?
             } else if extra_comma {

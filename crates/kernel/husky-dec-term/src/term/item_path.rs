@@ -62,17 +62,17 @@ impl From<TypePath> for DecTerm {
 
 impl ItemPathDecTerm {
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         _ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         match self {
-            ItemPathDecTerm::Fugitive(path) => path.display_with_db_fmt(f, db),
-            ItemPathDecTerm::Trait(path) => path.display_with_db_fmt(f, db),
-            ItemPathDecTerm::Type(path) => path.display_with_db_fmt(f, db),
-            ItemPathDecTerm::TypeVariant(path) => path.display_with_db_fmt(f, db),
+            ItemPathDecTerm::Fugitive(path) => path.display_fmt_with_db(f, db),
+            ItemPathDecTerm::Trait(path) => path.display_fmt_with_db(f, db),
+            ItemPathDecTerm::Type(path) => path.display_fmt_with_db(f, db),
+            ItemPathDecTerm::TypeVariant(path) => path.display_fmt_with_db(f, db),
         }
     }
 }

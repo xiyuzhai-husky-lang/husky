@@ -23,23 +23,13 @@ pub enum UnresolvedTermLiteral {
 }
 
 impl LiteralDecTerm {
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
         _ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         f.write_str("DecTermLiteralTodo")
-    }
-}
-
-impl salsa::DisplayWithDb for LiteralDecTerm {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 

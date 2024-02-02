@@ -359,36 +359,36 @@ impl salsa::DebugWithDb for EthTerm {
 }
 
 impl salsa::DisplayWithDb for EthTerm {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db, &mut Default::default())
+        self.display_fmt_with_db_and_ctx(f, db, &mut Default::default())
     }
 }
 
 impl EthTerm {
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         match self {
-            EthTerm::Literal(term) => term.show_with_db_fmt(f, db),
-            EthTerm::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
-            EthTerm::Rune(term) => term.show_with_db_fmt(f, db, ctx),
-            EthTerm::EntityPath(term) => term.show_with_db_fmt(f, db),
+            EthTerm::Literal(term) => term.display_fmt_with_db_and_ctx(f, db),
+            EthTerm::Symbol(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            EthTerm::Rune(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            EthTerm::EntityPath(term) => term.display_fmt_with_db_and_ctx(f, db),
             EthTerm::Category(term) => f.write_str(&term.to_string()),
             EthTerm::Universe(term) => f.write_str(&term.to_string()),
-            EthTerm::Curry(term) => term.show_with_db_fmt(f, db, ctx),
-            EthTerm::Ritchie(term) => term.show_with_db_fmt(f, db, ctx),
-            EthTerm::Abstraction(term) => term.show_with_db_fmt(f, db, ctx),
-            EthTerm::Application(term) => term.show_with_db_fmt(f, db, ctx),
-            EthTerm::TypeAsTraitItem(term) => term.show_with_db_fmt(f, db, ctx),
-            EthTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
+            EthTerm::Curry(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            EthTerm::Ritchie(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            EthTerm::Abstraction(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            EthTerm::Application(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            EthTerm::TypeAsTraitItem(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            EthTerm::TraitConstraint(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
         }
     }
 }

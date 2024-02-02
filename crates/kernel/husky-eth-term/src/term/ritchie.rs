@@ -99,7 +99,7 @@ impl RitchieEthTerm {
     }
 
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -111,10 +111,10 @@ impl RitchieEthTerm {
             if i > 0 {
                 f.write_str(", ")?
             }
-            parameter_contracted_ty.show_with_db_fmt(f, db, ctx)?
+            parameter_contracted_ty.display_fmt_with_db_and_ctx(f, db, ctx)?
         }
         f.write_str(") -> ")?;
-        self.return_ty(db).show_with_db_fmt(f, db, ctx)
+        self.return_ty(db).display_fmt_with_db_and_ctx(f, db, ctx)
     }
 }
 
@@ -168,7 +168,7 @@ impl EthTermInstantiate for EtherealRitchieParameter {
 }
 
 impl salsa::DisplayWithDb for RitchieEthTerm {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -179,10 +179,10 @@ impl salsa::DisplayWithDb for RitchieEthTerm {
             if i > 0 {
                 f.write_str(", ")?
             }
-            parameter_ty.display_with_db_fmt(f, db)?
+            parameter_ty.display_fmt_with_db(f, db)?
         }
         f.write_str(") -> ")?;
-        self.return_ty(db).display_with_db_fmt(f, db)
+        self.return_ty(db).display_fmt_with_db(f, db)
     }
 }
 
@@ -204,30 +204,34 @@ impl EtherealRitchieParameter {
         }
     }
 
-    fn show_with_db_fmt(
+    fn display_fmt_with_db_and_ctx(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         match self {
-            EtherealRitchieParameter::Regular(param) => param.show_with_db_fmt(f, db, ctx),
-            EtherealRitchieParameter::Variadic(param) => param.show_with_db_fmt(f, db, ctx),
-            EtherealRitchieParameter::Keyed(param) => param.show_with_db_fmt(f, db, ctx),
+            EtherealRitchieParameter::Regular(param) => {
+                param.display_fmt_with_db_and_ctx(f, db, ctx)
+            }
+            EtherealRitchieParameter::Variadic(param) => {
+                param.display_fmt_with_db_and_ctx(f, db, ctx)
+            }
+            EtherealRitchieParameter::Keyed(param) => param.display_fmt_with_db_and_ctx(f, db, ctx),
         }
     }
 }
 
 impl salsa::DisplayWithDb for EtherealRitchieParameter {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         match self {
-            EtherealRitchieParameter::Regular(param) => param.display_with_db_fmt(f, db),
-            EtherealRitchieParameter::Variadic(param) => param.display_with_db_fmt(f, db),
-            EtherealRitchieParameter::Keyed(param) => param.display_with_db_fmt(f, db),
+            EtherealRitchieParameter::Regular(param) => param.display_fmt_with_db(f, db),
+            EtherealRitchieParameter::Variadic(param) => param.display_fmt_with_db(f, db),
+            EtherealRitchieParameter::Keyed(param) => param.display_fmt_with_db(f, db),
         }
     }
 }

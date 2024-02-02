@@ -22,25 +22,15 @@ pub struct ApplicationDecTerm {
 
 impl ApplicationDecTerm {
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
-        self.function(db).show_with_db_fmt(f, db, ctx)?;
+        self.function(db).display_fmt_with_db_and_ctx(f, db, ctx)?;
         f.write_str(" ")?;
-        self.argument(db).show_with_db_fmt(f, db, ctx)
-    }
-}
-
-impl salsa::DisplayWithDb for ApplicationDecTerm {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db, &mut Default::default())
+        self.argument(db).display_fmt_with_db_and_ctx(f, db, ctx)
     }
 }
 

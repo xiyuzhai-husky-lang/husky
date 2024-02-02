@@ -122,7 +122,7 @@ impl salsa::DebugWithDb for TypePath {
 }
 
 impl salsa::DisplayWithDb for TypePath {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,

@@ -53,9 +53,10 @@ fn ty_ontology_path_declarative_ty_works() {
             husky_entity_tree::helpers::paths::module_item_paths(db, module_path)
                 .iter()
                 .filter_map(|&module_item_path| match module_item_path {
-                    ItemPath::MajorItem(MajorItemPath::Type(ty_path)) => {
-                        Some((ty_path, ty_ontology_path_declarative_ty(db, ty_path)))
-                    }
+                    ItemPath::MajorItem(MajorItemPath::Type(ty_path)) => Some((
+                        ty_path,
+                        ty_ontology_path_declarative_ty(db, ty_path).map(|t| t.with_context(())),
+                    )),
                     _ => None,
                 })
                 .collect::<Vec<_>>()

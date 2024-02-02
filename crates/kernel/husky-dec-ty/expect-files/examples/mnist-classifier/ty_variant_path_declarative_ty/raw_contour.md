@@ -21,7 +21,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist_classifier::raw_contour::Direction`),
+                    "DecTermFmtTodo",
                 ),
             ),
             (
@@ -39,7 +39,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist_classifier::raw_contour::Direction`),
+                    "DecTermFmtTodo",
                 ),
             ),
             (
@@ -57,7 +57,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist_classifier::raw_contour::Direction`),
+                    "DecTermFmtTodo",
                 ),
             ),
             (
@@ -75,7 +75,7 @@
                     },
                 ),
                 Ok(
-                    DecTerm(`mnist_classifier::raw_contour::Direction`),
+                    "DecTermFmtTodo",
                 ),
             ),
         ],

@@ -3,7 +3,6 @@ mod set;
 
 pub use self::index::*;
 
-
 use super::*;
 use thiserror::Error;
 
@@ -42,7 +41,7 @@ impl SymbolEthTerm {
     }
 
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -62,7 +61,7 @@ pub enum TermSymbolTypeErrorKind {
 pub type TermSymbolTypeResult<T> = Result<T, TermSymbolTypeErrorKind>;
 
 impl salsa::DisplayWithDb for SymbolEthTerm {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,

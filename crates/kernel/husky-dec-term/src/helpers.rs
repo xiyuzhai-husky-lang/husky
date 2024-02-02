@@ -11,7 +11,7 @@ impl DecTerm {
     pub fn family(self, db: &::salsa::Db) -> DecTermFamily {
         match self {
             DecTerm::EntityPath(ItemPathDecTerm::Type(path)) => DecTermFamily::TypePath(path),
-            DecTerm::Category(_) => DecTermFamily::Sort,
+            DecTerm::Category(cat) => DecTermFamily::Category(cat),
             DecTerm::Application(term) => term.function(db).family(db),
             DecTerm::ApplicationOrRitchieCall(term) => term.function(db).family(db),
             DecTerm::LeashOrBitNot(toolchain) => {
@@ -44,7 +44,7 @@ impl DecTerm {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DecTermFamily {
-    Sort,
+    Category(CategoryTerm),
     TypePath(TypePath),
     Other,
 }

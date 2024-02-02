@@ -2,19 +2,19 @@
     (
         TypePath(`malamute::Class`, `Enum`),
         Ok(
-            DecTerm(`independent Type -> Type`),
+            "DecTermFmtTodo",
         ),
     ),
     (
         TypePath(`malamute::OneVsAll`, `Enum`),
         Ok(
-            DecTerm(`(independent v0: Type) -> independent v0 -> Type`),
+            "DecTermFmtTodo",
         ),
     ),
     (
         TypePath(`malamute::OneVsAllResult`, `Enum`),
         Ok(
-            DecTerm(`(independent v0: Type) -> independent v0 -> Type`),
+            "DecTermFmtTodo",
         ),
     ),
 ]

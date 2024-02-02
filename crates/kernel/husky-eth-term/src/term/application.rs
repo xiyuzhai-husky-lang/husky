@@ -90,15 +90,15 @@ impl ApplicationEthTerm {
     }
 
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
-        self.function(db).show_with_db_fmt(f, db, ctx)?;
+        self.function(db).display_fmt_with_db_and_ctx(f, db, ctx)?;
         f.write_str(" ")?;
-        self.argument(db).show_with_db_fmt(f, db, ctx)
+        self.argument(db).display_fmt_with_db_and_ctx(f, db, ctx)
     }
 }
 
@@ -297,12 +297,12 @@ impl EthTerm {
 }
 
 impl salsa::DisplayWithDb for ApplicationEthTerm {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db, &mut Default::default())
+        self.display_fmt_with_db_and_ctx(f, db, &mut Default::default())
     }
 }
 

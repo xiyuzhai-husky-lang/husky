@@ -22,7 +22,7 @@ impl DecTerm {
 
 impl WrapperDecTerm {
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -31,6 +31,6 @@ impl WrapperDecTerm {
         match self.kind(db) {
             DecTermWrapperKind::ValReturnType => f.write_str("{val_type} ")?,
         }
-        self.inner_ty(db).show_with_db_fmt(f, db, ctx)
+        self.inner_ty(db).display_fmt_with_db_and_ctx(f, db, ctx)
     }
 }

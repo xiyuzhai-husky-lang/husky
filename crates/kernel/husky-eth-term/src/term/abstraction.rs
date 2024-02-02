@@ -29,7 +29,7 @@ impl AbstractionEthTerm {
     }
 
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
@@ -67,7 +67,7 @@ impl EthTermInstantiate for AbstractionEthTerm {
 }
 
 impl salsa::DisplayWithDb for AbstractionEthTerm {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -75,6 +75,6 @@ impl salsa::DisplayWithDb for AbstractionEthTerm {
         // use std::fmt::Write;
         // f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);
         // todo!()
-        self.show_with_db_fmt(f, db, &mut Default::default())
+        self.display_fmt_with_db_and_ctx(f, db, &mut Default::default())
     }
 }

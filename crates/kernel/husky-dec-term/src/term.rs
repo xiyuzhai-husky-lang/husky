@@ -81,27 +81,6 @@ pub enum DecTerm {
     List(ListDecTerm),
 }
 
-impl salsa::DebugWithDb for DecTerm {
-    fn debug_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        use salsa::DisplayWithDb;
-        f.write_fmt(format_args!("DecTerm(`{}`)", self.display_with(db)))
-    }
-}
-
-impl salsa::DisplayWithDb for DecTerm {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db, &mut Default::default())
-    }
-}
-
 impl DecTerm {
     pub fn curry_parameter_count(self, db: &::salsa::Db) -> u8 {
         match self {
@@ -109,31 +88,40 @@ impl DecTerm {
             _ => 0,
         }
     }
+}
 
-    pub(crate) fn show_with_db_fmt(
+/// # fmt
+impl DecTerm {
+    pub fn with_context(self, ctx: ()) -> String {
+        "DecTermFmtTodo".to_string()
+    }
+
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
+        use salsa::DisplayWithDb;
+
         match self {
-            DecTerm::Literal(term) => term.show_with_db_fmt(f, db, ctx),
-            DecTerm::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
-            DecTerm::Rune(term) => term.show_with_db_fmt(f, db, ctx),
-            DecTerm::EntityPath(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::Literal(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::Symbol(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::Rune(term) => term.display_fmt_with_db(f, db),
+            DecTerm::EntityPath(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::Category(term) => f.write_str(&term.to_string()),
             DecTerm::Universe(term) => f.write_str(&term.to_string()),
-            DecTerm::Curry(term) => term.show_with_db_fmt(f, db, ctx),
-            DecTerm::Ritchie(term) => term.show_with_db_fmt(f, db, ctx),
-            DecTerm::Abstraction(term) => term.show_with_db_fmt(f, db, ctx),
-            DecTerm::Application(term) => term.show_with_db_fmt(f, db, ctx),
-            DecTerm::ApplicationOrRitchieCall(term) => term.show_with_db_fmt(f, db, ctx),
-            DecTerm::AssociatedItem(term) => term.show_with_db_fmt(f, db, ctx),
-            DecTerm::TypeAsTraitItem(term) => term.show_with_db_fmt(f, db, ctx),
-            DecTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::Curry(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::Ritchie(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::Abstraction(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::Application(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::ApplicationOrRitchieCall(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::AssociatedItem(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::TypeAsTraitItem(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::TraitConstraint(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::LeashOrBitNot(_) => f.write_str("~"),
-            DecTerm::List(term) => term.show_with_db_fmt(f, db, ctx),
-            DecTerm::Wrapper(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::List(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::Wrapper(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
         }
     }
 }

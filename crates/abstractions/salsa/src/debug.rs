@@ -144,6 +144,11 @@ impl DebugWithDb for usize {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
 }
+impl DebugWithDb for String {
+    fn debug_with_db_fmt(&self, f: &mut std::fmt::Formatter<'_>, _db: &Db) -> std::fmt::Result {
+        std::fmt::Debug::fmt(&self, f)
+    }
+}
 
 impl<T: ?Sized> DebugWithDb for &T
 where

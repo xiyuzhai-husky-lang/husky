@@ -85,15 +85,11 @@ impl LinInstantiation {
         self.symbol_resolutions
             .iter()
             .filter_map(|&(symbol, resolution)| match resolution {
-                LinTermSymbolResolution::Explicit(arg) => match arg {
-                    LinTemplateArgument::Vacant => todo!(),
-                    LinTemplateArgument::Type(_) => None,
-                    LinTemplateArgument::Constant(_) => todo!(),
-                    LinTemplateArgument::Lifetime => todo!(),
-                    LinTemplateArgument::Place(_) => todo!(),
-                },
-                LinTermSymbolResolution::SelfLifetime => None,
-                LinTermSymbolResolution::SelfPlace(_) => Some((symbol, resolution)),
+                LinTermSymbolResolution::Explicit(LinTemplateArgument::Place(_))
+                | LinTermSymbolResolution::SelfPlace(_) => Some((symbol, resolution)),
+                LinTermSymbolResolution::Explicit(_) | LinTermSymbolResolution::SelfLifetime => {
+                    None
+                }
             })
             .collect()
     }

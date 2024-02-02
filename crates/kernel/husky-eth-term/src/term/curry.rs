@@ -35,7 +35,7 @@ impl CurryEthTerm {
     }
 
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -50,14 +50,16 @@ impl CurryEthTerm {
             ctx.fmt_with_variable(db, parameter_rune, |ctx| {
                 ctx.fmt_variable(db, parameter_rune, f)?;
                 f.write_str(": ")?;
-                self.parameter_ty(db).show_with_db_fmt(f, db, ctx)?;
+                self.parameter_ty(db)
+                    .display_fmt_with_db_and_ctx(f, db, ctx)?;
                 f.write_str(") -> ")?;
-                self.return_ty(db).show_with_db_fmt(f, db, ctx)
+                self.return_ty(db).display_fmt_with_db_and_ctx(f, db, ctx)
             })
         } else {
-            self.parameter_ty(db).show_with_db_fmt(f, db, ctx)?;
+            self.parameter_ty(db)
+                .display_fmt_with_db_and_ctx(f, db, ctx)?;
             f.write_str(" -> ")?;
-            self.return_ty(db).show_with_db_fmt(f, db, ctx)
+            self.return_ty(db).display_fmt_with_db_and_ctx(f, db, ctx)
         }
     }
 }
@@ -119,11 +121,11 @@ pub(crate) fn term_curry_from_declarative(
 }
 
 impl salsa::DisplayWithDb for CurryEthTerm {
-    fn display_with_db_fmt(
+    fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        self.show_with_db_fmt(f, db, &mut Default::default())
+        self.display_fmt_with_db_and_ctx(f, db, &mut Default::default())
     }
 }

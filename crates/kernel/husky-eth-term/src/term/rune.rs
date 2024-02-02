@@ -10,14 +10,14 @@ pub struct RuneEthTerm {
 
 impl RuneEthTerm {
     #[inline(always)]
-    pub(crate) fn from_declarative(db: &::salsa::Db, variable: RuneDecTerm) -> EthTermResult<Self> {
-        let ty = variable.ty(db)?;
+    pub(crate) fn from_declarative(db: &::salsa::Db, rune: RuneDecTerm) -> EthTermResult<Self> {
+        let ty = rune.ty(db)?;
         let ty = EthTerm::ty_from_declarative(db, ty)?;
-        Ok(Self::new_inner(db, ty, variable.idx(db)))
+        Ok(Self::new_inner(db, ty, rune.index(db)))
     }
 
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,

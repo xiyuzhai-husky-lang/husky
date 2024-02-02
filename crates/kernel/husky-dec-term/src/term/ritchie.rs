@@ -21,7 +21,7 @@ pub struct RitchieDecTerm {
 
 impl RitchieDecTerm {
     #[inline(never)]
-    pub(crate) fn show_with_db_fmt(
+    pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
@@ -33,29 +33,10 @@ impl RitchieDecTerm {
             if i > 0 {
                 f.write_str(", ")?
             }
-            parameter_ty.show_with_db_fmt(f, db, ctx)?
+            parameter_ty.display_fmt_with_db_and_ctx(f, db, ctx)?
         }
         f.write_str(") -> ")?;
-        self.return_ty(db).show_with_db_fmt(f, db, ctx)
-    }
-}
-
-impl salsa::DisplayWithDb for RitchieDecTerm {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        f.write_str(self.ritchie_kind(db).code())?;
-        f.write_str("(")?;
-        for (i, parameter_ty) in self.params(db).iter().enumerate() {
-            if i > 0 {
-                f.write_str(", ")?
-            }
-            parameter_ty.display_with_db_fmt(f, db)?
-        }
-        f.write_str(") -> ")?;
-        self.return_ty(db).display_with_db_fmt(f, db)
+        self.return_ty(db).display_fmt_with_db_and_ctx(f, db, ctx)
     }
 }
 
@@ -85,30 +66,22 @@ impl DeclarativeRitchieParameter {
         }
     }
 
-    fn show_with_db_fmt(
+    fn display_fmt_with_db_and_ctx(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
         ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         match self {
-            DeclarativeRitchieParameter::Regular(param) => param.show_with_db_fmt(f, db, ctx),
-            DeclarativeRitchieParameter::Variadic(param) => param.show_with_db_fmt(f, db, ctx),
-            DeclarativeRitchieParameter::Keyed(param) => param.show_with_db_fmt(f, db, ctx),
-        }
-    }
-}
-
-impl salsa::DisplayWithDb for DeclarativeRitchieParameter {
-    fn display_with_db_fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &::salsa::Db,
-    ) -> std::fmt::Result {
-        match self {
-            DeclarativeRitchieParameter::Regular(parameter) => parameter.display_with_db_fmt(f, db),
-            DeclarativeRitchieParameter::Variadic(_) => todo!(),
-            DeclarativeRitchieParameter::Keyed(_) => todo!(),
+            DeclarativeRitchieParameter::Regular(param) => {
+                param.display_fmt_with_db_and_ctx(f, db, ctx)
+            }
+            DeclarativeRitchieParameter::Variadic(param) => {
+                param.display_fmt_with_db_and_ctx(f, db, ctx)
+            }
+            DeclarativeRitchieParameter::Keyed(param) => {
+                param.display_fmt_with_db_and_ctx(f, db, ctx)
+            }
         }
     }
 }
