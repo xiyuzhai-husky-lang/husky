@@ -2,7 +2,7 @@
     (
         TypePath(`core::vec::Vec`, `Extern`),
         Ok(
-            DeclarativeTerm(`covariant Type -> Type`),
+            DecTerm(`covariant Type -> Type`),
         ),
     ),
 ]

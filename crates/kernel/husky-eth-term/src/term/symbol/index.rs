@@ -33,9 +33,9 @@ pub enum EthTemplateSymbolAttr {
 pub struct EthTermSymbolIndex(EthTermSymbolIndexImpl);
 
 impl EthTermSymbolIndex {
-    pub(super) fn from_declarative(index: DeclarativeTermSymbolIndex) -> Self {
+    pub(super) fn from_declarative(index: DecTermSymbolIndex) -> Self {
         EthTermSymbolIndex(match index.inner() {
-            DeclarativeTermSymbolIndexImpl::ExplicitLifetime {
+            DecTermSymbolIndexImpl::ExplicitLifetime {
                 attrs,
                 variance,
                 disambiguator,
@@ -44,7 +44,7 @@ impl EthTermSymbolIndex {
                 variance,
                 disambiguator,
             },
-            DeclarativeTermSymbolIndexImpl::ExplicitPlace {
+            DecTermSymbolIndexImpl::ExplicitPlace {
                 attrs,
                 variance,
                 disambiguator,
@@ -53,7 +53,7 @@ impl EthTermSymbolIndex {
                 variance,
                 disambiguator,
             },
-            DeclarativeTermSymbolIndexImpl::Type {
+            DecTermSymbolIndexImpl::Type {
                 attrs,
                 variance,
                 disambiguator,
@@ -62,8 +62,8 @@ impl EthTermSymbolIndex {
                 variance,
                 disambiguator,
             },
-            DeclarativeTermSymbolIndexImpl::Prop { disambiguator } => todo!(),
-            DeclarativeTermSymbolIndexImpl::ConstPathLeading {
+            DecTermSymbolIndexImpl::Prop { disambiguator } => todo!(),
+            DecTermSymbolIndexImpl::ConstPathLeading {
                 attrs,
                 disambiguator,
                 ty_path,
@@ -72,31 +72,31 @@ impl EthTermSymbolIndex {
                 disambiguator,
                 ty_path,
             },
-            DeclarativeTermSymbolIndexImpl::ConstOther {
+            DecTermSymbolIndexImpl::ConstOther {
                 attrs,
                 disambiguator,
             } => EthTermSymbolIndexImpl::ConstOther {
                 attrs: EthTemplateSymbolAttrs::from_declarative(attrs),
                 disambiguator,
             },
-            DeclarativeTermSymbolIndexImpl::ConstErr {
+            DecTermSymbolIndexImpl::ConstErr {
                 attrs,
                 disambiguator,
             } => todo!(),
-            DeclarativeTermSymbolIndexImpl::EphemPathLeading {
+            DecTermSymbolIndexImpl::EphemPathLeading {
                 disambiguator,
                 ty_path,
             } => EthTermSymbolIndexImpl::EphemPathLeading {
                 disambiguator,
                 ty_path,
             },
-            DeclarativeTermSymbolIndexImpl::EphemOther { disambiguator } => todo!(),
-            DeclarativeTermSymbolIndexImpl::EphemErr { disambiguator } => todo!(),
-            DeclarativeTermSymbolIndexImpl::SelfType => EthTermSymbolIndexImpl::SelfType,
-            DeclarativeTermSymbolIndexImpl::SelfValue => EthTermSymbolIndexImpl::SelfValue,
-            DeclarativeTermSymbolIndexImpl::SelfLifetime => EthTermSymbolIndexImpl::SelfLifetime,
-            DeclarativeTermSymbolIndexImpl::SelfPlace => EthTermSymbolIndexImpl::SelfPlace,
-            DeclarativeTermSymbolIndexImpl::AdHoc { disambiguator } => unreachable!(),
+            DecTermSymbolIndexImpl::EphemOther { disambiguator } => todo!(),
+            DecTermSymbolIndexImpl::EphemErr { disambiguator } => todo!(),
+            DecTermSymbolIndexImpl::SelfType => EthTermSymbolIndexImpl::SelfType,
+            DecTermSymbolIndexImpl::SelfValue => EthTermSymbolIndexImpl::SelfValue,
+            DecTermSymbolIndexImpl::SelfLifetime => EthTermSymbolIndexImpl::SelfLifetime,
+            DecTermSymbolIndexImpl::SelfPlace => EthTermSymbolIndexImpl::SelfPlace,
+            DecTermSymbolIndexImpl::AdHoc { disambiguator } => unreachable!(),
         })
     }
 
@@ -105,16 +105,16 @@ impl EthTermSymbolIndex {
     }
 }
 
-impl Into<DeclarativeTermSymbolIndex> for EthTermSymbolIndex {
+impl Into<DecTermSymbolIndex> for EthTermSymbolIndex {
     #[inline(always)]
-    fn into(self) -> DeclarativeTermSymbolIndex {
+    fn into(self) -> DecTermSymbolIndex {
         unsafe {
-            DeclarativeTermSymbolIndex::new(match self.inner() {
+            DecTermSymbolIndex::new(match self.inner() {
                 EthTermSymbolIndexImpl::ExplicitLifetime {
                     attrs,
                     variance,
                     disambiguator,
-                } => DeclarativeTermSymbolIndexImpl::ExplicitLifetime {
+                } => DecTermSymbolIndexImpl::ExplicitLifetime {
                     attrs: attrs.into(),
                     variance,
                     disambiguator,
@@ -123,7 +123,7 @@ impl Into<DeclarativeTermSymbolIndex> for EthTermSymbolIndex {
                     attrs,
                     variance,
                     disambiguator,
-                } => DeclarativeTermSymbolIndexImpl::ExplicitPlace {
+                } => DecTermSymbolIndexImpl::ExplicitPlace {
                     attrs: attrs.into(),
                     variance,
                     disambiguator,
@@ -132,19 +132,19 @@ impl Into<DeclarativeTermSymbolIndex> for EthTermSymbolIndex {
                     attrs,
                     variance,
                     disambiguator,
-                } => DeclarativeTermSymbolIndexImpl::Type {
+                } => DecTermSymbolIndexImpl::Type {
                     attrs: attrs.into(),
                     variance,
                     disambiguator,
                 },
                 EthTermSymbolIndexImpl::Prop { disambiguator } => {
-                    DeclarativeTermSymbolIndexImpl::Prop { disambiguator }
+                    DecTermSymbolIndexImpl::Prop { disambiguator }
                 }
                 EthTermSymbolIndexImpl::ConstPathLeading {
                     attrs,
                     disambiguator,
                     ty_path,
-                } => DeclarativeTermSymbolIndexImpl::ConstPathLeading {
+                } => DecTermSymbolIndexImpl::ConstPathLeading {
                     attrs: attrs.into(),
                     disambiguator,
                     ty_path,
@@ -152,26 +152,24 @@ impl Into<DeclarativeTermSymbolIndex> for EthTermSymbolIndex {
                 EthTermSymbolIndexImpl::ConstOther {
                     attrs,
                     disambiguator,
-                } => DeclarativeTermSymbolIndexImpl::ConstOther {
+                } => DecTermSymbolIndexImpl::ConstOther {
                     attrs: attrs.into(),
                     disambiguator,
                 },
                 EthTermSymbolIndexImpl::EphemPathLeading {
                     disambiguator,
                     ty_path,
-                } => DeclarativeTermSymbolIndexImpl::EphemPathLeading {
+                } => DecTermSymbolIndexImpl::EphemPathLeading {
                     disambiguator,
                     ty_path,
                 },
                 EthTermSymbolIndexImpl::EphemOther { disambiguator } => {
-                    DeclarativeTermSymbolIndexImpl::EphemOther { disambiguator }
+                    DecTermSymbolIndexImpl::EphemOther { disambiguator }
                 }
-                EthTermSymbolIndexImpl::SelfType => DeclarativeTermSymbolIndexImpl::SelfType,
-                EthTermSymbolIndexImpl::SelfValue => DeclarativeTermSymbolIndexImpl::SelfValue,
-                EthTermSymbolIndexImpl::SelfLifetime => {
-                    DeclarativeTermSymbolIndexImpl::SelfLifetime
-                }
-                EthTermSymbolIndexImpl::SelfPlace => DeclarativeTermSymbolIndexImpl::SelfPlace,
+                EthTermSymbolIndexImpl::SelfType => DecTermSymbolIndexImpl::SelfType,
+                EthTermSymbolIndexImpl::SelfValue => DecTermSymbolIndexImpl::SelfValue,
+                EthTermSymbolIndexImpl::SelfLifetime => DecTermSymbolIndexImpl::SelfLifetime,
+                EthTermSymbolIndexImpl::SelfPlace => DecTermSymbolIndexImpl::SelfPlace,
             })
         }
     }

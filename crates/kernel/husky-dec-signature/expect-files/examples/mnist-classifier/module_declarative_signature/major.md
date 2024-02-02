@@ -10,7 +10,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DeclarativeTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
+                            return_ty: DecTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
                         },
                     ),
                 ),
@@ -28,7 +28,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
+                            return_ty: DecTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
                         },
                     ),
                 ),
@@ -46,7 +46,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -64,7 +64,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DeclarativeTerm(`~ [] mnist_classifier::raw_contour::RawContour`),
+                            return_ty: DecTerm(`~ [] mnist_classifier::raw_contour::RawContour`),
                         },
                     ),
                 ),
@@ -82,7 +82,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
+                            return_ty: DecTerm(`~ mnist_classifier::raw_contour::RawContour`),
                         },
                     ),
                 ),
@@ -100,7 +100,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                            return_ty: DecTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                         },
                     ),
                 ),
@@ -118,7 +118,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DeclarativeTerm(`~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            return_ty: DecTerm(`~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                         },
                     ),
                 ),

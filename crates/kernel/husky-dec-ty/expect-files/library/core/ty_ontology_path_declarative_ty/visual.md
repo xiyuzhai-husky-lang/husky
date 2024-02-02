@@ -2,7 +2,7 @@
     (
         TypePath(`core::visual::Visual`, `Extern`),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
 ]

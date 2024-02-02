@@ -14,7 +14,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 10,
                                             },
@@ -23,7 +23,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: SymbolDeclarativeTerm(
+                                        symbol: SymbolDecTerm(
                                             Id {
                                                 value: 11,
                                             },
@@ -32,7 +32,7 @@
                                     },
                                 ],
                             },
-                            self_ty: DeclarativeTerm(`core::result::Result t s`),
+                            self_ty: DecTerm(`core::result::Result t s`),
                         },
                     ),
                 ),
@@ -62,7 +62,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 10,
                                         },
@@ -71,7 +71,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 11,
                                         },
@@ -80,7 +80,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 12,
                                         },
@@ -89,7 +89,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: SymbolDeclarativeTerm(
+                                    symbol: SymbolDecTerm(
                                         Id {
                                             value: 13,
                                         },
@@ -98,9 +98,9 @@
                                 },
                             ],
                         },
-                        trai: DeclarativeTerm(`core::ops::Unveil core::result::Result t s`),
+                        trai: DecTerm(`core::ops::Unveil core::result::Result t s`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`core::result::Result t s`),
+                            DecTerm(`core::result::Result t s`),
                         ),
                     },
                 ),
@@ -164,7 +164,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            ty_term: DeclarativeTerm(`t`),
+                            ty_term: DecTerm(`t`),
                         },
                     ),
                 ),
@@ -203,7 +203,7 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::AssociatedFn(
                         TraitForTypeAssociatedFnDecTemplate {
-                            self_ty: DeclarativeTerm(`core::result::Result t s`),
+                            self_ty: DecTerm(`core::result::Result t s`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
@@ -212,12 +212,12 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::result::Result t s`),
+                                            ty: DecTerm(`core::result::Result t s`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::result::Result t s`),
+                            return_ty: DecTerm(`core::result::Result t s`),
                         },
                     ),
                 ),

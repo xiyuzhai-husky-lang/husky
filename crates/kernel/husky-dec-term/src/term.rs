@@ -32,24 +32,24 @@ use crate::*;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum DeclarativeTerm {
+pub enum DecTerm {
     /// atoms
     ///
     /// literal: 1,1.0, true, false; variable, itemPath
-    Literal(LiteralDeclarativeTerm),
-    Symbol(SymbolDeclarativeTerm),
+    Literal(LiteralDecTerm),
+    Symbol(SymbolDecTerm),
     /// variables are those appearing in lambda expression
     /// variables are derived from symbols
-    Rune(RuneDeclarativeTerm),
-    EntityPath(ItemPathDeclarativeTerm),
+    Rune(RuneDecTerm),
+    EntityPath(ItemPathDecTerm),
     Category(CategoryTerm),
     Universe(UniverseTerm),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
-    Curry(CurryDeclarativeTerm),
+    Curry(CurryDecTerm),
     /// in memory of Dennis M.Ritchie
-    Ritchie(RitchieDeclarativeTerm),
+    Ritchie(RitchieDecTerm),
     /// lambda x => expr
-    Abstraction(AbstractionDeclarativeTerm),
+    Abstraction(AbstractionDecTerm),
     /// in husky, application is generalized to include composition as a special case;
     ///
     /// when shift is `0`, this is the normal application;
@@ -63,36 +63,36 @@ pub enum DeclarativeTerm {
     /// then apply function to the result,
     ///
     /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-    Application(ApplicationDeclarativeTerm),
-    ApplicationOrRitchieCall(ApplicationOrRitchieCallDeclarativeTerm),
+    Application(ApplicationDecTerm),
+    ApplicationOrRitchieCall(ApplicationOrRitchieCallDecTerm),
     /// ::<ident>
-    AssociatedItem(AssociatedItemDeclarativeTerm),
+    AssociatedItem(AssociatedItemDecTerm),
     /// (<type> as <trait>)::<ident>
-    TypeAsTraitItem(TypeAsTraitItemDeclarativeTerm),
+    TypeAsTraitItem(TypeAsTraitItemDecTerm),
     /// <type> : <trait>
-    TraitConstraint(TraitConstraintDeclarativeTerm),
+    TraitConstraint(TraitConstraintDecTerm),
     /// `~`
     LeashOrBitNot(Toolchain),
-    Wrapper(WrapperDeclarativeTerm),
+    Wrapper(WrapperDecTerm),
     /// can be interpreted as
     /// - a normal list of terms
     /// - List functor
     /// - Array functor
-    List(ListDeclarativeTerm),
+    List(ListDecTerm),
 }
 
-impl salsa::DebugWithDb for DeclarativeTerm {
+impl salsa::DebugWithDb for DecTerm {
     fn debug_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         use salsa::DisplayWithDb;
-        f.write_fmt(format_args!("DeclarativeTerm(`{}`)", self.display_with(db)))
+        f.write_fmt(format_args!("DecTerm(`{}`)", self.display_with(db)))
     }
 }
 
-impl salsa::DisplayWithDb for DeclarativeTerm {
+impl salsa::DisplayWithDb for DecTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -102,10 +102,10 @@ impl salsa::DisplayWithDb for DeclarativeTerm {
     }
 }
 
-impl DeclarativeTerm {
+impl DecTerm {
     pub fn curry_parameter_count(self, db: &::salsa::Db) -> u8 {
         match self {
-            DeclarativeTerm::Curry(term) => curry_parameter_count(db, term),
+            DecTerm::Curry(term) => curry_parameter_count(db, term),
             _ => 0,
         }
     }
@@ -114,26 +114,26 @@ impl DeclarativeTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DeclarativeTermShowContext,
+        ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         match self {
-            DeclarativeTerm::Literal(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::Rune(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::EntityPath(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::Category(term) => f.write_str(&term.to_string()),
-            DeclarativeTerm::Universe(term) => f.write_str(&term.to_string()),
-            DeclarativeTerm::Curry(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::Ritchie(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::Abstraction(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::Application(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::ApplicationOrRitchieCall(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::AssociatedItem(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::TypeAsTraitItem(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::LeashOrBitNot(_) => f.write_str("~"),
-            DeclarativeTerm::List(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::Wrapper(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::Literal(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::Rune(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::EntityPath(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::Category(term) => f.write_str(&term.to_string()),
+            DecTerm::Universe(term) => f.write_str(&term.to_string()),
+            DecTerm::Curry(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::Ritchie(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::Abstraction(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::Application(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::ApplicationOrRitchieCall(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::AssociatedItem(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::TypeAsTraitItem(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::LeashOrBitNot(_) => f.write_str("~"),
+            DecTerm::List(term) => term.show_with_db_fmt(f, db, ctx),
+            DecTerm::Wrapper(term) => term.show_with_db_fmt(f, db, ctx),
         }
     }
 }

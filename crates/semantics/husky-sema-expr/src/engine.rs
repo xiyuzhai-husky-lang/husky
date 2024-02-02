@@ -36,7 +36,7 @@ pub(crate) struct SemaExprEngine<'a> {
     syn_expr_region: SynExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
     regional_tokens_data: RegionalTokensData<'a>,
-    declarative_term_region: &'a DeclarativeTermRegion,
+    declarative_term_region: &'a DecTermRegion,
     stack_location_registry: StackLocationRegistry,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,

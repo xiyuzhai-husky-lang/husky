@@ -10,10 +10,7 @@ pub struct RuneEthTerm {
 
 impl RuneEthTerm {
     #[inline(always)]
-    pub(crate) fn from_declarative(
-        db: &::salsa::Db,
-        variable: RuneDeclarativeTerm,
-    ) -> EthTermResult<Self> {
+    pub(crate) fn from_declarative(db: &::salsa::Db, variable: RuneDecTerm) -> EthTermResult<Self> {
         let ty = variable.ty(db)?;
         let ty = EthTerm::ty_from_declarative(db, ty)?;
         Ok(Self::new_inner(db, ty, variable.idx(db)))
@@ -75,8 +72,8 @@ impl EthTermInstantiate for RuneEthTerm {
 
 /// back to declarative
 impl RuneEthTerm {
-    pub(super) fn into_declarative(self, db: &salsa::Db) -> RuneDeclarativeTerm {
-        RuneDeclarativeTerm::new(
+    pub(super) fn into_declarative(self, db: &salsa::Db) -> RuneDecTerm {
+        RuneDecTerm::new(
             Ok(self.ty(db).into_declarative(db)),
             self.index(db).disambiguator(),
             db,

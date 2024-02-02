@@ -4,17 +4,17 @@ use super::*;
 pub struct PropsStructTypeDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
-    pub self_ty: DeclarativeTerm,
+    pub self_ty: DecTerm,
     #[return_ref]
     pub fields: SmallVec<[PropsStructFieldDecTemplate; 4]>,
-    pub instance_constructor_ritchie_ty: RitchieDeclarativeTerm,
+    pub instance_constructor_ritchie_ty: RitchieDecTerm,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 pub struct PropsStructFieldDecTemplate {
     ident: Ident,
-    ty: DeclarativeTerm,
+    ty: DecTerm,
     has_initialization: bool,
 }
 
@@ -45,7 +45,7 @@ impl PropsStructTypeDecTemplate {
                     ty: match declarative_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
                         Err(_) => {
-                            return Err(DecSignatureError::FieldTypeDeclarativeTermError(
+                            return Err(DecSignatureError::FieldTypeDecTermError(
                                 i.try_into().unwrap(),
                             ))
                         }
@@ -54,7 +54,7 @@ impl PropsStructTypeDecTemplate {
                 })
             })
             .collect::<DecSignatureResult<SmallVec<_>>>()?;
-        let instance_constructor_ritchie_ty = RitchieDeclarativeTerm::new(
+        let instance_constructor_ritchie_ty = RitchieDecTerm::new(
             db,
             RitchieKind::RITCHIE_TYPE_FN,
             fields
@@ -79,7 +79,7 @@ impl PropsStructFieldDecTemplate {
         self.ident
     }
 
-    pub fn ty(&self) -> DeclarativeTerm {
+    pub fn ty(&self) -> DecTerm {
         self.ty
     }
 

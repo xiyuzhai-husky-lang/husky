@@ -1,21 +1,21 @@
 use super::*;
 use std::fmt::Debug;
 
-#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar, constructor = new_inner)]
-pub struct ApplicationOrRitchieCallDeclarativeTerm {
-    pub function: DeclarativeTerm,
+#[salsa::interned(db = DecTermDb, jar = DecTermJar, constructor = new_inner)]
+pub struct ApplicationOrRitchieCallDecTerm {
+    pub function: DecTerm,
     #[return_ref]
-    pub generic_arguments: Vec<DeclarativeTerm>,
+    pub generic_arguments: Vec<DecTerm>,
     #[return_ref]
-    pub items: Vec<DeclarativeTerm>,
+    pub items: Vec<DecTerm>,
     pub extra_comma: bool,
 }
 
-impl ApplicationOrRitchieCallDeclarativeTerm {
+impl ApplicationOrRitchieCallDecTerm {
     pub fn new(
-        function: DeclarativeTerm,
-        template_arguments: Vec<DeclarativeTerm>,
-        items: Vec<DeclarativeTerm>,
+        function: DecTerm,
+        template_arguments: Vec<DecTerm>,
+        items: Vec<DecTerm>,
         extra_comma: bool,
         db: &::salsa::Db,
     ) -> Self {
@@ -27,7 +27,7 @@ impl ApplicationOrRitchieCallDeclarativeTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DeclarativeTermShowContext,
+        ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         self.function(db).show_with_db_fmt(f, db, ctx)?;
         let generic_arguments = self.generic_arguments(db);

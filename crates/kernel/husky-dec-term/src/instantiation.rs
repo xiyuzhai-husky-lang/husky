@@ -19,13 +19,13 @@ use vec_like::SmallVecPairMap;
 
 pub struct DeclarativeInstantiation {
     /// some rune might not have an instantiation
-    rune_map: SmallVecPairMap<RuneDeclarativeTerm, Option<DeclarativeTerm>, 4>,
+    rune_map: SmallVecPairMap<RuneDecTerm, Option<DecTerm>, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
 
 impl DeclarativeInstantiation {
-    pub fn rune_map(&self) -> &[(RuneDeclarativeTerm, Option<DeclarativeTerm>)] {
+    pub fn rune_map(&self) -> &[(RuneDecTerm, Option<DecTerm>)] {
         self.rune_map.as_ref()
     }
 
@@ -33,7 +33,7 @@ impl DeclarativeInstantiation {
         self.separator
     }
 
-    pub fn rune_instantiation(&self, rune: RuneDeclarativeTerm) -> Option<DeclarativeTerm> {
+    pub fn rune_instantiation(&self, rune: RuneDecTerm) -> Option<DecTerm> {
         *self
             .rune_map
             .get_value(rune)

@@ -1,9 +1,8 @@
 mod expansion;
-mod reduction;
+pub mod reduction;
 mod utils;
 
 pub use self::expansion::*;
-pub use self::reduction::*;
 
 use super::*;
 use std::fmt::Debug;
@@ -42,7 +41,7 @@ impl ApplicationEthTerm {
     pub fn new(db: &::salsa::Db, function: EthTerm, argument: EthTerm) -> EthTermResult<EthTerm> {
         let (function_parameter_ty_curry_parameter_count, _argument_expectation) = {
             match function.raw_ty(db)? {
-                RawType::Declarative(DeclarativeTerm::Curry(function_declarative_ty)) => {
+                RawType::Declarative(DecTerm::Curry(function_declarative_ty)) => {
                     let parameter_ty = function_declarative_ty.parameter_ty(db);
                     (
                         parameter_ty.curry_parameter_count(db),
@@ -75,7 +74,7 @@ impl ApplicationEthTerm {
     /// returns EthTerm instead of EthTermApplication because it might reduce to a non application term
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
-        declarative_term_application: ApplicationDeclarativeTerm,
+        declarative_term_application: ApplicationDecTerm,
         term_ty_expectation: TermTypeExpectation,
     ) -> EthTermResult<EthTerm> {
         // todo: implicit arguments
@@ -86,7 +85,7 @@ impl ApplicationEthTerm {
         )
     }
 
-    pub(crate) fn declarative_ty(self, db: &::salsa::Db) -> EthTermResult<DeclarativeTerm> {
+    pub(crate) fn declarative_ty(self, db: &::salsa::Db) -> EthTermResult<DecTerm> {
         ethereal_term_application_declarative_ty(db, self)
     }
 
@@ -106,7 +105,7 @@ impl ApplicationEthTerm {
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn ethereal_term_from_declarative_term_application(
     db: &::salsa::Db,
-    declarative_term_application: ApplicationDeclarativeTerm,
+    declarative_term_application: ApplicationDecTerm,
     declarative_ty_expectation: TermTypeExpectation,
 ) -> EthTermResult<EthTerm> {
     // todo: implicit arguments
@@ -122,18 +121,18 @@ pub(crate) fn ethereal_term_from_declarative_term_application(
     )
 }
 
-/// argument is `DeclarativeTerm` instead of `EthTerm` is because we need to read function type to get expectation for argument
+/// argument is `DecTerm` instead of `EthTerm` is because we need to read function type to get expectation for argument
 ///
 pub(crate) fn term_uncheck_from_declarative_term_application_aux(
     db: &::salsa::Db,
     function: EthTerm,
-    argument: DeclarativeTerm,
+    argument: DecTerm,
     _declarative_ty_expectation: TermTypeExpectation,
 ) -> EthTermResult<EthTerm> {
     // todo: implicit arguments
     let (function_parameter_ty_curry_parameter_count, argument_expectation) = {
         match function.raw_ty(db)? {
-            RawType::Declarative(DeclarativeTerm::Curry(function_ty)) => {
+            RawType::Declarative(DecTerm::Curry(function_ty)) => {
                 let parameter_ty = function_ty.parameter_ty(db);
                 (
                     parameter_ty.curry_parameter_count(db),
@@ -158,30 +157,28 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
 pub(crate) fn ethereal_term_application_declarative_ty(
     db: &::salsa::Db,
     term_application: ApplicationEthTerm,
-) -> EthTermResult<DeclarativeTerm> {
+) -> EthTermResult<DecTerm> {
     let function = term_application.function(db);
     let argument = term_application.argument(db);
     match function.raw_ty(db)? {
-        RawType::Declarative(DeclarativeTerm::Curry(function_ty)) => {
-            match function_ty.parameter_rune(db) {
-                Some(function_ty_parameter_variable) => {
-                    ethereal_term_application_declarative_ty_dependent_aux(
-                        db,
-                        function_ty,
-                        function_ty_parameter_variable,
-                        argument.into_declarative(db),
-                        argument.raw_ty(db)?,
-                        term_application.shift(db),
-                    )
-                }
-                None => ethereal_term_application_declarative_ty_nondependent_aux(
+        RawType::Declarative(DecTerm::Curry(function_ty)) => match function_ty.parameter_rune(db) {
+            Some(function_ty_parameter_variable) => {
+                ethereal_term_application_declarative_ty_dependent_aux(
                     db,
                     function_ty,
+                    function_ty_parameter_variable,
+                    argument.into_declarative(db),
                     argument.raw_ty(db)?,
                     term_application.shift(db),
-                ),
+                )
             }
-        }
+            None => ethereal_term_application_declarative_ty_nondependent_aux(
+                db,
+                function_ty,
+                argument.raw_ty(db)?,
+                term_application.shift(db),
+            ),
+        },
         _ => return Err(todo!()),
     }
 }
@@ -189,12 +186,12 @@ pub(crate) fn ethereal_term_application_declarative_ty(
 /// function_ty.parameter_rune(db) matches Some
 pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     db: &::salsa::Db,
-    function_ty: CurryDeclarativeTerm,
-    function_ty_parameter_variable: RuneDeclarativeTerm,
-    argument: DeclarativeTerm,
+    function_ty: CurryDecTerm,
+    function_ty_parameter_variable: RuneDecTerm,
+    argument: DecTerm,
     argument_ty: RawType,
     shift: u8,
-) -> EthTermResult<DeclarativeTerm> {
+) -> EthTermResult<DecTerm> {
     // for example, suppose that
     //
     // function_ty = (a: A) -> List a
@@ -202,7 +199,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     match shift {
         0 => Ok(function_ty.return_ty(db).substitute_copy(
             db,
-            &DeclarativeTermSubstitution::new(function_ty_parameter_variable, argument),
+            &DecTermSubstitution::new(function_ty_parameter_variable, argument),
         )),
         shift => {
             // argument = arg
@@ -213,20 +210,20 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
             // b, c are first created as ad hoc symbols
             // then converted to variables
             match argument_ty {
-                RawType::Declarative(DeclarativeTerm::Curry(argument_ty)) => {
+                RawType::Declarative(DecTerm::Curry(argument_ty)) => {
                     let new_parameter_ty = argument_ty.parameter_ty(db);
                     // shift is used as disambiguator
                     // this is possible because we expect in the recursion process
                     // shift never appears twice
                     let new_parameter_symbol = unsafe {
-                        SymbolDeclarativeTerm::new_ad_hoc(
+                        SymbolDecTerm::new_ad_hoc(
                             db,
                             argument_ty.toolchain(db),
                             new_parameter_ty,
                             shift,
                         )
                     };
-                    Ok(CurryDeclarativeTerm::new_dependent(
+                    Ok(CurryDecTerm::new_dependent(
                         db,
                         argument_ty.toolchain(db),
                         argument_ty.curry_kind(db),
@@ -238,12 +235,8 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
                             function_ty,
                             function_ty_parameter_variable,
                             // corresponds to `arg b` in the example
-                            ApplicationDeclarativeTerm::new(
-                                db,
-                                argument,
-                                new_parameter_symbol.into(),
-                            )
-                            .into(),
+                            ApplicationDecTerm::new(db, argument, new_parameter_symbol.into())
+                                .into(),
                             // corresponds to be `C b -> A` in the example
                             argument_ty
                                 .return_ty_with_variable_substituted(
@@ -265,16 +258,16 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
 /// function_ty.parameter_rune(db) is None
 pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
     db: &::salsa::Db,
-    function_ty: CurryDeclarativeTerm,
+    function_ty: CurryDecTerm,
     argument_ty: RawType,
     shift: u8,
-) -> EthTermResult<DeclarativeTerm> {
+) -> EthTermResult<DecTerm> {
     debug_assert!(function_ty.parameter_rune(db).is_none());
     match shift {
         0 => Ok(function_ty.return_ty(db)),
         shift => match argument_ty {
-            RawType::Declarative(DeclarativeTerm::Curry(argument_ty)) => {
-                Ok(CurryDeclarativeTerm::new_nondependent(
+            RawType::Declarative(DecTerm::Curry(argument_ty)) => {
+                Ok(CurryDecTerm::new_nondependent(
                     db,
                     argument_ty.toolchain(db),
                     argument_ty.curry_kind(db),

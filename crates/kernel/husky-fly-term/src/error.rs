@@ -1,5 +1,5 @@
 use crate::*;
-use husky_dec_term::term::DeclarativeTermSymbolTypeErrorKind;
+use husky_dec_term::term::DecTermSymbolTypeErrorKind;
 use husky_entity_tree::EntityTreeError;
 use husky_eth_signature::EtherealSignatureError;
 use thiserror::Error;
@@ -31,8 +31,8 @@ impl From<&EntityTreeError> for FlyTermError {
     }
 }
 
-impl From<DeclarativeTermSymbolTypeErrorKind> for FlyTermError {
-    fn from(value: DeclarativeTermSymbolTypeErrorKind) -> Self {
+impl From<DecTermSymbolTypeErrorKind> for FlyTermError {
+    fn from(value: DecTermSymbolTypeErrorKind) -> Self {
         todo!()
     }
 }

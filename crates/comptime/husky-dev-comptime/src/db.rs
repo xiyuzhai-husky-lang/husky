@@ -20,7 +20,7 @@ use std::panic::RefUnwindSafe;
     husky_coword::CowordJar,
     husky_entity_path::jar::EntityPathJar,
     husky_term_prelude::TermPreludeJar,
-    husky_dec_term::DeclarativeTermJar,
+    husky_dec_term::DecTermJar,
     husky_dec_ty::DeclarativeTypeJar,
     husky_dec_signature::DecSignatureJar,
     husky_eth_term::EthTermJar,

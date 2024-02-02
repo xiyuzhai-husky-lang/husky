@@ -7,12 +7,12 @@ pub struct TypeAssociatedFnDecTemplate {
     /// not necessarily equal to the type of `self`
     ///
     /// we don't use self_ty_arguments because it's not determined for declarative terms
-    pub self_ty: DeclarativeTerm,
+    pub self_ty: DecTerm,
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     #[return_ref]
     pub parenate_parameters: DeclarativeParenateParameters,
-    pub return_ty: DeclarativeTerm,
+    pub return_ty: DecTerm,
 }
 
 impl TypeAssociatedFnDecTemplate {

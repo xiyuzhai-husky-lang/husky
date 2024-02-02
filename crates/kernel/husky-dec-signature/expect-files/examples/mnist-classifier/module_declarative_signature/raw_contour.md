@@ -13,20 +13,20 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                            self_ty: DecTerm(`mnist_classifier::raw_contour::RawContour`),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `cc`,
-                                    ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
+                                    ty: DecTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `points`,
-                                    ty: DeclarativeTerm(`[] mnist_classifier::geom2d::Point2d`),
+                                    ty: DecTerm(`[] mnist_classifier::geom2d::Point2d`),
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDeclarativeTerm {
+                            instance_constructor_ritchie_ty: RitchieDecTerm {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -34,17 +34,17 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
+                                            ty: DecTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`[] mnist_classifier::geom2d::Point2d`),
+                                            ty: DecTerm(`[] mnist_classifier::geom2d::Point2d`),
                                         },
                                     ),
                                 ],
-                                return_ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                                return_ty: DecTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
                         },
                     ),
@@ -66,7 +66,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
+                            self_ty: DecTerm(`mnist_classifier::raw_contour::Direction`),
                         },
                     ),
                 ),
@@ -92,18 +92,18 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                            ty: DecTerm(`core::raw_bits::r32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                            return_ty: DecTerm(`core::raw_bits::r32`),
                         },
                     ),
                 ),
@@ -129,18 +129,18 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                            ty: DecTerm(`core::raw_bits::r32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                            return_ty: DecTerm(`core::raw_bits::r32`),
                         },
                     ),
                 ),
@@ -166,18 +166,18 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                            ty: DecTerm(`core::raw_bits::r32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                            return_ty: DecTerm(`core::raw_bits::r32`),
                         },
                     ),
                 ),
@@ -203,24 +203,24 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                            ty: DecTerm(`core::raw_bits::r32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                            ty: DecTerm(`core::raw_bits::r32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
+                            return_ty: DecTerm(`mnist_classifier::raw_contour::Direction`),
                         },
                     ),
                 ),
@@ -246,18 +246,18 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
+                                            ty: DecTerm(`mnist_classifier::raw_contour::Direction`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
+                                            ty: DecTerm(`mnist_classifier::raw_contour::Direction`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::num::i32`),
+                            return_ty: DecTerm(`core::num::i32`),
                         },
                     ),
                 ),
@@ -283,30 +283,30 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                            ty: DecTerm(`core::raw_bits::r32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
+                                            ty: DecTerm(`core::raw_bits::r32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
+                                            ty: DecTerm(`mnist_classifier::raw_contour::Direction`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
+                            return_ty: DecTerm(`mnist_classifier::raw_contour::Direction`),
                         },
                     ),
                 ),
@@ -327,20 +327,20 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::StreakCache`),
+                            self_ty: DecTerm(`mnist_classifier::raw_contour::StreakCache`),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `prev1`,
-                                    ty: DeclarativeTerm(`core::num::i32`),
+                                    ty: DecTerm(`core::num::i32`),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `prev2`,
-                                    ty: DeclarativeTerm(`core::num::i32`),
+                                    ty: DecTerm(`core::num::i32`),
                                     has_initialization: false,
                                 },
                             ],
-                            instance_constructor_ritchie_ty: RitchieDeclarativeTerm {
+                            instance_constructor_ritchie_ty: RitchieDecTerm {
                                 ritchie_kind: Type(
                                     Fn,
                                 ),
@@ -348,17 +348,17 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Move,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
-                                return_ty: DeclarativeTerm(`mnist_classifier::raw_contour::StreakCache`),
+                                return_ty: DecTerm(`mnist_classifier::raw_contour::StreakCache`),
                             },
                         },
                     ),
@@ -385,12 +385,12 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`[] mnist_classifier::geom2d::Point2d`),
+                                            ty: DecTerm(`[] mnist_classifier::geom2d::Point2d`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                            return_ty: DecTerm(`mnist_classifier::geom2d::Point2d`),
                         },
                     ),
                 ),
@@ -416,12 +416,12 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
+                                            ty: DecTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`[] mnist_classifier::raw_contour::RawContour`),
+                            return_ty: DecTerm(`[] mnist_classifier::raw_contour::RawContour`),
                         },
                     ),
                 ),
@@ -450,9 +450,9 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        trai: DeclarativeTerm(`core::visual::Visualize`),
+                        trai: DecTerm(`core::visual::Visualize`),
                         self_ty: DeclarativeSelfType::Path(
-                            DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                            DecTerm(`mnist_classifier::raw_contour::RawContour`),
                         ),
                     },
                 ),
@@ -491,18 +491,18 @@
                 AssociatedItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
                         TraitForTypeMethodFnDecTemplate {
-                            self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                            self_ty: DecTerm(`mnist_classifier::raw_contour::RawContour`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                                ty: DecTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::visual::Visual`),
+                            return_ty: DecTerm(`core::visual::Visual`),
                         },
                     ),
                 ),
@@ -534,7 +534,7 @@
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
-                        ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                        ty: DecTerm(`mnist_classifier::raw_contour::RawContour`),
                     },
                 ),
             ),
@@ -556,9 +556,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                                ty: DecTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                            return_ty: DecTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                         },
                     ),
                 ),
@@ -581,9 +581,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                                ty: DecTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                            return_ty: DecTerm(`mnist_classifier::geom2d::BoundingBox`),
                         },
                     ),
                 ),
@@ -606,9 +606,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                                ty: DecTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                            return_ty: DecTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                         },
                     ),
                 ),
@@ -631,9 +631,9 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                                ty: DecTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                            return_ty: DecTerm(`core::num::f32`),
                         },
                     ),
                 ),
@@ -656,33 +656,33 @@
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
-                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                                ty: DecTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
-                            self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                            self_ty: DecTerm(`mnist_classifier::raw_contour::RawContour`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
                                 contract: Pure,
-                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                                ty: DecTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            return_ty: DecTerm(`mnist_classifier::geom2d::Vector2d`),
                         },
                     ),
                 ),

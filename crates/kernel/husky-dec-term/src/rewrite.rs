@@ -4,46 +4,46 @@ pub use self::substitution::*;
 
 use crate::*;
 
-pub trait DeclarativeTermRewrite: Sized {
-    fn substitute(&self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self;
+pub trait DecTermRewrite: Sized {
+    fn substitute(&self, db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self;
 }
 
-pub trait DeclarativeTermRewriteCopy: Copy {
-    fn substitute_copy(self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self;
+pub trait DecTermRewriteCopy: Copy {
+    fn substitute_copy(self, db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self;
 }
 
-impl<T> DeclarativeTermRewrite for T
+impl<T> DecTermRewrite for T
 where
-    T: DeclarativeTermRewriteCopy,
+    T: DecTermRewriteCopy,
 {
-    fn substitute(&self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self {
+    fn substitute(&self, db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self {
         self.substitute_copy(db, substitution)
     }
 }
 
-impl DeclarativeTermRewriteCopy for DeclarativeTerm {
-    fn substitute_copy(self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self {
+impl DecTermRewriteCopy for DecTerm {
+    fn substitute_copy(self, db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self {
         match self {
-            DeclarativeTerm::Rune(symbol) => match symbol == substitution.src() {
+            DecTerm::Rune(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),
                 false => self,
             },
-            DeclarativeTerm::Symbol(_)
-            | DeclarativeTerm::Literal(_)
-            | DeclarativeTerm::EntityPath(_)
-            | DeclarativeTerm::Category(_)
-            | DeclarativeTerm::Universe(_)
-            | DeclarativeTerm::LeashOrBitNot(_) => self,
-            DeclarativeTerm::Curry(term) => term.substitute_copy(db, substitution).into(),
-            DeclarativeTerm::Abstraction(term) => term.substitute_copy(db, substitution).into(),
-            DeclarativeTerm::Application(term) => term.substitute_copy(db, substitution).into(),
-            DeclarativeTerm::ApplicationOrRitchieCall(_term) => todo!(),
-            DeclarativeTerm::AssociatedItem(term) => term.substitute_copy(db, substitution).into(),
-            DeclarativeTerm::TypeAsTraitItem(term) => term.substitute_copy(db, substitution).into(),
-            DeclarativeTerm::TraitConstraint(term) => term.substitute_copy(db, substitution).into(),
-            DeclarativeTerm::Ritchie(_) => todo!(),
-            DeclarativeTerm::List(_) => todo!(),
-            DeclarativeTerm::Wrapper(_) => todo!(),
+            DecTerm::Symbol(_)
+            | DecTerm::Literal(_)
+            | DecTerm::EntityPath(_)
+            | DecTerm::Category(_)
+            | DecTerm::Universe(_)
+            | DecTerm::LeashOrBitNot(_) => self,
+            DecTerm::Curry(term) => term.substitute_copy(db, substitution).into(),
+            DecTerm::Abstraction(term) => term.substitute_copy(db, substitution).into(),
+            DecTerm::Application(term) => term.substitute_copy(db, substitution).into(),
+            DecTerm::ApplicationOrRitchieCall(_term) => todo!(),
+            DecTerm::AssociatedItem(term) => term.substitute_copy(db, substitution).into(),
+            DecTerm::TypeAsTraitItem(term) => term.substitute_copy(db, substitution).into(),
+            DecTerm::TraitConstraint(term) => term.substitute_copy(db, substitution).into(),
+            DecTerm::Ritchie(_) => todo!(),
+            DecTerm::List(_) => todo!(),
+            DecTerm::Wrapper(_) => todo!(),
         }
     }
 }

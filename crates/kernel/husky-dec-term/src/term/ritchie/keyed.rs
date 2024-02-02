@@ -5,12 +5,12 @@ use super::*;
 pub struct DeclarativeRitchieKeyedParameter {
     key: Ident,
     contract: TermContract,
-    ty: DeclarativeTerm,
+    ty: DecTerm,
     has_default: bool,
 }
 
 impl DeclarativeRitchieKeyedParameter {
-    pub fn new(key: Ident, contract: TermContract, ty: DeclarativeTerm, has_default: bool) -> Self {
+    pub fn new(key: Ident, contract: TermContract, ty: DecTerm, has_default: bool) -> Self {
         Self {
             key,
             contract,
@@ -19,7 +19,7 @@ impl DeclarativeRitchieKeyedParameter {
         }
     }
 
-    pub(crate) fn substitute_ty(self, f: impl Fn(DeclarativeTerm) -> DeclarativeTerm) -> Self {
+    pub(crate) fn substitute_ty(self, f: impl Fn(DecTerm) -> DecTerm) -> Self {
         Self {
             key: self.key,
             contract: self.contract,
@@ -36,7 +36,7 @@ impl DeclarativeRitchieKeyedParameter {
         self.contract
     }
 
-    pub fn ty(&self) -> DeclarativeTerm {
+    pub fn ty(&self) -> DecTerm {
         self.ty
     }
 
@@ -49,7 +49,7 @@ impl DeclarativeRitchieKeyedParameter {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DeclarativeTermShowContext,
+        ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         self.ty.show_with_db_fmt(f, db, ctx)
     }

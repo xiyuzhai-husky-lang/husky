@@ -3,15 +3,15 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct DeclarativeTemplateParameter {
     annotated_variance: Option<Variance>,
-    symbol: SymbolDeclarativeTerm,
-    annotated_traits: Vec<DeclarativeTerm>,
+    symbol: SymbolDecTerm,
+    annotated_traits: Vec<DecTerm>,
 }
 
 impl DeclarativeTemplateParameter {
     fn new_explicit_from_decl(
         parameter_decl_pattern: &TemplateSynParameterData,
-        region: &DeclarativeTermRegion,
-        declarative_term_menu: &DeclarativeTermMenu,
+        region: &DecTermRegion,
+        declarative_term_menu: &DecTermMenu,
     ) -> DeclarativeTemplateParameter {
         let symbol = parameter_decl_pattern.symbol();
         let annotated_variance =
@@ -71,7 +71,7 @@ impl DeclarativeTemplateParameter {
         }
     }
 
-    fn new_implicit(symbol: SymbolDeclarativeTerm) -> Self {
+    fn new_implicit(symbol: SymbolDecTerm) -> Self {
         DeclarativeTemplateParameter {
             symbol: symbol,
             annotated_variance: None,
@@ -79,15 +79,15 @@ impl DeclarativeTemplateParameter {
         }
     }
 
-    pub fn symbol(&self) -> SymbolDeclarativeTerm {
+    pub fn symbol(&self) -> SymbolDecTerm {
         self.symbol
     }
 
-    pub fn ty(&self, db: &::salsa::Db) -> DeclarativeTermSymbolTypeResult<DeclarativeTerm> {
+    pub fn ty(&self, db: &::salsa::Db) -> DecTermSymbolTypeResult<DecTerm> {
         self.symbol().ty(db)
     }
 
-    pub fn traits(&self) -> &[DeclarativeTerm] {
+    pub fn traits(&self) -> &[DecTerm] {
         self.annotated_traits.as_ref()
     }
 
@@ -104,8 +104,8 @@ pub struct DeclarativeTemplateParameterTemplates {
 impl DeclarativeTemplateParameterTemplates {
     pub(crate) fn from_decl(
         template_parameter_obelisks: &[TemplateSynParameterData],
-        declarative_term_region: &DeclarativeTermRegion,
-        declarative_term_menu: &DeclarativeTermMenu,
+        declarative_term_region: &DecTermRegion,
+        declarative_term_menu: &DecTermMenu,
     ) -> Self {
         Self {
             data: template_parameter_obelisks

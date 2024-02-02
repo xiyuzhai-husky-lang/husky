@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
 ]

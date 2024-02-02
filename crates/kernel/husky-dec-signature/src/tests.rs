@@ -31,7 +31,7 @@ use husky_vfs::ModulePath;
     SynExprJar,
     SynDeclJar,
     TermPreludeJar,
-    DeclarativeTermJar,
+    DecTermJar,
     DecSignatureJar
 )]
 #[derive(Default)]

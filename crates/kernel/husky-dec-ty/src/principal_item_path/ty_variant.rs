@@ -5,7 +5,7 @@ use super::*;
 pub fn ty_variant_path_declarative_ty(
     db: &::salsa::Db,
     path: TypeVariantPath,
-) -> DeclarativeTypeResult<DeclarativeTerm> {
+) -> DeclarativeTypeResult<DecTerm> {
     // todo: GADT
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let tmpl = match path.dec_template(db) {

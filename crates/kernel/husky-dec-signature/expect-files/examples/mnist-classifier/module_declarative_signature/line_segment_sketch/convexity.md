@@ -18,18 +18,18 @@
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                                            ty: DecTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
                                             contract: Pure,
-                                            ty: DeclarativeTerm(`core::num::i32`),
+                                            ty: DecTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::basic::bool`),
+                            return_ty: DecTerm(`core::basic::bool`),
                         },
                     ),
                 ),

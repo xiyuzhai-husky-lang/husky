@@ -4,7 +4,7 @@ use crate::*;
 pub struct TypeMemoizedFieldDecTemplate {
     pub path: TypeItemPath,
     pub impl_block: TypeImplBlockDecTemplate,
-    pub return_ty: DeclarativeTerm,
+    pub return_ty: DecTerm,
 }
 
 impl TypeMemoizedFieldDecTemplate {

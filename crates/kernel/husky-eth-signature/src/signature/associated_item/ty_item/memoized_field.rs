@@ -118,19 +118,14 @@ impl HasTypeMemoizedFieldEtherealSignature for TypePath {
         arguments: &[EthTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
-        let TypeItemEthTemplates::MemoizedField(templates) =
+        let TypeItemEthTemplates::MemoizedField(tmpls) =
             self.ty_item_ethereal_signature_templates(db, ident)?
         else {
             return Nothing;
         };
-        for template in templates {
-            if let template = template {
-                if let Some(signature) = template
-                    .try_instantiate(db, arguments)
-                    .into_result_option()?
-                {
-                    return JustOk(signature);
-                }
+        for tmpl in tmpls {
+            if let Some(signature) = tmpl.try_instantiate(db, arguments).into_result_option()? {
+                return JustOk(signature);
             }
         }
         Nothing

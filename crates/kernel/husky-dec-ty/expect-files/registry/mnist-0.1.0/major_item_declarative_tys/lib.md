@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -36,7 +36,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`{val_type} mnist::BinaryImage28`),
+            DecTerm(`{val_type} mnist::BinaryImage28`),
         ),
     ),
 ]

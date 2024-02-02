@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeImplBlockDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
-    pub ty: DeclarativeTerm,
+    pub ty: DecTerm,
 }
 
 impl HasDecTemplate for TypeImplBlockPath {

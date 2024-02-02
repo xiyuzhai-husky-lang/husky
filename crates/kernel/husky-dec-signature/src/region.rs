@@ -20,19 +20,19 @@ use husky_syn_expr::{
 ///
 /// should contains term information enough for generating declarations
 #[derive(Debug, PartialEq, Eq)]
-pub struct DeclarativeTermRegion {
+pub struct DecTermRegion {
     path: SynNodeRegionPath,
-    term_symbol_region: SymbolDeclarativeTermRegion,
-    expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
+    term_symbol_region: SymbolDecTermRegion,
+    expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
 }
 
-impl DeclarativeTermRegion {
+impl DecTermRegion {
     pub(crate) fn new(
         path: SynNodeRegionPath,
-        term_symbol_region: SymbolDeclarativeTermRegion,
-        expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
+        term_symbol_region: SymbolDecTermRegion,
+        expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
         pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
     ) -> Self {
@@ -45,7 +45,7 @@ impl DeclarativeTermRegion {
         }
     }
 
-    pub fn term_symbol_region(&self) -> &SymbolDeclarativeTermRegion {
+    pub fn term_symbol_region(&self) -> &SymbolDecTermRegion {
         &self.term_symbol_region
     }
 
@@ -57,7 +57,7 @@ impl DeclarativeTermRegion {
             .current_parameter_symbol_signature(current_syn_symbol_idx)
     }
 
-    pub fn expr_term(&self, expr: SynExprIdx) -> DeclarativeTermResultBorrowed2<DeclarativeTerm> {
+    pub fn expr_term(&self, expr: SynExprIdx) -> DecTermResultBorrowed2<DecTerm> {
         self.expr_terms[expr].as_ref().copied()
     }
 

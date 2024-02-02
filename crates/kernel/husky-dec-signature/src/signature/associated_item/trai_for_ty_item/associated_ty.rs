@@ -5,7 +5,7 @@ pub struct TraitForTypeAssociatedTypeDecTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
-    pub ty_term: DeclarativeTerm,
+    pub ty_term: DecTerm,
 }
 
 impl TraitForTypeAssociatedTypeDecTemplate {

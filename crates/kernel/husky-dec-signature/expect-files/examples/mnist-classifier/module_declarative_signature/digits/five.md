@@ -10,7 +10,7 @@
                 MajorItemDecTemplate::Fugitive(
                     FugitiveDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DeclarativeTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Five`),
+                            return_ty: DecTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Five`),
                         },
                     ),
                 ),

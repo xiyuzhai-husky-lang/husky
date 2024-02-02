@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -36,7 +36,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -46,7 +46,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -56,7 +56,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
@@ -66,7 +66,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
 ]

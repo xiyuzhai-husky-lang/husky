@@ -2,18 +2,12 @@ use crate::*;
 
 use husky_vfs::Toolchain;
 
-pub trait DeclarativeTermDb {
-    fn declarative_term_menu(
-        &self,
-        toolchain: Toolchain,
-    ) -> DeclarativeTermResultRef<&DeclarativeTermMenu>;
+pub trait DecTermDb {
+    fn declarative_term_menu(&self, toolchain: Toolchain) -> DecTermResultRef<&DecTermMenu>;
 }
 
-impl DeclarativeTermDb for ::salsa::Db {
-    fn declarative_term_menu(
-        &self,
-        toolchain: Toolchain,
-    ) -> DeclarativeTermResultRef<&DeclarativeTermMenu> {
+impl DecTermDb for ::salsa::Db {
+    fn declarative_term_menu(&self, toolchain: Toolchain) -> DecTermResultRef<&DecTermMenu> {
         declarative_term_menu(self, toolchain).as_ref()
     }
 }

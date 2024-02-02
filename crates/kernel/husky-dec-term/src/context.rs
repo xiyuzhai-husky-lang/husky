@@ -6,15 +6,15 @@ use symbol::*;
 use vec_like::VecMap;
 
 #[derive(Default)]
-pub(crate) struct DeclarativeTermShowContext {
-    entries: VecMap<DeclarativeTermSymbolShowEntry>,
+pub(crate) struct DecTermShowContext {
+    entries: VecMap<DecTermSymbolShowEntry>,
 }
 
-impl DeclarativeTermShowContext {
+impl DecTermShowContext {
     pub(crate) fn fmt_symbol(
         &mut self,
         db: &::salsa::Db,
-        symbol: SymbolDeclarativeTerm,
+        symbol: SymbolDecTerm,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if let Some(entry) = self.entries.get_entry(symbol) {
@@ -30,7 +30,7 @@ impl DeclarativeTermShowContext {
     pub(crate) fn fmt_with_symbol(
         &mut self,
         db: &::salsa::Db,
-        symbol: SymbolDeclarativeTerm,
+        symbol: SymbolDecTerm,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         self.with_symbol(db, symbol);
@@ -42,7 +42,7 @@ impl DeclarativeTermShowContext {
     pub(crate) fn fmt_variable(
         &mut self,
         db: &::salsa::Db,
-        variable: RuneDeclarativeTerm,
+        variable: RuneDecTerm,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         // ad hoc
@@ -52,7 +52,7 @@ impl DeclarativeTermShowContext {
     pub(crate) fn fmt_with_variable(
         &mut self,
         _db: &::salsa::Db,
-        _variable: RuneDeclarativeTerm,
+        _variable: RuneDecTerm,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         // ad hoc

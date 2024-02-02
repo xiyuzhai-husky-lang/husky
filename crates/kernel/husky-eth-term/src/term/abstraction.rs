@@ -1,5 +1,5 @@
 use super::*;
-use husky_dec_term::term::abstraction::AbstractionDeclarativeTerm;
+use husky_dec_term::term::abstraction::AbstractionDecTerm;
 
 #[salsa::interned(db = EthTermDb, jar = EthTermJar)]
 pub struct AbstractionEthTerm {
@@ -18,7 +18,7 @@ fn term_abstraction_size_works() {
 impl AbstractionEthTerm {
     pub(crate) fn from_declarative(
         _db: &::salsa::Db,
-        _precise_term: AbstractionDeclarativeTerm,
+        _precise_term: AbstractionDecTerm,
         _term_ty_expectation: TermTypeExpectation,
     ) -> EthTermResult<Self> {
         todo!()

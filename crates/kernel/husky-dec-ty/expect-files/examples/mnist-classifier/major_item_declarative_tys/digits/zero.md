@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`{val_type} mnist_classifier::fermi::FermiMatchResult`),
+            DecTerm(`{val_type} mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`fn((~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+            DecTerm(`fn((~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
     (
@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`{val_type} malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Zero`),
+            DecTerm(`{val_type} malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Zero`),
         ),
     ),
 ]

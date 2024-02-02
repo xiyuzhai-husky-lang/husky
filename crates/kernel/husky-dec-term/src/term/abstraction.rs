@@ -1,13 +1,13 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct AbstractionDeclarativeTerm {
-    pub x: RuneDeclarativeTerm,
-    pub m: DeclarativeTerm,
+#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+pub struct AbstractionDecTerm {
+    pub x: RuneDecTerm,
+    pub m: DecTerm,
 }
 
-impl AbstractionDeclarativeTerm {
-    pub fn ty(&self) -> DeclarativeTerm {
+impl AbstractionDecTerm {
+    pub fn ty(&self) -> DecTerm {
         todo!()
     }
 
@@ -16,23 +16,19 @@ impl AbstractionDeclarativeTerm {
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
-        _ctx: &mut DeclarativeTermShowContext,
+        _ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl DeclarativeTermRewriteCopy for AbstractionDeclarativeTerm {
-    fn substitute_copy(
-        self,
-        _db: &::salsa::Db,
-        substitution: &DeclarativeTermSubstitution,
-    ) -> Self {
+impl DecTermRewriteCopy for AbstractionDecTerm {
+    fn substitute_copy(self, _db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self {
         todo!()
     }
 }
 
-impl salsa::DisplayWithDb for AbstractionDeclarativeTerm {
+impl salsa::DisplayWithDb for AbstractionDecTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

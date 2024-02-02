@@ -5,7 +5,7 @@ pub fn ty_path_field_declarative_ty(
     db: &::salsa::Db,
     path: TypePath,
     ident: Ident,
-) -> DeclarativeTypeResult<Option<DeclarativeTerm>> {
+) -> DeclarativeTypeResult<Option<DecTerm>> {
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),

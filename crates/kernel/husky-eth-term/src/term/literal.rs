@@ -3,12 +3,12 @@ use super::*;
 impl EthTerm {
     pub(super) fn from_literal_declarative_term(
         db: &::salsa::Db,
-        literal: LiteralDeclarativeTerm,
+        literal: LiteralDecTerm,
         ty_expectation: TermTypeExpectation,
     ) -> EthTermResult<Self> {
         Ok(match literal {
-            LiteralDeclarativeTerm::Resolved(literal) => literal.into(),
-            LiteralDeclarativeTerm::Unresolved(literal) => {
+            LiteralDecTerm::Resolved(literal) => literal.into(),
+            LiteralDecTerm::Unresolved(literal) => {
                 Self::from_unresolved_literal_declarative_term(literal, ty_expectation, db)
             }
         })

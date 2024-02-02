@@ -1,7 +1,7 @@
 mod index;
 mod set;
 
-use crate::helpers::DeclarativeTermFamily;
+use crate::helpers::DecTermFamily;
 
 pub use self::index::*;
 pub use self::set::*;
@@ -12,17 +12,17 @@ use thiserror::Error;
 use vec_like::VecSet;
 
 /// symbols are defined in a top-down manner through generics
-#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct SymbolDeclarativeTerm {
+#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+pub struct SymbolDecTerm {
     pub toolchain: Toolchain,
-    pub ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
+    pub ty: DecTermSymbolTypeResult<DecTerm>,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     /// todo: change to RefinedGenericIndex
-    pub index: DeclarativeTermSymbolIndex,
+    pub index: DecTermSymbolIndex,
 }
 
-impl SymbolDeclarativeTerm {
+impl SymbolDecTerm {
     #[inline(always)]
     pub fn new_self_ty(
         db: &::salsa::Db,
@@ -30,10 +30,10 @@ impl SymbolDeclarativeTerm {
         registry: &mut TermSymbolRegistry,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
-        SymbolDeclarativeTerm::new(
+        SymbolDecTerm::new(
             db,
             toolchain,
-            Ok(DeclarativeTerm::TYPE),
+            Ok(DecTerm::TYPE),
             registry.issue_self_ty_index(),
         )
     }
@@ -43,13 +43,13 @@ impl SymbolDeclarativeTerm {
         db: &::salsa::Db,
         toolchain: Toolchain,
         registry: &mut TermSymbolRegistry,
-        _self_ty_term: DeclarativeTerm,
+        _self_ty_term: DecTerm,
     ) -> Self {
         // todo: general universe??? or ignore universes totally
-        SymbolDeclarativeTerm::new(
+        SymbolDecTerm::new(
             db,
             toolchain,
-            Ok(DeclarativeTerm::TYPE),
+            Ok(DecTerm::TYPE),
             registry.issue_self_value_index(),
         )
     }
@@ -58,11 +58,11 @@ impl SymbolDeclarativeTerm {
     pub fn new_lifetime(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        menu: &DeclarativeTermMenu,
+        menu: &DecTermMenu,
         registry: &mut TermSymbolRegistry,
         attrs: DeclarativeTemplateSymbolAttrs,
         variance: Option<Variance>,
-    ) -> (DeclarativeTermSymbolTypeResult<DeclarativeTerm>, Self) {
+    ) -> (DecTermSymbolTypeResult<DecTerm>, Self) {
         let ty = Ok(menu.lifetime_ty());
         (
             ty,
@@ -79,11 +79,11 @@ impl SymbolDeclarativeTerm {
     pub fn new_place(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        menu: &DeclarativeTermMenu,
+        menu: &DecTermMenu,
         registry: &mut TermSymbolRegistry,
         attrs: DeclarativeTemplateSymbolAttrs,
         variance: Option<Variance>,
-    ) -> (DeclarativeTermSymbolTypeResult<DeclarativeTerm>, Self) {
+    ) -> (DecTermSymbolTypeResult<DecTerm>, Self) {
         let ty = Ok(menu.place_ty());
         (
             ty,
@@ -100,15 +100,15 @@ impl SymbolDeclarativeTerm {
     pub fn new_ty(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        menu: &DeclarativeTermMenu,
+        menu: &DecTermMenu,
         registry: &mut TermSymbolRegistry,
         attrs: DeclarativeTemplateSymbolAttrs,
         variance: Option<Variance>,
-    ) -> (DeclarativeTermSymbolTypeResult<DeclarativeTerm>, Self) {
+    ) -> (DecTermSymbolTypeResult<DecTerm>, Self) {
         let ty = Ok(menu.ty0().into());
         (
             ty,
-            SymbolDeclarativeTerm::new(db, toolchain, ty, registry.issue_ty_index(attrs, variance)),
+            SymbolDecTerm::new(db, toolchain, ty, registry.issue_ty_index(attrs, variance)),
         )
     }
 
@@ -116,16 +116,16 @@ impl SymbolDeclarativeTerm {
         db: &::salsa::Db,
         toolchain: Toolchain,
         attrs: DeclarativeTemplateSymbolAttrs,
-        ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
+        ty: DecTermSymbolTypeResult<DecTerm>,
         registry: &mut TermSymbolRegistry,
     ) -> Self {
         let idx = match ty {
             Ok(ty) => match ty.family(db) {
-                DeclarativeTermFamily::Sort => todo!(),
-                DeclarativeTermFamily::TypePath(ty_path) => {
+                DecTermFamily::Sort => todo!(),
+                DecTermFamily::TypePath(ty_path) => {
                     registry.issue_const_path_leading_index(attrs, ty_path)
                 }
-                DeclarativeTermFamily::Other => registry.issue_const_other_index(attrs),
+                DecTermFamily::Other => registry.issue_const_other_index(attrs),
             },
             Err(_) => registry.issue_const_err_index(attrs),
         };
@@ -136,16 +136,16 @@ impl SymbolDeclarativeTerm {
     pub fn new_ephem(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
+        ty: DecTermSymbolTypeResult<DecTerm>,
         registry: &mut TermSymbolRegistry,
     ) -> Self {
         let idx = match ty {
             Ok(ty) => match ty.family(db) {
-                DeclarativeTermFamily::Sort => todo!(),
-                DeclarativeTermFamily::TypePath(ty_path) => {
+                DecTermFamily::Sort => todo!(),
+                DecTermFamily::TypePath(ty_path) => {
                     registry.issue_ephem_path_leading_index(ty_path)
                 }
-                DeclarativeTermFamily::Other => registry.issue_ephem_other_index(),
+                DecTermFamily::Other => registry.issue_ephem_other_index(),
             },
             Err(_) => todo!(),
         };
@@ -155,14 +155,14 @@ impl SymbolDeclarativeTerm {
     pub unsafe fn new_ad_hoc(
         db: &::salsa::Db,
         toolchain: Toolchain,
-        ty: DeclarativeTerm,
+        ty: DecTerm,
         disambiguator: u8,
     ) -> Self {
         Self::new(
             db,
             toolchain,
             Ok(ty),
-            DeclarativeTermSymbolIndex::new_ad_hoc(disambiguator),
+            DecTermSymbolIndex::new_ad_hoc(disambiguator),
         )
     }
 
@@ -170,25 +170,25 @@ impl SymbolDeclarativeTerm {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &mut DeclarativeTermShowContext,
+        ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         ctx.fmt_symbol(db, self, f)
     }
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum DeclarativeTermSymbolTypeErrorKind {
+pub enum DecTermSymbolTypeErrorKind {
     #[error("signature declarative_term error")]
-    SignatureDeclarativeTermError,
+    SignatureDecTermError,
     #[error("sketch declarative_term error")]
-    SketchDeclarativeTermError,
+    SketchDecTermError,
     #[error("cannot infer type expression term")]
     CannotInferTypeExprTerm(SynNodeRegionPath),
 }
 
-pub type DeclarativeTermSymbolTypeResult<T> = Result<T, DeclarativeTermSymbolTypeErrorKind>;
+pub type DecTermSymbolTypeResult<T> = Result<T, DecTermSymbolTypeErrorKind>;
 
-impl salsa::DisplayWithDb for SymbolDeclarativeTerm {
+impl salsa::DisplayWithDb for SymbolDecTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

@@ -3,9 +3,9 @@ use vec_like::AsVecMapEntry;
 use super::*;
 
 #[derive(Debug, Hash, PartialEq, Eq)]
-pub(crate) struct DeclarativeTermSymbolShowEntry {
-    symbol: SymbolDeclarativeTerm,
-    show_kind: DeclarativeTermSymbolShowKind,
+pub(crate) struct DecTermSymbolShowEntry {
+    symbol: SymbolDecTerm,
+    show_kind: DecTermSymbolShowKind,
     idx: u8,
     /// number of lambdas using this symbol
     /// level 0 means this symbol is external
@@ -13,7 +13,7 @@ pub(crate) struct DeclarativeTermSymbolShowEntry {
     external_symbol_ident: Option<Ident>,
 }
 
-impl DeclarativeTermSymbolShowEntry {
+impl DecTermSymbolShowEntry {
     pub(crate) fn show(
         &self,
         _db: &::salsa::Db,
@@ -25,7 +25,7 @@ impl DeclarativeTermSymbolShowEntry {
             todo!()
         } else {
             match self.show_kind {
-                DeclarativeTermSymbolShowKind::Lifetime => match self.idx {
+                DecTermSymbolShowKind::Lifetime => match self.idx {
                     0 => f.write_str("'a"),
                     1 => f.write_str("'b"),
                     2 => f.write_str("'c"),
@@ -34,7 +34,7 @@ impl DeclarativeTermSymbolShowEntry {
                     5 => f.write_str("'f"),
                     idx => f.write_fmt(format_args!("'a{}", idx)),
                 },
-                DeclarativeTermSymbolShowKind::Place => match self.idx {
+                DecTermSymbolShowKind::Place => match self.idx {
                     0 => f.write_str("'α"),
                     1 => f.write_str("'β"),
                     2 => f.write_str("'γ"),
@@ -44,17 +44,17 @@ impl DeclarativeTermSymbolShowEntry {
                     6 => f.write_str("'η"),
                     idx => f.write_fmt(format_args!("'α{}", idx)),
                 },
-                DeclarativeTermSymbolShowKind::Prop => match self.idx {
+                DecTermSymbolShowKind::Prop => match self.idx {
                     0 => f.write_str("p"),
                     1 => f.write_str("q"),
                     idx => f.write_fmt(format_args!("p{}", idx)),
                 },
-                DeclarativeTermSymbolShowKind::Type => match self.idx {
+                DecTermSymbolShowKind::Type => match self.idx {
                     0 => f.write_str("t"),
                     1 => f.write_str("s"),
                     idx => f.write_fmt(format_args!("t{}", idx)),
                 },
-                DeclarativeTermSymbolShowKind::Kind => match self.idx {
+                DecTermSymbolShowKind::Kind => match self.idx {
                     0 => f.write_str("α"),
                     1 => f.write_str("β"),
                     2 => f.write_str("γ"),
@@ -64,7 +64,7 @@ impl DeclarativeTermSymbolShowEntry {
                     6 => f.write_str("η"),
                     idx => f.write_fmt(format_args!("α{}", idx)),
                 },
-                DeclarativeTermSymbolShowKind::Other => match self.idx {
+                DecTermSymbolShowKind::Other => match self.idx {
                     0 => f.write_str("a"),
                     1 => f.write_str("b"),
                     idx => f.write_fmt(format_args!("a{}", idx)),
@@ -74,8 +74,8 @@ impl DeclarativeTermSymbolShowEntry {
     }
 }
 
-impl AsVecMapEntry for DeclarativeTermSymbolShowEntry {
-    type K = SymbolDeclarativeTerm;
+impl AsVecMapEntry for DecTermSymbolShowEntry {
+    type K = SymbolDecTerm;
 
     fn key(&self) -> Self::K
     where
@@ -90,7 +90,7 @@ impl AsVecMapEntry for DeclarativeTermSymbolShowEntry {
 }
 
 #[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
-pub(crate) enum DeclarativeTermSymbolShowKind {
+pub(crate) enum DecTermSymbolShowKind {
     Lifetime,
     Place,
     Prop,
@@ -99,34 +99,34 @@ pub(crate) enum DeclarativeTermSymbolShowKind {
     Other,
 }
 
-impl DeclarativeTermShowContext {
+impl DecTermShowContext {
     pub(super) fn new_external_entry(
         &self,
         db: &::salsa::Db,
-        symbol: SymbolDeclarativeTerm,
+        symbol: SymbolDecTerm,
         external_symbol_ident: Option<Ident>,
-    ) -> DeclarativeTermSymbolShowEntry {
+    ) -> DecTermSymbolShowEntry {
         self.new_entry(db, symbol, 0, external_symbol_ident)
     }
 
     pub(super) fn new_internal_entry(
         &self,
         db: &::salsa::Db,
-        symbol: SymbolDeclarativeTerm,
-    ) -> DeclarativeTermSymbolShowEntry {
+        symbol: SymbolDecTerm,
+    ) -> DecTermSymbolShowEntry {
         self.new_entry(db, symbol, 1, None)
     }
 
     fn new_entry(
         &self,
         db: &::salsa::Db,
-        symbol: SymbolDeclarativeTerm,
+        symbol: SymbolDecTerm,
         level: u8,
         external_symbol_ident: Option<Ident>,
-    ) -> DeclarativeTermSymbolShowEntry {
+    ) -> DecTermSymbolShowEntry {
         let show_kind = symbol_show_kind(symbol, db);
         let idx = self.issue_idx(show_kind);
-        DeclarativeTermSymbolShowEntry {
+        DecTermSymbolShowEntry {
             symbol,
             show_kind,
             idx,
@@ -135,7 +135,7 @@ impl DeclarativeTermShowContext {
         }
     }
 
-    fn issue_idx(&self, show_kind: DeclarativeTermSymbolShowKind) -> u8 {
+    fn issue_idx(&self, show_kind: DecTermSymbolShowKind) -> u8 {
         let last_idx = self
             .entries
             .data()
@@ -150,7 +150,7 @@ impl DeclarativeTermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn with_symbol(&mut self, db: &::salsa::Db, symbol: SymbolDeclarativeTerm) {
+    pub(super) fn with_symbol(&mut self, db: &::salsa::Db, symbol: SymbolDecTerm) {
         if let Some(entry) = self.entries.get_entry_mut(symbol) {
             entry.level += 1
         } else {
@@ -159,36 +159,25 @@ impl DeclarativeTermShowContext {
         }
     }
 
-    pub(super) fn without_symbol(&mut self, symbol: SymbolDeclarativeTerm) {
+    pub(super) fn without_symbol(&mut self, symbol: SymbolDecTerm) {
         self.entries.get_entry_mut(symbol).unwrap().level -= 1
     }
 }
 
-fn symbol_show_kind(
-    symbol: SymbolDeclarativeTerm,
-    db: &::salsa::Db,
-) -> DeclarativeTermSymbolShowKind {
+fn symbol_show_kind(symbol: SymbolDecTerm, db: &::salsa::Db) -> DecTermSymbolShowKind {
     let Ok(ty) = symbol.ty(db) else {
-        return DeclarativeTermSymbolShowKind::Other;
+        return DecTermSymbolShowKind::Other;
     };
     match ty {
-        DeclarativeTerm::EntityPath(ItemPathDeclarativeTerm::Type(ty))
-            if ty.eqs_lifetime_ty_path(db) =>
-        {
-            DeclarativeTermSymbolShowKind::Lifetime
+        DecTerm::EntityPath(ItemPathDecTerm::Type(ty)) if ty.eqs_lifetime_ty_path(db) => {
+            DecTermSymbolShowKind::Lifetime
         }
-        DeclarativeTerm::EntityPath(ItemPathDeclarativeTerm::Type(ty))
-            if ty.eqs_place_ty_path(db) =>
-        {
-            DeclarativeTermSymbolShowKind::Place
+        DecTerm::EntityPath(ItemPathDecTerm::Type(ty)) if ty.eqs_place_ty_path(db) => {
+            DecTermSymbolShowKind::Place
         }
-        DeclarativeTerm::Category(cat) if cat.universe().raw() == 0 => {
-            DeclarativeTermSymbolShowKind::Prop
-        }
-        DeclarativeTerm::Category(cat) if cat.universe().raw() == 1 => {
-            DeclarativeTermSymbolShowKind::Type
-        }
-        DeclarativeTerm::Category(_) => DeclarativeTermSymbolShowKind::Kind,
-        _ => DeclarativeTermSymbolShowKind::Other,
+        DecTerm::Category(cat) if cat.universe().raw() == 0 => DecTermSymbolShowKind::Prop,
+        DecTerm::Category(cat) if cat.universe().raw() == 1 => DecTermSymbolShowKind::Type,
+        DecTerm::Category(_) => DecTermSymbolShowKind::Kind,
+        _ => DecTermSymbolShowKind::Other,
     }
 }

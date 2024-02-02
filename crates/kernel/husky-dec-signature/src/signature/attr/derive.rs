@@ -7,7 +7,7 @@ pub struct DeriveAttrDecTemplate {
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct DeriveAttrShardDecTemplate {
-    pub trai_term: DeclarativeTerm,
+    pub trai_term: DecTerm,
 }
 
 impl DeriveAttrDecTemplate {
@@ -23,7 +23,7 @@ impl DeriveAttrDecTemplate {
                     declarative_term_region.expr_term(trai.syn_expr_idx())?,
                 ))
             })
-            .collect::<DeclarativeTermResultBorrowed2<_>>()?;
+            .collect::<DecTermResultBorrowed2<_>>()?;
         Ok(DeriveAttrDecTemplate::new(db, shards))
     }
 }

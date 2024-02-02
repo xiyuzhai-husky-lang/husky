@@ -19,7 +19,7 @@ fn term_as_trai_subitem_size_works() {
 impl TypeAsTraitItemEthTerm {
     pub(crate) fn from_declarative(
         _db: &::salsa::Db,
-        _valid_term: TypeAsTraitItemDeclarativeTerm,
+        _valid_term: TypeAsTraitItemDecTerm,
         _term_ty_expectation: TermTypeExpectation,
     ) -> EthTermResult<Self> {
         todo!()

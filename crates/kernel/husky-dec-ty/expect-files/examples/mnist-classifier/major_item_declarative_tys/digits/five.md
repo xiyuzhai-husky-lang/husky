@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`{val_type} malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Five`),
+            DecTerm(`{val_type} malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Five`),
         ),
     ),
 ]

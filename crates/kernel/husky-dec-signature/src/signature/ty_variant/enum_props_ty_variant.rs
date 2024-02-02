@@ -4,14 +4,14 @@ use super::*;
 pub struct EnumPropsVariantDecTemplate {
     pub parent_ty_template: EnumTypeDecTemplate,
     pub field_tys: SmallVec<[EnumPropsVariantFieldDecTemplate; 4]>,
-    pub return_ty: DeclarativeTerm,
-    pub instance_constructor_ty: RitchieDeclarativeTerm,
+    pub return_ty: DecTerm,
+    pub instance_constructor_ty: RitchieDecTerm,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct EnumPropsVariantFieldDecTemplate {
     ident: Ident,
-    ty: DeclarativeTerm,
+    ty: DecTerm,
 }
 
 impl EnumPropsVariantDecTemplate {
@@ -30,14 +30,14 @@ impl EnumPropsVariantDecTemplate {
                 Ok(EnumPropsVariantFieldDecTemplate {
                     ident: field.ident(),
                     ty: declarative_term_region.expr_term(field.ty()).map_err(|_| {
-                        DecSignatureError::FieldTypeDeclarativeTermError(i.try_into().unwrap())
+                        DecSignatureError::FieldTypeDecTermError(i.try_into().unwrap())
                     })?,
                 })
             })
             .collect::<DecSignatureResult<SmallVec<_>>>()?;
         // todo: GADT can override return_ty
         let return_ty = parent_ty_template.self_ty(db);
-        let instance_constructor_ty = RitchieDeclarativeTerm::new(
+        let instance_constructor_ty = RitchieDecTerm::new(
             db,
             RitchieTypeKind::Fn.into(),
             fields

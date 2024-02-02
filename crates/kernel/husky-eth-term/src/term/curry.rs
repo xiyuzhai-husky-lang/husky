@@ -29,7 +29,7 @@ fn term_curry_size_works() {
 impl CurryEthTerm {
     pub(crate) fn from_declarative(
         db: &::salsa::Db,
-        declarative_term_curry: CurryDeclarativeTerm,
+        declarative_term_curry: CurryDecTerm,
     ) -> EthTermResult<Self> {
         term_curry_from_declarative(db, declarative_term_curry)
     }
@@ -101,7 +101,7 @@ impl EthTermInstantiate for CurryEthTerm {
 #[salsa::tracked(jar = EthTermJar)]
 pub(crate) fn term_curry_from_declarative(
     db: &::salsa::Db,
-    curry: CurryDeclarativeTerm,
+    curry: CurryDecTerm,
 ) -> EthTermResult<CurryEthTerm> {
     let t = |declarative_ty| EthTerm::ty_from_declarative(db, declarative_ty);
     Ok(CurryEthTerm::new(

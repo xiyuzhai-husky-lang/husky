@@ -2,13 +2,13 @@
     (
         TypePath(`core::str::str`, `Extern`),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
     (
         TypePath(`core::str::StringLiteral`, `Extern`),
         Ok(
-            DeclarativeTerm(`Type`),
+            DecTerm(`Type`),
         ),
     ),
 ]

@@ -1,21 +1,21 @@
 use super::*;
 use vec_like::VecSet;
 
-/// unlike DeclarativeTermSymbols
-/// Some(DeclarativeTermRunes { unaccounted_runes: Default::default() })
+/// unlike DecTermSymbols
+/// Some(DecTermRunes { unaccounted_runes: Default::default() })
 /// means different from None
 ///
 /// the former implies that runes exists, but all accounted
-#[salsa::tracked(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct DeclarativeTermRunes {
+#[salsa::tracked(db = DecTermDb, jar = DecTermJar)]
+pub struct DecTermRunes {
     /// unaccounted means the rune is not declared within this term
     #[return_ref]
-    pub unaccounted_runes: VecSet<RuneDeclarativeTerm>,
+    pub unaccounted_runes: VecSet<RuneDecTerm>,
 }
 
-impl DeclarativeTermRunes {
+impl DecTermRunes {
     #[inline(always)]
-    pub(crate) fn contains(self, db: &::salsa::Db, rune: RuneDeclarativeTerm) -> bool {
+    pub(crate) fn contains(self, db: &::salsa::Db, rune: RuneDecTerm) -> bool {
         self.unaccounted_runes(db).has(rune)
     }
 
@@ -34,84 +34,81 @@ impl DeclarativeTermRunes {
     #[inline(always)]
     fn remove(
         runes: impl Into<Option<Self>>,
-        _rune: impl Into<Option<RuneDeclarativeTerm>>,
+        _rune: impl Into<Option<RuneDecTerm>>,
     ) -> Option<Self> {
         let _runes = runes.into()?;
         todo!()
     }
 }
-impl DeclarativeTerm {
-    pub fn contains_rune(self, db: &::salsa::Db, rune: RuneDeclarativeTerm) -> bool {
+impl DecTerm {
+    pub fn contains_rune(self, db: &::salsa::Db, rune: RuneDecTerm) -> bool {
         self.runes(db)
             .map(|declarative_term_runes| declarative_term_runes.contains(db, rune))
             .unwrap_or_default()
     }
 
-    pub(crate) fn runes(self, db: &::salsa::Db) -> Option<DeclarativeTermRunes> {
+    pub(crate) fn runes(self, db: &::salsa::Db) -> Option<DecTermRunes> {
         match self {
-            DeclarativeTerm::Literal(_) => todo!(),
-            DeclarativeTerm::Rune(rune) => Some(DeclarativeTermRunes::new(
-                db,
-                VecSet::new_one_elem_set(rune),
-            )),
-            DeclarativeTerm::Symbol(_symbol) => None,
-            DeclarativeTerm::EntityPath(path) => match path {
-                ItemPathDeclarativeTerm::Fugitive(_) => todo!(),
-                ItemPathDeclarativeTerm::Trait(_) | ItemPathDeclarativeTerm::Type(_) => None,
-                ItemPathDeclarativeTerm::TypeVariant(_) => todo!(),
+            DecTerm::Literal(_) => todo!(),
+            DecTerm::Rune(rune) => Some(DecTermRunes::new(db, VecSet::new_one_elem_set(rune))),
+            DecTerm::Symbol(_symbol) => None,
+            DecTerm::EntityPath(path) => match path {
+                ItemPathDecTerm::Fugitive(_) => todo!(),
+                ItemPathDecTerm::Trait(_) | ItemPathDecTerm::Type(_) => None,
+                ItemPathDecTerm::TypeVariant(_) => todo!(),
             },
-            DeclarativeTerm::Category(_) => None,
-            DeclarativeTerm::Universe(_) => None,
-            DeclarativeTerm::Curry(declarative_term) => {
+            DecTerm::Category(_) => None,
+            DecTerm::Universe(_) => None,
+            DecTerm::Curry(declarative_term) => {
                 declarative_term_curry_placeholders(db, declarative_term)
             }
-            DeclarativeTerm::Ritchie(declarative_term) => {
+            DecTerm::Ritchie(declarative_term) => {
                 declarative_term_ritchie_runes(db, declarative_term)
             }
-            DeclarativeTerm::Abstraction(_) => todo!(),
-            DeclarativeTerm::Application(declarative_term) => {
+            DecTerm::Abstraction(_) => todo!(),
+            DecTerm::Application(declarative_term) => {
                 declarative_term_application_runes(db, declarative_term)
             }
-            DeclarativeTerm::ApplicationOrRitchieCall(_declarative_ty) => todo!(),
-            DeclarativeTerm::AssociatedItem(_) => todo!(),
-            DeclarativeTerm::TypeAsTraitItem(_) => todo!(),
-            DeclarativeTerm::TraitConstraint(_) => todo!(),
-            DeclarativeTerm::LeashOrBitNot(_) => todo!(),
-            DeclarativeTerm::List(_) => todo!(),
-            DeclarativeTerm::Wrapper(_) => todo!(),
+            DecTerm::ApplicationOrRitchieCall(_declarative_ty) => todo!(),
+            DecTerm::AssociatedItem(_) => todo!(),
+            DecTerm::TypeAsTraitItem(_) => todo!(),
+            DecTerm::TraitConstraint(_) => todo!(),
+            DecTerm::LeashOrBitNot(_) => todo!(),
+            DecTerm::List(_) => todo!(),
+            DecTerm::Wrapper(_) => todo!(),
         }
     }
 }
 
-#[salsa::tracked(jar = DeclarativeTermJar)]
+#[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn declarative_term_curry_placeholders(
     db: &::salsa::Db,
-    term: CurryDeclarativeTerm,
-) -> Option<DeclarativeTermRunes> {
+    term: CurryDecTerm,
+) -> Option<DecTermRunes> {
     let parameter_ty_runes = term.parameter_ty(db).runes(db);
     let return_ty_runes = term.return_ty(db).runes(db);
-    DeclarativeTermRunes::merge(
+    DecTermRunes::merge(
         parameter_ty_runes,
-        DeclarativeTermRunes::remove(return_ty_runes, term.parameter_rune(db)),
+        DecTermRunes::remove(return_ty_runes, term.parameter_rune(db)),
     )
 }
 
-#[salsa::tracked(jar = DeclarativeTermJar)]
+#[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn declarative_term_ritchie_runes(
     db: &::salsa::Db,
-    term: RitchieDeclarativeTerm,
-) -> Option<DeclarativeTermRunes> {
-    let mut runes: Option<DeclarativeTermRunes> = None;
+    term: RitchieDecTerm,
+) -> Option<DecTermRunes> {
+    let mut runes: Option<DecTermRunes> = None;
     for param in term.params(db) {
-        runes = DeclarativeTermRunes::merge(runes, param.ty().runes(db))
+        runes = DecTermRunes::merge(runes, param.ty().runes(db))
     }
-    DeclarativeTermRunes::merge(runes, term.return_ty(db).runes(db))
+    DecTermRunes::merge(runes, term.return_ty(db).runes(db))
 }
 
-#[salsa::tracked(jar = DeclarativeTermJar)]
+#[salsa::tracked(jar = DecTermJar)]
 pub(crate) fn declarative_term_application_runes(
     db: &::salsa::Db,
-    term: ApplicationDeclarativeTerm,
-) -> Option<DeclarativeTermRunes> {
-    DeclarativeTermRunes::merge(term.function(db).runes(db), term.argument(db).runes(db))
+    term: ApplicationDecTerm,
+) -> Option<DecTermRunes> {
+    DecTermRunes::merge(term.function(db).runes(db), term.argument(db).runes(db))
 }

@@ -6,12 +6,12 @@ pub(crate) use self::pattern_symbol_ty::*;
 
 use super::*;
 
-impl<'a> DeclarativeTermEngine<'a> {
+impl<'a> DecTermEngine<'a> {
     /// only use this for explicit parameters
     pub(super) fn infer_pattern_tys_in_parenate_parameter(
         &mut self,
         syn_pattern_expr_root: impl Into<SynPatternExprRoot> + Copy,
-        ty: DeclarativeTerm,
+        ty: DecTerm,
     ) {
         let syn_pattern_expr_idx = syn_pattern_expr_root.into().syn_pattern_expr_idx();
         self.infer_pattern_expr_tys(syn_pattern_expr_idx, ty);

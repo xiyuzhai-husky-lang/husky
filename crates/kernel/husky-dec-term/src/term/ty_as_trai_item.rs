@@ -1,27 +1,27 @@
 use crate::*;
 use husky_coword::Ident;
 
-#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct TypeAsTraitItemDeclarativeTerm {
-    parent: DeclarativeTerm,
-    trai: DeclarativeTerm,
+#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+pub struct TypeAsTraitItemDecTerm {
+    parent: DecTerm,
+    trai: DecTerm,
     ident: Ident,
 }
 
-impl TypeAsTraitItemDeclarativeTerm {
+impl TypeAsTraitItemDecTerm {
     #[inline(never)]
     pub(crate) fn show_with_db_fmt(
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
-        _ctx: &mut DeclarativeTermShowContext,
+        _ctx: &mut DecTermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl DeclarativeTermRewriteCopy for TypeAsTraitItemDeclarativeTerm {
-    fn substitute_copy(self, db: &::salsa::Db, substitution: &DeclarativeTermSubstitution) -> Self
+impl DecTermRewriteCopy for TypeAsTraitItemDecTerm {
+    fn substitute_copy(self, db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self
     where
         Self: Copy,
     {

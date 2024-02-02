@@ -1,45 +1,45 @@
-use husky_dec_term::term::DeclarativeTermSymbolTypeErrorKind;
+use husky_dec_term::term::DecTermSymbolTypeErrorKind;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub enum DeclarativeTermError2 {
-    Original(OriginalDeclarativeTermError2),
-    Derived(DerivedDeclarativeTermError2),
+pub enum DecTermError2 {
+    Original(OriginalDecTermError2),
+    Derived(DerivedDecTermError2),
 }
 
-impl Into<DeclarativeTermSymbolTypeErrorKind> for DeclarativeTermError2 {
-    fn into(self) -> DeclarativeTermSymbolTypeErrorKind {
-        DeclarativeTermSymbolTypeErrorKind::SignatureDeclarativeTermError
+impl Into<DecTermSymbolTypeErrorKind> for DecTermError2 {
+    fn into(self) -> DecTermSymbolTypeErrorKind {
+        DecTermSymbolTypeErrorKind::SignatureDecTermError
     }
 }
 
-impl From<OriginalDeclarativeTermError2> for DeclarativeTermError2 {
-    fn from(v: OriginalDeclarativeTermError2) -> Self {
+impl From<OriginalDecTermError2> for DecTermError2 {
+    fn from(v: OriginalDecTermError2) -> Self {
         Self::Original(v)
     }
 }
 
-impl From<DerivedDeclarativeTermError2> for DeclarativeTermError2 {
-    fn from(v: DerivedDeclarativeTermError2) -> Self {
+impl From<DerivedDecTermError2> for DecTermError2 {
+    fn from(v: DerivedDecTermError2) -> Self {
         Self::Derived(v)
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum OriginalDeclarativeTermError2 {
+pub enum OriginalDecTermError2 {
     ExpectedLiteralForArrayLength,
     InvalidSymbolForTerm,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum DerivedDeclarativeTermError2 {
+pub enum DerivedDecTermError2 {
     InvalidEntityPath,
-    CannotInferFunctionDeclarativeTermInApplication,
-    CannotInferArgumentDeclarativeTermInApplication,
-    CannotInferOperandDeclarativeTermInPrefix,
+    CannotInferFunctionDecTermInApplication,
+    CannotInferArgumentDecTermInApplication,
+    CannotInferOperandDecTermInPrefix,
     ExprError,
-    DeclarativeTermAbortion,
-    CannotInferArgumentDeclarativeTermInBoxList,
+    DecTermAbortion,
+    CannotInferArgumentDecTermInBoxList,
     CannotInferArrayLength,
     // should have been reported as syntax error
     SelfTypeNotAllowedInThisRegion,
@@ -48,5 +48,5 @@ pub enum DerivedDeclarativeTermError2 {
     InheritedSynSymbolIsNotValidTerm,
 }
 
-pub type DeclarativeTermResult2<T> = Result<T, DeclarativeTermError2>;
-pub type DeclarativeTermResultBorrowed2<'a, T> = Result<T, &'a DeclarativeTermError2>;
+pub type DecTermResult2<T> = Result<T, DecTermError2>;
+pub type DecTermResultBorrowed2<'a, T> = Result<T, &'a DecTermError2>;

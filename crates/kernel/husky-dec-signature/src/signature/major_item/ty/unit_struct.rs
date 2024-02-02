@@ -4,7 +4,7 @@ use super::*;
 pub struct UnitStructTypeDecTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
-    pub self_ty: DeclarativeTerm,
+    pub self_ty: DecTerm,
 }
 
 impl UnitStructTypeDecTemplate {
