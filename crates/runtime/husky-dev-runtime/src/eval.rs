@@ -30,7 +30,6 @@ impl<Task: IsTask> DevRuntime<Task> {
         val_domain_repr: ValDomainRepr,
         pedestal: TaskDevPedestal<Task>,
     ) -> ValControlFlow<(), Infallible, TaskError<Task>> {
-        use husky_task_interface::value::IsValue;
         match val_domain_repr {
             ValDomainRepr::Omni => ValControlFlow::Continue(()),
             ValDomainRepr::ConditionSatisfied(condition_val_repr) => {

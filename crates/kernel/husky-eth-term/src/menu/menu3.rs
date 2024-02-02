@@ -21,5 +21,3 @@ impl TermMenu3 {
         TermMenu3 { parent: menu2 }
     }
 }
-
-type A = core::primitive::i32;

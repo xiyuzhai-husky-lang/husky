@@ -37,18 +37,6 @@ impl TermShowContext {
         f.write_str("variable_ad_hoc_fmt")
     }
 
-    pub(crate) fn fmt_with_symbol(
-        &mut self,
-        db: &::salsa::Db,
-        symbol: EthSymbol,
-        f: impl FnOnce(&mut Self) -> std::fmt::Result,
-    ) -> std::fmt::Result {
-        self.enter_block(db, symbol);
-        f(self)?;
-        self.exit_block(symbol);
-        Ok(())
-    }
-
     pub(crate) fn fmt_with_variable(
         &mut self,
         _db: &::salsa::Db,
