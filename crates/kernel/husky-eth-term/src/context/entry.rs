@@ -112,14 +112,6 @@ impl TermShowContext {
         self.new_entry(db, symbol, 0, external_symbol_ident)
     }
 
-    pub(super) fn new_internal_entry(
-        &self,
-        db: &::salsa::Db,
-        symbol: EthSymbol,
-    ) -> TermSymbolShowEntry {
-        self.new_entry(db, symbol, 1, None)
-    }
-
     fn new_entry(
         &self,
         db: &::salsa::Db,
@@ -150,20 +142,6 @@ impl TermShowContext {
             Some(last_idx) => last_idx + 1,
             None => 0,
         }
-    }
-
-    // todo: put this into an internal table struct
-    pub(super) fn enter_block(&mut self, db: &::salsa::Db, symbol: EthSymbol) {
-        if let Some(entry) = self.entries.get_entry_mut(symbol) {
-            entry.level += 1
-        } else {
-            let new_entry = self.new_internal_entry(db, symbol);
-            self.entries.insert_new(new_entry).unwrap();
-        }
-    }
-
-    pub(super) fn exit_block(&mut self, symbol: EthSymbol) {
-        self.entries.get_entry_mut(symbol).unwrap().level -= 1
     }
 }
 
