@@ -11,6 +11,7 @@ use super::*;
 pub struct SymbolDecTermRegion {
     symbol_registry: TermSymbolRegistry,
     symbol_signatures: SymbolOrderedMap<SymbolDecSignature>,
+    /// used to format dec terms
     symbol_name_map: SymbolDecTermNameMap,
     self_ty: Option<DecTerm>,
     self_value: Option<SymbolDecTerm>,
@@ -174,12 +175,14 @@ impl SymbolDecTermRegion {
         let implicit_self_place = syn_expr_region_data
             .has_self_place()
             .then_some(declarative_term_menu.implicit_self_place());
+        let symbol_name_map =
+            parent.map_or(Default::default(), |parent| parent.symbol_name_map.clone());
         Self {
             symbol_registry: registry,
             symbol_signatures: SymbolOrderedMap::new(
                 parent.map(|parent| &parent.symbol_signatures),
             ),
-            symbol_name_map: Default::default(),
+            symbol_name_map,
             self_ty: parent.map(|parent| parent.self_ty).flatten(),
             self_value: parent.map(|parent| parent.self_value).flatten(),
             self_lifetime: implicit_self_lifetime,
