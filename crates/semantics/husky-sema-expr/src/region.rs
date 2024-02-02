@@ -139,9 +139,9 @@ impl SemaExprRegionData {
     ) -> EthTerm {
         match self.syn_pattern_expr_ty_infos[syn_pattern_expr_idx].ty {
             Ok(ty_term) => match ty_term.base_resolved_inner(self.fluffy_term_region.terms()) {
-                FlyTermBase::Ethereal(ty_term) => ty_term,
-                FlyTermBase::Solid(_) => todo!(),
-                FlyTermBase::Hollow(_) => todo!(),
+                FlyTermBase::Eth(ty_term) => ty_term,
+                FlyTermBase::Sol(_) => todo!(),
+                FlyTermBase::Hol(_) => todo!(),
                 FlyTermBase::Place => todo!(),
             },
             Err(_) => todo!(),

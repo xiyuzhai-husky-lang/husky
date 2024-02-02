@@ -6,7 +6,7 @@ pub struct TypeMethodFnEthTemplate {
     pub self_ty: EthTerm,
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
-    pub self_value_parameter: EtherealRitchieRegularParameter,
+    pub self_value_parameter: EthRitchieRegularParameter,
     #[return_ref]
     pub parenate_parameters: EtherealParenateParameters,
     pub return_ty: EthTerm,
@@ -22,7 +22,7 @@ impl TypeMethodFnEthTemplate {
         let template_parameters =
             EthTemplateParameters::from_declarative(db, tmpl.template_parameters(db))?;
         let self_value_parameter =
-            EtherealRitchieRegularParameter::from_declarative(db, tmpl.self_value_parameter(db))?;
+            EthRitchieRegularParameter::from_declarative(db, tmpl.self_value_parameter(db))?;
         let parenate_parameters =
             EtherealParenateParameters::from_declarative(db, tmpl.parenate_parameters(db))?;
         let return_ty = EthTerm::ty_from_declarative(db, tmpl.return_ty(db))?;

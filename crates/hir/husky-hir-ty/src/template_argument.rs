@@ -39,10 +39,10 @@ impl From<HirTemplateSymbol> for HirTemplateArgument {
 pub type HirTemplateArguments = smallvec::SmallVec<[HirTemplateArgument; 2]>;
 
 impl HirTemplateArgument {
-    pub(crate) fn from_ethereal(argument: EthTerm, db: &::salsa::Db) -> Option<Self> {
+    pub(crate) fn from_eth(argument: EthTerm, db: &::salsa::Db) -> Option<Self> {
         Some(match argument {
             EthTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
-            EthTerm::Symbol(symbol) => HirTemplateSymbol::from_ethereal(symbol, db)?.into(),
+            EthTerm::Symbol(symbol) => HirTemplateSymbol::from_eth(symbol, db)?.into(),
             EthTerm::Rune(_) => todo!(),
             EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::Fugitive(_path) => todo!(),
@@ -60,23 +60,21 @@ impl HirTemplateArgument {
             EthTerm::Category(_) => todo!(),
             EthTerm::Universe(_) => todo!(),
             EthTerm::Curry(_) => todo!(),
-            EthTerm::Ritchie(term) => {
-                HirType::Ritchie(HirRitchieType::from_ethereal(term, db)).into()
-            }
+            EthTerm::Ritchie(term) => HirType::Ritchie(HirRitchieType::from_eth(term, db)).into(),
             EthTerm::Abstraction(_) => todo!(),
             EthTerm::Application(application) => {
-                hir_ty_from_ethereal_term_application(db, application).into()
+                hir_ty_from_eth_term_application(db, application).into()
             }
             EthTerm::TypeAsTraitItem(_) => todo!(),
             EthTerm::TraitConstraint(_) => todo!(),
         })
     }
 
-    pub(crate) fn from_fluffy(term: FlyTerm, db: &::salsa::Db, terms: &FlyTerms) -> Option<Self> {
+    pub(crate) fn from_fly(term: FlyTerm, db: &::salsa::Db, terms: &FlyTerms) -> Option<Self> {
         match term.base_resolved_inner(terms) {
-            FlyTermBase::Ethereal(ethereal_term) => Self::from_ethereal(ethereal_term, db),
-            FlyTermBase::Solid(_) => todo!(),
-            FlyTermBase::Hollow(t) => {
+            FlyTermBase::Eth(ethereal_term) => Self::from_eth(ethereal_term, db),
+            FlyTermBase::Sol(_) => todo!(),
+            FlyTermBase::Hol(t) => {
                 use husky_print_utils::p;
                 p!(t, term.show(db, terms));
                 todo!()

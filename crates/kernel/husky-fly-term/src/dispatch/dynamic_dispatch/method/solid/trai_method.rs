@@ -1,6 +1,6 @@
 use super::*;
 
-impl HasFlyTraitMethodDispatch for SolidTerm {
+impl HasFlyTraitMethodDispatch for SolTerm {
     fn trai_method_dispatch_aux(
         self,
         engine: &mut impl FlyTermEngine,

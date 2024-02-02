@@ -60,7 +60,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -70,7 +70,7 @@
                                     1,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -108,7 +108,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -135,10 +135,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -162,7 +162,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -248,7 +248,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -258,7 +258,7 @@
                                     1,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -280,7 +280,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -290,7 +290,7 @@
                                     2,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -313,7 +313,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -323,7 +323,7 @@
                                     3,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -345,7 +345,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -355,7 +355,7 @@
                                     4,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -404,7 +404,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -427,7 +427,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -446,7 +446,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -469,7 +469,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -496,7 +496,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Leash ConcaveComponent`),
                             ),
                         },
@@ -509,10 +509,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -525,7 +525,7 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Ethereal(
+                                            base: Eth(
                                                 Category(
                                                     CategoryTerm {
                                                         universe: UniverseTerm(
@@ -545,7 +545,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -569,7 +569,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -587,10 +587,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Type`),
                                             ),
                                         },
@@ -604,7 +604,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -634,7 +634,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -720,7 +720,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -730,7 +730,7 @@
                                     1,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -752,7 +752,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -762,7 +762,7 @@
                                     2,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -785,7 +785,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -795,7 +795,7 @@
                                     3,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -817,7 +817,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -827,7 +827,7 @@
                                     4,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -876,7 +876,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -899,7 +899,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -918,7 +918,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -941,7 +941,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -968,7 +968,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Leash ConcaveComponent`),
                             ),
                         },
@@ -981,10 +981,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -997,7 +997,7 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Ethereal(
+                                            base: Eth(
                                                 Category(
                                                     CategoryTerm {
                                                         universe: UniverseTerm(
@@ -1017,7 +1017,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1041,7 +1041,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1059,10 +1059,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Type`),
                                             ),
                                         },
@@ -1076,7 +1076,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1106,7 +1106,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1192,7 +1192,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1202,7 +1202,7 @@
                                     1,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1224,7 +1224,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1234,7 +1234,7 @@
                                     2,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1257,7 +1257,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1267,7 +1267,7 @@
                                     3,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1289,7 +1289,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1299,7 +1299,7 @@
                                     4,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1348,7 +1348,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -1371,7 +1371,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -1390,7 +1390,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -1413,7 +1413,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -1440,7 +1440,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Leash ConcaveComponent`),
                             ),
                         },
@@ -1453,10 +1453,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -1469,7 +1469,7 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Ethereal(
+                                            base: Eth(
                                                 Category(
                                                     CategoryTerm {
                                                         universe: UniverseTerm(
@@ -1489,7 +1489,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1513,7 +1513,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1531,10 +1531,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Type`),
                                             ),
                                         },
@@ -1548,7 +1548,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1578,7 +1578,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1664,7 +1664,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                     ),
                                 },
@@ -1674,7 +1674,7 @@
                                     1,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
@@ -1697,7 +1697,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1707,7 +1707,7 @@
                                     2,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1728,7 +1728,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`independent MnistLabel -> Type`),
                                     ),
                                 },
@@ -1738,7 +1738,7 @@
                                     3,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`independent MnistLabel -> Type`),
                                         ),
                                     },
@@ -1777,7 +1777,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`MnistLabel`),
                                     ),
                                 },
@@ -1787,7 +1787,7 @@
                                     4,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`MnistLabel`),
                                         ),
                                     },
@@ -1808,7 +1808,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
                                 },
@@ -1818,7 +1818,7 @@
                                     5,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -1856,7 +1856,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -1879,7 +1879,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -1902,7 +1902,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -1921,7 +1921,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeVariant(
                                         TypeVariantPath(
@@ -1944,7 +1944,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -1967,10 +1967,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -1992,7 +1992,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
@@ -2003,7 +2003,7 @@
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                         ),
                                                     },
@@ -2013,7 +2013,7 @@
                                                             RuneFlyTerm(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         Rune(
                                                                             RuneEthTerm(
                                                                                 Id {
@@ -2027,13 +2027,13 @@
                                                         ),
                                                         parameter_ty: FlyTerm {
                                                             place: None,
-                                                            base: FlyTermBase::Ethereal(
+                                                            base: FlyTermBase::Eth(
                                                                 EthTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FlyTerm {
                                                             place: None,
-                                                            base: FlyTermBase::Ethereal(
+                                                            base: FlyTermBase::Eth(
                                                                 EthTerm(`independent variable_ad_hoc_fmt -> Type`),
                                                             ),
                                                         },
@@ -2049,7 +2049,7 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Ethereal(
+                                            base: Eth(
                                                 Category(
                                                     CategoryTerm {
                                                         universe: UniverseTerm(
@@ -2069,7 +2069,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },
@@ -2091,7 +2091,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`independent MnistLabel -> Type`),
                                         ),
                                     },
@@ -2102,7 +2102,7 @@
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`Type`),
                                                         ),
                                                     },
@@ -2111,13 +2111,13 @@
                                                         parameter_rune: None,
                                                         parameter_ty: FlyTerm {
                                                             place: None,
-                                                            base: FlyTermBase::Ethereal(
+                                                            base: FlyTermBase::Eth(
                                                                 EthTerm(`MnistLabel`),
                                                             ),
                                                         },
                                                         return_ty: FlyTerm {
                                                             place: None,
-                                                            base: FlyTermBase::Ethereal(
+                                                            base: FlyTermBase::Eth(
                                                                 EthTerm(`Type`),
                                                             ),
                                                         },
@@ -2133,7 +2133,7 @@
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
                                             place: None,
-                                            base: Ethereal(
+                                            base: Eth(
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
@@ -2157,7 +2157,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`MnistLabel`),
                                         ),
                                     },
@@ -2181,7 +2181,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
                                     },

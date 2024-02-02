@@ -5,6 +5,7 @@ mod level;
 pub use self::action::*;
 pub use self::error::*;
 pub use self::level::*;
+use self::FillHole;
 
 use crate::*;
 
@@ -24,20 +25,54 @@ impl FlyTermRegion {
                         debug_assert_ne!(Into::<FlyTerm>::into(hole), *target);
                         // todo: check HoleKind?
                         return AltSome(FlyTermEffect {
-                            subsequent_actions: smallvec![FlyTermResolveAction::FillHole {
-                                hole,
-                                term: *target
-                            }],
+                            subsequent_actions: smallvec![FlyTermResolveAction::FillHole(
+                                FillHole {
+                                    hole,
+                                    term: *target
+                                }
+                            )],
                         });
                     }
                     HoleConstraint::CoercibleInto { target } => {
                         debug_assert_ne!(Into::<FlyTerm>::into(hole), *target);
                         // todo: check HoleKind?
                         return AltSome(FlyTermEffect {
-                            subsequent_actions: smallvec![FlyTermResolveAction::FillHole {
-                                hole,
-                                term: *target
-                            }],
+                            subsequent_actions: smallvec![FlyTermResolveAction::FillHole(
+                                FillHole {
+                                    hole,
+                                    term: *target
+                                }
+                            )],
+                        });
+                    }
+                    HoleConstraint::Subtype { target } => {
+                        if Into::<FlyTerm>::into(hole) == *target {
+                            return AltNone;
+                        }
+                        // todo: check HoleKind?
+                        // todo: return AltNone if target is not resolved?
+                        return AltSome(FlyTermEffect {
+                            subsequent_actions: smallvec![FlyTermResolveAction::FillHole(
+                                FillHole {
+                                    hole,
+                                    term: *target
+                                }
+                            )],
+                        });
+                    }
+                    HoleConstraint::Supertype { target } => {
+                        if Into::<FlyTerm>::into(hole) == *target {
+                            return AltNone;
+                        }
+                        // todo: check HoleKind?
+                        // todo: return AltNone if target is not resolved?
+                        return AltSome(FlyTermEffect {
+                            subsequent_actions: smallvec![FlyTermResolveAction::FillHole(
+                                FillHole {
+                                    hole,
+                                    term: *target
+                                }
+                            )],
                         });
                     }
                 }
@@ -62,7 +97,7 @@ impl FlyTermRegion {
                     } => {
                         self.add_expectation(src, expectee, expectation, db);
                     }
-                    FlyTermResolveAction::FillHole { hole, term } => {
+                    FlyTermResolveAction::FillHole(FillHole { hole, term }) => {
                         self.terms_mut().fill_hole(db, hole, term)
                     }
                     FlyTermResolveAction::AddHoleConstraint {

@@ -23,7 +23,7 @@ impl TraitForTypeMethodFnHirDecl {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
-        let self_ty = HirType::from_ethereal(
+        let self_ty = HirType::from_eth(
             path.ethereal_signature_template(db)
                 .unwrap()
                 .self_ty(db)

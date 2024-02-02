@@ -33,7 +33,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             ty: let_pattern_sema_obelisk
                 .ty_sema_expr_idx()
                 .map(|ty_sema_expr_idx| {
-                    HirType::from_ethereal(self.expr_term(ty_sema_expr_idx), self.db()).unwrap()
+                    HirType::from_eth(self.expr_term(ty_sema_expr_idx), self.db()).unwrap()
                 }),
         }
     }

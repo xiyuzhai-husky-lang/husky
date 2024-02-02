@@ -231,7 +231,7 @@ impl ExpectCoersion {
                             actions.push(FlyTermResolveAction::AddExpectation {
                                 src: state.child_src(),
                                 expectee: src_argument_ty,
-                                expectation: ExpectSubtype::new(dst_argument_ty).into(),
+                                expectation: ExpectSubtypeOrEqual::new(dst_argument_ty).into(),
                             })
                         }
                     }

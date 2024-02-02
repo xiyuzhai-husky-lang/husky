@@ -14,8 +14,8 @@ pub struct FlyTermRegion {
     pub(crate) expectations: Expectations,
 }
 
-impl std::borrow::Borrow<HollowTerms> for FlyTermRegion {
-    fn borrow(&self) -> &HollowTerms {
+impl std::borrow::Borrow<HolTerms> for FlyTermRegion {
+    fn borrow(&self) -> &HolTerms {
         self.terms.borrow()
     }
 }
@@ -40,19 +40,19 @@ impl FlyTermRegion {
         &self.expectations
     }
 
-    pub fn solid_terms(&self) -> &SolidTerms {
+    pub fn solid_terms(&self) -> &SolTerms {
         self.terms.solid_terms()
     }
 
-    pub(crate) fn solid_terms_mut(&mut self) -> &mut SolidTerms {
+    pub(crate) fn solid_terms_mut(&mut self) -> &mut SolTerms {
         self.terms.solid_terms_mut()
     }
 
-    pub fn hollow_terms(&self) -> &HollowTerms {
+    pub fn hollow_terms(&self) -> &HolTerms {
         self.terms.hollow_terms()
     }
 
-    pub(crate) fn hollow_terms_mut(&mut self) -> &mut HollowTerms {
+    pub(crate) fn hollow_terms_mut(&mut self) -> &mut HolTerms {
         self.terms.hollow_terms_mut()
     }
 

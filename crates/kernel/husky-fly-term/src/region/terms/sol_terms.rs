@@ -4,12 +4,12 @@ use vec_like::VecSet;
 // `Default` is not implemented because we might need to initialize it from the parent
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct SolidTerms {
+pub struct SolTerms {
     entries: VecSet<SolidTermData>,
 }
 
-impl SolidTerms {
-    pub(crate) fn new(terms: Option<&SolidTerms>) -> Self {
+impl SolTerms {
+    pub(crate) fn new(terms: Option<&SolTerms>) -> Self {
         let entries = match terms {
             Some(terms) => terms.entries.clone(),
             None => Default::default(),
@@ -17,23 +17,23 @@ impl SolidTerms {
         Self { entries }
     }
 
-    pub(crate) fn intern_new(&mut self, data: SolidTermData) -> SolidTerm {
+    pub(crate) fn intern_new(&mut self, data: SolidTermData) -> SolTerm {
         let raw = self
             .entries
             .position_or_insert(data)
             .try_into()
             .expect("size of entries shouldn't be too large");
         assert!((raw as usize) < self.entries.len());
-        SolidTerm(raw)
+        SolTerm(raw)
     }
 }
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct SolidTerm(u32);
+pub struct SolTerm(u32);
 
-impl SolidTerm {
-    pub(crate) fn new(solid_terms: &mut SolidTerms, data: SolidTermData) -> Self {
+impl SolTerm {
+    pub(crate) fn new(solid_terms: &mut SolTerms, data: SolidTermData) -> Self {
         solid_terms.intern_new(data)
     }
 
@@ -41,12 +41,12 @@ impl SolidTerm {
         self.data_inner(&engine.fluffy_terms().solid_terms())
     }
 
-    pub(crate) fn data_inner(self, solid_terms: &SolidTerms) -> &SolidTermData {
+    pub(crate) fn data_inner(self, solid_terms: &SolTerms) -> &SolidTermData {
         &solid_terms.entries.data()[self.0 as usize]
     }
 
     #[inline(never)]
-    pub fn show(self, db: &::salsa::Db, solid_terms: &SolidTerms) -> String {
+    pub fn show(self, db: &::salsa::Db, solid_terms: &SolTerms) -> String {
         match self.data_inner(solid_terms) {
             SolidTermData::TypeOntology {
                 path,

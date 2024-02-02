@@ -14,15 +14,15 @@ pub enum SolidTermData {
         toolchain: Toolchain,
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_rune: Option<SolidTerm>,
-        parameter_ty: SolidTerm,
-        return_ty: SolidTerm,
+        parameter_rune: Option<SolTerm>,
+        parameter_ty: SolTerm,
+        return_ty: SolTerm,
     },
     Ritchie {
         ritchie_kind: RitchieKind,
         // use fluffy term here because we don't want to recreate vectors when converting
         parameter_contracted_tys: SmallVec<[FlyRitchieParameter; 2]>,
-        return_ty: SolidTerm,
+        return_ty: SolTerm,
     },
 }
 

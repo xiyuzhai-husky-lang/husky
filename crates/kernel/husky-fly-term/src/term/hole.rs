@@ -26,8 +26,8 @@ pub enum HoleKind {
     Any,
 }
 
-impl HollowTerm {
-    pub(crate) fn new(engine: &mut impl FlyTermEngine, data: HollowTermData) -> Self {
+impl HolTerm {
+    pub(crate) fn new(engine: &mut impl FlyTermEngine, data: HolTermData) -> Self {
         engine
             .fluffy_term_region_mut()
             .hollow_terms_mut()
@@ -41,7 +41,7 @@ impl HollowTerm {
     ) -> Self {
         Self::new(
             engine,
-            HollowTermData::Hole {
+            HolTermData::Hole {
                 hole_source: src.into(),
                 hole_kind,
                 fill: None,

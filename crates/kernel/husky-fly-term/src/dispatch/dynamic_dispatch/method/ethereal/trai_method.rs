@@ -78,7 +78,7 @@ impl HasFlyTraitMethodDispatch for EthTerm {
                         };
                         match method_signature_builder.try_finish(db) {
                             Some(eth_sig) => JustOk(FlyDynamicDispatch {
-                                signature: MethodFnFlySignature::from_ethereal(
+                                signature: MethodFnFlySignature::from_eth(
                                     indirections.final_place(),
                                     eth_sig,
                                 )

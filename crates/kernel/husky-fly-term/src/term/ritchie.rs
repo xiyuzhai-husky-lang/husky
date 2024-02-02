@@ -49,7 +49,7 @@ impl FlyTerm {
             FlyTermDataKind::Solid => todo!(),
             FlyTermDataKind::Hollow => Ok(terms
                 .hollow_terms_mut()
-                .alloc_new(HollowTermData::Ritchie {
+                .alloc_new(HolTermData::Ritchie {
                     ritchie_kind,
                     params,
                     return_ty,
@@ -71,7 +71,7 @@ pub enum FlyRitchieParameter {
 impl FlyRitchieParameter {
     fn resolve_as_ethereal(
         self,
-        terms: &impl std::borrow::Borrow<HollowTerms>,
+        terms: &impl std::borrow::Borrow<HolTerms>,
     ) -> Option<EtherealRitchieParameter> {
         Some(match self {
             FlyRitchieParameter::Regular(param) => param.resolve_as_ethereal(terms)?.into(),

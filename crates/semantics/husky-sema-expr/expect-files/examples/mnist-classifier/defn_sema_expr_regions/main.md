@@ -68,7 +68,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`OneVsAll MnistLabel One`),
                                     ),
                                 },
@@ -80,7 +80,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel One`),
                                         ),
                                     },
@@ -203,7 +203,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -213,7 +213,7 @@
                                     2,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -244,7 +244,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`OneVsAll MnistLabel Six`),
                                     ),
                                 },
@@ -256,7 +256,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Six`),
                                         ),
                                     },
@@ -379,7 +379,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -389,7 +389,7 @@
                                     4,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -420,7 +420,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`OneVsAll MnistLabel Zero`),
                                     ),
                                 },
@@ -432,7 +432,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Zero`),
                                         ),
                                     },
@@ -555,7 +555,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -565,7 +565,7 @@
                                     6,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -596,7 +596,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`OneVsAll MnistLabel Seven`),
                                     ),
                                 },
@@ -608,7 +608,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Seven`),
                                         ),
                                     },
@@ -731,7 +731,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -741,7 +741,7 @@
                                     8,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -772,7 +772,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`OneVsAll MnistLabel Eight`),
                                     ),
                                 },
@@ -784,7 +784,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Eight`),
                                         ),
                                     },
@@ -907,7 +907,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -917,7 +917,7 @@
                                     10,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -948,7 +948,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`OneVsAll MnistLabel Three`),
                                     ),
                                 },
@@ -960,7 +960,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Three`),
                                         ),
                                     },
@@ -1083,7 +1083,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1093,7 +1093,7 @@
                                     12,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -1124,7 +1124,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`OneVsAll MnistLabel Nine`),
                                     ),
                                 },
@@ -1136,7 +1136,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Nine`),
                                         ),
                                     },
@@ -1259,7 +1259,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1269,7 +1269,7 @@
                                     14,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -1300,7 +1300,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`OneVsAll MnistLabel Five`),
                                     ),
                                 },
@@ -1312,7 +1312,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Five`),
                                         ),
                                     },
@@ -1435,7 +1435,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1445,7 +1445,7 @@
                                     16,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -1476,7 +1476,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`OneVsAll MnistLabel Two`),
                                     ),
                                 },
@@ -1488,7 +1488,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Two`),
                                         ),
                                     },
@@ -1611,7 +1611,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1621,7 +1621,7 @@
                                     18,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -1661,7 +1661,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     0,
                                                                 ),
@@ -1678,7 +1678,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             1,
                                         ),
@@ -1690,7 +1690,7 @@
                                     19,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 1,
                                             ),
@@ -1712,7 +1712,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             1,
                                         ),
@@ -1724,7 +1724,7 @@
                                     21,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 1,
                                             ),
@@ -1764,7 +1764,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1795,7 +1795,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1826,7 +1826,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1857,7 +1857,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1888,7 +1888,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1919,7 +1919,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1950,7 +1950,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1981,7 +1981,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -2012,7 +2012,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -2043,7 +2043,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             1,
                                         ),
@@ -2080,13 +2080,13 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         19,
                                     ),
@@ -2094,28 +2094,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::Class`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -2125,7 +2125,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     0,
                                                 ),
@@ -2133,7 +2133,7 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`Class MnistLabel`),
                                 ),
                             },
@@ -2158,7 +2158,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel One`),
                                         ),
                                     },
@@ -2172,7 +2172,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -2186,7 +2186,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -2220,7 +2220,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Six`),
                                         ),
                                     },
@@ -2234,7 +2234,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -2248,7 +2248,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -2282,7 +2282,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Zero`),
                                         ),
                                     },
@@ -2296,7 +2296,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -2310,7 +2310,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -2344,7 +2344,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Seven`),
                                         ),
                                     },
@@ -2358,7 +2358,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -2372,7 +2372,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -2406,7 +2406,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Eight`),
                                         ),
                                     },
@@ -2420,7 +2420,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -2434,7 +2434,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -2468,7 +2468,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Three`),
                                         ),
                                     },
@@ -2482,7 +2482,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -2496,7 +2496,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -2530,7 +2530,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Nine`),
                                         ),
                                     },
@@ -2544,7 +2544,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -2558,7 +2558,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -2592,7 +2592,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Five`),
                                         ),
                                     },
@@ -2606,7 +2606,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -2620,7 +2620,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -2654,7 +2654,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`OneVsAll MnistLabel Two`),
                                         ),
                                     },
@@ -2668,7 +2668,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -2682,7 +2682,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -2708,7 +2708,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Class MnistLabel`),
                                             ),
                                         },
@@ -2722,7 +2722,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 1,
                                             ),
@@ -2746,10 +2746,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -2765,7 +2765,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 0,
                                             ),
@@ -2787,7 +2787,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Class MnistLabel`),
                                             ),
                                         },
@@ -2801,7 +2801,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 1,
                                             ),

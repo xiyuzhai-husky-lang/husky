@@ -76,9 +76,9 @@ impl<'a> HirDeclBuilder<'a> {
                     .fluffy_term_region()
                     .hollow_terms(),
             ) {
-            FlyTermBase::Ethereal(term) => HirType::from_ethereal(term, self.db),
-            FlyTermBase::Solid(_) => todo!(),
-            FlyTermBase::Hollow(_) => todo!(),
+            FlyTermBase::Eth(term) => HirType::from_eth(term, self.db),
+            FlyTermBase::Sol(_) => todo!(),
+            FlyTermBase::Hol(_) => todo!(),
             FlyTermBase::Place => todo!(),
         }
     }
@@ -97,9 +97,9 @@ impl<'a> HirDeclBuilder<'a> {
                     .fluffy_term_region()
                     .hollow_terms(),
             ) {
-            FlyTermBase::Ethereal(term) => HirTrait::from_ethereal(term, self.db),
-            FlyTermBase::Solid(_) => todo!(),
-            FlyTermBase::Hollow(_) => todo!(),
+            FlyTermBase::Eth(term) => HirTrait::from_eth(term, self.db),
+            FlyTermBase::Sol(_) => todo!(),
+            FlyTermBase::Hol(_) => todo!(),
             FlyTermBase::Place => todo!(),
         }
     }
@@ -115,9 +115,9 @@ impl<'a> HirDeclBuilder<'a> {
         match self.sema_expr_region_data.symbol_terms()[current_syn_symbol_idx]
             .base_resolved_inner(self.sema_expr_region_data.fluffy_term_region())
         {
-            FlyTermBase::Ethereal(symbol_term) => symbol_term,
-            FlyTermBase::Solid(_) => todo!(),
-            FlyTermBase::Hollow(_) => todo!(),
+            FlyTermBase::Eth(symbol_term) => symbol_term,
+            FlyTermBase::Sol(_) => todo!(),
+            FlyTermBase::Hol(_) => todo!(),
             FlyTermBase::Place => todo!(),
         }
     }

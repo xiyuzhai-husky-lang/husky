@@ -77,7 +77,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     0,
                                                                 ),
@@ -94,7 +94,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     1,
                                                                 ),
@@ -111,7 +111,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             2,
                                         ),
@@ -123,7 +123,7 @@
                                     1,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -145,7 +145,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             2,
                                         ),
@@ -157,7 +157,7 @@
                                     4,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -197,7 +197,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             2,
                                         ),
@@ -234,13 +234,13 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         1,
                                     ),
@@ -248,28 +248,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         1,
                                     ),
@@ -277,19 +277,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Five`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`Five`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`Five`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -299,7 +308,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     0,
                                                 ),
@@ -307,7 +316,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     1,
                                                 ),
@@ -315,7 +324,7 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAll MnistLabel Five`),
                                 ),
                             },
@@ -332,7 +341,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll MnistLabel Five`),
                                             ),
                                         },
@@ -346,7 +355,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -370,10 +379,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -389,7 +398,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 0,
                                             ),
@@ -407,10 +416,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Five`),
                                             ),
                                         },
@@ -426,7 +435,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 1,
                                             ),
@@ -448,7 +457,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll MnistLabel Five`),
                                             ),
                                         },
@@ -462,7 +471,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 2,
                                             ),

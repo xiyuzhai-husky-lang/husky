@@ -66,7 +66,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                     ),
                                 },
@@ -76,7 +76,7 @@
                                     1,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                         ),
                                     },
@@ -107,7 +107,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash Vec ConcaveComponent`),
                                     ),
                                 },
@@ -119,7 +119,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
@@ -148,7 +148,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                     ),
                                 },
@@ -158,7 +158,7 @@
                                     3,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
@@ -187,7 +187,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                     ),
                                 },
@@ -197,7 +197,7 @@
                                     4,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
@@ -226,7 +226,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                     ),
                                 },
@@ -236,7 +236,7 @@
                                     5,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
@@ -279,7 +279,7 @@
                                     ],
                                     element_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
@@ -291,7 +291,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                     ),
                                 },
@@ -301,7 +301,7 @@
                                     6,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
@@ -324,7 +324,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`Leash Vec ConcaveComponent`),
                                                     ),
                                                 },
@@ -354,7 +354,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                                     ),
                                                 },
@@ -384,7 +384,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -394,7 +394,7 @@
                                     7,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -414,7 +414,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -424,7 +424,7 @@
                                     8,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -462,7 +462,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -497,10 +497,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -522,7 +522,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                         ),
                                     },
@@ -533,7 +533,7 @@
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`FermiMatchResult`),
                                                         ),
                                                     },
@@ -547,7 +547,7 @@
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
-                                                                        base: FlyTermBase::Ethereal(
+                                                                        base: FlyTermBase::Eth(
                                                                             EthTerm(`Leash Vec ConcaveComponent`),
                                                                         ),
                                                                     },
@@ -558,7 +558,7 @@
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
-                                                                        base: FlyTermBase::Ethereal(
+                                                                        base: FlyTermBase::Eth(
                                                                             EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                                                         ),
                                                                     },
@@ -578,7 +578,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Leash Vec ConcaveComponent`),
                                             ),
                                         },
@@ -594,7 +594,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
@@ -620,7 +620,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                             ),
                                         },
@@ -634,7 +634,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
@@ -660,7 +660,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                             ),
                                         },
@@ -674,7 +674,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
@@ -700,7 +700,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                             ),
                                         },
@@ -714,7 +714,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
@@ -740,7 +740,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                             ),
                                         },
@@ -754,7 +754,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
@@ -780,7 +780,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`FermiMatchResult`),
                                             ),
                                         },
@@ -794,7 +794,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -820,7 +820,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`FermiMatchResult`),
                                             ),
                                         },
@@ -834,7 +834,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -933,7 +933,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     0,
                                                                 ),
@@ -950,7 +950,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     1,
                                                                 ),
@@ -967,7 +967,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             3,
                                         ),
@@ -979,7 +979,7 @@
                                     1,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 3,
                                             ),
@@ -1012,7 +1012,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
@@ -1024,7 +1024,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -1041,7 +1041,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -1066,7 +1066,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -1089,7 +1089,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -1101,7 +1101,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -1132,7 +1132,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -1144,7 +1144,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -1169,7 +1169,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -1181,7 +1181,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -1204,7 +1204,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -1256,7 +1256,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -1303,7 +1303,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             2,
                                         ),
@@ -1315,7 +1315,7 @@
                                     6,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -1440,7 +1440,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -1450,7 +1450,7 @@
                                     9,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -1479,7 +1479,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                     ),
                                 },
@@ -1489,7 +1489,7 @@
                                     10,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                         ),
                                     },
@@ -1520,7 +1520,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash Vec ConcaveComponent`),
                                     ),
                                 },
@@ -1532,7 +1532,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
@@ -1548,7 +1548,7 @@
                                     items: [],
                                     element_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
@@ -1560,7 +1560,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                     ),
                                 },
@@ -1570,7 +1570,7 @@
                                     12,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
@@ -1593,7 +1593,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`Leash Vec ConcaveComponent`),
                                                     ),
                                                 },
@@ -1623,7 +1623,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                                     ),
                                                 },
@@ -1653,7 +1653,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -1663,7 +1663,7 @@
                                     13,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -1694,7 +1694,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -1712,7 +1712,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -1735,7 +1735,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -1770,7 +1770,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -1799,7 +1799,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -1817,7 +1817,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -1846,7 +1846,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -1858,7 +1858,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -1893,7 +1893,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -1903,7 +1903,7 @@
                                     17,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -1933,7 +1933,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     4,
                                                                 ),
@@ -1950,7 +1950,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     5,
                                                                 ),
@@ -1967,7 +1967,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             7,
                                         ),
@@ -1979,7 +1979,7 @@
                                     18,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 7,
                                             ),
@@ -2012,7 +2012,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
@@ -2024,7 +2024,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -2041,7 +2041,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -2066,7 +2066,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -2089,7 +2089,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -2101,7 +2101,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -2126,7 +2126,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -2138,7 +2138,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -2161,7 +2161,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -2194,7 +2194,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -2241,7 +2241,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             6,
                                         ),
@@ -2253,7 +2253,7 @@
                                     22,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 6,
                                             ),
@@ -2378,7 +2378,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -2388,7 +2388,7 @@
                                     25,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -2419,7 +2419,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
@@ -2431,7 +2431,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -2448,7 +2448,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -2473,7 +2473,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -2496,7 +2496,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -2508,7 +2508,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -2537,7 +2537,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -2549,7 +2549,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -2584,7 +2584,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -2594,7 +2594,7 @@
                                     29,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -2625,7 +2625,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
@@ -2637,7 +2637,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -2654,7 +2654,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -2679,7 +2679,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -2702,7 +2702,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -2714,7 +2714,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -2743,7 +2743,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -2755,7 +2755,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -2790,7 +2790,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -2800,7 +2800,7 @@
                                     33,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -2840,7 +2840,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     8,
                                                                 ),
@@ -2857,7 +2857,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     9,
                                                                 ),
@@ -2874,7 +2874,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             10,
                                         ),
@@ -2886,7 +2886,7 @@
                                     34,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 10,
                                             ),
@@ -2919,7 +2919,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
@@ -2931,7 +2931,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -2948,7 +2948,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -2973,7 +2973,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -2996,7 +2996,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -3008,7 +3008,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -3037,7 +3037,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -3049,7 +3049,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -3084,7 +3084,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -3094,7 +3094,7 @@
                                     40,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -3125,7 +3125,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -3137,7 +3137,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -3166,7 +3166,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -3178,7 +3178,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -3213,7 +3213,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -3223,7 +3223,7 @@
                                     43,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -3254,7 +3254,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -3266,7 +3266,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -3283,7 +3283,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -3306,7 +3306,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Vec Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -3319,7 +3319,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vec Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -3331,7 +3331,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -3356,7 +3356,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             11,
                                         ),
@@ -3370,7 +3370,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 11,
                                             ),
@@ -3408,7 +3408,7 @@
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -3421,7 +3421,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -3433,7 +3433,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -3464,7 +3464,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -3476,7 +3476,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -3493,7 +3493,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -3516,7 +3516,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Vec Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -3529,7 +3529,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vec Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -3541,7 +3541,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -3566,7 +3566,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             12,
                                         ),
@@ -3580,7 +3580,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 12,
                                             ),
@@ -3618,7 +3618,7 @@
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -3631,7 +3631,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -3643,7 +3643,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -3674,7 +3674,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -3686,7 +3686,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -3703,7 +3703,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -3726,7 +3726,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Vec Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -3739,7 +3739,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vec Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -3751,7 +3751,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -3776,7 +3776,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             13,
                                         ),
@@ -3790,7 +3790,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 13,
                                             ),
@@ -3828,7 +3828,7 @@
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -3841,7 +3841,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -3853,7 +3853,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -3884,7 +3884,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -3902,7 +3902,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -3931,7 +3931,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -3941,7 +3941,7 @@
                                     60,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -3972,7 +3972,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -3990,7 +3990,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -4013,7 +4013,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -4048,7 +4048,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -4077,7 +4077,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -4095,7 +4095,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4124,7 +4124,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -4136,7 +4136,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4171,7 +4171,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -4181,7 +4181,7 @@
                                     64,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -4211,7 +4211,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     14,
                                                                 ),
@@ -4228,7 +4228,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     15,
                                                                 ),
@@ -4245,7 +4245,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             17,
                                         ),
@@ -4257,7 +4257,7 @@
                                     65,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 17,
                                             ),
@@ -4290,7 +4290,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -4308,7 +4308,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -4331,7 +4331,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -4366,7 +4366,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -4395,7 +4395,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -4413,7 +4413,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4463,7 +4463,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`f32`),
                                                         ),
                                                     },
@@ -4471,7 +4471,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -4506,7 +4506,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -4516,7 +4516,7 @@
                                     68,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -4541,7 +4541,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -4553,7 +4553,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -4576,7 +4576,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -4609,7 +4609,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -4656,7 +4656,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             16,
                                         ),
@@ -4668,7 +4668,7 @@
                                     70,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 16,
                                             ),
@@ -4793,7 +4793,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -4803,7 +4803,7 @@
                                     73,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -4832,7 +4832,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             18,
                                         ),
@@ -4846,7 +4846,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 18,
                                             ),
@@ -4879,7 +4879,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
@@ -4891,7 +4891,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -4908,7 +4908,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -4933,7 +4933,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -4956,7 +4956,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -4968,7 +4968,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -5003,7 +5003,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -5013,7 +5013,7 @@
                                     77,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -5044,7 +5044,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
@@ -5056,7 +5056,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -5073,7 +5073,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -5098,7 +5098,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -5121,7 +5121,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -5133,7 +5133,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -5168,7 +5168,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -5178,7 +5178,7 @@
                                     80,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -5207,7 +5207,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -5219,7 +5219,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -5254,7 +5254,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -5264,7 +5264,7 @@
                                     82,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -5304,7 +5304,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     19,
                                                                 ),
@@ -5321,7 +5321,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     20,
                                                                 ),
@@ -5338,7 +5338,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             21,
                                         ),
@@ -5350,7 +5350,7 @@
                                     83,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 21,
                                             ),
@@ -5383,7 +5383,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -5401,7 +5401,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -5422,7 +5422,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -5432,7 +5432,7 @@
                                     87,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -5447,7 +5447,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -5472,7 +5472,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
@@ -5485,7 +5485,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
@@ -5497,7 +5497,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -5537,7 +5537,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
@@ -5545,7 +5545,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -5563,7 +5563,7 @@
                                                             Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -5600,7 +5600,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -5610,7 +5610,7 @@
                                     89,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -5641,7 +5641,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -5659,7 +5659,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -5680,7 +5680,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -5690,7 +5690,7 @@
                                     91,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -5705,7 +5705,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -5730,7 +5730,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
@@ -5743,7 +5743,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
@@ -5755,7 +5755,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -5795,7 +5795,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
@@ -5803,7 +5803,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -5821,7 +5821,7 @@
                                                             Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -5858,7 +5858,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -5868,7 +5868,7 @@
                                     93,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -5903,7 +5903,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -5913,7 +5913,7 @@
                                     94,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -5944,7 +5944,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -5956,7 +5956,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -5973,7 +5973,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -5996,7 +5996,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -6019,7 +6019,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -6031,7 +6031,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -6060,7 +6060,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -6072,7 +6072,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -6107,7 +6107,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -6117,7 +6117,7 @@
                                     98,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -6147,7 +6147,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     22,
                                                                 ),
@@ -6164,7 +6164,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     23,
                                                                 ),
@@ -6181,7 +6181,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             25,
                                         ),
@@ -6193,7 +6193,7 @@
                                     99,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 25,
                                             ),
@@ -6226,7 +6226,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
@@ -6238,7 +6238,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -6263,7 +6263,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -6275,7 +6275,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -6315,7 +6315,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`ConnectedComponent`),
                                                         ),
                                                     },
@@ -6326,7 +6326,7 @@
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
-                                                                base: FlyTermBase::Ethereal(
+                                                                base: FlyTermBase::Eth(
                                                                     EthTerm(`i32`),
                                                                 ),
                                                             },
@@ -6335,7 +6335,7 @@
                                                 ],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -6361,7 +6361,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -6391,7 +6391,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -6401,7 +6401,7 @@
                                     102,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -6432,7 +6432,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -6444,7 +6444,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -6461,7 +6461,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -6484,7 +6484,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -6507,7 +6507,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -6519,7 +6519,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -6550,7 +6550,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -6562,7 +6562,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -6579,7 +6579,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -6602,7 +6602,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -6625,7 +6625,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -6637,7 +6637,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -6668,7 +6668,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -6680,7 +6680,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -6697,7 +6697,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -6720,7 +6720,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -6743,7 +6743,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -6755,7 +6755,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -6780,7 +6780,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -6792,7 +6792,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -6815,7 +6815,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -6905,7 +6905,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -6952,7 +6952,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             24,
                                         ),
@@ -6964,7 +6964,7 @@
                                     110,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 24,
                                             ),
@@ -7089,7 +7089,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -7099,7 +7099,7 @@
                                     113,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -7129,7 +7129,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     26,
                                                                 ),
@@ -7146,7 +7146,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     27,
                                                                 ),
@@ -7163,7 +7163,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             29,
                                         ),
@@ -7175,7 +7175,7 @@
                                     114,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 29,
                                             ),
@@ -7208,7 +7208,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -7220,7 +7220,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -7237,7 +7237,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -7260,7 +7260,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Vec Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -7273,7 +7273,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vec Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -7285,7 +7285,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -7310,7 +7310,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             30,
                                         ),
@@ -7324,7 +7324,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 30,
                                             ),
@@ -7362,7 +7362,7 @@
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -7375,7 +7375,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -7387,7 +7387,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -7408,7 +7408,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -7418,7 +7418,7 @@
                                     120,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -7433,7 +7433,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -7458,7 +7458,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -7481,7 +7481,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -7493,7 +7493,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -7524,7 +7524,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -7536,7 +7536,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -7553,7 +7553,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -7576,7 +7576,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Vec Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -7589,7 +7589,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vec Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -7601,7 +7601,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -7626,7 +7626,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             31,
                                         ),
@@ -7640,7 +7640,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 31,
                                             ),
@@ -7678,7 +7678,7 @@
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -7691,7 +7691,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -7703,7 +7703,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -7724,7 +7724,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -7734,7 +7734,7 @@
                                     127,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -7749,7 +7749,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -7774,7 +7774,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -7797,7 +7797,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -7809,7 +7809,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -7847,7 +7847,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`f32`),
                                                         ),
                                                     },
@@ -7855,7 +7855,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -7884,7 +7884,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -7894,7 +7894,7 @@
                                     129,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -7919,7 +7919,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -7931,7 +7931,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -7954,7 +7954,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -8006,7 +8006,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -8053,7 +8053,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             28,
                                         ),
@@ -8065,7 +8065,7 @@
                                     131,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 28,
                                             ),
@@ -8190,7 +8190,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -8200,7 +8200,7 @@
                                     134,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -8231,7 +8231,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -8249,7 +8249,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -8278,7 +8278,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -8288,7 +8288,7 @@
                                     136,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -8319,7 +8319,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -8337,7 +8337,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -8358,7 +8358,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -8368,7 +8368,7 @@
                                     138,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -8383,7 +8383,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -8408,7 +8408,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
@@ -8421,7 +8421,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
@@ -8433,7 +8433,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -8473,7 +8473,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
@@ -8481,7 +8481,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -8499,7 +8499,7 @@
                                                             Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -8536,7 +8536,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -8546,7 +8546,7 @@
                                     140,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -8577,7 +8577,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -8595,7 +8595,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -8616,7 +8616,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -8626,7 +8626,7 @@
                                     142,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -8641,7 +8641,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -8666,7 +8666,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
@@ -8679,7 +8679,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
@@ -8691,7 +8691,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -8731,7 +8731,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
@@ -8739,7 +8739,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -8757,7 +8757,7 @@
                                                             Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -8794,7 +8794,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -8804,7 +8804,7 @@
                                     144,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -8839,7 +8839,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -8849,7 +8849,7 @@
                                     145,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -8874,7 +8874,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -8886,7 +8886,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -8921,7 +8921,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -8931,7 +8931,7 @@
                                     147,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -8962,7 +8962,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -8980,7 +8980,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -9001,7 +9001,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -9011,7 +9011,7 @@
                                     149,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -9026,7 +9026,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -9051,7 +9051,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
@@ -9064,7 +9064,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
@@ -9076,7 +9076,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -9107,7 +9107,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -9125,7 +9125,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -9146,7 +9146,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -9156,7 +9156,7 @@
                                     152,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -9171,7 +9171,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -9196,7 +9196,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
@@ -9209,7 +9209,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
@@ -9221,7 +9221,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -9261,7 +9261,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
@@ -9269,7 +9269,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -9287,7 +9287,7 @@
                                                             Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -9324,7 +9324,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -9334,7 +9334,7 @@
                                     154,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -9359,7 +9359,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -9371,7 +9371,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -9406,7 +9406,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -9416,7 +9416,7 @@
                                     156,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -9454,7 +9454,7 @@
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`LineSegmentStroke`),
                                                 ),
                                             },
@@ -9467,7 +9467,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`LineSegmentStroke`),
                                     ),
                                 },
@@ -9479,7 +9479,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
@@ -9504,7 +9504,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`LineSegmentStroke`),
                                     ),
                                 },
@@ -9516,7 +9516,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
@@ -9554,7 +9554,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
@@ -9562,7 +9562,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
@@ -9591,7 +9591,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -9601,7 +9601,7 @@
                                     159,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -9632,7 +9632,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -9650,7 +9650,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -9673,7 +9673,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -9708,7 +9708,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -9727,7 +9727,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -9745,7 +9745,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -9774,7 +9774,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -9786,7 +9786,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -9821,7 +9821,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -9831,7 +9831,7 @@
                                     163,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -9861,7 +9861,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     32,
                                                                 ),
@@ -9878,7 +9878,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     33,
                                                                 ),
@@ -9895,7 +9895,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             35,
                                         ),
@@ -9907,7 +9907,7 @@
                                     164,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 35,
                                             ),
@@ -9940,7 +9940,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -9958,7 +9958,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -9979,7 +9979,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -9989,7 +9989,7 @@
                                     166,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -10004,7 +10004,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -10029,7 +10029,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -10052,7 +10052,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -10064,7 +10064,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -10095,7 +10095,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -10113,7 +10113,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -10134,7 +10134,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -10144,7 +10144,7 @@
                                     169,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -10159,7 +10159,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -10184,7 +10184,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -10207,7 +10207,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -10219,7 +10219,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -10250,7 +10250,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -10268,7 +10268,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -10289,7 +10289,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -10299,7 +10299,7 @@
                                     172,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -10314,7 +10314,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -10339,7 +10339,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -10362,7 +10362,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -10374,7 +10374,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -10412,7 +10412,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`f32`),
                                                         ),
                                                     },
@@ -10420,7 +10420,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -10449,7 +10449,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -10459,7 +10459,7 @@
                                     174,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -10484,7 +10484,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -10496,7 +10496,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -10519,7 +10519,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -10590,7 +10590,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -10637,7 +10637,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             34,
                                         ),
@@ -10649,7 +10649,7 @@
                                     176,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 34,
                                             ),
@@ -10774,7 +10774,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -10784,7 +10784,7 @@
                                     179,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -10814,7 +10814,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     36,
                                                                 ),
@@ -10831,7 +10831,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     37,
                                                                 ),
@@ -10848,7 +10848,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             39,
                                         ),
@@ -10860,7 +10860,7 @@
                                     180,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 39,
                                             ),
@@ -10893,7 +10893,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -10911,7 +10911,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -10961,7 +10961,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`Vector2d`),
                                                         ),
                                                     },
@@ -10969,7 +10969,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -11004,7 +11004,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -11014,7 +11014,7 @@
                                     182,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -11045,7 +11045,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -11063,7 +11063,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -11086,7 +11086,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -11121,7 +11121,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -11140,7 +11140,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -11158,7 +11158,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -11189,7 +11189,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -11207,7 +11207,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -11230,7 +11230,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -11265,7 +11265,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -11284,7 +11284,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -11302,7 +11302,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -11337,7 +11337,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -11347,7 +11347,7 @@
                                     187,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -11372,7 +11372,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -11384,7 +11384,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -11407,7 +11407,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -11459,7 +11459,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -11506,7 +11506,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             38,
                                         ),
@@ -11518,7 +11518,7 @@
                                     189,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 38,
                                             ),
@@ -11643,7 +11643,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -11653,7 +11653,7 @@
                                     192,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -11684,7 +11684,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -11702,7 +11702,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -11731,7 +11731,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -11741,7 +11741,7 @@
                                     194,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -11771,7 +11771,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     40,
                                                                 ),
@@ -11788,7 +11788,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     41,
                                                                 ),
@@ -11805,7 +11805,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             43,
                                         ),
@@ -11817,7 +11817,7 @@
                                     195,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 43,
                                             ),
@@ -11850,7 +11850,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -11862,7 +11862,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -11879,7 +11879,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -11902,7 +11902,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Vec Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -11915,7 +11915,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vec Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -11927,7 +11927,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -11952,7 +11952,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             44,
                                         ),
@@ -11966,7 +11966,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 44,
                                             ),
@@ -12004,7 +12004,7 @@
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -12017,7 +12017,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -12029,7 +12029,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -12050,7 +12050,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -12060,7 +12060,7 @@
                                     201,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -12075,7 +12075,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -12100,7 +12100,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -12123,7 +12123,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -12135,7 +12135,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -12166,7 +12166,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -12178,7 +12178,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -12195,7 +12195,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -12218,7 +12218,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Vec Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -12231,7 +12231,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vec Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -12243,7 +12243,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -12268,7 +12268,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             45,
                                         ),
@@ -12282,7 +12282,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 45,
                                             ),
@@ -12320,7 +12320,7 @@
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -12333,7 +12333,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -12345,7 +12345,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -12366,7 +12366,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -12376,7 +12376,7 @@
                                     208,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -12391,7 +12391,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -12416,7 +12416,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -12439,7 +12439,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -12451,7 +12451,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -12482,7 +12482,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`FermiMatchResult`),
                                     ),
                                 },
@@ -12494,7 +12494,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -12511,7 +12511,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -12534,7 +12534,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Vec Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -12547,7 +12547,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vec Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -12559,7 +12559,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -12584,7 +12584,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             46,
                                         ),
@@ -12598,7 +12598,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 46,
                                             ),
@@ -12636,7 +12636,7 @@
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Option Leash ConcaveComponent`),
                                                 ),
                                             },
@@ -12649,7 +12649,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -12661,7 +12661,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -12682,7 +12682,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -12692,7 +12692,7 @@
                                     215,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -12707,7 +12707,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -12732,7 +12732,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -12755,7 +12755,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -12767,7 +12767,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -12805,7 +12805,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`f32`),
                                                         ),
                                                     },
@@ -12813,7 +12813,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -12842,7 +12842,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -12852,7 +12852,7 @@
                                     217,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -12877,7 +12877,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -12889,7 +12889,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -12912,7 +12912,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -12983,7 +12983,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -13030,7 +13030,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             42,
                                         ),
@@ -13042,7 +13042,7 @@
                                     219,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 42,
                                             ),
@@ -13167,7 +13167,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -13177,7 +13177,7 @@
                                     222,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -13208,7 +13208,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -13226,7 +13226,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -13251,7 +13251,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -13263,7 +13263,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -13298,7 +13298,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -13308,7 +13308,7 @@
                                     225,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -13339,7 +13339,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -13357,7 +13357,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -13378,7 +13378,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -13388,7 +13388,7 @@
                                     227,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -13403,7 +13403,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -13428,7 +13428,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
@@ -13441,7 +13441,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
@@ -13453,7 +13453,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -13484,7 +13484,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -13502,7 +13502,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -13523,7 +13523,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -13533,7 +13533,7 @@
                                     230,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -13548,7 +13548,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -13573,7 +13573,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
@@ -13586,7 +13586,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
@@ -13598,7 +13598,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -13638,7 +13638,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
@@ -13646,7 +13646,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -13664,7 +13664,7 @@
                                                             Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -13701,7 +13701,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -13711,7 +13711,7 @@
                                     232,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -13749,7 +13749,7 @@
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`LineSegmentStroke`),
                                                 ),
                                             },
@@ -13762,7 +13762,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`LineSegmentStroke`),
                                     ),
                                 },
@@ -13774,7 +13774,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
@@ -13799,7 +13799,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`LineSegmentStroke`),
                                     ),
                                 },
@@ -13811,7 +13811,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
@@ -13849,7 +13849,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
@@ -13857,7 +13857,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
@@ -13886,7 +13886,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -13896,7 +13896,7 @@
                                     235,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -13927,7 +13927,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -13945,7 +13945,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -13966,7 +13966,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -13976,7 +13976,7 @@
                                     237,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -13991,7 +13991,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -14016,7 +14016,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
@@ -14029,7 +14029,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
@@ -14041,7 +14041,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -14072,7 +14072,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash ConcaveComponent`),
                                     ),
                                 },
@@ -14090,7 +14090,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -14111,7 +14111,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -14121,7 +14121,7 @@
                                     240,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -14136,7 +14136,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -14161,7 +14161,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
                                             },
@@ -14174,7 +14174,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
@@ -14186,7 +14186,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -14226,7 +14226,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
@@ -14234,7 +14234,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -14252,7 +14252,7 @@
                                                             Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -14289,7 +14289,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -14299,7 +14299,7 @@
                                     242,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -14324,7 +14324,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -14336,7 +14336,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -14371,7 +14371,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -14381,7 +14381,7 @@
                                     244,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -14419,7 +14419,7 @@
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`LineSegmentStroke`),
                                                 ),
                                             },
@@ -14432,7 +14432,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`LineSegmentStroke`),
                                     ),
                                 },
@@ -14444,7 +14444,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
@@ -14469,7 +14469,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`LineSegmentStroke`),
                                     ),
                                 },
@@ -14481,7 +14481,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
@@ -14519,7 +14519,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
@@ -14527,7 +14527,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
@@ -14556,7 +14556,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -14566,7 +14566,7 @@
                                     247,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -14596,7 +14596,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     47,
                                                                 ),
@@ -14613,7 +14613,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     48,
                                                                 ),
@@ -14630,7 +14630,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             50,
                                         ),
@@ -14642,7 +14642,7 @@
                                     248,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 50,
                                             ),
@@ -14675,7 +14675,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -14693,7 +14693,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -14716,7 +14716,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -14751,7 +14751,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -14770,7 +14770,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -14788,7 +14788,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -14819,7 +14819,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -14837,7 +14837,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -14860,7 +14860,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -14895,7 +14895,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -14914,7 +14914,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -14932,7 +14932,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -14957,7 +14957,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -14969,7 +14969,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -14992,7 +14992,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -15056,7 +15056,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -15099,7 +15099,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             49,
                                         ),
@@ -15111,7 +15111,7 @@
                                     254,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 49,
                                             ),
@@ -15236,7 +15236,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -15246,7 +15246,7 @@
                                     257,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -15277,7 +15277,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -15295,7 +15295,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -15320,7 +15320,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
                                 },
@@ -15332,7 +15332,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -15367,7 +15367,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -15377,7 +15377,7 @@
                                     260,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -15408,7 +15408,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
@@ -15420,7 +15420,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -15437,7 +15437,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -15462,7 +15462,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -15485,7 +15485,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -15497,7 +15497,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -15528,7 +15528,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConnectedComponent`),
                                     ),
                                 },
@@ -15540,7 +15540,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -15557,7 +15557,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -15582,7 +15582,7 @@
                                         signature: FlyFieldSignature::Memoized {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -15605,7 +15605,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -15617,7 +15617,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -15648,7 +15648,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -15666,7 +15666,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -15697,7 +15697,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -15715,7 +15715,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -15750,7 +15750,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -15760,7 +15760,7 @@
                                     267,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -15791,7 +15791,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -15809,7 +15809,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -15840,7 +15840,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -15858,7 +15858,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -15893,7 +15893,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -15903,7 +15903,7 @@
                                     270,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -15934,7 +15934,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -15952,7 +15952,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -15981,7 +15981,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             51,
                                         ),
@@ -15995,7 +15995,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 51,
                                             ),
@@ -16021,7 +16021,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             51,
                                         ),
@@ -16035,7 +16035,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 51,
                                             ),
@@ -16072,7 +16072,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -16082,7 +16082,7 @@
                                     274,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -16113,7 +16113,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -16131,7 +16131,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -16160,7 +16160,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -16172,7 +16172,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -16207,7 +16207,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -16217,7 +16217,7 @@
                                     277,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -16257,7 +16257,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     52,
                                                                 ),
@@ -16274,7 +16274,7 @@
                                                     Explicit(
                                                         FlyTerm {
                                                             place: None,
-                                                            base: Hollow(
+                                                            base: Hol(
                                                                 HollowTerm(
                                                                     53,
                                                                 ),
@@ -16291,7 +16291,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             54,
                                         ),
@@ -16303,7 +16303,7 @@
                                     278,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 54,
                                             ),
@@ -16325,7 +16325,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             10,
                                         ),
@@ -16337,7 +16337,7 @@
                                     281,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 10,
                                             ),
@@ -16371,7 +16371,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16402,7 +16402,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16441,7 +16441,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16472,7 +16472,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             10,
                                         ),
@@ -16499,7 +16499,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16530,7 +16530,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16555,7 +16555,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16586,7 +16586,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`never`),
                                     ),
                                 },
@@ -16611,7 +16611,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16650,7 +16650,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16689,7 +16689,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16714,7 +16714,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16745,7 +16745,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16776,7 +16776,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16807,7 +16807,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16832,7 +16832,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16857,7 +16857,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16896,7 +16896,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16935,7 +16935,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -16974,7 +16974,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17023,7 +17023,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`never`),
                                     ),
                                 },
@@ -17062,7 +17062,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17087,7 +17087,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17118,7 +17118,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17149,7 +17149,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17198,7 +17198,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17247,7 +17247,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17272,7 +17272,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17311,7 +17311,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17350,7 +17350,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17389,7 +17389,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17428,7 +17428,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17459,7 +17459,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17484,7 +17484,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17523,7 +17523,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17562,7 +17562,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17601,7 +17601,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17640,7 +17640,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17665,7 +17665,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17690,7 +17690,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17721,7 +17721,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             54,
                                         ),
@@ -17754,7 +17754,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17793,7 +17793,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -17850,7 +17850,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Hollow(
+                                    base: FlyTermBase::Hol(
                                         HollowTerm(
                                             10,
                                         ),
@@ -17877,7 +17877,7 @@
                     ty: Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -17899,7 +17899,7 @@
                             place: Some(
                                 Leashed,
                             ),
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -17917,7 +17917,7 @@
                             place: Some(
                                 Leashed,
                             ),
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -17935,7 +17935,7 @@
                             place: Some(
                                 Leashed,
                             ),
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -17959,7 +17959,7 @@
                                     ),
                                 },
                             ),
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -17975,7 +17975,7 @@
                     ty: Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -18003,7 +18003,7 @@
                                     ),
                                 },
                             ),
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -18021,7 +18021,7 @@
                             place: Some(
                                 Leashed,
                             ),
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -18041,7 +18041,7 @@
                     ty: Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -18069,7 +18069,7 @@
                                     ),
                                 },
                             ),
-                            base: Ethereal(
+                            base: Eth(
                                 Application(
                                     ApplicationEthTerm(
                                         Id {
@@ -18087,7 +18087,7 @@
                             place: Some(
                                 Leashed,
                             ),
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -18107,7 +18107,7 @@
                     ty: Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -18129,7 +18129,7 @@
                             place: Some(
                                 Leashed,
                             ),
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -18149,7 +18149,7 @@
                     ty: Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -18171,7 +18171,7 @@
                             place: Some(
                                 Leashed,
                             ),
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -18193,7 +18193,7 @@
                             place: Some(
                                 Leashed,
                             ),
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -18213,7 +18213,7 @@
                     ty: Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -18233,7 +18233,7 @@
                     ty: Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -18257,7 +18257,7 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -18281,7 +18281,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
+                                    base: Eth(
                                         Application(
                                             ApplicationEthTerm(
                                                 Id {
@@ -18301,7 +18301,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
+                                    base: Eth(
                                         Application(
                                             ApplicationEthTerm(
                                                 Id {
@@ -18321,7 +18321,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
+                                    base: Eth(
                                         Application(
                                             ApplicationEthTerm(
                                                 Id {
@@ -18339,7 +18339,7 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -18364,7 +18364,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -18386,7 +18386,7 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -18411,7 +18411,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -18433,7 +18433,7 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -18457,7 +18457,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -18479,7 +18479,7 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -18503,7 +18503,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -18527,7 +18527,7 @@
                                     place: Some(
                                         Leashed,
                                     ),
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -18549,7 +18549,7 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -18571,7 +18571,7 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -18598,7 +18598,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         5,
@@ -18615,7 +18615,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -18636,7 +18636,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         5,
@@ -18653,7 +18653,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -18674,7 +18674,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -18695,7 +18695,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -18716,7 +18716,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -18737,7 +18737,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     USize(
                                         TermUSizeLiteral(
@@ -18758,7 +18758,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     USize(
                                         TermUSizeLiteral(
@@ -18779,7 +18779,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     USize(
                                         TermUSizeLiteral(
@@ -18800,7 +18800,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -18821,7 +18821,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         5,
@@ -18838,7 +18838,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -18859,7 +18859,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -18880,7 +18880,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -18901,7 +18901,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         3,
@@ -18918,7 +18918,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         12,
@@ -18935,7 +18935,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     USize(
                                         TermUSizeLiteral(
@@ -18956,7 +18956,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     USize(
                                         TermUSizeLiteral(
@@ -18977,7 +18977,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         2,
@@ -18994,7 +18994,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         2,
@@ -19011,7 +19011,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         1,
@@ -19028,7 +19028,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -19049,7 +19049,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         2,
@@ -19066,7 +19066,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         2,
@@ -19083,7 +19083,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     USize(
                                         TermUSizeLiteral(
@@ -19104,7 +19104,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     USize(
                                         TermUSizeLiteral(
@@ -19125,7 +19125,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     USize(
                                         TermUSizeLiteral(
@@ -19146,7 +19146,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         2,
@@ -19163,7 +19163,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         3,
@@ -19180,7 +19180,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         2,
@@ -19197,7 +19197,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         5,
@@ -19214,7 +19214,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     I32(
                                         3,
@@ -19231,7 +19231,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -19252,7 +19252,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -19281,7 +19281,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`FermiMatchResult`),
                             ),
                         },
@@ -19297,7 +19297,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Option Leash ConcaveComponent`),
                             ),
                         },
@@ -19313,7 +19313,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Option Leash ConcaveComponent`),
                             ),
                         },
@@ -19329,7 +19329,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Option Leash ConcaveComponent`),
                             ),
                         },
@@ -19345,7 +19345,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`i32`),
                             ),
                         },
@@ -19355,7 +19355,7 @@
                             place: Some(
                                 Leashed,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`LineSegmentStroke`),
                             ),
                         },
@@ -19371,7 +19371,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Vector2d`),
                             ),
                         },
@@ -19381,7 +19381,7 @@
                             place: Some(
                                 Leashed,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`LineSegmentStroke`),
                             ),
                         },
@@ -19397,7 +19397,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Vector2d`),
                             ),
                         },
@@ -19407,7 +19407,7 @@
                             place: Some(
                                 Leashed,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`LineSegmentStroke`),
                             ),
                         },
@@ -19423,7 +19423,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Vector2d`),
                             ),
                         },
@@ -19439,7 +19439,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`f32`),
                             ),
                         },
@@ -19455,7 +19455,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`f32`),
                             ),
                         },
@@ -19471,7 +19471,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`f32`),
                             ),
                         },
@@ -19487,7 +19487,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`f32`),
                             ),
                         },
@@ -19500,13 +19500,13 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         1,
                                     ),
@@ -19514,28 +19514,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         1,
                                     ),
@@ -19543,19 +19543,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`One`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -19565,7 +19574,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     0,
                                                 ),
@@ -19573,7 +19582,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     1,
                                                 ),
@@ -19581,12 +19590,12 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Ritchie {
+                            HolTermEntry {
+                                data: HolTermData::Ritchie {
                                     ritchie_kind: Type(
                                         Gn,
                                     ),
@@ -19596,7 +19605,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -19608,7 +19617,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -19618,19 +19627,19 @@
                                     ],
                                     return_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 2,
                                             ),
                                         ),
                                     },
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`gn((f32, i32) -> OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         16,
                                     ),
@@ -19638,28 +19647,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         16,
                                     ),
@@ -19667,19 +19676,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`One`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -19689,7 +19707,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     4,
                                                 ),
@@ -19697,7 +19715,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     5,
                                                 ),
@@ -19705,12 +19723,12 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Ritchie {
+                            HolTermEntry {
+                                data: HolTermData::Ritchie {
                                     ritchie_kind: Type(
                                         Gn,
                                     ),
@@ -19720,7 +19738,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -19732,7 +19750,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -19742,19 +19760,19 @@
                                     ],
                                     return_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 6,
                                             ),
                                         ),
                                     },
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`gn((f32, i32) -> OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         30,
                                     ),
@@ -19762,28 +19780,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         30,
                                     ),
@@ -19791,19 +19809,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`One`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -19813,7 +19840,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     8,
                                                 ),
@@ -19821,7 +19848,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     9,
                                                 ),
@@ -19829,12 +19856,12 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAll MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         40,
                                     ),
@@ -19842,7 +19869,7 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -19851,19 +19878,19 @@
                                         HoleConstraint::CoercibleInto {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`usize`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         44,
                                     ),
@@ -19871,7 +19898,7 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -19880,19 +19907,19 @@
                                         HoleConstraint::CoercibleInto {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`usize`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         48,
                                     ),
@@ -19900,7 +19927,7 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -19909,19 +19936,19 @@
                                         HoleConstraint::CoercibleInto {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`usize`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         56,
                                     ),
@@ -19929,28 +19956,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         56,
                                     ),
@@ -19958,19 +19985,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`One`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -19980,7 +20016,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     14,
                                                 ),
@@ -19988,7 +20024,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     15,
                                                 ),
@@ -19996,12 +20032,12 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Ritchie {
+                            HolTermEntry {
+                                data: HolTermData::Ritchie {
                                     ritchie_kind: Type(
                                         Gn,
                                     ),
@@ -20011,7 +20047,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -20023,7 +20059,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -20033,19 +20069,19 @@
                                     ],
                                     return_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 16,
                                             ),
                                         ),
                                     },
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`gn((f32, i32) -> OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         64,
                                     ),
@@ -20055,7 +20091,7 @@
                                             place: Some(
                                                 Leashed,
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -20066,19 +20102,19 @@
                                                 place: Some(
                                                     Leashed,
                                                 ),
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`f32`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         72,
                                     ),
@@ -20086,28 +20122,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         72,
                                     ),
@@ -20115,19 +20151,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`One`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -20137,7 +20182,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     19,
                                                 ),
@@ -20145,7 +20190,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     20,
                                                 ),
@@ -20153,12 +20198,12 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAll MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         86,
                                     ),
@@ -20166,28 +20211,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         86,
                                     ),
@@ -20195,19 +20240,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`One`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -20217,7 +20271,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     22,
                                                 ),
@@ -20225,7 +20279,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     23,
                                                 ),
@@ -20233,12 +20287,12 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Ritchie {
+                            HolTermEntry {
+                                data: HolTermData::Ritchie {
                                     ritchie_kind: Type(
                                         Gn,
                                     ),
@@ -20248,7 +20302,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -20260,7 +20314,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -20270,19 +20324,19 @@
                                     ],
                                     return_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 24,
                                             ),
                                         ),
                                     },
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`gn((f32, i32) -> OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         99,
                                     ),
@@ -20290,28 +20344,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         99,
                                     ),
@@ -20319,19 +20373,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`One`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -20341,7 +20404,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     26,
                                                 ),
@@ -20349,7 +20412,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     27,
                                                 ),
@@ -20357,12 +20420,12 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Ritchie {
+                            HolTermEntry {
+                                data: HolTermData::Ritchie {
                                     ritchie_kind: Type(
                                         Gn,
                                     ),
@@ -20372,7 +20435,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -20384,7 +20447,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -20394,19 +20457,19 @@
                                     ],
                                     return_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 28,
                                             ),
                                         ),
                                     },
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`gn((f32, i32) -> OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         102,
                                     ),
@@ -20414,7 +20477,7 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -20423,19 +20486,19 @@
                                         HoleConstraint::CoercibleInto {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`usize`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         108,
                                     ),
@@ -20443,7 +20506,7 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -20452,19 +20515,19 @@
                                         HoleConstraint::CoercibleInto {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`usize`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         145,
                                     ),
@@ -20472,28 +20535,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         145,
                                     ),
@@ -20501,19 +20564,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`One`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -20523,7 +20595,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     32,
                                                 ),
@@ -20531,7 +20603,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     33,
                                                 ),
@@ -20539,12 +20611,12 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Ritchie {
+                            HolTermEntry {
+                                data: HolTermData::Ritchie {
                                     ritchie_kind: Type(
                                         Gn,
                                     ),
@@ -20554,7 +20626,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -20566,7 +20638,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -20576,19 +20648,19 @@
                                     ],
                                     return_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 34,
                                             ),
                                         ),
                                     },
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`gn((f32, i32) -> OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         159,
                                     ),
@@ -20596,28 +20668,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         159,
                                     ),
@@ -20625,19 +20697,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`One`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -20647,7 +20728,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     36,
                                                 ),
@@ -20655,7 +20736,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     37,
                                                 ),
@@ -20663,12 +20744,12 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Ritchie {
+                            HolTermEntry {
+                                data: HolTermData::Ritchie {
                                     ritchie_kind: Type(
                                         Gn,
                                     ),
@@ -20678,7 +20759,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -20690,7 +20771,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -20700,19 +20781,19 @@
                                     ],
                                     return_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 38,
                                             ),
                                         ),
                                     },
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`gn((f32, i32) -> OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         172,
                                     ),
@@ -20720,28 +20801,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         172,
                                     ),
@@ -20749,19 +20830,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`One`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -20771,7 +20861,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     40,
                                                 ),
@@ -20779,7 +20869,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     41,
                                                 ),
@@ -20787,12 +20877,12 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Ritchie {
+                            HolTermEntry {
+                                data: HolTermData::Ritchie {
                                     ritchie_kind: Type(
                                         Gn,
                                     ),
@@ -20802,7 +20892,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -20814,7 +20904,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -20824,19 +20914,19 @@
                                     ],
                                     return_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 42,
                                             ),
                                         ),
                                     },
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`gn((f32, i32) -> OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         175,
                                     ),
@@ -20844,7 +20934,7 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -20853,19 +20943,19 @@
                                         HoleConstraint::CoercibleInto {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`usize`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         181,
                                     ),
@@ -20873,7 +20963,7 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -20882,19 +20972,19 @@
                                         HoleConstraint::CoercibleInto {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`usize`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         187,
                                     ),
@@ -20902,7 +20992,7 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -20911,19 +21001,19 @@
                                         HoleConstraint::CoercibleInto {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`usize`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`usize`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         220,
                                     ),
@@ -20931,28 +21021,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         220,
                                     ),
@@ -20960,19 +21050,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`One`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -20982,7 +21081,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     47,
                                                 ),
@@ -20990,7 +21089,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     48,
                                                 ),
@@ -20998,12 +21097,12 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Ritchie {
+                            HolTermEntry {
+                                data: HolTermData::Ritchie {
                                     ritchie_kind: Type(
                                         Gn,
                                     ),
@@ -21013,7 +21112,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
                                                 },
@@ -21025,7 +21124,7 @@
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
                                                 },
@@ -21035,19 +21134,19 @@
                                     ],
                                     return_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 49,
                                             ),
                                         ),
                                     },
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`gn((f32, i32) -> OneVsAllResult MnistLabel One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         241,
                                     ),
@@ -21063,7 +21162,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -21080,19 +21179,19 @@
                                                         ),
                                                     },
                                                 ),
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`f32`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         248,
                                     ),
@@ -21100,28 +21199,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
                                     ),
                                     constraints: [
-                                        HoleConstraint::CoercibleInto {
+                                        HoleConstraint::Subtype {
                                             target: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`MnistLabel`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::Hole {
+                            HolTermEntry {
+                                data: HolTermData::Hole {
                                     hole_source: HoleSource::Expr(
                                         248,
                                     ),
@@ -21129,19 +21228,28 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
                                     ),
-                                    constraints: [],
+                                    constraints: [
+                                        HoleConstraint::Subtype {
+                                            target: FlyTerm {
+                                                place: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`One`),
+                                                ),
+                                            },
+                                        },
+                                    ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`One`),
                                 ),
                             },
-                            HollowTermEntry {
-                                data: HollowTermData::TypeOntology {
+                            HolTermEntry {
+                                data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
                                         CustomTypePath(
@@ -21151,7 +21259,7 @@
                                     arguments: [
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     52,
                                                 ),
@@ -21159,7 +21267,7 @@
                                         },
                                         FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     53,
                                                 ),
@@ -21167,7 +21275,7 @@
                                         },
                                     ],
                                 },
-                                resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
                                     EthTerm(`OneVsAll MnistLabel One`),
                                 ),
                             },
@@ -21192,7 +21300,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 3,
                                             ),
@@ -21212,7 +21320,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -21240,7 +21348,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -21260,7 +21368,7 @@
                                                     ],
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: Hollow(
+                                                        base: Hol(
                                                             HollowTerm(
                                                                 2,
                                                             ),
@@ -21286,7 +21394,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -21300,7 +21408,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -21316,7 +21424,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -21342,7 +21450,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -21358,7 +21466,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -21384,7 +21492,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -21400,7 +21508,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -21426,7 +21534,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAllResult MnistLabel One`),
                                             ),
                                         },
@@ -21440,7 +21548,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 2,
                                             ),
@@ -21464,10 +21572,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -21483,7 +21591,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 0,
                                             ),
@@ -21501,10 +21609,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
@@ -21520,7 +21628,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 1,
                                             ),
@@ -21542,7 +21650,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -21556,7 +21664,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -21590,7 +21698,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                         ),
                                     },
@@ -21601,7 +21709,7 @@
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`FermiMatchResult`),
                                                         ),
                                                     },
@@ -21615,7 +21723,7 @@
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
-                                                                        base: FlyTermBase::Ethereal(
+                                                                        base: FlyTermBase::Eth(
                                                                             EthTerm(`Leash Vec ConcaveComponent`),
                                                                         ),
                                                                     },
@@ -21626,7 +21734,7 @@
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
-                                                                        base: FlyTermBase::Ethereal(
+                                                                        base: FlyTermBase::Eth(
                                                                             EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                                                         ),
                                                                     },
@@ -21646,7 +21754,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Leash Vec ConcaveComponent`),
                                             ),
                                         },
@@ -21662,7 +21770,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
@@ -21688,7 +21796,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                             ),
                                         },
@@ -21702,7 +21810,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
@@ -21734,7 +21842,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -21762,7 +21870,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -21790,7 +21898,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -21812,7 +21920,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -21828,7 +21936,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -21860,7 +21968,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -21890,7 +21998,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 7,
                                             ),
@@ -21910,7 +22018,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -21938,7 +22046,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -21958,7 +22066,7 @@
                                                     ],
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: Hollow(
+                                                        base: Hol(
                                                             HollowTerm(
                                                                 6,
                                                             ),
@@ -21984,7 +22092,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -21998,7 +22106,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -22014,7 +22122,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -22040,7 +22148,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -22056,7 +22164,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -22082,7 +22190,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAllResult MnistLabel One`),
                                             ),
                                         },
@@ -22096,7 +22204,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 6,
                                             ),
@@ -22120,10 +22228,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -22139,7 +22247,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 4,
                                             ),
@@ -22157,10 +22265,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
@@ -22176,7 +22284,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 5,
                                             ),
@@ -22198,7 +22306,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -22212,7 +22320,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -22246,7 +22354,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -22268,7 +22376,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -22284,7 +22392,7 @@
                                             place: Some(
                                                 Leashed,
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -22300,7 +22408,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -22332,7 +22440,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -22362,7 +22470,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -22384,7 +22492,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -22400,7 +22508,7 @@
                                             place: Some(
                                                 Leashed,
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -22416,7 +22524,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -22448,7 +22556,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -22470,7 +22578,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll MnistLabel One`),
                                             ),
                                         },
@@ -22484,7 +22592,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 10,
                                             ),
@@ -22508,10 +22616,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -22527,7 +22635,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 8,
                                             ),
@@ -22545,10 +22653,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
@@ -22564,7 +22672,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 9,
                                             ),
@@ -22594,7 +22702,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -22616,7 +22724,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -22632,7 +22740,7 @@
                                             place: Some(
                                                 Leashed,
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -22648,7 +22756,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -22680,7 +22788,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -22710,7 +22818,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -22726,7 +22834,7 @@
                                             place: Some(
                                                 Leashed,
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -22742,7 +22850,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -22774,7 +22882,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -22804,7 +22912,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -22826,7 +22934,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -22848,7 +22956,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 11,
                                             ),
@@ -22864,7 +22972,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -22880,7 +22988,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 11,
                                             ),
@@ -22916,7 +23024,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -22938,7 +23046,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -22960,7 +23068,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -22982,7 +23090,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 12,
                                             ),
@@ -22998,7 +23106,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -23014,7 +23122,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 12,
                                             ),
@@ -23050,7 +23158,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -23072,7 +23180,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -23094,7 +23202,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -23116,7 +23224,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 13,
                                             ),
@@ -23132,7 +23240,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -23148,7 +23256,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 13,
                                             ),
@@ -23184,7 +23292,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -23212,7 +23320,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -23232,7 +23340,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -23268,7 +23376,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -23296,7 +23404,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -23318,7 +23426,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -23334,7 +23442,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -23366,7 +23474,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -23396,7 +23504,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 17,
                                             ),
@@ -23416,7 +23524,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -23444,7 +23552,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -23464,7 +23572,7 @@
                                                     ],
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: Hollow(
+                                                        base: Hol(
                                                             HollowTerm(
                                                                 16,
                                                             ),
@@ -23496,7 +23604,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -23524,7 +23632,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -23538,7 +23646,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -23552,7 +23660,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -23578,7 +23686,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -23594,7 +23702,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -23620,7 +23728,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAllResult MnistLabel One`),
                                             ),
                                         },
@@ -23634,7 +23742,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 16,
                                             ),
@@ -23658,10 +23766,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -23677,7 +23785,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 14,
                                             ),
@@ -23695,10 +23803,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
@@ -23714,7 +23822,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 15,
                                             ),
@@ -23736,7 +23844,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -23750,7 +23858,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -23784,7 +23892,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 18,
                                             ),
@@ -23808,7 +23916,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -23824,7 +23932,7 @@
                                             place: Some(
                                                 Const,
                                             ),
-                                            base: FlyTermBase::Hollow(
+                                            base: FlyTermBase::Hol(
                                                 HollowTerm(
                                                     18,
                                                 ),
@@ -23842,7 +23950,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -23874,7 +23982,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -23896,7 +24004,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -23910,7 +24018,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -23926,7 +24034,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -23958,7 +24066,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -23972,7 +24080,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -23988,7 +24096,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -24020,7 +24128,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -24042,7 +24150,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll MnistLabel One`),
                                             ),
                                         },
@@ -24056,7 +24164,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 21,
                                             ),
@@ -24080,10 +24188,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -24099,7 +24207,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 19,
                                             ),
@@ -24117,10 +24225,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
@@ -24136,7 +24244,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 20,
                                             ),
@@ -24172,7 +24280,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -24192,7 +24300,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -24214,7 +24322,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -24234,7 +24342,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -24262,7 +24370,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -24282,7 +24390,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -24304,7 +24412,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -24318,7 +24426,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -24332,7 +24440,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -24364,7 +24472,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -24386,7 +24494,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -24408,7 +24516,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -24424,7 +24532,7 @@
                                             place: Some(
                                                 Leashed,
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -24440,7 +24548,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -24472,7 +24580,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -24502,7 +24610,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 25,
                                             ),
@@ -24522,7 +24630,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -24550,7 +24658,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -24570,7 +24678,7 @@
                                                     ],
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: Hollow(
+                                                        base: Hol(
                                                             HollowTerm(
                                                                 24,
                                                             ),
@@ -24596,7 +24704,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -24610,7 +24718,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -24626,7 +24734,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -24652,7 +24760,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -24666,7 +24774,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -24700,7 +24808,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -24714,7 +24822,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -24730,7 +24838,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -24764,7 +24872,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -24778,7 +24886,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -24794,7 +24902,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -24828,7 +24936,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -24842,7 +24950,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -24858,7 +24966,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -24884,7 +24992,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -24900,7 +25008,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -24926,7 +25034,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAllResult MnistLabel One`),
                                             ),
                                         },
@@ -24940,7 +25048,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 24,
                                             ),
@@ -24964,10 +25072,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -24983,7 +25091,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 22,
                                             ),
@@ -25001,10 +25109,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
@@ -25020,7 +25128,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 23,
                                             ),
@@ -25042,7 +25150,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -25056,7 +25164,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -25090,7 +25198,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 29,
                                             ),
@@ -25110,7 +25218,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -25138,7 +25246,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -25158,7 +25266,7 @@
                                                     ],
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: Hollow(
+                                                        base: Hol(
                                                             HollowTerm(
                                                                 28,
                                                             ),
@@ -25184,7 +25292,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -25206,7 +25314,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -25228,7 +25336,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 30,
                                             ),
@@ -25244,7 +25352,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -25260,7 +25368,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 30,
                                             ),
@@ -25296,7 +25404,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -25316,7 +25424,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -25330,7 +25438,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -25346,7 +25454,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -25380,7 +25488,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -25402,7 +25510,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -25424,7 +25532,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 31,
                                             ),
@@ -25440,7 +25548,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -25456,7 +25564,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 31,
                                             ),
@@ -25492,7 +25600,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -25512,7 +25620,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -25534,7 +25642,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -25548,7 +25656,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -25562,7 +25670,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -25588,7 +25696,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -25604,7 +25712,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -25630,7 +25738,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAllResult MnistLabel One`),
                                             ),
                                         },
@@ -25644,7 +25752,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 28,
                                             ),
@@ -25668,10 +25776,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -25687,7 +25795,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 26,
                                             ),
@@ -25705,10 +25813,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
@@ -25724,7 +25832,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 27,
                                             ),
@@ -25746,7 +25854,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -25760,7 +25868,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -25800,7 +25908,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -25820,7 +25928,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -25856,7 +25964,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -25876,7 +25984,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -25898,7 +26006,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -25918,7 +26026,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -25946,7 +26054,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -25966,7 +26074,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -25988,7 +26096,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -26002,7 +26110,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -26016,7 +26124,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -26048,7 +26156,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -26062,7 +26170,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -26078,7 +26186,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -26110,7 +26218,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -26146,7 +26254,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -26166,7 +26274,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -26188,7 +26296,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -26216,7 +26324,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -26236,7 +26344,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -26258,7 +26366,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -26278,7 +26386,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -26292,7 +26400,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -26308,7 +26416,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -26340,7 +26448,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -26362,7 +26470,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
@@ -26384,7 +26492,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
@@ -26404,7 +26512,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -26432,7 +26540,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -26460,7 +26568,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -26482,7 +26590,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -26498,7 +26606,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -26530,7 +26638,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -26560,7 +26668,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 35,
                                             ),
@@ -26580,7 +26688,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -26608,7 +26716,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -26628,7 +26736,7 @@
                                                     ],
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: Hollow(
+                                                        base: Hol(
                                                             HollowTerm(
                                                                 34,
                                                             ),
@@ -26660,7 +26768,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -26680,7 +26788,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -26694,7 +26802,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -26710,7 +26818,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -26750,7 +26858,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -26770,7 +26878,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -26784,7 +26892,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -26800,7 +26908,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -26840,7 +26948,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -26860,7 +26968,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -26882,7 +26990,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -26896,7 +27004,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -26910,7 +27018,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -26936,7 +27044,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -26952,7 +27060,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -26978,7 +27086,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAllResult MnistLabel One`),
                                             ),
                                         },
@@ -26992,7 +27100,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 34,
                                             ),
@@ -27016,10 +27124,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -27035,7 +27143,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 32,
                                             ),
@@ -27053,10 +27161,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
@@ -27072,7 +27180,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 33,
                                             ),
@@ -27094,7 +27202,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -27108,7 +27216,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -27142,7 +27250,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 39,
                                             ),
@@ -27162,7 +27270,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -27190,7 +27298,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -27210,7 +27318,7 @@
                                                     ],
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: Hollow(
+                                                        base: Hol(
                                                             HollowTerm(
                                                                 38,
                                                             ),
@@ -27242,7 +27350,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -27256,7 +27364,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -27270,7 +27378,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -27310,7 +27418,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -27338,7 +27446,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -27366,7 +27474,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -27388,7 +27496,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -27410,7 +27518,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -27442,7 +27550,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -27456,7 +27564,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -27482,7 +27590,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -27498,7 +27606,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -27524,7 +27632,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAllResult MnistLabel One`),
                                             ),
                                         },
@@ -27538,7 +27646,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 38,
                                             ),
@@ -27562,10 +27670,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -27581,7 +27689,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 36,
                                             ),
@@ -27599,10 +27707,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
@@ -27618,7 +27726,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 37,
                                             ),
@@ -27640,7 +27748,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -27654,7 +27762,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -27694,7 +27802,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -27714,7 +27822,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -27744,7 +27852,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 43,
                                             ),
@@ -27764,7 +27872,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -27792,7 +27900,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -27812,7 +27920,7 @@
                                                     ],
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: Hollow(
+                                                        base: Hol(
                                                             HollowTerm(
                                                                 42,
                                                             ),
@@ -27838,7 +27946,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -27860,7 +27968,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -27882,7 +27990,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 44,
                                             ),
@@ -27898,7 +28006,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -27914,7 +28022,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 44,
                                             ),
@@ -27950,7 +28058,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -27970,7 +28078,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -27984,7 +28092,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -28000,7 +28108,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -28034,7 +28142,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -28056,7 +28164,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -28078,7 +28186,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 45,
                                             ),
@@ -28094,7 +28202,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -28110,7 +28218,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 45,
                                             ),
@@ -28146,7 +28254,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -28166,7 +28274,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -28180,7 +28288,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -28196,7 +28304,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -28230,7 +28338,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
@@ -28252,7 +28360,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -28274,7 +28382,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 46,
                                             ),
@@ -28290,7 +28398,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`usize`),
                                             ),
                                         },
@@ -28306,7 +28414,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 46,
                                             ),
@@ -28342,7 +28450,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -28362,7 +28470,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -28384,7 +28492,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -28398,7 +28506,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -28412,7 +28520,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -28438,7 +28546,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -28454,7 +28562,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -28480,7 +28588,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAllResult MnistLabel One`),
                                             ),
                                         },
@@ -28494,7 +28602,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 42,
                                             ),
@@ -28518,10 +28626,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -28537,7 +28645,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 40,
                                             ),
@@ -28555,10 +28663,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
@@ -28574,7 +28682,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 41,
                                             ),
@@ -28596,7 +28704,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -28610,7 +28718,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -28650,7 +28758,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -28672,7 +28780,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -28688,7 +28796,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -28720,7 +28828,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -28756,7 +28864,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -28776,7 +28884,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -28798,7 +28906,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -28826,7 +28934,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -28846,7 +28954,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -28868,7 +28976,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -28888,7 +28996,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -28910,7 +29018,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
@@ -28932,7 +29040,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
@@ -28952,7 +29060,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -28980,7 +29088,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -29000,7 +29108,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -29022,7 +29130,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -29050,7 +29158,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
@@ -29070,7 +29178,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -29092,7 +29200,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
@@ -29112,7 +29220,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -29126,7 +29234,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -29142,7 +29250,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -29174,7 +29282,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -29196,7 +29304,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
@@ -29218,7 +29326,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
@@ -29238,7 +29346,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -29260,7 +29368,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 50,
                                             ),
@@ -29280,7 +29388,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -29308,7 +29416,7 @@
                                                                 contract: Pure,
                                                                 ty: FlyTerm {
                                                                     place: None,
-                                                                    base: Ethereal(
+                                                                    base: Eth(
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
@@ -29328,7 +29436,7 @@
                                                     ],
                                                     return_ty: FlyTerm {
                                                         place: None,
-                                                        base: Hollow(
+                                                        base: Hol(
                                                             HollowTerm(
                                                                 49,
                                                             ),
@@ -29360,7 +29468,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -29374,7 +29482,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -29396,7 +29504,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -29442,7 +29550,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -29456,7 +29564,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -29478,7 +29586,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -29510,7 +29618,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -29526,7 +29634,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -29552,7 +29660,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAllResult MnistLabel One`),
                                             ),
                                         },
@@ -29566,7 +29674,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 49,
                                             ),
@@ -29590,10 +29698,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -29609,7 +29717,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 47,
                                             ),
@@ -29627,10 +29735,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
@@ -29646,7 +29754,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 48,
                                             ),
@@ -29668,7 +29776,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
                                         },
@@ -29682,7 +29790,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
                                     },
@@ -29722,7 +29830,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -29744,7 +29852,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
                                         },
@@ -29760,7 +29868,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
                                     },
@@ -29792,7 +29900,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -29822,7 +29930,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -29844,7 +29952,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -29866,7 +29974,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
@@ -29888,7 +29996,7 @@
                                         place: Some(
                                             Leashed,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -29916,7 +30024,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -29938,7 +30046,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -29960,7 +30068,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -29998,7 +30106,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -30026,7 +30134,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -30048,7 +30156,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -30070,7 +30178,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -30108,7 +30216,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -30136,7 +30244,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -30158,7 +30266,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 51,
                                             ),
@@ -30182,7 +30290,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -30198,7 +30306,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 51,
                                             ),
@@ -30232,7 +30340,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -30268,7 +30376,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -30290,7 +30398,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -30306,7 +30414,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -30338,7 +30446,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -30360,7 +30468,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll MnistLabel One`),
                                             ),
                                         },
@@ -30374,7 +30482,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 54,
                                             ),
@@ -30398,10 +30506,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
                                         },
@@ -30417,7 +30525,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 52,
                                             ),
@@ -30435,10 +30543,10 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsExactly(
-                                    ExpectSubtype {
+                                    ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`One`),
                                             ),
                                         },
@@ -30454,7 +30562,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 53,
                                             ),
@@ -30476,7 +30584,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll MnistLabel One`),
                                             ),
                                         },
@@ -30490,7 +30598,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Hollow(
+                                        base: FlyTermBase::Hol(
                                             HollowTerm(
                                                 10,
                                             ),
@@ -30592,7 +30700,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -30610,7 +30718,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -30656,7 +30764,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`ConcaveComponent`),
                                                         ),
                                                     },
@@ -30664,7 +30772,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
@@ -30693,7 +30801,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -30703,7 +30811,7 @@
                                     2,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -30734,7 +30842,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -30752,7 +30860,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -30775,7 +30883,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -30810,7 +30918,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -30829,7 +30937,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -30847,7 +30955,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -30876,7 +30984,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -30888,7 +30996,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -30923,7 +31031,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -30933,7 +31041,7 @@
                                     6,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -30964,7 +31072,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -30982,7 +31090,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -31005,7 +31113,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -31040,7 +31148,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -31059,7 +31167,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -31077,7 +31185,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -31105,7 +31213,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -31123,7 +31231,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -31169,7 +31277,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -31194,7 +31302,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -31229,7 +31337,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -31254,7 +31362,7 @@
                     ty: Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -31278,7 +31386,7 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -31305,7 +31413,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -31333,7 +31441,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Leash ConcaveComponent`),
                             ),
                         },
@@ -31351,7 +31459,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Vector2d`),
                             ),
                         },
@@ -31364,10 +31472,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -31395,7 +31503,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -31415,7 +31523,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -31443,7 +31551,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -31471,7 +31579,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -31493,7 +31601,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -31509,7 +31617,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -31541,7 +31649,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -31577,7 +31685,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -31591,7 +31699,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Option f32`),
                                             ),
                                         },
@@ -31613,7 +31721,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -31635,7 +31743,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Option f32`),
                                             ),
                                         },
@@ -31657,7 +31765,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -31753,7 +31861,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -31771,7 +31879,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -31817,7 +31925,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`ConcaveComponent`),
                                                         ),
                                                     },
@@ -31825,7 +31933,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
@@ -31854,7 +31962,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -31864,7 +31972,7 @@
                                     2,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -31895,7 +32003,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -31913,7 +32021,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -31936,7 +32044,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -31971,7 +32079,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -31990,7 +32098,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -32008,7 +32116,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -32037,7 +32145,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -32049,7 +32157,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -32084,7 +32192,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -32094,7 +32202,7 @@
                                     6,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -32125,7 +32233,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -32143,7 +32251,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -32189,7 +32297,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`ConcaveComponent`),
                                                         ),
                                                     },
@@ -32197,7 +32305,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`Point2d`),
                                                     ),
                                                 },
@@ -32226,7 +32334,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
                                     ),
                                 },
@@ -32236,7 +32344,7 @@
                                     8,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -32251,7 +32359,7 @@
                                     ),
                                     owner_ty: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -32274,7 +32382,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -32287,7 +32395,7 @@
                                     place: Some(
                                         Transient,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -32299,7 +32407,7 @@
                                         place: Some(
                                             Transient,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -32323,7 +32431,7 @@
                                     place: Some(
                                         Transient,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -32335,7 +32443,7 @@
                                         place: Some(
                                             Transient,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -32357,7 +32465,7 @@
                                     place: Some(
                                         Transient,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -32369,7 +32477,7 @@
                                         place: Some(
                                             Transient,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -32415,7 +32523,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -32440,7 +32548,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -32469,7 +32577,7 @@
                                     place: Some(
                                         Transient,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -32494,7 +32602,7 @@
                     ty: Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -32518,7 +32626,7 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -32545,7 +32653,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -32573,7 +32681,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Leash ConcaveComponent`),
                             ),
                         },
@@ -32591,7 +32699,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Vector2d`),
                             ),
                         },
@@ -32604,10 +32712,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -32635,7 +32743,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -32655,7 +32763,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -32683,7 +32791,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -32711,7 +32819,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -32733,7 +32841,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -32749,7 +32857,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -32781,7 +32889,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -32817,7 +32925,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -32837,7 +32945,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
                                     },
@@ -32859,7 +32967,7 @@
                                         place: Some(
                                             Transient,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -32873,7 +32981,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Option f32`),
                                             ),
                                         },
@@ -32889,7 +32997,7 @@
                                         place: Some(
                                             Transient,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -32911,7 +33019,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Option f32`),
                                             ),
                                         },
@@ -32927,7 +33035,7 @@
                                         place: Some(
                                             Transient,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -33023,7 +33131,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
@@ -33041,7 +33149,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -33087,7 +33195,7 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Ethereal(
+                                                        base: FlyTermBase::Eth(
                                                             EthTerm(`ConcaveComponent`),
                                                         ),
                                                     },
@@ -33095,7 +33203,7 @@
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Ethereal(
+                                                    base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
                                                 },
@@ -33124,7 +33232,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -33134,7 +33242,7 @@
                                     2,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -33165,7 +33273,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -33183,7 +33291,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -33206,7 +33314,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -33241,7 +33349,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -33260,7 +33368,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -33278,7 +33386,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -33307,7 +33415,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -33319,7 +33427,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -33354,7 +33462,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -33364,7 +33472,7 @@
                                     6,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -33395,7 +33503,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -33413,7 +33521,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -33436,7 +33544,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -33471,7 +33579,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -33490,7 +33598,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -33508,7 +33616,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -33537,7 +33645,7 @@
                                     place: Some(
                                         Const,
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -33549,7 +33657,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -33584,7 +33692,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
                                 },
@@ -33594,7 +33702,7 @@
                                     10,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -33625,7 +33733,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -33643,7 +33751,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -33666,7 +33774,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -33701,7 +33809,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -33720,7 +33828,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -33738,7 +33846,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -33768,7 +33876,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -33786,7 +33894,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -33817,7 +33925,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
                                 },
@@ -33835,7 +33943,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -33858,7 +33966,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -33893,7 +34001,7 @@
                                         signature: FlyFieldSignature::PropsStruct {
                                             ty: FlyTerm {
                                                 place: None,
-                                                base: FlyTermBase::Ethereal(
+                                                base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
                                             },
@@ -33912,7 +34020,7 @@
                                             ),
                                         },
                                     ),
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -33930,7 +34038,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -33965,7 +34073,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -33975,7 +34083,7 @@
                                     16,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -33995,7 +34103,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -34005,7 +34113,7 @@
                                     17,
                                     FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -34051,7 +34159,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -34076,7 +34184,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -34101,7 +34209,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
                                 },
@@ -34128,7 +34236,7 @@
                             ty_result: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: FlyTermBase::Ethereal(
+                                    base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
                                 },
@@ -34153,7 +34261,7 @@
                     ty: Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
@@ -34177,7 +34285,7 @@
                             ty: Ok(
                                 FlyTerm {
                                     place: None,
-                                    base: Ethereal(
+                                    base: Eth(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -34204,7 +34312,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -34225,7 +34333,7 @@
                     Ok(
                         FlyTerm {
                             place: None,
-                            base: Ethereal(
+                            base: Eth(
                                 Literal(
                                     F32(
                                         TermF32Literal(
@@ -34253,7 +34361,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Leash ConcaveComponent`),
                             ),
                         },
@@ -34271,7 +34379,7 @@
                                     ),
                                 },
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Vector2d`),
                             ),
                         },
@@ -34284,10 +34392,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -34315,7 +34423,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
@@ -34335,7 +34443,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -34363,7 +34471,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -34391,7 +34499,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -34413,7 +34521,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -34429,7 +34537,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -34461,7 +34569,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -34497,7 +34605,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -34525,7 +34633,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -34547,7 +34655,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -34563,7 +34671,7 @@
                                         place: Some(
                                             Const,
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -34595,7 +34703,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
                                     },
@@ -34631,7 +34739,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -34659,7 +34767,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -34687,7 +34795,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -34715,7 +34823,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
@@ -34737,7 +34845,7 @@
                                                     ),
                                                 },
                                             ),
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
                                         },
@@ -34759,7 +34867,7 @@
                                                 ),
                                             },
                                         ),
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -34791,7 +34899,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Option f32`),
                                             ),
                                         },
@@ -34805,7 +34913,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },
@@ -34827,7 +34935,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
-                                            base: FlyTermBase::Ethereal(
+                                            base: FlyTermBase::Eth(
                                                 EthTerm(`Option f32`),
                                             ),
                                         },
@@ -34841,7 +34949,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: None,
-                                        base: FlyTermBase::Ethereal(
+                                        base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
                                     },

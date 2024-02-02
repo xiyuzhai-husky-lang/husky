@@ -65,7 +65,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -77,7 +77,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -85,10 +85,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -172,7 +172,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -184,7 +184,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -192,10 +192,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -279,7 +279,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -291,7 +291,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -299,10 +299,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -386,7 +386,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -398,7 +398,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -406,10 +406,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -493,7 +493,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -505,7 +505,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -513,10 +513,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -600,7 +600,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -612,7 +612,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -620,10 +620,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -707,7 +707,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -719,7 +719,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -727,10 +727,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -814,7 +814,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -826,7 +826,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -834,10 +834,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -921,7 +921,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -933,7 +933,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -941,10 +941,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -1028,7 +1028,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1040,7 +1040,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -1048,10 +1048,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -1137,10 +1137,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -1224,7 +1224,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1236,7 +1236,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -1244,10 +1244,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -1331,7 +1331,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1343,7 +1343,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -1351,10 +1351,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -1440,10 +1440,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -1529,10 +1529,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -1616,7 +1616,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1628,7 +1628,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -1636,10 +1636,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -1723,7 +1723,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1735,7 +1735,7 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -1743,10 +1743,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },
@@ -1830,7 +1830,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1840,7 +1840,7 @@
                             place: Some(
                                 Const,
                             ),
-                            base: FlyTermBase::Ethereal(
+                            base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
                             ),
                         },
@@ -1852,13 +1852,13 @@
                 current_syn_symbol_map: [
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
                     FlyTerm {
                         place: None,
-                        base: FlyTermBase::Ethereal(
+                        base: FlyTermBase::Eth(
                             EthTerm(`t`),
                         ),
                     },
@@ -1866,10 +1866,10 @@
             },
             fluffy_term_region: FlyTermRegion {
                 terms: FlyTerms {
-                    solid_terms: SolidTerms {
+                    solid_terms: SolTerms {
                         entries: [],
                     },
-                    hollow_terms: HollowTerms {
+                    hollow_terms: HolTerms {
                         entries: [],
                         first_unresolved_term_idx: 0,
                     },

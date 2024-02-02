@@ -1,6 +1,6 @@
 use super::*;
 
-impl HasFlyTypeMethodDispatch for SolidTerm {
+impl HasFlyTypeMethodDispatch for SolTerm {
     fn ty_method_dispatch(
         self,
         engine: &mut impl FlyTermEngine,

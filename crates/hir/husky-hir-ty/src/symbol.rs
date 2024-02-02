@@ -44,7 +44,7 @@ impl HirTemplateSymbolClass {
 }
 
 impl HirTemplateSymbolAttrs {
-    pub(crate) fn from_ethereal(attrs: EthTemplateSymbolAttrs) -> Option<Self> {
+    pub(crate) fn from_eth(attrs: EthTemplateSymbolAttrs) -> Option<Self> {
         Some(Self {
             class: HirTemplateSymbolClass::from_term(attrs.class)?,
         })
@@ -52,13 +52,13 @@ impl HirTemplateSymbolAttrs {
 }
 
 impl HirTemplateSymbol {
-    pub fn from_ethereal(symbol: SymbolEthTerm, db: &::salsa::Db) -> Option<Self> {
-        hir_template_symbol_from_ethereal(db, symbol)
+    pub fn from_eth(symbol: SymbolEthTerm, db: &::salsa::Db) -> Option<Self> {
+        hir_template_symbol_from_eth(db, symbol)
     }
 }
 
 #[salsa::tracked(jar = HirTypeJar)]
-fn hir_template_symbol_from_ethereal(
+fn hir_template_symbol_from_eth(
     db: &::salsa::Db,
     symbol: SymbolEthTerm,
 ) -> Option<HirTemplateSymbol> {
@@ -69,7 +69,7 @@ fn hir_template_symbol_from_ethereal(
             disambiguator,
         } => Some(
             HirLifetimeSymbol {
-                attrs: HirTemplateSymbolAttrs::from_ethereal(attrs)?,
+                attrs: HirTemplateSymbolAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             }
@@ -81,7 +81,7 @@ fn hir_template_symbol_from_ethereal(
             disambiguator,
         } => Some(
             HirPlaceSymbol {
-                attrs: HirTemplateSymbolAttrs::from_ethereal(attrs)?,
+                attrs: HirTemplateSymbolAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             }
@@ -93,7 +93,7 @@ fn hir_template_symbol_from_ethereal(
             disambiguator,
         } => Some(
             HirTypeSymbol::Type {
-                attrs: HirTemplateSymbolAttrs::from_ethereal(attrs)?,
+                attrs: HirTemplateSymbolAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             }
@@ -107,9 +107,9 @@ fn hir_template_symbol_from_ethereal(
         } => Some(
             HirConstSymbol::new(
                 db,
-                HirType::from_ethereal(symbol.ty(db), db)?,
+                HirType::from_eth(symbol.ty(db), db)?,
                 HirConstSymbolIndex::PathLeading {
-                    attrs: HirTemplateSymbolAttrs::from_ethereal(attrs)?,
+                    attrs: HirTemplateSymbolAttrs::from_eth(attrs)?,
                     disambiguator,
                     ty_path,
                 },
@@ -122,9 +122,9 @@ fn hir_template_symbol_from_ethereal(
         } => Some(
             HirConstSymbol::new(
                 db,
-                HirType::from_ethereal(symbol.ty(db), db)?,
+                HirType::from_eth(symbol.ty(db), db)?,
                 HirConstSymbolIndex::Other {
-                    attrs: HirTemplateSymbolAttrs::from_ethereal(attrs)?,
+                    attrs: HirTemplateSymbolAttrs::from_eth(attrs)?,
                     disambiguator,
                 },
             )

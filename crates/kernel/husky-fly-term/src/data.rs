@@ -181,9 +181,9 @@ impl FlyTerm {
 
     pub fn data_inner<'a>(self, db: &'a ::salsa::Db, terms: &'a FlyTerms) -> FlyTermData<'a> {
         match self.base_resolved_inner(terms) {
-            FlyTermBase::Ethereal(term) => ethereal_term_data(db, term),
-            FlyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
-            FlyTermBase::Hollow(term) => term.fluffy_data(db, terms),
+            FlyTermBase::Eth(term) => ethereal_term_data(db, term),
+            FlyTermBase::Sol(term) => term.data_inner(terms.solid_terms()).into(),
+            FlyTermBase::Hol(term) => term.fluffy_data(db, terms),
             FlyTermBase::Place => todo!(),
         }
     }
@@ -201,9 +201,9 @@ impl FlyTerm {
         terms: &'a FlyTerms,
     ) -> FlyBaseTypeData<'a> {
         match self.base_resolved_inner(terms) {
-            FlyTermBase::Ethereal(term) => ethereal_term_fluffy_base_ty_data(db, term),
-            FlyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
-            FlyTermBase::Hollow(term) => term.fluffy_base_ty_data(db, terms),
+            FlyTermBase::Eth(term) => ethereal_term_fluffy_base_ty_data(db, term),
+            FlyTermBase::Sol(term) => term.data_inner(terms.solid_terms()).into(),
+            FlyTermBase::Hol(term) => term.fluffy_base_ty_data(db, terms),
             FlyTermBase::Place => todo!(),
         }
     }
@@ -266,29 +266,29 @@ impl FlyTerm {
 
 pub(crate) struct FlyTermDataKindMerger<'a> {
     has_err: bool,
-    has_hollow: bool,
-    has_solid: bool,
-    hollow_terms: &'a HollowTerms,
+    has_hol: bool,
+    has_sol: bool,
+    hol_terms: &'a HolTerms,
 }
 
 impl<'a> FlyTermDataKindMerger<'a> {
-    pub(crate) fn new(hollow_terms: &'a impl std::borrow::Borrow<HollowTerms>) -> Self {
+    pub(crate) fn new(hol_terms: &'a impl std::borrow::Borrow<HolTerms>) -> Self {
         Self {
             has_err: false,
-            has_solid: false,
-            has_hollow: false,
-            hollow_terms: hollow_terms.borrow(),
+            has_sol: false,
+            has_hol: false,
+            hol_terms: hol_terms.borrow(),
         }
     }
 
     pub(crate) fn accept_one(&mut self, term: FlyTerm) {
         if term.place().is_some() {
-            self.has_solid = true
+            self.has_sol = true
         }
-        match term.resolve_progress(self.hollow_terms) {
-            TermResolveProgress::UnresolvedHollow => self.has_hollow = true,
-            TermResolveProgress::ResolvedEthereal(_) => (),
-            TermResolveProgress::ResolvedSolid(_) => self.has_solid = true,
+        match term.resolve_progress(self.hol_terms) {
+            TermResolveProgress::UnresolvedHol => self.has_hol = true,
+            TermResolveProgress::ResolvedEth(_) => (),
+            TermResolveProgress::ResolvedSol(_) => self.has_sol = true,
             TermResolveProgress::Err => self.has_err = true,
         }
     }
@@ -302,9 +302,9 @@ impl<'a> FlyTermDataKindMerger<'a> {
     pub(crate) fn data_kind(self) -> FlyTermDataKind {
         if self.has_err {
             todo!()
-        } else if self.has_hollow {
+        } else if self.has_hol {
             FlyTermDataKind::Hollow
-        } else if self.has_solid {
+        } else if self.has_sol {
             FlyTermDataKind::Solid
         } else {
             FlyTermDataKind::Ethereal

@@ -32,8 +32,8 @@ fn trai_for_ty_impl_block_hir_decl(
     let template_parameters =
         HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
     let signature_template = path.ethereal_signature_template(db).unwrap();
-    let trai = HirTrait::from_ethereal(signature_template.trai(db), db);
-    let self_ty = HirType::from_ethereal(signature_template.self_ty(db), db).unwrap();
+    let trai = HirTrait::from_eth(signature_template.trai(db), db);
+    let self_ty = HirType::from_eth(signature_template.self_ty(db), db).unwrap();
     Some(TraitForTypeImplBlockHirDecl::new(
         db,
         path,

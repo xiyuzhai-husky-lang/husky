@@ -3,7 +3,7 @@ mod ty_method;
 
 use super::*;
 
-impl SolidTerm {
+impl SolTerm {
     pub(super) fn method_dispatch_aux(
         self,
         engine: &mut impl FlyTermEngine,

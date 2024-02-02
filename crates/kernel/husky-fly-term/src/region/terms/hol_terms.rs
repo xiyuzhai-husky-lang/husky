@@ -3,8 +3,8 @@ use super::*;
 // `Default` is derived because we never inherited hollow terms
 #[salsa::debug_with_db]
 #[derive(Debug, Default, PartialEq, Eq)]
-pub struct HollowTerms {
-    entries: Vec<HollowTermEntry>,
+pub struct HolTerms {
+    entries: Vec<HolTermEntry>,
     first_unresolved_term_idx: usize,
 }
 
@@ -13,16 +13,18 @@ pub struct HollowTerms {
 pub enum HoleConstraint {
     CoercibleFrom { target: FlyTerm },
     CoercibleInto { target: FlyTerm },
+    Subtype { target: FlyTerm },
+    Supertype { target: FlyTerm },
 }
 
-impl HollowTerms {
+impl HolTerms {
     // for ide
     pub fn errors(&self) -> impl Iterator<Item = (HoleSource, &OriginalHollowTermResolveError)> {
         self.entries.iter().filter_map(|entry| match entry {
-            HollowTermEntry {
-                data: HollowTermData::Hole { hole_source, .. },
+            HolTermEntry {
+                data: HolTermData::Hole { hole_source, .. },
                 resolve_progress:
-                    HollowTermResolveProgressBuf::Err(HollowTermResolveError::Original(e)),
+                    HolTermResolveProgressBuf::Err(HollowTermResolveError::Original(e)),
             } => Some((*hole_source, e)),
             _ => None,
         })
@@ -30,27 +32,27 @@ impl HollowTerms {
 
     // alloc something that's actually different
     #[inline(always)]
-    pub(crate) fn alloc_new(&mut self, data: HollowTermData) -> HollowTerm {
+    pub(crate) fn alloc_new(&mut self, data: HolTermData) -> HolTerm {
         let idx = self.entries.len();
-        self.entries.push(HollowTermEntry {
+        self.entries.push(HolTermEntry {
             data,
-            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+            resolve_progress: HolTermResolveProgressBuf::Unresolved,
         });
-        HollowTerm(idx.try_into().expect("within range"))
+        HolTerm(idx.try_into().expect("within range"))
     }
 
-    pub(crate) fn hollow_term_data(&self, hollow_term: HollowTerm) -> &HollowTermData {
+    pub(crate) fn hollow_term_data(&self, hollow_term: HolTerm) -> &HolTermData {
         &self.entry(hollow_term).data
     }
 
-    pub(crate) fn entry(&self, hollow_term: HollowTerm) -> &HollowTermEntry {
+    pub(crate) fn entry(&self, hollow_term: HolTerm) -> &HolTermEntry {
         &self.entries[hollow_term.idx()]
     }
 
     pub(crate) fn add_hole_constraint(&mut self, hole: Hole, hole_constraint: HoleConstraint) {
         let mut hole_entry = &mut self.entries[hole.idx()];
         match hole_entry.data {
-            HollowTermData::Hole {
+            HolTermData::Hole {
                 ref mut constraints,
                 ..
             } => constraints.push(hole_constraint),
@@ -65,13 +67,13 @@ impl HollowTerms {
             .iter()
             .enumerate()
             .filter_map(|(i, entry)| match entry.data {
-                HollowTermData::Hole {
+                HolTermData::Hole {
                     hole_source,
                     hole_kind,
                     fill: None,
                     ref constraints,
                 } => (constraints.len() > 0).then_some((
-                    Hole(HollowTerm(i as u32)),
+                    Hole(HolTerm(i as u32)),
                     hole_kind,
                     constraints as &[_],
                 )),
@@ -79,7 +81,7 @@ impl HollowTerms {
             })
     }
 
-    fn update_entries(&mut self, db: &::salsa::Db, solid_terms: &mut SolidTerms) {
+    fn update_entries(&mut self, db: &::salsa::Db, solid_terms: &mut SolTerms) {
         let first_unresolved_idx = self.get_first_unresolved_term_idx();
         for idx in first_unresolved_idx..self.entries.len() {
             self.try_update_entry(db, solid_terms, idx)
@@ -100,18 +102,18 @@ impl HollowTerms {
         idx
     }
 
-    fn try_update_entry(&mut self, db: &::salsa::Db, solid_terms: &mut SolidTerms, idx: usize) {
+    fn try_update_entry(&mut self, db: &::salsa::Db, solid_terms: &mut SolTerms, idx: usize) {
         if self.entries[idx].is_resolved() {
             return;
         }
         match self.entries[idx].resolve_progress {
-            HollowTermResolveProgressBuf::ResolvedEthereal(_)
-            | HollowTermResolveProgressBuf::ResolvedSolid(_) => return,
+            HolTermResolveProgressBuf::ResolvedEthereal(_)
+            | HolTermResolveProgressBuf::ResolvedSolid(_) => return,
             _ => (),
         }
         let mut merger = FlyTermDataKindMerger::new(self);
         match self.entries[idx].data {
-            HollowTermData::TypeOntology {
+            HolTermData::TypeOntology {
                 path,
                 refined_path,
                 ref arguments,
@@ -121,9 +123,9 @@ impl HollowTerms {
                 for argument in arguments {
                     match argument.resolve_progress(self) {
                         // we can't proceed if any argument is unresolved hollow
-                        TermResolveProgress::UnresolvedHollow => return,
-                        TermResolveProgress::ResolvedEthereal(_) => (),
-                        TermResolveProgress::ResolvedSolid(_) => solid_flag = true,
+                        TermResolveProgress::UnresolvedHol => return,
+                        TermResolveProgress::ResolvedEth(_) => (),
+                        TermResolveProgress::ResolvedSol(_) => solid_flag = true,
                         TermResolveProgress::Err => todo!(),
                     }
                 }
@@ -137,16 +139,16 @@ impl HollowTerms {
                         arguments
                             .iter()
                             .map(|argument| match argument.resolve_progress(self) {
-                                TermResolveProgress::ResolvedEthereal(argument) => argument,
+                                TermResolveProgress::ResolvedEth(argument) => argument,
                                 _ => unreachable!(),
                             }),
                     ) {
-                        Ok(term) => HollowTermResolveProgressBuf::ResolvedEthereal(term),
+                        Ok(term) => HolTermResolveProgressBuf::ResolvedEthereal(term),
                         Err(_) => todo!(),
                     }
                 }
             }
-            HollowTermData::Curry {
+            HolTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -166,7 +168,7 @@ impl HollowTerms {
                         let parameter_ty = parameter_ty.resolve_as_ethereal(self).unwrap();
                         let return_ty = return_ty.resolve_as_ethereal(self).unwrap();
                         self.entries[idx].resolve_progress =
-                            HollowTermResolveProgressBuf::ResolvedEthereal(
+                            HolTermResolveProgressBuf::ResolvedEthereal(
                                 CurryEthTerm::new(
                                     db,
                                     toolchain,
@@ -183,19 +185,19 @@ impl HollowTerms {
                     FlyTermDataKind::Hollow => return,
                 }
             }
-            HollowTermData::Hole { fill, .. } => match fill {
+            HolTermData::Hole { fill, .. } => match fill {
                 Some(fill) => match fill.resolve_progress(self) {
-                    TermResolveProgress::UnresolvedHollow => (),
-                    TermResolveProgress::ResolvedEthereal(term) => {
+                    TermResolveProgress::UnresolvedHol => (),
+                    TermResolveProgress::ResolvedEth(term) => {
                         self.entries[idx].resolve_progress =
-                            HollowTermResolveProgressBuf::ResolvedEthereal(term)
+                            HolTermResolveProgressBuf::ResolvedEthereal(term)
                     }
-                    TermResolveProgress::ResolvedSolid(_) => todo!(),
+                    TermResolveProgress::ResolvedSol(_) => todo!(),
                     TermResolveProgress::Err => todo!(),
                 },
                 None => (),
             },
-            HollowTermData::Ritchie {
+            HolTermData::Ritchie {
                 ritchie_kind,
                 ref params,
                 return_ty,
@@ -204,30 +206,30 @@ impl HollowTerms {
                 for param in params {
                     match param.ty().resolve_progress(self) {
                         // we can't proceed if any argument is unresolved hollow
-                        TermResolveProgress::UnresolvedHollow => return,
-                        TermResolveProgress::ResolvedEthereal(_) => (),
-                        TermResolveProgress::ResolvedSolid(_) => todo!(),
+                        TermResolveProgress::UnresolvedHol => return,
+                        TermResolveProgress::ResolvedEth(_) => (),
+                        TermResolveProgress::ResolvedSol(_) => solid_flag = true,
                         TermResolveProgress::Err => todo!(),
                     }
                 }
                 match return_ty.resolve_progress(self) {
-                    TermResolveProgress::UnresolvedHollow => return,
-                    TermResolveProgress::ResolvedEthereal(_) => (),
-                    TermResolveProgress::ResolvedSolid(_) => todo!(),
+                    TermResolveProgress::UnresolvedHol => return,
+                    TermResolveProgress::ResolvedEth(_) => (),
+                    TermResolveProgress::ResolvedSol(_) => todo!(),
                     TermResolveProgress::Err => todo!(),
                 }
                 if solid_flag {
                     todo!()
                 } else {
                     let params = params.iter().map(|param| {
-                        let TermResolveProgress::ResolvedEthereal(ty) =
+                        let TermResolveProgress::ResolvedEth(ty) =
                             param.ty().resolve_progress(self)
                         else {
                             unreachable!()
                         };
                         match param {
                             FlyRitchieParameter::Regular(param) => {
-                                EtherealRitchieRegularParameter::new(param.contract(), ty).into()
+                                EthRitchieRegularParameter::new(param.contract(), ty).into()
                             }
                             FlyRitchieParameter::Variadic(param) => {
                                 EtherealRitchieVariadicParameter::new(param.contract(), ty).into()
@@ -244,12 +246,12 @@ impl HollowTerms {
                         }
                     });
                     let return_ty = match return_ty.resolve_progress(self) {
-                        TermResolveProgress::ResolvedEthereal(return_ty) => return_ty,
+                        TermResolveProgress::ResolvedEth(return_ty) => return_ty,
                         _ => unreachable!(),
                     };
                     self.entries[idx].resolve_progress =
                         match RitchieEthTerm::new(db, ritchie_kind, params, return_ty) {
-                            Ok(term) => HollowTermResolveProgressBuf::ResolvedEthereal(term.into()),
+                            Ok(term) => HolTermResolveProgressBuf::ResolvedEthereal(term.into()),
                             Err(_) => todo!(),
                         }
                 }
@@ -266,19 +268,19 @@ impl FlyTerms {
     fn fill_hole_aux(&mut self, hole_idx: usize, term: FlyTerm, db: &::salsa::Db) {
         let mut hole_entry = &mut self.hollow_terms.entries[hole_idx];
         match hole_entry.data {
-            HollowTermData::Hole { fill: Some(_), .. } => unreachable!(),
-            HollowTermData::Hole { ref mut fill, .. } => *fill = Some(term),
+            HolTermData::Hole { fill: Some(_), .. } => unreachable!(),
+            HolTermData::Hole { ref mut fill, .. } => *fill = Some(term),
             _ => unreachable!(),
         }
         // update progress if term is resolved
         match term.base() {
-            FlyTermBase::Ethereal(term) => {
-                hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedEthereal(term)
+            FlyTermBase::Eth(term) => {
+                hole_entry.resolve_progress = HolTermResolveProgressBuf::ResolvedEthereal(term)
             }
-            FlyTermBase::Solid(term) => {
-                hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedSolid(term)
+            FlyTermBase::Sol(term) => {
+                hole_entry.resolve_progress = HolTermResolveProgressBuf::ResolvedSolid(term)
             }
-            FlyTermBase::Hollow(_) => (),
+            FlyTermBase::Hol(_) => (),
             FlyTermBase::Place => todo!(),
         }
         self.hollow_terms.update_entries(db, &mut self.solid_terms)
@@ -291,7 +293,7 @@ impl FlyTerms {
         term_menu: &EthTermMenu,
     ) {
         let mut hole_entry = &mut self.hollow_terms.entries[hole.idx()];
-        let HollowTermData::Hole {
+        let HolTermData::Hole {
             hole_kind,
             ref constraints,
             ..
@@ -299,14 +301,12 @@ impl FlyTerms {
         else {
             unreachable!()
         };
-        let term = match constraints.len() {
-            0 => match hole_kind {
-                HoleKind::UnspecifiedIntegerType => term_menu.i32_ty_ontology().into(),
-                HoleKind::UnspecifiedFloatType => term_menu.f32_ty_ontology().into(),
-                HoleKind::ImplicitType => return, // ad hoc
-                HoleKind::Any => return,          // ad hoc
-            },
-            _ => todo!(),
+        // todo: for constraint in constraints
+        let term = match hole_kind {
+            HoleKind::UnspecifiedIntegerType => term_menu.i32_ty_ontology().into(),
+            HoleKind::UnspecifiedFloatType => term_menu.f32_ty_ontology().into(),
+            HoleKind::ImplicitType => return, // ad hoc
+            HoleKind::Any => return,          // ad hoc
         };
         self.fill_hole(db, hole, term)
     }
@@ -315,22 +315,22 @@ impl FlyTerms {
         // we know that no new holes are generated
         for idx in 0..self.hollow_terms.entries.len() {
             match self.hollow_terms.entries[idx].data {
-                HollowTermData::Hole {
+                HolTermData::Hole {
                     hole_source,
                     hole_kind,
                     fill: None,
                     ref constraints,
-                } => self.fill_hole_by_force(Hole(HollowTerm(idx as u32)), db, term_menu),
+                } => self.fill_hole_by_force(Hole(HolTerm(idx as u32)), db, term_menu),
                 _ => continue,
             }
         }
     }
 }
 
-impl HollowTerm {
+impl HolTerm {
     pub(crate) fn resolve_progress(
         self,
-        hollow_terms: &impl std::borrow::Borrow<HollowTerms>,
+        hollow_terms: &impl std::borrow::Borrow<HolTerms>,
     ) -> TermResolveProgress {
         hollow_terms.borrow().entries[self.idx()]
             .resolve_progress
@@ -341,22 +341,22 @@ impl HollowTerm {
 impl FlyTerm {
     pub(crate) fn resolve_progress(
         self,
-        terms: &impl std::borrow::Borrow<HollowTerms>,
+        terms: &impl std::borrow::Borrow<HolTerms>,
     ) -> TermResolveProgress {
         match self.base_resolved_inner(terms) {
-            FlyTermBase::Ethereal(term) => TermResolveProgress::ResolvedEthereal(term),
-            FlyTermBase::Solid(term) => TermResolveProgress::ResolvedSolid(term),
-            FlyTermBase::Hollow(term) => term.resolve_progress(terms.borrow()),
+            FlyTermBase::Eth(term) => TermResolveProgress::ResolvedEth(term),
+            FlyTermBase::Sol(term) => TermResolveProgress::ResolvedSol(term),
+            FlyTermBase::Hol(term) => term.resolve_progress(terms.borrow()),
             FlyTermBase::Place => todo!(),
         }
     }
 
     pub(crate) fn resolve_as_ethereal(
         self,
-        terms: &impl std::borrow::Borrow<HollowTerms>,
+        terms: &impl std::borrow::Borrow<HolTerms>,
     ) -> Option<EthTerm> {
         match self.resolve_progress(terms) {
-            TermResolveProgress::ResolvedEthereal(term) => Some(term),
+            TermResolveProgress::ResolvedEth(term) => Some(term),
             _ => None,
         }
     }
@@ -364,19 +364,19 @@ impl FlyTerm {
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct HollowTermEntry {
-    data: HollowTermData,
-    resolve_progress: HollowTermResolveProgressBuf,
+pub struct HolTermEntry {
+    data: HolTermData,
+    resolve_progress: HolTermResolveProgressBuf,
 }
 
-impl HollowTermEntry {
-    pub fn data(&self) -> &HollowTermData {
+impl HolTermEntry {
+    pub fn data(&self) -> &HolTermData {
         &self.data
     }
 
     pub(crate) fn is_resolved(&self) -> bool {
         match self.resolve_progress {
-            HollowTermResolveProgressBuf::Unresolved => false,
+            HolTermResolveProgressBuf::Unresolved => false,
             _ => true,
         }
     }
@@ -385,41 +385,41 @@ impl HollowTermEntry {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TermResolveProgress {
-    UnresolvedHollow,
-    ResolvedEthereal(EthTerm),
-    ResolvedSolid(SolidTerm),
+    UnresolvedHol,
+    ResolvedEth(EthTerm),
+    ResolvedSol(SolTerm),
     Err,
 }
 
-impl HollowTermResolveProgressBuf {
+impl HolTermResolveProgressBuf {
     fn share(&self) -> TermResolveProgress {
         match self {
-            HollowTermResolveProgressBuf::Unresolved => TermResolveProgress::UnresolvedHollow,
-            HollowTermResolveProgressBuf::ResolvedEthereal(term) => {
-                TermResolveProgress::ResolvedEthereal(*term)
+            HolTermResolveProgressBuf::Unresolved => TermResolveProgress::UnresolvedHol,
+            HolTermResolveProgressBuf::ResolvedEthereal(term) => {
+                TermResolveProgress::ResolvedEth(*term)
             }
-            HollowTermResolveProgressBuf::ResolvedSolid(term) => {
-                TermResolveProgress::ResolvedSolid(*term)
+            HolTermResolveProgressBuf::ResolvedSolid(term) => {
+                TermResolveProgress::ResolvedSol(*term)
             }
-            HollowTermResolveProgressBuf::Err(_) => TermResolveProgress::Err,
+            HolTermResolveProgressBuf::Err(_) => TermResolveProgress::Err,
         }
     }
 }
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub enum HollowTermResolveProgressBuf {
+pub enum HolTermResolveProgressBuf {
     Unresolved,
     ResolvedEthereal(EthTerm),
-    ResolvedSolid(SolidTerm),
+    ResolvedSolid(SolTerm),
     Err(HollowTermResolveError),
 }
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct HollowTerm(u32);
+pub struct HolTerm(u32);
 
-impl HollowTerm {
+impl HolTerm {
     #[inline(always)]
     pub(crate) fn idx(self) -> usize {
         self.0 as usize

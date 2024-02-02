@@ -65,13 +65,12 @@ impl HirEagerComptimeSymbolRegionData {
             .symbol_terms()
             .inherited_syn_symbol_key_values()
         {
-            let FlyTermBase::Ethereal(term) = fluffy_term.base_resolved_inner(terms) else {
+            let FlyTermBase::Eth(term) = fluffy_term.base_resolved_inner(terms) else {
                 unreachable!()
             };
             match term {
                 EthTerm::Symbol(term_symbol) => {
-                    let Some(hir_comptime_symbol) =
-                        HirTemplateSymbol::from_ethereal(term_symbol, db)
+                    let Some(hir_comptime_symbol) = HirTemplateSymbol::from_eth(term_symbol, db)
                     else {
                         continue;
                     };
@@ -92,13 +91,12 @@ impl HirEagerComptimeSymbolRegionData {
             .symbol_terms()
             .current_syn_symbol_key_values()
         {
-            let FlyTermBase::Ethereal(term) = fluffy_term.base_resolved_inner(terms) else {
+            let FlyTermBase::Eth(term) = fluffy_term.base_resolved_inner(terms) else {
                 unreachable!()
             };
             match term {
                 EthTerm::Symbol(term_symbol) => {
-                    let Some(hir_comptime_symbol) =
-                        HirTemplateSymbol::from_ethereal(term_symbol, db)
+                    let Some(hir_comptime_symbol) = HirTemplateSymbol::from_eth(term_symbol, db)
                     else {
                         continue;
                     };

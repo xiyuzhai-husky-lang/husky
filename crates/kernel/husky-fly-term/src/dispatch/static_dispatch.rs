@@ -68,7 +68,7 @@ impl FlyTerm {
                                     engine.add_expectation(
                                         ExpectationSource::new_expr(syn_expr_idx),
                                         src_ty_argument,
-                                        ExpectSubtype::new(dst_ty_argument),
+                                        ExpectSubtypeOrEqual::new(dst_ty_argument),
                                     );
                                 }
                                 return JustOk(signature.into());

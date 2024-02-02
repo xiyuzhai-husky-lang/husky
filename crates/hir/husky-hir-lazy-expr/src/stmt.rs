@@ -67,7 +67,7 @@ impl ToHirLazy for SemaStmtIdx {
                 condition,
             } => HirLazyStmtData::Require {
                 condition: condition.to_hir_lazy(builder),
-                return_ty: HirType::from_ethereal(
+                return_ty: HirType::from_eth(
                     builder.sema_expr_region_data().return_ty().unwrap(),
                     builder.db(),
                 )

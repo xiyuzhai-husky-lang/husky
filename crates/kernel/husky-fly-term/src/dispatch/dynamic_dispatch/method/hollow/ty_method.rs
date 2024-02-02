@@ -1,6 +1,6 @@
 use super::*;
 
-impl HasFlyTypeMethodDispatch for HollowTerm {
+impl HasFlyTypeMethodDispatch for HolTerm {
     fn ty_method_dispatch(
         self,
         engine: &mut impl FlyTermEngine,

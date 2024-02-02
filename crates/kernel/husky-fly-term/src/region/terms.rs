@@ -1,8 +1,8 @@
-mod hollow_terms;
-mod solid_terms;
+mod hol_terms;
+mod sol_terms;
 
-pub use self::hollow_terms::*;
-pub use self::solid_terms::*;
+pub use self::hol_terms::*;
+pub use self::sol_terms::*;
 
 use super::*;
 
@@ -10,12 +10,12 @@ use super::*;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct FlyTerms {
-    solid_terms: SolidTerms,
-    hollow_terms: HollowTerms,
+    solid_terms: SolTerms,
+    hollow_terms: HolTerms,
 }
 
-impl std::borrow::Borrow<HollowTerms> for FlyTerms {
-    fn borrow(&self) -> &HollowTerms {
+impl std::borrow::Borrow<HolTerms> for FlyTerms {
+    fn borrow(&self) -> &HolTerms {
         &self.hollow_terms
     }
 }
@@ -23,7 +23,7 @@ impl std::borrow::Borrow<HollowTerms> for FlyTerms {
 impl FlyTerms {
     pub(crate) fn new(terms: Option<&Self>) -> Self {
         Self {
-            solid_terms: SolidTerms::new(terms.map(|terms| &terms.solid_terms)),
+            solid_terms: SolTerms::new(terms.map(|terms| &terms.solid_terms)),
             // `Default` is derived for `hollow_terms` because we never inherited hollow terms
             hollow_terms: Default::default(),
         }
@@ -34,7 +34,7 @@ impl FlyTerms {
         hole_source: HoleSource,
         template_parameter_symbol: SymbolEthTerm,
         db: &::salsa::Db,
-    ) -> HollowTerm {
+    ) -> HolTerm {
         let hole_kind = match template_parameter_symbol.ty(db) {
             EthTerm::Literal(_) => todo!(),
             EthTerm::Symbol(_) => HoleKind::Any,
@@ -55,7 +55,7 @@ impl FlyTerms {
             EthTerm::TypeAsTraitItem(_) => todo!(),
             EthTerm::TraitConstraint(_) => todo!(),
         };
-        self.hollow_terms.alloc_new(HollowTermData::Hole {
+        self.hollow_terms.alloc_new(HolTermData::Hole {
             hole_source,
             hole_kind,
             fill: None,
@@ -69,7 +69,7 @@ impl FlyTerms {
         db: &::salsa::Db,
         hole_source: HoleSource,
         parameter_rune: RuneFlyTerm,
-    ) -> HollowTerm {
+    ) -> HolTerm {
         let hole_kind = match parameter_rune.data_inner(db, self) {
             FlyTermData::Rune { ty, .. } => match ty.data_inner(db, self) {
                 FlyTermData::TypeOntology {
@@ -116,7 +116,7 @@ impl FlyTerms {
                 unreachable!()
             }
         };
-        self.hollow_terms.alloc_new(HollowTermData::Hole {
+        self.hollow_terms.alloc_new(HolTermData::Hole {
             hole_source,
             hole_kind,
             fill: None,
@@ -124,19 +124,19 @@ impl FlyTerms {
         })
     }
 
-    pub fn hollow_terms(&self) -> &HollowTerms {
+    pub fn hollow_terms(&self) -> &HolTerms {
         &self.hollow_terms
     }
 
-    pub fn solid_terms(&self) -> &SolidTerms {
+    pub fn solid_terms(&self) -> &SolTerms {
         &self.solid_terms
     }
 
-    pub fn hollow_terms_mut(&mut self) -> &mut HollowTerms {
+    pub fn hollow_terms_mut(&mut self) -> &mut HolTerms {
         &mut self.hollow_terms
     }
 
-    pub fn solid_terms_mut(&mut self) -> &mut SolidTerms {
+    pub fn solid_terms_mut(&mut self) -> &mut SolTerms {
         &mut self.solid_terms
     }
 }

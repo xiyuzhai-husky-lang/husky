@@ -1,6 +1,6 @@
 use super::*;
 
-impl SolidTerm {
+impl SolTerm {
     pub(super) fn field_dispatch_aux(
         self,
         engine: &mut impl FlyTermEngine,
